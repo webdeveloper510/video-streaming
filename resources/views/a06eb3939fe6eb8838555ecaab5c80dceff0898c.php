@@ -1,0 +1,1 @@
+<?php echo e($user->nickname); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>

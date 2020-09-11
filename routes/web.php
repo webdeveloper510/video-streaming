@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('register', 'AuthController@register');
+Route::get('login', 'AuthController@login');
+Route::get('profile', 'AuthController@profile');
+
+
+
+
+// Api routes
+Route::post('registration', 'AuthController@UserRegistration');
+Route::post('login', 'AuthController@postLogin');
