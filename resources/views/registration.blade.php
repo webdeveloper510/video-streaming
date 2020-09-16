@@ -9,67 +9,63 @@
           <div class="row">
             <div class="col text-center">
               <h1>Register</h1>
+              @if(count($errors)>0)
+        @foreach($errors->all() as $error)
+        <div class="alert alert-danger">
+          {{$error}}
+        </div>
+        @endforeach
+        @endif
+        @if(session('success'))
+        <div class="alert reg alert-success">
+        {{session('success')}}
+        </div>
+        @endif
             </div>
           </div>
-          <form action="" method="post" id="form_data">
+          @if(session('error'))
+        <div class="alert alert-success">
+        {{session('error')}}
+        </div>
+        @endif
+          {!!Form::open(['action' => 'AuthController@UserRegistration', 'method' => 'post'])!!}
+          {{Form::token()}}
           <div class="row align-items-center">
             <div class="col mt-4">
-              <input type="email" class="form-control" name="email" placeholder="E-mail" required="required">
+            {{Form::label('email', 'E-Mail Address')}} 
+                {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <input type="text" class="form-control" name="nickname" placeholder="Nick Name" required="required">
+            {{Form::label('Nickname', 'Nickname')}} 
+                {{Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            {{Form::label('Password', 'Password')}} 
+                {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
             </div>
             
           </div>
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
-                   <p> I agree not to
-                        upload content I have no right to </p>
-                </label>
+              {{Form::label('Terms & Condition', 'Terms & Condition')}} <br>
+                {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
+                I agree not to
+                        upload content I have no right to
+
               </div>
 
-              <button id="submit" class="btn btn-primary mt-4">Submit</button>
-              <strong id="msg"></strong>
+              {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
             </div>
           </div>
-          </form>
+          {{ Form::close() }}
+          <p>Already have an account yet ?</p>
+<a href="{{ URL::to('login')}}" class="ffff text-white"> Login Now</a>
         </div>
       </div>
     </div>
   </section>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $("#submit").click(function(e){
-        e.preventDefault();
-        //alert("hii"); 
-        var form=$("#form_data");
-        $.ajax({
-            type:"POST",
-            url:"/registration",
-            data:form.serialize(),
-            headers: { 
-                'X-CSRF-TOKEN': "<?php echo  csrf_token();  ?>"
-                },
-            success: function(response){
-                console.log(response);
-                if(response==1){
-                    $("#msg").html("Registration successfull");
-                } 
-                else{
-                    $("#msg").html("Registration faild");
-                }
-            }
-        });
-    });
-</script>

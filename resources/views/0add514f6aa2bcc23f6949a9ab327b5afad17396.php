@@ -1,0 +1,70 @@
+
+
+<!--?php echo HTML::assets('style.css');?!-->
+<section>
+
+    <div class="container mt-5">
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+          <div class="row">
+            <div class="col text-center">
+              <!-- <h1>Login</h1> -->
+            </div>
+          </div>
+          <h1>Login</h1>
+        <?php if(count($errors)>0): ?>
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="alert alert-danger">
+          <?php echo e($error); ?>
+
+        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endif; ?>
+        <?php if(session('success')): ?>
+        <div class="alert alert-danger">
+        <?php echo e(session('success')); ?>
+
+        </div>
+        <?php endif; ?>
+        <?php if(session('error')): ?>
+        <div class="alert alert-danger">
+        <?php echo e(session('error')); ?>
+
+        </div>
+        <?php endif; ?>
+           <?php echo Form::open(['action' => 'AuthController@contentPostLogin', 'method' => 'post']); ?>
+
+          <div class="form-group">
+               <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
+                <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+
+          </div>
+          <div class="form-group">
+               <?php echo e(Form::label('Password', 'Password')); ?> 
+                <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
+
+          </div>         
+            
+
+<!-- if there are login errors, show them here -->
+<p>
+  
+</p>
+
+
+
+<p><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
+<?php echo e(Form::close()); ?>
+
+<p>Don't have an account yet ?</p>
+<a href="<?php echo e(URL::to('register')); ?>" class="ffff text-white"> Signup Now</a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/contentLoginform.blade.php ENDPATH**/ ?>

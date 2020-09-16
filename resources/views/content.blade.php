@@ -1,24 +1,6 @@
 @extends('layout.cdn')
 <div class="container mt-5">
-<!--   <div class="card card-block mb-2">
-    <h4 class="card-title">Card 1</h4>
-    <p class="card-text">Welcom to bootstrap card styles</p>
-    <a href="#" class="btn btn-primary">Submit</a>
-  </div>   -->
-  <!--div class="row">
-  @foreach($user as $key=>$val)
-  @if($key=='email' || $key=='nickname')
-    <div class="col-md-3 col-sm-6 item">
-      <div class="card item-card card-block">
-    <input type="text" name="email" placeholder="E-mail" value="{{$val}}"class="form-control mt-2" >
-    <!--input type="nickname" name="nickname" placeholder="Nickname" class="form-control mt-2 mb-3"-->
-        <!-- <h5 class="item-card-title mt-3 mb-3">Sierra Web Development • Owner</h5> -->
-        <!-- <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p> >
-  </div>
-    </div> 
-    @endif
-    @endforeach   
-  </div-->
+
 <a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
   @if(session('success'))
         <div class="alert alert-success">
@@ -38,14 +20,22 @@
         </div>
       
         @endforeach
-  {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
+  {!!Form::open(['action' => 'AuthController@contentProvider1', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-        <h1>USER PROFILE DETAILS</h1>
+        <h1>Content Provider Detail</h1>
           <div class="row align-items-center">
             <div class="col-md-6 mt-5 ">
             {{Form::label('Email', 'E-Mail Address')}} 
-                {{Form::text('backupemail', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+            </div>
+            <div class="col-md-6 mt-5 ">
+            {{Form::label('Nickname', 'Nickname')}} 
+                {{Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
+            </div>
+            <div class="col-md-6 mt-5 ">
+            {{Form::label('Password', 'Password')}} 
+                {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Gender', 'Gender')}} 
@@ -58,7 +48,7 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-                {{Form::file('profilepicture',['class'=>'custom-file-input'])}}
+                {{Form::file('image',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Sexology', 'Sexology')}} 
@@ -86,7 +76,7 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Eye Color', 'Eye Color')}} 
-                {{Form::select('color', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
+                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Height', 'Height')}} 
@@ -96,7 +86,7 @@
             {{Form::label('Weight', 'Weight')}} 
                 {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])}}
             </div>
-            {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
   {{ Form::close() }}
   </div>

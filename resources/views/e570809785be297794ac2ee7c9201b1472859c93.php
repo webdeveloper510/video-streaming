@@ -9,68 +9,76 @@
           <div class="row">
             <div class="col text-center">
               <h1>Register</h1>
+              <?php if(count($errors)>0): ?>
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <div class="alert alert-danger">
+          <?php echo e($error); ?>
+
+        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endif; ?>
+        <?php if(session('success')): ?>
+        <div class="alert reg alert-success">
+        <?php echo e(session('success')); ?>
+
+        </div>
+        <?php endif; ?>
             </div>
           </div>
-          <form action="" method="post" id="form_data">
+          <?php if(session('error')): ?>
+        <div class="alert alert-success">
+        <?php echo e(session('error')); ?>
+
+        </div>
+        <?php endif; ?>
+          <?php echo Form::open(['action' => 'AuthController@UserRegistration', 'method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?>
+
           <div class="row align-items-center">
             <div class="col mt-4">
-              <input type="email" class="form-control" name="email" placeholder="E-mail" required="required">
+            <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
+                <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <input type="text" class="form-control" name="nickname" placeholder="Nick Name" required="required">
+            <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
+                <?php echo e(Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
+
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-              <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <?php echo e(Form::label('Password', 'Password')); ?> 
+                <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
+
             </div>
             
           </div>
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input">
-                   <p> I agree not to
-                        upload content I have no right to </p>
-                </label>
+              <?php echo e(Form::label('Terms & Condition', 'Terms & Condition')); ?> <br>
+                <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?>
+
+                I agree not to
+                        upload content I have no right to
+
               </div>
 
-              <button id="submit" class="btn btn-primary mt-4">Submit</button>
-              <strong id="msg"></strong>
+              <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+
             </div>
           </div>
-          </form>
+          <?php echo e(Form::close()); ?>
+
+          <p>Already have an account yet ?</p>
+<a href="<?php echo e(URL::to('login')); ?>" class="ffff text-white"> Login Now</a>
         </div>
       </div>
     </div>
   </section>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-    $("#submit").click(function(e){
-        e.preventDefault();
-        //alert("hii"); 
-        var form=$("#form_data");
-        $.ajax({
-            type:"POST",
-            url:"/registration",
-            data:form.serialize(),
-            headers: { 
-                'X-CSRF-TOKEN': "<?php echo  csrf_token();  ?>"
-                },
-            success: function(response){
-                console.log(response);
-                if(response==1){
-                    $("#msg").html("Registration successfull");
-                } 
-                else{
-                    $("#msg").html("Registration faild");
-                }
-            }
-        });
-    });
-</script>
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/registration.blade.php ENDPATH**/ ?>

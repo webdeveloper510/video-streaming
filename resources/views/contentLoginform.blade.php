@@ -30,7 +30,7 @@
         {{session('error')}}
         </div>
         @endif
-           {!!Form::open(['action' => 'AuthController@postLogin', 'method' => 'post'])!!}
+           {!!Form::open(['action' => 'AuthController@contentPostLogin', 'method' => 'post'])!!}
           <div class="form-group">
                {{Form::label('email', 'E-Mail Address')}} 
                 {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
@@ -52,33 +52,7 @@
 {{ Form::close() }}
 <p>Don't have an account yet ?</p>
 <a href="{{ URL::to('register')}}" class="ffff text-white"> Signup Now</a>
-          <!--form action="" method="post" id="form_data">
-          <div class="alert alert-danger print-error-msg" style="display:none">
-        <ul></ul>
-    </div>
-
-          <div class="row align-items-center">
-            <div class="col mt-4 @error('email') has-error @enderror">
-              <input type="email" class="form-control" name="email" placeholder="E-mail" required="required">
-              <span class="text-danger p-1">{{ $errors->first('email') }}</span>
-            </div>
-          </div>
-          <div class="row align-items-center mt-4">
-            <div class="col  @error('password') has-error @enderror">
-              <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-              <span class="text-danger p-1">{{ $errors->first('password') }}</span>
-            </div>  
-            
-          </div>
-          <div class="row justify-content-start mt-4">
-            <div class="col">
-              
-
-              <button id="submit" class="btn btn-primary mt-4">Submit</button>
-              <strong id="msg"></strong>
-            </div>
-          </div>
-          </form-->
+          
         </div>
       </div>
     </div>
