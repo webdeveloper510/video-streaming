@@ -1,4 +1,4 @@
-@extends('layout.cdn');
+@extends('layout.cdn')
 
 <!--?php echo HTML::assets('style.css');?!-->
 <section>
@@ -11,13 +11,13 @@
               <h1>Register</h1>
               @if(count($errors)>0)
         @foreach($errors->all() as $error)
-        <div class="alert alert-danger">
+        <div class="alert registration alert-danger">
           {{$error}}
         </div>
         @endforeach
         @endif
         @if(session('success'))
-        <div class="alert reg alert-success">
+        <div class="alert alert-danger">
         {{session('success')}}
         </div>
         @endif
@@ -32,19 +32,19 @@
           {{Form::token()}}
           <div class="row align-items-center">
             <div class="col mt-4">
-            {{Form::label('email', 'E-Mail Address')}} 
+            <p>  {{Form::label('email', 'E-Mail Address')}} </p>
                 {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-            {{Form::label('Nickname', 'Nickname')}} 
+            <p>{{Form::label('Nickname', 'Nickname')}} </p>
                 {{Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-            {{Form::label('Password', 'Password')}} 
+            <p>{{Form::label('Password', 'Password')}} </p>
                 {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
             </div>
             
@@ -52,10 +52,10 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              {{Form::label('Terms & Condition', 'Terms & Condition')}} <br>
+              <p>{{Form::label('Terms & Condition', 'Terms & Condition')}} <br>
                 {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
                 I agree not to
-                        upload content I have no right to
+                        upload content I have no right to</p>
 
               </div>
 
@@ -64,7 +64,7 @@
           </div>
           {{ Form::close() }}
           <p>Already have an account yet ?</p>
-<a href="{{ URL::to('login')}}" class="ffff text-white"> Login Now</a>
+<a href="{{ URL::to('login')}}" class="ffff text-white"> <i>Login Now</i> </a>
         </div>
       </div>
     </div>

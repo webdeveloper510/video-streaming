@@ -22,6 +22,7 @@ Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 Route::get('getContent', 'AuthController@contentForm');
 Route::get('getLogin', 'AuthController@getLogin');
+Route::get('Dashboard', 'AuthController@Dashboard');
 
 
 
@@ -31,8 +32,9 @@ Route::post('updateProfile', 'AuthController@updateProfile');
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');
 Route::post('contentProvider', 'AuthController@contentProvider1');
-Route::get('logout', 'AuthController@logout');
+Route::get('logout/{args?}', 'AuthController@logout');
 Route::post('contentPostLogin', 'AuthController@contentPostLogin');
+Route::post('Dashboard', 'AuthController@Postdashboard');
 
 //Auth::routes();
 

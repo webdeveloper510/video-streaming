@@ -6,6 +6,8 @@ use Session;
 use App\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use \Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Input;
 //use Validator;
 
 
@@ -21,20 +23,30 @@ class AuthController extends Controller
 
         public function login(){
           $user=Session::get('User');
-          print_r($user);
+         // print_r($user);
         return view('login') ;     
       } 
 
 
 
     public function profile(){
+      
         $user=Session::get('User');
 
         return view('profile',['user' => $user]);
     }
-      public function getLogin(){
-        return view('contentLoginform');
-      }
+    public function getLogin(){
+        
+      return view('contentLoginform');
+    }
+
+
+     public function Dashboard()
+    {
+      $user=Session::get('User');
+
+      return view('Dashboard',['user' => $user]);
+    }
 
 
       public function postLogin(Request $request){
@@ -65,7 +77,7 @@ class AuthController extends Controller
       $model = new Registration();
        $get = $model->Contentlogin($request);
       if($get){
-        return redirect('/getLogin')->with('success','Login Successfully!');
+        return redirect('/Dashboard')->with('success','Login Successfully!');
       }
       else{
         return redirect('/getLogin')->with('error','invalid credentials!');
@@ -132,11 +144,17 @@ class AuthController extends Controller
        }
     }
     }
-    public function logout(Request $request){
+    public function logout(Request $request,$args){
       Session::forget('User');
       Session::flush();
-   return redirect('/login');
+
+      if($args=='profile'){
+      return redirect('/login');
     }
+    else{
+      return redirect('/getLogin');
+    }
+  }
     public function contentForm(){
       return view('content');
     }
@@ -144,7 +162,7 @@ class AuthController extends Controller
 
       $this->validate($request,[
         'image' => 'required|file',
-        'email'=>'required',
+        'email'=>'required', 
         'aboutme'=>'required',
         'sexology'=>'required',
         'nickname'=>'required',
@@ -160,24 +178,35 @@ class AuthController extends Controller
       );
   
       if($request->image){
-        //$data=$request->all();
+        $data=$request->all();
+        
+      ///echo "<pre>";
+        //print_r($data); die;
         //echo "yes";
          $fileName = time().'_'.$request->image->getClientOriginalName();
          $filePath = $request->image->storeAs('uploads', $fileName, 'public');
-         array_splice($data,'image', 1); 
-         unset($request['_token']);
-         $request['profilepicture']=$fileName;
+         $data['image'] = '';
+         unset($data['image']);
+         unset($data['_token']);
+         //echo "<pre>";
+         //print_r($data);die;
+         $data['profilepicture']=$fileName;
          if($filePath){
           //print_r($request->all());die;
-            $model=new Registration();
-           $update_data = $model->uploadContentData($request);
+          $model=new Registration();
+          $update_data = $model->uploadContentData($data);
             if($update_data){
-              return redirect('/getContent')->with('success','Data Updated Successfully!');
-            }
-            else{
-              return redirect('/getContent')->with('error','Some Error Occure!');
-            }
-         }
+                return redirect('/getContent')->with('success','Data Created Successfully!');
+              }
+              else
+              {
+                  return redirect('/getContent')->with('error','Some Error Occure!');
+          }
+        }
       }
-    }
+  }
+  public function Postdashboard()
+  {
+    return view('Dashbaord');
+  }
 }

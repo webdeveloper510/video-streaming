@@ -19,7 +19,7 @@
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
   </div-->
-<a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a>
+<a href="<?php echo e(URL::to('logout/profile')); ?>" class="ffff text-white float-right"> Logout</a>
   <?php if(session('success')): ?>
         <div class="alert alert-success">
         <?php echo e(session('success')); ?>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <?php if(session('error')): ?>
-        <div class="alert alert-success">
+        <div id="alert alert-success">
         <?php echo e(session('error')); ?>
 
         </div>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('image',['class'=>'custom-file-input'])); ?>
+                <?php echo e(Form::file('profilepicture',['class'=>'custom-file-input'])); ?>
 
             </div>
             <div class="col-md-6 mt-4">

@@ -1,14 +1,24 @@
 body{
-  background-image:url('https://www.wraltechwire.com/wp-content/uploads/2017/11/NewsletterSignup-Background.jpg');
+  background-image:url('https://www.bsne.ch/files/live/sites/iheid/files/backgrounds/Admissions-gris.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; 
+  opacity: 1;
 }
 h1{
-    color:white;
-    font-family:'Rajdhani';
-    font-weight:700;
+    position: absolute;
+    color: #3a414e;
+    font-family:"Rajdhani",sans-serif;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
     position: absolute;
     left:50%;
-    z-index:9999;
-   transform: translate(-50%, -50%);
+    z-index: 999;
+    margin: 0 auto;
+   transform: translate(-100%, -80%);
+   
+
 }
 #msg{
   color:white;
@@ -89,7 +99,7 @@ margin-top: 31px;
 width: 300px;
 text-align: center;
 /* margin-left: 785px; */
-top: 708px;
+top: 120vh;
 bottom: 0;
 right: 11px;
 padding-bottom: 40px;
@@ -105,8 +115,36 @@ width: 291px;
 text-align: center;
 /* margin-left: 785px; */
 top: 261;
-height: 10px;
+height: 54px;
 bottom: 0;
 /* right: -112px; */
 left: 572px;
 }
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  left: 80%;
+}
+.css{
+    left: 75%;
+    bottom: 0;
+    top: 70vh;
+}
+.Dashbaord{
+  font-family: 'Rajdhani';
+  position: absolute;
+  top: 24vh;
+  left: 40vh;
+  font-size: 79px;
+  color: mediumspringgreen;
+  }
+  .logout{
+    top: 7vh;
+    position: absolute;
+    left: 23p;
+    right: 20vh;
+  }
+  i{
+    color: #0a0803;
+  }

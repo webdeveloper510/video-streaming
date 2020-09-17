@@ -63,17 +63,17 @@ class Registration extends Model
                     return 0;
                 }
                 else{
+                    Session::put('User', $value);
                 // $data->session()->put('User', $value);
-                // Session::put('User', $value);
                     return 1;
         }
 }
-public function uploadContentData($data){
-    $value=DB::table('content')->where('email', $data['email'])->get();
+public function uploadContentData($userdata){
+    $value=DB::table('content')->where('email', $userdata['email'])->get();
     if($value->count() == 0){
-        $userdata=$data->all();
+        
         //print_r($userdata);
-        $userdata['password']= md5($data['password']);
+        $userdata['password']= md5($userdata['password']);
         $userdata['created_at']= now();
         $userdata['updated_at']= now();
         $inserted_data =  DB::table('content')->insert($userdata);

@@ -1,4 +1,4 @@
-;
+
 
 <!--?php echo HTML::assets('style.css');?!-->
 <section>
@@ -11,14 +11,14 @@
               <h1>Register</h1>
               <?php if(count($errors)>0): ?>
         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="alert alert-danger">
+        <div class="alert registration alert-danger">
           <?php echo e($error); ?>
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <?php endif; ?>
         <?php if(session('success')): ?>
-        <div class="alert reg alert-success">
+        <div class="alert alert-danger">
         <?php echo e(session('success')); ?>
 
         </div>
@@ -37,21 +37,21 @@
 
           <div class="row align-items-center">
             <div class="col mt-4">
-            <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
+            <p>  <?php echo e(Form::label('email', 'E-Mail Address')); ?> </p>
                 <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-            <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
+            <p><?php echo e(Form::label('Nickname', 'Nickname')); ?> </p>
                 <?php echo e(Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
 
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-            <?php echo e(Form::label('Password', 'Password')); ?> 
+            <p><?php echo e(Form::label('Password', 'Password')); ?> </p>
                 <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
             </div>
@@ -60,11 +60,11 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              <?php echo e(Form::label('Terms & Condition', 'Terms & Condition')); ?> <br>
+              <p><?php echo e(Form::label('Terms & Condition', 'Terms & Condition')); ?> <br>
                 <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?>
 
                 I agree not to
-                        upload content I have no right to
+                        upload content I have no right to</p>
 
               </div>
 
@@ -75,7 +75,7 @@
           <?php echo e(Form::close()); ?>
 
           <p>Already have an account yet ?</p>
-<a href="<?php echo e(URL::to('login')); ?>" class="ffff text-white"> Login Now</a>
+<a href="<?php echo e(URL::to('login')); ?>" class="ffff text-white"> <i>Login Now</i> </a>
         </div>
       </div>
     </div>

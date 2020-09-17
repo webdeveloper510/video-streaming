@@ -19,7 +19,7 @@
     @endif
     @endforeach   
   </div-->
-<a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
+<a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"> Logout</a>
   @if(session('success'))
         <div class="alert alert-success">
         {{session('success')}}
@@ -28,7 +28,7 @@
             </div>
           </div>
           @if(session('error'))
-        <div class="alert alert-success">
+        <div id="alert alert-success">
         {{session('error')}}
         </div>
         @endif
