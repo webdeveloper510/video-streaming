@@ -36,11 +36,12 @@ class Registration extends Model
                     'ass' => '',
                     'hairlength' => '',
                     'haircolor' => '',
+                    'eyecolor'=>'',
                     'height' => '',
                     'weight' => '',
                     'created_at'=> now(),
                     'updated_at'=> now(),
-                    'userid' =>  $userid,
+                    'userid' =>  $userid
                 );
                 $inserted_data =  DB::table('profiletable')->insert($data);
                 // $insertedid=$inserted_data->id;
@@ -102,7 +103,8 @@ public function uploadContentData($userdata){
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
      $userid=$session_data->id;
-    // $userid = $session_data->id
+    // print_r($data->all());
+    // print_r($userid);die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
@@ -114,12 +116,30 @@ public function uploadDataFile($data){
         'ass' =>$data['ass'],
         'hairlength' => $data['hairlength'],
         'haircolor' => $data['haircolor'],
+        'eyecolor' => $data['eyecolor'],
         'height' => $data['height'],
         'weight' => $data['weight'],
         'created_at'=> now(),
         'updated_at'=> now()
     ]);
     return $update ? 1 : 0;
+}
+public function getContentProvider($type){
+    $value=DB::table('provider')->where('type', $type)->get();
+    if($value->count()>=1){
+        return $value;
+    }
+
+}
+public function uploadContentProvider($contentdata){
+    $session_data =   Session::get('User');
+    $userid=$session_data->id;
+    unset($contentdata['email']);
+    $contentdata['userid']=$userid;
+    $contentdata['created_at']= now();
+    $contentdata['updated_at']= now();
+    $inserted_data =  DB::table('provider')->insert($contentdata);
+    return $inserted_data ? '1':'0';
 }
 
 }

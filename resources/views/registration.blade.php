@@ -8,10 +8,26 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6">
           <div class="row">
             <div class="col text-center">
-          <h1>Register</h1>
-      
+              <h1>Register</h1>
+              @if(count($errors)>0)
+        @foreach($errors->all() as $error)
+        <div class="alert registration alert-danger">
+          {{$error}}
+        </div>
+        @endforeach
+        @endif
+        @if(session('success'))
+        <div class="alert alert-danger" id="sucess">
+        {{session('success')}}
+        </div>
+        @endif
             </div>
           </div>
+          @if(session('error'))
+        <div class="alert alert-success" id="error">
+        {{session('error')}}
+        </div>
+        @endif
           {!!Form::open(['action' => 'AuthController@UserRegistration', 'method' => 'post'])!!}
           {{Form::token()}}
           <div class="row align-items-center">

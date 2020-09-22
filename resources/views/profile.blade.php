@@ -43,6 +43,7 @@
                   <?php echo $errors->first('profilepicture') ?>
                 </div>
                 @endif
+                {{Form::file('image',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Sexology', 'Sexology')}} 
