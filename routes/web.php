@@ -23,10 +23,6 @@ Route::get('profile', 'AuthController@profile')->middleware('authentication');
 Route::get('getContent', 'AuthController@contentForm');
 Route::get('getLogin', 'AuthController@getLogin');
 Route::get('Dashboard', 'AuthController@Dashboard');
-
-
-
-
 // Api routes
 Route::post('updateProfile', 'AuthController@updateProfile');
 Route::post('registration', 'AuthController@UserRegistration');

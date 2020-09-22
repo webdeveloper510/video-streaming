@@ -13,32 +13,31 @@
             </div>
           </div>
           <h1>Login</h1>
-        @if(count($errors)>0)
-        @foreach($errors->all() as $error)
-        <div class="alert alert-danger">
-          {{$error}}
-        </div>
-        @endforeach
-        @endif
-        @if(session('success'))
-        <div class="alert alert-danger">
-        {{session('success')}}
-        </div>
-        @endif
-        @if(session('error'))
-        <div class="alert alert-danger">
-        {{session('error')}}
-        </div>
-        @endif
+      
+       
            {!!Form::open(['action' => 'AuthController@postLogin', 'method' => 'post'])!!}
           <div class="form-group">
                {{Form::label('email', 'E-Mail Address')}} 
-                {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com']) }}
+                @if($errors->first('email'))
+                <div class="alert alert-danger">
+                <?php echo $errors->first('email'); ?>
+            
+             
           </div>
+              @endif
+        </div>
           <div class="form-group">
                {{Form::label('Password', 'Password')}} 
                 {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
-          </div>         
+                @if($errors->first('password'))
+                 <div class="alert alert-danger">
+                <?php echo $errors->first('password'); ?>
+              
+          </div>  
+                @endif
+          </div>  
+
             
 
 <!-- if there are login errors, show them here -->
@@ -50,6 +49,8 @@
 
 <p>{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
 {{ Form::close() }}
+           
+        
 <p>Don't have an account yet ?</p>
 <a href="{{ URL::to('register')}}" class="ffff text-white"> Signup Now</a>
           <!--form action="" method="post" id="form_data">

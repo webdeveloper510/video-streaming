@@ -80,7 +80,7 @@ public function uploadContentData($userdata){
         return $inserted_data ? '1':'0';
     }
 }
-public function login($data){
+    public function login($data){
     $value = DB::table('users')->where(array(
         'email'=> $data->email,
         'password'=>md5($data->password)))
