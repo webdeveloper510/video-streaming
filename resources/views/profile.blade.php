@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-                {{Form::file('profilepicture',['class'=>'custom-file-input'])}}
+                {{Form::file('image',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Sexology', 'Sexology')}} 
@@ -86,7 +86,7 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Eye Color', 'Eye Color')}} 
-                {{Form::select('color', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
+                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Height', 'Height')}} 

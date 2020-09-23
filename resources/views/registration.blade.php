@@ -17,14 +17,14 @@
         @endforeach
         @endif
         @if(session('success'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" id="sucess">
         {{session('success')}}
         </div>
         @endif
             </div>
           </div>
           @if(session('error'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="error">
         {{session('error')}}
         </div>
         @endif
