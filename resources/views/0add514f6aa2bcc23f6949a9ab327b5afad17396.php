@@ -13,14 +13,6 @@
             </div>
           </div>
           <h1>Login</h1>
-        <?php if(count($errors)>0): ?>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="alert alert-danger">
-          <?php echo e($error); ?>
-
-        </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <?php endif; ?>
         <?php if(session('success')): ?>
         <div class="alert alert-danger">
         <?php echo e(session('success')); ?>
@@ -39,11 +31,21 @@
                <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
                 <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 
+                <?php if($errors->first('email')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('email') ?>
+                </div>
+                <?php endif; ?>
           </div>
           <div class="form-group">
                <?php echo e(Form::label('Password', 'Password')); ?> 
                 <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
+                <?php if($errors->first('password')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('password') ?>
+                </div>
+                <?php endif; ?>
           </div>         
             
 

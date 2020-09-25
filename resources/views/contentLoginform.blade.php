@@ -13,13 +13,6 @@
             </div>
           </div>
           <h1>Login</h1>
-        @if(count($errors)>0)
-        @foreach($errors->all() as $error)
-        <div class="alert alert-danger">
-          {{$error}}
-        </div>
-        @endforeach
-        @endif
         @if(session('success'))
         <div class="alert alert-danger">
         {{session('success')}}
@@ -34,10 +27,20 @@
           <div class="form-group">
                {{Form::label('email', 'E-Mail Address')}} 
                 {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                @if($errors->first('email'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('email') ?>
+                </div>
+                @endif
           </div>
           <div class="form-group">
                {{Form::label('Password', 'Password')}} 
                 {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
+                @if($errors->first('password'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('password') ?>
+                </div>
+                @endif
           </div>         
             
 

@@ -27,8 +27,6 @@ class AuthController extends Controller
         return view('login') ;     
       } 
 
-
-
     public function profile(){
       
         $user=Session::get('User');
@@ -52,6 +50,7 @@ class AuthController extends Controller
       public function postLogin(Request $request){
         $this->validate($request,[
             'email'=>'required',
+            'email.required' => 'The User Email must be a valid email address.',
             'password'=>'required'
 
         ]
@@ -74,9 +73,11 @@ class AuthController extends Controller
       public function contentPostLogin(Request $request){
         $this->validate($request,[
           'email'=>'required',
+          'email.required' => 'The User Email must be a valid email address.',
           'password'=>'required'
       ]
       );
+     
       $model = new Registration();
        $get = $model->Contentlogin($request);
       if($get){
@@ -88,24 +89,23 @@ class AuthController extends Controller
       }
    
     public function UserRegistration(Request $request){
-        //print_r($_POST); die;
+       // print_r($_POST); die;
         $this->validate($request,[
           'email'=>'required',
           'nickname'=>'required',
           'password'=>'required',
-          'terms'=>'required'
+          // 'terms'=>'required'
       ]
       
       );
       unset($request['_token']);
       unset($request['terms']);
-      $scroll = true;
-    //print_r($request->all()); die;
+   //  print_r($request->all()); die;
         $model = new Registration();
        $get = $model->registration($request);
        if($get){
-        // echo "yes";die;
-         return redirect('/register#sucess')->with('success','Registered successfully');
+        echo "yes";die;
+         return redirect('/register')->with('success','Registered successfully');
        }
        else{
         return redirect('/register#error')->with('error','Email Already Exist!');
@@ -113,7 +113,7 @@ class AuthController extends Controller
     }
     public function updateProfile(Request $request){
     
-      $image = $request->image;
+    $image = $request->image;
      // print_r($image);die;
       //print_r($request->all());die;
       $this->validate($request,[

@@ -5,20 +5,13 @@ body{
   background-size: cover; 
   opacity: 1;
 }
-h1{
-    position: absolute;
+.heading {
     color: #3a414e;
-    font-family:"Rajdhani",sans-serif;
-    margin-bottom: .5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    position: absolute;
-    left:50%;
+    font-family: "Rajdhani",sans-serif;
     z-index: 999;
     margin: 0 auto;
-   transform: translate(-100%, -80%);
-   
-
+    font-size: 30;
+    font-family: lato;
 }
 #msg{
   color:white;
@@ -99,7 +92,7 @@ margin-top: 31px;
 width: 300px;
 text-align: center;
 /* margin-left: 785px; */
-top: 120vh;
+top: 0;
 bottom: 0;
 right: 11px;
 padding-bottom: 40px;
@@ -114,7 +107,7 @@ border-radius: -10.75rem;
 width: 291px;
 text-align: center;
 /* margin-left: 785px; */
-top: 261;
+top: 0;
 height: 54px;
 bottom: 0;
 /* right: -112px; */
@@ -124,7 +117,7 @@ left: 572px;
   color: #155724;
   background-color: #d4edda;
   border-color: #c3e6cb;
-  left: 80%;
+  /*left: 80%;*/
 }
 .css{
     left: 75%;
@@ -148,3 +141,31 @@ left: 572px;
   i{
     color: #0a0803;
   }
+  .Register{
+    position: relative;
+
+    top: 0;
+    bottom: 50px;
+   }
+   .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    /* float: left; */
+    left: 0;
+}
+.profile{
+  background-color: rgb(255,255,255,0.3);
+ max-width: 1140px;
+    /* top: 88px; */
+    position: relative;
+    z-index: 999;
+
+}
+.box,p{
+      color: #fff!important;
+    /* margin: 0 auto; */
+    margin-right: 15px;
+    font-size: 22px;
+}
+
