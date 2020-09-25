@@ -72,7 +72,8 @@ class Registration extends Model
 public function uploadContentData($userdata){
     $value=DB::table('content')->where('email', $userdata['email'])->get();
     if($value->count() == 0){
-        
+        $userdata['catid']=$userdata['category'];
+        unset($userdata['category']);
         //print_r($userdata);
         $userdata['password']= md5($userdata['password']);
         $userdata['created_at']= now();
@@ -131,6 +132,12 @@ public function getContentProvider($type){
     }
 
 }
+public function addCategorytable($category){
+    $category['created_at']=now();
+    $category['updated_at']=now();
+    $sucess_insert=DB::table('category')->insert($category);
+    return $sucess_insert ? '1' :'0';
+}
 public function uploadContentProvider($contentdata){
     $session_data =   Session::get('User');
     $userid=$session_data->id;
@@ -141,5 +148,8 @@ public function uploadContentProvider($contentdata){
     $inserted_data =  DB::table('provider')->insert($contentdata);
     return $inserted_data ? '1':'0';
 }
-
+public function getCategory(){
+    $category = DB::table('category')->get();
+    return $category;
+}
 }

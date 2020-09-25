@@ -3,14 +3,14 @@
 
 <a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
   @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
         @endif
             </div>
           </div>
           @if(session('error'))
-        <div class="alert alert-success">
+        <div class="alert alert-danger" id="error">
         {{session('error')}}
         </div>
         @endif

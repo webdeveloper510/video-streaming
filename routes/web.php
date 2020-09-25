@@ -23,7 +23,9 @@ Route::get('profile', 'AuthController@profile')->middleware('authentication');
 Route::get('getContent', 'AuthController@contentForm');
 Route::get('getProviderdata', 'AuthController@getProvider');
 Route::get('getLogin', 'AuthController@getLogin');
+Route::get('getCategory', 'AuthController@getCategory');
 Route::get('Dashboard', 'AuthController@Dashboard');
+Route::get('home', 'AuthController@home');
 Route::get('contentProvider', 'AuthController@contentProv')->middleware('authentication');
 
 
@@ -38,6 +40,7 @@ Route::get('logout/{args?}', 'AuthController@logout');
 Route::post('contentPostLogin', 'AuthController@contentPostLogin');
 Route::post('Dashboard', 'AuthController@Postdashboard');
 Route::post('postContent', 'AuthController@providerContent');
+Route::post('addCategory', 'AuthController@addCategory');
 
 //Auth::routes();
 

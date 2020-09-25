@@ -3,14 +3,14 @@
 
 <a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
   @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
         @endif
             </div>
           </div>
           @if(session('error'))
-        <div class="alert alert-success">
+        <div class="alert alert-danger" id="error">
         {{session('error')}}
         </div>
         @endif
@@ -86,9 +86,17 @@
             {{Form::label('Weight', 'Weight')}} 
                 {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])}}
             </div>
+            <div class="col-md-6-mt-4">
+                <select name="category" class='form-control'>
+                    <option value="">Choose category</option>
+                    @foreach($category as $cat)
+                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+                    @endforeach
+                </select>
+            </div>
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
   {{ Form::close() }}
   </div>
-</div>
+</div>`
 

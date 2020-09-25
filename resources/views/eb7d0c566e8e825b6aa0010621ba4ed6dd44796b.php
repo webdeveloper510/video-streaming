@@ -3,7 +3,7 @@
 
 <a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a>
   <?php if(session('success')): ?>
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="success">
         <?php echo e(session('success')); ?>
 
         </div>
@@ -11,7 +11,7 @@
             </div>
           </div>
           <?php if(session('error')): ?>
-        <div class="alert alert-success">
+        <div class="alert alert-danger" id="error">
         <?php echo e(session('error')); ?>
 
         </div>
@@ -105,13 +105,21 @@
                 <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])); ?>
 
             </div>
+            <div class="col-md-6-mt-4">
+                <select name="category" class='form-control'>
+                    <option value="">Choose category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </div>
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
      </div>
   <?php echo e(Form::close()); ?>
 
   </div>
-</div>
+</div>`
 
 
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/content.blade.php ENDPATH**/ ?>

@@ -68,6 +68,9 @@ class AuthController extends Controller
         }
 
       }
+      public function home(){
+        return view('/initial');
+      }
       public function contentPostLogin(Request $request){
         $this->validate($request,[
           'email'=>'required',
@@ -160,12 +163,16 @@ class AuthController extends Controller
     }
   }
     public function contentForm(){
-      return view('content');
+      $model = new Registration();
+      $data = $model->getCategory();
+      //print_r($data);die;
+      return view('content',['category'=>$data]);
     }
     public function contentProvider1(Request $request){
       $this->validate($request,[
         'image' => 'required|file',
         'email'=>'required', 
+        'category'=>'required',
         'aboutme'=>'required',
         'sexology'=>'required',
         'nickname'=>'required',
@@ -198,50 +205,72 @@ class AuthController extends Controller
           $model=new Registration();
           $update_data = $model->uploadContentData($data);
             if($update_data){
-                return redirect('/getContent')->with('success','Data Created Successfully!');
+                return redirect('/getContent#success')->with('success','Data Created Successfully!');
               }
               else
               {
-                  return redirect('/getContent')->with('error','Some Error Occure!');
+                  return redirect('/getContent#error')->with('error','Some Error Occure!');
           }
         }
       }
   }
   public function providerContent(Request $request){
-    $this->validate($request,[
-      'audio' => 'required|file',
-      'email'=>'required',        
-  ]
-    );
+        $this->validate($request,[
+          'audio' => 'required|file',
+          'email'=>'required',        
+      ]
+        );
 
-    if($request->audio){
-      $data=$request->all();
-      //print_r($data);die;
-        $fileName = time().'_'.$request->audio->getClientOriginalName();
-        $ext =$request->audio->getClientOriginalExtension();
-        //print_r($ext);die;
-        $filePath = $request->audio->storeAs('uploads', $fileName, 'public');
-        unset($data['_token']);
-        $data['audio']=$fileName;
-        $data['type']=  $ext=='mp3' ? 'audio' : 'vedio'; 
-        if($filePath){
-         //print_r($request->all());die;
-         $model=new Registration();
-         $update_data = $model->uploadContentProvider($data);
-           if($update_data){
-               return redirect('/contentProvider')->with('success','Data Created Successfully!');
-             }
-             else
-             {
-                 return redirect('/contentProvider')->with('error','Some Error Occure!');
-             }
-       }
-     }
+      if($request->audio){
+            $data=$request->all();
+              $fileName = time().'_'.$request->audio->getClientOriginalName();
+              $ext =$request->audio->getClientOriginalExtension();
+              //print_r($ext);die;
+              $filePath = $request->audio->storeAs('uploads', $fileName, 'public');
+              unset($data['_token']);
+              $data['audio']=$fileName;
+              $data['type']=  $ext=='mp3' ? 'audio' : 'vedio'; 
+                if($filePath){
+                $model=new Registration();
+                $update_data = $model->uploadContentProvider($data);
+                  if($update_data){
+                      return redirect('/contentProvider#success')->with('success','Data Created Successfully!');
+                    }
+                    else
+                    {
+                        return redirect('/contentProvider#error')->with('error','Some Error Occure!');
+                    }
+              }
+      }
   }
+  public function getCategory(){
+    return view('category') ;     
+
+  }
+
+
+  public function addCategory(Request $req){
+      $this->validate($req,[
+        'category'=>'required'
+      ]);
+      $data=$req->all();
+      unset($data['_token']);
+      $model=new Registration();
+      $categoryData = $model->addCategorytable($data);
+      if($categoryData){
+        return redirect('/getCategory#success')->with('success','Category Add Successfully!');
+      }
+      else{
+        return redirect('/getCategory#error')->with('error','Some Error Occure!');
+
+      }
+    }
+
+
   public function getProvider(){
     $model=new Registration();
     $update_data = $model->getContentProvider('audio');
-    print_r($update_data);
+    //print_r($update_data);
   }
   public function contentProv(){
     return view('provider') ;

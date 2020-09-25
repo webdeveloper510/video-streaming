@@ -3,7 +3,7 @@
 
 <a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a>
   <?php if(session('success')): ?>
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="success">
         <?php echo e(session('success')); ?>
 
         </div>
@@ -11,7 +11,7 @@
             </div>
           </div>
           <?php if(session('error')): ?>
-        <div class="alert alert-success">
+        <div class="alert alert-danger" id="error">
         <?php echo e(session('error')); ?>
 
         </div>
