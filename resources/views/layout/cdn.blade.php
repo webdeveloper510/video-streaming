@@ -6,12 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<!-- site metas -->
+<title>It.Next - IT Service Responsive Html Theme</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="{{url('css/style.css')}}">
-    <link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
+    <link rel="icon" href="{{url('images/fevicon/fevicon.png')}}" type="image/gif" />
 <!-- bootstrap css -->
 <link rel="stylesheet" href="{{url('design/bootstrap.min.css')}}" />
 <!-- Site css -->
-<link rel="stylesheet" href="{{url('design/style.css')}}" />
+<link rel="stylesheet" href="{{url('design/stylesheet.css')}}" />
+<link rel="stylesheet" href="{{url('design/font-awesome.min.css')}}" />
 <!-- responsive css -->
 <link rel="stylesheet" href="{{url('design/responsive.css')}}" />
 <!-- colors css -->
@@ -44,10 +52,9 @@
 <script src="{{url('revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
 <script src="{{url('revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!--script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script-->
     
     <title></title>
 

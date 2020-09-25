@@ -1,71 +1,14 @@
 @extends('layout.cdn')
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>It.Next - IT Service Responsive Html Theme</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-<!-- site icons -->
-
-<!-- revolution slider css -->
-
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-</head>
 <body id="default_theme" class="it_service">
-<!-- header -->
 <header id="default_header" class="header_style_1">
-  <!-- header top -->
-  <!--div class="header_top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="full">
-            <div class="topbar-left">
-              <ul class="list-inline">
-                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">540 Lorem Ipsum New York, AB 90218</span> </li>
-                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@yourdomain.com</a></span> </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 right_section_header_top">
-          <div class="float-left">
-            <div class="social_icon">
-              <ul class="list-inline">
-                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
-                <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
-                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
-                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
-                <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="float-right">
-            <div class="make_appo"> <a class="btn white_btn" href="make_appointment.html">Make Appointment</a> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div-->
-  <!-- end header top -->
-  <!-- header bottom -->
   <div class="header_bottom">
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="#" class="navbar-brand">
-						<img src="images/logos/logo-2.png" height="28" alt="CoolBrand">
+						<img src="{{url('images/logos/logo-2.png')}}" height="28" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -764,11 +707,6 @@
     </div>
   </div>
 </footer>
-
-  
-<!-- end footer -->
-<!-- js section -->
-
 </body>
-</html>
 
+</html>
