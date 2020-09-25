@@ -176,10 +176,6 @@
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
   {{ Form::close() }}
-<<<<<<< HEAD
-  </div>
-</div>`
-=======
   @if(session('success'))
         <div class="alert alert-success">
         {{session('success')}}
@@ -190,5 +186,4 @@
       
        
 
->>>>>>> bb920ca410cab0c2280c7721ab89beb40feaefcc
 

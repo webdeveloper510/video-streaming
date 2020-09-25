@@ -48,23 +48,23 @@ class AuthController extends Controller
 
 
       public function postLogin(Request $request){
-        $this->validate($request,[
-            'email'=>'required',
-            'email.required' => 'The User Email must be a valid email address.',
-            'password'=>'required'
+            $this->validate($request,[
+                'email'=>'required',
+                'email.required' => 'The User Email must be a valid email address.',
+                'password'=>'required'
 
-        ]
-        
-        );
-        $model = new Registration();
-         $get = $model->login($request);
-        if($get){
-         // echo "yes";die;
-          return redirect('/profile')->with('success','Login Successfully!');
-        }
-        else{
-          return redirect('/login')->with('error','invalid credentials!');
-        }
+            ]
+            
+            );
+            $model = new Registration();
+            $get = $model->login($request);
+            if($get){
+            // echo "yes";die;
+              return redirect('/profile')->with('success','Login Successfully!');
+            }
+            else{
+              return redirect('/login')->with('error','invalid credentials!');
+            }
 
       }
       public function home(){
@@ -193,6 +193,7 @@ class AuthController extends Controller
         //print_r($data); die;
         //echo "yes";
          $fileName = time().'_'.$request->image->getClientOriginalName();
+         $ext =$request->audio->getClientOriginalExtension();
          $filePath = $request->image->storeAs('uploads', $fileName, 'public');
          $data['image'] = '';
          unset($data['image']);
@@ -216,7 +217,7 @@ class AuthController extends Controller
   }
   public function providerContent(Request $request){
         $this->validate($request,[
-          'audio' => 'required|file',
+          'audio' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'email'=>'required',        
       ]
         );
@@ -225,8 +226,7 @@ class AuthController extends Controller
             $data=$request->all();
               $fileName = time().'_'.$request->audio->getClientOriginalName();
               $ext =$request->audio->getClientOriginalExtension();
-              //print_r($ext);die;
-              $filePath = $request->audio->storeAs('uploads', $fileName, 'public');
+              $filePath= $ext=='mp3' ? $request->audio->storeAs('audio', $fileName, 'public') : $request->audio->storeAs('video', $fileName, 'public');
               unset($data['_token']);
               $data['audio']=$fileName;
               $data['type']=  $ext=='mp3' ? 'audio' : 'vedio'; 
