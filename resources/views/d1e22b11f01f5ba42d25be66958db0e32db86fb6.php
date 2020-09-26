@@ -1,14 +1,30 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>PAZ html</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+</head>
 <body id="default_theme" class="it_service">
+<!-- header -->
 <header id="default_header" class="header_style_1">
+  <!-- header bottom -->
   <div class="header_bottom">
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="#" class="navbar-brand">
-						<img src="<?php echo e(url('images/logos/logo-2.png')); ?>" height="28" alt="CoolBrand">
+						<img src="images/logos/logo-2.png" height="28" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -51,20 +67,20 @@
 	  <h3 class="tittle">Recently Searched</h3>
 	</div>
     <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
       <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+        <a class="btn-floating" href="#recently_search" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#recently_search" data-slide="next"><i class="fa fa-chevron-right"></i></a>
       </div>
       <!--/.Controls-->
 
       <!--Indicators-->
       <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-        <li data-target="#multi-item-example" data-slide-to="1"></li>
-        <li data-target="#multi-item-example" data-slide-to="2"></li>
+        <li data-target="#recently_search" data-slide-to="0" class="active"></li>
+        <li data-target="#recently_search" data-slide-to="1"></li>
+        <li data-target="#recently_search" data-slide-to="2"></li>
       </ol>
       <!--/.Indicators-->
 
@@ -207,20 +223,20 @@
 	  <h3 class="tittle">Popular</h3>
 	</div>
     <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
       <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+        <a class="btn-floating" href="#Popular_slid" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#Popular_slid" data-slide="next"><i class="fa fa-chevron-right"></i></a>
       </div>
       <!--/.Controls-->
 
       <!--Indicators-->
       <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-        <li data-target="#multi-item-example" data-slide-to="1"></li>
-        <li data-target="#multi-item-example" data-slide-to="2"></li>
+        <li data-target="#Popular_slid" data-slide-to="0" class="active"></li>
+        <li data-target="#Popular_slid" data-slide-to="1"></li>
+        <li data-target="#Popular_slid" data-slide-to="2"></li>
       </ol>
       <!--/.Indicators-->
 
@@ -360,20 +376,20 @@
 	  <h3 class="tittle">New Comes</h3>
 	</div>
     <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="New_comes" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
       <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+        <a class="btn-floating" href="#New_comes" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#New_comes" data-slide="next"><i class="fa fa-chevron-right"></i></a>
       </div>
       <!--/.Controls-->
 
       <!--Indicators-->
       <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-        <li data-target="#multi-item-example" data-slide-to="1"></li>
-        <li data-target="#multi-item-example" data-slide-to="2"></li>
+        <li data-target="#New_comes" data-slide-to="0" class="active"></li>
+        <li data-target="#New_comes" data-slide-to="1"></li>
+        <li data-target="#New_comes" data-slide-to="2"></li>
       </ol>
       <!--/.Indicators-->
 
@@ -512,20 +528,20 @@
 	  <h3 class="tittle">Special offer</h3>
 	</div>
     <!--Carousel Wrapper-->
-    <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
       <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+        <a class="btn-floating" href="#Special_offer" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#Special_offer" data-slide="next"><i class="fa fa-chevron-right"></i></a>
       </div>
       <!--/.Controls-->
 
       <!--Indicators-->
       <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-        <li data-target="#multi-item-example" data-slide-to="1"></li>
-        <li data-target="#multi-item-example" data-slide-to="2"></li>
+        <li data-target="#Special_offer" data-slide-to="0" class="active"></li>
+        <li data-target="#Special_offer" data-slide-to="1"></li>
+        <li data-target="#Special_offer" data-slide-to="2"></li>
       </ol>
       <!--/.Indicators-->
 
@@ -708,6 +724,7 @@
   </div>
 </footer>
 </body>
-
 </html>
+
+
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>

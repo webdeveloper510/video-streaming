@@ -31,13 +31,13 @@ a.btn.dark_gray_bt:focus,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover,
 .icon_feature {
-	background: #ef5097;
+	background: #a60000;
     background-size: 100% 100%;
     border: none;
 }
 
 .theme_bg {
-	background: #ef5097;
+	background: #a60000;
 }
 
 #navbar_menu > ul > li a.active,
@@ -54,7 +54,7 @@ footer ul.social_icons li a:focus,
 
 .btn.sqaure_bt {
     border-radius: 0;
-    background: #ef5097;
+    background: #a60000;
 }
 
 .btn.sqaure_bt span {
@@ -67,11 +67,11 @@ footer ul.social_icons li a:focus,
 footer h2::after,
 .footer_mail-section .field button.button_custom,
 .cprt,.contact_us_section {
-	background: #ef5097;
+	background: #a60000;
 }
 
 .tp-caption.tp-shape.tp-shapewrapper.tp-resizeme.rs-parallaxlevel-0 {
-    background: #ef5097 !important;
+    background: #a60000 !important;
 }
 
 a.btn.main_bt,
@@ -125,7 +125,7 @@ hr.dottad_border,
 .pagination>.active>span:hover,
 .comment_section,
 .boder_dottat_small {
-	border-color: #ef5097;
+	border-color: #a60000;
 }
 
 
@@ -192,7 +192,7 @@ a.btn.white_btn:hover {
 }
 
 .tp-bannertimer {
-    background: #ef5097 !important;
+    background: #a60000 !important;
 }
 
 .tp-caption.tp-shape.tp-shapewrapper.rs-parallaxlevel-0 {

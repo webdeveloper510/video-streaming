@@ -1,4 +1,3 @@
-<?php echo $__env->yieldContent('assets'); ?>
 <!doctype html>
 <html lang="en">
   <head>
