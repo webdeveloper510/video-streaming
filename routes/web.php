@@ -26,6 +26,7 @@ Route::get('getLogin', 'AuthController@getLogin');
 Route::get('getCategory', 'AuthController@getCategory');
 Route::get('Dashboard', 'AuthController@Dashboard');
 Route::get('home', 'AuthController@home');
+Route::get('contact', 'AuthController@contact');
 Route::get('contentProvider', 'AuthController@contentProv')->middleware('authentication');
 
 

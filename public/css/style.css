@@ -13,6 +13,10 @@ body{
     font-size: 30;
     font-family: lato;
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
 #msg{
   color:white;
 }

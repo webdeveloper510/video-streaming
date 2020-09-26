@@ -19,7 +19,11 @@ class AuthController extends Controller
     public function register(){
         
       return view('registration') ;     
-    } 
+    }
+    
+    public function contact(){
+      return view('/contact');
+    }
 
         public function login(){
           $user=Session::get('User');
@@ -218,7 +222,12 @@ class AuthController extends Controller
   public function providerContent(Request $request){
         $this->validate($request,[
           'audio' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
-          'email'=>'required',        
+          'email'=>'required', 
+          'description'=>'required',
+          'keyword'=>'required',
+          'title'=>'required',
+          'price'=>'required',
+          'category'=>'required'    
       ]
         );
 
@@ -273,7 +282,9 @@ class AuthController extends Controller
     //print_r($update_data);
   }
   public function contentProv(){
-    return view('provider') ;
+    $model = new Registration();
+    $data = $model->getCategory();
+    return view('provider',['category'=>$data]) ;
   }
   public function Postdashboard()
   {

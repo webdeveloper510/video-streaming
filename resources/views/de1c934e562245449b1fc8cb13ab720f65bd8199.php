@@ -38,14 +38,25 @@
           <div class="row align-items-center">
             <div class="col mt-4">
             <p>  <?php echo e(Form::label('email', 'E-Mail Address')); ?> </p>
-                <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+                <?php echo e(Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 
+                <?php if($errors->first('email')): ?>
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('email'); ?>
+                </div>
+                <?php endif; ?>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
             <p><?php echo e(Form::label('Nickname', 'Nickname')); ?> </p>
-                <?php echo e(Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
+                <?php echo e(Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
+
+                <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('nickname') ?>
+                </div>
+                <?php endif; ?>
 
             </div>
           </div>
@@ -54,9 +65,13 @@
             <p><?php echo e(Form::label('Password', 'Password')); ?> </p>
                 <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
+                <?php if($errors->first('password')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('password') ?>
+                </div>
             </div>
-            
           </div>
+          <?php endif; ?>
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
@@ -65,7 +80,6 @@
 
                 I agree not to
                         upload content I have no right to</p>
-
               </div>
 
               <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
@@ -75,7 +89,7 @@
           <?php echo e(Form::close()); ?>
 
           <p>Already have an account yet ?</p>
-<a href="<?php echo e(URL::to('login')); ?>" class="ffff text-white"> <i>Login Now</i> </a>
+              <a href="<?php echo e(URL::to('login')); ?>" class="ffff text-white"> <i>Login Now</i> </a>
         </div>
       </div>
     </div>

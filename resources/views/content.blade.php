@@ -30,7 +30,7 @@
           <div class="row align-items-center">
             <div class="col-md-6">
             {{Form::label('Email', 'E-Mail Address')}} 
-                {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                {{Form::text('email', null,['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
                  @if($errors->first('email')))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('email') ?>
@@ -40,7 +40,7 @@
 
             <div class="col-md-6 ">
             {{Form::label('Nickname', 'Nickname')}} 
-                {{Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
+                {{Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>

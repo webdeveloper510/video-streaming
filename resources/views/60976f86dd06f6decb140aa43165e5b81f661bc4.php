@@ -35,11 +35,38 @@
                 <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 
             </div>
-         
+            <div class="col-md-6 mt-5 ">
+            <?php echo e(Form::label('Video/Audio Price', 'Video/Audio Price')); ?> 
+                <?php echo e(Form::text('price', '',['class'=>'form-control','placeholder'=>'Enter Price'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-5 ">
+            <?php echo e(Form::label('Title', 'Title')); ?> 
+                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-5 ">
+            <?php echo e(Form::label('Keyword', 'Keyword')); ?> 
+                <?php echo e(Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Enter Keyword'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-5">
+            <?php echo e(Form::label('Description', 'Description')); ?> 
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
+
+            </div>
             <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('audio',['class'=>'custom-file-input'])); ?>
 
+            </div>
+            <div class="col-md-6 mt-4">
+            <select name="category" class='form-control'>
+                    <option value="">Choose category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
             </div>
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 

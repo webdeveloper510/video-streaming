@@ -17,7 +17,7 @@
        
            {!!Form::open(['action' => 'AuthController@postLogin', 'method' => 'post'])!!}
           <div class="form-group">
-               {{Form::label('email', 'E-Mail Address')}} 
+               {{Form::label('E-Mail Address', 'E-Mail Address')}} 
                 {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com']) }}
                 @if($errors->first('email'))
                 <div class="alert alert-danger">

@@ -64,7 +64,7 @@ class Registration extends Model
                     return 0;
                 }
                 else{
-                    Session::put('User', $value);
+                    Session::put('contentUser', $value);
                 // $data->session()->put('User', $value);
                     return 1;
         }

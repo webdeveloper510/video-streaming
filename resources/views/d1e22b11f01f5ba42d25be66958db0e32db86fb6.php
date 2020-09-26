@@ -2,19 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>PAZ html</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-</head>
 <body id="default_theme" class="it_service">
 <!-- header -->
 <header id="default_header" class="header_style_1">
@@ -46,9 +33,16 @@
 							<a href="#" class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i>User Name</a>								
 
 						</div>
-						<div class="navbar-nav ml-auto">
-							<a href="#" class="nav-item nav-link">Login</a>
-						</div>
+						<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Login
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/getLogin">As a content provider</a>
+    <a class="dropdown-item" href="/login">As a user</a>
+  </div>
+</div>
+
 					</div>
 				</nav>
 		    </div>

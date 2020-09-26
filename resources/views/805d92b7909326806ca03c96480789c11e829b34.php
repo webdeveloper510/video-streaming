@@ -18,7 +18,7 @@
            <?php echo Form::open(['action' => 'AuthController@postLogin', 'method' => 'post']); ?>
 
           <div class="form-group">
-               <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
+               <?php echo e(Form::label('E-Mail Address', 'E-Mail Address')); ?> 
                 <?php echo e(Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
 
                 <?php if($errors->first('email')): ?>
