@@ -17,6 +17,8 @@ class checkAuth
     public function handle($request, Closure $next)
     {
         $session_data =   Session::get('User');
+        $contentLogin =   Session::get('contentUser');
+        $url = $request;
         if(!$session_data){
             return redirect('/login');
         }

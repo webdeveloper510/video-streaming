@@ -36,11 +36,12 @@ class Registration extends Model
                     'ass' => '',
                     'hairlength' => '',
                     'haircolor' => '',
+                    'eyecolor'=>'',
                     'height' => '',
                     'weight' => '',
                     'created_at'=> now(),
                     'updated_at'=> now(),
-                    'userid' =>  $userid,
+                    'userid' =>  $userid
                 );
                 $inserted_data =  DB::table('profiletable')->insert($data);
                 // $insertedid=$inserted_data->id;
@@ -63,7 +64,7 @@ class Registration extends Model
                     return 0;
                 }
                 else{
-                    Session::put('User', $value);
+                    Session::put('contentUser', $value);
                 // $data->session()->put('User', $value);
                     return 1;
         }
@@ -71,7 +72,8 @@ class Registration extends Model
 public function uploadContentData($userdata){
     $value=DB::table('content')->where('email', $userdata['email'])->get();
     if($value->count() == 0){
-        
+        $userdata['catid']=$userdata['category'];
+        unset($userdata['category']);
         //print_r($userdata);
         $userdata['password']= md5($userdata['password']);
         $userdata['created_at']= now();
@@ -80,7 +82,7 @@ public function uploadContentData($userdata){
         return $inserted_data ? '1':'0';
     }
 }
-public function login($data){
+    public function login($data){
     $value = DB::table('users')->where(array(
         'email'=> $data->email,
         'password'=>md5($data->password)))
@@ -102,7 +104,8 @@ public function login($data){
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
      $userid=$session_data->id;
-    // $userid = $session_data->id
+    // print_r($data->all());
+    // print_r($userid);die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
@@ -114,6 +117,7 @@ public function uploadDataFile($data){
         'ass' =>$data['ass'],
         'hairlength' => $data['hairlength'],
         'haircolor' => $data['haircolor'],
+        'eyecolor' => $data['eyecolor'],
         'height' => $data['height'],
         'weight' => $data['weight'],
         'created_at'=> now(),
@@ -121,5 +125,31 @@ public function uploadDataFile($data){
     ]);
     return $update ? 1 : 0;
 }
+public function getContentProvider($type){
+    $value=DB::table('provider')->where('type', $type)->get();
+    if($value->count()>=1){
+        return $value;
+    }
 
+}
+public function addCategorytable($category){
+    $category['created_at']=now();
+    $category['updated_at']=now();
+    $sucess_insert=DB::table('category')->insert($category);
+    return $sucess_insert ? '1' :'0';
+}
+public function uploadContentProvider($contentdata){
+    $session_data =   Session::get('contentUser');
+    $contentid=$session_data->id;
+    unset($contentdata['email']);
+    $contentdata['contentId']=$contentid;
+    $contentdata['created_at']= now();
+    $contentdata['updated_at']= now();
+    $inserted_data =  DB::table('provider')->insert($contentdata);
+    return $inserted_data ? '1':'0';
+}
+public function getCategory(){
+    $category = DB::table('category')->get();
+    return $category;
+}
 }
