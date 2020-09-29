@@ -28,6 +28,10 @@
                 {{Form::label('Add Category', 'Add Category')}} 
                  {{Form::text('category', '',['class'=>'form-control','placeholder'=>'Add Category'])}}
             </div>
+            <div class="col-md-6 mt-5">
+            {{Form::label('Category Type', 'Category Type')}} 
+                {{Form::select('type', ['audio' => 'Audio', 'video' => 'Video','artist'=>'Artist'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
+            </div>
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
   {{ Form::close() }}

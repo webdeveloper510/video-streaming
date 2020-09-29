@@ -21,7 +21,6 @@
         <?php echo e($error); ?>
 
         </div>
-      
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   <?php echo Form::open(['action' => 'AuthController@addCategory', 'method' => 'post', 'files'=>true]); ?>
 
@@ -31,8 +30,13 @@
         <h1>Add Category</h1>
           <div class="row align-items-center">
             <div class="col-md-6 mt-5 ">
-            <?php echo e(Form::label('Add Category', 'Add Category')); ?> 
-                <?php echo e(Form::text('category', '',['class'=>'form-control','placeholder'=>'Add Category'])); ?>
+                <?php echo e(Form::label('Add Category', 'Add Category')); ?> 
+                 <?php echo e(Form::text('category', '',['class'=>'form-control','placeholder'=>'Add Category'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-5">
+            <?php echo e(Form::label('Category Type', 'Category Type')); ?> 
+                <?php echo e(Form::select('type', ['audio' => 'Audio', 'video' => 'Video','artist'=>'Artist'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])); ?>
 
             </div>
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>

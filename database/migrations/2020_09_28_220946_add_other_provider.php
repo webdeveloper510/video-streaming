@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnsInProvider extends Migration
+class AddOtherProvider extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,8 @@ class AddColumnsInProvider extends Migration
     {
         Schema::table('provider', function (Blueprint $table) {
             //
-            $table->string('category');
-            $table->string('title');
-            $table->string('description');
-            $table->string('price');
-            $table->string('keyword');
             $table->string('duration');
-            $table->string('contentProviderid');
+            $table->string('contentId');
         });
     }
 
@@ -34,12 +29,8 @@ class AddColumnsInProvider extends Migration
     {
         Schema::table('provider', function (Blueprint $table) {
             //
-            $table->dropColumn('category');
-            $table->dropColumn('title');
-            $table->dropColumn('description');
-            $table->dropColumn('price');
-            $table->dropColumn('keyword');
             $table->dropColumn('duration');
+            $table->dropColumn('contentId');
         });
     }
 }

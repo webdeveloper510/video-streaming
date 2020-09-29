@@ -35,7 +35,7 @@
           <div class="row align-items-center">
             <div class="col-md-6">
             <?php echo e(Form::label('Email', 'E-Mail Address')); ?> 
-                <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+                <?php echo e(Form::text('email', null,['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 
                  <?php if($errors->first('email')): ?>)
                 <div class="alert alert-danger">
@@ -46,7 +46,7 @@
 
             <div class="col-md-6 ">
             <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
-                <?php echo e(Form::text('nickname', '',['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
+                <?php echo e(Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">

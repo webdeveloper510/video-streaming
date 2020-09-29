@@ -27,7 +27,11 @@ Route::get('getCategory', 'AuthController@getCategory');
 Route::get('Dashboard', 'AuthController@Dashboard');
 Route::get('home', 'AuthController@home');
 Route::get('contact', 'AuthController@contact');
-Route::get('contentProvider', 'AuthController@contentProv')->middleware('authentication');
+Route::get('play', 'AuthController@play');
+Route::get('search', 'AuthController@search');
+Route::get('upload', 'AuthController@upload');
+Route::get('playlist', 'AuthController@playlist');
+Route::get('contentProvider', 'AuthController@contentProv');
 
 
 

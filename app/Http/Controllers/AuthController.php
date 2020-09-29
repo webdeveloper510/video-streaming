@@ -24,6 +24,27 @@ class AuthController extends Controller
     public function contact(){
       return view('/contact');
     }
+    public function play(){
+      return view('/play');
+    }
+    public function search(){
+      return view('/search');
+    }
+    public function playlist(){
+      $model = new Registration();
+      $data = $model->getCategory();
+      return view('playlist',['category'=>$data]) ;
+      //return view('/playlist');
+    }
+    public function upload(){
+      $contentLogin =   Session::get('contentUser');
+      if(!$contentLogin){
+        return redirect('/getLogin');
+    }
+      $model = new Registration();
+      $data = $model->getCategory();
+      return view('/upload',['category'=> $data]);
+    }
 
         public function login(){
           $user=Session::get('User');
@@ -85,7 +106,7 @@ class AuthController extends Controller
       $model = new Registration();
        $get = $model->Contentlogin($request);
       if($get){
-        return redirect('/Dashboard')->with('success','Login Successfully!');
+        return redirect('/contentProvider')->with('success','Login Successfully!');
       }
       else{
         return redirect('/getLogin')->with('error','invalid credentials!');
@@ -108,7 +129,7 @@ class AuthController extends Controller
         $model = new Registration();
        $get = $model->registration($request);
        if($get){
-        echo "yes";die;
+        //echo "yes";die;
          return redirect('/register')->with('success','Registered successfully');
        }
        else{
@@ -197,7 +218,7 @@ class AuthController extends Controller
         //print_r($data); die;
         //echo "yes";
          $fileName = time().'_'.$request->image->getClientOriginalName();
-         $ext =$request->audio->getClientOriginalExtension();
+         $ext =$request->image->getClientOriginalExtension();
          $filePath = $request->image->storeAs('uploads', $fileName, 'public');
          $data['image'] = '';
          unset($data['image']);
@@ -224,6 +245,7 @@ class AuthController extends Controller
           'audio' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'email'=>'required', 
           'description'=>'required',
+          'duration'=>'required',
           'keyword'=>'required',
           'title'=>'required',
           'price'=>'required',
@@ -282,6 +304,10 @@ class AuthController extends Controller
     //print_r($update_data);
   }
   public function contentProv(){
+    $contentLogin =   Session::get('contentUser');
+    if(!$contentLogin){
+      return redirect('/getLogin');
+  }
     $model = new Registration();
     $data = $model->getCategory();
     return view('provider',['category'=>$data]) ;

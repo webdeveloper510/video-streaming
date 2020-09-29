@@ -76,6 +76,12 @@ body {
 	line-height: normal;
 	font-weight: 400;
 	overflow-x: hidden;
+
+	background-image:url('https://www.bsne.ch/files/live/sites/iheid/files/backgrounds/Admissions-gris.jpg');
+		background-position: center; /* Center the image */
+		background-repeat: no-repeat; /* Do not repeat the image */
+		background-size: cover; 
+		opacity: 1
 }
 
 body {
@@ -4940,4 +4946,190 @@ display: none;
 }
 .carousel-indicators .active {
     background-color: #a60000 !important;
+}
+
+* {
+	margin: 0; 
+	padding: 0;
+}
+
+ul.nav.custom.search {
+    background: linear-gradient(180deg,#da0000,#a60000);
+	height: 40px;
+	display: inline-block;
+	
+}
+.nav li {
+	float: left;
+	list-style-type: none;
+	position: relative;
+}
+
+#settings a {
+	padding: 18px;
+	height: 24px;
+	font-size: 10px;
+	line-height: 24px;
+}
+
+#search_text{
+    width: 297px;
+    padding: 10px 0 10px 15px;
+    font-size: 13px;
+    font-family: Montserrat, sans-serif;
+    border: 0 none;
+    height: 35px;
+    margin-right: 0;
+    color: white;
+    outline: none;
+    background: transparent !important;
+    float: left;
+    box-sizing: border-box;
+    transition: all 0.15s;
+    border: 1px solid #fff;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+	color: white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: white;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: white;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: white;
+}
+#search_text:focus {
+	background: rgb(64, 151, 119);
+}
+#options a{
+	border-left: 0 none;
+}
+#options>a {
+	background-image: url(triangle.png);
+	background-position: 85% center;
+	background-repeat: no-repeat;
+	padding-right: 42px;
+}
+.subnav {
+	visibility: hidden;
+	position: absolute;
+	top: 110%;
+	right: 0;
+	width: 200px;
+	height: auto;
+	opacity: 0;
+	transition: all 0.1s;
+	background: #232323;
+}
+.subnav li {
+	float: none;
+}
+.subnav li a {
+	border-bottom: 1px solid #2e2e2e;
+}
+#options:hover .subnav {
+	visibility: visible;
+	top: 100%;
+	opacity: 1;
+}
+i.fa.fa-bars {
+    font-size: 21px;
+    color: red;
+    padding-top: 0px;
+}
+li#options {
+    background: #fff;
+    height: 100%;
+    padding: 5px 8px;
+    height: 36px;
+}
+#options>a {
+    background-image: url(triangle.png);
+    background-position: 85% center;
+    background-repeat: no-repeat;
+    padding-right: 0px;
+}
+
+ul.nav.custom.search li a {
+    font-size: 12px;
+    color: white;
+    display: block;
+    line-height: 35px;
+    text-decoration: none;
+    border-left: 1px solid #2e2e2e;
+    font-family: Montserrat, sans-serif;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+#search_button {
+border: 0 none;
+    background: transparent url(images/search.png) center no-repeat;
+    width: 46px;
+    /* background: transparent; */
+    float: left;
+    padding: 0;
+    text-align: center;
+    height: 35px;
+    cursor: pointer;
+    margin-left: -46px;
+}
+ul.nav.custom.search ul.subnav li a {
+    padding: 10px;
+}
+ul.nav.custom.search ul.subnav {
+    width: 600px;
+}
+ul.nav.custom.search ul.subnav {
+    width: 600px;
+    left: 0;
+    background: #b50000;		
+}
+#search {
+    width: 300px;
+}
+ul.nav.nav-tabs li {
+    width: 25%;
+}
+.tab-content {
+    padding-top: 25px;
+    padding-left: 17px;
+}
+ul.nav.nav-tabs li a {
+    font-size: 15px !important;
+}
+ul.nav.custom.search ul.subnav li.active a {
+    color: #ffcc00;
+    font-size: 17px;
+}
+.uploa_outer {
+    float: left;
+    width: 100%;
+    margin: 20px 0px;
+}
+.uploa_outer input[type="submit"] {
+    padding: 5px 19px;
+    border-radius: 6px;
+    border: 1px solid #b70000;
+    background: #a60000;
+    color: #fff;
+}
+
+.uploa_outer input:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.out_red {
+    float: left;
+    width: 100%;
+    margin: 10px;
+    text-align: right;
+}
+.out_red button#myBtn {
+    padding: 5px 16px;
+    background: #a60000;
+    color: #fff !important;
+    border: 1px solid #a60000;
+}
+.out_red button#myBtn i.fa.fa-plus {
+    margin-right: 10px;
 }

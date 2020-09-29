@@ -1,7 +1,8 @@
 @extends('layout.cdn')
+<a href="{{ URL::to('logout/getLogin')}}" class="ffff text-white float-right"> Logout</a>
 <div class="container mt-5">
 
-<a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
+
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
@@ -30,8 +31,12 @@
                 {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
             </div>
             <div class="col-md-6 mt-5 ">
-            {{Form::label('Video/Audio Price', 'Video/Audio Price')}} 
-                {{Form::text('price', '',['class'=>'form-control','placeholder'=>'Enter Price'])}}
+            {{Form::label('Add Price', 'Audio/Vedio Price')}} 
+                {{Form::select('price', ['free' => 'Free', 'lowest' => 'Lowest','highest'=>'Highest'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
+            </div>
+            <div class="col-md-6 mt-5 ">
+            {{Form::label('Duration', 'Duration')}} 
+                {{Form::select('duration', ['shortest' => 'Shortest', 'longest' => 'Longest'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
             </div>
             <div class="col-md-6 mt-5 ">
             {{Form::label('Title', 'Title')}} 

@@ -1,7 +1,8 @@
 
+<a href="<?php echo e(URL::to('logout/getLogin')); ?>" class="ffff text-white float-right"> Logout</a>
 <div class="container mt-5">
 
-<a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a>
+
   <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
         <?php echo e(session('success')); ?>
@@ -36,8 +37,13 @@
 
             </div>
             <div class="col-md-6 mt-5 ">
-            <?php echo e(Form::label('Video/Audio Price', 'Video/Audio Price')); ?> 
-                <?php echo e(Form::text('price', '',['class'=>'form-control','placeholder'=>'Enter Price'])); ?>
+            <?php echo e(Form::label('Add Price', 'Audio/Vedio Price')); ?> 
+                <?php echo e(Form::select('price', ['free' => 'Free', 'lowest' => 'Lowest','highest'=>'Highest'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-5 ">
+            <?php echo e(Form::label('Duration', 'Duration')); ?> 
+                <?php echo e(Form::select('duration', ['shortest' => 'Shortest', 'longest' => 'Longest'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])); ?>
 
             </div>
             <div class="col-md-6 mt-5 ">

@@ -51,6 +51,7 @@
 <script src="{{url('revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
 <script src="{{url('revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
 <script src="{{url('revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
+<script src="https://designmodo.com/demo/dropdown-menu-search/prefixfree-1.0.7.js"></script>
 <script src="{{url('revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
     <!-- Bootstrap CSS -->
     
