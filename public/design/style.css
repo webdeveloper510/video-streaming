@@ -5055,11 +5055,11 @@ ul.nav.custom.search {
 .subnav li a {
 	border-bottom: 1px solid #2e2e2e;
 }
-#options:hover .subnav {
+/*#options:hover .subnav {
 	visibility: visible;
 	top: 100%;
 	opacity: 1;
-}
+}*/
 i.fa.fa-bars {
     font-size: 21px;
     color: #ff0000;

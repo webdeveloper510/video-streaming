@@ -15,9 +15,9 @@
    
     <link rel="icon" href="{{url('images/fevicon/fevicon.png')}}" type="image/gif" />
 <!-- bootstrap css -->
-<!--link rel="stylesheet" href="{{url('design/bootstrap.min.css')}}" /-->
+<link rel="stylesheet" href="{{url('design/bootstrap.min.css')}}">
 <!-- Site css -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
 <link rel="stylesheet" href="{{url('design/style.css')}}" />
 <link rel="stylesheet" href="{{url('design/font-awesome.min.css')}}" />

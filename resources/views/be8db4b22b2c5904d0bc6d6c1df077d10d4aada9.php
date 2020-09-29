@@ -31,62 +31,90 @@
 					</button>
 					<div class="search_meu">
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
-						<ul class="nav custom search">
-							<li id="options">
-								<a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-								<ul class="subnav">
-								  <ul class="nav nav-tabs">
-										<li class="active"><a data-toggle="tab" href="#home">Video</a></li>
-										<li><a data-toggle="tab" href="#menu1">Audio</a></li>
-										<li><a data-toggle="tab" href="#menu2">Artists</a></li>
-										<li><a data-toggle="tab" href="#menu3">Add Request</a></li>
-									  </ul>
+					<ul class="nav custom search">
+              <li id="options">
+                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="subnav">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Audio</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Artists</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Add Request</a></li>
+                    </ul>
 
-									  <div class="tab-content">
-										<div id="home" class="tab-pane fade in active">
-                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($cat->type=='video'): ?>
-                        <div>
-                        <?php echo e($cat->category); ?>
-
+                    <div class="tab-content">
+                    <div id="home" class="tab-pane fade1 in active">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12">
+                           <h4>Categories </h4>
+                           <form action="" id="tableid">
+                            <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+                            <span class="checkmark"></span></label>
+                            <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+                            <span class="checkmark"></span>
+                            </label>
+                           </form>
+                      </div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="dropdown12">
+                           <h4>Price</h4>
+                           <form action="/action_page.php" id="tableid">
+                            <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+                            <span class="checkmark"></span></label>
+                            <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+                            <span class="checkmark"></span>
+                            </label>
+                           </form>
                         </div>
-                        <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										</div>
-										<div id="menu1" class="tab-pane fade">
-                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($cat->type=='audio'): ?>
-                        <div>
-                        <?php echo e($cat->category); ?>
-
+                        <div class="dropdown12">
+                           <h4 >Add Reques</h4>
+                           <form action="/action_page.php" id="tableid">
+                            <label class="container1">Shortest  <input type="checkbox" name="checkbox[]" id="35" value="Shortest">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">Longest  <input type="checkbox" name="checkbox[]" id="28" value="Longest">
+                            <span class="checkmark"></span></label>
+                           </form>
                         </div>
-                        <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										</div>
-										<div id="menu2" class="tab-pane fade">
-                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($cat->type=='artist'): ?>
-                        <div>
-                        <?php echo e($cat->category); ?>
+                       </div> </div>    
 
-                        </div>
-                        <?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-										</div>
-										<div id="menu3" class="tab-pane fade">
-										  <h3>Menu 3</h3>
-										  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-										</div>
-									  </div>
-								</ul>
-							</li>
-							<li id="search">
-								<form action="" method="get">
-									<input type="text" name="search_text" id="search_text" placeholder="Search"/>
-									<input type="button" name="search_button" id="search_button"></a>
-								</form>
-							</li>
-						</ul>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                      <h3 style="color: #fff;">Audio</h3>
+                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                      <h3 style="color: #fff;">Artists</h3>
+                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                      <h3 style="color: #fff;">Menu 3</h3>
+                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    </div>
+                    </div>
+                </ul>
+              </li>
+              <li id="search">
+                <form action="" method="get">
+                  <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+                  <input type="button" name="search_button" id="search_button"></a>
+                </form>
+              </li>
+            </ul>
 					
 					<!--div class="search-box" style="font-size: 16px;">
 						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
@@ -115,58 +143,9 @@
   <!-- header bottom end -->
 </header>
 <!-- end header -->
-<div class="inner-page">
-  <div class="container">
-    <div class="paginations outer">
-			<nav aria-label="Page navigation example">
-			  <ul class="pagination justify-content-center">
-				<li class="page-item disabled">
-				  <a class="page-link" href="#" tabindex="-1">Previous</a>
-				</li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item">
-				  <a class="page-link" href="#">Next</a>
-				</li>
-			  </ul>
-			</nav>
-</div></div></div>
+
 <br></br>
- <div class="inner-page">
-	  <div class="container">
-    <div class="col-md-12">
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/UY1bt8ilps4?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/QpbQ4I3Eidg?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/h3kRIxLruDs?ecver=" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Jr4TMIU9oQ4?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-</div>
-</div>
-</div>
+
 
 	  </div>  
 </div>  

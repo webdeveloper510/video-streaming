@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,90 +31,44 @@
 					</button>
 					<div class="search_meu">
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
-					<ul class="nav custom search">
-              <li id="options">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="subnav">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Add Request</a></li>
-                    </ul>
+						<ul class="nav custom search">
+							<li id="options">
+								<a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+								<ul class="subnav">
+								  <ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#home">Video</a></li>
+										<li><a data-toggle="tab" href="#menu1">Audio</a></li>
+										<li><a data-toggle="tab" href="#menu2">Artists</a></li>
+										<li><a data-toggle="tab" href="#menu3">Add Request</a></li>
+									  </ul>
 
-                    <div class="tab-content">
-                    <div id="home" class="tab-pane fade1 in active">
-                    <div class="row">
-                    <div class="col-md-6">
-                      <div class="dropdown12">
-                           <h4>Categories </h4>
-                           <form action="" id="tableid">
-                            <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
-                            <span class="checkmark"></span>
-                            </label>
-                           </form>
-                      </div>
-                    </div>
-                     <div class="col-md-6">
-                        <div class="dropdown12">
-                           <h4>Price</h4>
-                           <form action="/action_page.php" id="tableid">
-                            <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
-                            <span class="checkmark"></span>
-                            </label>
-                           </form>
-                        </div>
-                        <div class="dropdown12">
-                           <h4 >Add Reques</h4>
-                           <form action="/action_page.php" id="tableid">
-                            <label class="container1">Shortest  <input type="checkbox" name="checkbox[]" id="35" value="Shortest">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest  <input type="checkbox" name="checkbox[]" id="28" value="Longest">
-                            <span class="checkmark"></span></label>
-                           </form>
-                        </div>
-                       </div> </div>    
-
-                    </div>
-                    <div id="menu1" class="tab-pane fade">
-                      <h3 style="color: #fff;">Audio</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <div id="menu2" class="tab-pane fade">
-                      <h3 style="color: #fff;">Artists</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                    </div>
-                    <div id="menu3" class="tab-pane fade">
-                      <h3 style="color: #fff;">Menu 3</h3>
-                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>
-                    </div>
-                </ul>
-              </li>
-              <li id="search">
-                <form action="" method="get">
-                  <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-                  <input type="button" name="search_button" id="search_button"></a>
-                </form>
-              </li>
-            </ul>
+									  <div class="tab-content">
+										<div id="home" class="tab-pane fade in active">
+										<h3>Menu 1</h3>
+										  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+										<div id="menu1" class="tab-pane fade">
+										  <h3>Menu 1</h3>
+										  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+										<div id="menu2" class="tab-pane fade">
+										  <h3>Menu 2</h3>
+										  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+										</div>
+										<div id="menu3" class="tab-pane fade">
+										  <h3>Menu 3</h3>
+										  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+										</div>
+									  </div>
+								</ul>
+							</li>
+							<li id="search">
+								<form action="" method="get">
+									<input type="text" name="search_text" id="search_text" placeholder="Search"/>
+									<input type="button" name="search_button" id="search_button"></a>
+								</form>
+							</li>
+						</ul>
 					
 					<!--div class="search-box" style="font-size: 16px;">
 						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
@@ -143,11 +97,77 @@
   <!-- header bottom end -->
 </header>
 <!-- end header -->
-
+<div class="inner-page">
+  <div class="container">
+    <div class="paginations outer">
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination justify-content-center">
+				<li class="page-item disabled">
+				  <a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+				  <a class="page-link" href="#">Next</a>
+				</li>
+			  </ul>
+			</nav>
+</div>
 <br></br>
+ <div class="row">
+            <div class="col-md-4">
+			  <div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				</div>
+			</div>
+            <div class="col-md-4">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>
+				</div>	
+			</div>	
+            <div class="col-md-4">
+			  <div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				</div>
+			</div>
+  </div>
+  <br/>
+   <div class="row">
+            <div class="col-md-4">
+			  <div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				</div>
+			</div>
+            <div class="col-md-4">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>
+				</div>	
+			</div>	
+            <div class="col-md-4">
+			  <div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				</div>
+			</div>
+  </div></br>
+     <div class="row">
+            <div class="col-md-4">
+			  <div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				</div>
+			</div>	 
+            <div class="col-md-4">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>
+				</div>	
+			</div>	
+            <div class="col-md-4">
+			  <div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				</div>
+			</div>			
 
-
-	  </div>  
+  </div></br>
 </div>  
 <!--body start>
 
@@ -223,3 +243,5 @@
 }
 </style>
 </html>
+
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>
