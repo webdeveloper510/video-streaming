@@ -35,6 +35,10 @@ $("#navbar_menu").menumaker({
         });
     });
 
+    function myFuncion(){
+        alert('hello');
+    }
+
 /** progress_bar js **/
 	
 	 $(document).ready(function() {

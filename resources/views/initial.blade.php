@@ -19,7 +19,7 @@
 					<div class="search_meu">
 					<div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div>
 					<div class="search-box" style="font-size: 16px;">
-						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
+						<input class="search-box__input" type="text" onkeyup="myFuncion()">
 					<i class="fa fa-search" aria-hidden="true"></i>
 					</div>
 					</div>

@@ -19,7 +19,7 @@
 					<div class="search_meu">
 					<div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div>
 					<div class="search-box" style="font-size: 16px;">
-						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
+						<input class="search-box__input" type="text" onkeyup="myFuncion()">
 					<i class="fa fa-search" aria-hidden="true"></i>
 					</div>
 					</div>
@@ -34,12 +34,12 @@
 
 						</div>
 						<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Login
-  </button>
+           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Login
+          </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="/getLogin">As a content provider</a>
-    <a class="dropdown-item" href="/login">As a user</a>
+      <a class="dropdown-item" href="/getLogin">As a content provider</a>
+      <a class="dropdown-item" href="/login">As a user</a>
   </div>
 </div>
 
