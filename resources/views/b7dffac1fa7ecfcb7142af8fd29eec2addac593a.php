@@ -11,38 +11,34 @@
             </div>
           </div>
           <h1>Login</h1>
-        <?php if(count($errors)>0): ?>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="alert alert-danger">
-          <?php echo e($error); ?>
-
-        </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <?php endif; ?>
-        <?php if(session('success')): ?>
-        <div class="alert alert-danger">
-        <?php echo e(session('success')); ?>
-
-        </div>
-        <?php endif; ?>
-        <?php if(session('error')): ?>
-        <div class="alert alert-danger">
-        <?php echo e(session('error')); ?>
-
-        </div>
-        <?php endif; ?>
+      
+       
            <?php echo Form::open(['action' => 'AuthController@postLogin', 'method' => 'post']); ?>
 
           <div class="form-group">
-               <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
-                <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+               <?php echo e(Form::label('E-Mail Address', 'E-Mail Address')); ?> 
+                <?php echo e(Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
 
+                <?php if($errors->first('email')): ?>
+                <div class="alert alert-danger">
+                <?php echo $errors->first('email'); ?>
+            
+             
           </div>
+              <?php endif; ?>
+        </div>
           <div class="form-group">
                <?php echo e(Form::label('Password', 'Password')); ?> 
                 <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
-          </div>         
+                <?php if($errors->first('password')): ?>
+                 <div class="alert alert-danger">
+                <?php echo $errors->first('password'); ?>
+              
+          </div>  
+                <?php endif; ?>
+          </div>  
+
             
 
 <!-- if there are login errors, show them here -->
@@ -55,6 +51,8 @@
 <p><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
 <?php echo e(Form::close()); ?>
 
+           
+        
 <p>Don't have an account yet ?</p>
 <a href="<?php echo e(URL::to('register')); ?>" class="ffff text-white"> Signup Now</a>
           <!--form action="" method="post" id="form_data">
