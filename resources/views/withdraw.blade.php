@@ -10,6 +10,7 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
 <title>PAZ html</title>
+<!-- site icons -->
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -43,35 +44,66 @@
 									  </ul>
 
 									  <div class="tab-content">
-										<div id="home" class="tab-pane fade in active">
-                    @foreach($category as $cat)
-                        @if($cat->type=='video')
-                        <div>
-                        {{$cat->category}}
-                        </div>
-                        @endif
-                    @endforeach
+										<div id="home" class="tab-pane fade1 in active">
+										<div class="row">
+										<div class="col-md-6">
+											<div class="dropdown12">
+												   <h4>Categories </h4>
+												   <form action="" id="tableid">
+													  <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+													  <span class="checkmark"></span></label>
+													  <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+													  <span class="checkmark"></span>
+													  </label>
+												   </form>
+											</div>
+										</div>
+										 <div class="col-md-6">
+												<div class="dropdown12">
+												   <h4>Price</h4>
+												   <form action="/action_page.php" id="tableid">
+													  <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+													  <span class="checkmark"></span></label>
+													  <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+													  <span class="checkmark"></span>
+													  </label>
+												   </form>
+												</div>
+												<div class="dropdown12">
+												   <h4 >Add Reques</h4>
+												   <form action="/action_page.php" id="tableid">
+													  <label class="container1">Shortest  <input type="checkbox" name="checkbox[]" id="35" value="Shortest">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">Longest  <input type="checkbox" name="checkbox[]" id="28" value="Longest">
+													  <span class="checkmark"></span></label>
+												   </form>
+												</div>
+										   </div> </div>		
+
 										</div>
 										<div id="menu1" class="tab-pane fade">
-                    @foreach($category as $cat)
-                        @if($cat->type=='audio')
-                        <div>
-                        {{$cat->category}}
-                        </div>
-                        @endif
-                    @endforeach
+										  <h3 style="color: #fff;">Audio</h3>
+										  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 										</div>
 										<div id="menu2" class="tab-pane fade">
-                    @foreach($category as $cat)
-                        @if($cat->type=='artist')
-                        <div>
-                        {{$cat->category}}
-                        </div>
-                        @endif
-                    @endforeach
+										  <h3 style="color: #fff;">Artists</h3>
+										  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 										</div>
 										<div id="menu3" class="tab-pane fade">
-										  <h3>Menu 3</h3>
+										  <h3 style="color: #fff;">Menu 3</h3>
 										  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 										</div>
 									  </div>
@@ -92,16 +124,21 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
-							<a href="#" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
-							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
-							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
-							<a href="play.html" class="nav-item nav-link"><i class="fa fa-play" aria-hidden="true"></i></a>	
-							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
-							<a href="#" class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i>User Name</a>								
-
-						</div>
-						<div class="navbar-nav ml-auto">
-							<a href="#" class="nav-item nav-link">Login</a>
+						 <ul>
+							<li><a href="#" class="nav-item nav-link active"><img src="images/icon/badge1.png">TOP LIST</a></li>
+							<li><a href="1-page.html" class="nav-item nav-link"><img src="images/icon/phone-ringing.png">LIVE</a></li>
+							<li><a href="upload.html" class="nav-item nav-link"><img src="images/icon/cloud-computing.png"></a></li>
+							<li><a href="play.html" class="nav-item nav-link"><img src="images/icon/online-video.png"></a></li>
+							<li><a href="withdrawmoney.html" class="nav-item nav-link"><img src="images/icon/save-money2.png"></a></li>
+							<li><a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle"><img src="images/icon/user1.png">User Name </a>
+								<ul class="dropdown-menu" style="display:none;">
+									<li><a href="#">Account</a></li>
+									<li><a href="#">Payment</a></li>
+									<li><a href="#">Setting</a></li>
+									<li><a href="#">About</a></li>
+								</ul>
+                            </li>				
+                         </ul>
 						</div>
 					</div>
 				</nav>
@@ -114,62 +151,30 @@
 <!-- end header -->
 <div class="inner-page">
   <div class="container">
-    <div class="paginations outer">
-			<nav aria-label="Page navigation example">
-			  <ul class="pagination justify-content-center">
-				<li class="page-item disabled">
-				  <a class="page-link" href="#" tabindex="-1">Previous</a>
-				</li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item">
-				  <a class="page-link" href="#">Next</a>
-				</li>
-			  </ul>
-			</nav>
-</div></div></div>
-<br></br>
- <div class="inner-page">
-	  <div class="container">
-    <div class="col-md-12">
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/UY1bt8ilps4?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/QpbQ4I3Eidg?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/h3kRIxLruDs?ecver=" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Jr4TMIU9oQ4?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-</div>
-</div>
-</div>
-
-	  </div>  
+	 <div class="slider_tittle">
+		  <h3 class="tittle">Withdraw Money</h3>		  
+	 </div> 
+     <div class="row">
+          <div class="col-md-12">
+		   <div class="out_withdraw">
+		     <ul>
+			   <li> 
+			     <div class="amount">Enter PAZ Amount <br>
+				 <input type="email" class="form-control" id="Amount" placeholder="PAZ Amount">
+				 </div>
+			     <div class="amount_two">Amount <br>
+				 <input type="email" class="form-control" id="Amount2" placeholder="Amount">
+				 </div>	
+			     <div class="money"><button onclick="myFunction()" id="myBtn">Withdraw</button></div><br>				 
+			  </li></br>
+			   <li class="n-2"><div class="text_one"><p>Refer <a href="#">personalattentionz.com</a> and earn 5% on purchases of every invited person!</p></div> <div class="money"><button onclick="myFunction()" id="myBtn">Copy Link</button></div></li>
+			 </ul>
+		   </div>
+		  </div>
+     </div>		  
+  </div>
 </div>  
-<!--body start>
-
-<body end-->
+<!--body end-->
 
 <!--footer -->
 <footer class="footer_style_2">
@@ -223,21 +228,16 @@
     </div>
   </div>
 </footer>
+<!-- revolution js files -->
 </body>
-<style>
-
-.inner-page {
-    float: left;
-    width: 100%;
-    padding: 10px;
-}
-.paginations.outer {
-    float: left;
-    width: 100%;
-    padding: 20px 0px;
-}
-.pagination>li>a, .pagination>li>span {
-    width: fit-content;
-}
-</style>
+<script>
+$(document).ready(function(){
+	$(".dropdown, .btn-group").hover(function(){
+		var dropdownMenu = $(this).children(".dropdown-menu");
+		if(dropdownMenu.is(":visible")){
+			dropdownMenu.parent().toggleClass("open");
+		}
+	});
+});		
+</script>
 </html>

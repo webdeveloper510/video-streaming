@@ -36,6 +36,9 @@ class AuthController extends Controller
       return view('playlist',['category'=>$data]) ;
       //return view('/playlist');
     }
+    public function withdraw(){
+      return view('/withdraw');
+    }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
       if(!$contentLogin){

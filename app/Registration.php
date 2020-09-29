@@ -140,9 +140,10 @@ public function addCategorytable($category){
 }
 public function uploadContentProvider($contentdata){
     $session_data =   Session::get('contentUser');
-    $contentid=$session_data->id;
+     $contentid=$session_data->id;
+    //print_r($contentdata);die;
     unset($contentdata['email']);
-    $contentdata['contentId']=$contentid;
+    $contentdata['contentProviderid']=$contentid;
     $contentdata['created_at']= now();
     $contentdata['updated_at']= now();
     $inserted_data =  DB::table('provider')->insert($contentdata);

@@ -31,6 +31,7 @@ Route::get('play', 'AuthController@play');
 Route::get('search', 'AuthController@search');
 Route::get('upload', 'AuthController@upload');
 Route::get('playlist', 'AuthController@playlist');
+Route::get('withdraw', 'AuthController@withdraw');
 Route::get('contentProvider', 'AuthController@contentProv');
 
 
