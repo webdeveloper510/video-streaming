@@ -48,25 +48,74 @@
                     <div class="col-md-6">
                       <div class="dropdown12">
                            <h4>Categories </h4>
-                           <form action="" id="tableid">
-                            <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
-                            <span class="checkmark"></span>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class="container1">{{$cat->category}} 
+                     {{Form::checkbox('category[]', $cat->id)}}
+                      <span class="checkmark"></span>
                             </label>
-                            <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
-                            <span class="checkmark"></span>
-                            </label>
-                           </form>
+                             @endif
+                            @endforeach
+                          
                       </div>
                     </div>
                      <div class="col-md-6">
                         <div class="dropdown12">
                            <h4>Price</h4>
-                           <form action="/action_page.php" id="tableid">
+  
+                            <label class="container1">Free  
+                             {{Form::checkbox('price[]','free')}}
+                           <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">lowest  
+                               {{Form::checkbox('price[]','asc')}}
+                            <span class="checkmark"></span></label>
+                            <label class="container1">Higest  
+                               {{Form::checkbox('price[]','desc')}}
+                            <span class="checkmark"></span>
+                            </label>
+                       
+                        </div>
+                        <div class="dropdown12">
+                           <h4 >Duration</h4>
+                            <label class="container1">Shortest  
+                             {{Form::checkbox('duration[]','shortest')}}
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">Longest 
+                           {{Form::checkbox('duration[]','longest')}}
+                            <span class="checkmark"></span>
+                          </label>
+                      
+                        </div>
+                          {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+                      {{ Form::close() }}
+                       </div> 
+                     </div>    
+
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                      <h3 style="color: #fff;">Audio</h3>
+                      <div class="col-md-6">
+                      <div class="dropdown12">
+                           <h4>Categories </h4>
+                      {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
+                      {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='audio')
+                   <label class="container1">{{$cat->category}}  <input type="checkbox" name="checkbox[]" id="35" value="{{$cat->category}}">
+                            <span class="checkmark"></span>
+                            </label>
+                             @endif
+                            @endforeach
+                          </div>
+                          </div>
+                          <div class="col-md-6">
+                               <div class="dropdown12">
+                           <h4>Price</h4>
+  
                             <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
                             <span class="checkmark"></span>
                             </label>
@@ -78,28 +127,73 @@
                             <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
                             <span class="checkmark"></span>
                             </label>
-                           </form>
+                       
                         </div>
-                        <div class="dropdown12">
-                           <h4 >Add Reques</h4>
-                           <form action="/action_page.php" id="tableid">
-                            <label class="container1">Shortest  <input type="checkbox" name="checkbox[]" id="35" value="Shortest">
+                          </div>
+                       
+                             <div class="dropdown12">
+                           <h4 >Duration</h4>
+                            <label class="container1">Shortest  
+                            <input type="checkbox" name="duration" value="shortest"/>
                             <span class="checkmark"></span>
                             </label>
-                            <label class="container1">Longest  <input type="checkbox" name="checkbox[]" id="28" value="Longest">
-                            <span class="checkmark"></span></label>
-                           </form>
-                        </div>
-                       </div> </div>    
-
-                    </div>
-                    <div id="menu1" class="tab-pane fade">
-                      <h3 style="color: #fff;">Audio</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
+                            <label class="container1">Longest 
+                             <input type="checkbox" name="duration" id="28" value="Longest">
+                            <span class="checkmark"></span>
+                          </label>
+                          </div>
+                            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+                        {{ Form::close() }}
+                      </div>
+                  
                     <div id="menu2" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                          <div class="col-md-6">
+                      <div class="dropdown12">
+                           <h4>Categories </h4>
+                           {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
+                             {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='artist')
+                   <label class="container1">{{$cat->category}}  <input type="checkbox" name="checkbox[]" id="35" value="{{$cat->category}}">
+                            <span class="checkmark"></span>
+                            </label>
+                             @endif
+                            @endforeach
+                          </div>
+                          </div>
+                          <div class="col-md-6">
+                               <div class="dropdown12">
+                           <h4>Price</h4>
+  
+                            <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+                            <span class="checkmark"></span></label>
+                            <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+                            <span class="checkmark"></span>
+                            </label>
+                       
+                        </div>
+                          </div>
+                           <div class="dropdown12">
+                           <h4 >Duration</h4>
+                            <label class="container1">Shortest  
+                            <input type="checkbox" name="duration" value="shortest"/>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="container1">Longest 
+                             <input type="checkbox" name="duration" id="28" value="Longest">
+                            <span class="checkmark"></span>
+                          </label>
+                          </div>
+                            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+                          {{ Form::close() }}
+                       
                     </div>
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Menu 3</h3>

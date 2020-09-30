@@ -47,6 +47,7 @@ Route::post('contentPostLogin', 'AuthController@contentPostLogin');
 Route::post('Dashboard', 'AuthController@Postdashboard');
 Route::post('postContent', 'AuthController@providerContent');
 Route::post('addCategory', 'AuthController@addCategory');
+Route::post('getVedio', 'AuthController@getVedio');
 
 //Auth::routes();
 

@@ -69,6 +69,7 @@ class Registration extends Model
                     return 1;
         }
 }
+
 public function uploadContentData($userdata){
     $value=DB::table('content')->where('email', $userdata['email'])->get();
     if($value->count() == 0){
@@ -132,6 +133,28 @@ public function getContentProvider($type){
     }
 
 }
+
+public function getVedio($data){
+   $value = DB::table('provider');
+    //$count=count($data['category']);
+      if(isset($data['category'])){
+        $value=DB::table('provider')->whereIn('category',$data['category']);
+     }
+     if(isset($data['price']) && $data['price']=='free'){
+        $value=$value->where('price',$data['price']);
+      }
+
+    else{
+         $value=$value->orderBy('price', $data['price']);
+    }
+ if(isset($data['duration'])){
+     $value=$value->where('duration',$data['duration']);
+    
+}
+    $getdata=$value->get();
+    echo "<pre>";
+     print_r($getdata);
+}
 public function addCategorytable($category){
     $category['created_at']=now();
     $category['updated_at']=now();
@@ -144,6 +167,10 @@ public function uploadContentProvider($contentdata){
     //print_r($contentdata);die;
     unset($contentdata['email']);
     $contentdata['contentProviderid']=$contentid;
+    $contentdata['duration']=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
+     unset($contentdata['hour']);
+     unset($contentdata['minutes']);
+     unset($contentdata['seconds']);
     $contentdata['created_at']= now();
     $contentdata['updated_at']= now();
     $inserted_data =  DB::table('provider')->insert($contentdata);

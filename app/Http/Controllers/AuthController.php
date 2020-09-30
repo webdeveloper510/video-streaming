@@ -66,6 +66,14 @@ class AuthController extends Controller
       return view('contentLoginform');
     }
 
+    public function getVedio(Request $request){
+         $data=$request->all();
+         unset($data['_token']);
+          $model = new Registration();
+         $data = $model->getVedio($data);
+        print_r($data);
+    }
+
 
      public function Dashboard()
     {
@@ -248,7 +256,9 @@ class AuthController extends Controller
           'audio' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'email'=>'required', 
           'description'=>'required',
-          'duration'=>'required',
+          'hour'=>'required',
+          'minutes'=>'required',
+          'seconds'=>'required',
           'keyword'=>'required',
           'title'=>'required',
           'price'=>'required',
