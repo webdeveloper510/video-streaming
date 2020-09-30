@@ -15,7 +15,7 @@ class AddOtherProvider extends Migration
     {
         Schema::table('provider', function (Blueprint $table) {
             //
-            $table->string('duration');
+            //$table->string('duration');
             $table->string('contentId');
         });
     }
