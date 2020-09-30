@@ -1,5 +1,3 @@
-@extends('layout.cdn')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,84 +9,139 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
 <title>PAZ html</title>
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
 </head>
 <body id="default_theme" class="it_service">
 <!-- header -->
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
-    <div class="container"> 
-      <div class="bs-example">
-        <nav class="navbar navbar-expand-md navbar-light">
-          <a href="index.html" class="navbar-brand">
-            <img src="images/logos/logo-2.png" height="28" alt="CoolBrand">
-          </a>
-          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="search_meu">
-          <!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
-            <ul class="nav custom search">
-              <li id="options">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="subnav">
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Add Request</a></li>
-                    </ul>
+		<div class="container">	
+			<div class="bs-example">
+				<nav class="navbar navbar-expand-md navbar-light">
+					<a href="index.html" class="navbar-brand">
+						<img src="images/logos/logo-2.png" height="28" alt="CoolBrand">
+					</a>
+					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="search_meu">
+					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
+						<ul class="nav custom search">
+							<li id="options">
+								<a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+								<ul class="subnav">
+								  <ul class="nav nav-tabs">
+										<li class="active"><a data-toggle="tab" href="#home">Video</a></li>
+										<li><a data-toggle="tab" href="#menu1">Audio</a></li>
+										<li><a data-toggle="tab" href="#menu2">Artists</a></li>
+										<li><a data-toggle="tab" href="#menu3">Add Request</a></li>
+									  </ul>
 
-                    <div class="tab-content">
-                    <div id="home" class="tab-pane fade in active">
-                    <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <div id="menu1" class="tab-pane fade">
-                      <h3>Menu 1</h3>
-                      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <div id="menu2" class="tab-pane fade">
-                      <h3>Menu 2</h3>
-                      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-                    </div>
-                    <div id="menu3" class="tab-pane fade">
-                      <h3>Menu 3</h3>
-                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>
-                    </div>
-                </ul>
-              </li>
-              <li id="search">
-                <form action="" method="get">
-                  <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-                  <input type="button" name="search_button" id="search_button"></a>
-                </form>
-              </li>
-            </ul>
-          
-          <!--div class="search-box" style="font-size: 16px;">
-            <input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
-          <i class="fa fa-search" aria-hidden="true"></i>
-          </div-->
-          </div>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-              <a href="#" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
-              <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
-              <a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a> 
-              <a href="play.html" class="nav-item nav-link"><i class="fa fa-play" aria-hidden="true"></i></a> 
-              <a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
-              <a href="#" class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i>User Name</a>              
+									  <div class="tab-content">
+										<div id="home" class="tab-pane fade1 in active">
+										<div class="row">
+										<div class="col-md-6">
+											<div class="dropdown12">
+												   <h4>Categories </h4>
+												   <form action="" id="tableid">
+													  <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+													  <span class="checkmark"></span></label>
+													  <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+													  <span class="checkmark"></span>
+													  </label>
+												   </form>
+											</div>
+										</div>
+										 <div class="col-md-6">
+												<div class="dropdown12">
+												   <h4>Price</h4>
+												   <form action="/action_page.php" id="tableid">
+													  <label class="container1">Free  <input type="checkbox" name="checkbox[]" id="35" value="Free">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">lowest  <input type="checkbox" name="checkbox[]" id="28" value="lowest">
+													  <span class="checkmark"></span></label>
+													  <label class="container1">Higest  <input type="checkbox" name="checkbox[]" id="27" value="Necklaces">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">Earlowest  <input type="checkbox" name="checkbox[]" id="5" value="Higest">
+													  <span class="checkmark"></span>
+													  </label>
+												   </form>
+												</div>
+												<div class="dropdown12">
+												   <h4 >Add Reques</h4>
+												   <form action="/action_page.php" id="tableid">
+													  <label class="container1">Shortest  <input type="checkbox" name="checkbox[]" id="35" value="Shortest">
+													  <span class="checkmark"></span>
+													  </label>
+													  <label class="container1">Longest  <input type="checkbox" name="checkbox[]" id="28" value="Longest">
+													  <span class="checkmark"></span></label>
+												   </form>
+												</div>
+										   </div> </div>		
 
-            </div>
-            <div class="navbar-nav ml-auto">
-              <a href="#" class="nav-item nav-link">Login</a>
-            </div>
-          </div>
-        </nav>
-        </div>
-     </div>  
+										</div>
+										<div id="menu1" class="tab-pane fade">
+										  <h3 style="color: #fff;">Audio</h3>
+										  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+										<div id="menu2" class="tab-pane fade">
+										  <h3 style="color: #fff;">Artists</h3>
+										  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+										</div>
+										<div id="menu3" class="tab-pane fade">
+										  <h3 style="color: #fff;">Menu 3</h3>
+										  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+										</div>
+									  </div>
+								</ul>
+							</li>
+							<li id="search">
+								<form action="" method="get">
+									<input type="text" name="search_text" id="search_text" placeholder="Search"/>
+									<input type="button" name="search_button" id="search_button"></a>
+								</form>
+							</li>
+						</ul>
+					
+					<!--div class="search-box" style="font-size: 16px;">
+						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
+					<i class="fa fa-search" aria-hidden="true"></i>
+					</div-->
+					</div>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+						<div class="navbar-nav">
+						 <ul>
+							<li><a href="#" class="nav-item nav-link active"><img src="images/icon/badge1.png">TOP LIST</a></li>
+							<li><a href="1-page.html" class="nav-item nav-link"><img src="images/icon/phone-ringing.png">LIVE</a></li>
+							<li><a href="upload.html" class="nav-item nav-link"><img src="images/icon/cloud-computing.png"></a></li>
+							<li><a href="play.html" class="nav-item nav-link"><img src="images/icon/online-video.png"></a></li>
+							<li><a href="withdrawmoney.html" class="nav-item nav-link"><img src="images/icon/save-money2.png"></a></li>
+							<li><a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle"><img src="images/icon/user1.png">User Name </a>
+								<ul class="dropdown-menu" style="display:none;">
+									<li><a href="#">Account</a></li>
+									<li><a href="#">Payment</a></li>
+									<li><a href="#">Setting</a></li>
+									<li><a href="#">About</a></li>
+								</ul>
+                            </li>				
+                         </ul>
+						</div>
+					</div>
+				</nav>
+		    </div>
+	   </div>  
   
   </div>
   <!-- header bottom end -->
@@ -100,8 +153,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Recently Searched</h3>
-  </div>
+	  <h3 class="tittle">Recently Searched</h3>
+	</div>
     <!--Carousel Wrapper-->
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
@@ -129,31 +182,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls allowfullscreen>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
           </div>
@@ -167,31 +220,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-            <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>        
+					  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>			  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                    <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -205,31 +258,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -256,8 +309,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Popular</h3>
-  </div>
+	  <h3 class="tittle">Popular</h3>
+	</div>
     <!--Carousel Wrapper-->
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
@@ -285,31 +338,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
           </div>
@@ -323,31 +376,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-            <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>        
+					  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>			  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                    <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -361,31 +414,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -409,8 +462,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">New Comes</h3>
-  </div>
+	  <h3 class="tittle">New Comes</h3>
+	</div>
     <!--Carousel Wrapper-->
     <div id="New_comes" class="carousel slide carousel-multi-item" data-ride="carousel">
 
@@ -438,31 +491,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
           </div>
@@ -476,31 +529,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-            <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>        
+					  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>			  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                    <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -514,31 +567,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -558,11 +611,11 @@
  
  
   <!--4th slider start-->
-<div class="outer_slider">
+<div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Special offer</h3>
-  </div>
+	  <h3 class="tittle">Special offer</h3>
+	</div>
     <!--Carousel Wrapper-->
     <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
 
@@ -590,31 +643,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
           </div>
@@ -628,31 +681,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-            <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>        
+					  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>			  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-                    <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>
+				  				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -666,31 +719,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
 
             <div class="col-md-4 clearfix d-none d-md-block">
               <div class="card mb-2">
-          <video width="370" height="245" controls>
-            <source src="movie.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-            Your browser does not support the video tag.
-          </video>          
+				  <video width="370" height="245" controls>
+					  <source src="movie.mp4" type="video/mp4">
+					  <source src="movie.ogg" type="video/ogg">
+					  Your browser does not support the video tag.
+					</video>				  
               </div>
             </div>
           </div>
@@ -762,4 +815,3 @@
 </body>
 
 </html>
-  
