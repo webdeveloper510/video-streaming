@@ -25,19 +25,34 @@ class AuthController extends Controller
       return view('/contact');
     }
     public function play(){
-      return view('/play');
+       $model = new Registration();
+       $data = $model->getCategory();
+      
+      return view('/play',['category'=>$data]);
     }
     public function search(){
-      return view('/search');
+        $model = new Registration();
+        $category_data = $model->getCategory();
+
+        // get filterData from session
+        $data = Session::get('filterData');
+        unset($data['_token']);
+        $search_data = $model->getVedio($data);
+
+
+         return view('/search',['category'=>$category_data,'video'=>$search_data]);
     }
     public function playlist(){
       $model = new Registration();
       $data = $model->getCategory();
+      
       return view('playlist',['category'=>$data]) ;
       //return view('/playlist');
     }
     public function withdraw(){
-      return view('/withdraw');
+      $model = new Registration();
+      $data = $model->getCategory();
+      return view('/withdraw',['category'=>$data]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -68,10 +83,11 @@ class AuthController extends Controller
 
     public function getVedio(Request $request){
          $data=$request->all();
-         unset($data['_token']);
-          $model = new Registration();
-         $data = $model->getVedio($data);
-        print_r($data);
+        
+         Session::put('filterData', $data);
+         
+          return redirect('/search');
+        //print_r($data);
     }
 
 
@@ -104,7 +120,9 @@ class AuthController extends Controller
 
       }
       public function home(){
-        return view('/initial');
+          $model = new Registration();
+      $data = $model->getCategory();
+        return view('/initial',['category'=>$data]);
       }
       public function contentPostLogin(Request $request){
         $this->validate($request,[
