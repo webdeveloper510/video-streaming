@@ -17,85 +17,7 @@
 </head>
 <body id="default_theme" class="it_service">
 <!-- header -->
-<header id="default_header" class="header_style_1">
-  <!-- header bottom -->
-  <div class="header_bottom">
-		<div class="container">	
-			<div class="bs-example">
-				<nav class="navbar navbar-expand-md navbar-light">
-					<a href="index.html" class="navbar-brand">
-						<img src="images/logos/logo-2.png" height="28" alt="CoolBrand">
-					</a>
-					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="search_meu">
-					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
-						<ul class="nav custom search">
-							<li id="options">
-								<a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-								<ul class="subnav">
-								  <ul class="nav nav-tabs">
-										<li class="active"><a data-toggle="tab" href="#home">Video</a></li>
-										<li><a data-toggle="tab" href="#menu1">Audio</a></li>
-										<li><a data-toggle="tab" href="#menu2">Artists</a></li>
-										<li><a data-toggle="tab" href="#menu3">Add Request</a></li>
-									  </ul>
-
-									  <div class="tab-content">
-										<div id="home" class="tab-pane fade in active">
-										<h3>Menu 1</h3>
-										  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-										</div>
-										<div id="menu1" class="tab-pane fade">
-										  <h3>Menu 1</h3>
-										  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-										</div>
-										<div id="menu2" class="tab-pane fade">
-										  <h3>Menu 2</h3>
-										  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-										</div>
-										<div id="menu3" class="tab-pane fade">
-										  <h3>Menu 3</h3>
-										  <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-										</div>
-									  </div>
-								</ul>
-							</li>
-							<li id="search">
-								<form action="" method="get">
-									<input type="text" name="search_text" id="search_text" placeholder="Search"/>
-									<input type="button" name="search_button" id="search_button"></a>
-								</form>
-							</li>
-						</ul>
-					
-					<!--div class="search-box" style="font-size: 16px;">
-						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
-					<i class="fa fa-search" aria-hidden="true"></i>
-					</div-->
-					</div>
-					<div class="collapse navbar-collapse" id="navbarCollapse">
-						<div class="navbar-nav">
-							<a href="#" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
-							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
-							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
-							<a href="play.html" class="nav-item nav-link"><i class="fa fa-play" aria-hidden="true"></i></a>	
-							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
-							<a href="#" class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i>User Name</a>								
-
-						</div>
-						<div class="navbar-nav ml-auto">
-							<a href="#" class="nav-item nav-link">Login</a>
-						</div>
-					</div>
-				</nav>
-		    </div>
-	   </div>  
-  
-  </div>
-  <!-- header bottom end -->
-</header>
+@include('layouts.header')
 <!-- end header -->
 <div class="inner-page">
   <div class="container">
@@ -116,58 +38,21 @@
 </div>
 <br></br>
  <div class="row">
+ 	  @foreach ($video as $vid)
+ 	   @if($vid->type=='vedio')
             <div class="col-md-4">
 			  <div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+				<video width="320" height="240" controls>
+              <source src="{{url('storage/video/'.$vid->audio) }}" type="video/mp4">
+       Your browser does not support the video tag.
+            </video>
 				</div>
 			</div>
-            <div class="col-md-4">
-				<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>
-				</div>	
-			</div>	
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
-				</div>
-			</div>
+			@endif
+			@endforeach
+		
   </div>
   <br/>
-   <div class="row">
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
-				</div>
-			</div>
-            <div class="col-md-4">
-				<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>
-				</div>	
-			</div>	
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
-				</div>
-			</div>
-  </div></br>
-     <div class="row">
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
-				</div>
-			</div>	 
-            <div class="col-md-4">
-				<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/137857207" allowfullscreen></iframe>
-				</div>	
-			</div>	
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
-				</div>
-			</div>			
-
-  </div></br>
 </div>  
 <!--body start>
 

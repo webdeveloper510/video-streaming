@@ -136,24 +136,27 @@ public function getContentProvider($type){
 
 public function getVedio($data){
    $value = DB::table('provider');
+  //print_r($value);
+ //print_r($data);
     //$count=count($data['category']);
       if(isset($data['category'])){
         $value=DB::table('provider')->whereIn('category',$data['category']);
      }
      if(isset($data['price']) && $data['price']=='free'){
+        //echo "yes";
         $value=$value->where('price',$data['price']);
       }
 
     else{
-         $value=$value->orderBy('price', $data['price']);
+        //echo "no";
+         $value=$value->orderBy('price',$data['price']);
     }
  if(isset($data['duration'])){
-     $value=$value->where('duration',$data['duration']);
+    //echo "duration";
+     $value=$value->orderBy('duration',$data['duration']);
     
 }
-    $getdata=$value->get();
-    echo "<pre>";
-     print_r($getdata);
+    return $value->get();
 }
 public function addCategorytable($category){
     $category['created_at']=now();
@@ -167,7 +170,9 @@ public function uploadContentProvider($contentdata){
     //print_r($contentdata);die;
     unset($contentdata['email']);
     $contentdata['contentProviderid']=$contentid;
-    $contentdata['duration']=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
+    $duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
+    $timeArr = explode(':', $duration);
+     $contentdata['duration']= ($timeArr[0]*3600 ) + ($timeArr[1]*60) + ($timeArr[2]);
      unset($contentdata['hour']);
      unset($contentdata['minutes']);
      unset($contentdata['seconds']);
