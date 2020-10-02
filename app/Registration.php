@@ -136,9 +136,6 @@ public function getContentProvider($type){
 
 public function getVedio($data){
    $value = DB::table('provider');
-  //print_r($value);
- //print_r($data);
-    //$count=count($data['category']);
       if(isset($data['category'])){
         $value=DB::table('provider')->whereIn('category',$data['category']);
      }
@@ -156,7 +153,23 @@ public function getVedio($data){
      $value=$value->orderBy('duration',$data['duration']);
     
 }
+
     return $value->get();
+}
+
+public function insertRecentTable($data){
+
+     $fetchData=$data->pluck('id')->toArray();
+     $insertData['mediaId']=implode(',', $fetchData);
+      $session_data =   Session::get('User');
+      $insertData['userId']= $session_data->id;
+      $insertData['created_at']=now();
+    $insertData['updated_at']=now();
+     $insert=DB::table('recentmedia')->insert($insertData);
+     if($insert){
+        Session::forget('recentSearch');
+     }
+     
 }
 public function addCategorytable($category){
     $category['created_at']=now();
@@ -180,6 +193,24 @@ public function uploadContentProvider($contentdata){
     $contentdata['updated_at']= now();
     $inserted_data =  DB::table('provider')->insert($contentdata);
     return $inserted_data ? '1':'0';
+}
+
+public function getRecentlySearch(){
+    $session_data =   Session::get('User');
+     $usertid = $session_data->id;
+   
+ $count = DB::table("recentmedia")->select('mediaId')->from('recentmedia')
+                     ->where('userId',$usertid)->get()->toArray();
+    if($count>0){
+        $media_array = explode(',',$count[0]->mediaId);
+         $data = DB::table("provider")->select('*')
+            ->whereIn('id',$media_array)
+            //->toSql();
+            ->get();
+            return $data;
+    }
+    
+
 }
 public function getCategory(){
     $category = DB::table('category')->get();

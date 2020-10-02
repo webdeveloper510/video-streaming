@@ -31,145 +31,42 @@
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#recently_search" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#recently_search" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-      </div>
+     
       <!--/.Controls-->
 
       <!--Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#recently_search" data-slide-to="0" class="active"></li>
-        <li data-target="#recently_search" data-slide-to="1"></li>
-        <li data-target="#recently_search" data-slide-to="2"></li>
-      </ol>
+     
       <!--/.Indicators-->
 
+
+      <div id="owl-example" class="owl-carousel">
+   @foreach($recently as $recnt)
+            @if($recnt->type=='vedio')
+            <div class="col-md-4">
+              <div class="card mb-2">
+          <video width="370" height="245" controls allowfullscreen>
+            <source src="{{url('storage/video/'.$recnt->audio) }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+              </div>
+            </div>
+            @endif
+            @endforeach
+  
+</div>
+
       <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-
-        <!--First slide-->
-        <div class="carousel-item active">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls allowfullscreen>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.First slide-->
-
-        <!--Second slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-					  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>			  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Second slide-->
-
-        <!--Third slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Third slide-->
-
-      </div>
+      
       <!--/.Slides-->
 
     </div>
     <!--/.Carousel Wrapper-->
 
 
-  </div>  </div><br/><br/>
+  </div>  </div>
+
+
+  <br/><br/>
 
  
  <!--End 1st slider-->
@@ -186,146 +83,34 @@
     <!--Carousel Wrapper-->
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-      <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#Popular_slid" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#Popular_slid" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-      </div>
-      <!--/.Controls-->
-
-      <!--Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#Popular_slid" data-slide-to="0" class="active"></li>
-        <li data-target="#Popular_slid" data-slide-to="1"></li>
-        <li data-target="#Popular_slid" data-slide-to="2"></li>
-      </ol>
-      <!--/.Indicators-->
-
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-
-        <!--First slide-->
-        <div class="carousel-item active">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
+             <div id="owl-example1" class="owl-carousel">
+            @foreach($recently as $recnt)
+              @if($recnt->type=='vedio')
+              <div class="col-md-4">
+                <div class="card mb-2">
+            <video width="370" height="245" controls allowfullscreen>
+              <source src="{{url('storage/video/'.$recnt->audio) }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+                </div>
               </div>
+          @endif
+          @endforeach
+  
             </div>
+    
 
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.First slide-->
-
-        <!--Second slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-					  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>			  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Second slide-->
-
-        <!--Third slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Third slide-->
-
-      </div>
+  
       <!--/.Slides-->
 
     </div>
     <!--/.Carousel Wrapper-->
 
 
-  </div>  </div><br/><br/>
+  </div>  </div>
+
+
+  <br/><br/>
  <!--End 2nd slider-->
  
  
@@ -339,140 +124,25 @@
     <!--Carousel Wrapper-->
     <div id="New_comes" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-      <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#New_comes" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#New_comes" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-      </div>
-      <!--/.Controls-->
-
-      <!--Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#New_comes" data-slide-to="0" class="active"></li>
-        <li data-target="#New_comes" data-slide-to="1"></li>
-        <li data-target="#New_comes" data-slide-to="2"></li>
-      </ol>
-      <!--/.Indicators-->
-
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-
-        <!--First slide-->
-        <div class="carousel-item active">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
+        <div id="owl-example2" class="owl-carousel">
+            @foreach($recently as $recnt)
+              @if($recnt->type=='vedio')
+              <div class="col-md-4">
+                <div class="card mb-2">
+            <video width="370" height="245" controls allowfullscreen>
+              <source src="{{url('storage/video/'.$recnt->audio) }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+                </div>
               </div>
+          @endif
+          @endforeach
+  
             </div>
+    
 
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.First slide-->
-
-        <!--Second slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-					  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>			  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Second slide-->
-
-        <!--Third slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Third slide-->
-
-      </div>
-      <!--/.Slides-->
+    
+      
 
     </div>
     <!--/.Carousel Wrapper-->
@@ -491,140 +161,24 @@
     <!--Carousel Wrapper-->
     <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-      <!--Controls-->
-      <div class="controls-top">
-        <a class="btn-floating" href="#Special_offer" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-        <a class="btn-floating" href="#Special_offer" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-      </div>
-      <!--/.Controls-->
-
-      <!--Indicators-->
-      <ol class="carousel-indicators">
-        <li data-target="#Special_offer" data-slide-to="0" class="active"></li>
-        <li data-target="#Special_offer" data-slide-to="1"></li>
-        <li data-target="#Special_offer" data-slide-to="2"></li>
-      </ol>
-      <!--/.Indicators-->
-
-      <!--Slides-->
-      <div class="carousel-inner" role="listbox">
-
-        <!--First slide-->
-        <div class="carousel-item active">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
+         <div id="owl-example3" class="owl-carousel">
+            @foreach($recently as $recnt)
+              @if($recnt->type=='vedio')
+              <div class="col-md-4">
+                <div class="card mb-2">
+            <video width="370" height="245" controls allowfullscreen>
+              <source src="{{url('storage/video/'.$recnt->audio) }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+                </div>
               </div>
+          @endif
+          @endforeach
+  
             </div>
+    
 
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.First slide-->
-
-        <!--Second slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-					  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>			  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Second slide-->
-
-        <!--Third slide-->
-        <div class="carousel-item">
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-
-            <div class="col-md-4 clearfix d-none d-md-block">
-              <div class="card mb-2">
-				  <video width="370" height="245" controls>
-					  <source src="movie.mp4" type="video/mp4">
-					  <source src="movie.ogg" type="video/ogg">
-					  Your browser does not support the video tag.
-					</video>				  
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!--/.Third slide-->
-
-      </div>
-      <!--/.Slides-->
+    
 
     </div>
     <!--/.Carousel Wrapper-->
@@ -632,6 +186,25 @@
 
   </div>  </div><br/><br/>
  <!--End 4th slider-->
+
+ <script>
+  $(document).ready(function() {
+ 
+  $("#owl-example").owlCarousel({
+    items:3
+  });
+   $("#owl-example1").owlCarousel({
+    items:3
+  });
+    $("#owl-example2").owlCarousel({
+    items:3
+  });
+     $("#owl-example3").owlCarousel({
+    items:3
+  });
+ 
+});
+ </script>
 <!--footer -->
 <footer class="footer_style_2">
   <div class="container">
