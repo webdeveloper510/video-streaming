@@ -32,11 +32,13 @@
             </div>
             <div class="col-md-6 mt-5 ">
             {{Form::label('Add Price', 'Audio/Vedio Price')}} 
-                {{Form::select('price', ['free' => 'Free', 'lowest' => 'Lowest','highest'=>'Highest'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
+               {{Form::number('price')}}
             </div>
             <div class="col-md-6 mt-5 ">
             {{Form::label('Duration', 'Duration')}} 
-                {{Form::select('duration', ['shortest' => 'Shortest', 'longest' => 'Longest'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
+               {{Form::text('hour')}}
+               {{Form::text('minutes')}}
+               {{Form::text('seconds')}}
             </div>
             <div class="col-md-6 mt-5 ">
             {{Form::label('Title', 'Title')}} 

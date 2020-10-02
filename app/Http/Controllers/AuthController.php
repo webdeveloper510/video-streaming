@@ -25,19 +25,72 @@ class AuthController extends Controller
       return view('/contact');
     }
     public function play(){
-      return view('/play');
+       $contentLogin =   Session::get('contentUser');
+      if(!$contentLogin){
+        return redirect('/getLogin');
+    }
+
+
+       $model = new Registration();
+       $data = $model->getCategory();
+      
+      return view('/play',['category'=>$data]);
     }
     public function search(){
-      return view('/search');
+       $contentLogin =   Session::get('contentUser');
+      if(!$contentLogin){
+        return redirect('/getLogin');
+    }
+
+
+        $model = new Registration();
+        $category_data = $model->getCategory();
+
+        // get filterData from session
+        //$data = Session::get('user')['filterData'];
+
+           $data=Session::get('filterData');
+
+           $recentSelected=Session::get('recentSearch');
+
+        unset($data['_token']);
+        //$recentSelected = Session::get('user')['recentSearch'];
+      //print_r($data);die;
+        //unset($data['_token']);
+
+        $search_data = $model->getVedio($data);
+            if($recentSelected){
+              //echo "yes";
+            $this->recentData($search_data);
+          //$search_data = $model->getVedio($data);
+        }
+         return view('/search',['category'=>$category_data,'video'=>$search_data]);
+    }
+
+    public function recentData($search_data){
+          $model = new Registration();
+           $model->insertRecentTable($search_data);
     }
     public function playlist(){
+       $session_data =   Session::get('User');
+        //$url = $request;
+        if(!$session_data){
+            return redirect('/login');
+        }
       $model = new Registration();
       $data = $model->getCategory();
+      
       return view('playlist',['category'=>$data]) ;
       //return view('/playlist');
     }
     public function withdraw(){
-      return view('/withdraw');
+       $contentLogin =   Session::get('contentUser');
+      if(!$contentLogin){
+        return redirect('/getLogin');
+    }
+      $model = new Registration();
+      $data = $model->getCategory();
+      return view('/withdraw',['category'=>$data]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -64,6 +117,20 @@ class AuthController extends Controller
     public function getLogin(){
         
       return view('contentLoginform');
+    }
+
+    public function getVedio(Request $request){
+         $data=$request->all();
+        
+      Session::put('filterData',$data);
+
+
+      Session::put('recentSearch',1);
+
+        
+         
+          return redirect('/search');
+        //print_r($data);
     }
 
 
@@ -96,7 +163,13 @@ class AuthController extends Controller
 
       }
       public function home(){
-        return view('/initial');
+          $model = new Registration();
+         $data = $model->getCategory();
+
+           $Recentlydata=$model->getRecentlySearch();
+
+
+        return view('/initial',['category'=>$data, 'recently'=>$Recentlydata]);
       }
       public function contentPostLogin(Request $request){
         $this->validate($request,[
@@ -248,7 +321,9 @@ class AuthController extends Controller
           'audio' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'email'=>'required', 
           'description'=>'required',
-          'duration'=>'required',
+          'hour'=>'required',
+          'minutes'=>'required',
+          'seconds'=>'required',
           'keyword'=>'required',
           'title'=>'required',
           'price'=>'required',
