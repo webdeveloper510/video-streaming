@@ -11,7 +11,7 @@
 <title>It.Next - IT Service Responsive Html Theme</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
-<meta name="author" content="">
+<meta name="author" Content-Type="video/mp4">
    
     <link rel="icon" href="{{url('images/fevicon/fevicon.png')}}" type="image/gif" />
 <!-- bootstrap css -->

@@ -54,7 +54,7 @@ class Registration extends Model
         }
 }
         public function Contentlogin($data){
-            $value = DB::table('content')->where(array(
+            $value = DB::table('contentprovider')->where(array(
                 'email'=> $data->email,
                 'password'=>md5($data->password)))
                 ->get()
@@ -71,7 +71,7 @@ class Registration extends Model
 }
 
 public function uploadContentData($userdata){
-    $value=DB::table('content')->where('email', $userdata['email'])->get();
+    $value=DB::table('contentprovider')->where('email', $userdata['email'])->get();
     if($value->count() == 0){
         $userdata['catid']=$userdata['category'];
         unset($userdata['category']);
@@ -79,7 +79,7 @@ public function uploadContentData($userdata){
         $userdata['password']= md5($userdata['password']);
         $userdata['created_at']= now();
         $userdata['updated_at']= now();
-        $inserted_data =  DB::table('content')->insert($userdata);
+        $inserted_data =  DB::table('contentprovider')->insert($userdata);
         return $inserted_data ? '1':'0';
     }
 }
@@ -127,7 +127,7 @@ public function uploadDataFile($data){
     return $update ? 1 : 0;
 }
 public function getContentProvider($type){
-    $value=DB::table('provider')->where('type', $type)->get();
+    $value=DB::table('media')->where('type', $type)->get();
     if($value->count()>=1){
         return $value;
     }
@@ -135,9 +135,10 @@ public function getContentProvider($type){
 }
 
 public function getVedio($data){
-   $value = DB::table('provider');
+    //print_r($data);die;
+   $value = DB::table('media');
       if(isset($data['category'])){
-        $value=DB::table('provider')->whereIn('category',$data['category']);
+        $value=DB::table('media')->whereIn('catid',$data['category']);
      }
      if(isset($data['price']) && $data['price']=='free'){
         //echo "yes";
@@ -155,6 +156,11 @@ public function getVedio($data){
 }
 
     return $value->get();
+}
+
+public function getNewComes(){
+     $newComes = DB::table('media')->orderBy('contentProviderid','desc')->take(10)->get();
+    return $newComes;
 }
 
 public function insertRecentTable($data){
@@ -177,12 +183,26 @@ public function addCategorytable($category){
     $sucess_insert=DB::table('category')->insert($category);
     return $sucess_insert ? '1' :'0';
 }
+
+public function getSubcategory(){
+     $subcategory = DB::table('subcategory')->get();
+    return $subcategory;
+}
+public function insertSubcategory($sub){
+     $sub['created_at']=now();
+    $sub['updated_at']=now();
+    $sucess_insert=DB::table('subcategory')->insert($sub);
+      return $sucess_insert ? '1' :'0';
+}
 public function uploadContentProvider($contentdata){
     $session_data =   Session::get('contentUser');
      $contentid=$session_data->id;
     //print_r($contentdata);die;
     unset($contentdata['email']);
+   
     $contentdata['contentProviderid']=$contentid;
+     $contentdata['catid']=$contentdata['category'];
+      unset($contentdata['category']);
     $duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
     $timeArr = explode(':', $duration);
      $contentdata['duration']= ($timeArr[0]*3600 ) + ($timeArr[1]*60) + ($timeArr[2]);
@@ -191,7 +211,7 @@ public function uploadContentProvider($contentdata){
      unset($contentdata['seconds']);
     $contentdata['created_at']= now();
     $contentdata['updated_at']= now();
-    $inserted_data =  DB::table('provider')->insert($contentdata);
+    $inserted_data =  DB::table('media')->insert($contentdata);
     return $inserted_data ? '1':'0';
 }
 
@@ -200,10 +220,11 @@ public function getRecentlySearch(){
      $usertid = $session_data->id;
    
  $count = DB::table("recentmedia")->select('mediaId')->from('recentmedia')
-                     ->where('userId',$usertid)->get()->toArray();
+                     ->where('userId',$usertid)->orderBy('id','desc')->take(1)->get()->toArray();
     if($count>0){
         $media_array = explode(',',$count[0]->mediaId);
-         $data = DB::table("provider")->select('*')
+       // print_r($media_array);die;
+         $data = DB::table("media")->select('*')
             ->whereIn('id',$media_array)
             //->toSql();
             ->get();

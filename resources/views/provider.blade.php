@@ -31,15 +31,31 @@
                 {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
             </div>
             <div class="col-md-6 mt-5 ">
-            {{Form::label('Add Price', 'Audio/Vedio Price')}} 
-               {{Form::number('price')}}
+            {{Form::label('Add Price', 'Audio/Video Price')}} 
+            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
+              
             </div>
             <div class="col-md-6 mt-5 ">
-            {{Form::label('Duration', 'Duration')}} 
-               {{Form::text('hour')}}
-               {{Form::text('minutes')}}
-               {{Form::text('seconds')}}
+           {{Form::label('Duration', 'Duration')}} 
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+                {{Form::text('hour',null,['class'=>'form-control','placeholder'=>'Hour'])}}
+          </div>
+    </div>
+       <div class="col-md-4">
+           <div class="form-group">
+              {{Form::text('minutes','',['class'=>'form-control'])}}
             </div>
+        </div>
+           <div class="col-md-4">
+             <div class="form-group">
+                {{Form::text('seconds','',['class'=>'form-control'])}}
+            </div>
+        </div>
+            </div>
+          </div>
+           
             <div class="col-md-6 mt-5 ">
             {{Form::label('Title', 'Title')}} 
                 {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
@@ -54,7 +70,7 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-                {{Form::file('audio',['class'=>'custom-file-input'])}}
+                {{Form::file('media',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-4">
             <select name="category" class='form-control'>

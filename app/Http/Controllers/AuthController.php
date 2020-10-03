@@ -10,9 +10,6 @@ use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
 //use Validator;
 
-
-use App\Http\Requests;
-
 class AuthController extends Controller
 {
 
@@ -50,14 +47,13 @@ class AuthController extends Controller
         //$data = Session::get('user')['filterData'];
 
            $data=Session::get('filterData');
-
+            //print_r($data);die;
            $recentSelected=Session::get('recentSearch');
 
         unset($data['_token']);
         //$recentSelected = Session::get('user')['recentSearch'];
-      //print_r($data);die;
+       //  print_r($data);die;
         //unset($data['_token']);
-
         $search_data = $model->getVedio($data);
             if($recentSelected){
               //echo "yes";
@@ -166,10 +162,12 @@ class AuthController extends Controller
           $model = new Registration();
          $data = $model->getCategory();
 
-           $Recentlydata=$model->getRecentlySearch();
+         $Recentlydata=$model->getRecentlySearch();
+
+          $newComes=$model->getNewComes();
 
 
-        return view('/initial',['category'=>$data, 'recently'=>$Recentlydata]);
+        return view('/initial',['category'=>$data, 'recently'=>$Recentlydata, 'newComes'=>$newComes]);
       }
       public function contentPostLogin(Request $request){
         $this->validate($request,[
@@ -307,7 +305,7 @@ class AuthController extends Controller
           $model=new Registration();
           $update_data = $model->uploadContentData($data);
             if($update_data){
-                return redirect('/getContent#success')->with('success','Data Created Successfully!');
+                return redirect('/getLogin');
               }
               else
               {
@@ -318,7 +316,7 @@ class AuthController extends Controller
   }
   public function providerContent(Request $request){
         $this->validate($request,[
-          'audio' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
+          'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'email'=>'required', 
           'description'=>'required',
           'hour'=>'required',
@@ -331,14 +329,14 @@ class AuthController extends Controller
       ]
         );
 
-      if($request->audio){
+      if($request->media){
             $data=$request->all();
-              $fileName = time().'_'.$request->audio->getClientOriginalName();
-              $ext =$request->audio->getClientOriginalExtension();
-              $filePath= $ext=='mp3' ? $request->audio->storeAs('audio', $fileName, 'public') : $request->audio->storeAs('video', $fileName, 'public');
+              $fileName = time().'_'.$request->media->getClientOriginalName();
+              $ext =$request->media->getClientOriginalExtension();
+              $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
               unset($data['_token']);
-              $data['audio']=$fileName;
-              $data['type']=  $ext=='mp3' ? 'audio' : 'vedio'; 
+              $data['media']=$fileName;
+              $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
                 if($filePath){
                 $model=new Registration();
                 $update_data = $model->uploadContentProvider($data);
@@ -352,28 +350,7 @@ class AuthController extends Controller
               }
       }
   }
-  public function getCategory(){
-    return view('category') ;     
-
-  }
-
-
-  public function addCategory(Request $req){
-      $this->validate($req,[
-        'category'=>'required'
-      ]);
-      $data=$req->all();
-      unset($data['_token']);
-      $model=new Registration();
-      $categoryData = $model->addCategorytable($data);
-      if($categoryData){
-        return redirect('/getCategory#success')->with('success','Category Add Successfully!');
-      }
-      else{
-        return redirect('/getCategory#error')->with('error','Some Error Occure!');
-
-      }
-    }
+ 
 
 
   public function getProvider(){

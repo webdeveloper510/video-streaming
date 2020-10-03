@@ -19,18 +19,16 @@
         {{$error}}
         </div>
         @endforeach
-  {!!Form::open(['action' => 'AuthController@addCategory', 'method' => 'post', 'files'=>true])!!}
+  {!!Form::open(['action' => 'admin@addSubCategory', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
         <h1>Add Category</h1>
           <div class="row align-items-center">
             <div class="col-md-6 mt-5 ">
-                {{Form::label('Add Category', 'Add Category')}} 
-                 {{Form::text('category', '',['class'=>'form-control','placeholder'=>'Add Category'])}}
-            </div>
-            <div class="col-md-6 mt-5">
-            {{Form::label('Category Type', 'Category Type')}} 
-                {{Form::select('type', ['audio' => 'Audio', 'video' => 'Video','artist'=>'Artist'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
+                {{Form::label('Sub-Category', 'Sub-Category-Name')}} 
+                 {{Form::text('subcategory', '',['class'=>'form-control','placeholder'=>'Add Category'])}}
+
+                 <input type="hidden" name="catid" value="{{$catId}}">
             </div>
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
@@ -38,3 +36,16 @@
   </div>
 </div>
 
+<table>
+  <tr>
+    <th>Sr. No</th>
+    <th>Subcategory Name</th>
+  </tr>
+  @foreach($subcategory as $index=>$sub)
+  <tr>
+    <td>{{$index+1}}</td>
+    <td>{{$sub->subcategory}}</td>
+  </tr>
+  @endforeach
+  
+</table>

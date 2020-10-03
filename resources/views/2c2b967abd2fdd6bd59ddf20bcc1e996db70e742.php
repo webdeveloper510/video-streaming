@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
 </head>
 <body id="default_theme" class="it_service">
 <!-- header -->
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- end header -->
 <div class="inner-page">
   <div class="container">
@@ -38,18 +38,18 @@
 </div>
 <br></br>
  <div class="row">
- 	  @foreach ($video as $vid)
- 	   @if($vid->type=='video')
+ 	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+ 	   <?php if($vid->type=='video'): ?>
             <div class="col-md-4">
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240" controls>
-              <source src="{{url('storage/video/'.$vid->media) }}" type="video/mp4">
+              <source src="<?php echo e(url('storage/video/'.$vid->media)); ?>" type="video/mp4">
        Your browser does not support the video tag.
             </video>
 				</div>
 			</div>
-			@endif
-			@endforeach
+			<?php endif; ?>
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		
   </div>
   <br/>
@@ -128,3 +128,5 @@
 }
 </style>
 </html>
+
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>

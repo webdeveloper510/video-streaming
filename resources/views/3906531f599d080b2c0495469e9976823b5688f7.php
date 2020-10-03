@@ -1,0 +1,70 @@
+
+<div class="container mt-5">
+
+<a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a>
+  <?php if(session('success')): ?>
+        <div class="alert alert-success" id="success">
+        <?php echo e(session('success')); ?>
+
+        </div>
+        <?php endif; ?>
+            </div>
+          </div>
+          <?php if(session('error')): ?>
+        <div class="alert alert-danger" id="error">
+        <?php echo e(session('error')); ?>
+
+        </div>
+        <?php endif; ?>
+        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <div class="alert alert-danger">
+        <?php echo e($error); ?>
+
+        </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  <?php echo Form::open(['action' => 'admin@addCategory', 'method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?>
+
+      <div class="container profile">
+        <h1>Add Category</h1>
+          <div class="row align-items-center">
+            <div class="col-md-6 mt-5 ">
+                <?php echo e(Form::label('Add Category', 'Add Category')); ?> 
+                 <?php echo e(Form::text('category', '',['class'=>'form-control','placeholder'=>'Add Category'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-5">
+            <?php echo e(Form::label('Category Type', 'Category Type')); ?> 
+                <?php echo e(Form::select('type', ['audio' => 'Audio', 'video' => 'Video','artist'=>'Artist'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])); ?>
+
+            </div>
+            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+
+     </div>
+  <?php echo e(Form::close()); ?>
+
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th>Sr. No</th>
+    <th>Category Name</th>
+    <th>Category Type</th>
+    <th>Sub Category</th>
+  </tr>
+ <?php $i = 1; ?>
+  <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <tr>
+    <td><?php echo e($i); ?></td>
+    <td><?php echo e($cat->category); ?></td>
+    <td><?php echo e($cat->type); ?></td>
+    <td><a href="<?php echo e(url('admin/sub/'.$cat->id)); ?>">Add Sub category</a></td>
+  </tr>
+  <?php echo e($i++); ?>
+
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  
+</table>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/admin/category.blade.php ENDPATH**/ ?>
