@@ -218,20 +218,22 @@ public function uploadContentProvider($contentdata){
 public function getRecentlySearch(){
     $session_data =   Session::get('User');
      $usertid = $session_data->id;
-   
+   $data = array();
  $count = DB::table("recentmedia")->select('mediaId')->from('recentmedia')
                      ->where('userId',$usertid)->orderBy('id','desc')->take(1)->get()->toArray();
-    if($count>0){
+                   //  echo $count;die;
+                //   print_r($count);die;
+    if(count($count)>0){
         $media_array = explode(',',$count[0]->mediaId);
        // print_r($media_array);die;
          $data = DB::table("media")->select('*')
             ->whereIn('id',$media_array)
             //->toSql();
             ->get();
-            return $data;
+           
     }
     
-
+    return $data;
 }
 public function getCategory(){
     $category = DB::table('category')->get();

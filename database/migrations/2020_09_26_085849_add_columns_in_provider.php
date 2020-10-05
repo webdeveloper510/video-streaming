@@ -20,7 +20,8 @@ class AddColumnsInProvider extends Migration
             $table->string('description');
             $table->string('price');
             $table->string('keyword');
-            $table->timestamps('duration')->change();
+            $table->string('duration');
+           // $table->timestamps();
             $table->string('contentProviderid');
         });
     }

@@ -163,6 +163,7 @@ class AuthController extends Controller
          $data = $model->getCategory();
 
          $Recentlydata=$model->getRecentlySearch();
+      //   print_r($Recentlydata);die;
 
           $newComes=$model->getNewComes();
 
