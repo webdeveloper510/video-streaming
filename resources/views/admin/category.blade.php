@@ -22,6 +22,7 @@
   {!!Form::open(['action' => 'admin@addCategory', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
+      <div class="inner_profile">
         <h1>Add Category</h1>
           <div class="row align-items-center">
             <div class="col-md-6 mt-5 ">
@@ -31,14 +32,12 @@
             <div class="col-md-6 mt-5">
             {{Form::label('Category Type', 'Category Type')}} 
                 {{Form::select('type', ['audio' => 'Audio', 'video' => 'Video','artist'=>'Artist'], null, ['class'=>'form-control','placeholder' => 'Choose a type'])}}
-            </div>
-            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+            </div></br>
+            {{ Form::submit('Submit!',['class'=>'btn btn-primary cat_sub']) }}
      </div>
   {{ Form::close() }}
-  </div>
-</div>
 
-<table>
+  <table class="cat_page">
   <tr>
     <th>Sr. No</th>
     <th>Category Name</th>
@@ -55,3 +54,7 @@
   @endforeach
   
 </table>
+</div>
+  </div>
+</div>
+

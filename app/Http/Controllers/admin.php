@@ -13,6 +13,7 @@ class admin extends Controller
 {
     //
     public function showCategorypage(){
+      
        $model = new Registration();
 
        $data = $model->getCategory();
