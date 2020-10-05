@@ -1,10 +1,7 @@
 @extends('layout.cdn')
-<div class="box">
-    <a href="{{ URL::to('logout')}}" class="ffff text-white float-right"><p> Logout</p></a>
-</div>
 <div class="container mt-5">
 
-<a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
+<!--a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a-->
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
@@ -176,11 +173,6 @@
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
   {{ Form::close() }}
-  @if(session('success'))
-        <div class="alert alert-success">
-        {{session('success')}}
-        </div>
-        @endif
             </div>
           </div>
       

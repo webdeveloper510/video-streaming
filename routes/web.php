@@ -23,7 +23,7 @@ Route::get('profile', 'AuthController@profile')->middleware('authentication');
 Route::get('getContent', 'AuthController@contentForm');
 Route::get('getProviderdata', 'AuthController@getProvider');
 Route::get('getLogin', 'AuthController@getLogin');
-Route::get('getCategory', 'AuthController@getCategory');
+
 Route::get('Dashboard', 'AuthController@Dashboard');
 Route::get('home', 'AuthController@home');
 Route::get('contact', 'AuthController@contact');
@@ -35,7 +35,18 @@ Route::get('withdraw', 'AuthController@withdraw');
 Route::get('contentProvider', 'AuthController@contentProv');
 
 
+/*-----------------------  For Admin -------------------------------*/
 
+Route::get('admin/getCategory', 'admin@showCategorypage');
+
+Route::post('admin/addCategory', 'admin@addCategory');
+
+
+Route::get('admin/sub/{id}', 'admin@showSubCategory');
+
+Route::post('admin/addSub', 'admin@addSubCategory');
+
+/*---------------------------End Admin-----------------------------*/
 
 // Api routes
 Route::post('updateProfile', 'AuthController@updateProfile');
@@ -46,7 +57,6 @@ Route::get('logout/{args?}', 'AuthController@logout');
 Route::post('contentPostLogin', 'AuthController@contentPostLogin');
 Route::post('Dashboard', 'AuthController@Postdashboard');
 Route::post('postContent', 'AuthController@providerContent');
-Route::post('addCategory', 'AuthController@addCategory');
 Route::post('getVedio', 'AuthController@getVedio');
 
 //Auth::routes();

@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@
 </head>
 <body id="default_theme" class="it_service">
 <!-- header -->
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- end header -->
 
 <!--1st slider start-->
@@ -36,18 +36,18 @@
 
 
       <div id="owl-example" class="owl-carousel">
-   @foreach($recently as $recnt)
-            @if($recnt->type=='video')
+   <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
               <div class="card mb-2">
           <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
               </div>
             </div>
-            @endif
-            @endforeach
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
 </div>
 
@@ -80,18 +80,18 @@
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
              <div id="owl-example1" class="owl-carousel">
-            @foreach($recently as $recnt)
-              @if($recnt->type=='video')
+            <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
                 <div class="card mb-2">
             <video width="370" height="245" controls allowfullscreen>
-              <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
+              <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                 </div>
               </div>
-          @endif
-          @endforeach
+          <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
             </div>
     
@@ -121,18 +121,18 @@
     <div id="New_comes" class="carousel slide carousel-multi-item" data-ride="carousel">
 
         <div id="owl-example2" class="owl-carousel">
-            @foreach($newComes as $newcomes)
-              @if($newcomes->type=='video')
+            <?php $__currentLoopData = $newComes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $newcomes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($newcomes->type=='video'): ?>
               <div class="col-md-4">
                 <div class="card mb-2">
             <video width="370" height="245" controls allowfullscreen>
-              <source src="{{url('storage/video/'.$newcomes->media) }}" type="video/mp4">
+              <source src="<?php echo e(url('storage/video/'.$newcomes->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                 </div>
               </div>
-          @endif
-          @endforeach
+          <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
             </div>
     
@@ -158,18 +158,18 @@
     <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
 
          <div id="owl-example3" class="owl-carousel">
-            @foreach($recently as $recnt)
-              @if($recnt->type=='video')
+            <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
                 <div class="card mb-2">
             <video width="370" height="245" controls allowfullscreen>
-              <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
+              <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                 </div>
               </div>
-          @endif
-          @endforeach
+          <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
             </div>
     
@@ -256,3 +256,5 @@
 </body>
 
 </html>
+
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
