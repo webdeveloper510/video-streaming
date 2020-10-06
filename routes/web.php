@@ -25,7 +25,7 @@ Route::get('getProviderdata', 'AuthController@getProvider');
 Route::get('getLogin', 'AuthController@getLogin');
 
 Route::get('Dashboard', 'AuthController@Dashboard');
-Route::get('home', 'AuthController@home');
+Route::get('home', 'AuthController@home')->middleware();
 Route::get('contact', 'AuthController@contact');
 Route::get('play', 'AuthController@play');
 Route::get('search', 'AuthController@search');
@@ -47,6 +47,13 @@ Route::get('admin/sub/{id}', 'admin@showSubCategory');
 Route::post('admin/addSub', 'admin@addSubCategory');
 
 /*---------------------------End Admin-----------------------------*/
+
+/*-------------------------------------Artist Route ---------------------------*/
+
+   Route::get('getArtists', 'artist@getArtists');
+   Route::get('artistDetail/{id}', 'artist@artistDetail');
+
+/*---------------------------------------End Artist---------------------*/
 
 // Api routes
 Route::post('updateProfile', 'AuthController@updateProfile');

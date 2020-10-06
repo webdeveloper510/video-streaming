@@ -217,8 +217,9 @@ public function uploadContentProvider($contentdata){
 
 public function getRecentlySearch(){
     $session_data =   Session::get('User');
-     $usertid = $session_data->id;
-   $data = array();
+    if($session_data){
+          $usertid = $session_data->id;
+           $data = array();
  $count = DB::table("recentmedia")->select('mediaId')->from('recentmedia')
                      ->where('userId',$usertid)->orderBy('id','desc')->take(1)->get()->toArray();
                    //  echo $count;die;
@@ -234,6 +235,22 @@ public function getRecentlySearch(){
     }
     
     return $data;
+    }
+  
+}
+
+public function getArtists(){
+  $artists=DB::table('contentprovider')->paginate(10);
+  return $artists;
+}
+
+public function getArtistDetail($artid){
+    $artistsDetail=DB::table('contentprovider')
+    ->join('media', 'contentprovider.id', '=','media.contentProviderid')
+     ->select('contentprovider.*', 'media.*')
+     ->where('contentprovider.id',$artid)
+     ->get();
+    return $artistsDetail;
 }
 public function getCategory(){
     $category = DB::table('category')->get();

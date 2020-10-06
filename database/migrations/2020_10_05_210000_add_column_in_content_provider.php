@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Provider extends Migration
+class AddColumnInContentProvider extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class Provider extends Migration
      */
     public function up()
     {
-        Schema::create('provider', function (Blueprint $table) {
-            $table->id();
-            $table->string('audio');
-            $table->string('userid');
-            $table->timestamps();
+        Schema::table('contentprovider', function (Blueprint $table) {
+            //
+            $table->string('title');
         });
-        
     }
 
     /**
@@ -29,6 +26,9 @@ class Provider extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provider');
+        Schema::table('contentprovider', function (Blueprint $table) {
+            //
+            $table->dropColumn('title');
+        });
     }
 }

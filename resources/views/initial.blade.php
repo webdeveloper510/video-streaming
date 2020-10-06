@@ -21,9 +21,10 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Recently Searched</h3>
+	  {{$recently ? '<h3 class="tittle">Recently Searched</h3>' : ''}}  
 	</div>
     <!--Carousel Wrapper-->
+    @if($login && $recently)
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
@@ -36,7 +37,7 @@
 
 
       <div id="owl-example" class="owl-carousel">
-   @foreach($recently as $recnt)
+      @forelse ($recently as $recnt)
             @if($recnt->type=='video')
             <div class="col-md-4">
               <div class="card mb-2">
@@ -47,7 +48,9 @@
               </div>
             </div>
             @endif
-            @endforeach
+            @empty
+             @endforelse
+
   
 </div>
 
@@ -56,6 +59,7 @@
       <!--/.Slides-->
 
     </div>
+    @endif
     <!--/.Carousel Wrapper-->
 
 
@@ -69,7 +73,7 @@
  
  
  
- 
+ @if($recently)
  <!--2nd slider start-->
 <div class="outer_slider">
   <div class="container my-4">
@@ -80,18 +84,20 @@
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
              <div id="owl-example1" class="owl-carousel">
-            @foreach($recently as $recnt)
-              @if($recnt->type=='video')
-              <div class="col-md-4">
-                <div class="card mb-2">
-            <video width="370" height="245" controls allowfullscreen>
-              <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-                </div>
+            @forelse ($recently as $recnt)
+            @if($recnt->type=='video')
+            <div class="col-md-4">
+              <div class="card mb-2">
+          <video width="370" height="245" controls allowfullscreen>
+            <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
               </div>
-          @endif
-          @endforeach
+            </div>
+            @endif
+            @empty
+             @endforelse
+
   
             </div>
     
@@ -104,6 +110,7 @@
 
 
   </div>  </div>
+  @endif
 
 
   <br/><br/>
@@ -147,7 +154,7 @@
   </div>  </div><br/><br/>
  <!--End 3rd slider-->
  
- 
+ @if($recently)
   <!--4th slider start-->
 <div class="outer_slider last">
   <div class="container my-4">
@@ -180,7 +187,9 @@
     <!--/.Carousel Wrapper-->
 
 
-  </div>  </div><br/><br/>
+  </div>  </div>
+@endif
+  <br/><br/>
  <!--End 4th slider-->
 
  <script>

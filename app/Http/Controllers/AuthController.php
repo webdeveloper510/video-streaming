@@ -162,13 +162,15 @@ class AuthController extends Controller
           $model = new Registration();
          $data = $model->getCategory();
 
+          $session_data =   Session::get('User');
+
          $Recentlydata=$model->getRecentlySearch();
       //   print_r($Recentlydata);die;
 
           $newComes=$model->getNewComes();
 
 
-        return view('/initial',['category'=>$data, 'recently'=>$Recentlydata, 'newComes'=>$newComes]);
+        return view('/initial',['category'=>$data, 'login'=>$session_data, 'recently'=>$Recentlydata, 'newComes'=>$newComes]);
       }
       public function contentPostLogin(Request $request){
         $this->validate($request,[
@@ -187,6 +189,8 @@ class AuthController extends Controller
         return redirect('/getLogin')->with('error','invalid credentials!');
       }
       }
+
+
    
     public function UserRegistration(Request $request){
        // print_r($_POST); die;
@@ -211,26 +215,29 @@ class AuthController extends Controller
         return redirect('/register#error')->with('error','Email Already Exist!');
        }
     }
+
+
+
     public function updateProfile(Request $request){
-    
-    $image = $request->image;
-     // print_r($image);die;
-      //print_r($request->all());die;
-      $this->validate($request,[
-        'image' => 'required|file',
-        'backupemail'=>'required',
-        'aboutme'=>'required',
-        'sexology'=>'required',
-        'titssize'=>'required',
-        'privy'=>'required',
-        'ass'=>'required',
-        'hairlength'=>'required',
-        'haircolor'=>'required',
-        'eyecolor'=>'required',
-        'height'=>'required',
-        'weight'=>'required',        
-    ]
-      );
+     // print_r($request->all());die;
+            $this->validate($request,[
+              'image' => 'required|file',
+              'backupemail'=>'required',
+              'aboutme'=>'required',
+              'sexology'=>'required',
+              'gender'=>'required',
+              'titssize'=>'required',
+              'privy'=>'required',
+              'ass'=>'required',
+              'hairlength'=>'required',
+              'haircolor'=>'required',
+              'eyecolor'=>'required',
+              'height'=>'required',
+              'weight'=>'required'       
+          ]
+          );
+      // print_r($request->all());die;
+
     if($request->image){
       //echo "yes";
        $fileName = time().'_'.$request->image->getClientOriginalName();
@@ -239,18 +246,21 @@ class AuthController extends Controller
        //unset($request['image']);
        unset($request['_token']);
        $request['profilepicture']=$fileName;
-       if($filePath){
-          $model=new Registration();
-         $update_data = $model->uploadDataFile($request);
-          if($update_data){
-            return redirect('/profile')->with('success','Data Updated Successfully!');
-          }
-          else{
-            return redirect('/profile')->with('error','Some Error Occure!');
-          }
-       }
+         if($filePath){
+            $model=new Registration();
+           $update_data = $model->uploadDataFile($request);
+            if($update_data){
+              return redirect('/profile')->with('success','Data Updated Successfully!');
+            }
+            else{
+              return redirect('/profile')->with('error','Some Error Occure!');
+            }
+         }
     }
     }
+
+
+
     public function logout(Request $request,$args){
       Session::forget('User');
       Session::flush();
@@ -272,6 +282,7 @@ class AuthController extends Controller
       $this->validate($request,[
         'image' => 'required|file',
         'email'=>'required', 
+        'title'=>'required', 
         'category'=>'required',
         'aboutme'=>'required',
         'sexology'=>'required',

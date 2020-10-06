@@ -1,7 +1,18 @@
 @extends('layout.cdn')
 <div class="container mt-5">
 <a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"> Logout</a>
-
+ @if(session('success'))
+        <div class="alert alert-danger" id="sucess">
+        {{session('success')}}
+        </div>
+        @endif
+            </div>
+          </div>
+          @if(session('error'))
+        <div class="alert alert-success" id="error">
+        {{session('error')}}
+        </div>
+        @endif
   {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
@@ -37,13 +48,12 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-                {{Form::file('profilepicture',['class'=>'custom-file-input'])}}
-                 @if($errors->first('profilepicture'))
+                {{Form::file('image',['class'=>'custom-file-input'])}}
+                 @if($errors->first('image'))
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('profilepicture') ?>
+                  <?php echo $errors->first('image') ?>
                 </div>
                 @endif
-                {{Form::file('image',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Sexology', 'Sexology')}} 
@@ -101,7 +111,7 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Eye Color', 'Eye Color')}} 
-                {{Form::select('color', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
+                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
                    @if($errors->first('color'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('color') ?>

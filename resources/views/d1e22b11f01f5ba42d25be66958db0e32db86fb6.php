@@ -21,9 +21,10 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Recently Searched</h3>
+	  <?php echo e($recently ? '<h3 class="tittle">Recently Searched</h3>' : ''); ?>  
 	</div>
     <!--Carousel Wrapper-->
+    <?php if($login && $recently): ?>
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
@@ -36,7 +37,7 @@
 
 
       <div id="owl-example" class="owl-carousel">
-   <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
               <div class="card mb-2">
@@ -47,7 +48,9 @@
               </div>
             </div>
             <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
+
   
 </div>
 
@@ -56,6 +59,7 @@
       <!--/.Slides-->
 
     </div>
+    <?php endif; ?>
     <!--/.Carousel Wrapper-->
 
 
@@ -69,7 +73,7 @@
  
  
  
- 
+ <?php if($recently): ?>
  <!--2nd slider start-->
 <div class="outer_slider">
   <div class="container my-4">
@@ -80,18 +84,20 @@
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
              <div id="owl-example1" class="owl-carousel">
-            <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <?php if($recnt->type=='video'): ?>
-              <div class="col-md-4">
-                <div class="card mb-2">
-            <video width="370" height="245" controls allowfullscreen>
-              <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-                </div>
+            <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($recnt->type=='video'): ?>
+            <div class="col-md-4">
+              <div class="card mb-2">
+          <video width="370" height="245" controls allowfullscreen>
+            <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
               </div>
-          <?php endif; ?>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
+
   
             </div>
     
@@ -104,6 +110,7 @@
 
 
   </div>  </div>
+  <?php endif; ?>
 
 
   <br/><br/>
@@ -147,7 +154,7 @@
   </div>  </div><br/><br/>
  <!--End 3rd slider-->
  
- 
+ <?php if($recently): ?>
   <!--4th slider start-->
 <div class="outer_slider last">
   <div class="container my-4">
@@ -180,7 +187,9 @@
     <!--/.Carousel Wrapper-->
 
 
-  </div>  </div><br/><br/>
+  </div>  </div>
+<?php endif; ?>
+  <br/><br/>
  <!--End 4th slider-->
 
  <script>
