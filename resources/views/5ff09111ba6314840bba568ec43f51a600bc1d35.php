@@ -20,9 +20,11 @@
 
 
 <link rel="stylesheet" href="<?php echo e(url('design/style.css')); ?>" />
+
 <link rel="stylesheet" href="<?php echo e(url('design/font-awesome.min.css')); ?>" />
 <!-- responsive css -->
 <link rel="stylesheet" href="<?php echo e(url('design/responsive.css')); ?>" />
+<link rel="stylesheet" href="<?php echo e(url('design/detailpage.css')); ?>" />
 <!-- colors css -->
 <link rel="stylesheet" href="<?php echo e(url('design/colors1.css')); ?>" />
 <!-- custom css -->

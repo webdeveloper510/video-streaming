@@ -31,4 +31,15 @@ class artist extends Controller
     	// print_r($allArtists);die;
     	 return view('artistDetail',['details'=>$allArtists]);
     }
+
+    public function artistProfile(){
+    
+      return view('artistProfile');
+    }
+
+    public function artistVideo(){
+    
+      return view('artistVideo');
+    }
+
 }
