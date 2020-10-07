@@ -15,11 +15,11 @@
    
     <link rel="icon" href="{{url('images/fevicon/fevicon.png')}}" type="image/gif" />
 <!-- bootstrap css -->
-<link rel="stylesheet" href="{{url('design/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('design/bootstrap.min.css')}}">
 <!-- Site css -->
 
 
-<link rel="stylesheet" href="{{url('design/style.css')}}" />
+<link rel="stylesheet" href="{{asset('design/style.css')}}" />
 
 <link rel="stylesheet" href="{{url('design/font-awesome.min.css')}}" />
 <!-- responsive css -->
