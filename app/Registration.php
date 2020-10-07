@@ -258,4 +258,9 @@ public function getCategory(){
     $category = DB::table('category')->get();
     return $category;
 }
+
+public function getVideo($vid){
+     $vedios = DB::table('media')->where('id',$vid)->get();
+    return $vedios;
+}
 }

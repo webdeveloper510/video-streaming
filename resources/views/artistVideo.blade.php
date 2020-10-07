@@ -10,15 +10,17 @@
 					  <img src="https://iwantclips.com/uploads/aboutme_previews/663988/480_edee4c840d51d81b8003f033efd8c72e.jpg">
 				   </div>
 				</div>
+				@foreach($vedios as $video)
+				@if($video->type=='video')
 				<div class="col-md-5">
 				   <div class="content-area">
-					  <h3>Humiliation & Thrashing for My lousy stable boy</h3>
+					  <h3>{{$video->title}}</h3>
 					  <p>MISTRESS KELLY KALASHNIK</p>
 				   </div>
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3><sub>$</sub>11.90</h3>
+					  <h3><sub>$</sub>{{$video->price}}</h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -44,12 +46,15 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
-				   <iframe width="50%" height="400" src="https://www.youtube.com/embed/dR8bxrnW8rY"> </iframe>
+				   <video width="320" height="240" controls>
+				   	<source src="{{url('storage/video/'.$video->media)}}" type="video/mp4">
+				   </video>
 				</div>
 			 </div>
 		  </div>
 	   </div>
 	</section>
+
 	<section class="published">
 	   <div class="container-fluid">
 		  <div class="pubcontainer">
@@ -57,11 +62,9 @@
 				<div class="col-md-8">
 				   <div class="published">
 					  <div class="published1">
-						 <h3>Humiliation & Thrashing for My lousy stable boy</h3>
-						 <p>Whipping, Bondage, Dirty Boots licking, Face slapping, Corporal punishment, Humiliation...</p>
-						 <p>Published Oct 4, 2020</p>
-						 <p>Boot Worship, Corporal Punishment Fantasy</p>
-						 <p>Blonde Goddess, Boot Licking, Corporal Punishment Fantasy, Dirty Boots, Face Slapping, Female Domination,<br> Whipping Fantasy,</p>
+						 <h3>{{$video->title}}</h3>
+						 <p>{{$video->description}}</p>
+						 <p>Published {{$video->created_at}}</p>
 					  </div>
 				   </div>
 				</div>
@@ -83,7 +86,7 @@
 							   <p>Play Time</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>00:12:47</p>
+							   <p>{{date("h:i:s", mktime(0,0, round({{$video->duration}}) % (24*3600)))}}</p>
 							</div>
 						 </div>
 					  </div>
@@ -113,6 +116,8 @@
 		  </div>
 	   </div>
 	</section>
+		@endif
+	@endforeach
 	<section>
 	   <div class="container-fluid">
 		  <div class="row">

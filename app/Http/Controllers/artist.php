@@ -37,9 +37,11 @@ class artist extends Controller
       return view('artistProfile');
     }
 
-    public function artistVideo(){
+    public function artistVideo($vedioid){
+       $model=new Registration();
+        $allVedios=$model->getVideo($vedioid);
     
-      return view('artistVideo');
+      return view('artistVideo',['vedios'=>$allVedios]);
     }
 
 }

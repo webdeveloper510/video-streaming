@@ -53,7 +53,7 @@ Route::post('admin/addSub', 'admin@addSubCategory');
    Route::get('getArtists', 'artist@getArtists');
    Route::get('artistDetail/{id}', 'artist@artistDetail');
    Route::get('artist-profile', 'artist@artistProfile');
-   Route::get('artist-video', 'artist@artistVideo');
+   Route::get('artist-video/{id}', 'artist@artistVideo');
 
 /*---------------------------------------End Artist---------------------*/
 
