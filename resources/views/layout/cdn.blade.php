@@ -19,7 +19,7 @@
 <!-- Site css -->
 
 
-<link rel="stylesheet" href="{{url('design/style.css')}}" />
+<link rel="stylesheet" href="{{asset('design/style.css')}}" />
 
 <link rel="stylesheet" href="{{url('design/font-awesome.min.css')}}" />
 <!-- responsive css -->
