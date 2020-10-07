@@ -2,14 +2,14 @@
 <div class="container mt-5">
 <a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"> Logout</a>
  @if(session('success'))
-        <div class="alert alert-danger" id="sucess">
+        <div class="alert alert-success" id="sucess">
         {{session('success')}}
         </div>
         @endif
             </div>
           </div>
           @if(session('error'))
-        <div class="alert alert-success" id="error">
+        <div class="alert alert-danger" id="error">
         {{session('error')}}
         </div>
         @endif
