@@ -17,15 +17,18 @@ class artist extends Controller
     }
     //
     public function getArtists(){
-    $model=new Registration();
-    	$artists=$model->getArtists();
-    	return view('artists',['artists'=>$artists]);
+     $model = new Registration();
+
+      $data = $model->getCategory();
+
+    $artists=$model->getArtists();
+    	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
     public function artistDetail($artistid){
          $model=new Registration();
     	 $allArtists=$model->getArtistDetail($artistid);
-    	// echo "<pre>";
-    	 //print_r($allArtists);die;
+    	 //echo "<pre>";
+    	// print_r($allArtists);die;
     	 return view('artistDetail',['details'=>$allArtists]);
     }
 }

@@ -20,9 +20,11 @@
 
 
 <link rel="stylesheet" href="{{url('design/style.css')}}" />
+
 <link rel="stylesheet" href="{{url('design/font-awesome.min.css')}}" />
 <!-- responsive css -->
 <link rel="stylesheet" href="{{url('design/responsive.css')}}" />
+<link rel="stylesheet" href="{{url('design/detailpage.css')}}" />
 <!-- colors css -->
 <link rel="stylesheet" href="{{url('design/colors1.css')}}" />
 <!-- custom css -->

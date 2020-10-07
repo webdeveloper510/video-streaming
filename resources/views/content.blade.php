@@ -44,15 +44,6 @@
                 </div>
                 @endif
             </div>
-             <div class="col-md-6 ">
-            {{Form::label('Title', 'Title')}} 
-                {{Form::text('title',null,['class'=>'form-control','placeholder'=>'Enter Title'])}}
-                 @if(session('errors'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('title') ?>
-                </div>
-                @endif
-            </div>
             <div class="col-md-6">
             {{Form::label('Password', 'Password')}} 
                 {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}

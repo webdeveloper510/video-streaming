@@ -77,7 +77,6 @@ body {
 	font-weight: 400;
 	overflow-x: hidden;
 
-	background-image:url('https://www.bsne.ch/files/live/sites/iheid/files/backgrounds/Admissions-gris.jpg');
 	background-size: cover;
 }
 
@@ -117,6 +116,14 @@ body.demos .service-widget {
 	padding: 30px;
 	background-color: #fff
 }
+
+
+/* -------------------Detail Page css -----------------------------*/
+
+
+
+ 
+/* --------------------------------- End Css-----------------------*/
 
 body.demos .container-fluid {
 	max-width: 1080px
@@ -4969,7 +4976,7 @@ form.form-inline .form-control {
 }
 .navbar-light .navbar-nav .nav-link {
     position: relative;
-    padding-right: 2rem;
+
     padding-left: 2rem;	
 }
 a.nav-item.nav-link:before {

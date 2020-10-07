@@ -282,7 +282,6 @@ class AuthController extends Controller
       $this->validate($request,[
         'image' => 'required|file',
         'email'=>'required', 
-        'title'=>'required', 
         'category'=>'required',
         'aboutme'=>'required',
         'sexology'=>'required',

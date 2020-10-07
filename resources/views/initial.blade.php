@@ -21,7 +21,7 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  {{$recently ? '<h3 class="tittle">Recently Searched</h3>' : ''}}  
+	  <h3 class="tittle">{{$recently ? 'Recently Searched' : ''}} </h3> 
 	</div>
     <!--Carousel Wrapper-->
     @if($login && $recently)
@@ -40,12 +40,12 @@
       @forelse ($recently as $recnt)
             @if($recnt->type=='video')
             <div class="col-md-4">
-              <div class="card mb-2">
+            
           <video width="370" height="245" controls allowfullscreen>
             <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-              </div>
+          
             </div>
             @endif
             @empty
@@ -87,13 +87,12 @@
             @forelse ($recently as $recnt)
             @if($recnt->type=='video')
             <div class="col-md-4">
-              <div class="card mb-2">
+           
           <video width="370" height="245" controls allowfullscreen>
             <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-              </div>
-            </div>
+               </div>
             @endif
             @empty
              @endforelse
@@ -131,12 +130,12 @@
             @foreach($newComes as $newcomes)
               @if($newcomes->type=='video')
               <div class="col-md-4">
-                <div class="card mb-2">
+            
             <video width="370" height="245" controls allowfullscreen>
               <source src="{{url('storage/video/'.$newcomes->media) }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-                </div>
+               
               </div>
           @endif
           @endforeach
@@ -168,12 +167,12 @@
             @foreach($recently as $recnt)
               @if($recnt->type=='video')
               <div class="col-md-4">
-                <div class="card mb-2">
+                
             <video width="370" height="245" controls allowfullscreen>
               <source src="{{url('storage/video/'.$recnt->media) }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-                </div>
+               
               </div>
           @endif
           @endforeach

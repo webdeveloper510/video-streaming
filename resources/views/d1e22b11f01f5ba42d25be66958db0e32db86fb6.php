@@ -21,7 +21,7 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <?php echo e($recently ? '<h3 class="tittle">Recently Searched</h3>' : ''); ?>  
+	  <h3 class="tittle"><?php echo e($recently ? 'Recently Searched' : ''); ?> </h3> 
 	</div>
     <!--Carousel Wrapper-->
     <?php if($login && $recently): ?>
@@ -40,12 +40,12 @@
       <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
-              <div class="card mb-2">
+            
           <video width="370" height="245" controls allowfullscreen>
             <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-              </div>
+          
             </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -87,13 +87,12 @@
             <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
-              <div class="card mb-2">
+           
           <video width="370" height="245" controls allowfullscreen>
             <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-              </div>
-            </div>
+               </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
@@ -131,12 +130,12 @@
             <?php $__currentLoopData = $newComes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $newcomes): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <?php if($newcomes->type=='video'): ?>
               <div class="col-md-4">
-                <div class="card mb-2">
+            
             <video width="370" height="245" controls allowfullscreen>
               <source src="<?php echo e(url('storage/video/'.$newcomes->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-                </div>
+               
               </div>
           <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -168,12 +167,12 @@
             <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
-                <div class="card mb-2">
+                
             <video width="370" height="245" controls allowfullscreen>
               <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-                </div>
+               
               </div>
           <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -245,13 +245,15 @@ public function getArtists(){
 }
 
 public function getArtistDetail($artid){
-    $artistsDetail=DB::table('contentprovider')
-    ->join('media', 'contentprovider.id', '=','media.contentProviderid')
-     ->select('contentprovider.*', 'media.*')
-     ->where('contentprovider.id',$artid)
-     ->get();
-    return $artistsDetail;
-}
+      $artistsDetail=DB::table('contentprovider')
+      ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
+       ->select('contentprovider.*', 'media.*')
+       ->where('contentprovider.id',$artid)
+       ->get()->toArray();
+       if($artistsDetail){
+           return $artistsDetail;
+       }
+  }
 public function getCategory(){
     $category = DB::table('category')->get();
     return $category;
