@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,44 +15,13 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
 </head>
+
 <body id="default_theme" class="it_service">
-<!-- header -->
-@include('layouts.header')
-<!-- end header -->
-<div class="inner-page">
-  <div class="container">
-    <div class="paginations outer">
-			<nav aria-label="Page navigation example">
-			  <ul class="pagination justify-content-center">
-				<li class="page-item disabled">
-				  <a class="page-link" href="#" tabindex="-1">Previous</a>
-				</li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item">
-				  <a class="page-link" href="#">Next</a>
-				</li>
-			  </ul>
-			</nav>
-</div>
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <br></br>
- <div class="row">
- 	  @foreach ($video as $vid)
- 	   @if($vid->type=='video')
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				<video width="320" height="240" controls>
-              <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
-       Your browser does not support the video tag.
-            </video>
-				</div>
-			</div>
-			@endif
-			@endforeach
-		
-  </div>
-  <br/>
+
+
+	  </div>  
 </div>  
 <!--body start>
 
@@ -128,3 +97,4 @@
 }
 </style>
 </html>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/playlist.blade.php ENDPATH**/ ?>

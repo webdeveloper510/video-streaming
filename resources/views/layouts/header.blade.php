@@ -5,8 +5,8 @@
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
-					<a href="index.html" class="navbar-brand">
-						<img src="images/logos/logo-2.png" height="28" alt="CoolBrand">
+					<a href="{{url('/home')}}" class="navbar-brand">
+						<img src="{{asset('images/logos/logo-2.png')}}" height="28" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>

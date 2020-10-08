@@ -56,6 +56,7 @@
 
 
   <body>
+    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  <section class="mistress-sec">
 <div class="container-fluid">
 <div class="row">
@@ -73,7 +74,7 @@
 <div class="main-mistree-sec1">
 <div class="main-mistree">
 <div class="main-mistree-circle">
-<img src="<?php echo e(url('storage/uploads/'.$details[0]->profilepicture)); ?>">
+<img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
 </div>
 
 
@@ -137,7 +138,7 @@
             <div class="col-md-4">
 
           <video width="300" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/video/'.$detail->media)); ?>" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
 
@@ -224,14 +225,14 @@
     <div class="col-md-4 pr-4">
         <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="300" height="200" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/video/'.$detail->media)); ?>" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </a>
           <div class="price"><?php echo e('$'.$detail->price); ?></div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
-    <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
+    <a href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
 <p><?php echo e($detail->title); ?></p>
 </a>
 <div class="camera">

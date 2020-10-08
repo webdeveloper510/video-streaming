@@ -1,5 +1,5 @@
 
-
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="inner-page"> 
 	 <section>
 	   <div class="container-fluid">
@@ -7,7 +7,7 @@
 			 <div class="row">
 				<div class="col-md-2">
 				   <div class="image area">
-					  <img src="https://iwantclips.com/uploads/aboutme_previews/663988/480_edee4c840d51d81b8003f033efd8c72e.jpg">
+					  <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
 				   </div>
 				</div>
 				<?php $__currentLoopData = $vedios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -15,7 +15,7 @@
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3><?php echo e($video->title); ?></h3>
-					  <p>MISTRESS KELLY KALASHNIK</p>
+					  <p><?php echo e($video->nickname); ?></p>
 				   </div>
 				</div>
 				<div class="col-md-2">
@@ -25,9 +25,13 @@
 				</div>
 				<div class="col-md-3">
 				   <div class="content-cart">
-					  <button type="button" onclick="alert('Hello world!')"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to Cart</button>
+
+ <button type="button" id="<?php echo e($video->id); ?>" class="addToCart">
+ 	<span class="itemCount">
+ 	<i class="fa fa-shopping-cart" aria-hidden="true"></i></span>Add to Cart
+ </button>
 					  <div class="dropdown">
-						 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 						 </button>
 						 <div class="dropdown-menu">
 							<a class="dropdown-item" href="#">Link 1</a>
@@ -47,7 +51,7 @@
 			 <div class="col-md-12">
 				<div class="vid-sec">
 				   <video width="320" height="240" controls>
-				   	<source src="<?php echo e(url('storage/video/'.$video->media)); ?>" type="video/mp4">
+				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 				   </video>
 				</div>
 			 </div>
@@ -86,7 +90,7 @@
 							   <p>Play Time</p>
 							</div>
 							<div class="Media-Type1">
-							   <p><?php echo e(date("h:i:s", mktime(0,0, round({{$video->duration); ?>) % (24*3600)))}}</p>
+							   <p><?php echo e(convertSecondstoFormat($video->duration)); ?></p>
 							</div>
 						 </div>
 					  </div>
@@ -106,7 +110,7 @@
 							   <p>File Size</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>565.83 MB</p>
+							   <p><?php echo e($video->size); ?></p>
 							</div>
 						 </div>
 					  </div>
@@ -755,4 +759,42 @@ a.carousel-control-prev {
 }
 
 </style>
+
+<script type="text/javascript">
+	var counts=[];
+	if(JSON.parse(localStorage.getItem("itemCount"))){
+
+		var count1= JSON.parse(localStorage.getItem("itemCount"));
+		 var count=count1.length;
+		  counts.push(count)
+		//console.log(count);
+	}
+	else{
+	
+		var count=0;
+		
+	}
+	
+	//localStorage.removeItem("id");
+//localStorage.removeItem("itemCount");
+//localStorage.removeItem("counts");
+	$('.addToCart').click(function(){
+		var id=$(this).attr('id');
+	if(id==localStorage.getItem('id') && localStorage.getItem('id')!=''){
+		//var counts = JSON.parse(localStorage.getItem("itemCount"));
+		console.log('yes');
+		console.log(localStorage);
+		console.log(counts);
+	}
+	else{
+		localStorage.setItem("id",id);
+		count = parseInt(count)+1;
+		console.log(count);
+		counts.push(count);
+		localStorage.setItem("itemCount", JSON.stringify(counts));
+		console.log('no');
+		console.log(localStorage);
+}
+	})
+</script>
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>

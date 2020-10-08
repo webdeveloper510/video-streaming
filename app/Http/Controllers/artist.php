@@ -27,9 +27,11 @@ class artist extends Controller
     public function artistDetail($artistid){
          $model=new Registration();
     	 $allArtists=$model->getArtistDetail($artistid);
+
+        $category_data = $model->getCategory();
     	 //echo "<pre>";
     	// print_r($allArtists);die;
-    	 return view('artistDetail',['details'=>$allArtists]);
+    	 return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
     }
 
     public function artistProfile(){
@@ -40,8 +42,10 @@ class artist extends Controller
     public function artistVideo($vedioid){
        $model=new Registration();
         $allVedios=$model->getVideo($vedioid);
-    
-      return view('artistVideo',['vedios'=>$allVedios]);
+
+           $category_data = $model->getCategory();
+  // print_r($allVedios);die;
+      return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data]);
     }
 
 }

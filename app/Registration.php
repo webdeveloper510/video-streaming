@@ -260,7 +260,13 @@ public function getCategory(){
 }
 
 public function getVideo($vid){
-     $vedios = DB::table('media')->where('id',$vid)->get();
-    return $vedios;
+  $videos=DB::table('contentprovider')
+      ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
+       ->select('contentprovider.*', 'media.*')
+       ->where('media.id',$vid)
+       ->get()->toArray();
+       if($videos){
+           return $videos;
+       }
 }
 }

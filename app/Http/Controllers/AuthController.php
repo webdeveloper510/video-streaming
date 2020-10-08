@@ -50,12 +50,14 @@ class AuthController extends Controller
             //print_r($data);die;
            $recentSelected=Session::get('recentSearch');
 
+            $session_data =   Session::get('User');
+
         unset($data['_token']);
         //$recentSelected = Session::get('user')['recentSearch'];
        //  print_r($data);die;
         //unset($data['_token']);
         $search_data = $model->getVedio($data);
-            if($recentSelected){
+            if($recentSelected && $session_data){
               //echo "yes";
             $this->recentData($search_data);
           //$search_data = $model->getVedio($data);
@@ -117,7 +119,7 @@ class AuthController extends Controller
 
     public function getVedio(Request $request){
          $data=$request->all();
-        
+
       Session::put('filterData',$data);
 
 
@@ -339,12 +341,14 @@ class AuthController extends Controller
           'category'=>'required'    
       ]
         );
-
+        //print_r($request->media->getSize());die;
       if($request->media){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
+                 $size=$request->media->getSize();
+               $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
               $data['media']=$fileName;
               $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 

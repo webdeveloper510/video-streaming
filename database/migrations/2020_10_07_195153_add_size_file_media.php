@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameContentTable extends Migration
+class AddSizeFileMedia extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class RenameContentTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::rename('content','contentprovider');
+        Schema::table('media', function (Blueprint $table) {
+            //
+            $table->string('size');
+        });
     }
 
     /**
@@ -24,6 +26,9 @@ class RenameContentTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('media', function (Blueprint $table) {
+            //
+           $table->dropColumn('size');
+        });
     }
 }

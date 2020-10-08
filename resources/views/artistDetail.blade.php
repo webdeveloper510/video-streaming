@@ -56,6 +56,7 @@
 
 
   <body>
+    @include('layouts.header')
  <section class="mistress-sec">
 <div class="container-fluid">
 <div class="row">
@@ -73,7 +74,7 @@
 <div class="main-mistree-sec1">
 <div class="main-mistree">
 <div class="main-mistree-circle">
-<img src="{{url('storage/uploads/'.$details[0]->profilepicture) }}">
+<img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}">
 </div>
 
 
@@ -137,7 +138,7 @@
             <div class="col-md-4">
 
           <video width="300" height="245" controls allowfullscreen>
-            <source src="{{url('storage/video/'.$detail->media) }}" type="video/mp4">
+            <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
 
@@ -224,14 +225,14 @@
     <div class="col-md-4 pr-4">
         <a href="{{url('artist-video/'.$detail->id)}}">
         <video width="300" height="200" controls allowfullscreen>
-            <source src="{{url('storage/video/'.$detail->media) }}" type="video/mp4">
+            <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </a>
           <div class="price">{{'$'.$detail->price}}</div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
-    <a href="{{url('artist-video/'.$detail->id)}}">
+    <a href="a{{url('artist-video/'.$detail->id)}}">
 <p>{{$detail->title}}</p>
 </a>
 <div class="camera">
