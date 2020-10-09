@@ -70,6 +70,21 @@ class Registration extends Model
         }
 }
 
+public function getCart($cartid){
+       $value=DB::table('media')      
+       ->whereIn('id',$cartid)
+       ->get();
+       return $value;
+}
+public function getTotalPrice($cartid){
+       $value=DB::table('media')
+       
+       ->select(DB::raw('SUM(price) as total_price'))
+
+       ->whereIn('id',$cartid)->get();
+       return $value;
+}
+
 public function uploadContentData($userdata){
     $value=DB::table('contentprovider')->where('email', $userdata['email'])->get();
     if($value->count() == 0){

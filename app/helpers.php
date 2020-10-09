@@ -15,3 +15,11 @@ if (! function_exists('convertUrltoSize')) {
   		return $filesize;
     }
 }
+
+if (! function_exists('getPrice')) {
+	
+    function getPrice($price) {
+    	$price=$price + $price;
+  		return $price;
+    }
+}

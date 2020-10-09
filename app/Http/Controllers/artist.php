@@ -34,6 +34,43 @@ class artist extends Controller
     	 return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
     }
 
+    public function cart(Request $req){
+               // Session::forget('ids');
+               // die;
+            $data=$req->all();
+            //print_r($data['id']);
+            $arrayId=Session::get('ids');
+            if($arrayId){
+          
+                if(!in_array($data['id'], $arrayId)){
+                    
+                     $arrayId[] =$data['id'];
+                     Session::put('ids',$arrayId);
+                }
+
+            }
+            else{
+                $arr = array();
+                $arr[]=$data['id'];
+                 Session::put('ids',$arr);
+            }
+            $arrayId=Session::get('ids');
+              return count($arrayId);
+           
+    }
+
+    public function cart1(){
+       $arrayId=Session::get('ids');
+               // print_r($arrayId);die;
+        $model=new Registration();
+        $cartData=$model->getCart($arrayId);
+        $totalPrice=$model->getTotalPrice($arrayId);
+        //echo "<pre>";
+       // print_r($totalPrice);
+        
+        return view('cart',['cart'=>$cartData,'totalPrice'=>$totalPrice]);
+    }
+
     public function artistProfile(){
     
       return view('artistProfile');
@@ -43,9 +80,11 @@ class artist extends Controller
        $model=new Registration();
         $allVedios=$model->getVideo($vedioid);
 
+          $arrayId=Session::get('ids');
+         $count=count($arrayId);
            $category_data = $model->getCategory();
   // print_r($allVedios);die;
-      return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data]);
+      return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);
     }
 
 }

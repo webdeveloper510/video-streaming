@@ -25,10 +25,17 @@
 				</div>
 				<div class="col-md-3">
 				   <div class="content-cart">
+				   
+                   <div class="cart1">  
+                   	<a href="{{url('cart1')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>
+                          <span class="itemCount">{{$count}}</span>
+
+                   </div>
 
  <button type="button" id="{{$video->id}}" class="addToCart">
- 	<span class="itemCount">
- 	<i class="fa fa-shopping-cart" aria-hidden="true"></i></span>Add to Cart
+ 	 	<form action="" method="post">
+ 	Add to Cart
+ </form>
  </button>
 					  <div class="dropdown">
 			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -359,7 +366,13 @@
     font-size: 28px;
    
 }
-
+.cart1 {
+    position: absolute;
+    top: -58px;
+    z-index: 9999;
+    color: white;
+    font-size: 28px;
+}
 .content-price {
     padding-top: 20px;
     text-align: end;
@@ -394,7 +407,10 @@
     justify-content: flex-end;
 	padding-right: 10px;
 }
-
+button.btn {
+    min-width: 39px !important;
+    height: 26px !important;
+}
 button.btn.btn-primary.dropdown-toggle {
     width: 100%;
     margin-left: 1px;
@@ -553,7 +569,11 @@ a.carousel-control-prev {
 
 
 
-
+span.itemCount {
+    position: absolute;
+    top: -23px;
+    right: 4px;
+}
 @media only screen and (max-width: 768px) {
 
 .image.area {
@@ -761,39 +781,21 @@ a.carousel-control-prev {
 </style>
 
 <script type="text/javascript">
-	var counts=[];
-	if(JSON.parse(localStorage.getItem("itemCount"))){
-
-		var count1= JSON.parse(localStorage.getItem("itemCount"));
-		 var count=count1.length;
-		  counts.push(count)
-		//console.log(count);
-	}
-	else{
-	
-		var count=0;
-		
-	}
-	
-	//localStorage.removeItem("id");
-//localStorage.removeItem("itemCount");
-//localStorage.removeItem("counts");
-	$('.addToCart').click(function(){
-		var id=$(this).attr('id');
-	if(id==localStorage.getItem('id') && localStorage.getItem('id')!=''){
-		//var counts = JSON.parse(localStorage.getItem("itemCount"));
-		console.log('yes');
-		console.log(localStorage);
-		console.log(counts);
-	}
-	else{
-		localStorage.setItem("id",id);
-		count = parseInt(count)+1;
-		console.log(count);
-		counts.push(count);
-		localStorage.setItem("itemCount", JSON.stringify(counts));
-		console.log('no');
-		console.log(localStorage);
-}
-	})
+$(".addToCart").click(function(e) {
+    e.preventDefault();
+    $.ajax({
+        type: "POST",
+        url: "{{url('ajax-request')}}",
+        data: { 
+            id: $(this).attr('id'), // < note use of 'this' here
+             "_token": "{{ csrf_token() }}", 
+        },
+        success: function(result) {
+            $('.itemCount').text(result);
+        },
+        error: function(result) {
+            alert('error');
+        }
+    });
+});
 </script>

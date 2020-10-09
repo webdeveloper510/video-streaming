@@ -55,6 +55,11 @@ Route::post('admin/addSub', 'admin@addSubCategory');
    Route::get('artist-profile', 'artist@artistProfile');
    Route::get('artist-video/{id}', 'artist@artistVideo');
 
+   Route::post('ajax-request', 'artist@cart');
+
+
+   Route::get('cart1', 'artist@cart1');
+
 /*---------------------------------------End Artist---------------------*/
 
 // Api routes
