@@ -33,13 +33,14 @@
 <link rel="stylesheet" href="<?php echo e(asset('design/animate.css')); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/settings.css')); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/layers.css')); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/navigation.css')); ?>" />+
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/navigation.css')); ?>" />
 
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
 
 <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/my.js')); ?>"></script>
 <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
 <!-- menu js -->
@@ -62,11 +63,10 @@
 <script src="https://designmodo.com/demo/dropdown-menu-search/prefixfree-1.0.7.js"></script>
 <script src="<?php echo e(asset('revolution/js/extensions/revolution.extension.video.min.js')); ?>"></script>
     <!-- Bootstrap CSS -->
-    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <!--script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script-->
     
-    <title></title>
+ 
 
   </head>
 

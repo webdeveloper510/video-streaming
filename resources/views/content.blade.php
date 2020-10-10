@@ -1,14 +1,14 @@
 @extends('layout.cdn')
+<section class="background1">
 <div class="container mt-5">
-
+ <div class="overlay1">
 <!--a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a-->
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
         @endif
-            </div>
-          </div>
+           
           @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
@@ -55,8 +55,8 @@
             </div>
             <div class="col-md-6">
             {{Form::label('Gender', 'Gender')}} 
-                 {{Form::radio('gender', 'value', true)}}Male
-                {{Form::radio('gender', 'female')}}Female
+                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male
+                {{Form::radio('gender', 'female',['class'=>'rad_But'])}}Female
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('gender') ?>
@@ -170,12 +170,14 @@
                     @endforeach
                 </select>
             </div>
+            <div class="col-md-12 text-center">
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
   {{ Form::close() }}
             </div>
           </div>
-      
-       
+      </div>
+
+       </section>
 
 

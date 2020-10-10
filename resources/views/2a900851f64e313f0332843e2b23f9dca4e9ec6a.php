@@ -34,7 +34,7 @@
         <thead>
           <tr>
             <th scope="col">P.No.</th>
-            <th scope="col">Product Image</th>
+            <th scope="col">Video</th>
             <th scope="col">Price</th>
             <th scope="col"> Quantity</th>
             <th scope="col">Total</th>
@@ -44,7 +44,9 @@
         <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$carts): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <tr>
            <th scope="row"><?php echo e($index); ?></th>
-           <td><img src=""></td>
+           <td><video width="200px" height="200px" controls="">
+             <source src="<?php echo e(url('storage/app/public/video/'.$carts->media)); ?>" type="">
+           </video></td>
            <td><?php echo e($carts->price); ?></td>
            <td>1</td>
            <td><?php echo e($carts->price); ?></td>

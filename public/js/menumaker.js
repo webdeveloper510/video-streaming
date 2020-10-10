@@ -19,6 +19,7 @@
         if (settings.format != 'select') {
           cssmenu.prepend('<div id="menu-button">' + settings.title + '</div>');
           $(this).find("#menu-button").on('click', function(){
+            alert('he');
             $(this).toggleClass('menu-opened');
             var mainmenu = $(this).next('ul');
             if (mainmenu.hasClass('open')) { 

@@ -1,18 +1,18 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
-<section>
+<section class="background1">
 
     <div class="container mt-5">
 
       <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg">
           <div class="row">
             <div class="col text-center">
               <!-- <h1>Login</h1> -->
             </div>
           </div>
-          <h1>Login</h1>
+          <h1 class="text-white">Content Provider Login</h1>
         <?php if(session('success')): ?>
         <div class="alert alert-danger">
         <?php echo e(session('success')); ?>
@@ -59,7 +59,7 @@
 <p><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
 <?php echo e(Form::close()); ?>
 
-<p>Don't have an account yet ?</p>
+<p class="text-white">Don't have an account yet ?</p>
 <a href="<?php echo e(URL::to('register')); ?>" class="ffff text-white"> Signup Now</a>
           
         </div>

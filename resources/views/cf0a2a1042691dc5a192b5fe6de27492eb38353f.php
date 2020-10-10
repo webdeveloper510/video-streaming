@@ -1,6 +1,7 @@
 
+ <section class="background1">
 <div class="container mt-5">
-<a href="<?php echo e(URL::to('logout/profile')); ?>" class="ffff text-white float-right"> Logout</a>
+<a href="<?php echo e(URL::to('logout/profile')); ?>" class="ffff text-white float-right"style="margin-top: -26px;"> Logout</a>
  <?php if(session('success')): ?>
         <div class="alert alert-success" id="sucess">
         <?php echo e(session('success')); ?>
@@ -8,20 +9,16 @@
         </div>
         <?php endif; ?>
             </div>
-          </div>
-          <?php if(session('error')): ?>
-        <div class="alert alert-danger" id="error">
-        <?php echo e(session('error')); ?>
+            <div class="container">
+          <div class="overlay1">
 
-        </div>
-        <?php endif; ?>
   <?php echo Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
-      <div class="container profile">
-        <h1>USER PROFILE DETAILS</h1>
-          <div class="row align-items-center">
+      <div class="container profile ">
+        <h1 class="text-center">USER PROFILE DETAILS</h1>
+          <div class="row align-items-center text-white">
             <div class="col-md-6 mt-5 ">
             <?php echo e(Form::label('Email', 'E-Mail Address')); ?> 
                 <?php echo e(Form::text('backupemail', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
@@ -34,25 +31,18 @@
             </div>
             <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Gender', 'Gender')); ?> 
-                 <?php echo e(Form::radio('gender', 'value', true)); ?>Male
-                <?php echo e(Form::radio('gender', 'female')); ?>Female
+            <br>
+                 <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male<br>
+                <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female
                  <?php if($errors->first('gender')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('gender') ?>
                 </div>
                 <?php endif; ?>
             </div>
+           
             <div class="col-md-6 mt-4">
-            <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
-                <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
 
-                 <?php if($errors->first('aboutme')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('aboutme') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('image',['class'=>'custom-file-input'])); ?>
 
@@ -72,7 +62,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-4" >
+            <div class="col-md-6 mt-4 hide" >
             <?php echo e(Form::label('Tits Size', 'Tits Size')); ?> 
                 <?php echo e(Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])); ?>
 
@@ -82,7 +72,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-4">
+            <div class="col-md-6 mt-4 hide">
             <?php echo e(Form::label('Ass', 'Ass')); ?> 
                 <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])); ?>
 
@@ -152,13 +142,27 @@
                 </div>
                 <?php endif; ?>
             </div>
+           <div class="col-md-12 mt-4">
+            <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
+                <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
+
+                 <?php if($errors->first('aboutme')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('aboutme') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+              <div class="col-md-12 text-center pt-3">
             <?php echo e(Form::submit('Update!',['class'=>'btn btn-primary'])); ?>
 
+          </div>
+    
      </div>
   <?php echo e(Form::close()); ?>
 
   </div>
 </div>
-
+</div>
+</section>
 
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>

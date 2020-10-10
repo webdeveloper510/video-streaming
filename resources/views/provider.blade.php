@@ -1,15 +1,18 @@
 @extends('layout.cdn')
-<a href="{{ URL::to('logout/getLogin')}}" class="ffff text-white float-right"> Logout</a>
+<section class="background1">
+  
+  
+<a href="{{ URL::to('logout/getLogin')}}" class="ffff text-white float-right logout1"> Logout</a>
 <div class="container mt-5">
-
+<div class="overlay1">
 
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
         @endif
-            </div>
-          </div>
+           
+        
           @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
@@ -24,8 +27,8 @@
   {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-        <h1>Content Provider Detail</h1>
-          <div class="row align-items-center">
+        <h1 class="text-center">Content Provider Detail</h1>
+          <div class="row align-items-center text-white">
             <div class="col-md-6 mt-5 ">
             {{Form::label('Email', 'E-Mail Address')}} 
                 {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
@@ -80,9 +83,12 @@
                     @endforeach
                 </select>
             </div>
+            <div class="col-md-12 text-center pt-3">
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
+   </div>
   {{ Form::close() }}
   </div>
 </div>
 
+</section>

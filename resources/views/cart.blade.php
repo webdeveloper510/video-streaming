@@ -34,7 +34,7 @@
         <thead>
           <tr>
             <th scope="col">P.No.</th>
-            <th scope="col">Product Image</th>
+            <th scope="col">Video</th>
             <th scope="col">Price</th>
             <th scope="col"> Quantity</th>
             <th scope="col">Total</th>
@@ -44,7 +44,9 @@
         @foreach($cart as $index=>$carts)
         <tr>
            <th scope="row">{{$index}}</th>
-           <td><img src=""></td>
+           <td><video width="200px" height="200px" controls="">
+             <source src="{{url('storage/app/public/video/'.$carts->media)}}" type="">
+           </video></td>
            <td>{{$carts->price}}</td>
            <td>1</td>
            <td>{{$carts->price}}</td>

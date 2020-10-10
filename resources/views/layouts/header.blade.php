@@ -14,7 +14,7 @@
 					<div class="search_meu">
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
 					<ul class="nav custom search">
-              <li id="options">
+              <li id="options" onclick="mufunc()">
                 <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="subnav">
                   <ul class="nav nav-tabs">
@@ -209,7 +209,7 @@
 
 						</div>
 						<div class="navbar-nav ml-auto">
-							<a href="#" class="nav-item nav-link">Login</a>
+							<a href="{{url('/login')}}" class="nav-item nav-link">Login</a>
 						</div>
 					</div>
 				</nav>
