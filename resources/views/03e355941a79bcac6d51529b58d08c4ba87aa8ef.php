@@ -41,7 +41,7 @@
             <div class="col-md-4">
             
           <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           
@@ -88,7 +88,7 @@
             <div class="col-md-4">
            
           <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
                </div>
@@ -131,7 +131,7 @@
               <div class="col-md-4">
             
             <video width="370" height="245" controls allowfullscreen>
-              <source src="<?php echo e(url('storage/video/'.$newcomes->media)); ?>" type="video/mp4">
+              <source src="<?php echo e(url('storage/app/public/video/'.$newcomes->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                
@@ -168,7 +168,7 @@
               <div class="col-md-4">
                 
             <video width="370" height="245" controls allowfullscreen>
-              <source src="<?php echo e(url('storage/video/'.$recnt->media)); ?>" type="video/mp4">
+              <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                
