@@ -81,7 +81,7 @@ class artist extends Controller
         $allVedios=$model->getVideo($vedioid);
 
           $arrayId=Session::get('ids');
-         $count=count($arrayId);
+          $count=$arrayId ? count($arrayId) : '';
            $category_data = $model->getCategory();
   // print_r($allVedios);die;
       return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);

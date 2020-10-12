@@ -1,7 +1,10 @@
 
-<a href="<?php echo e(URL::to('logout/getLogin')); ?>" class="ffff text-white float-right"> Logout</a>
+<section class="background1">
+  
+  
+<a href="<?php echo e(URL::to('logout/getLogin')); ?>" class="ffff text-white float-right logout1"> Logout</a>
 <div class="container mt-5">
-
+<div class="overlay1">
 
   <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
@@ -9,8 +12,8 @@
 
         </div>
         <?php endif; ?>
-            </div>
-          </div>
+           
+        
           <?php if(session('error')): ?>
         <div class="alert alert-danger" id="error">
         <?php echo e(session('error')); ?>
@@ -29,8 +32,8 @@
           <?php echo e(Form::token()); ?>
 
       <div class="container profile">
-        <h1>Content Provider Detail</h1>
-          <div class="row align-items-center">
+        <h1 class="text-center">Content Provider Detail</h1>
+          <div class="row align-items-center text-white">
             <div class="col-md-6 mt-5 ">
             <?php echo e(Form::label('Email', 'E-Mail Address')); ?> 
                 <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
@@ -94,13 +97,16 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
+            <div class="col-md-12 text-center pt-3">
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
      </div>
+   </div>
   <?php echo e(Form::close()); ?>
 
   </div>
 </div>
 
+</section>
 
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/provider.blade.php ENDPATH**/ ?>

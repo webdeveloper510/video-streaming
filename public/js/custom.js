@@ -199,14 +199,7 @@ $(window).scroll(function(){
     }
 });
 
-$('#options').click(function(){
-    //alert('hello');
-    $('.subnav').css('visibility','visible');
-    $('.subnav').css('top','100%');
-    $('.subnav').css('opacity','1');
-    
 
-})
 
 
 

@@ -1,23 +1,21 @@
 @extends('layout.cdn')
+ <section class="background1">
 <div class="container mt-5">
-<a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"> Logout</a>
+<a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"style="margin-top: -26px;"> Logout</a>
  @if(session('success'))
         <div class="alert alert-success" id="sucess">
         {{session('success')}}
         </div>
         @endif
             </div>
-          </div>
-          @if(session('error'))
-        <div class="alert alert-danger" id="error">
-        {{session('error')}}
-        </div>
-        @endif
+            <div class="container">
+          <div class="overlay1">
+
   {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
-      <div class="container profile">
-        <h1>USER PROFILE DETAILS</h1>
-          <div class="row align-items-center">
+      <div class="container profile ">
+        <h1 class="text-center">USER PROFILE DETAILS</h1>
+          <div class="row align-items-center text-white">
             <div class="col-md-6 mt-5 ">
             {{Form::label('Email', 'E-Mail Address')}} 
                 {{Form::text('backupemail', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
@@ -29,24 +27,18 @@
             </div>
             <div class="col-md-6 mt-4">
             {{Form::label('Gender', 'Gender')}} 
-                 {{Form::radio('gender', 'value', true)}}Male
-                {{Form::radio('gender', 'female')}}Female
+            <br>
+                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male<br>
+                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
                  @if($errors->first('gender'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('gender') ?>
                 </div>
                 @endif
             </div>
+           
             <div class="col-md-6 mt-4">
-            {{Form::label('ABOUT ME', 'ABOUT ME')}} 
-                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
-                 @if($errors->first('aboutme'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('aboutme') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
+
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
                 {{Form::file('image',['class'=>'custom-file-input'])}}
                  @if($errors->first('image'))
@@ -64,7 +56,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-4" >
+            <div class="col-md-6 mt-4 hide" >
             {{Form::label('Tits Size', 'Tits Size')}} 
                 {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
                  @if($errors->first('titssize'))
@@ -73,7 +65,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-4">
+            <div class="col-md-6 mt-4 hide">
             {{Form::label('Ass', 'Ass')}} 
                 {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
                   @if($errors->first('ass'))
@@ -136,9 +128,22 @@
                 </div>
                 @endif
             </div>
+           <div class="col-md-12 mt-4">
+            {{Form::label('ABOUT ME', 'ABOUT ME')}} 
+                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
+                 @if($errors->first('aboutme'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('aboutme') ?>
+                </div>
+                @endif
+            </div>
+              <div class="col-md-12 text-center pt-3">
             {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
+          </div>
+    
      </div>
   {{ Form::close() }}
   </div>
 </div>
-
+</div>
+</section>
