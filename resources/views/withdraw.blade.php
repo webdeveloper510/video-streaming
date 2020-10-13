@@ -20,23 +20,34 @@
 <div class="inner-page">
   <div class="container">
 	 <div class="slider_tittle">
-		  <h3 class="tittle">Withdraw Money</h3>		  
+		  <h3 class="tittle text-center">Withdraw Money</h3>		  
 	 </div> 
      <div class="row">
           <div class="col-md-12">
 		   <div class="out_withdraw">
-		     <ul>
-			   <li> 
+		       <div class="row">
+          <div class="col-md-4">
+		
 			     <div class="amount">Enter PAZ Amount <br>
 				 <input type="email" class="form-control" id="Amount" placeholder="PAZ Amount">
 				 </div>
-			     <div class="amount_two">Amount <br>
-				 <input type="email" class="form-control" id="Amount2" placeholder="Amount">
+        </div>
+        <div class="col-md-4">
+			     <div>Amount <br>
+				 <input type="text" class="form-control" id="Amount2" placeholder="Amount">
 				 </div>	
-			     <div class="money"><button onclick="myFunction()" id="myBtn">Withdraw</button></div><br>				 
-			  </li></br>
-			   <li class="n-2"><div class="text_one"><p>Refer <a href="#">personalattentionz.com</a> and earn 5% on purchases of every invited person!</p></div> <div class="money"><button onclick="myFunction()" id="myBtn">Copy Link</button></div></li>
-			 </ul>
+        </div>
+        <div class="col-md-4 mt-4">
+			     <div class="money"><button onclick="myFunction()" id="myBtn">Withdraw</button></div>	</div></div>
+
+           <div class="row">
+            <div class="col-md-8">
+			 
+			   <div class="text_one"><p>Refer <a href="#">personalattentionz.com </a> and earn 5% on purchases of every invited person!</p></div>
+       </div>
+       <div class="col-md-4 mt-4">
+          <div class="money"><button onclick="myFunction()" id="myBtn">Copy Link</button></div>
+        </div>
 		   </div>
 		  </div>
      </div>		  
@@ -97,14 +108,4 @@
   </div>
 </footer>
 </body>
-<script>
-$(document).ready(function(){
-	$(".dropdown, .btn-group").hover(function(){
-		var dropdownMenu = $(this).children(".dropdown-menu");
-		if(dropdownMenu.is(":visible")){
-			dropdownMenu.parent().toggleClass("open");
-		}
-	});
-});		
-</script>
 </html>

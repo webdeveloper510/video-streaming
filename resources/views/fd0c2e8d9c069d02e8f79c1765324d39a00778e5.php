@@ -8,8 +8,6 @@
 <!-- mobile metas -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>PAZ html</title>
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -19,38 +17,43 @@
 <!-- header -->
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- end header -->
-<div class="container">
-<div class="row" >
-  <div class="col-md-1  hello">
-    <p> hello</p>
-  </div>
-  
-
-
-
-
-</div>
- <div class="row">
- 	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
- 	   <?php if($vid->type=='video'): ?>
-            <div class="col-md-4">
-			  <div class="embed-responsive embed-responsive-16by9">
-				<video width="320" height="240" controls>
-              <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
-       Your browser does not support the video tag.
-            </video>
-				</div>
-			</div>
-			<?php endif; ?>
-			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<div class="inner-page">
+  <div class="container">
+	 <div class="slider_tittle">
+		  <h3 class="tittle text-center">Withdraw Money</h3>		  
+	 </div> 
+     <div class="row">
+          <div class="col-md-12">
+		   <div class="out_withdraw">
+		       <div class="row">
+          <div class="col-md-4">
 		
-  </div>
-  <br/>
-</div> 
- 
-<!--body start>
+			     <div class="amount">Enter PAZ Amount <br>
+				 <input type="email" class="form-control" id="Amount" placeholder="PAZ Amount">
+				 </div>
+        </div>
+        <div class="col-md-4">
+			     <div>Amount <br>
+				 <input type="text" class="form-control" id="Amount2" placeholder="Amount">
+				 </div>	
+        </div>
+        <div class="col-md-4 mt-4">
+			     <div class="money"><button onclick="myFunction()" id="myBtn">Withdraw</button></div>	</div></div>
 
-<body end-->
+           <div class="row">
+            <div class="col-md-8">
+			 
+			   <div class="text_one"><p>Refer <a href="#">personalattentionz.com </a> and earn 5% on purchases of every invited person!</p></div>
+       </div>
+       <div class="col-md-4 mt-4">
+          <div class="money"><button onclick="myFunction()" id="myBtn">Copy Link</button></div>
+        </div>
+		   </div>
+		  </div>
+     </div>		  
+  </div>
+</div>  
+<!--body end-->
 
 <!--footer -->
 <footer class="footer_style_2">
@@ -105,22 +108,6 @@
   </div>
 </footer>
 </body>
-<style>
-
-.inner-page {
-    float: left;
-    width: 100%;
-    padding: 10px;
-}
-.paginations.outer {
-    float: left;
-    width: 100%;
-    padding: 20px 0px;
-}
-.pagination>li>a, .pagination>li>span {
-    width: fit-content;
-}
-</style>
 </html>
 
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//withdraw.blade.php ENDPATH**/ ?>

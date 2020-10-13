@@ -1,14 +1,14 @@
 @extends('layout.cdn')
+<section class="background3">
 <div class="container mt-5">
-
+<div class="overlay1 mt-5">
 <a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
         @endif
-            </div>
-          </div>
+           
           @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
@@ -22,8 +22,8 @@
   {!!Form::open(['action' => 'admin@addCategory', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-      <div class="inner_profile">
-        <h1>Add Category</h1>
+      <div class="inner_profile text-white">
+        <h1 class="text-center">Add Category</h1>
           <div class="row align-items-center">
             <div class="col-md-6 mt-5 ">
                 {{Form::label('Add Category', 'Add Category')}} 
@@ -37,7 +37,7 @@
      </div>
   {{ Form::close() }}
 
-  <table class="cat_page">
+  <table class="table table-bordered text-white">
   <tr>
     <th>Sr. No</th>
     <th>Category Name</th>
@@ -57,4 +57,5 @@
 </div>
   </div>
 </div>
-
+</div>
+</section>

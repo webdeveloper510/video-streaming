@@ -6,6 +6,7 @@ use Session;
 use App\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
 //use Validator;
@@ -14,8 +15,11 @@ class AuthController extends Controller
 {
 
     public function register(){
+
+        $model = new Registration();
+      $data = $model->getCategory();
         
-      return view('registration') ;     
+      return view('registration',['category'=>$data]) ;     
     }
     
     public function contact(){
@@ -71,6 +75,8 @@ class AuthController extends Controller
     }
     public function playlist(){
        $session_data =   Session::get('User');
+
+
         //$url = $request;
         if(!$session_data){
             return redirect('/login');
@@ -102,8 +108,11 @@ class AuthController extends Controller
 
         public function login(){
           $user=Session::get('User');
+
+          $model = new Registration();
+      $data = $model->getCategory();
          // print_r($user);
-        return view('login') ;     
+        return view('login',['category'=>$data]) ;     
       } 
 
     public function profile(){
@@ -204,6 +213,8 @@ class AuthController extends Controller
       ]
       
       );
+
+
       unset($request['_token']);
       unset($request['terms']);
    //  print_r($request->all()); die;
@@ -221,16 +232,20 @@ class AuthController extends Controller
 
 
     public function updateProfile(Request $request){
-     // print_r($request->all());die;
+      //print_r($request->all());die;
+              if($request['gender']=='male'){
+                  unset($request['ass']);
+                   unset($request['titssize']);
+              }
             $this->validate($request,[
               'image' => 'required|file',
               'backupemail'=>'required',
               'aboutme'=>'required',
               'sexology'=>'required',
               'gender'=>'required',
-              'titssize'=>'required',
               'privy'=>'required',
-              'ass'=>'required',
+              'ass'=>'sometimes|required',
+              'titssize'=>'sometimes|required',
               'hairlength'=>'required',
               'haircolor'=>'required',
               'eyecolor'=>'required',
@@ -238,17 +253,18 @@ class AuthController extends Controller
               'weight'=>'required'       
           ]
           );
-      // print_r($request->all());die;
+     // print_r($request->all());die;
 
     if($request->image){
-      //echo "yes";
+    
        $fileName = time().'_'.$request->image->getClientOriginalName();
       // print_r($fileName);die;
        $filePath = $request->image->storeAs('uploads', $fileName, 'public');
-       //unset($request['image']);
+       unset($request['image']);
        unset($request['_token']);
        $request['profilepicture']=$fileName;
          if($filePath){
+           // echo "yes";die;
             $model=new Registration();
            $update_data = $model->uploadDataFile($request);
             if($update_data){

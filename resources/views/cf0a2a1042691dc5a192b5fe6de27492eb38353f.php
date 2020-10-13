@@ -25,7 +25,7 @@
 
                  <?php if($errors->first('email')): ?>
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('email') ?>
+                  <?php echo $errors->first('backupemail') ?>
                 </div>
                 <?php endif; ?>
             </div>
@@ -76,12 +76,13 @@
             <?php echo e(Form::label('Ass', 'Ass')); ?> 
                 <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])); ?>
 
-                  <?php if($errors->first('ass')): ?>
+
+            </div>
+              <?php if($errors->first('ass')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('ass') ?>
                 </div>
-                <?php endif; ?>
-            </div>
+                  <?php endif; ?>
             <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
                 <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Privy part'])); ?>
@@ -90,7 +91,7 @@
                 <div class="alert alert-danger">
                   <?php echo $errors->first('privy') ?>
                 </div>
-                <?php endif; ?>
+                  <?php endif; ?>
             </div>
             <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Hair length', 'Hair length')); ?> 
@@ -116,9 +117,9 @@
             <?php echo e(Form::label('Eye Color', 'Eye Color')); ?> 
                 <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])); ?>
 
-                   <?php if($errors->first('color')): ?>
+                   <?php if($errors->first('eyecolor')): ?>
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('color') ?>
+                  <?php echo $errors->first('eyecolor') ?>
                 </div>
                 <?php endif; ?>
             </div>

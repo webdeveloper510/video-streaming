@@ -17,20 +17,19 @@ $(document).ready(function() {
         });
         
     });
-function mufunc(){
 
-	 console.log($('.subnav').get(0).style.opacity);
+ function mufunc(){
 
-	 if($('.subnav').get(0).style.opacity=='' || $('.subnav').get(0).style.opacity==0){
+ 	 //console.log($('.subnav').get(0).style.opacity);
+	 if($('.subnav').get(0).style.display=='' || $('.subnav').get(0).style.opacity==0){
 
-	 	$('.subnav').css({'top':'100%', 'opacity':'1'})
-	 }
-	 else {
-	 	$('.subnav').css({'top':'100%', 'opacity':'0'})
-	 }
+ 	 	$('.subnav').css({'top':'100%', 'display':'block', 'opacity':'1'})
+ 	 }
+ 	 else {
+	 	$('.subnav').css({'top':'100%', 'display':'none', 'opacity':'0'})
+ 	 }
 	 
     
-       //$('.subnav').attr('style') ?  : $('.subnav').css({'top':'100%', 'opacity':'1'})
+        //$('.subnav').attr('style') ?  : $('.subnav').css({'top':'100%', 'opacity':'1'})
 
-
-}
+ }

@@ -16,7 +16,7 @@
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
                 <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="subnav">
+                <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
                     <li><a data-toggle="tab" href="#menu1">Audio</a></li>
@@ -209,7 +209,17 @@
 
 						</div>
 						<div class="navbar-nav ml-auto">
-							<a href="{{url('/login')}}" class="nav-item nav-link">Login</a>
+					
+              <div class="btn-group">
+  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -15px;
+    font-size: 20px;font-weight: 400;">
+    Login
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button"><a href="{{url('/login')}}">Login</a></button>
+    <button class="dropdown-item" type="button"><a href="{{url('/getLogin')}}">Login As a Artist</a></button>
+  </div>
+</div>
 						</div>
 					</div>
 				</nav>
@@ -219,3 +229,6 @@
   </div>
   <!-- header bottom end -->
 </header>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

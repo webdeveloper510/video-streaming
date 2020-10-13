@@ -119,18 +119,18 @@ public function uploadContentData($userdata){
 }
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
-     $userid=$session_data->id;
-    // print_r($data->all());
-    // print_r($userid);die;
+      $userid=$session_data->id;
+    print_r($data->all());
+     print_r($userid);die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
         'profilepicture' => $data['profilepicture'],
         'gender' => $data['gender'],
         'sexology' => $data['sexology'],
-        'titssize' => $data['titssize'],
+        'titssize' => $data['titssize'] ? $data['titssize']:'',
         'privy' => $data['privy'],
-        'ass' =>$data['ass'],
+        'ass' =>$data['ass'] ? $data['ass'] :'',
         'hairlength' => $data['hairlength'],
         'haircolor' => $data['haircolor'],
         'eyecolor' => $data['eyecolor'],
