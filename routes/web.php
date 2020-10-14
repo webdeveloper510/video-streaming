@@ -31,6 +31,7 @@ Route::get('upload', 'AuthController@upload');
 Route::get('playlist', 'AuthController@playlist');
 Route::get('withdraw', 'AuthController@withdraw');
 Route::get('contentProvider', 'AuthController@contentProv');
+Route::get('show/{id}', 'AuthController@subcat_video');
 
 
 /*-----------------------  For Admin -------------------------------*/

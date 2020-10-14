@@ -120,8 +120,6 @@ public function uploadContentData($userdata){
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
       $userid=$session_data->id;
-    print_r($data->all());
-     print_r($userid);die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
@@ -150,11 +148,20 @@ public function getContentProvider($type){
 }
 
 public function getVedio($data){
+
+    //print_r($data);die;
     //print_r($data);die;
    $value = DB::table('media');
       if(isset($data['category'])){
         $value=DB::table('media')->whereIn('catid',$data['category']);
      }
+
+       if(isset($data['subid'])){
+        //echo "yes";
+         $value=DB::table('media')->where('subid',$data['subid']);
+      }
+
+
      if(isset($data['price']) && $data['price']=='free'){
         //echo "yes";
         $value=$value->where('price',$data['price']);
@@ -170,7 +177,25 @@ public function getVedio($data){
     
 }
 
-    return $value->get();
+
+   $subid=$value->pluck("subid");
+   //print_r($subid);die;
+
+    $products = DB::table("subcategory")->whereIn('id', $subid)->get();
+
+    //print_r($products);die;
+
+    $data=$value->get();
+    $data['subcategory']=$products;
+    return $data;
+}
+
+public function getSubcatVid($subid){
+
+    $value=DB::table('media')->where('subid', $subid)->get();
+
+    return $value;
+
 }
 
 public function getNewComes(){
@@ -200,8 +225,11 @@ public function addCategorytable($category){
 }
 
 public function getSubcategory(){
-     $subcategory = DB::table('subcategory')->get();
-    return $subcategory;
+       //print_r($data);die;
+
+// $subcategory = $data ? DB::table('subcategory')->whereIn('catid',$data['category']) : DB::table('subcategory');
+   $subcategory= DB::table('subcategory');
+    return $subcategory->get();
 }
 public function insertSubcategory($sub){
      $sub['created_at']=now();
@@ -217,7 +245,9 @@ public function uploadContentProvider($contentdata){
    
     $contentdata['contentProviderid']=$contentid;
      $contentdata['catid']=$contentdata['category'];
+     $contentdata['subid']=$contentdata['subcategory'];
       unset($contentdata['category']);
+      unset($contentdata['subcategory']);
     $duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
     $timeArr = explode(':', $duration);
      $contentdata['duration']= ($timeArr[0]*3600 ) + ($timeArr[1]*60) + ($timeArr[2]);

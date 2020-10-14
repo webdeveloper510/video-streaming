@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <!-- basic -->
@@ -97,4 +97,5 @@
 }
 </style>
 </html>
-<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/playlist.blade.php ENDPATH**/ ?>
+
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/playlist.blade.php ENDPATH**/ ?>

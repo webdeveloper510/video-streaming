@@ -86,7 +86,16 @@
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </select>
+            </select>
+            </div>
+
+              <div class="col-md-6 mt-4 pt-2">
+            <select name="subcategory" class='form-control'>
+                    <option value="">Choose Subcategory</option>
+                    <?php $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($sub->id); ?>"><?php echo e($sub->subcategory); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
             </div>
             <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 

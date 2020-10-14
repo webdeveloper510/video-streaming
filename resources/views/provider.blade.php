@@ -74,7 +74,16 @@
                     @foreach($category as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
                     @endforeach
-                </select>
+            </select>
+            </div>
+
+              <div class="col-md-6 mt-4 pt-2">
+            <select name="subcategory" class='form-control'>
+                    <option value="">Choose Subcategory</option>
+                    @foreach($subcategory as $sub)
+                        <option value="{{$sub->id}}">{{$sub->subcategory}}</option>
+                    @endforeach
+            </select>
             </div>
             <div class="col-md-6 mt-3">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 

@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+@extends('layout.cdn')
 <html lang="en">
 <head>
 <!-- basic -->

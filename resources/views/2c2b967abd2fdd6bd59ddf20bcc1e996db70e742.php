@@ -21,9 +21,15 @@
 <!-- end header -->
 <div class="container">
 <div class="row" >
+
+<?php $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   <div class="col-md-1  hello">
-    <p> hello</p>
+
+    <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
+
+
   </div>
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
 
 

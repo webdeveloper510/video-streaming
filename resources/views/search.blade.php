@@ -21,9 +21,15 @@
 <!-- end header -->
 <div class="container">
 <div class="row" >
+
+@foreach($subcategory as $sub)
   <div class="col-md-1  hello">
-    <p> hello</p>
+
+    <a href="{{url('show/'.$sub->id)}}"><p>{{$sub->subcategory}}</p></a>
+
+
   </div>
+ @endforeach
   
 
 

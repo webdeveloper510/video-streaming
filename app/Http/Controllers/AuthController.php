@@ -37,6 +37,9 @@ class AuthController extends Controller
       
       return view('/play',['category'=>$data]);
     }
+
+    /*----------------Filter Result------------------------*/
+
     public function search(){
        $contentLogin =   Session::get('contentUser');
       if(!$contentLogin){
@@ -51,23 +54,35 @@ class AuthController extends Controller
         //$data = Session::get('user')['filterData'];
 
            $data=Session::get('filterData');
+
             //print_r($data);die;
-           $recentSelected=Session::get('recentSearch');
+             $recentSelected=Session::get('recentSearch');
 
             $session_data =   Session::get('User');
 
-        unset($data['_token']);
-        //$recentSelected = Session::get('user')['recentSearch'];
-       //  print_r($data);die;
-        //unset($data['_token']);
-        $search_data = $model->getVedio($data);
+           unset($data['_token']);
+
+
+         $search_data = $model->getVedio($data);
+
+     
+
+          $sub=$search_data['subcategory'];
+
+            $data['subid'] = Session::put('subid',$sub);
+
+          $search_data->forget('subcategory');
+
             if($recentSelected && $session_data){
-              //echo "yes";
+
             $this->recentData($search_data);
-          //$search_data = $model->getVedio($data);
+
         }
-         return view('/search',['category'=>$category_data,'video'=>$search_data]);
+         return view('/search',['category'=>$category_data,'video'=>$search_data,'subcategory'=>$sub]);
     }
+
+
+    /*----------------End Filter Result------------------------*/
 
     public function recentData($search_data){
           $model = new Registration();
@@ -146,6 +161,17 @@ class AuthController extends Controller
       $user=Session::get('User');
 
       return view('Dashboard',['user' => $user]);
+    }
+
+    public function subcat_video($subid){
+     
+
+     Session::put('subid',$subid);
+
+         return redirect('/search');
+
+  // return view('/search',['category'=>$category_data,'video'=>$subcategories]);
+
     }
 
 
@@ -354,7 +380,8 @@ class AuthController extends Controller
           'keyword'=>'required',
           'title'=>'required',
           'price'=>'required',
-          'category'=>'required'    
+          'category'=>'required',    
+          'subcategory'=>'required'    
       ]
         );
         //print_r($request->media->getSize());die;
@@ -381,6 +408,8 @@ class AuthController extends Controller
               }
       }
   }
+
+
  
 
 
@@ -395,8 +424,13 @@ class AuthController extends Controller
       return redirect('/getLogin');
   }
     $model = new Registration();
+
     $data = $model->getCategory();
-    return view('provider',['category'=>$data]) ;
+
+    $subcategory=$model->getSubcategory($id='');
+
+    return view('provider',['category'=>$data,'subcategory'=>$subcategory]) ;
+
   }
   public function Postdashboard()
   {
