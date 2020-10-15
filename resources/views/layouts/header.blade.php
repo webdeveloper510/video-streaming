@@ -205,22 +205,30 @@
 							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
 							<a href="play.html" class="nav-item nav-link"><i class="fa fa-play" aria-hidden="true"></i></a>	
 							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
-							<a href="#" class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i>User Name</a>								
+							<a href="{{url('/getArtists')}}" class="nav-item nav-link">Artists</a>	
 
+               
 						</div>
 						<div class="navbar-nav ml-auto">
 					
               <div class="btn-group">
   <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -15px;
-    font-size: 20px;font-weight: 400;">
-    Login
+    font-size: 16px;font-weight: 400;"><i class="fa fa-user" aria-hidden="true"></i>
+    {{$login ? $login->nickname : 'Login'}}
   </button>
+  @if(!$login)
   <div class="dropdown-menu dropdown-menu-right">
     <button class="dropdown-item" type="button"><a href="{{url('/login')}}">Login</a></button>
     <button class="dropdown-item" type="button"><a href="{{url('/getLogin')}}">Login As a Artist</a></button>
   </div>
+  @else
+   <div class="dropdown-menu dropdown-menu-right">
+    <button class="dropdown-item" type="button"><a href="{{url('/profile')}}">Edit Profile</a></button>
+  </div>
+@endif
 </div>
 						</div>
+            <a href="{{ URL::to('logout/getLogin')}}" class="nav-item nav-link text-white">Logout</a>
 					</div>
 				</nav>
 		    </div>

@@ -33,3 +33,53 @@ $(document).ready(function() {
         //$('.subnav').attr('style') ?  : $('.subnav').css({'top':'100%', 'opacity':'1'})
 
  }
+
+ $("#selectCategory").change(function(){
+					
+		var getUserID = $(this).val();
+
+		//console.log(getUserID);
+
+		if(getUserID != '')
+		{
+			$.ajax({
+				type: 'POST',
+				url: 'postId',
+				dataType: "json",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+				data: {"id": getUserID},
+				success: function(data){
+					//console.log(data);
+					if(data.status!=0){
+
+						console.log('yes');
+
+					 $('#subCategory').empty();
+
+					 $('#subCategory').append('<option>Choose Subcategory</option>');
+		                   
+					 $.each(data, function(key, value) {
+		               $('#subCategory')
+		              .append($("<option></option>")
+		                .attr("value",value.id)
+		                .text(value.subcategory)); 
+                       });
+					}
+
+					else{
+						//console.log('cc');
+						 $('#subCategory').empty();
+
+						 $('#subCategory').append('<option>Choose Subcategory</option>');
+					}
+					
+				}
+			});
+		}
+		else
+		{
+			console.log('no');
+		}
+		});

@@ -23,7 +23,7 @@
 <div class="row" >
 
 @foreach($subcategory as $sub)
-  <div class="col-md-1  hello">
+  <div class="col-md-2  hello">
 
     <a href="{{url('show/'.$sub->id)}}"><p>{{$sub->subcategory}}</p></a>
 

@@ -2,7 +2,7 @@
 <section class="background1">
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   
-<a href="<?php echo e(URL::to('logout/getLogin')); ?>" class="ffff text-white float-right logout1"> Logout</a>
+
 <div class="container mt-5">
 <div class="overlay1 mt-5 pt-5">
 
@@ -81,7 +81,7 @@
             </div>
             
             <div class="col-md-6 mt-4 pt-2">
-            <select name="category" class='form-control'>
+            <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
@@ -90,11 +90,8 @@
             </div>
 
               <div class="col-md-6 mt-4 pt-2">
-            <select name="subcategory" class='form-control'>
+            <select name="subcategory" id="subCategory" class='form-control'>
                     <option value="">Choose Subcategory</option>
-                    <?php $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($sub->id); ?>"><?php echo e($sub->subcategory); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div>
             <div class="col-md-6 mt-3">

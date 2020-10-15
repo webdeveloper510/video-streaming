@@ -1,5 +1,7 @@
 
  <section class="background1">
+
+  <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="container mt-5">
 <a href="<?php echo e(URL::to('logout/profile')); ?>" class="ffff text-white float-right"style="margin-top: -26px;"> Logout</a>
  <?php if(session('success')): ?>

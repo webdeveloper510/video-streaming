@@ -87,4 +87,17 @@ class artist extends Controller
       return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);
     }
 
+    public function getRespectedSubId(Request $req){
+        
+        $model=new Registration();
+
+        $subCategory=$model->getRespectedSub($req);
+
+        $returnData= $subCategory ? response()->json($subCategory) :response()->json(array('status'=>0, 'messege'=>'No Data Found'));
+
+        return $returnData;
+        
+      
+    }
+
 }

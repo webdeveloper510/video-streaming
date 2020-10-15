@@ -2,7 +2,7 @@
 <section class="background1">
   @include('layouts.header')
   
-<a href="{{ URL::to('logout/getLogin')}}" class="ffff text-white float-right logout1"> Logout</a>
+
 <div class="container mt-5">
 <div class="overlay1 mt-5 pt-5">
 
@@ -69,7 +69,7 @@
             </div>
             
             <div class="col-md-6 mt-4 pt-2">
-            <select name="category" class='form-control'>
+            <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
@@ -78,11 +78,8 @@
             </div>
 
               <div class="col-md-6 mt-4 pt-2">
-            <select name="subcategory" class='form-control'>
+            <select name="subcategory" id="subCategory" class='form-control'>
                     <option value="">Choose Subcategory</option>
-                    @foreach($subcategory as $sub)
-                        <option value="{{$sub->id}}">{{$sub->subcategory}}</option>
-                    @endforeach
             </select>
             </div>
             <div class="col-md-6 mt-3">

@@ -14,12 +14,17 @@ use Illuminate\Support\Facades\Input;
 class AuthController extends Controller
 {
 
-    public function register(){
+  private $model;
 
-        $model = new Registration();
-      $data = $model->getCategory();
+  public function __construct()
+    {
+      $this->model= new Registration();
+     }
+
+    public function register(){
         
-      return view('registration',['category'=>$data]) ;     
+      return view('registration') ;
+
     }
     
     public function contact(){
@@ -32,30 +37,27 @@ class AuthController extends Controller
     }
 
 
-       $model = new Registration();
-       $data = $model->getCategory();
       
-      return view('/play',['category'=>$data]);
+      return view('/play');
+
     }
 
     /*----------------Filter Result------------------------*/
 
     public function search(){
+
        $contentLogin =   Session::get('contentUser');
       if(!$contentLogin){
         return redirect('/getLogin');
     }
 
 
-        $model = new Registration();
-        $category_data = $model->getCategory();
 
-        // get filterData from session
-        //$data = Session::get('user')['filterData'];
+     
 
            $data=Session::get('filterData');
 
-            //print_r($data);die;
+           
              $recentSelected=Session::get('recentSearch');
 
             $session_data =   Session::get('User');
@@ -63,13 +65,33 @@ class AuthController extends Controller
            unset($data['_token']);
 
 
-         $search_data = $model->getVedio($data);
+         $search_data = $this->model->getVedio($data);
 
-     
+       
 
           $sub=$search_data['subcategory'];
 
-            $data['subid'] = Session::put('subid',$sub);
+
+
+            if(Session::get('subid')){
+
+
+                $sessionGet=Session::get('subid');
+
+            }
+            else{
+
+
+                $resultSubId=$this->model->getSubcategoryById($sub);
+
+              
+
+                 Session::put('subid',$resultSubId);
+
+          }
+
+
+
 
           $search_data->forget('subcategory');
 
@@ -78,28 +100,27 @@ class AuthController extends Controller
             $this->recentData($search_data);
 
         }
-         return view('/search',['category'=>$category_data,'video'=>$search_data,'subcategory'=>$sub]);
+         return view('/search',['video'=>$search_data,'subcategory'=>$sessionGet ? $sessionGet : '']);
     }
 
 
     /*----------------End Filter Result------------------------*/
 
     public function recentData($search_data){
-          $model = new Registration();
-           $model->insertRecentTable($search_data);
+
+           $this->model->insertRecentTable($search_data);
     }
     public function playlist(){
-       $session_data =   Session::get('User');
+    
+       $data=Session::get('User');
 
 
-        //$url = $request;
-        if(!$session_data){
+        if(!$data){
             return redirect('/login');
         }
-      $model = new Registration();
-      $data = $model->getCategory();
+    
       
-      return view('playlist',['category'=>$data]) ;
+      return view('playlist') ;
       //return view('/playlist');
     }
     public function withdraw(){
@@ -107,34 +128,34 @@ class AuthController extends Controller
       if(!$contentLogin){
         return redirect('/getLogin');
     }
-      $model = new Registration();
-      $data = $model->getCategory();
-      return view('/withdraw',['category'=>$data]);
+  
+     
+      return view('/withdraw');
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
       if(!$contentLogin){
         return redirect('/getLogin');
     }
-      $model = new Registration();
-      $data = $model->getCategory();
-      return view('/upload',['category'=> $data]);
+      
+
+      return view('/upload');
+
     }
 
         public function login(){
-          $user=Session::get('User');
 
-          $model = new Registration();
-      $data = $model->getCategory();
-         // print_r($user);
-        return view('login',['category'=>$data]) ;     
+         
+
+     
+        return view('login') ;     
       } 
 
     public function profile(){
       
-        $user=Session::get('User');
+        
 
-        return view('profile',['user' => $user]);
+        return view('profile');
     }
     public function getLogin(){
         
@@ -142,6 +163,7 @@ class AuthController extends Controller
     }
 
     public function getVedio(Request $request){
+
          $data=$request->all();
 
       Session::put('filterData',$data);
@@ -158,15 +180,19 @@ class AuthController extends Controller
 
      public function Dashboard()
     {
-      $user=Session::get('User');
+     
 
-      return view('Dashboard',['user' => $user]);
+      return view('Dashboard');
     }
 
     public function subcat_video($subid){
      
 
-     Session::put('subid',$subid);
+        $data = Session::get('filterData');
+
+        $data['subid'] = $subid;
+
+        Session::put('filterData',$data);
 
          return redirect('/search');
 
@@ -176,6 +202,7 @@ class AuthController extends Controller
 
 
       public function postLogin(Request $request){
+
             $this->validate($request,[
                 'email'=>'required',
                 'email.required' => 'The User Email must be a valid email address.',
@@ -184,11 +211,11 @@ class AuthController extends Controller
             ]
             
             );
-            $model = new Registration();
-            $get = $model->login($request);
+
+            $get = $this->model->login($request);
             if($get){
             // echo "yes";die;
-              return redirect('/profile')->with('success','Login Successfully!');
+              return redirect('/')->with('success','Login Successfully!');
             }
             else{
               return redirect('/login')->with('error','invalid credentials!');
@@ -196,18 +223,16 @@ class AuthController extends Controller
 
       }
       public function home(){
-          $model = new Registration();
-         $data = $model->getCategory();
 
-          $session_data =   Session::get('User');
 
-         $Recentlydata=$model->getRecentlySearch();
+
+         $Recentlydata= $this->model->getRecentlySearch();
       //   print_r($Recentlydata);die;
 
-          $newComes=$model->getNewComes();
+          $newComes=$this->model->getNewComes();
 
 
-        return view('/initial',['category'=>$data, 'login'=>$session_data, 'recently'=>$Recentlydata, 'newComes'=>$newComes]);
+        return view('/initial',['recently'=>$Recentlydata, 'newComes'=>$newComes]);
       }
       public function contentPostLogin(Request $request){
         $this->validate($request,[
@@ -217,8 +242,8 @@ class AuthController extends Controller
       ]
       );
      
-      $model = new Registration();
-       $get = $model->Contentlogin($request);
+   
+       $get = $this->model->Contentlogin($request);
       if($get){
         return redirect('/contentProvider')->with('success','Login Successfully!');
       }
@@ -245,7 +270,7 @@ class AuthController extends Controller
       unset($request['terms']);
    //  print_r($request->all()); die;
         $model = new Registration();
-       $get = $model->registration($request);
+       $get = $this->model->registration($request);
        if($get){
         //echo "yes";die;
          return redirect('/register')->with('success','Registered successfully');
@@ -291,8 +316,8 @@ class AuthController extends Controller
        $request['profilepicture']=$fileName;
          if($filePath){
            // echo "yes";die;
-            $model=new Registration();
-           $update_data = $model->uploadDataFile($request);
+           
+           $update_data = $this->model->uploadDataFile($request);
             if($update_data){
               return redirect('/profile')->with('success','Data Updated Successfully!');
             }
@@ -317,8 +342,8 @@ class AuthController extends Controller
     }
   }
     public function contentForm(){
-      $model = new Registration();
-      $data = $model->getCategory();
+
+      $data = $this->model->getCategory();
       //print_r($data);die;
       return view('content',['category'=>$data]);
     }
@@ -357,8 +382,8 @@ class AuthController extends Controller
          $data['profilepicture']=$fileName;
          if($filePath){
           //print_r($request->all());die;
-          $model=new Registration();
-          $update_data = $model->uploadContentData($data);
+          
+          $update_data = $this->model->uploadContentData($data);
             if($update_data){
                 return redirect('/getLogin');
               }
@@ -396,8 +421,8 @@ class AuthController extends Controller
               $data['media']=$fileName;
               $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
                 if($filePath){
-                $model=new Registration();
-                $update_data = $model->uploadContentProvider($data);
+
+                $update_data = $this->model->uploadContentProvider($data);
                   if($update_data){
                       return redirect('/contentProvider#success')->with('success','Data Created Successfully!');
                     }
@@ -414,8 +439,9 @@ class AuthController extends Controller
 
 
   public function getProvider(){
-    $model=new Registration();
-    $update_data = $model->getContentProvider('audio');
+   
+
+    $update_data = $this->model->getContentProvider('audio');
     //print_r($update_data);
   }
   public function contentProv(){
@@ -423,17 +449,18 @@ class AuthController extends Controller
     if(!$contentLogin){
       return redirect('/getLogin');
   }
-    $model = new Registration();
+   
 
-    $data = $model->getCategory();
 
-    $subcategory=$model->getSubcategory($id='');
+    $subcategory=$this->model->getSubcategory($id='');
 
-    return view('provider',['category'=>$data,'subcategory'=>$subcategory]) ;
+    return view('provider',['subcategory'=>$subcategory]) ;
 
   }
   public function Postdashboard()
   {
     return view('Dashbaord');
   }
+
+
 }

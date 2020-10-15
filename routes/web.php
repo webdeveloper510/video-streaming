@@ -72,6 +72,8 @@ Route::post('Dashboard', 'AuthController@Postdashboard');
 Route::post('postContent', 'AuthController@providerContent');
 Route::post('getVedio', 'AuthController@getVedio');
 
+Route::post('postId', 'artist@getRespectedSubId');
+
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

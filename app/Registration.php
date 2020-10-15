@@ -181,7 +181,9 @@ public function getVedio($data){
    $subid=$value->pluck("subid");
    //print_r($subid);die;
 
-    $products = DB::table("subcategory")->whereIn('id', $subid)->get();
+    $products = DB::table("subcategory")->whereIn('id', $subid)
+    ->pluck('id')
+    ->toArray();
 
     //print_r($products);die;
 
@@ -213,7 +215,9 @@ public function insertRecentTable($data){
     $insertData['updated_at']=now();
      $insert=DB::table('recentmedia')->insert($insertData);
      if($insert){
+
         Session::forget('recentSearch');
+     
      }
      
 }
@@ -314,4 +318,22 @@ public function getVideo($vid){
            return $videos;
        }
 }
+
+public function getRespectedSub($data){
+
+    $value=DB::table('subcategory')->where('catid', $data->id)->get()->toArray();
+
+    return $value;
+}
+    
+
+    public function getSubcategoryById($subId){
+
+      $value=DB::table('subcategory')->whereIn('id', $subId)->get()->toArray();
+
+           return $value;
+
+    }
+
+
 }

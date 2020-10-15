@@ -23,7 +23,7 @@
 <div class="row" >
 
 <?php $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-  <div class="col-md-1  hello">
+  <div class="col-md-2  hello">
 
     <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
 

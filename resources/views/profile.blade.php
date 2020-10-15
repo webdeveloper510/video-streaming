@@ -1,5 +1,7 @@
 @extends('layout.cdn')
  <section class="background1">
+
+  @include('layouts.header')
 <div class="container mt-5">
 <a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"style="margin-top: -26px;"> Logout</a>
  @if(session('success'))

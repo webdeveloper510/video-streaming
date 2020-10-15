@@ -3,6 +3,8 @@
 namespace App\Providers;
 use Schema;
 use Illuminate\Support\ServiceProvider;
+use App\Registration;
+use Illuminate\Support\Facades\Session;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +25,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        //Schema::defaultStringLength(191);
+      
+
+        view()->composer('*', function ($view) 
+    {
+             $model = new Registration();
+
+            $category = $model->getCategory();
+
+            $data=Session::get('User');
+
+            $view->with(array('login'=>$data, 'category'=>$category) );    
+    }); 
+
     }
 }
