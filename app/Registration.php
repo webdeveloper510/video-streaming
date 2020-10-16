@@ -53,6 +53,26 @@ class Registration extends Model
              return 0; 
         }
 }
+
+ public function postArtist($data)
+    {
+        //print_r($data->all()); die;
+        $value=DB::table('contentprovider')->where('email', $data['email'])->get();
+        //print_r($value->count());die;
+        if($value->count() == 0){
+            $userdata=$data->all();
+            $userdata['password']= md5($data['password']);
+            $userdata['created_at']= now();
+            $userdata['updated_at']= now();
+            $inserted_data =  DB::table('contentprovider')->insert($userdata);
+
+            return $inserted_data ? '1' : '0';
+            
+         }
+        else{
+             return 0; 
+        }
+}
         public function Contentlogin($data){
             $value = DB::table('contentprovider')->where(array(
                 'email'=> $data->email,
@@ -70,6 +90,8 @@ class Registration extends Model
         }
 }
 
+
+
 public function getCart($cartid){
        $value=DB::table('media')      
        ->whereIn('id',$cartid)
@@ -86,16 +108,44 @@ public function getTotalPrice($cartid){
 }
 
 public function uploadContentData($userdata){
-    $value=DB::table('contentprovider')->where('email', $userdata['email'])->get();
-    if($value->count() == 0){
-        $userdata['catid']=$userdata['category'];
-        unset($userdata['category']);
-        //print_r($userdata);
-        $userdata['password']= md5($userdata['password']);
-        $userdata['created_at']= now();
-        $userdata['updated_at']= now();
-        $inserted_data =  DB::table('contentprovider')->insert($userdata);
-        return $inserted_data ? '1':'0';
+
+     $array=array();
+
+       $contentData=Session::get('contentUser');
+
+        $contentId=$contentData->id;
+
+       //print_r($userdata);
+
+    $value=DB::table('contentprovider')->where('id',$contentId)->get();
+    if($value->count() > 0){
+
+      foreach ($userdata as $key => $value) {
+
+      if($key=='category'){
+          $array['catid']=$value;
+
+          
+        }
+
+        else{
+
+         $array[$key]= $value;
+     }
+  }
+
+
+      $update=DB::table('contentprovider')->where('id',$contentId)->update($array);
+
+      return $update ? 1 : 0;
+        // $userdata['catid']=$userdata['category'];
+        // unset($userdata['category']);
+        //$inserted_data =  DB::table('contentprovider')->insert($userdata);
+       // return $inserted_data ? '1':'0';
+    }
+
+    else{
+      return 0;
     }
 }
     public function login($data){

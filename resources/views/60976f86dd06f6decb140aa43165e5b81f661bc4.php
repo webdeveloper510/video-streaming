@@ -1,10 +1,9 @@
 
 <section class="background1">
-  <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   
 
 <div class="container mt-5">
-<div class="overlay1 mt-5 pt-5">
+<div class="overlay1">
 
   <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
@@ -32,18 +31,12 @@
           <?php echo e(Form::token()); ?>
 
       <div class="container profile">
-        <h1 class="text-center">Content Provider Detail</h1>
+        <h1 class="text-center">Content Upload</h1>
           <div class="row align-items-center text-white">
-            <div class="col-md-6 mt-5 ">
-            <?php echo e(Form::label('Email', 'E-Mail Address')); ?> 
-                <?php echo e(Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+             <div class="col-md-6 mt-2 ">
+            <?php echo e(Form::label('Title', 'Title')); ?> 
+                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
 
-            </div>
-            <div class="col-md-6 mt-5 ">
-            <?php echo e(Form::label('Add Price', 'Audio/Video Price')); ?> 
-            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
-
-              
             </div>
             <div class="col-md-6 mt-4 ">
            <?php echo e(Form::label('Duration', 'Duration')); ?> 
@@ -68,11 +61,11 @@
         </div>
             </div>
           </div>
-           
             <div class="col-md-6 mt-2 ">
-            <?php echo e(Form::label('Title', 'Title')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
+            <?php echo e(Form::label('Add Price', 'Price')); ?> 
+            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
 
+              
             </div>
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Keyword', 'Keyword')); ?> 
@@ -95,7 +88,7 @@
             </select>
             </div>
             <div class="col-md-6 mt-3">
-            <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
+            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
             </div>

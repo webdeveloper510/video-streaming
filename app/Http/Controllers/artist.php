@@ -34,7 +34,7 @@ class artist extends Controller
     	 return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
     }
 
-    public function cart(Request $req){
+    public function cartSbmit(Request $req){
                // Session::forget('ids');
                // die;
             $data=$req->all();
@@ -59,7 +59,7 @@ class artist extends Controller
            
     }
 
-    public function cart1(){
+    public function cart(){
        $arrayId=Session::get('ids');
                // print_r($arrayId);die;
         $model=new Registration();
@@ -98,6 +98,18 @@ class artist extends Controller
         return $returnData;
         
       
+    }
+
+    public function dashboard()
+    {
+      $contentLogin =   Session::get('contentUser');
+
+      return view('artists.dashboard',['contentUser'=>$contentLogin]);
+    }
+
+    public function profile(){
+      
+      return view('artists.profile');
     }
 
 }

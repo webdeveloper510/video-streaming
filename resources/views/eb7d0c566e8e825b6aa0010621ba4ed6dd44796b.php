@@ -28,81 +28,28 @@
           <?php echo e(Form::token()); ?>
 
       <div class="container profile">
-        <div class="heading text-center"><h2 class="text-white ">Content Provider Detail</h2></div>
-          <div class="row align-items-center text-white">
-            <div class="col-md-6">
-            <?php echo e(Form::label('Email', 'E-Mail Address')); ?> 
-                <?php echo e(Form::text('email', null,['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+        <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
+          <div class="row align-items-center text-white">       
+                <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Eye Color', 'Eye Color')); ?> 
+                <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])); ?>
 
-                 <?php if($errors->first('email')): ?>)
+                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('email') ?>
+                    <?php echo $errors->first('eyecolor') ?>
                 </div>
                 <?php endif; ?>
             </div>
-
-            <div class="col-md-6 pt-2">
-            <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
-                <?php echo e(Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
-
-                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('nickname') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Password', 'Password')); ?> 
-                <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
-
-                 <?php if($errors->first('password')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('password') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
+             <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Gender', 'Gender')); ?> <br>
                  <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male
-                <?php echo e(Form::radio('gender', 'female',['class'=>'rad_But'])); ?>Female
+                <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
                     <?php echo $errors->first('gender') ?>
                 </div>
                 <?php endif; ?>
 
-            </div>
-           
-           
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
-                <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])); ?>
-
-                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('sexology') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3" >
-            <?php echo e(Form::label('Tits Size', 'Tits Size')); ?> 
-                <?php echo e(Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])); ?>
-
-                <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('titssize') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Ass', 'Ass')); ?> 
-                <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])); ?>
-
-                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('ass') ?>
-                </div>
-                <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
@@ -134,13 +81,37 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Eye Color', 'Eye Color')); ?> 
-                <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])); ?>
 
-                  <?php if(session('errors')): ?>
+               <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
+                <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])); ?>
+
+                 <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
-                    <?php echo $errors->first('eyecolor') ?>
+                    <?php echo $errors->first('sexology') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+
+
+            <div class="col-md-6 pt-3 hide" >
+            <?php echo e(Form::label('Tits Size', 'Tits Size')); ?> 
+                <?php echo e(Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])); ?>
+
+                <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('titssize') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+        
+            <div class="col-md-6 pt-3 hide">
+            <?php echo e(Form::label('Ass', 'Ass')); ?> 
+                <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('ass') ?>
                 </div>
                 <?php endif; ?>
             </div>
@@ -184,7 +155,7 @@
                 <?php endif; ?>
             </div>
              <div class="col-md-6 pt-4 ">
-            <?php echo e(Form::label('Choose Image', 'Choose Video',['class'=>'custom-file-label'])); ?> 
+            <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('image',['class'=>'custom-file-input'])); ?>
 
                   <?php if(session('errors')): ?>

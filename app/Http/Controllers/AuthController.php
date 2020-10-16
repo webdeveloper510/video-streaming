@@ -22,6 +22,14 @@ class AuthController extends Controller
      }
 
     public function register(){
+
+       $UserLogin =   Session::get('User');
+
+       if(!$UserLogin){
+
+        return redirect('/');
+    }
+
         
       return view('registration') ;
 
@@ -33,7 +41,7 @@ class AuthController extends Controller
     public function play(){
        $contentLogin =   Session::get('contentUser');
       if(!$contentLogin){
-        return redirect('/getLogin');
+        return redirect('/artistLogin');
     }
 
 
@@ -46,14 +54,6 @@ class AuthController extends Controller
 
     public function search(){
 
-       $contentLogin =   Session::get('contentUser');
-      if(!$contentLogin){
-        return redirect('/getLogin');
-    }
-
-
-
-     
 
            $data=Session::get('filterData');
 
@@ -135,7 +135,7 @@ class AuthController extends Controller
     public function upload(){
       $contentLogin =   Session::get('contentUser');
       if(!$contentLogin){
-        return redirect('/getLogin');
+        return redirect('/artistLogin');
     }
       
 
@@ -145,6 +145,13 @@ class AuthController extends Controller
 
         public function login(){
 
+         $login =   Session::get('User');
+
+         if($login){
+            
+             return redirect('/');
+
+         }
          
 
      
@@ -245,10 +252,10 @@ class AuthController extends Controller
    
        $get = $this->model->Contentlogin($request);
       if($get){
-        return redirect('/contentProvider')->with('success','Login Successfully!');
+        return redirect('/artists/dashboard')->with('success','Login Successfully!');
       }
       else{
-        return redirect('/getLogin')->with('error','invalid credentials!');
+        return redirect('/artistLogin')->with('error','invalid credentials!');
       }
       }
 
@@ -330,17 +337,24 @@ class AuthController extends Controller
 
 
 
-    public function logout(Request $request,$args){
+    public function logout(Request $request){
       Session::forget('User');
-      Session::flush();
+       Session::flush();
 
-      if($args=='profile'){
-      return redirect('/login');
-    }
-    else{
-      return redirect('/getLogin');
-    }
+       return redirect('/');
+    //   if($args=='profile'){
+    //   return redirect('/login');
+    // }
+    // else{
+    //   return redirect('/getLogin');
+    // }
   }
+
+  public function artistRegister(){
+
+    return view('artistRegister');
+  }
+
     public function contentForm(){
 
       $data = $this->model->getCategory();
@@ -348,17 +362,21 @@ class AuthController extends Controller
       return view('content',['category'=>$data]);
     }
     public function contentProvider1(Request $request){
+
+        if($request['gender']=='male'){
+                  unset($request['ass']);
+                   unset($request['titssize']);
+              }
+
       $this->validate($request,[
         'image' => 'required|file',
-        'email'=>'required', 
+       
         'category'=>'required',
         'aboutme'=>'required',
         'sexology'=>'required',
-        'nickname'=>'required',
-        'password'=>'required',
-        'titssize'=>'required',
+        'ass'=>'sometimes|required',
+        'titssize'=>'sometimes|required',
         'privy'=>'required',
-        'ass'=>'required',
         'hairlength'=>'required',
         'haircolor'=>'required',
         'height'=>'required',
@@ -385,7 +403,7 @@ class AuthController extends Controller
           
           $update_data = $this->model->uploadContentData($data);
             if($update_data){
-                return redirect('/getLogin');
+                return redirect('artists/dashboard');
               }
               else
               {
@@ -447,8 +465,10 @@ class AuthController extends Controller
   public function contentProv(){
     $contentLogin =   Session::get('contentUser');
     if(!$contentLogin){
-      return redirect('/getLogin');
+      return redirect('/artistLogin');
   }
+
+
    
 
 
@@ -460,6 +480,31 @@ class AuthController extends Controller
   public function Postdashboard()
   {
     return view('Dashbaord');
+  }
+
+   public function artistPost(Request $request){
+
+     $this->validate($request,[
+          'email'=>'required',
+          'nickname'=>'required',
+          'password'=>'required',
+          // 'terms'=>'required'
+      ]
+      
+      );
+
+
+      unset($request['_token']);
+      unset($request['terms']);
+       $get = $this->model->postArtist($request);
+       if($get){
+        //echo "yes";die;
+         return redirect('/artistRegister')->with('success','Registered successfully');
+       }
+       else{
+        return redirect('/artistRegister#error')->with('error','Email Already Exist!');
+       }
+
   }
 
 

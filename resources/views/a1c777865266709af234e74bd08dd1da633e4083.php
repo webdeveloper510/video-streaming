@@ -5,7 +5,7 @@
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
-					<a href="<?php echo e(url('/home')); ?>" class="navbar-brand">
+					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
 						<img src="<?php echo e(asset('images/logos/logo-2.png')); ?>" height="28" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -15,7 +15,7 @@
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
                 <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
@@ -28,7 +28,7 @@
                     <div id="home" class="tab-pane fade1 in active">
                     <div class="row">
                     <div class="col-md-6">
-                      <div class="dropdown12">
+                      <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                 <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
 
@@ -36,62 +36,61 @@
 
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='video'): ?>
-                   <label class="container1"><?php echo e($cat->category); ?> 
+                   <label class=""> 
                      <?php echo e(Form::checkbox('category[]', $cat->id)); ?>
 
-                      <span class="checkmark"></span>
-                            </label>
+                     <?php echo e($cat->category); ?> 
+                     
+                            </label><br>
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
                     </div>
                      <div class="col-md-6">
-                        <div class="dropdown12">
+                        <div class="dropdown12 text-white">
                            <h4>Price</h4>
-  
-                            <label class="container1">Free  
-                             <?php echo e(Form::checkbox('price','free')); ?>
-
-                           <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  
-                               <?php echo e(Form::checkbox('price','asc')); ?>
-
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  
-                               <?php echo e(Form::checkbox('price','desc')); ?>
-
-                            <span class="checkmark"></span>
+                            
+                            <label class="">
+                             <?php echo e(Form::checkbox('price','free')); ?>Free  
+                          
+                            </label><br>
+                            <label class="text-white">
+                               <?php echo e(Form::checkbox('price','asc')); ?>lowest  
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::checkbox('price','desc')); ?>Higest  
+                            
                             </label>
                        
                         </div>
-                        <div class="dropdown12">
+                        <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
-                            <label class="container1">Shortest  
-                             <?php echo e(Form::checkbox('duration','asc')); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest 
-                           <?php echo e(Form::checkbox('duration','desc')); ?>
-
-                            <span class="checkmark"></span>
-                          </label>
+                            <label class=""> 
+                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest 
+                           
+                            </label><br>
+                            <label class="">
+                           <?php echo e(Form::checkbox('duration','desc')); ?>Longest 
+                            
+                          </label><br>
                       
                         </div>
-                          <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+                          
+                       </div> 
+                       <div class="col-md-12 text-center">
+                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
 
-                       </div> 
                      </div>    
-
+                     </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
                       <h3 style="color: #fff;">Audio</h3>
+                        <div class="row">
                       <div class="col-md-6">
-                      <div class="dropdown12">
+                      <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                       <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
 
@@ -99,60 +98,59 @@
 
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='audio'): ?>
-                   <label class="container1"><?php echo e($cat->category); ?> 
-                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
+                   <label class="">
+                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?><?php echo e($cat->category); ?> 
+                          
+                            </label><br>
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
                           </div>
                           <div class="col-md-6">
-                               <div class="dropdown12">
+                               <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
-                            <label class="container1">Free 
-                             <?php echo e(Form::checkbox('price','free')); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  
-                             <?php echo e(Form::checkbox('price','asc')); ?>
-
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  
-                               <?php echo e(Form::checkbox('price','desc')); ?>
-
-                            <span class="checkmark"></span>
+                            <label class="">
+                             <?php echo e(Form::checkbox('price','free')); ?>Free 
+                            
+                            </label><br>
+                            <label class="">  
+                             <?php echo e(Form::checkbox('price','asc')); ?>lowest
+                            </label><br>
+                            <label class=""> 
+                               <?php echo e(Form::checkbox('price','desc')); ?>Higest 
+                            
                             </label>
                        
                         </div>
-                          </div>
+                         
                        
-                             <div class="dropdown12">
+                             <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
-                            <label class="container1">Shortest  
-                             <?php echo e(Form::checkbox('duration','asc')); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest 
-                             <?php echo e(Form::checkbox('duration','desc')); ?>
-
-                            <span class="checkmark"></span>
+                            <label>  
+                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
+                            </label><br>
+                            <label >
+                             <?php echo e(Form::checkbox('duration','desc')); ?>Longest 
+                          
                           </label>
                           </div>
-                            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+                           </div>
+                            <div class="col-md-12 text-center">
+                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                        <?php echo e(Form::close()); ?>
+                      <?php echo e(Form::close()); ?>
 
+                     </div> 
+                            </div>
+                           
                       </div>
                   
                     <div id="menu2" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
+                      <div class="row">
                           <div class="col-md-6">
-                      <div class="dropdown12">
+                      <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                            <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
 
@@ -160,52 +158,49 @@
 
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='artist'): ?>
-                   <label class="container1"><?php echo e($cat->category); ?> 
-                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
+                   <label>
+                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?><?php echo e($cat->category); ?> 
+                            
+                            </label><br>
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
                           </div>
                           <div class="col-md-6">
-                               <div class="dropdown12">
+                               <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
-                            <label class="container1">Free  
-                               <?php echo e(Form::checkbox('price','free')); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  
-                               <?php echo e(Form::checkbox('price','asc')); ?>
-
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest 
-                               <?php echo e(Form::checkbox('price','desc')); ?>
-
-                            <span class="checkmark"></span>
+                            <label> 
+                               <?php echo e(Form::checkbox('price','free')); ?>Free 
+                            </label><br>
+                            <label> 
+                               <?php echo e(Form::checkbox('price','asc')); ?>lowest 
+                            </label><br>
+                            <label> 
+                               <?php echo e(Form::checkbox('price','desc')); ?>Higest
+                            
                             </label>                       
                         </div>
-                          </div>
-                           <div class="dropdown12">
+                       
+                           <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
-                            <label class="container1">Shortest  
-                            <?php echo e(Form::checkbox('duration','asc')); ?>
-
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest 
-                             <?php echo e(Form::checkbox('duration[]','desc')); ?>
-
-                            <span class="checkmark"></span>
+                            <label>  
+                            <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
+                            
+                            </label><br>
+                            <label> 
+                             <?php echo e(Form::checkbox('duration[]','desc')); ?>Longest
+                            
                           </label>
                           </div>
-                            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+                             </div>
+                             <div class="col-md-12 text-center">
+                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                          <?php echo e(Form::close()); ?>
+                      <?php echo e(Form::close()); ?>
 
+                     </div> 
+                   </div>
                        
                     </div>
                     <div id="menu3" class="tab-pane fade">
@@ -214,7 +209,7 @@
                     </div>
                     </div>
                 </ul>
-              </li>
+            
               <li id="search">
                 <form action="" method="get">
                   <input type="text" name="search_text" id="search_text" placeholder="Search"/>
@@ -233,7 +228,7 @@
 							<a href="#" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
 							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
 							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
-							<a href="play.html" class="nav-item nav-link"><i class="fa fa-play" aria-hidden="true"></i></a>	
+							<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>	
 							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
 							<a href="<?php echo e(url('/getArtists')); ?>" class="nav-item nav-link">Artists</a>	
 
@@ -242,7 +237,7 @@
 						<div class="navbar-nav ml-auto">
 					
               <div class="btn-group">
-  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -15px;
+  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;
     font-size: 16px;font-weight: 400;"><i class="fa fa-user" aria-hidden="true"></i>
     <?php echo e($login ? $login->nickname : 'Login'); ?>
 
@@ -250,16 +245,24 @@
   <?php if(!$login): ?>
   <div class="dropdown-menu dropdown-menu-right">
     <button class="dropdown-item" type="button"><a href="<?php echo e(url('/login')); ?>">Login</a></button>
-    <button class="dropdown-item" type="button"><a href="<?php echo e(url('/getLogin')); ?>">Login As a Artist</a></button>
+    <button class="dropdown-item" type="button">
+    <a href="<?php echo e(url('/artistLogin')); ?>">
+        Login As a Artist
+    </a>
+</button>
   </div>
   <?php else: ?>
    <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button"><a href="<?php echo e(url('/profile')); ?>">Edit Profile</a></button>
+    <button class="dropdown-item" type="button">
+      <a href="<?php echo e(url('/profile')); ?>">Edit Profile
+      </a></button>
   </div>
 <?php endif; ?>
 </div>
 						</div>
-            <a href="<?php echo e(URL::to('logout/getLogin')); ?>" class="nav-item nav-link text-white">Logout</a>
+             <?php if($login): ?>
+            <a href="<?php echo e(URL::to('logout')); ?>" class="nav-item text-white">Logout</a>
+            <?php endif; ?>
 					</div>
 				</nav>
 		    </div>

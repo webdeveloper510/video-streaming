@@ -60,7 +60,8 @@
 <?php echo e(Form::close()); ?>
 
 <p class="text-white">Don't have an account yet ?</p>
-<a href="<?php echo e(URL::to('register')); ?>" class="ffff text-white"> Signup Now</a>
+<a href="<?php echo e(URL::to('register')); ?>" class="ffff text-white"> Signup Now</a><br>
+<a href="<?php echo e(URL::to('/')); ?>" class="ffff text-white text-right" style="float: right; margin-top: -20px;">Return To Home</a>
           
         </div>
       </div>

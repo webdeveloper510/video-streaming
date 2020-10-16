@@ -12,8 +12,8 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" Content-Type="video/mp4">
-   
-    <link rel="icon" href="<?php echo e(asset('images/fevicon/fevicon.png')); ?>" type="image/gif" />
+
+<link rel="icon" href="<?php echo e(asset('images/fevicon/fevicon.png')); ?>" type="image/gif" />
 <!-- bootstrap css -->
 <link rel="stylesheet" href="<?php echo e(asset('design/bootstrap.min.css')); ?>">
 <!-- Site css -->

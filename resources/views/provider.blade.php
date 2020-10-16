@@ -1,10 +1,9 @@
 @extends('layout.cdn')
 <section class="background1">
-  @include('layouts.header')
   
 
 <div class="container mt-5">
-<div class="overlay1 mt-5 pt-5">
+<div class="overlay1">
 
   @if(session('success'))
         <div class="alert alert-success" id="success">
@@ -27,16 +26,11 @@
   {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-        <h1 class="text-center">Content Provider Detail</h1>
+        <h1 class="text-center">Content Upload</h1>
           <div class="row align-items-center text-white">
-            <div class="col-md-6 mt-5 ">
-            {{Form::label('Email', 'E-Mail Address')}} 
-                {{Form::text('email', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
-            </div>
-            <div class="col-md-6 mt-5 ">
-            {{Form::label('Add Price', 'Audio/Video Price')}} 
-            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
-              
+             <div class="col-md-6 mt-2 ">
+            {{Form::label('Title', 'Title')}} 
+                {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
             </div>
             <div class="col-md-6 mt-4 ">
            {{Form::label('Duration', 'Duration')}} 
@@ -58,10 +52,10 @@
         </div>
             </div>
           </div>
-           
             <div class="col-md-6 mt-2 ">
-            {{Form::label('Title', 'Title')}} 
-                {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
+            {{Form::label('Add Price', 'Price')}} 
+            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
+              
             </div>
             <div class="col-md-6 mt-2 ">
             {{Form::label('Keyword', 'Keyword')}} 
@@ -83,7 +77,7 @@
             </select>
             </div>
             <div class="col-md-6 mt-3">
-            {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
+            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-3">

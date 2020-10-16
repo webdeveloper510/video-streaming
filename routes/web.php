@@ -13,66 +13,82 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*-------------------Web Site----------------------*/
+
 Route::get('/','AuthController@home');
 
 Route::get('register', 'AuthController@register');
 Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
-Route::get('getContent', 'AuthController@contentForm');
-Route::get('getProviderdata', 'AuthController@getProvider');
-Route::get('getLogin', 'AuthController@getLogin');
 
-Route::get('Dashboard', 'AuthController@Dashboard');
-Route::get('home', 'AuthController@home')->middleware();
-Route::get('contact', 'AuthController@contact');
 Route::get('play', 'AuthController@play');
 Route::get('search', 'AuthController@search');
-Route::get('upload', 'AuthController@upload');
-Route::get('playlist', 'AuthController@playlist');
-Route::get('withdraw', 'AuthController@withdraw');
-Route::get('contentProvider', 'AuthController@contentProv');
+
+
+
 Route::get('show/{id}', 'AuthController@subcat_video');
 
+Route::get('getArtists', 'artist@getArtists');
+Route::get('artistDetail/{id}', 'artist@artistDetail');
+//Route::get('artist-profile', 'artist@artistProfile');
+Route::get('artist-video/{id}', 'artist@artistVideo');
+Route::get('logout', 'AuthController@logout');
+Route::get('cart', 'artist@cart');
 
-/*-----------------------  For Admin -------------------------------*/
-
-Route::get('admin/getCategory', 'admin@showCategorypage');
-
-Route::post('admin/addCategory', 'admin@addCategory');
 
 
-Route::get('admin/sub/{id}', 'admin@showSubCategory');
 
-Route::post('admin/addSub', 'admin@addSubCategory');
+
+Route::post('ajax-request', 'artist@cartSbmit');
+Route::post('updateProfile', 'AuthController@updateProfile');
+Route::post('registration', 'AuthController@UserRegistration');
+Route::post('login', 'AuthController@postLogin');
+Route::post('contentProvider', 'AuthController@contentProvider1');
+
+Route::post('contentPostLogin', 'AuthController@contentPostLogin');
+Route::post('postContent', 'AuthController@providerContent');
+
+Route::post('artistPost', 'AuthController@artistPost');
+Route::post('getVedio', 'AuthController@getVedio');
+
+Route::post('postId', 'artist@getRespectedSubId');
+
+   /*-------------------End Web Site Route----------------------*/
+
+
+ /*-----------------------  For Admin -------------------------------*/
+
+  Route::get('admin/getCategory', 'admin@showCategorypage');
+
+  Route::post('admin/addCategory', 'admin@addCategory');
+
+
+  Route::get('admin/sub/{id}', 'admin@showSubCategory');
+
+  Route::post('admin/addSub', 'admin@addSubCategory');
 
 /*---------------------------End Admin-----------------------------*/
 
 /*-------------------------------------Artist Route ---------------------------*/
 
-   Route::get('getArtists', 'artist@getArtists');
-   Route::get('artistDetail/{id}', 'artist@artistDetail');
-   Route::get('artist-profile', 'artist@artistProfile');
-   Route::get('artist-video/{id}', 'artist@artistVideo');
+     Route::get('withdraw', 'AuthController@withdraw');
 
-   Route::post('ajax-request', 'artist@cart');
+    Route::get('artist/edit', 'AuthController@contentForm');
 
+    Route::get('artistRegister', 'AuthController@artistRegister');
 
-   Route::get('cart1', 'artist@cart1');
+    Route::get('artistLogin', 'AuthController@getLogin');
+    Route::get('artists/dashboard', 'artist@dashboard');
+
+    Route::get('artist/Profile', 'artist@profile');
+
+    Route::get('artist/contentUpload', 'AuthController@contentProv');
+
 
 /*---------------------------------------End Artist---------------------*/
 
 // Api routes
-Route::post('updateProfile', 'AuthController@updateProfile');
-Route::post('registration', 'AuthController@UserRegistration');
-Route::post('login', 'AuthController@postLogin');
-Route::post('contentProvider', 'AuthController@contentProvider1');
-Route::get('logout/{args?}', 'AuthController@logout');
-Route::post('contentPostLogin', 'AuthController@contentPostLogin');
-Route::post('Dashboard', 'AuthController@Postdashboard');
-Route::post('postContent', 'AuthController@providerContent');
-Route::post('getVedio', 'AuthController@getVedio');
 
-Route::post('postId', 'artist@getRespectedSubId');
 
 //Auth::routes();
 

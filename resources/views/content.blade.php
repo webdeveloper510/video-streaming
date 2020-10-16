@@ -23,75 +23,27 @@
   {!!Form::open(['action' => 'AuthController@contentProvider1', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-        <div class="heading text-center"><h2 class="text-white ">Content Provider Detail</h2></div>
-          <div class="row align-items-center text-white">
-            <div class="col-md-6">
-            {{Form::label('Email', 'E-Mail Address')}} 
-                {{Form::text('email', null,['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
-                 @if($errors->first('email')))
+        <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
+          <div class="row align-items-center text-white">       
+                <div class="col-md-6 pt-3">
+            {{Form::label('Eye Color', 'Eye Color')}} 
+                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
+                  @if(session('errors'))
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('email') ?>
+                    <?php echo $errors->first('eyecolor') ?>
                 </div>
                 @endif
             </div>
-
-            <div class="col-md-6 pt-2">
-            {{Form::label('Nickname', 'Nickname')}} 
-                {{Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
-                 @if(session('errors'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('nickname') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 pt-3">
-            {{Form::label('Password', 'Password')}} 
-                {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
-                 @if($errors->first('password'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('password') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 pt-3">
+             <div class="col-md-6 pt-3">
             {{Form::label('Gender', 'Gender')}} <br>
                  {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male
-                {{Form::radio('gender', 'female',['class'=>'rad_But'])}}Female
+                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('gender') ?>
                 </div>
                 @endif
 
-            </div>
-           
-           
-            <div class="col-md-6 pt-3">
-            {{Form::label('Sexology', 'Sexology')}} 
-                {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])}}
-                 @if(session('errors'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('sexology') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 pt-3" >
-            {{Form::label('Tits Size', 'Tits Size')}} 
-                {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
-                @if(session('errors'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('titssize') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 pt-3">
-            {{Form::label('Ass', 'Ass')}} 
-                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
-                 @if(session('errors'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('ass') ?>
-                </div>
-                @endif
             </div>
             <div class="col-md-6 pt-3">
             {{Form::label('Privy part', 'Privy part')}} 
@@ -120,12 +72,34 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 pt-3">
-            {{Form::label('Eye Color', 'Eye Color')}} 
-                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
-                  @if(session('errors'))
+
+               <div class="col-md-6 pt-3">
+            {{Form::label('Sexology', 'Sexology')}} 
+                {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])}}
+                 @if(session('errors'))
                 <div class="alert alert-danger">
-                    <?php echo $errors->first('eyecolor') ?>
+                    <?php echo $errors->first('sexology') ?>
+                </div>
+                @endif
+            </div>
+
+
+            <div class="col-md-6 pt-3 hide" >
+            {{Form::label('Tits Size', 'Tits Size')}} 
+                {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
+                @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('titssize') ?>
+                </div>
+                @endif
+            </div>
+        
+            <div class="col-md-6 pt-3 hide">
+            {{Form::label('Ass', 'Ass')}} 
+                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
+                 @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('ass') ?>
                 </div>
                 @endif
             </div>
@@ -166,7 +140,7 @@
                 @endif
             </div>
              <div class="col-md-6 pt-4 ">
-            {{Form::label('Choose Image', 'Choose Video',['class'=>'custom-file-label'])}} 
+            {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
                 {{Form::file('image',['class'=>'custom-file-input'])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">

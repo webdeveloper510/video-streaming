@@ -5,7 +5,7 @@
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
-					<a href="{{url('/home')}}" class="navbar-brand">
+					<a href="{{url('/')}}" class="navbar-brand">
 						<img src="{{asset('images/logos/logo-2.png')}}" height="28" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -15,7 +15,7 @@
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
                 <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
@@ -28,154 +28,166 @@
                     <div id="home" class="tab-pane fade1 in active">
                     <div class="row">
                     <div class="col-md-6">
-                      <div class="dropdown12">
+                      <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                 {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                   {{Form::token()}}
                             @foreach($category as $cat)
                             @if($cat->type=='video')
-                   <label class="container1">{{$cat->category}} 
+                   <label class=""> 
                      {{Form::checkbox('category[]', $cat->id)}}
-                      <span class="checkmark"></span>
-                            </label>
+                     {{$cat->category}} 
+                     
+                            </label><br>
                              @endif
                             @endforeach
                           
                       </div>
                     </div>
                      <div class="col-md-6">
-                        <div class="dropdown12">
+                        <div class="dropdown12 text-white">
                            <h4>Price</h4>
-  
-                            <label class="container1">Free  
-                             {{Form::checkbox('price','free')}}
-                           <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  
-                               {{Form::checkbox('price','asc')}}
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  
-                               {{Form::checkbox('price','desc')}}
-                            <span class="checkmark"></span>
+                            
+                            <label class="">
+                             {{Form::checkbox('price','free')}}Free  
+                          
+                            </label><br>
+                            <label class="text-white">
+                               {{Form::checkbox('price','asc')}}lowest  
+                            </label><br>
+                            <label class="">
+                               {{Form::checkbox('price','desc')}}Higest  
+                            
                             </label>
                        
                         </div>
-                        <div class="dropdown12">
+                        <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
-                            <label class="container1">Shortest  
-                             {{Form::checkbox('duration','asc')}}
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest 
-                           {{Form::checkbox('duration','desc')}}
-                            <span class="checkmark"></span>
-                          </label>
+                            <label class=""> 
+                             {{Form::checkbox('duration','asc')}}Shortest 
+                           
+                            </label><br>
+                            <label class="">
+                           {{Form::checkbox('duration','desc')}}Longest 
+                            
+                          </label><br>
                       
                         </div>
-                          {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
-                      {{ Form::close() }}
+                          
                        </div> 
+                       <div class="col-md-12 text-center">
+                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                      {{ Form::close() }}
                      </div>    
-
+                     </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
                       <h3 style="color: #fff;">Audio</h3>
+                        <div class="row">
                       <div class="col-md-6">
-                      <div class="dropdown12">
+                      <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                       {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                       {{Form::token()}}
                             @foreach($category as $cat)
                             @if($cat->type=='audio')
-                   <label class="container1">{{$cat->category}} 
-                     {{Form::checkbox('category[]', $cat->id)}}
-                            <span class="checkmark"></span>
-                            </label>
+                   <label class="">
+                     {{Form::checkbox('category[]', $cat->id)}}{{$cat->category}} 
+                          
+                            </label><br>
                              @endif
                             @endforeach
                           </div>
                           </div>
                           <div class="col-md-6">
-                               <div class="dropdown12">
+                               <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
-                            <label class="container1">Free 
-                             {{Form::checkbox('price','free')}}
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  
-                             {{Form::checkbox('price','asc')}}
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest  
-                               {{Form::checkbox('price','desc')}}
-                            <span class="checkmark"></span>
+                            <label class="">
+                             {{Form::checkbox('price','free')}}Free 
+                            
+                            </label><br>
+                            <label class="">  
+                             {{Form::checkbox('price','asc')}}lowest
+                            </label><br>
+                            <label class=""> 
+                               {{Form::checkbox('price','desc')}}Higest 
+                            
                             </label>
                        
                         </div>
-                          </div>
+                         
                        
-                             <div class="dropdown12">
+                             <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
-                            <label class="container1">Shortest  
-                             {{Form::checkbox('duration','asc')}}
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest 
-                             {{Form::checkbox('duration','desc')}}
-                            <span class="checkmark"></span>
+                            <label>  
+                             {{Form::checkbox('duration','asc')}}Shortest
+                            </label><br>
+                            <label >
+                             {{Form::checkbox('duration','desc')}}Longest 
+                          
                           </label>
                           </div>
-                            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
-                        {{ Form::close() }}
+                           </div>
+                            <div class="col-md-12 text-center">
+                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                      {{ Form::close() }}
+                     </div> 
+                            </div>
+                           
                       </div>
                   
                     <div id="menu2" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
+                      <div class="row">
                           <div class="col-md-6">
-                      <div class="dropdown12">
+                      <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                            {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                              {{Form::token()}}
                             @foreach($category as $cat)
                             @if($cat->type=='artist')
-                   <label class="container1">{{$cat->category}} 
-                     {{Form::checkbox('category[]', $cat->id)}}
-                            <span class="checkmark"></span>
-                            </label>
+                   <label>
+                     {{Form::checkbox('category[]', $cat->id)}}{{$cat->category}} 
+                            
+                            </label><br>
                              @endif
                             @endforeach
                           </div>
                           </div>
                           <div class="col-md-6">
-                               <div class="dropdown12">
+                               <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
-                            <label class="container1">Free  
-                               {{Form::checkbox('price','free')}}
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">lowest  
-                               {{Form::checkbox('price','asc')}}
-                            <span class="checkmark"></span></label>
-                            <label class="container1">Higest 
-                               {{Form::checkbox('price','desc')}}
-                            <span class="checkmark"></span>
+                            <label> 
+                               {{Form::checkbox('price','free')}}Free 
+                            </label><br>
+                            <label> 
+                               {{Form::checkbox('price','asc')}}lowest 
+                            </label><br>
+                            <label> 
+                               {{Form::checkbox('price','desc')}}Higest
+                            
                             </label>                       
                         </div>
-                          </div>
-                           <div class="dropdown12">
+                       
+                           <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
-                            <label class="container1">Shortest  
-                            {{Form::checkbox('duration','asc')}}
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="container1">Longest 
-                             {{Form::checkbox('duration[]','desc')}}
-                            <span class="checkmark"></span>
+                            <label>  
+                            {{Form::checkbox('duration','asc')}}Shortest
+                            
+                            </label><br>
+                            <label> 
+                             {{Form::checkbox('duration[]','desc')}}Longest
+                            
                           </label>
                           </div>
-                            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
-                          {{ Form::close() }}
+                             </div>
+                             <div class="col-md-12 text-center">
+                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                      {{ Form::close() }}
+                     </div> 
+                   </div>
                        
                     </div>
                     <div id="menu3" class="tab-pane fade">
@@ -184,7 +196,7 @@
                     </div>
                     </div>
                 </ul>
-              </li>
+            
               <li id="search">
                 <form action="" method="get">
                   <input type="text" name="search_text" id="search_text" placeholder="Search"/>
@@ -203,7 +215,7 @@
 							<a href="#" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
 							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
 							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
-							<a href="play.html" class="nav-item nav-link"><i class="fa fa-play" aria-hidden="true"></i></a>	
+							<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>	
 							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
 							<a href="{{url('/getArtists')}}" class="nav-item nav-link">Artists</a>	
 
@@ -212,23 +224,31 @@
 						<div class="navbar-nav ml-auto">
 					
               <div class="btn-group">
-  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: -15px;
+  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;
     font-size: 16px;font-weight: 400;"><i class="fa fa-user" aria-hidden="true"></i>
     {{$login ? $login->nickname : 'Login'}}
   </button>
   @if(!$login)
   <div class="dropdown-menu dropdown-menu-right">
     <button class="dropdown-item" type="button"><a href="{{url('/login')}}">Login</a></button>
-    <button class="dropdown-item" type="button"><a href="{{url('/getLogin')}}">Login As a Artist</a></button>
+    <button class="dropdown-item" type="button">
+    <a href="{{url('/artistLogin')}}">
+        Login As a Artist
+    </a>
+</button>
   </div>
   @else
    <div class="dropdown-menu dropdown-menu-right">
-    <button class="dropdown-item" type="button"><a href="{{url('/profile')}}">Edit Profile</a></button>
+    <button class="dropdown-item" type="button">
+      <a href="{{url('/profile')}}">Edit Profile
+      </a></button>
   </div>
 @endif
 </div>
 						</div>
-            <a href="{{ URL::to('logout/getLogin')}}" class="nav-item nav-link text-white">Logout</a>
+             @if($login)
+            <a href="{{ URL::to('logout')}}" class="nav-item text-white">Logout</a>
+            @endif
 					</div>
 				</nav>
 		    </div>
