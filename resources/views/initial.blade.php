@@ -21,7 +21,13 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">{{$recently ? 'Recently Searched' : ''}} </h3> 
+       @if($login && $recently)
+	  <h3 class="tittle">
+     
+     Recently Search
+
+     </h3> 
+     @endif
 	</div>
     <!--Carousel Wrapper-->
     @if($login && $recently)

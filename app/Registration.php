@@ -60,7 +60,8 @@ class Registration extends Model
         $value=DB::table('contentprovider')->where('email', $data['email'])->get();
         //print_r($value->count());die;
         if($value->count() == 0){
-            $userdata=$data->all();
+
+            $userdata = $data->all();
             $userdata['password']= md5($data['password']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
@@ -138,10 +139,6 @@ public function uploadContentData($userdata){
       $update=DB::table('contentprovider')->where('id',$contentId)->update($array);
 
       return $update ? 1 : 0;
-        // $userdata['catid']=$userdata['category'];
-        // unset($userdata['category']);
-        //$inserted_data =  DB::table('contentprovider')->insert($userdata);
-       // return $inserted_data ? '1':'0';
     }
 
     else{
@@ -329,7 +326,8 @@ public function getRecentlySearch(){
          $data = DB::table("media")->select('*')
             ->whereIn('id',$media_array)
             //->toSql();
-            ->get();
+            ->get()
+            ->toArray();
            
     }
     

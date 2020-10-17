@@ -1,3 +1,4 @@
+
 @extends('layout.cdn')
 
 <!DOCTYPE html>

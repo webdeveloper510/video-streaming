@@ -78,6 +78,8 @@ class AuthController extends Controller
 
                 $sessionGet=Session::get('subid');
 
+                //    print_r($sessionGet);die;
+
             }
             else{
 
@@ -100,7 +102,7 @@ class AuthController extends Controller
             $this->recentData($search_data);
 
         }
-         return view('/search',['video'=>$search_data,'subcategory'=>$sessionGet ? $sessionGet : '']);
+         return view('/search',['video'=>$search_data,'subcategory'=>$sessionGet]);
     }
 
 
@@ -234,7 +236,7 @@ class AuthController extends Controller
 
 
          $Recentlydata= $this->model->getRecentlySearch();
-      //   print_r($Recentlydata);die;
+        //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
 
@@ -474,7 +476,7 @@ class AuthController extends Controller
 
     $subcategory=$this->model->getSubcategory($id='');
 
-    return view('provider',['subcategory'=>$subcategory]) ;
+    return view('artists.provider',['subcategory'=>$subcategory]) ;
 
   }
   public function Postdashboard()

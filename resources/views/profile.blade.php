@@ -2,14 +2,7 @@
  <section class="background1">
 
   @include('layouts.header')
-<div class="container mt-5">
-<a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"style="margin-top: -26px;"> Logout</a>
- @if(session('success'))
-        <div class="alert alert-success" id="sucess">
-        {{session('success')}}
-        </div>
-        @endif
-            </div>
+
             <div class="container">
           <div class="overlay1">
 
@@ -150,3 +143,10 @@
 </div>
 </div>
 </section>
+<style>
+
+.overlay1 {
+    margin-top: 7% !important;
+  }
+
+</style>

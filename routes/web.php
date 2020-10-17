@@ -51,7 +51,10 @@ Route::post('postContent', 'AuthController@providerContent');
 Route::post('artistPost', 'AuthController@artistPost');
 Route::post('getVedio', 'AuthController@getVedio');
 
-Route::post('postId', 'artist@getRespectedSubId');
+Route::post('postId', 
+           [  'name' => 'postId', 
+              'uses' => 'artist@getRespectedSubId'
+           ]);
 
    /*-------------------End Web Site Route----------------------*/
 

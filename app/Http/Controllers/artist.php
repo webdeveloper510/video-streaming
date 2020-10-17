@@ -11,34 +11,35 @@ use Illuminate\Support\Facades\Input;
 
 class artist extends Controller
 {
+    private $model;
+
 	  public function __construct()
     {
-    		
+    		$this->model = new Registration();
     }
     //
     public function getArtists(){
-     $model = new Registration();
+   
 
-      $data = $model->getCategory();
+      $data = $this->model->getCategory();
+      $artists=$this->model->getArtists();
 
-    $artists=$model->getArtists();
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
-    public function artistDetail($artistid){
-         $model=new Registration();
-    	 $allArtists=$model->getArtistDetail($artistid);
 
-        $category_data = $model->getCategory();
-    	 //echo "<pre>";
-    	// print_r($allArtists);die;
-    	 return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
+
+    public function artistDetail($artistid){
+         
+    	   $allArtists=     $this->model->getArtistDetail($artistid);
+         $category_data = $this->model->getCategory();
+      	
+    	   return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
     }
 
     public function cartSbmit(Request $req){
-               // Session::forget('ids');
-               // die;
+        
             $data=$req->all();
-            //print_r($data['id']);
+          
             $arrayId=Session::get('ids');
             if($arrayId){
           
@@ -54,44 +55,42 @@ class artist extends Controller
                 $arr[]=$data['id'];
                  Session::put('ids',$arr);
             }
-            $arrayId=Session::get('ids');
+            
+              $arrayId=Session::get('ids');
               return count($arrayId);
            
     }
 
     public function cart(){
-       $arrayId=Session::get('ids');
-               // print_r($arrayId);die;
-        $model=new Registration();
-        $cartData=$model->getCart($arrayId);
-        $totalPrice=$model->getTotalPrice($arrayId);
-        //echo "<pre>";
-       // print_r($totalPrice);
+        $arrayId=Session::get('ids');
+                
+        $cartData= $this->model->getCart($arrayId);
+        $totalPrice= $this->model->getTotalPrice($arrayId);
+
         
         return view('cart',['cart'=>$cartData,'totalPrice'=>$totalPrice]);
     }
 
     public function artistProfile(){
     
-      return view('artistProfile');
+        return view('artistProfile');
     }
 
     public function artistVideo($vedioid){
-       $model=new Registration();
-        $allVedios=$model->getVideo($vedioid);
+      
+          $allVedios = $this->model->getVideo($vedioid);
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
-           $category_data = $model->getCategory();
-  // print_r($allVedios);die;
-      return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);
+          $category_data = $this->model->getCategory();
+  
+       return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);
     }
 
     public function getRespectedSubId(Request $req){
-        
-        $model=new Registration();
 
-        $subCategory=$model->getRespectedSub($req);
+     
+        $subCategory = $this->model->getRespectedSub($req);
 
         $returnData= $subCategory ? response()->json($subCategory) :response()->json(array('status'=>0, 'messege'=>'No Data Found'));
 
@@ -104,12 +103,22 @@ class artist extends Controller
     {
       $contentLogin =   Session::get('contentUser');
 
-      return view('artists.dashboard',['contentUser'=>$contentLogin]);
+      if(!$contentLogin){
+        redirect('/artistLogin');
+      }
+
+      return view('artists.dashboard_home',['contentUser'=>$contentLogin]);
     }
 
     public function profile(){
+
+      $contentLogin =   Session::get('contentUser');
+
+      if(!$contentLogin){
+        redirect('/artistLogin');
+      }
       
-      return view('artists.profile');
+      return view('artists.profile',['contentUser'=>$contentLogin]);
     }
 
 }

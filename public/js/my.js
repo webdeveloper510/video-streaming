@@ -1,3 +1,5 @@
+var APP_URL= $('#base_url').attr('data-url');
+
 $('.rad_But').click(function(){
 	console.log($(this).val());
 	if($(this).val()=='male'){
@@ -35,23 +37,27 @@ $(document).ready(function() {
  }
 
  $("#selectCategory").change(function(){
+
 					
 		var getUserID = $(this).val();
 
-		//console.log(getUserID);
+		//console.log(getUserID);return false;
 
 		if(getUserID != '')
 		{
+
 			$.ajax({
 				type: 'POST',
-				url: 'postId',
+				   url:APP_URL+"/postId",
 				dataType: "json",
 				 headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
+
 				data: {"id": getUserID},
+
 				success: function(data){
-					//console.log(data);
+					//console.log(data);return false;
 					if(data.status!=0){
 
 						console.log('yes');

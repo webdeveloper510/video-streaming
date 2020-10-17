@@ -21,7 +21,13 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle"><?php echo e($recently ? 'Recently Searched' : ''); ?> </h3> 
+       <?php if($login && $recently): ?>
+	  <h3 class="tittle">
+     
+     Recently Search
+
+     </h3> 
+     <?php endif; ?>
 	</div>
     <!--Carousel Wrapper-->
     <?php if($login && $recently): ?>

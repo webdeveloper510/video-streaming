@@ -1,17 +1,13 @@
-@include('artists.dashboard');
-     <section class="background1">
-  
-
-<div class="container mt-5">
+@include('artists.dashboard')
+    <section class="background1 ">
+<div class="container">
 <div class="overlay1 text-white">
 
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
-        @endif
-           
-        
+        @endif 
           @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
@@ -26,7 +22,7 @@
   {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-        <h1 class="text-center">Content Upload</h1>
+        <h2 class="text-center">Content Upload</h2>
           <div class="row align-items-center text-white">
              <div class="col-md-6 mt-2 ">
             {{Form::label('Title', 'Title')}} 
@@ -76,7 +72,7 @@
                     <option value="">Choose Subcategory</option>
             </select>
             </div>
-            <div class="col-md-6 mt-3">
+            <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}
             </div>
@@ -93,4 +89,33 @@
 </div>
 
 </section>
+
+ <style>
+  section.background1 {
+    padding-top: 11%;
+  }
+  label {
+    color: white;
+}
+
+
+.overlay1 {
+
+    margin-top: 0%;
+  }
+  @media only screen and (max-width: 767px){
+section.background1 {
+    height: 151%;
+    padding-bottom: 30px;
+}
+.overlay1 {
+    margin-top: 9% !important;
+}
+.custom-file-label {
+    width: 91%;
+    }
+}
+</style>
        
+@include('artists.dashboard_footer')
+

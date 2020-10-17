@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="<?php echo e(asset('design/artist.css')); ?>" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    form.form-inline .form-control {
+
+    width: 60% !important;
+    background-color: #ffffff !important;
+      }
+      button.btn.btn-primary.my-2.my-sm-0 {
+          margin-left: -11px;
+      }
+
+    </style>
   </head>
   <body>
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -24,12 +36,12 @@
               
          </div>
            </div>
-           <div class="col-md-4">
-              
+           <div class="col-md-4 text-right pt-3 mt-3">
+              <span>Short:</span>
            </div>
-           <div class="col-md-4">
+           <div class="col-md-4 mt-3">
   
-            Short:<select class="custom-select form-inline m-2">
+            <select class="custom-select form-inline m-2">
              
                  <option selected>Open this select menu</option>
                  <option value="1">One</option>
