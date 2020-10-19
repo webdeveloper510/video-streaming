@@ -142,7 +142,7 @@
              <div class="col-md-6 pt-4 ">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
   {{Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])}}
-  <img id="blah" src="#" alt="your image" width="100px" height="100px" />
+  <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>
