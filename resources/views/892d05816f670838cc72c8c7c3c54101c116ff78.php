@@ -1,7 +1,9 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <section class="background1 ">
-<div class="container">
-<div class="overlay1 text-white">
+      <div class="container">
+      <div class="overlay1 text-white">
+
+
 
   <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
@@ -102,7 +104,7 @@
 
   </div>
 </div>
-
+</div>
 </section>
 
  <style>

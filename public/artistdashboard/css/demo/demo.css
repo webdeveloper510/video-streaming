@@ -63,6 +63,8 @@
     width: 50%;
     margin-top: 6%;
     z-index: 99999;
+    top: -12px;
+    position: absolute;
     margin-left: 13%;
 }
 section.background1 {

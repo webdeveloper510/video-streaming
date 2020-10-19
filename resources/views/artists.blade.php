@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
-    form.form-inline .form-control {
-
+  form.form-inline .form-control {
     width: 60% !important;
     background-color: #ffffff !important;
-      }
+    color: black !important;
+}
       button.btn.btn-primary.my-2.my-sm-0 {
           margin-left: -11px;
       }

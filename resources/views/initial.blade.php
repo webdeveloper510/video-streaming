@@ -127,7 +127,7 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">New Comes</h3>
+	  <h3 class="tittle">New Comers</h3>
 	</div>
     <!--Carousel Wrapper-->
     <div id="New_comes" class="carousel slide carousel-multi-item" data-ride="carousel">

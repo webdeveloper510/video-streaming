@@ -21,19 +21,19 @@ Route::get('register', 'AuthController@register');
 Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
-Route::get('play', 'AuthController@play');
-Route::get('search', 'AuthController@search');
+Route::get('play', 'AuthController@play')->middleware('authentication');
+Route::get('search', 'AuthController@search')->middleware('authentication');
 
 
 
 Route::get('show/{id}', 'AuthController@subcat_video');
 
-Route::get('getArtists', 'artist@getArtists');
+Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 Route::get('artistDetail/{id}', 'artist@artistDetail');
 //Route::get('artist-profile', 'artist@artistProfile');
-Route::get('artist-video/{id}', 'artist@artistVideo');
+Route::get('artist-video/{id}', 'artist@artistVideo')->middleware('authentication');
 Route::get('logout', 'AuthController@logout');
-Route::get('cart', 'artist@cart');
+Route::get('cart', 'artist@cart')->middleware('authentication');
 
 
 
@@ -74,18 +74,18 @@ Route::post('postId',
 
 /*-------------------------------------Artist Route ---------------------------*/
 
-     Route::get('withdraw', 'AuthController@withdraw');
+     Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
-    Route::get('artist/edit', 'AuthController@contentForm');
+    Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
 
     Route::get('artistRegister', 'AuthController@artistRegister');
 
     Route::get('artistLogin', 'AuthController@getLogin');
     Route::get('artists/dashboard', 'artist@dashboard');
 
-    Route::get('artist/Profile', 'artist@profile');
+    Route::get('artist/Profile', 'artist@profile')->middleware('contentAuth');
 
-    Route::get('artist/contentUpload', 'AuthController@contentProv');
+    Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
 
 
 /*---------------------------------------End Artist---------------------*/

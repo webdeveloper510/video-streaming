@@ -20,29 +20,29 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- end header -->
 <div class="container">
-<div class="row" >
-  
-<?php if($subcategory): ?>
-  <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-  <div class="col-md-2  hello">
+    <div class="row" >
+      
+    <?php if($subcategory): ?>
+      <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+      <div class="col-md-2  hello">
 
-    <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
-
-
-  </div>
-   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-   <?php endif; ?>
-    <?php endif; ?>
-  
+        <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
 
 
+      </div>
+       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+       <?php endif; ?>
+        <?php endif; ?>
+      
 
 
-</div>
+
+
+    </div>
  <div class="row mt-5 pt-5">
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   <?php if($vid->type=='video'): ?>
-            <div class="col-md-4">
+            <div class="col-md-4 pt-3">
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240" controls>
               <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">

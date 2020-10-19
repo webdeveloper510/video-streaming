@@ -42,7 +42,7 @@
  <div class="row mt-5 pt-5">
  	  @foreach ($video as $vid)
  	   @if($vid->type=='video')
-            <div class="col-md-4">
+            <div class="col-md-4 pt-3">
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240" controls>
               <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">

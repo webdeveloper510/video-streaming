@@ -20,6 +20,12 @@ class artist extends Controller
     //
     public function getArtists(){
    
+       $session_type =   Session::get('userType');
+
+       if($session_type=='contentUser'){
+
+            return redirect('artists/dashboard');
+      }
 
       $data = $this->model->getCategory();
       $artists=$this->model->getArtists();
@@ -101,24 +107,27 @@ class artist extends Controller
 
     public function dashboard()
     {
-      $contentLogin =   Session::get('contentUser');
 
-      if(!$contentLogin){
-        redirect('/artistLogin');
-      }
+        $contentType =   Session::get('User');
+      return view('artists.dashboard_home',['contentUser'=>$contentType]);
 
-      return view('artists.dashboard_home',['contentUser'=>$contentLogin]);
-    }
+  }
 
     public function profile(){
 
-      $contentLogin =   Session::get('contentUser');
+      $contentType =   Session::get('userType');
 
-      if(!$contentLogin){
-        redirect('/artistLogin');
+      if($contentType=='User'){
+        redirect('/');
       }
+
+      else{
+
+         $contentLogin =   Session::get('User');
       
       return view('artists.profile',['contentUser'=>$contentLogin]);
+
     }
+  }
 
 }

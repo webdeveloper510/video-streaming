@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Session;
 
-class checkAuth
+class checkContentLogin
 {
     /**
      * Handle an incoming request.
@@ -16,20 +16,26 @@ class checkAuth
      */
     public function handle($request, Closure $next)
     {
-        $session_data =   Session::get('userType');
-        //$url = $request;
-        if($session_data=='contentUser'){
-            return redirect('artists/dashboard');
-        }
-        else if($session_data=='User'){
-           // return redirect('/');
-           return $next($request);
-       }
 
-       else{
-            
+        $route=$request->route()->uri;
+        //print_r($next);die;
+        $session_data =   Session::get('userType');
+
+        //print_r($session_data);die;
+        //$url = $request;
+        if($session_data=='User'){
+
             return redirect('/');
-    
-       }
-    }
+        }
+
+        else if($session_data=='contentUser'){ 
+            //return redirect('.$route.');
+           return $next($request);
+        }
+
+        else{
+
+            return redirect('artistLogin');
+        }
+     }
 }

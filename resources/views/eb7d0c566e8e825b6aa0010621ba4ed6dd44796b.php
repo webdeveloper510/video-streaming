@@ -1,6 +1,7 @@
 
-<section class="background2">
-<div class="container mt-5">
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<section class="background1 pb-5 ">
+<div class="container">
  <div class="overlay1">
 <!--a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a-->
   <?php if(session('success')): ?>
@@ -42,7 +43,7 @@
             </div>
              <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Gender', 'Gender')); ?> <br>
-                 <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male
+                 <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male&nbsp;&nbsp;
                 <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -158,6 +159,8 @@
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
   <?php echo e(Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])); ?>
 
+</div>
+<div class="col-md-6 pt-2 text-center">
   <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -176,7 +179,15 @@
       </div>
 
        </section>
-
-
-
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/content.blade.php ENDPATH**/ ?>
+<style type="text/css">
+  section.background1 {
+   
+    height: auto;
+    position: absolute;
+  }
+  label {
+    color: white;
+}
+</style>
+ <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/content.blade.php ENDPATH**/ ?>

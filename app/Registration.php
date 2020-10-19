@@ -85,7 +85,8 @@ class Registration extends Model
                     return 0;
                 }
                 else{
-                    Session::put('contentUser', $value);
+                    Session::put('User', $value);
+                    Session::put('userType','contentUser');
                 // $data->session()->put('User', $value);
                     return 1;
         }
@@ -112,7 +113,7 @@ public function uploadContentData($userdata){
 
      $array=array();
 
-       $contentData=Session::get('contentUser');
+       $contentData=Session::get('User');
 
         $contentId=$contentData->id;
 
@@ -157,6 +158,7 @@ public function uploadContentData($userdata){
         }
         else{
             $data->session()->put('User', $value);
+            $data->session()->put('userType','User');
            // Session::put('User', $value);
             return 1;
         }
@@ -254,8 +256,11 @@ public function getNewComes(){
 
 public function insertRecentTable($data){
 
+  //print_r($data);die;
+
      $fetchData=$data->pluck('id')->toArray();
      $insertData['mediaId']=implode(',', $fetchData);
+     //print_r($insertData);die;
       $session_data =   Session::get('User');
       $insertData['userId']= $session_data->id;
       $insertData['created_at']=now();
@@ -289,7 +294,7 @@ public function insertSubcategory($sub){
       return $sucess_insert ? '1' :'0';
 }
 public function uploadContentProvider($contentdata){
-    $session_data =   Session::get('contentUser');
+    $session_data =   Session::get('User');
      $contentid=$session_data->id;
     //print_r($contentdata);die;
     unset($contentdata['email']);
@@ -313,7 +318,9 @@ public function uploadContentProvider($contentdata){
 
 public function getRecentlySearch(){
     $session_data =   Session::get('User');
+    //print_r($session_data);die;
     if($session_data){
+      //echo "ss";die;
           $usertid = $session_data->id;
            $data = array();
  $count = DB::table("recentmedia")->select('mediaId')->from('recentmedia')
@@ -331,7 +338,7 @@ public function getRecentlySearch(){
            
     }
     
-    return $data;
+     return $data;
     }
   
 }

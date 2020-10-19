@@ -1,7 +1,9 @@
 @include('artists.dashboard')
     <section class="background1 ">
-<div class="container">
-<div class="overlay1 text-white">
+      <div class="container">
+      <div class="overlay1 text-white">
+
+
 
   @if(session('success'))
         <div class="alert alert-success" id="success">
@@ -87,7 +89,7 @@
   {{ Form::close() }}
   </div>
 </div>
-
+</div>
 </section>
 
  <style>

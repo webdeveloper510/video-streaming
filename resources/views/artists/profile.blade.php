@@ -7,7 +7,7 @@
         <div class="overlay1 mt-5 ">
      <table class="text-white table">
       <thead>
-   <tr>
+   <tr class="text-center">
    <img width="100px"; height="100px" src="{{url('storage/app/public/uploads/1602525455_etsy inspo.jpg')}}">
  </tr>
           </thead>

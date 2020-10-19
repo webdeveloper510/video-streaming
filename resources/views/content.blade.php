@@ -1,6 +1,7 @@
-@extends('layout.cdn')
-<section class="background2">
-<div class="container mt-5">
+
+@include('artists.dashboard')
+<section class="background1 pb-5 ">
+<div class="container">
  <div class="overlay1">
 <!--a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a-->
   @if(session('success'))
@@ -36,7 +37,7 @@
             </div>
              <div class="col-md-6 pt-3">
             {{Form::label('Gender', 'Gender')}} <br>
-                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male
+                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
                 {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
                  @if(session('errors'))
                 <div class="alert alert-danger">
@@ -142,6 +143,8 @@
              <div class="col-md-6 pt-4 ">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
   {{Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])}}
+</div>
+<div class="col-md-6 pt-2 text-center">
   <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
                   @if(session('errors'))
                 <div class="alert alert-danger">
@@ -158,5 +161,14 @@
       </div>
 
        </section>
-
-
+<style type="text/css">
+  section.background1 {
+   
+    height: auto;
+    position: absolute;
+  }
+  label {
+    color: white;
+}
+</style>
+ @include('artists.dashboard_footer')
