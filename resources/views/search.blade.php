@@ -20,23 +20,26 @@
 @include('layouts.header')
 <!-- end header -->
 <div class="container">
-<div class="row" >
+    <div class="row" >
+      
+    @if($subcategory)
+      @forelse($subcategory as $sub)
+      <div class="col-md-2  hello">
 
-@foreach($subcategory as $sub)
-  <div class="col-md-2  hello">
-
-    <a href="{{url('show/'.$sub->id)}}"><p>{{$sub->subcategory}}</p></a>
-
-
-  </div>
- @endforeach
-  
+        <a href="{{url('show/'.$sub->id)}}"><p>{{$sub->subcategory}}</p></a>
 
 
+      </div>
+       @empty
+       @endforelse
+        @endif
+      
 
 
-</div>
- <div class="row">
+
+
+    </div>
+ <div class="row mt-5 pt-5">
  	  @foreach ($video as $vid)
  	   @if($vid->type=='video')
             <div class="col-md-4">

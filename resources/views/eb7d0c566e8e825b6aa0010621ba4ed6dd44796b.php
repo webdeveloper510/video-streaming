@@ -156,9 +156,11 @@
             </div>
              <div class="col-md-6 pt-4 ">
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('image',['class'=>'custom-file-input'])); ?>
+  <?php echo e(Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])); ?>
 
+  <img id="blah" src="#" alt="your image" width="100px" height="100px" />
                   <?php if(session('errors')): ?>
+                   
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>
                 </div>

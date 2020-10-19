@@ -21,22 +21,25 @@
 <!-- end header -->
 <div class="container">
 <div class="row" >
-
-<?php $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  
+<?php if($subcategory): ?>
+  <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
   <div class="col-md-2  hello">
 
     <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
 
 
   </div>
- <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+   <?php endif; ?>
+    <?php endif; ?>
   
 
 
 
 
 </div>
- <div class="row">
+ <div class="row mt-5 pt-5">
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   <?php if($vid->type=='video'): ?>
             <div class="col-md-4">

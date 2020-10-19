@@ -23,13 +23,6 @@ class AuthController extends Controller
 
     public function register(){
 
-       $UserLogin =   Session::get('User');
-
-       if(!$UserLogin){
-
-        return redirect('/');
-    }
-
         
       return view('registration') ;
 
@@ -102,7 +95,7 @@ class AuthController extends Controller
             $this->recentData($search_data);
 
         }
-         return view('/search',['video'=>$search_data,'subcategory'=>$sessionGet]);
+         return view('/search',['video'=>$search_data,'subcategory'=>isset($sessionGet) ? $sessionGet : null]);
     }
 
 
@@ -417,7 +410,6 @@ class AuthController extends Controller
   public function providerContent(Request $request){
         $this->validate($request,[
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
-          'email'=>'required', 
           'description'=>'required',
           'hour'=>'required',
           'minutes'=>'required',
@@ -444,11 +436,11 @@ class AuthController extends Controller
 
                 $update_data = $this->model->uploadContentProvider($data);
                   if($update_data){
-                      return redirect('/contentProvider#success')->with('success','Data Created Successfully!');
+                      return redirect('artist/contentUpload#success')->with('success','Data Created Successfully!');
                     }
                     else
                     {
-                        return redirect('/contentProvider#error')->with('error','Some Error Occure!');
+                        return redirect('artist/contentUpload#error')->with('error','Some Error Occure!');
                     }
               }
       }
