@@ -18,10 +18,11 @@ class Registration extends Model
             $userdata['password']= md5($data['password']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
-                $inserted_data =  DB::table('users')->insert($userdata);
+           // print_r($userdata);die;
+                //$inserted_data =  DB::table('users')->insert($userdata);
                 $insertedid=DB::table('users')->insertGetId($userdata);
              //echo $insertedid;die;
-            if($inserted_data){
+            if($insertedid){
                 $session_data =   Session::get('User');
                 $userid=$session_data ? $session_data->id : $insertedid;
                 // $userid = $session_data->id;

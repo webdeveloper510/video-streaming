@@ -36,10 +36,11 @@ class AuthController extends Controller
     }
     
     public function contact(){
+
       return view('/contact');
     }
-    public function play(){
 
+    public function play(){
 
       
       return view('/play');
