@@ -24,7 +24,7 @@ class Registration extends Model
              //echo $insertedid;die;
             if($insertedid){
                 $session_data =   Session::get('User');
-                $userid=$session_data ? $session_data->id : $insertedid;
+                $userid= $session_data ? $session_data->id : $insertedid;
                 // $userid = $session_data->id;
                 $data=array(
                     'backupemail' => '',
