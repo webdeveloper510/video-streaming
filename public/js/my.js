@@ -1,7 +1,7 @@
 var APP_URL= $('#base_url').attr('data-url');
 
 $('.rad_But').click(function(){
-	console.log($(this).val());
+	//console.log($(this).val());
 	if($(this).val()=='male'){
 		$('.hide').hide();
 	}
@@ -106,3 +106,29 @@ function readURL(input) {
     reader.readAsDataURL(input.files[0]); // convert to base64 string
   }
 }
+
+$(document).on('click', '#checkPrice', function () {
+	var token= $('.token').val();
+	console.log(token);
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/checkprice",
+				dataType: "json",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"token": token},
+
+				success: function(data){
+
+					console.log('data');
+
+						//console.log(data);
+					
+				}
+		});
+
+});
+
+

@@ -112,7 +112,7 @@ public function getTotalPrice($cartid){
 
 public function uploadContentData($userdata){
 
-     $array=array();
+     $array = array();
 
        $contentData=Session::get('User');
 
@@ -125,22 +125,22 @@ public function uploadContentData($userdata){
 
       foreach ($userdata as $key => $value) {
 
-      if($key=='category'){
-          $array['catid']=$value;
+            if($key=='category'){
+                $array['catid']=$value; 
+              }
 
-          
-        }
+              else{
 
-        else{
+               $array[$key]= $value;
+           }
 
-         $array[$key]= $value;
-     }
   }
 
 
       $update=DB::table('contentprovider')->where('id',$contentId)->update($array);
 
       return $update ? 1 : 0;
+      
     }
 
     else{

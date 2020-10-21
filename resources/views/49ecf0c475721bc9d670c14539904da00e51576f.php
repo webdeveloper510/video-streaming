@@ -101,7 +101,7 @@
               </li>
              
               <li class="nav-item dropdown">
-                <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
@@ -110,7 +110,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="<?php echo e(url('artist/edit')); ?>">Edit Profile</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
+            <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
                 </div>
               </li>
             </ul>

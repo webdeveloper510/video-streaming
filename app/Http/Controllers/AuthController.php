@@ -500,6 +500,11 @@ class AuthController extends Controller
     $update_data = $this->model->getContentProvider('audio');
     //print_r($update_data);
   }
+
+  public function addtoken(){
+
+    return view('addToken');
+  }
   public function contentProv(){
     $contenttype =   Session::get('userType');
     if($contenttype=='User'){
@@ -515,6 +520,8 @@ class AuthController extends Controller
     return view('artists.provider',['subcategory'=>$subcategory]) ;
 
   }
+
+
   public function Postdashboard()
   {
     return view('Dashbaord');
@@ -542,6 +549,12 @@ class AuthController extends Controller
        else{
         return redirect('/artistRegister#error')->with('error','Email Already Exist!');
        }
+
+  }
+
+  public function price(Request $req){
+
+        echo "ee";
 
   }
 

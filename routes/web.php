@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','AuthController@home');
 
 Route::get('register', 'AuthController@register');
+
+Route::get('addToken', 'AuthController@addtoken');
+
 Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
@@ -43,6 +46,9 @@ Route::post('ajax-request', 'artist@cartSbmit');
 Route::post('updateProfile', 'AuthController@updateProfile');
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');
+
+//Route::post('checkPrice', 'AuthController@checkPrice');
+
 Route::post('contentProvider', 'AuthController@contentProvider1');
 
 Route::post('contentPostLogin', 'AuthController@contentPostLogin');
@@ -55,6 +61,8 @@ Route::post('postId',
            [  'name' => 'postId', 
               'uses' => 'artist@getRespectedSubId'
            ]);
+
+Route::post('checkprice', 'AuthController@price');
 
    /*-------------------End Web Site Route----------------------*/
 
