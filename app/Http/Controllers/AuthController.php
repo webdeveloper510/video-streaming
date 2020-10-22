@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use \Illuminate\Http\UploadedFile;
+use Stripe\Error\Card;
+use Stripe;
+
+//use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Support\Facades\Input;
 //use Validator;
 
@@ -321,7 +325,7 @@ class AuthController extends Controller
     public function updateProfile(Request $request){
       //print_r($request->all());die;
               if($request['gender']=='male'){
-                  unset($request['ass']);
+                   unset($request['ass']);
                    unset($request['titssize']);
               }
             $this->validate($request,[
@@ -351,7 +355,7 @@ class AuthController extends Controller
        unset($request['_token']);
        $request['profilepicture']=$fileName;
          if($filePath){
-           // echo "yes";die;
+           //echo "yes";die;
            
            $update_data = $this->model->uploadDataFile($request);
             if($update_data){
@@ -554,9 +558,97 @@ class AuthController extends Controller
 
   public function price(Request $req){
 
-        echo "ee";
+          $token = $req->token;
+
+        $data=$this->model->tokenExist($token);
+
+
+  $returnData= $data ? response()->json(array('status'=>1, 'fee'=>$data[0], 'token'=>$token)) :response()->json(array('status'=>0, 'messege'=>'No Data Found'));
+
+            return $returnData;
 
   }
+
+  public function payWithStripe(){
+
+    return view('stripe');
+  }
+
+
+  public function postPaymentStripe(Request $request)
+ {
+ $validator = Validator::make($request->all(), [
+ 'card_no' => 'required',
+ 'ccExpiryMonth' => 'required',
+ 'ccExpiryYear' => 'required',
+ 'cvvNumber' => 'required',
+ //'amount' => 'required',
+ ]);
+ $input = $request->all();
+ //print_r($request->get('card_no'));die;
+ if ($validator->passes()) { 
+// $input = array_except($input,array('_token'));
+$stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+//print_r($stripe);die;
+ try {
+         $token = \Stripe\Token::create([
+         'card' => [
+         'number' => $request->get('card_no'),
+         'exp_month' => $request->get('ccExpiryMonth'),
+         'exp_year' => $request->get('ccExpiryYear'),
+         'cvc' => $request->get('cvvNumber'),
+         ],
+         ]);
+
+
+
+         //print_r($token);die;
+    if (!isset($token['id'])) {
+     return redirect()->route('addmoney.paymentstripe');
+     }
+     // $charge = \Stripe\Charge::create([
+     // 'card' => $token['id'],
+     // 'currency' => 'USD',
+     // 'amount' => 20,
+     // 'description' => 'wallet',
+     // ]);
+
+     $customer = \Stripe\Customer::create([
+       'name'=>'Amit',
+        'source'  => $token['id'],
+        "address" => ["city" =>'Mohali', "country" =>'India', "postal_code" => '160055', "state" => 'Punjab',"line1" =>'abc']
+     ]);
+
+    // print_r($customer);die;
+     
+     if($customer->id) {
+      //echo "yes";
+       $charge = \Stripe\Charge::create([
+      'customer' => $customer->id, 
+      'currency' => 'USD',
+      'amount' => 20,
+      'description' => 'wallet',
+      ]);
+       print_r($charge);die;
+     //return redirect()->route('addmoney.paymentstripe');
+     } else {
+     \Session::put('error','Money not add in wallet!!');
+     return redirect()->route('addmoney.paymentstripe');
+     }
+ } 
+ catch (Exception $e) {
+ \Session::put('error',$e->getMessage());
+ return redirect()->route('addmoney.paymentstripe');
+ } catch(\Cartalyst\Stripe\Exception\CardErrorException $e) {
+ \Session::put('error',$e->getMessage());
+ return redirect()->route('addmoney.paywithstripe');
+ } catch(\Cartalyst\Stripe\Exception\MissingParameterException $e) {
+ \Session::put('error',$e->getMessage());
+ return redirect()->route('addmoney.paymentstripe');
+ }
+ }
+ }
+
 
 
 }

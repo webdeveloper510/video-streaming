@@ -169,7 +169,8 @@ public function uploadContentData($userdata){
 }
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
-      $userid=$session_data->id;
+       $userid=$session_data->id;
+      //print_r($data->all());die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
@@ -389,6 +390,15 @@ public function getRespectedSub($data){
 
            return $value;
 
+    }
+
+    public function tokenExist($token){
+      $data = DB::table('tokenpercentage')->where([
+        ['min', '<=', $token],
+        ['max', '>=', $token],
+      ])->pluck('rateOfPercentage')->toArray();
+
+      return $data;
     }
 
 

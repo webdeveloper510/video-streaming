@@ -31,6 +31,10 @@ Route::get('search', 'AuthController@search')->middleware('authentication');
 
 Route::get('show/{id}', 'AuthController@subcat_video');
 
+Route::get('stripe', array('as' => 'stripe.stripe','uses' => 'AuthController@payWithStripe'));
+
+Route::post('addmoney/stripe', array('as' => 'addmoney.stripe','uses' => 'AuthController@postPaymentStripe'));
+
 Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 Route::get('artistDetail/{id}', 'artist@artistDetail');
 //Route::get('artist-profile', 'artist@artistProfile');

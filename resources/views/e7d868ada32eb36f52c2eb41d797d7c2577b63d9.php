@@ -5,11 +5,6 @@
 
             <div class="container">
           <div class="overlay1">
-
-  <?php echo Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true]); ?>
-
-          <?php echo e(Form::token()); ?>
-
       <div class="container profile ">
         <h1 class="text-center">Add Token</h1>
           <div class="row align-items-center text-white">
@@ -24,21 +19,25 @@
                   <?php echo $errors->first('token') ?>
                 </div>
                 <?php endif; ?>
+                 <div class="col-md-12 text-center pt-3">
+              <button class="btn btn-primary" type="button" id="checkPrice">Calculate Token Price</button>
+             </div>
             </div>
     
              <div class="col-md-12 text-center pt-3" style="display: none;">
             <?php echo e(Form::submit('Pay!',['class'=>'btn btn-primary'])); ?>
 
              </div>
-             <div class="col-md-12 text-center pt-3">
-            	<button class="btn btn-primary" type="button" id="checkPrice">Calculate Token Price</button>
+            
+
+             <div class="col-md-6 mt-5 calculate">
+
              </div>
     
      </div>
-  <?php echo e(Form::close()); ?>
-
   </div>
 </div>
+
 </div>
 </section>
 <style>

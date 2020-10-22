@@ -6,6 +6,20 @@
             <div class="container">
           <div class="overlay1">
 
+            <?php if(session('success')): ?>
+        <div class="alert alert-success" id="success">
+        <?php echo e(session('success')); ?>
+
+        </div>
+        <?php endif; ?>
+           
+          <?php if(session('error')): ?>
+        <div class="alert alert-danger" id="error">
+        <?php echo e(session('error')); ?>
+
+        </div>
+        <?php endif; ?>
+
   <?php echo Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>

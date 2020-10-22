@@ -175,7 +175,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class
+        App\Providers\RouteServiceProvider::class,
+        // Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
 
     ],
 
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        //'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
 
     ],
 
