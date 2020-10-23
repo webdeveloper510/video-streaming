@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use \Illuminate\Http\UploadedFile;
+use Stripe\Error\Card;
+use Stripe;
+
+//use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Support\Facades\Input;
 //use Validator;
 
@@ -293,6 +297,7 @@ class AuthController extends Controller
     public function UserRegistration(Request $request){
        // print_r($_POST); die;
         $this->validate($request,[
+          'person'=>'required',
           'email'=>'required',
           'nickname'=>'required',
           'password'=>'required',
@@ -305,8 +310,22 @@ class AuthController extends Controller
       unset($request['_token']);
       unset($request['terms']);
    //  print_r($request->all()); die;
-        $model = new Registration();
-       $get = $this->model->registration($request);
+         $model = new Registration();
+
+        if($request->person=='user'){
+
+            unset($request['person']);
+          //echo "yes";die;
+           $get = $this->model->registration($request);
+         }
+
+         else{
+
+           // echo "artist";die;
+            $get = $this->artistPost($request);
+         }
+
+
        if($get){
         //echo "yes";die;
          return redirect('/register')->with('success','Registered successfully');
@@ -321,7 +340,7 @@ class AuthController extends Controller
     public function updateProfile(Request $request){
       //print_r($request->all());die;
               if($request['gender']=='male'){
-                  unset($request['ass']);
+                   unset($request['ass']);
                    unset($request['titssize']);
               }
             $this->validate($request,[
@@ -351,7 +370,7 @@ class AuthController extends Controller
        unset($request['_token']);
        $request['profilepicture']=$fileName;
          if($filePath){
-           // echo "yes";die;
+           //echo "yes";die;
            
            $update_data = $this->model->uploadDataFile($request);
             if($update_data){
@@ -403,8 +422,8 @@ class AuthController extends Controller
     public function contentProvider1(Request $request){
 
         if($request['gender']=='male'){
-                  unset($request['ass']);
-                   unset($request['titssize']);
+              unset($request['ass']);
+              unset($request['titssize']);
               }
 
       $this->validate($request,[
@@ -527,36 +546,162 @@ class AuthController extends Controller
     return view('Dashbaord');
   }
 
-   public function artistPost(Request $request){
+   public function artistPost($request){
 
-     $this->validate($request,[
-          'email'=>'required',
-          'nickname'=>'required',
-          'password'=>'required',
-          // 'terms'=>'required'
-      ]
-      
-      );
+    // print_r($request->all());die;
 
+      unset($request['person']);
 
-      unset($request['_token']);
-      unset($request['terms']);
        $get = $this->model->postArtist($request);
        if($get){
-        //echo "yes";die;
-         return redirect('/artistRegister')->with('success','Registered successfully');
+
+        return 1;
+         
        }
        else{
-        return redirect('/artistRegister#error')->with('error','Email Already Exist!');
+
+        return 0;
+
        }
 
   }
 
   public function price(Request $req){
 
-        echo "ee";
+          $token = $req->token;
+
+        $data=$this->model->tokenExist($token);
+
+
+  $returnData= $data ? response()->json(array('status'=>1, 'fee'=>$data[0], 'token'=>$token)) :response()->json(array('status'=>0, 'messege'=>'No Data Found'));
+
+            return $returnData;
 
   }
+
+  public function payWithStripe(){
+
+    return view('stripe');
+  }
+
+
+  public function postPaymentStripe(Request $request)
+   {
+
+      $user=Session::get('User');
+
+      //print_r($user);die;
+
+      $userId =$user->id;
+
+
+      $validator = Validator::make($request->all(), [
+     'card_no' => 'required',
+     'ccExpiryMonth' => 'required',
+     'ccExpiryYear' => 'required',
+     'cvvNumber' => 'required',
+     //'amount' => 'required',
+     ]);
+
+ if ($validator->passes()) { 
+
+    $stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    try {
+         $token = \Stripe\Token::create([
+         'card' => [
+         'number' => $request->get('card_no'),
+         'exp_month' => $request->get('ccExpiryMonth'),
+         'exp_year' => $request->get('ccExpiryYear'),
+         'cvc' => $request->get('cvvNumber'),
+         ],
+         ]);
+
+
+      $input = $request->all();
+
+      $userData = $this->model->getUserData($userId);
+
+       $customerId = $userData[0]->customer_id;
+
+       if($customerId){
+
+        //echo "yes";die;
+
+            $this->createCharge($input,$customerId);
+
+
+       }
+
+      else{
+
+          $customerData = $this->createCustomer($input,$userData,$token);
+
+          //print_r($customerData->id);die;
+
+          if((array)$customerData){
+
+
+              $this->createCharge($input,$customerData->id);
+
+          }
+
+       }
+ } 
+
+ catch(Exception $e){
+
+    print_r($e);
+ }
+ 
+ }
+ }
+
+public function createCustomer($data,$userdata,$token){
+
+
+    $customer = \Stripe\Customer::create([
+       'name'=>$userdata[0]->nickname,
+        'source'  => $token['id'],
+      "address" => ["city" =>'Fleming Island', "country" =>'US', "postal_code" => '32006', "state" => 'Florida',"line1" =>'abc']
+     ]);
+
+    return $customer;
+
+}
+
+public function createCharge($data,$cusid){
+
+
+    $charge = \Stripe\Charge::create([
+      'customer' => $cusid, 
+      'currency' => 'USD',
+      'amount' =>$data['amount']*100,
+      'description' => 'wallet',
+      ]);
+
+    //print_r($charge);die;
+    if((array)$charge){
+
+
+        $response = $this->model->insertTransection($charge,$data);
+
+
+        if($response==1){
+
+         // echo "yes";die;
+
+     return redirect('/paymentSuccess')->with(['data' => $data, 'payment'=>$charge]);
+
+        }
+
+    }
+
+}
+
+public function success(){
+
+  return view('/success');
+}
 
 
 }

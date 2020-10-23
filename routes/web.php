@@ -31,11 +31,18 @@ Route::get('search', 'AuthController@search')->middleware('authentication');
 
 Route::get('show/{id}', 'AuthController@subcat_video');
 
+Route::get('stripe', array('as' => 'stripe.stripe','uses' => 'AuthController@payWithStripe'));
+
+Route::post('addmoney/stripe', 'AuthController@postPaymentStripe');
+
 Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 Route::get('artistDetail/{id}', 'artist@artistDetail');
 //Route::get('artist-profile', 'artist@artistProfile');
 Route::get('artist-video/{id}', 'artist@artistVideo')->middleware('authentication');
-Route::get('logout', 'AuthController@logout');
+Route::get('logout', 'AuthController@logout'); 
+
+Route::get('paymentSuccess', 'AuthController@success'); 
+
 Route::get('cart', 'artist@cart')->middleware('authentication');
 
 

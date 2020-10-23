@@ -169,7 +169,8 @@ public function uploadContentData($userdata){
 }
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
-      $userid=$session_data->id;
+       $userid=$session_data->id;
+      //print_r($data->all());die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
@@ -257,15 +258,18 @@ public function getNewComes(){
 
 public function insertRecentTable($data){
 
-  //print_r($data);die;
-
      $fetchData=$data->pluck('id')->toArray();
+
      $insertData['mediaId']=implode(',', $fetchData);
-     //print_r($insertData);die;
+
       $session_data =   Session::get('User');
+
       $insertData['userId']= $session_data->id;
+
       $insertData['created_at']=now();
+
     $insertData['updated_at']=now();
+
      $insert=DB::table('recentmedia')->insert($insertData);
      if($insert){
 
@@ -282,9 +286,6 @@ public function addCategorytable($category){
 }
 
 public function getSubcategory(){
-       //print_r($data);die;
-
-// $subcategory = $data ? DB::table('subcategory')->whereIn('catid',$data['category']) : DB::table('subcategory');
    $subcategory= DB::table('subcategory');
     return $subcategory->get();
 }
@@ -388,6 +389,60 @@ public function getRespectedSub($data){
       $value=DB::table('subcategory')->whereIn('id', $subId)->get()->toArray();
 
            return $value;
+
+    }
+
+    public function tokenExist($token){
+      $data = DB::table('tokenpercentage')->where([
+        ['min', '<=', $token],
+        ['max', '>=', $token],
+      ])->pluck('rateOfPercentage')->toArray();
+
+      return $data;
+    }
+
+    public function getUserData($userId){
+
+        $value=DB::table('users')->where('id', $userId)->get()->toArray();
+
+        return $value;
+
+    }
+
+    public function insertTransection($charge,$input){
+
+       $user=Session::get('User');
+
+       $userId =$user->id;
+
+        $transection = array(
+          'created_at'=>now(),
+          'updated_at'=>now(),
+          'userid'=>$userId,
+          'status'=>$charge->status,
+          'transectionid'=>$charge->balance_transaction,
+          'amount'=>$input['amount']
+
+        );        
+
+        $insert = DB::table('transection')->insert($transection);
+
+        if($insert){
+
+           $token = $input['token'];
+
+
+    $update = DB::table('users')->where('id',$userId)->update([
+
+      'tokens'=> DB::raw('tokens +'.$token),
+      'customer_id'=>$charge->customer
+
+    ]);
+
+           return $update ? 1 : 0;
+
+        }
+
 
     }
 

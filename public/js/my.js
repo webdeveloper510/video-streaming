@@ -109,11 +109,10 @@ function readURL(input) {
 
 $(document).on('click', '#checkPrice', function () {
 	var token= $('.token').val();
-	console.log(token);
+	//console.log(token);
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/checkprice",
-				dataType: "json",
 				 headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
@@ -121,10 +120,25 @@ $(document).on('click', '#checkPrice', function () {
 				data: {"token": token},
 
 				success: function(data){
+						console.log(data);
 
-					console.log('data');
+						if(data.status==1){
 
-						//console.log(data);
+							$('#stripeDiv').show();
+
+						var beforePrice= parseInt(data.token)/20;
+						var afterPrice=beforePrice * (data.fee/100);
+						var credit = 2.9;
+						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
+						$('.calculate').append("<ul  class='token1'><li>Price:"+beforePrice+"</li><li>Fee:"+data.fee+"%"+"</li><li>Total:"+total.toFixed(2)+"</li>")
+						$('.amount').text('$'+total.toFixed(2));
+						$('.price').val(total.toFixed(2));
+						$('#tokens').val(data.token);
+						}
+
+						else{
+							console.log('te');
+						}
 					
 				}
 		});

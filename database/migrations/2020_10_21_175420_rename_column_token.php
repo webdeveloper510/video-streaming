@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Token extends Migration
+class RenameColumnToken extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class Token extends Migration
      */
     public function up()
     {
-        Schema::create('tokenpercentage', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('rateOfPercentage');
-            $table->string('token');
+        //
+        Schema::table('tokenpercentage', function(Blueprint $table) {
+            $table->renameColumn('token', 'min');
         });
     }
 
@@ -28,6 +26,6 @@ class Token extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tokenPercentage');
+        //
     }
 }

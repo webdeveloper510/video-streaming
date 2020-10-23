@@ -6,6 +6,18 @@
             <div class="container">
           <div class="overlay1">
 
+            @if(session('success'))
+        <div class="alert alert-success" id="success">
+        {{session('success')}}
+        </div>
+        @endif
+           
+          @if(session('error'))
+        <div class="alert alert-danger" id="error">
+        {{session('error')}}
+        </div>
+        @endif
+
   {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile ">

@@ -5,9 +5,6 @@
 
             <div class="container">
           <div class="overlay1">
-
-  {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
-          {{Form::token()}}
       <div class="container profile ">
         <h1 class="text-center">Add Token</h1>
           <div class="row align-items-center text-white">
@@ -21,21 +18,32 @@
                   <?php echo $errors->first('token') ?>
                 </div>
                 @endif
+                 <div class="col-md-12 text-center pt-3">
+              <button class="btn btn-primary" style="line-height: 45px; min-width: 224px;" type="button" id="checkPrice">Calculate Token Price</button>
+             </div>
             </div>
     
              <div class="col-md-12 text-center pt-3" style="display: none;">
             {{ Form::submit('Pay!',['class'=>'btn btn-primary']) }}
              </div>
-             <div class="col-md-12 text-center pt-3">
-            	<button class="btn btn-primary" type="button" id="checkPrice">Calculate Token Price</button>
+            
+
+             <div class="col-md-6  calculate text-center">
+                        
              </div>
     
      </div>
-  {{ Form::close() }}
   </div>
+  <div class="text-white mt-5" id="stripeDiv" style="display: none">
+  
+  @include('stripe')
+
+
 </div>
 </div>
+
 </section>
+
 <style>
 
 .overlay1 {

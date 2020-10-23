@@ -33,6 +33,20 @@
           {{Form::token()}}
           <div class="row align-items-center">
             <div class="col mt-4">
+                {{Form::label('Person', 'Person')}}<br>
+
+        {{Form::radio('person', 'user', true,['class'=>'user'])}}Register As A User<br>
+
+        {{Form::radio('person', 'artist',false,['class'=>'user'])}}Register As A Artist
+                @if($errors->first('email'))
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('email'); ?>
+                </div>
+                @endif
+            </div>
+          </div>
+           <div class="row align-items-center">
+            <div class="col mt-4">
             {{Form::label('email', 'E-Mail Address')}} 
                 {{Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
                 @if($errors->first('email'))

@@ -6,7 +6,7 @@
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="{{url('/')}}" class="navbar-brand">
-						<img src="{{asset('images/logos/logo-2.png')}}" height="28" alt="CoolBrand">
+						<img src="{{asset('images/logos/Color_logo.png')}}" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -212,20 +212,19 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
-							<a href="#" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
+							<a href="{{url('/getArtists')}}" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
 							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
 							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
 							<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>	
-							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>
-							<a href="{{url('/getArtists')}}" class="nav-item nav-link">Artists</a>	
-
-               
+							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
+              <a href="{{url('register')}}" class="nav-item nav-link">Register</a>              
 						</div>
 						<div class="navbar-nav ml-auto">
 					
               <div class="btn-group">
   <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;
-    font-size: 16px;font-weight: 400;"><i class="fa fa-user" aria-hidden="true"></i>
+    font-size: 16px;font-weight: 400;">
+    <i class="fa fa-user" aria-hidden="true"></i>
     {{$login ? $login->nickname : 'Login'}}
   </button>
   @if(!$login)
