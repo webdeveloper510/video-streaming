@@ -5449,3 +5449,16 @@ a.btn:hover, button.btn:hover, a.btn:focus, button.btn:focus {
 		display:none;
 	}
 }
+ul.token1 {
+    border: 3px solid white;
+    border-radius: 22px;
+}
+ul.token1 li {
+    font-size: 19px;
+    display: inline;
+    padding-left: 21px;
+    border-right-color: white;
+    border-right-style: solid;
+    border-right-width: 3px;
+    padding-right: 26px;
+}

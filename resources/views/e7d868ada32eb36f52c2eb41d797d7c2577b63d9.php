@@ -20,7 +20,7 @@
                 </div>
                 <?php endif; ?>
                  <div class="col-md-12 text-center pt-3">
-              <button class="btn btn-primary" type="button" id="checkPrice">Calculate Token Price</button>
+              <button class="btn btn-primary" style="line-height: 45px; min-width: 224px;" type="button" id="checkPrice">Calculate Token Price</button>
              </div>
             </div>
     
@@ -30,16 +30,22 @@
              </div>
             
 
-             <div class="col-md-6 mt-5 calculate">
-
+             <div class="col-md-6  calculate text-center">
+                        
              </div>
     
      </div>
   </div>
-</div>
+  <div class="text-white mt-5" id="stripeDiv" style="display: none">
+  
+  <?php echo $__env->make('stripe', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 </div>
+</div>
+
 </section>
+
 <style>
 
 .overlay1 {

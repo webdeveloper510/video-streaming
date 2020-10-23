@@ -38,6 +38,20 @@
 
           <div class="row align-items-center">
             <div class="col mt-4">
+                <?php echo e(Form::label('Person', 'Person')); ?><br>
+
+        <?php echo e(Form::radio('person', 'user', true,['class'=>'user'])); ?>Register As A User<br>
+
+        <?php echo e(Form::radio('person', 'artist',false,['class'=>'user'])); ?>Register As A Artist
+                <?php if($errors->first('email')): ?>
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('email'); ?>
+                </div>
+                <?php endif; ?>
+            </div>
+          </div>
+           <div class="row align-items-center">
+            <div class="col mt-4">
             <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
                 <?php echo e(Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 

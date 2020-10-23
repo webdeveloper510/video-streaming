@@ -124,11 +124,16 @@ $(document).on('click', '#checkPrice', function () {
 
 						if(data.status==1){
 
+							$('#stripeDiv').show();
+
 						var beforePrice= parseInt(data.token)/20;
 						var afterPrice=beforePrice * (data.fee/100);
 						var credit = 2.9;
-						var total= parseInt(beforePrice)+ parseInt(afterPrice)+parseInt(credit);
-						$('.calculate').append("<span class=''>Price Before Add Fee:"+beforePrice+"</span><br><span>Fee:"+data.fee+"</span><br><span>Credit Card Fee:"+credit+"</span><br><span>Total:"+total+"</span>")
+						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
+						$('.calculate').append("<ul  class='token1'><li>Price:"+beforePrice+"</li><li>Fee:"+data.fee+"%"+"</li><li>Total:"+total.toFixed(2)+"</li>")
+						$('.amount').text('$'+total.toFixed(2));
+						$('.price').val(total.toFixed(2));
+						$('#tokens').val(data.token);
 						}
 
 						else{

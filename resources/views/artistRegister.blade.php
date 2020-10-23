@@ -28,7 +28,7 @@
         {{session('error')}}
         </div>
         @endif
-          {!!Form::open(['action' => 'AuthController@artistPost', 'method' => 'post'])!!}
+          {!!Form::open(['method' => 'post'])!!}
           {{Form::token()}}
           <div class="row align-items-center">
             <div class="col mt-4">
