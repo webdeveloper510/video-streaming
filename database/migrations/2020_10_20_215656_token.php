@@ -13,7 +13,7 @@ class Token extends Migration
      */
     public function up()
     {
-        Schema::create('tokenPercentage', function (Blueprint $table) {
+        Schema::create('tokenpercentage', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('rateOfPercentage');
