@@ -22,13 +22,13 @@ class checkAuth
             return redirect('artists/dashboard');
         }
         else if($session_data=='User'){
-           // return redirect('/');
            return $next($request);
        }
 
        else{
             
-            return redirect('/');
+            return $next($request);
+            //return redirect('/');
     
        }
     }

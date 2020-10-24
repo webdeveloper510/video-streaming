@@ -148,21 +148,36 @@ public function uploadContentData($userdata){
     }
 }
     public function login($data){
-    $value = DB::table('users')->where(array(
-        'email'=> $data->email,
-        'password'=>md5($data->password)))
-        ->get()
-        ->first();
-        //print_r($value);die;
-        if(is_null($value)){
-            return 0;
-        }
-        else{
+
+        $table = array('users','contentprovider') ;
+
+          for($i=0; $i<count($table); $i++){
+
+           // print_r($table);die;
+           $value = DB::table($table[$i])->where(array(
+              'email'=> $data->email,
+              'password'=>md5($data->password)))
+              ->get()
+              ->first();
+
+              if($value){
+                $tableName = $table[$i];
+                break; 
+              }
+          }
+
+           if(is_null($value)){
+                  return 0;
+              }
+              else{
+
+      $tableName == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
             $data->session()->put('User', $value);
-            $data->session()->put('userType','User');
-           // Session::put('User', $value);
-            return 1;
-        }
+                return 1;
+              }
+
+
+     
     
 
         

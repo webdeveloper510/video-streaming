@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 /*-------------------Web Site----------------------*/
 
-Route::get('/','AuthController@home');
+Route::get('/','AuthController@home')->middleware('authentication');
 
 Route::get('register', 'AuthController@register');
 
@@ -76,14 +76,14 @@ Route::post('checkprice', 'AuthController@price');
 
  /*-----------------------  For Admin -------------------------------*/
 
-  Route::get('admin/getCategory', 'admin@showCategorypage');
+   Route::get('admin/getCategory', 'admin@showCategorypage');
 
-  Route::post('admin/addCategory', 'admin@addCategory');
+   Route::post('admin/addCategory', 'admin@addCategory');
 
 
-  Route::get('admin/sub/{id}', 'admin@showSubCategory');
+   Route::get('admin/sub/{id}', 'admin@showSubCategory');
 
-  Route::post('admin/addSub', 'admin@addSubCategory');
+   Route::post('admin/addSub', 'admin@addSubCategory');
 
 /*---------------------------End Admin-----------------------------*/
 
@@ -96,7 +96,7 @@ Route::post('checkprice', 'AuthController@price');
     Route::get('artistRegister', 'AuthController@artistRegister');
 
     Route::get('artistLogin', 'AuthController@getLogin');
-    Route::get('artists/dashboard', 'artist@dashboard');
+    Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
     Route::get('artist/Profile', 'artist@profile')->middleware('contentAuth');
 

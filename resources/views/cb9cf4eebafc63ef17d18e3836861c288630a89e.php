@@ -29,8 +29,10 @@
  <div class="row">
 <div class="col"></div>
 <div class="col-md-4 success_page">
-	{{Session::get('data')}}
-  {{Session::get('userData')}}
+	<?php echo e(Session::get('data')); ?>
+
+  <?php echo e(Session::get('userData')); ?>
+
     <div class="sucesss text-center">
       <h2 style="color:green;">Payment Successfull!</h2>
       <i class="fa fa-check" style="color:green;font-size:40px;"></i>
@@ -76,4 +78,4 @@
 
    
   </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//success.blade.php ENDPATH**/ ?>

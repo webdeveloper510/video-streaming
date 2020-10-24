@@ -261,11 +261,11 @@ class AuthController extends Controller
       }
       public function home(){
 
-           $type=Session::get('userType');
+           // $type=Session::get('userType');
 
-           if($type=='contentUser'){
-             return redirect('artists/dashboard');
-           }
+           // if($type=='contentUser'){
+           //   return redirect('artists/dashboard');
+           // }
 
          $Recentlydata= $this->model->getRecentlySearch();
           //print_r($Recentlydata);die;
@@ -625,23 +625,38 @@ class AuthController extends Controller
 
        if($customerId){
 
-        //echo "yes";die;
 
-            $this->createCharge($input,$customerId);
+            $charge = $this->createCharge($input,$customerId);
 
+
+
+                     if((array)$charge){
+
+                     
+            return redirect('/paymentSuccess');
+
+
+        }
 
        }
 
       else{
 
-          $customerData = $this->createCustomer($input,$userData,$token);
+        $customerData = $this->createCustomer($input,$userData,$token);
 
-          //print_r($customerData->id);die;
-
+          
           if((array)$customerData){
 
+              $charge = $this->createCharge($input,$customerData->id);
 
-              $this->createCharge($input,$customerData->id);
+               if((array)$charge){
+
+
+
+            return redirect('/paymentSuccess');
+
+
+        }
 
           }
 
@@ -685,12 +700,9 @@ public function createCharge($data,$cusid){
 
         $response = $this->model->insertTransection($charge,$data);
 
-
         if($response==1){
 
-         // echo "yes";die;
-
-     return redirect('/paymentSuccess')->with(['data' => $data, 'payment'=>$charge]);
+            return $charge;
 
         }
 
@@ -698,9 +710,10 @@ public function createCharge($data,$cusid){
 
 }
 
-public function success(){
+ public function success(){
 
-  return view('/success');
+    return view('/success');
+
 }
 
 

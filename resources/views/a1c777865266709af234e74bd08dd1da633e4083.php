@@ -1,12 +1,12 @@
-@extends('layout.cdn')
+
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
-					<a href="{{url('/')}}" class="navbar-brand">
-						<img src="{{asset('images/logos/Color_logo.png')}}" height="50" alt="CoolBrand">
+					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
+						<img src="<?php echo e(asset('images/logos/Color_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -30,17 +30,20 @@
                     <div class="col-md-6">
                       <div class="dropdown12 text-white">
                            <h4>Categories </h4>
-                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                  {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='video')
+                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                  <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='video'): ?>
                    <label class=""> 
-                     {{Form::checkbox('category[]', $cat->id)}}
-                     {{$cat->category}} 
+                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?>
+
+                     <?php echo e($cat->category); ?> 
                      
                             </label><br>
-                             @endif
-                            @endforeach
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
                     </div>
@@ -49,14 +52,14 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                             {{Form::checkbox('price','free')}}Free  
+                             <?php echo e(Form::checkbox('price','free')); ?>Free  
                           
                             </label><br>
                             <label class="text-white">
-                               {{Form::checkbox('price','asc')}}lowest  
+                               <?php echo e(Form::checkbox('price','asc')); ?>lowest  
                             </label><br>
                             <label class="">
-                               {{Form::checkbox('price','desc')}}Higest  
+                               <?php echo e(Form::checkbox('price','desc')); ?>Higest  
                             
                             </label>
                        
@@ -64,11 +67,11 @@
                         <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                             {{Form::checkbox('duration','asc')}}Shortest 
+                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest 
                            
                             </label><br>
                             <label class="">
-                           {{Form::checkbox('duration','desc')}}Longest 
+                           <?php echo e(Form::checkbox('duration','desc')); ?>Longest 
                             
                           </label><br>
                       
@@ -76,8 +79,10 @@
                           
                        </div> 
                        <div class="col-md-12 text-center">
-                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
-                      {{ Form::close() }}
+                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                      <?php echo e(Form::close()); ?>
+
                      </div>    
                      </div>
                     </div>
@@ -87,16 +92,18 @@
                       <div class="col-md-6">
                       <div class="dropdown12 text-white">
                            <h4>Categories </h4>
-                      {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                      {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='audio')
+                      <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                      <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='audio'): ?>
                    <label class="">
-                     {{Form::checkbox('category[]', $cat->id)}}{{$cat->category}} 
+                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?><?php echo e($cat->category); ?> 
                           
                             </label><br>
-                             @endif
-                            @endforeach
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
                           </div>
                           <div class="col-md-6">
@@ -104,14 +111,14 @@
                            <h4>Price</h4>
   
                             <label class="">
-                             {{Form::checkbox('price','free')}}Free 
+                             <?php echo e(Form::checkbox('price','free')); ?>Free 
                             
                             </label><br>
                             <label class="">  
-                             {{Form::checkbox('price','asc')}}lowest
+                             <?php echo e(Form::checkbox('price','asc')); ?>lowest
                             </label><br>
                             <label class=""> 
-                               {{Form::checkbox('price','desc')}}Higest 
+                               <?php echo e(Form::checkbox('price','desc')); ?>Higest 
                             
                             </label>
                        
@@ -121,17 +128,19 @@
                              <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                             {{Form::checkbox('duration','asc')}}Shortest
+                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
                             </label><br>
                             <label >
-                             {{Form::checkbox('duration','desc')}}Longest 
+                             <?php echo e(Form::checkbox('duration','desc')); ?>Longest 
                           
                           </label>
                           </div>
                            </div>
                             <div class="col-md-12 text-center">
-                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
-                      {{ Form::close() }}
+                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                      <?php echo e(Form::close()); ?>
+
                      </div> 
                             </div>
                            
@@ -143,16 +152,18 @@
                           <div class="col-md-6">
                       <div class="dropdown12 text-white">
                            <h4>Categories </h4>
-                           {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                             {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='artist')
+                           <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                             <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='artist'): ?>
                    <label>
-                     {{Form::checkbox('category[]', $cat->id)}}{{$cat->category}} 
+                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?><?php echo e($cat->category); ?> 
                             
                             </label><br>
-                             @endif
-                            @endforeach
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
                           </div>
                           <div class="col-md-6">
@@ -160,13 +171,13 @@
                            <h4>Price</h4>
   
                             <label> 
-                               {{Form::checkbox('price','free')}}Free 
+                               <?php echo e(Form::checkbox('price','free')); ?>Free 
                             </label><br>
                             <label> 
-                               {{Form::checkbox('price','asc')}}lowest 
+                               <?php echo e(Form::checkbox('price','asc')); ?>lowest 
                             </label><br>
                             <label> 
-                               {{Form::checkbox('price','desc')}}Higest
+                               <?php echo e(Form::checkbox('price','desc')); ?>Higest
                             
                             </label>                       
                         </div>
@@ -174,18 +185,20 @@
                            <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                            {{Form::checkbox('duration','asc')}}Shortest
+                            <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
                             
                             </label><br>
                             <label> 
-                             {{Form::checkbox('duration[]','desc')}}Longest
+                             <?php echo e(Form::checkbox('duration[]','desc')); ?>Longest
                             
                           </label>
                           </div>
                              </div>
                              <div class="col-md-12 text-center">
-                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
-                      {{ Form::close() }}
+                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                      <?php echo e(Form::close()); ?>
+
                      </div> 
                    </div>
                        
@@ -212,7 +225,7 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
-							<a href="{{url('/getArtists')}}" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
+							<a href="<?php echo e(url('/getArtists')); ?>" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
 							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
 							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
 							<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>	
@@ -222,29 +235,30 @@
 						</div>
 
 						<div class="navbar-nav ml-auto">
-              @if(!$login)
-					  <a href="{{url('register')}}" class="nav-item nav-link">Register</a>
-              <a href="{{url('/login')}}" class="nav-item nav-link"> 
+              <?php if(!$login): ?>
+					  <a href="<?php echo e(url('register')); ?>" class="nav-item nav-link">Register</a>
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> 
            Login</a>  
-           @endif             
+           <?php endif; ?>             
 
-            @if($login)
+            <?php if($login): ?>
            <div class="btn-group">
   <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
    <i class="fa fa-user" aria-hidden="true"></i>
-   {{$login->nickname}}
+   <?php echo e($login->nickname); ?>
+
   </button>
  
    <div class="dropdown-menu dropdown-menu-right">
        <button class="dropdown-item" type="button">
-         <a href="{{url('/profile')}}">Edit Profile
+         <a href="<?php echo e(url('/profile')); ?>">Edit Profile
          </a></button>
       <button class="dropdown-item" type="button">
-        <a href="{{url('/logout')}}">Logout</a></button>
+        <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
   </div>
 
 </div>
-@endif
+<?php endif; ?>
 						</div>
 					</div>
 				</nav>
@@ -257,3 +271,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/layouts/header.blade.php ENDPATH**/ ?>
