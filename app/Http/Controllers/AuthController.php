@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use App\Registration;
 use Session;
 use App\File;
+use View;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\RedirectResponse;
 use \Illuminate\Http\UploadedFile;
 use Stripe\Error\Card;
 use Stripe;
@@ -632,8 +635,9 @@ class AuthController extends Controller
 
                      if((array)$charge){
 
-                     
-            return redirect('/paymentSuccess');
+        Session::flash('test', array('test1', 'test2', 'test3'));
+     //return View::make("/success")->with(array('charge'=>$charge));
+        return redirect('/paymentSuccess');
 
 
         }
@@ -716,5 +720,10 @@ public function createCharge($data,$cusid){
 
 }
 
+public function draw(){
+
+  return view('/userDraw');
+
+}
 
 }

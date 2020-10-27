@@ -35,9 +35,15 @@ class AppServiceProvider extends ServiceProvider
 
             $data=Session::get('User');
 
+            $userId = isset($data) ? $data->id : '';
+
+            $tokens = $model->getUserData($userId);
+
+           // $profile = $model->getUserProfile($userId);
+
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data, 'category'=>$category) );    
+            $view->with(array('login'=>$data, 'category'=>$category,  'userProfile'=>$tokens));    
     }); 
 
     }

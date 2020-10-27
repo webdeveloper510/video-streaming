@@ -35,7 +35,7 @@
             <div class="col mt-4">
                 {{Form::label('Person', 'Person')}}<br>
 
-        {{Form::radio('person', 'user', true,['class'=>'user'])}}Register As A User<br>
+        {{Form::radio('person', 'user', true,['class'=>'user'])}}Register As A User
 
         {{Form::radio('person', 'artist',false,['class'=>'user'])}}Register As A Artist
                 @if($errors->first('email'))

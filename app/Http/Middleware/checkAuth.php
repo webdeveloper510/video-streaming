@@ -26,9 +26,8 @@ class checkAuth
        }
 
        else{
-            
-            return $next($request);
-            //return redirect('/');
+
+      return $request->route()->uri == '/' ?  $next($request) :   redirect('/register');
     
        }
     }

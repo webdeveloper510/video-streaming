@@ -1,18 +1,4 @@
-@extends('layout.cdn')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>PAZ html</title>
-</head>
-<body id="default_theme" class="it_service">
-<!-- header -->
+
 @include('layouts.header')
 <!-- end header -->
 
@@ -21,6 +7,10 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
+      <p class="text-center" style="font-size: 20px;">
+      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!
+
+At PAZ you can make your biggest dreams become reality!</p>
        @if($login && $recently)
 	  <h3 class="tittle">
      

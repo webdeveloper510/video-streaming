@@ -130,7 +130,8 @@ $(document).on('click', '#checkPrice', function () {
 						var afterPrice=beforePrice * (data.fee/100);
 						var credit = 2.9;
 						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
-						$('.calculate').append("<ul  class='token1'><li>Price:"+beforePrice+"</li><li>Fee:"+data.fee+"%"+"</li><li>Total:"+total.toFixed(2)+"</li>")
+						$('.calculate').html('');
+						$('.calculate').append("<table  class='table text-white'><tr><th>Price:</th><td>" +beforePrice+"</td></tr><tr class='text-white'><th>Fee:</th><td>"+data.fee+"%"+"</td></tr><tr><th>Total:</th><td>"+total.toFixed(2)+"</td></tr></table>")
 						$('.amount').text('$'+total.toFixed(2));
 						$('.price').val(total.toFixed(2));
 						$('#tokens').val(data.token);

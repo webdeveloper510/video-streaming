@@ -1,3 +1,6 @@
+
+
+
 <!--footer -->
 <footer class="footer_style_2">
   <div class="container">
@@ -50,3 +53,4 @@
     </div>
   </div>
 </footer>
+

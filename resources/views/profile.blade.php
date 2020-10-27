@@ -35,7 +35,7 @@
             <div class="col-md-6 mt-4">
             {{Form::label('Gender', 'Gender')}} 
             <br>
-                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male<br>
+                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male
                 {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
                  @if($errors->first('gender'))
                 <div class="alert alert-danger">

@@ -1,4 +1,4 @@
-<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+  @include('layouts.header')
       <section class="background1">
         <div class="row">
           <div class="col"></div>
@@ -45,7 +45,4 @@
        
       <!-- End Navbar -->
 
- <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-
-<?php /**PATH /home/personalattentio/public_html/video-streaming/resources/views//withdraw.blade.php ENDPATH**/ ?>

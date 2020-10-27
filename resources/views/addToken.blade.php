@@ -1,14 +1,14 @@
-
+  @include('layouts.header')
  <section class="background1">
 
-  @include('layouts.header')
+
 
             <div class="container">
           <div class="overlay1">
       <div class="container profile ">
         <h1 class="text-center">Add Token</h1>
           <div class="row align-items-center text-white">
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mt-2 ">
             {{Form::label('ADD', 'Token')}} 
 
           {{Form::text('token', '',['class'=>'form-control token','placeholder'=>'Add Token'])}}
@@ -36,7 +36,7 @@
   </div>
   <div class="text-white mt-5" id="stripeDiv" style="display: none">
   
-  @include('stripe')
+@include('stripe')
 
 
 </div>
@@ -51,3 +51,5 @@
   }
 
 </style>
+
+

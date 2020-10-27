@@ -418,9 +418,13 @@ public function getRespectedSub($data){
 
     public function getUserData($userId){
 
-        $value=DB::table('users')->where('id', $userId)->get()->toArray();
+       $data = DB::table('users')
+       ->join('profiletable', 'profiletable.userid', '=', 'users.id')
+       ->select('profiletable.profilepicture', 'users.tokens')
+       ->where('userid',$userId)
+       ->get();
 
-        return $value;
+       return $data;
 
     }
 
@@ -444,22 +448,28 @@ public function getRespectedSub($data){
 
         if($insert){
 
-           $token = $input['token'];
+                 $token = $input['token'];
 
 
-    $update = DB::table('users')->where('id',$userId)->update([
+          $update = DB::table('users')->where('id',$userId)->update([
 
-      'tokens'=> DB::raw('tokens +'.$token),
-      'customer_id'=>$charge->customer
+            'tokens' =>  DB::raw('tokens +'.$token),
+            'customer_id' => $charge->customer
 
-    ]);
+          ]);
 
-           return $update ? 1 : 0;
+                 return $update ? 1 : 0;
 
         }
 
 
     }
+
+    // public function getUserProfile($uid){
+
+    //    $value=DB::table('users')->where('id', $userId)->get()->toArray();
+
+    // }
 
 
 }

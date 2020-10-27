@@ -8,14 +8,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- mobile metas -->
 <!-- site metas -->
-<title>It.Next - IT Service Responsive Html Theme</title>
+<title>PAZ HTML</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" Content-Type="video/mp4">
 
 <link rel="icon" href="{{asset('images/fevicon/fevicon.png')}}" type="image/gif" />
 <!-- bootstrap css -->
-<link rel="stylesheet" href="{{asset('design/bootstrap.min.css')}}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
 <!-- Site css -->
 
 
@@ -38,7 +40,9 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
-
+<!-- jQuery and JS bundle w/ Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script src="{{asset('js/jquery.min.js')}}"></script>
  <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>

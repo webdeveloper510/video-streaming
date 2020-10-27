@@ -2,11 +2,12 @@
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
+
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="{{url('/')}}" class="navbar-brand">
-						<img src="{{asset('images/logos/Color_logo.png')}}" height="50" alt="CoolBrand">
+						<img src="{{asset('images/logos/logo-new.png')}}" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -213,10 +214,11 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 							<a href="{{url('/getArtists')}}" class="nav-item nav-link active"><i class="fa fa-trophy"></i>TOP LIST</a>
-							<a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a>
-							<a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a>	
-							<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>	
-							<a href="#" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
+							<!-- <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a> -->
+							<!--a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a-->	
+		<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
+    
+							<a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
 
 
 						</div>
@@ -229,10 +231,17 @@
            @endif             
 
             @if($login)
-           <div class="btn-group">
-  <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
-   <i class="fa fa-user" aria-hidden="true"></i>
-   {{$login->nickname}}
+           <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
+            <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
+             @if($userProfile[0]->profilepicture)
+    
+    @else
+   <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+   @endif
+   <span class="profile-img text-white">
+   {{$login->nickname}} <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+    
+   
   </button>
  
    <div class="dropdown-menu dropdown-menu-right">
@@ -242,9 +251,16 @@
       <button class="dropdown-item" type="button">
         <a href="{{url('/logout')}}">Logout</a></button>
   </div>
+   <hr/ style="color:white;background: white;">
+  {{$userProfile[0]->tokens}}
+   <a href="{{url('/addToken')}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+ </span>
+  
 
 </div>
 @endif
+<a href="#"  class="nav-item nav-link" style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" class="fa fa-comment" aria-hidden="true"></i></a>
+
 						</div>
 					</div>
 				</nav>
@@ -254,6 +270,7 @@
   </div>
   <!-- header bottom end -->
 </header>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
