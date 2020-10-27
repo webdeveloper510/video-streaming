@@ -312,7 +312,7 @@ class AuthController extends Controller
 
       unset($request['_token']);
       unset($request['terms']);
-   //  print_r($request->all()); die;
+     //print_r($request->all()); die;
          $model = new Registration();
 
         if($request->person=='user'){
