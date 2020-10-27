@@ -420,7 +420,7 @@ public function getRespectedSub($data){
 
        $data = DB::table('users')
        ->join('profiletable', 'profiletable.userid', '=', 'users.id')
-       ->select('profiletable.profilepicture', 'users.tokens')
+       ->select('profiletable.profilepicture', 'users.tokens','users.nickname')
        ->where('userid',$userId)
        ->get();
 

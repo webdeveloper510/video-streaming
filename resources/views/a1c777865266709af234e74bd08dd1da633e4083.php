@@ -265,8 +265,7 @@
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  <?php echo e($userProfile[0]->tokens); ?>
-
+  <?php echo e($userProfile[0]->tokens); ?>PAZ
    <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus" aria-hidden="true"></i></a>
  </span>
   

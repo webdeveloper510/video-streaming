@@ -252,7 +252,7 @@
         <a href="{{url('/logout')}}">Logout</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  {{$userProfile[0]->tokens}}
+  {{$userProfile[0]->tokens}}PAZ
    <a href="{{url('/addToken')}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
  </span>
   

@@ -23,22 +23,22 @@ class AuthController extends Controller
 
   private $model;
 
-  public function __construct()
+    public function __construct()
     {
-      $this->model= new Registration();
-     }
+       $this->model= new Registration();
+    }
 
     public function register(){
         
-    $session_data =   Session::get('userType');
+        $session_data =   Session::get('userType');
 
-    if($session_data=='contentUser'){
+        if($session_data=='contentUser'){
 
-         return redirect('artists/dashboard') ;
+             return redirect('artists/dashboard') ;
 
-    }
-       
-      return view('registration') ;
+        }
+           
+          return view('registration') ;
 
     }
     
@@ -71,7 +71,7 @@ class AuthController extends Controller
 
            $data=Session::get('filterData');
 
-            //print_r($data);die;
+            print_r($data);die;
 
            
             $recentSelected=Session::get('recentSearch');
@@ -607,6 +607,7 @@ class AuthController extends Controller
      ]);
 
  if ($validator->passes()) { 
+  
 
     $stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     try {
@@ -619,12 +620,19 @@ class AuthController extends Controller
          ],
          ]);
 
+          $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+        $customer = $stripe->customers->createBalanceTransaction(
+        'cus_IHUegG2m98Pw2L',
+        ['amount' => -500, 'currency' => 'usd']
+  );
+
+      print_r($customer);die;
 
       $input = $request->all();
 
       $userData = $this->model->getUserData($userId);
 
-       $customerId = $userData[0]->customer_id;
+       $customerId = isset($userData[0]->customer_id) ? $userData[0]->customer_id : '';
 
        if($customerId){
 

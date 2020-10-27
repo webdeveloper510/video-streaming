@@ -15,7 +15,7 @@
 	   <li class="ais-Hits-item">
 	     <div class="col-md-3 col-sm-6  col-lg-2 pag-item m-t-md m-b-md">
 				 <div class="featured-store-avatar">
-					<a class="click-hit"" href="#" data-insights-method="clickedObjectIDsAfterSearch">
+					<a class="click-hit" href="#" data-insights-method="clickedObjectIDsAfterSearch">
 					  <div class="roundPic m-b-sm">
 						 <img src="https://iwantclips.com/uploads/aboutme_previews/663988/480_edee4c840d51d81b8003f033efd8c72e.jpg" class="img-responsive img-circle click-hit" data-object-id="663988" alt="MISTRESS KELLY KALASHNIK" onerror="this.src='/images/avatar480.png';" data-insights-method="clickedObjectIDsAfterSearch" data-insights-payload="eyJldmVudE5hbWUiOiJEZXRhaWxzIiwib2JqZWN0SURzIjpbIjY2Mzk4OCJdfQ=="></div></a>
 						 <h5 class="featured-store-name featured-text text-center m-b-sm click-hit">
