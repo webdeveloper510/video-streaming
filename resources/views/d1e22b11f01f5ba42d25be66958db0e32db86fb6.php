@@ -1,5 +1,5 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- end header -->
 
 <!--1st slider start-->
@@ -17,11 +17,11 @@ At PAZ you can make your biggest dreams become reality!</p>
     <div class="slider_tittle">
     <h3 class="tittle">Get to know our Artists</h3>
     </div>
-     @foreach ($artists as $artist)
+     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col-md-2 artist_image">
-      <img width="100%"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+      <img width="100%"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
     </div>
-     @endforeach
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
   </div>  
 <div class="row">
@@ -257,16 +257,16 @@ offers
 <div class="outer_slider">
   <div class="coner my-4">
     
-       @if($login && $recently)
+       <?php if($login && $recently): ?>
 	  <h3 class="tittle">
      
      Recently Search
 
      </h3> 
-     @endif
+     <?php endif; ?>
 	</div>
     <!--Carousel Wrapper-->
-    @if($login && $recently)
+    <?php if($login && $recently): ?>
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
@@ -279,19 +279,19 @@ offers
 
 
       <div id="owl-example" class="owl-carousel">
-      @forelse ($recently as $recnt)
-            @if($recnt->type=='video')
+      <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
             
           <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           
             </div>
-            @endif
-            @empty
-             @endforelse
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
 
   
 </div>
@@ -301,7 +301,7 @@ offers
       <!--/.Slides-->
 
     </div>
-    @endif
+    <?php endif; ?>
     <!--/.Carousel Wrapper-->
 
 
@@ -315,7 +315,7 @@ offers
  
  
  
- @if($recently)
+ <?php if($recently): ?>
  <!--2nd slider start-->
 <div class="outer_slider">
   <div class="container my-4">
@@ -326,18 +326,18 @@ offers
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
              <div id="owl-example1" class="owl-carousel">
-            @forelse ($recently as $recnt)
-            @if($recnt->type=='video')
+            <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
            
           <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
                </div>
-            @endif
-            @empty
-             @endforelse
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
 
   
             </div>
@@ -351,7 +351,7 @@ offers
 
 
   </div>  </div>
-  @endif
+  <?php endif; ?>
 
 
   <br/><br/>
@@ -363,7 +363,7 @@ offers
 <br/><br/>
  <!--End 3rd slider-->
  
- @if($recently)
+ <?php if($recently): ?>
   <!--4th slider start-->
 <div class="outer_slider last">
   <div class="container my-4">
@@ -374,18 +374,18 @@ offers
     <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
 
          <div id="owl-example3" class="owl-carousel">
-            @foreach($recently as $recnt)
-              @if($recnt->type=='video')
+            <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
                 
             <video width="370" height="245" controls allowfullscreen>
-              <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+              <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                
               </div>
-          @endif
-          @endforeach
+          <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
             </div>
     
@@ -397,7 +397,7 @@ offers
 
 
   </div>  </div>
-@endif
+<?php endif; ?>
   <br/><br/>
   <style>
     tr:nth-child(even) {
@@ -453,7 +453,8 @@ a.btn, button.btn {
  
 });
  </script>
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>

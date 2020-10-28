@@ -271,10 +271,11 @@ class AuthController extends Controller
            // }
 
          $Recentlydata= $this->model->getRecentlySearch();
+           $artists=$this->model->getArtists();
           //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
-        return view('/initial',['recently'=>$Recentlydata, 'newComes'=>$newComes]);
+        return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes]);
 
       }
       public function contentPostLogin(Request $request){
