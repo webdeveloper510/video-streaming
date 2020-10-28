@@ -71,7 +71,7 @@ class AuthController extends Controller
 
            $data=Session::get('filterData');
 
-            print_r($data);die;
+            //print_r($data);die;
 
            
             $recentSelected=Session::get('recentSearch');
