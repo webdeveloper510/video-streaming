@@ -4991,8 +4991,7 @@ a.nav-item.nav-link:before {
     content: "";
     position: absolute;
     top: 10px;
-    height: 25px;
-    border-right: 1px solid #fff;
+    height: 80%;    border-right: 1px solid #fff;
     right: -2px;
 }
 .ml-auto a.nav-item.nav-link::before {
@@ -5019,6 +5018,9 @@ ul.nav.custom.search {
 	height: 40px;
 	display: inline-block;
 	
+}
+ul.nav.custom.search img {
+    margin-top: -5px;
 }
 .nav li {
 	float: left;
