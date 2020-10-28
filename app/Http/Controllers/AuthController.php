@@ -620,13 +620,13 @@ class AuthController extends Controller
          ],
          ]);
 
-          $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-        $customer = $stripe->customers->createBalanceTransaction(
-        'cus_IHUegG2m98Pw2L',
-        ['amount' => -500, 'currency' => 'usd']
-  );
+  //         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
+  //       $customer = $stripe->customers->createBalanceTransaction(
+  //       'cus_IHUegG2m98Pw2L',
+  //       ['amount' => -500, 'currency' => 'usd']
+  // );
 
-      print_r($customer);die;
+     // print_r($customer);die;
 
       $input = $request->all();
 

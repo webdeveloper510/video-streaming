@@ -11,6 +11,211 @@
       Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!
 
 At PAZ you can make your biggest dreams become reality!</p>
+<div class="row">
+  <div class="col-md-6">
+      <div class="user1 mb-3">
+      <div class="user-head text-center text-white">
+      <h3>Artists Features</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+    <div class="user-body">
+      <p>You keep 90% of your profits
+          <br>
+          <br>
+         Create content in categories you
+like 
+          <br>
+          <br>
+         Accept/reject/edit requests as
+you wish
+          <br><br>
+         Create Samples for your fans to
+let them know what you can
+offer them
+          <br><br>
+        Invite other artists through our
+partnerprogram and build up a
+passive income 
+          <br><br>
+          Invite fans and get rewarded
+with passive income
+          <br><br>
+         Stick out of the crowd with our
+Top Lists and get the attention
+from most paying fans
+          <br><br>
+         Use PAZ Tokens as a save way
+for transactions
+          <br><br>
+         Reduced Ads
+          <br><br>
+         Exchange and withdraw your
+Tokens at anytime
+          <br><br>
+         Upload free Audio
+          <br><br>
+         Upload free Video 
+          <br><br>
+          Personalized Audio/Video
+offers
+          </p>
+    </div>
+  </div>
+  <div class="col-md-2 pt-3">
+    <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+         <br>
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+       <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+  <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
+    
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+         <br>
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+  <br>
+ <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
+  <br>      
+    <i class="fa fa-check" style="font-size:24px"></i>
+    <br>
+    
+  </div>
+</div>
+
+      </div>
+      </div>
+ 
+    <div class="col-md-6">
+      <div class="user1 mb-3">
+      <div class="user-head text-center text-white">
+      <h3>User Features</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-10">
+    <div class="user-body">
+      <p>Personal attention 
+          <br>
+          <br>
+          Let Artists create Video/Audio
+          according to your imagination 
+          <br>
+          <br>
+          Download your requested
+          Video/Audio 
+          <br><br>
+          Save money by watching
+          Samples on how your request
+          could be carried out
+          <br><br>
+          Upload Requests and choose
+          the best offer 
+          <br><br>
+          Stick out of the crowd with our
+          Top Lists and get the attention
+          from our most popular artists
+          <br><br>
+          Invite your favorite Artists
+          through our partnerprogram
+          and build up a passive income
+          <br><br>
+          Invite users and get rewarded
+          with passive income
+          <br><br>
+          Create playlists and stream
+          anytime 
+          <br><br>
+          Reduced Ads
+          <br><br>
+          Use PAZ Tokens as a save way
+          for transactions 
+          <br><br>
+          Exchange and withdraw your
+          Tokens at anytime 
+          <br><br>
+          </p>
+    </div>
+  </div>
+  <div class="col-md-2 pt-3">
+    <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+         <br>
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+       <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+       <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+   
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+    <br>
+      <br>
+  </div>
+</div>
+
+      </div>
+
+      </div>
+</div>
        @if($login && $recently)
 	  <h3 class="tittle">
      
@@ -185,6 +390,26 @@ At PAZ you can make your biggest dreams become reality!</p>
   </div>  </div>
 @endif
   <br/><br/>
+  <style>
+    tr:nth-child(even) {
+    background-color: #fff;
+    color: black;
+}
+.user1 {
+    box-shadow: 1px 1px 6px 1px #0000003d;
+}
+.user-body {
+    padding: 14px;
+}
+.user-head.text-center {
+    padding: 13px;
+    background: #f57070d9;
+}
+.user-head.text-center.text-white h3 {
+    color: white;
+    padding-top: 12px;
+}
+  </style>
  <!--End 4th slider-->
 
  <script>

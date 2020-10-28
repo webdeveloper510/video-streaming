@@ -16,7 +16,7 @@
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                <a href="#"><img width="30px" src="{{asset('images/logos/filter.png')}}"></a></li>
                 <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
@@ -254,7 +254,7 @@
   </div>
    <hr/ style="color:white;background: white;">
   {{$userProfile[0]->tokens}}PAZ
-   <a href="{{url('/addToken')}}"><i class="fa fa-plus" aria-hidden="true"></i></a>
+   <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
 
