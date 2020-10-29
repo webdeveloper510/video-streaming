@@ -61,9 +61,9 @@ At PAZ you can make your biggest dreams become reality!</p>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
+
   <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
       <br>
     
     <i class="fa fa-check" style="font-size:24px"></i>
@@ -75,9 +75,10 @@ At PAZ you can make your biggest dreams become reality!</p>
   <br>
  <i class="fa fa-check" style="font-size:24px"></i>
       <br>
-  <br>      
-    <i class="fa fa-check" style="font-size:24px"></i>
-    <br>
+  <br>    
+   <i class="fa fa-check" style="font-size:24px"></i>
+      <br>  
+  
     
   </div>
       <div class="right">
@@ -157,13 +158,13 @@ offers
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
+       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
-         <br>
-      
+        
     <i class="fa fa-check" style="font-size:24px"></i>
-<br>
+<br> <br>
       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
@@ -172,10 +173,11 @@ offers
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
+
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
-       <br>
+       
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
@@ -431,6 +433,9 @@ a.btn, button.btn {
 .right {
     float: left;
     width: 90%;
+}
+.left .fa {
+    color: green;
 }
   </style>
  <!--End 4th slider-->

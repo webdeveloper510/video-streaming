@@ -76,8 +76,11 @@
                         </div>
                           
                        </div> 
-                       <div class="col-md-12 text-center">
+                       <div class="col-md-12 text-left">
                        {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                         <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
+                            Filter option
+                          </button>
                       {{ Form::close() }}
                      </div>    
                      </div>
@@ -130,7 +133,7 @@
                           </label>
                           </div>
                            </div>
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 text-left">
                        {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
                       {{ Form::close() }}
                      </div> 
@@ -184,8 +187,12 @@
                           </label>
                           </div>
                              </div>
-                             <div class="col-md-12 text-center">
+                             <div class="col-md-12 text-left">
                        {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Filter option
+                          </button>
+                     
                       {{ Form::close() }}
                      </div> 
                    </div>
@@ -260,6 +267,107 @@
 
 </div>
 @endif
+ <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Advance Filter Option</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                  <div class="col-md-6 mb-4">
+                                    <label>Sexology</label><br>
+                                    {{Form::checkbox('sex[]','Hetero')}}Hetero <br>
+                                    {{Form::checkbox('sex[]','Homo')}}Homo <br>
+                                    {{Form::checkbox('sex[]','Bisexual')}}Bisexual 
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Tits size</label><br>
+                                    {{Form::checkbox('tits[]','Small')}}Small <br>
+                                    {{Form::checkbox('tits[]','Normal')}}Normal <br>
+                                    {{Form::checkbox('tits[]','Big')}}Big 
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                    <label>Ass</label><br>
+                                    {{Form::checkbox('ass[]','Normal')}}Normal <br>
+                                    {{Form::checkbox('ass[]','Small')}}Small <br>
+                                    {{Form::checkbox('ass[]','Big')}}Big 
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Privy part</label><br>
+                                    {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
+                                    {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                    <label>Eye color</label><br>
+                                    {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
+                                    {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
+                                    {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 
+                                    {{Form::checkbox('eyecolor[]','golden')}}Golden <br>
+                                    {{Form::checkbox('eyecolor[]','gray')}}Gray <br>
+                                    {{Form::checkbox('eyecolor[]','green')}}Green<br>
+                                    {{Form::checkbox('eyecolor[]','red')}}Red <br>
+                                    {{Form::checkbox('eyecolor[]','white')}}White <br>
+                                    {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br>
+                                    {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
+                                    {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
+                                    {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
+                                  </div>
+                                        <div class="col-md-6 mb-4">
+                                    <label>Hair color</label><br>
+                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
+                                    {{Form::checkbox('haircolor[]','brown')}}Brown <br>
+                                    {{Form::checkbox('haircolor[]','black')}}Black<br> 
+                                    {{Form::checkbox('haircolor[]','blonde')}}Blonde <br>
+                                    {{Form::checkbox('haircolor[]','gray')}}Gray <br>
+                                    {{Form::checkbox('haircolor[]','green')}}Green<br>
+                                    {{Form::checkbox('haircolor[]','red')}}Red <br>
+                                    {{Form::checkbox('haircolor[]','white')}}White <br>
+                                    {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
+                                    {{Form::checkbox('haircolor[]','silver')}}Silver <br>
+                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
+                                    {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
+                                    {{Form::checkbox('haircolor[]','violet')}}Violet <br>
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Height</label><br>
+                                    {{Form::checkbox('height[]','<140cm')}}<140cm <br>
+                                    {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
+                                    {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
+                                    {{Form::checkbox('height[]','180cm<')}}180cm< <br>
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                      <label>Hair Length</label><br>
+                                    {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
+                                    {{Form::checkbox('height[]','Short')}}Short <br>
+                                    {{Form::checkbox('height[]','Long')}}Long <br>
+                                    {{Form::checkbox('height[]','Very Long')}}Very Long <br>
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                    <label>Weight</label><br>
+                                    {{Form::checkbox('weight[]','Less than Average')}}Less than Average <br>
+                                    {{Form::checkbox('weight[]','Normal')}}Normal <br>
+                                    {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
+                                    {{Form::checkbox('weight[]','Above Average')}}Above Average 
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Age</label><br>
+                                    {{Form::checkbox('age[]','18-24')}}18-24 <br>
+                                    {{Form::checkbox('age[]','25-34')}}25-34<br>
+                                    {{Form::checkbox('age[]','35-44')}}35-44<br>
+                                    {{Form::checkbox('age[]','45 +')}}45 +
+ 
+                                  </div>
+                                </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
 <a href="#"  class="nav-item nav-link" style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" class="fa fa-comment" aria-hidden="true"></i></a>
 
 						</div>
@@ -270,7 +378,16 @@
   
   </div>
   <!-- header bottom end -->
+  <!-- Button trigger modal -->
+
+
 </header>
+<style type="text/css">
+  .modal-backdrop.show {
+    opacity: 1;
+    display:none;
+}
+</style>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
