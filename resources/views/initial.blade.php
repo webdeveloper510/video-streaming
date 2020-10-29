@@ -7,7 +7,7 @@
  <div class="container">
    <div class="slider_tittle">
 
-      <p class="text-center pb-3 pt-3" style="font-size: 20px;">
+      <p class="text-center pb-3 pt-3 header-text" style="font-size: 24px;">
       Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!
 
 At PAZ you can make your biggest dreams become reality!</p>
@@ -45,7 +45,7 @@ At PAZ you can make your biggest dreams become reality!</p>
       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
-      <br>
+      <br> <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
@@ -151,14 +151,15 @@ offers
       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
-      <br>
+      <br> <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
+
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
-       <br>
+       <br><br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
@@ -251,7 +252,7 @@ offers
       <p>Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
     </div>
     <div class="col-md-6">
-     <button type="button" class="btn btn-primary">Learn more</button>
+     <button type="button" class="btn btn-primary">Become Partner</button>
     </div>
 
 </div>
@@ -414,7 +415,7 @@ offers
 }
 .user-head.text-center {
     padding: 13px;
-    background: #f57070d9;
+    background: #bf0000;
 }
 .user-head.text-center.text-white h3 {
     color: white;
@@ -436,6 +437,14 @@ a.btn, button.btn {
 }
 .left .fa {
     color: green;
+}
+.right p {
+    font-size: 20px;
+}
+p.text-center.pb-3.pt-3.header-text {
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: 'Playfair Display', serif;
 }
   </style>
  <!--End 4th slider-->
