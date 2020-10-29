@@ -6,9 +6,14 @@
  <!--1st slider start-->
  <div class="container">
    <div class="slider_tittle">
-
-      <p class="text-center  pt-3 header-text" style="font-size: 24px;">
-      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your<p> <p class="PAZ text-center header-text" style="font-size: 24px;">creations!At PAZ you can make your biggest dreams become reality!</p>
+    <div class="row">
+    	<div class="col"></div>
+    	<div class="col-md-8">
+   <h3 class="text-center  pt-3 header-text" style="font-size: 27px;">
+      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!</h3> <h3 class="PAZ text-center header-text" style="font-size: 27px;">At PAZ you can make your biggest dreams become reality!</h3>
+       </div>
+       <div class="col"></div>
+   </div>
 
   <div class="container my-4">
     <div class="row">
@@ -211,7 +216,7 @@
           </p>
     </div>
      </div>
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center mt-3">
 
  <button type="button" class="btn btn-primary"><a href="#">Register as User</a></button>
 
@@ -224,7 +229,7 @@
 
       </div>
       <div class="col-md-6 pl-5 pt-4 text-right">
-      <p style="font-size: 17px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
+      <p style="font-size: 17px;color: white;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
     </div>
     <div class="col-md-6">
      <button type="button" class="btn btn-primary partner_col">Become Partner</button>
@@ -378,6 +383,14 @@
 @endif
   <br/><br/>
   <style>
+  	body{
+
+    background:black;
+
+  	}
+  	h3.tittle {
+    color: white;
+}
     tr:nth-child(even) {
     background-color: #fff;
     color: black;
@@ -387,11 +400,15 @@
 }
 .user-body {
     padding: 14px;
-   /* border: 5px solid #bf0000;*/
+    background: white;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 .user-head.text-center {
     padding: 13px;
     background: #bf0000;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
 }
 .user-head.text-center.text-white h3 {
     color: white;
@@ -414,23 +431,28 @@ a.btn, button.btn {
 .left .fa {
     color: green;
 }
-button.btn.btn-primary.partner_col:hover {
-    background: #007bff;
-}
 .col-md-12.text-center button:hover {
-    background: #007bff;
+    background: #bf0000 !important;
+    border: 2px solid #bf0000 !important;
 }
+button.btn.btn-primary.partner_col:hover {
+     background: #bf0000 !important;
+    border: 2px solid #bf0000 !important;
+}
+
 .right p {
     font-size: 20px;
 }
-p.text-center.header-text {
-    font-weight: 500;
+.text-center.header-text {
+    font-weight: 700;
     text-transform: capitalize;
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
+    color: white;
 }
-p.PAZ.text-center.header-text {
-    color: #bf0000;
-    font-weight: 600;
+.PAZ.text-center.header-text {
+    color: white;
+    font-weight: 700;
+    margin-top: -10px;
 }
   </style>
  <!--End 4th slider-->
