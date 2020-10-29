@@ -24,11 +24,10 @@
       <div id="owl-example4" class="owl-carousel">
       @foreach ($artists as $artist)
     <div class="artist_image">
-<<<<<<< HEAD
-      <img width="100%" height="250px" src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-=======
+
+
       <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
->>>>>>> 402ddb82477b67d7a3d772898f547f1d40bd6a21
+
     </div>
      @endforeach
 
