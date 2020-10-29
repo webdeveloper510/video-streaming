@@ -20,11 +20,16 @@
     <div class="slider_tittle">
     <h3 class="tittle">Get to know our Artists</h3>
     </div>
-     @foreach ($artists as $artist)
-    <div class="col-md-2 artist_image">
+    
+      <div id="owl-example4" class="owl-carousel">
+      @foreach ($artists as $artist)
+    <div class="artist_image">
       <img width="100%"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
     </div>
      @endforeach
+
+  
+</div>
   </div>
   </div>  
 <div class="row">
@@ -422,7 +427,7 @@
 .user-head.text-center.text-white h3 {
     color: white;
     padding-top: 12px;
-    font-size: 35px;
+    font-size: 28px;
 }
 a.btn, button.btn {
     line-height: 100% !important;
@@ -482,7 +487,11 @@ button.btn.btn-primary.partner_col:hover {
 .user1-head.text-center.text-white.col-md-12 h3 {
     color: white;
     padding-top: 10px;
-    font-size: 35px;
+   font-size: 28px;
+}
+
+.artist_image img {
+    padding: 12px;
 }
   </style>
  <!--End 4th slider-->
@@ -500,9 +509,17 @@ button.btn.btn-primary.partner_col:hover {
     items:3
   });
      $("#owl-example3").owlCarousel({
-    items:3
+    items:3,
+
   });
- 
+    $("#owl-example4").owlCarousel({
+    items:3,
+      loop:true,
+margin:10,
+autoPlay:true,
+nav:true,
+rewindNav:false
+  });
 });
  </script>
 @include('layouts.footer')
