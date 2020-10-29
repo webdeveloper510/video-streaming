@@ -114,7 +114,7 @@
     </div>
   </div>
     <div class="col-md-12 text-center">
-  <button type="button" class="btn btn-primary"><a href="">Register as Artist</a></button>
+  <button type="button" class="btn btn-primary"><a href="{{url('/register')}}">Register as Artist</a></button>
 
     </div>
   </div>
@@ -218,7 +218,7 @@
      </div>
     <div class="col-md-12 text-center mt-3">
 
- <button type="button" class="btn btn-primary"><a href="#">Register as User</a></button>
+ <button type="button" class="btn btn-primary"><a href="{{url('/register')}}">Register as User</a></button>
 
     </div>
   </div>
