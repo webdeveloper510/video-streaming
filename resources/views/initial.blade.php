@@ -7,10 +7,8 @@
  <div class="container">
    <div class="slider_tittle">
 
-      <p class="text-center pb-3 pt-3 header-text" style="font-size: 24px;">
-      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!
-
-At PAZ you can make your biggest dreams become reality!</p>
+      <p class="text-center  pt-3 header-text" style="font-size: 24px;">
+      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your<p> <p class="PAZ text-center header-text" style="font-size: 24px;">creations!At PAZ you can make your biggest dreams become reality!</p>
 
   <div class="container my-4">
     <div class="row">
@@ -33,7 +31,7 @@ At PAZ you can make your biggest dreams become reality!</p>
     <div class="user-body">
     <div class="row">
      <div class="col-md-12">
-       <div class="left ">
+       <div class="left pt-3">
     <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
@@ -45,7 +43,7 @@ At PAZ you can make your biggest dreams become reality!</p>
       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
-      <br> <br>
+      <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
@@ -57,14 +55,13 @@ At PAZ you can make your biggest dreams become reality!</p>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
-       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
 
   <i class="fa fa-check" style="font-size:24px"></i>
       <br>
-      <br>
+
     
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
@@ -72,56 +69,42 @@ At PAZ you can make your biggest dreams become reality!</p>
       
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
-  <br>
+     <br>
  <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-  <br>    
+      <br><br>
+   
    <i class="fa fa-check" style="font-size:24px"></i>
       <br>  
   
     
   </div>
-      <div class="right">
+      <div class="right pt-3">
     
-      <p>You keep 90% of your profits
-          <br>
-          <br>
-         Create content in categories you
-like 
-          <br>
-          <br>
-         Accept/reject/edit requests as
-you wish
-          <br><br>
-         Create Samples for your fans to
-let them know what you can
-offer them
-          <br><br>
-        Invite other artists through our
-partnerprogram and build up a
-passive income 
-          <br><br>
-          Invite fans and get rewarded
-with passive income
-          <br><br>
-         Stick out of the crowd with our
-Top Lists and get the attention
-from most paying fans
-          <br><br>
-         Use PAZ Tokens as a save way
-for transactions
-          <br><br>
-         Reduced Ads
-          <br><br>
-         Exchange and withdraw your
-Tokens at anytime
-          <br><br>
-         Upload free Audio
-          <br><br>
-         Upload free Video 
-          <br><br>
-          Personalized Audio/Video
-offers
+      <p>You keep 90% of your profits</p>
+         <p>
+         Create content in categories you like 
+          </p>
+         <p>Accept/reject/edit requests as you wish
+          </p>
+        <p> Create Samples for your fans to let them know what you can offer them
+          </p>
+        <p>Invite other artists through our partnerprogram and build up a passive income 
+          </p>
+          <p>Invite fans and get rewarded with passive income
+          </p>
+         <p>Stick out of the crowd with our Top Lists and get the attention from most paying fans
+          </p>
+         <p>Use PAZ Tokens as a save way for transactions
+          </p>
+         <p>Reduced Ads
+          </p>
+         <p>Exchange and withdraw your Tokens at anytime
+          </p>
+         <p>Upload free Audio
+          </p>
+         <p>Upload free Video 
+          </p>
+          <p>Personalized Audio/Video offers
           </p>
     </div>
   </div>
@@ -144,7 +127,7 @@ offers
      <div class="user-body">
     <div class="row">
       <div class="col-md-12">
-       <div class="left">
+       <div class="left pt-3">
 
     <i class="fa fa-check" style="font-size:24px"></i>
       <br>
@@ -184,55 +167,47 @@ offers
       <br>
    
       
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-      
-    <i class="fa fa-check" style="font-size:24px"></i>
-    <br>
-      <br>
-  </div>
-      <div class="right">
    
-      <p>Personal attention 
-          <br>
-          <br>
-          Let Artists create Video/Audio
-          according to your imagination 
-          <br>
-          <br>
-          Download your requested
-          Video/Audio 
-          <br><br>
-          Save money by watching
+  </div>
+      <div class="right pt-3">
+   
+      <p>Personal attention </p>
+         
+          <p>Let Artists create Video/Audio
+          according to your imagination </p>
+         
+          <p>Download your requested
+          Video/Audio </p>
+         
+          <p>Save money by watching
           Samples on how your request
-          could be carried out
-          <br><br>
-          Upload Requests and choose
+          could be carried out</p>
+         
+          <p>Upload Requests and choose
           the best offer 
-          <br><br>
-          Stick out of the crowd with our
+          </p>
+          <p>Stick out of the crowd with our
           Top Lists and get the attention
           from our most popular artists
-          <br><br>
-          Invite your favorite Artists
+          </p>
+          <p>Invite your favorite Artists
           through our partnerprogram
           and build up a passive income
-          <br><br>
-          Invite users and get rewarded
+          </p>
+          <p>Invite users and get rewarded
           with passive income
-          <br><br>
-          Create playlists and stream
+          </p>
+          <p>Create playlists and stream
           anytime 
-          <br><br>
-          Reduced Ads
-          <br><br>
-          Use PAZ Tokens as a save way
+          </p>
+          <p>Reduced Ads
+          </p>
+          <p>Use PAZ Tokens as a save way
           for transactions 
-          <br><br>
-          Exchange and withdraw your
+          </p>
+          <p>Exchange and withdraw your
           Tokens at anytime 
-          <br><br>
+          
           </p>
     </div>
      </div>
@@ -249,10 +224,10 @@ offers
 
       </div>
       <div class="col-md-6 pl-5 pt-4 text-right">
-      <p>Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
+      <p style="font-size: 17px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
     </div>
     <div class="col-md-6">
-     <button type="button" class="btn btn-primary">Become Partner</button>
+     <button type="button" class="btn btn-primary partner_col">Become Partner</button>
     </div>
 
 </div>
@@ -412,6 +387,7 @@ offers
 }
 .user-body {
     padding: 14px;
+   /* border: 5px solid #bf0000;*/
 }
 .user-head.text-center {
     padding: 13px;
@@ -438,13 +414,23 @@ a.btn, button.btn {
 .left .fa {
     color: green;
 }
+button.btn.btn-primary.partner_col:hover {
+    background: #007bff;
+}
+.col-md-12.text-center button:hover {
+    background: #007bff;
+}
 .right p {
     font-size: 20px;
 }
-p.text-center.pb-3.pt-3.header-text {
+p.text-center.header-text {
     font-weight: 500;
     text-transform: capitalize;
     font-family: 'Playfair Display', serif;
+}
+p.PAZ.text-center.header-text {
+    color: #bf0000;
+    font-weight: 600;
 }
   </style>
  <!--End 4th slider-->

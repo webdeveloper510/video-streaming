@@ -78,15 +78,16 @@
                         </div>
                           
                        </div> 
-                       <div class="col-md-12 text-left">
+                       <div class="col-md-6 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                         <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
-                            Filter option
-                          </button>
+                        
+                     </div>  
+                     <div class="col-md-6 text-center">
+                         <input type="button" class="btn btn-primary text-center" value=" Advance Filter option"data-toggle="modal" data-target="#exampleModal">
                       <?php echo e(Form::close()); ?>
 
-                     </div>    
+                     </div>  
                      </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
@@ -281,7 +282,7 @@
 <?php endif; ?>
  <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog filter-popup modal-lg">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">Advance Filter Option</h5>
@@ -289,32 +290,39 @@
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body filter">
                                 <div class="row">
-                                  <div class="col-md-6 mb-4">
+                                  <div class="col-md-4 mb-4">
                                     <label>Sexology</label><br>
                                     <?php echo e(Form::checkbox('sex[]','Hetero')); ?>Hetero <br>
                                     <?php echo e(Form::checkbox('sex[]','Homo')); ?>Homo <br>
                                     <?php echo e(Form::checkbox('sex[]','Bisexual')); ?>Bisexual 
                                   </div>
-                                  <div class="col-md-6 mb-4">
+                                  <div class="col-md-4 mb-4">
                                       <label>Tits size</label><br>
                                     <?php echo e(Form::checkbox('tits[]','Small')); ?>Small <br>
                                     <?php echo e(Form::checkbox('tits[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('tits[]','Big')); ?>Big 
                                   </div>
-                                   <div class="col-md-6 mb-4">
+                                   <div class="col-md-4 mb-4">
                                     <label>Ass</label><br>
                                     <?php echo e(Form::checkbox('ass[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
                                     <?php echo e(Form::checkbox('ass[]','Big')); ?>Big 
                                   </div>
-                                  <div class="col-md-6 mb-4">
+                                  <div class="col-md-4 mb-4">
                                       <label>Privy part</label><br>
                                     <?php echo e(Form::checkbox('privy[]','Shaved')); ?>Shaved <br>
                                     <?php echo e(Form::checkbox('privy[]','Unshaved')); ?>Unshaved <br>
+                                              <br>
+                                              <br>
+                                      <label>Height</label><br>
+                                    <?php echo e(Form::checkbox('height[]','<140cm')); ?><140cm <br>
+                                    <?php echo e(Form::checkbox('height[]','140-160cm')); ?>140-160cm <br>
+                                    <?php echo e(Form::checkbox('height[]','160-180cm')); ?>160-180cm <br>
+                                    <?php echo e(Form::checkbox('height[]','180cm<')); ?>180cm< <br>
                                   </div>
-                                   <div class="col-md-6 mb-4">
+                                   <div class="col-md-4 mb-4">
                                     <label>Eye color</label><br>
                                     <?php echo e(Form::checkbox('eyecolor[]','blue')); ?>Blue <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','brown')); ?>Brown <br>
@@ -329,7 +337,7 @@
                                     <?php echo e(Form::checkbox('eyecolor[]','indigo')); ?>Indigo <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','violet')); ?>Violet <br>
                                   </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-4 mb-4">
                                     <label>Hair color</label><br>
                                     <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
                                     <?php echo e(Form::checkbox('haircolor[]','brown')); ?>Brown <br>
@@ -345,28 +353,22 @@
                                     <?php echo e(Form::checkbox('haircolor[]','indigo')); ?>Indigo <br>
                                     <?php echo e(Form::checkbox('haircolor[]','violet')); ?>Violet <br>
                                   </div>
-                                  <div class="col-md-6 mb-4">
-                                      <label>Height</label><br>
-                                    <?php echo e(Form::checkbox('height[]','<140cm')); ?><140cm <br>
-                                    <?php echo e(Form::checkbox('height[]','140-160cm')); ?>140-160cm <br>
-                                    <?php echo e(Form::checkbox('height[]','160-180cm')); ?>160-180cm <br>
-                                    <?php echo e(Form::checkbox('height[]','180cm<')); ?>180cm< <br>
-                                  </div>
-                                   <div class="col-md-6 mb-4">
+                                 
+                                   <div class="col-md-4 mb-4">
                                       <label>Hair Length</label><br>
                                     <?php echo e(Form::checkbox('hairlength[]','Very short')); ?>Very short <br>
                                     <?php echo e(Form::checkbox('height[]','Short')); ?>Short <br>
                                     <?php echo e(Form::checkbox('height[]','Long')); ?>Long <br>
                                     <?php echo e(Form::checkbox('height[]','Very Long')); ?>Very Long <br>
                                   </div>
-                                   <div class="col-md-6 mb-4">
+                                   <div class="col-md-4 mb-4">
                                     <label>Weight</label><br>
                                     <?php echo e(Form::checkbox('weight[]','Less than Average')); ?>Less than Average <br>
                                     <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
                                     <?php echo e(Form::checkbox('weight[]','Above Average')); ?>Above Average 
                                   </div>
-                                  <div class="col-md-6 mb-4">
+                                  <div class="col-md-4 mb-4">
                                       <label>Age</label><br>
                                     <?php echo e(Form::checkbox('age[]','18-24')); ?>18-24 <br>
                                     <?php echo e(Form::checkbox('age[]','25-34')); ?>25-34<br>
@@ -398,6 +400,12 @@
   .modal-backdrop.show {
     opacity: 1;
     display:none;
+}
+.modal-dialog.filter-popup {
+    width: 620px;
+    position: absolute;
+    right: 0;
+    top: 103px;
 }
 </style>
 
