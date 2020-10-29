@@ -1052,11 +1052,10 @@ header .right_bt .btn {
 }
 
 .header_bottom {
-	position: relative;
-	z-index: 9;
-    background: #000;	
-    background: linear-gradient(180deg,#da0000,#a60000); 
-/* background: linear-gradient(180deg,#ef5097,#ef086f); */
+    position: relative;
+    z-index: 9;
+    background: #000;
+    background: #7b0000;
 }
 
 
@@ -5148,7 +5147,7 @@ ul.nav.custom.search ul.subnav {
 ul.nav.custom.search ul.subnav {
     width: 700px;
     left: 0;
-    background: #7b0000;		
+    background: #bf0000;
 }
 #search {
     width: auto;

@@ -20,7 +20,7 @@
 
 <!-- Site css -->
 
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo e(asset('design/style.css')); ?>" />
 
 <link rel="stylesheet" href="<?php echo e(asset('design/font-awesome.min.css')); ?>" />
