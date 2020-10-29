@@ -76,7 +76,7 @@
 <br>
      <br>
  <i class="fa fa-check" style="font-size:24px"></i>
-      <br><br>
+      <br>
    
    <i class="fa fa-check" style="font-size:24px"></i>
       <br>  
@@ -114,7 +114,7 @@
     </div>
   </div>
     <div class="col-md-12 text-center">
-  <button type="button" class="btn btn-primary"><a href="">Register as Artist</a></button>
+  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/register')); ?>">Register as Artist</a></button>
 
     </div>
   </div>
@@ -164,10 +164,11 @@
       <br>
 
     <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-       
+<br>  
     <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+   <br>
+<i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
    
@@ -218,7 +219,7 @@
      </div>
     <div class="col-md-12 text-center mt-3">
 
- <button type="button" class="btn btn-primary"><a href="#">Register as User</a></button>
+ <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/register')); ?>">Register as User</a></button>
 
     </div>
   </div>
@@ -228,14 +229,22 @@
       </div>
 
       </div>
-      <div class="col-md-6 pl-5 pt-4 text-right">
-      <p style="font-size: 17px;color: white;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
+    
+      	<div class="user1-head text-center text-white col-md-12">
+      <h3>Passive income?</h3>
     </div>
-    <div class="col-md-6">
+    <div class="user1-body col-md-12">
+    	<div class="row">
+      <div class="col-md-8 pl-5 pt-4 text-right">
+      <p style="font-size: 20px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
+    </div>
+    <div class="col-md-4">
      <button type="button" class="btn btn-primary partner_col">Become Partner</button>
     </div>
-
 </div>
+    </div>
+</div>
+
  </div>
 <div class="outer_slider">
   <div class="coner my-4">
@@ -413,6 +422,7 @@
 .user-head.text-center.text-white h3 {
     color: white;
     padding-top: 12px;
+    font-size: 35px;
 }
 a.btn, button.btn {
     line-height: 100% !important;
@@ -430,6 +440,7 @@ a.btn, button.btn {
 }
 .left .fa {
     color: green;
+    padding-top: 12px;
 }
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;
@@ -442,6 +453,7 @@ button.btn.btn-primary.partner_col:hover {
 
 .right p {
     font-size: 20px;
+    padding-top: 12px;
 }
 .text-center.header-text {
     font-weight: 700;
@@ -453,6 +465,24 @@ button.btn.btn-primary.partner_col:hover {
     color: white;
     font-weight: 700;
     margin-top: -10px;
+}
+.user1-body.col-md-12 {
+    background: white;
+    color: white;
+    padding-bottom: 12px;
+    border-bottom-right-radius: 27px;
+    border-bottom-left-radius: 27px;
+}
+.user1-head.text-center {
+
+    background: #bf0000;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+}
+.user1-head.text-center.text-white.col-md-12 h3 {
+    color: white;
+    padding-top: 10px;
+    font-size: 35px;
 }
   </style>
  <!--End 4th slider-->
