@@ -15,7 +15,7 @@
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
-                <a href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
                 <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
@@ -78,9 +78,12 @@
                         </div>
                           
                        </div> 
-                       <div class="col-md-12 text-center">
+                       <div class="col-md-12 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
+                         <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
+                            Filter option
+                          </button>
                       <?php echo e(Form::close()); ?>
 
                      </div>    
@@ -136,7 +139,7 @@
                           </label>
                           </div>
                            </div>
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
@@ -194,9 +197,13 @@
                           </label>
                           </div>
                              </div>
-                             <div class="col-md-12 text-center">
+                             <div class="col-md-12 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
+                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Filter option
+                          </button>
+                     
                       <?php echo e(Form::close()); ?>
 
                      </div> 
@@ -266,12 +273,113 @@
   </div>
    <hr/ style="color:white;background: white;">
   <?php echo e($userProfile[0]->tokens); ?>PAZ
-   <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus" aria-hidden="true"></i></a>
+   <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
 
 </div>
 <?php endif; ?>
+ <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Advance Filter Option</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                  <div class="col-md-6 mb-4">
+                                    <label>Sexology</label><br>
+                                    <?php echo e(Form::checkbox('sex[]','Hetero')); ?>Hetero <br>
+                                    <?php echo e(Form::checkbox('sex[]','Homo')); ?>Homo <br>
+                                    <?php echo e(Form::checkbox('sex[]','Bisexual')); ?>Bisexual 
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Tits size</label><br>
+                                    <?php echo e(Form::checkbox('tits[]','Small')); ?>Small <br>
+                                    <?php echo e(Form::checkbox('tits[]','Normal')); ?>Normal <br>
+                                    <?php echo e(Form::checkbox('tits[]','Big')); ?>Big 
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                    <label>Ass</label><br>
+                                    <?php echo e(Form::checkbox('ass[]','Normal')); ?>Normal <br>
+                                    <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
+                                    <?php echo e(Form::checkbox('ass[]','Big')); ?>Big 
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Privy part</label><br>
+                                    <?php echo e(Form::checkbox('privy[]','Shaved')); ?>Shaved <br>
+                                    <?php echo e(Form::checkbox('privy[]','Unshaved')); ?>Unshaved <br>
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                    <label>Eye color</label><br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','blue')); ?>Blue <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','brown')); ?>Brown <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','brown-green')); ?>Brown-green<br> 
+                                    <?php echo e(Form::checkbox('eyecolor[]','golden')); ?>Golden <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','gray')); ?>Gray <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','green')); ?>Green<br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','red')); ?>Red <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','white')); ?>White <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','yellow')); ?>Yellow <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','blue')); ?>Blue <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','indigo')); ?>Indigo <br>
+                                    <?php echo e(Form::checkbox('eyecolor[]','violet')); ?>Violet <br>
+                                  </div>
+                                        <div class="col-md-6 mb-4">
+                                    <label>Hair color</label><br>
+                                    <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','brown')); ?>Brown <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','black')); ?>Black<br> 
+                                    <?php echo e(Form::checkbox('haircolor[]','blonde')); ?>Blonde <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','gray')); ?>Gray <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','green')); ?>Green<br>
+                                    <?php echo e(Form::checkbox('haircolor[]','red')); ?>Red <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','white')); ?>White <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','yellow')); ?>Yellow <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','silver')); ?>Silver <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','indigo')); ?>Indigo <br>
+                                    <?php echo e(Form::checkbox('haircolor[]','violet')); ?>Violet <br>
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Height</label><br>
+                                    <?php echo e(Form::checkbox('height[]','<140cm')); ?><140cm <br>
+                                    <?php echo e(Form::checkbox('height[]','140-160cm')); ?>140-160cm <br>
+                                    <?php echo e(Form::checkbox('height[]','160-180cm')); ?>160-180cm <br>
+                                    <?php echo e(Form::checkbox('height[]','180cm<')); ?>180cm< <br>
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                      <label>Hair Length</label><br>
+                                    <?php echo e(Form::checkbox('hairlength[]','Very short')); ?>Very short <br>
+                                    <?php echo e(Form::checkbox('height[]','Short')); ?>Short <br>
+                                    <?php echo e(Form::checkbox('height[]','Long')); ?>Long <br>
+                                    <?php echo e(Form::checkbox('height[]','Very Long')); ?>Very Long <br>
+                                  </div>
+                                   <div class="col-md-6 mb-4">
+                                    <label>Weight</label><br>
+                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?>Less than Average <br>
+                                    <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
+                                    <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
+                                    <?php echo e(Form::checkbox('weight[]','Above Average')); ?>Above Average 
+                                  </div>
+                                  <div class="col-md-6 mb-4">
+                                      <label>Age</label><br>
+                                    <?php echo e(Form::checkbox('age[]','18-24')); ?>18-24 <br>
+                                    <?php echo e(Form::checkbox('age[]','25-34')); ?>25-34<br>
+                                    <?php echo e(Form::checkbox('age[]','35-44')); ?>35-44<br>
+                                    <?php echo e(Form::checkbox('age[]','45 +')); ?>45 +
+ 
+                                  </div>
+                                </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
 <a href="#"  class="nav-item nav-link" style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" class="fa fa-comment" aria-hidden="true"></i></a>
 
 						</div>
@@ -282,7 +390,16 @@
   
   </div>
   <!-- header bottom end -->
+  <!-- Button trigger modal -->
+
+
 </header>
+<style type="text/css">
+  .modal-backdrop.show {
+    opacity: 1;
+    display:none;
+}
+</style>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
