@@ -1,5 +1,5 @@
 
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+@include('layouts.header')
 <!-- end header -->
 
 <!--1st slider start-->
@@ -22,11 +22,11 @@
     </div>
     
       <div id="owl-example4" class="owl-carousel">
-      <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      @foreach ($artists as $artist)
     <div class="artist_image">
-      <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+      <img width="100%" height="250px" src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
     </div>
-     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     @endforeach
 
   
 </div>
@@ -42,11 +42,51 @@
     <div class="row">
      <div class="col-md-12">
        <div class="left pt-3">
-       	   <?php for($i = 0; $i < 13; $i++): ?>
-           <i class="fa fa-check" style="font-size:24px"></i>
+    <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
-           <?php endfor; ?>   
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+         <br>
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+
+  <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
+
+    
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+      
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+     <br>
+ <i class="fa fa-check" style="font-size:24px"></i>
+      <br>
+   
+   <i class="fa fa-check" style="font-size:24px"></i>
+      <br>  
+  
+    
   </div>
       <div class="right pt-3">
     
@@ -79,7 +119,7 @@
     </div>
   </div>
     <div class="col-md-12 text-center">
-  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/register')); ?>">Register as Artist</a></button>
+  <button type="button" class="btn btn-primary"><a href="{{url('/register')}}">Register as Artist</a></button>
 
     </div>
   </div>
@@ -99,12 +139,44 @@
       <div class="col-md-12">
        <div class="left pt-3">
 
-   	   <?php for($i = 0; $i < 12; $i++): ?>
-           <i class="fa fa-check" style="font-size:24px"></i>
+    <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
-           <?php endfor; ?>  
-    
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br> <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+       <br><br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+        
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br> <br>
+      <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+       <br>
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>  
+    <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+   <br>
+<i class="fa fa-check" style="font-size:24px"></i>
+<br>
+      <br>
+   
       
    
   </div>
@@ -152,7 +224,7 @@
      </div>
     <div class="col-md-12 text-center mt-3">
 
- <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/register')); ?>">Register as User</a></button>
+ <button type="button" class="btn btn-primary"><a href="{{url('/register')}}">Register as User</a></button>
 
     </div>
   </div>
@@ -182,16 +254,16 @@
 <div class="outer_slider">
   <div class="coner my-4">
     
-       <?php if($login && $recently): ?>
+       @if($login && $recently)
 	  <h3 class="tittle">
      
      Recently Search
 
      </h3> 
-     <?php endif; ?>
+     @endif
 	</div>
     <!--Carousel Wrapper-->
-    <?php if($login && $recently): ?>
+    @if($login && $recently)
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
       <!--Controls-->
@@ -204,19 +276,19 @@
 
 
       <div id="owl-example" class="owl-carousel">
-      <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-            <?php if($recnt->type=='video'): ?>
+      @forelse ($recently as $recnt)
+            @if($recnt->type=='video')
             <div class="col-md-4">
             
           <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
+            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           
             </div>
-            <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-             <?php endif; ?>
+            @endif
+            @empty
+             @endforelse
 
   
 </div>
@@ -226,7 +298,7 @@
       <!--/.Slides-->
 
     </div>
-    <?php endif; ?>
+    @endif
     <!--/.Carousel Wrapper-->
 
 
@@ -240,7 +312,7 @@
  
  
  
- <?php if($recently): ?>
+ @if($recently)
  <!--2nd slider start-->
 <div class="outer_slider">
   <div class="container my-4">
@@ -251,18 +323,18 @@
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
 
              <div id="owl-example1" class="owl-carousel">
-            <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-            <?php if($recnt->type=='video'): ?>
+            @forelse ($recently as $recnt)
+            @if($recnt->type=='video')
             <div class="col-md-4">
            
           <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
+            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
                </div>
-            <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-             <?php endif; ?>
+            @endif
+            @empty
+             @endforelse
 
   
             </div>
@@ -276,7 +348,7 @@
 
 
   </div>  </div>
-  <?php endif; ?>
+  @endif
 
 
   <br/><br/>
@@ -288,7 +360,7 @@
 <br/><br/>
  <!--End 3rd slider-->
  
- <?php if($recently): ?>
+ @if($recently)
   <!--4th slider start-->
 <div class="outer_slider last">
   <div class="container my-4">
@@ -299,18 +371,18 @@
     <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
 
          <div id="owl-example3" class="owl-carousel">
-            <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <?php if($recnt->type=='video'): ?>
+            @foreach($recently as $recnt)
+              @if($recnt->type=='video')
               <div class="col-md-4">
                 
             <video width="370" height="245" controls allowfullscreen>
-              <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
+              <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                
               </div>
-          <?php endif; ?>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          @endif
+          @endforeach
   
             </div>
     
@@ -322,7 +394,7 @@
 
 
   </div>  </div>
-<?php endif; ?>
+@endif
   <br/><br/>
   <style>
   	body{
@@ -450,8 +522,7 @@ rewindNav:false
   });
 });
  </script>
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+@include('layouts.footer')
 </body>
 
 </html>
-<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
