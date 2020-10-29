@@ -3423,7 +3423,7 @@ footer h2::after {
 
 footer p {
 	color: #666;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 24px;
 	font-weight: 500;
 }
@@ -3501,7 +3501,7 @@ footer ul.social_icons {
 	height: auto;
 	left: 0;
 	padding: 18px 0;
-	padding-left: 35%;
+
 }
 
 .cprt p {
@@ -4924,9 +4924,14 @@ h3.tittle {
     color: #fff !important;
 	font-size: 18px;
 }
-a.nav-item.nav-link.active {
-/*     color: #fc0 !important; */
-    color: rgb(251, 202, 39) !important;
+i.fa.fa-play:hover {
+    color: #fc0 !important;
+}
+i.fa.fa-trophy:hover {
+    color: #fc0 !important;
+}
+i.fa.fa-money:hover {
+    color: #fc0 !important;
 }
 form.form-inline.my-2.my-lg-0 {
     border: 1px solid #ced4da;
@@ -4999,9 +5004,7 @@ display: none;
 .navbar-nav {
     margin-top: -5px;
 }
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: #fc0 !important;
-}
+
 .carousel-indicators .active {
 background-color: #a60000 !important;
 	
