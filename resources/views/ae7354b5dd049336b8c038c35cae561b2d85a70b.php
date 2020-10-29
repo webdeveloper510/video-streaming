@@ -6,22 +6,30 @@
  <!--1st slider start-->
  <div class="container">
    <div class="slider_tittle">
-
-      <p class="text-center pb-3 pt-3 header-text" style="font-size: 24px;">
-      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!
-
-At PAZ you can make your biggest dreams become reality!</p>
+    <div class="row">
+    	<div class="col"></div>
+    	<div class="col-md-8">
+   <h3 class="text-center  pt-3 header-text" style="font-size: 27px;">
+      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!</h3> <h3 class="PAZ text-center header-text" style="font-size: 27px;">At PAZ you can make your biggest dreams become reality!</h3>
+       </div>
+       <div class="col"></div>
+   </div>
 
   <div class="container my-4">
     <div class="row">
     <div class="slider_tittle">
     <h3 class="tittle">Get to know our Artists</h3>
     </div>
-     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div class="col-md-2 artist_image">
-      <img width="100%"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+    
+      <div id="owl-example4" class="owl-carousel">
+      <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <div class="artist_image">
+      <img width="100%" height="250px" src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
     </div>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+  
+</div>
   </div>
   </div>  
 <div class="row">
@@ -33,7 +41,7 @@ At PAZ you can make your biggest dreams become reality!</p>
     <div class="user-body">
     <div class="row">
      <div class="col-md-12">
-       <div class="left ">
+       <div class="left pt-3">
     <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
@@ -45,7 +53,7 @@ At PAZ you can make your biggest dreams become reality!</p>
       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
-      <br> <br>
+      <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
@@ -57,14 +65,13 @@ At PAZ you can make your biggest dreams become reality!</p>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
-       <br>
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
 
   <i class="fa fa-check" style="font-size:24px"></i>
       <br>
-      <br>
+
     
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
@@ -72,56 +79,42 @@ At PAZ you can make your biggest dreams become reality!</p>
       
     <i class="fa fa-check" style="font-size:24px"></i>
 <br>
-  <br>
+     <br>
  <i class="fa fa-check" style="font-size:24px"></i>
       <br>
-  <br>    
+   
    <i class="fa fa-check" style="font-size:24px"></i>
       <br>  
   
     
   </div>
-      <div class="right">
+      <div class="right pt-3">
     
-      <p>You keep 90% of your profits
-          <br>
-          <br>
-         Create content in categories you
-like 
-          <br>
-          <br>
-         Accept/reject/edit requests as
-you wish
-          <br><br>
-         Create Samples for your fans to
-let them know what you can
-offer them
-          <br><br>
-        Invite other artists through our
-partnerprogram and build up a
-passive income 
-          <br><br>
-          Invite fans and get rewarded
-with passive income
-          <br><br>
-         Stick out of the crowd with our
-Top Lists and get the attention
-from most paying fans
-          <br><br>
-         Use PAZ Tokens as a save way
-for transactions
-          <br><br>
-         Reduced Ads
-          <br><br>
-         Exchange and withdraw your
-Tokens at anytime
-          <br><br>
-         Upload free Audio
-          <br><br>
-         Upload free Video 
-          <br><br>
-          Personalized Audio/Video
-offers
+      <p>You keep 90% of your profits</p>
+         <p>
+         Create content in categories you like 
+          </p>
+         <p>Accept/reject/edit requests as you wish
+          </p>
+        <p> Create Samples for your fans to let them know what you can offer them
+          </p>
+        <p>Invite other artists through our partnerprogram and build up a passive income 
+          </p>
+          <p>Invite fans and get rewarded with passive income
+          </p>
+         <p>Stick out of the crowd with our Top Lists and get the attention from most paying fans
+          </p>
+         <p>Use PAZ Tokens as a save way for transactions
+          </p>
+         <p>Reduced Ads
+          </p>
+         <p>Exchange and withdraw your Tokens at anytime
+          </p>
+         <p>Upload free Audio
+          </p>
+         <p>Upload free Video 
+          </p>
+          <p>Personalized Audio/Video offers
           </p>
     </div>
   </div>
@@ -144,7 +137,7 @@ offers
      <div class="user-body">
     <div class="row">
       <div class="col-md-12">
-       <div class="left">
+       <div class="left pt-3">
 
     <i class="fa fa-check" style="font-size:24px"></i>
       <br>
@@ -176,67 +169,60 @@ offers
       <br>
 
     <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-       
+<br>  
     <i class="fa fa-check" style="font-size:24px"></i>
+<br>
+   <br>
+<i class="fa fa-check" style="font-size:24px"></i>
 <br>
       <br>
    
       
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-      
-    <i class="fa fa-check" style="font-size:24px"></i>
-    <br>
-      <br>
+   
   </div>
-      <div class="right">
+      <div class="right pt-3">
    
-      <p>Personal attention 
-          <br>
-          <br>
-          Let Artists create Video/Audio
-          according to your imagination 
-          <br>
-          <br>
-          Download your requested
-          Video/Audio 
-          <br><br>
-          Save money by watching
+      <p>Personal attention </p>
+         
+          <p>Let Artists create Video/Audio
+          according to your imagination </p>
+         
+          <p>Download your requested
+          Video/Audio </p>
+         
+          <p>Save money by watching
           Samples on how your request
-          could be carried out
-          <br><br>
-          Upload Requests and choose
+          could be carried out</p>
+         
+          <p>Upload Requests and choose
           the best offer 
-          <br><br>
-          Stick out of the crowd with our
+          </p>
+          <p>Stick out of the crowd with our
           Top Lists and get the attention
           from our most popular artists
-          <br><br>
-          Invite your favorite Artists
+          </p>
+          <p>Invite your favorite Artists
           through our partnerprogram
           and build up a passive income
-          <br><br>
-          Invite users and get rewarded
+          </p>
+          <p>Invite users and get rewarded
           with passive income
-          <br><br>
-          Create playlists and stream
+          </p>
+          <p>Create playlists and stream
           anytime 
-          <br><br>
-          Reduced Ads
-          <br><br>
-          Use PAZ Tokens as a save way
+          </p>
+          <p>Reduced Ads
+          </p>
+          <p>Use PAZ Tokens as a save way
           for transactions 
-          <br><br>
-          Exchange and withdraw your
+          </p>
+          <p>Exchange and withdraw your
           Tokens at anytime 
-          <br><br>
+          
           </p>
     </div>
      </div>
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center mt-3">
 
  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/register')); ?>">Register as User</a></button>
 
@@ -248,14 +234,22 @@ offers
       </div>
 
       </div>
-      <div class="col-md-6 pl-5 pt-4 text-right">
-      <p>Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
+    
+      	<div class="user1-head text-center text-white col-md-12">
+      <h3>Passive income?</h3>
     </div>
-    <div class="col-md-6">
-     <button type="button" class="btn btn-primary">Become Partner</button>
+    <div class="user1-body col-md-12">
+    	<div class="row">
+      <div class="col-md-8 pl-5 pt-4 text-right">
+      <p style="font-size: 20px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
     </div>
-
+    <div class="col-md-4">
+     <button type="button" class="btn btn-primary partner_col">Become Partner</button>
+    </div>
 </div>
+    </div>
+</div>
+
  </div>
 <div class="outer_slider">
   <div class="coner my-4">
@@ -403,6 +397,14 @@ offers
 <?php endif; ?>
   <br/><br/>
   <style>
+  	body{
+
+    background:black;
+
+  	}
+  	h3.tittle {
+    color: white;
+}
     tr:nth-child(even) {
     background-color: #fff;
     color: black;
@@ -412,14 +414,20 @@ offers
 }
 .user-body {
     padding: 14px;
+    background: white;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 .user-head.text-center {
     padding: 13px;
     background: #bf0000;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
 }
 .user-head.text-center.text-white h3 {
     color: white;
     padding-top: 12px;
+    font-size: 28px;
 }
 a.btn, button.btn {
     line-height: 100% !important;
@@ -437,14 +445,53 @@ a.btn, button.btn {
 }
 .left .fa {
     color: green;
+    padding-top: 12px;
 }
+.col-md-12.text-center button:hover {
+    background: #bf0000 !important;
+    border: 2px solid #bf0000 !important;
+}
+button.btn.btn-primary.partner_col:hover {
+     background: #bf0000 !important;
+    border: 2px solid #bf0000 !important;
+}
+
 .right p {
     font-size: 20px;
+    padding-top: 12px;
 }
-p.text-center.pb-3.pt-3.header-text {
-    font-weight: 500;
+.text-center.header-text {
+    font-weight: 700;
     text-transform: capitalize;
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
+    color: white;
+}
+.PAZ.text-center.header-text {
+    color: white;
+    font-weight: 700;
+    margin-top: -10px;
+}
+.user1-body.col-md-12 {
+    background: white;
+    color: white;
+    padding-bottom: 12px;
+    border-bottom-right-radius: 27px;
+    border-bottom-left-radius: 27px;
+}
+.user1-head.text-center {
+
+    background: #bf0000;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+}
+.user1-head.text-center.text-white.col-md-12 h3 {
+    color: white;
+    padding-top: 10px;
+   font-size: 28px;
+}
+
+.artist_image img {
+    padding: 12px;
 }
   </style>
  <!--End 4th slider-->
@@ -462,9 +509,17 @@ p.text-center.pb-3.pt-3.header-text {
     items:3
   });
      $("#owl-example3").owlCarousel({
-    items:3
+    items:3,
+
   });
- 
+    $("#owl-example4").owlCarousel({
+    items:3,
+      loop:true,
+margin:10,
+autoPlay:true,
+nav:true,
+rewindNav:false
+  });
 });
  </script>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
