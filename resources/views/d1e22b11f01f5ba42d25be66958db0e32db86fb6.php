@@ -24,7 +24,7 @@
       <div id="owl-example4" class="owl-carousel">
       <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="artist_image">
-      <img width="100%"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+      <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
     </div>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -42,51 +42,11 @@
     <div class="row">
      <div class="col-md-12">
        <div class="left pt-3">
-    <i class="fa fa-check" style="font-size:24px"></i>
+       	   <?php for($i = 0; $i < 13; $i++): ?>
+           <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-         <br>
-      
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-
-  <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-
-    
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-      
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-     <br>
- <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-   
-   <i class="fa fa-check" style="font-size:24px"></i>
-      <br>  
-  
-    
+           <?php endfor; ?>   
   </div>
       <div class="right pt-3">
     
@@ -139,44 +99,12 @@
       <div class="col-md-12">
        <div class="left pt-3">
 
-    <i class="fa fa-check" style="font-size:24px"></i>
+   	   <?php for($i = 0; $i < 12; $i++): ?>
+           <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br> <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-       <br><br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-        
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br> <br>
-      <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-       <br>
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>  
-    <i class="fa fa-check" style="font-size:24px"></i>
-<br>
-   <br>
-<i class="fa fa-check" style="font-size:24px"></i>
-<br>
-      <br>
-   
+           <?php endfor; ?>  
+    
       
    
   </div>
