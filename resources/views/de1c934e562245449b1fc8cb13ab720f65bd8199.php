@@ -1,3 +1,5 @@
+
+
 <!--?php echo HTML::assets('style.css');?!-->
 <section class="background1">
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -36,11 +38,12 @@
 
           <div class="row align-items-center">
             <div class="col mt-4">
+
                 <?php echo e(Form::label('Person', 'Person')); ?><br>
 
-        <?php echo e(Form::radio('person', 'user', true,['class'=>'user'])); ?>Register As A User
+        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?>Register As A User
 
-        <?php echo e(Form::radio('person', 'artist',false,['class'=>'user'])); ?>Register As A Artist
+        <?php echo e(Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])); ?>Register As A Artist
                 <?php if($errors->first('email')): ?>
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
@@ -109,4 +112,4 @@
     </div>
   </section>
 
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/resources/views/registration.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/registration.blade.php ENDPATH**/ ?>
