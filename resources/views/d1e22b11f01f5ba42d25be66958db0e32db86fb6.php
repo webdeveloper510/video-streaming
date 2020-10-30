@@ -26,7 +26,7 @@
     <div class="artist_image">
 
 
-      <a href="<?php echo e($login ? url('/getArtists') : url('/register')); ?>"><img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>"></a>
+      <a href="<?php echo e($login ? url('/artistDetail/'.$artist->id) : url('/register')); ?>"><img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>"></a>
 
     </div>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -154,7 +154,7 @@
           </p>
     </div>
      </div>
-    <div class="col-md-12 text-center mt-3">
+    <div class="col-md-12 text-center mt-5">
 
  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as User</a></button>
 

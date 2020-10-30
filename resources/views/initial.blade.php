@@ -26,7 +26,7 @@
     <div class="artist_image">
 
 
-      <a href="{{$login ? url('/getArtists') : url('/register')}}"><img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}"></a>
+      <a href="{{$login ? url('/artistDetail/'.$artist->id) : url('/register')}}"><img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}"></a>
 
     </div>
      @endforeach
@@ -154,7 +154,7 @@
           </p>
     </div>
      </div>
-    <div class="col-md-12 text-center mt-3">
+    <div class="col-md-12 text-center mt-5">
 
  <button type="button" class="btn btn-primary"><a href="{{url('/checkUser/user')}}">Register as User</a></button>
 

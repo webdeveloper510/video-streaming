@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
           <div class="row">
             <div class="col text-center">
-              <h1 class="text-white">Register</h1>
+              <h1 class="text-white">Register As</h1>
               @if(count($errors)>0)
         @foreach($errors->all() as $error)
         <div class="alert registration alert-danger">
@@ -34,11 +34,11 @@
           <div class="row align-items-center">
             <div class="col mt-4">
 
-                {{Form::label('Person', 'Person')}}<br>
+               
 
-        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}}Register As A User
+        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}} User
 
-        {{Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])}}Register As A Artist
+        {{Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])}} Artist
                 @if($errors->first('email'))
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>

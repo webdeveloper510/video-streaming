@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
           <div class="row">
             <div class="col text-center">
-              <h1 class="text-white">Register</h1>
+              <h1 class="text-white">Register As</h1>
               <?php if(count($errors)>0): ?>
         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="alert registration alert-danger">
@@ -39,11 +39,11 @@
           <div class="row align-items-center">
             <div class="col mt-4">
 
-                <?php echo e(Form::label('Person', 'Person')); ?><br>
+               
 
-        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?>Register As A User
+        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?> User
 
-        <?php echo e(Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])); ?>Register As A Artist
+        <?php echo e(Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])); ?> Artist
                 <?php if($errors->first('email')): ?>
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
