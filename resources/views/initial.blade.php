@@ -197,13 +197,7 @@
     @if($login && $recently)
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-      <!--Controls-->
-     
-      <!--/.Controls-->
-
-      <!--Indicators-->
-     
-      <!--/.Indicators-->
+    
 
 
       <div id="owl-example" class="owl-carousel">
@@ -224,14 +218,9 @@
   
 </div>
 
-      <!--Slides-->
-      
-      <!--/.Slides-->
 
     </div>
     @endif
-    <!--/.Carousel Wrapper-->
-
 
   </div>  </div>
 

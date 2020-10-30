@@ -24,7 +24,10 @@
       <div id="owl-example4" class="owl-carousel">
       <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="artist_image">
+
+
       <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+
     </div>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
@@ -194,13 +197,7 @@
     <?php if($login && $recently): ?>
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-      <!--Controls-->
-     
-      <!--/.Controls-->
-
-      <!--Indicators-->
-     
-      <!--/.Indicators-->
+    
 
 
       <div id="owl-example" class="owl-carousel">
@@ -221,14 +218,9 @@
   
 </div>
 
-      <!--Slides-->
-      
-      <!--/.Slides-->
 
     </div>
     <?php endif; ?>
-    <!--/.Carousel Wrapper-->
-
 
   </div>  </div>
 
