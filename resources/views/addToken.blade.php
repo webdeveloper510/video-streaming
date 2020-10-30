@@ -36,10 +36,10 @@
   </div>
   <div class="text-white mt-5" id="stripeDiv" style="display: none">
   
-@include('stripe')
+     @include('stripe')
 
 
-</div>
+   </div>
 </div>
 
 </section>

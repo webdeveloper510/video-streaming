@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','AuthController@home')->middleware('authentication');
 
 Route::get('register', 'AuthController@register');
+Route::get('checkUser/{user}', 'AuthController@check');
 
 Route::get('addToken', 'AuthController@addtoken');
 

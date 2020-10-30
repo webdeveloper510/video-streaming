@@ -33,11 +33,12 @@
           {{Form::token()}}
           <div class="row align-items-center">
             <div class="col mt-4">
+
                 {{Form::label('Person', 'Person')}}<br>
 
-        {{Form::radio('person', 'user', true,['class'=>'user'])}}Register As A User
+        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}}Register As A User
 
-        {{Form::radio('person', 'artist',false,['class'=>'user'])}}Register As A Artist
+        {{Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])}}Register As A Artist
                 @if($errors->first('email'))
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>

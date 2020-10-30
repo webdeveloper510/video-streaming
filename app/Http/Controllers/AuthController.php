@@ -32,13 +32,15 @@ class AuthController extends Controller
         
         $session_data =   Session::get('userType');
 
+        $userRadio =   Session::get('existRadio');
+
         if($session_data=='contentUser'){
 
              return redirect('artists/dashboard') ;
 
         }
            
-          return view('registration') ;
+          return view('registration',['checkRadio'=>$userRadio]) ;
 
     }
     
@@ -54,7 +56,7 @@ class AuthController extends Controller
 
     }
 
-    /*----------------Filter Result------------------------*/
+    /*-------------------------------------------------Filter Result-------------------------------------------*/
 
     public function search(){
 
@@ -62,7 +64,6 @@ class AuthController extends Controller
 
        $session_type =   Session::get('userType');
 
-       //print_r($session_type);die;
 
        if($session_type=='contentUser'){
 
@@ -71,17 +72,12 @@ class AuthController extends Controller
 
            $data=Session::get('filterData');
 
-            //print_r($data);die;
-
            
-            $recentSelected=Session::get('recentSearch');
+            $recentSelected = Session::get('recentSearch');
 
-           // print_r($recentSelected);die;
+       
 
-
-            //$session_data =   Session::get('userType');
-
-           unset($data['_token']);
+               unset($data['_token']);
 
 
          $search_data = $this->model->getVedio($data);
@@ -127,7 +123,7 @@ class AuthController extends Controller
     }
 
 
-    /*----------------End Filter Result------------------------*/
+    /*--------------------------------------------  End Filter Result--------------------------------------*/
 
     public function recentData($search_data){
 
@@ -150,9 +146,9 @@ class AuthController extends Controller
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
-      if(!$contentLogin){
-        return redirect('/artistLogin');
-    }
+              if(!$contentLogin){
+                return redirect('/artistLogin');
+            }
       
 
       return view('/upload');
@@ -161,18 +157,18 @@ class AuthController extends Controller
 
         public function login(){
 
-         $type =   Session::get('userType');
+             $type =   Session::get('userType');
 
 
-         if($type=='contentUser'){
-            
-             return redirect('artists/dashboard');
+             if($type=='contentUser'){
+                
+                 return redirect('artists/dashboard');
 
-         }
+             }
+             
+
          
-
-     
-        return view('login') ;     
+            return view('login') ;     
       } 
 
     public function profile(){
@@ -184,6 +180,18 @@ class AuthController extends Controller
        }
 
         return view('profile');
+    }
+
+
+    public function check($user){
+
+      //echo $user;die;
+
+        Session::put('existRadio',$user);
+
+
+        return redirect('/register');
+
     }
     public function getLogin(){
 

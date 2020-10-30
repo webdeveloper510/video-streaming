@@ -26,7 +26,7 @@
     <div class="artist_image">
 
 
-      <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+      <a href="{{$login ? url('/getArtists') : url('/register')}}"><img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}"></a>
 
     </div>
      @endforeach
@@ -34,7 +34,8 @@
   
 </div>
   </div>
-  </div>  
+  </div> 
+  @if(!$login) 
 <div class="row">
   <div class="col-md-6">
       <div class="user1 mb-3">
@@ -82,7 +83,7 @@
     </div>
   </div>
     <div class="col-md-12 text-center">
-  <button type="button" class="btn btn-primary"><a href="{{url('/register')}}">Register as Artist</a></button>
+  <button type="button" class="btn btn-primary"><a href="{{url('/checkUser/artist')}}">Register as Artist</a></button>
 
     </div>
   </div>
@@ -155,7 +156,7 @@
      </div>
     <div class="col-md-12 text-center mt-3">
 
- <button type="button" class="btn btn-primary"><a href="{{url('/register')}}">Register as User</a></button>
+ <button type="button" class="btn btn-primary"><a href="{{url('/checkUser/user')}}">Register as User</a></button>
 
     </div>
   </div>
@@ -175,12 +176,12 @@
       <p style="font-size: 20px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
     </div>
     <div class="col-md-4">
-     <button type="button" class="btn btn-primary partner_col">Become Partner</button>
+     <button type="button" class="btn btn-primary partner_col"><a href="{{url('/checkUser/user')}}">Become Partner</a></button>
     </div>
 </div>
     </div>
 </div>
-
+@endif
  </div>
 <div class="outer_slider">
   <div class="coner my-4">
@@ -296,7 +297,8 @@
               <div class="col-md-4">
                 
             <video width="370" height="245" controls allowfullscreen>
-              <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+
+            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
                

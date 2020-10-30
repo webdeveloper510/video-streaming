@@ -142,7 +142,7 @@
             </div>
             <div class="col-md-6 mt-4">
             <?php echo e(Form::label('Weight', 'Weight')); ?> 
-                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])); ?>
+                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Average'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])); ?>
 
                    <?php if($errors->first('weight')): ?>
                 <div class="alert alert-danger">

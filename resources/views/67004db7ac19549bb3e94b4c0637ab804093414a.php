@@ -38,10 +38,10 @@
   </div>
   <div class="text-white mt-5" id="stripeDiv" style="display: none">
   
-<?php echo $__env->make('stripe', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+     <?php echo $__env->make('stripe', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-</div>
+   </div>
 </div>
 
 </section>
