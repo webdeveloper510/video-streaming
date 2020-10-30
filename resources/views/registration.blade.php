@@ -83,18 +83,19 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              {{Form::label('Terms & Condition', 'Terms & Condition')}} <br>
-                {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
-                I agree not to
-                        upload content I have no right to</p>
+              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I accept Terms & Conditions and Privacy Policy')}} <br>
+
+               {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}
+                
               </div>
 
               {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
             </div>
           </div>
           {{ Form::close() }}
+          <a href="{{ URL::to('login')}}"> <button class="btn btn-primary">Login</button></a>
           <p class="mt-2 text-white">Already have an account yet ?</p>
-              <a href="{{ URL::to('login')}}" class="ffff text-white"> <i>Login Now</i> </a>
+              
         </div>
       </div>
     </div>

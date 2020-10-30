@@ -315,7 +315,8 @@ class AuthController extends Controller
           'email'=>'required',
           'nickname'=>'required',
           'password'=>'required',
-          // 'terms'=>'required'
+          'terms'=>'required',
+          'AgeRestriction'=>'required'
       ]
       
       );

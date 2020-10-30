@@ -92,11 +92,11 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              <?php echo e(Form::label('Terms & Condition', 'Terms & Condition')); ?> <br>
-                <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?>
+              <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I accept Terms & Conditions and Privacy Policy')); ?> <br>
 
-                I agree not to
-                        upload content I have no right to</p>
+               <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?>
+
+                
               </div>
 
               <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
@@ -105,8 +105,9 @@
           </div>
           <?php echo e(Form::close()); ?>
 
+          <a href="<?php echo e(URL::to('login')); ?>"> <button class="btn btn-primary">Login</button></a>
           <p class="mt-2 text-white">Already have an account yet ?</p>
-              <a href="<?php echo e(URL::to('login')); ?>" class="ffff text-white"> <i>Login Now</i> </a>
+              
         </div>
       </div>
     </div>
