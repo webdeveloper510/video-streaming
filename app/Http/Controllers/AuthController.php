@@ -262,7 +262,7 @@ class AuthController extends Controller
             $this->validate($request,[
                 'email'=>'required',
                 'email.required' => 'The User Email must be a valid email address.',
-                'password'=>'required'
+                'password'=>'required',
 
             ]
             
@@ -275,7 +275,7 @@ class AuthController extends Controller
               return redirect('/')->with('success','Login Successfully!');
             }
             else if($request->g-recaptcha-response==''){
-                return redirect('/login')->with('error','invalid Captcha!!');
+                return redirect('/login')->with('captcha','invalid Captcha!!');
             }
             else{
               return redirect('/login')->with('error','invalid credentials!');

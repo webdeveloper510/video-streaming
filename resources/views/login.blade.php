@@ -51,9 +51,9 @@
   
 </p>
    <div class="g-recaptcha" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
-     @if($errors->first('g-recaptcha-response'))
+     @if(session('captcha'))
                 <div class="alert alert-danger">
-                <?php echo $errors->first('g-recaptcha-response'); ?>
+                {{session('captcha')}}
             
              
           </div>
