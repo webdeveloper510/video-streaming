@@ -51,7 +51,13 @@
   
 </p>
    <div class="g-recaptcha" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
-
+     @if($errors->first('g-recaptcha-response'))
+                <div class="alert alert-danger">
+                <?php echo $errors->first('g-recaptcha-response'); ?>
+            
+             
+          </div>
+              @endif
 
             <p>{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
             {{ Form::close() }}

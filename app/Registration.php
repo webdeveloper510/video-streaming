@@ -182,6 +182,7 @@ public function uploadContentData($userdata){
 
         
 }
+
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
        $userid=$session_data->id;
