@@ -263,7 +263,7 @@ class AuthController extends Controller
                 'email'=>'required',
                 'email.required' => 'The User Email must be a valid email address.',
                 'password'=>'required',
-               //'g-recaptcha-response' => 'required|captcha'
+               'g-recaptcha-response' => 'required|captcha'
 
             ]
             
