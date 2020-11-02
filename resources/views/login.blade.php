@@ -50,7 +50,7 @@
 <p>
   
 </p>
-
+   <div class="g-recaptcha" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
 
 
             <p>{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>

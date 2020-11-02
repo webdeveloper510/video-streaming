@@ -257,7 +257,8 @@ class AuthController extends Controller
             $this->validate($request,[
                 'email'=>'required',
                 'email.required' => 'The User Email must be a valid email address.',
-                'password'=>'required'
+                'password'=>'required',
+                'g-recaptcha-response' => 'required|recaptcha'
 
             ]
             
