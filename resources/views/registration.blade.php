@@ -89,14 +89,21 @@
                 
               </div>
 
-              {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+              {{ Form::submit('Register!',['class'=>'btn btn-primary register']) }}
             </div>
           </div>
           {{ Form::close() }}
-          <a href="{{ URL::to('login')}}"> <button class="btn btn-primary">Login</button></a>
-          <p class="mt-2 text-white">Already have an account yet ?</p>
+            <div class="g-recaptcha" data-sitekey="<?php echo '6LdZSN4ZAAAAAH0IvubFmsHQqh3HUg4A6sYNzLNm'; ?>"></div>
+           <p class="mt-2 text-white">Already have an account yet ?</p>
+          <a href="{{ URL::to('login')}}" style="color:blue; font-size: 17px;">Login</a>
+         
               
         </div>
       </div>
     </div>
   </section>
+<style type="text/css">
+  .register{
+    border-radius: 28px !important;
+  }
+</style>

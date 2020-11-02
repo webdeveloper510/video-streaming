@@ -72,12 +72,15 @@ class AuthController extends Controller
 
            $data=Session::get('filterData');
 
+
            
             $recentSelected = Session::get('recentSearch');
 
        
 
                unset($data['_token']);
+
+                //print_r($data);die;
 
 
          $search_data = $this->model->getVedio($data);
