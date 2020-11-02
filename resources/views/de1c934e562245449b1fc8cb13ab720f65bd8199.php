@@ -105,7 +105,7 @@
           </div>
           <?php echo e(Form::close()); ?>
 
-            <div class="g-recaptcha" data-sitekey="<?php echo '6LdZSN4ZAAAAAH0IvubFmsHQqh3HUg4A6sYNzLNm'; ?>"></div>
+        <div class="g-recaptcha" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
            <p class="mt-2 text-white">Already have an account yet ?</p>
           <a href="<?php echo e(URL::to('login')); ?>" style="color:blue; font-size: 17px;">Login</a>
          
