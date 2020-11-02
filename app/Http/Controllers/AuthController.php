@@ -28,6 +28,8 @@ class AuthController extends Controller
        $this->model= new Registration();
     }
 
+
+
     public function register(){
         
         $session_data =   Session::get('userType');
@@ -43,6 +45,9 @@ class AuthController extends Controller
           return view('registration',['checkRadio'=>$userRadio]) ;
 
     }
+
+
+
     
     public function contact(){
 
@@ -258,12 +263,13 @@ class AuthController extends Controller
                 'email'=>'required',
                 'email.required' => 'The User Email must be a valid email address.',
                 'password'=>'required',
-                'g-recaptcha-response' => 'required|recaptcha'
+               //'g-recaptcha-response' => 'required|captcha'
 
             ]
             
             );
 
+            print_r($request->all());die;
             $get = $this->model->login($request);
             if($get){
             // echo "yes";die;
