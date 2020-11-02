@@ -9,8 +9,7 @@
     <div class="row">
     	<div class="col"></div>
     	<div class="col-md-8">
-   <h3 class="text-center  pt-3 header-text" style="font-size: 27px;">
-      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!</h3> <h3 class="PAZ text-center header-text" style="font-size: 27px;">At PAZ you can make your biggest dreams become reality!</h3>
+  <h3 class="PAZ text-center header-text" style="font-size: 27px;">At PAZ you can make your biggest dreams become reality!</h3>
        </div>
        <div class="col"></div>
    </div>
