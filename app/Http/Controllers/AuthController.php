@@ -268,13 +268,13 @@ class AuthController extends Controller
             
             );
 
-           // print_r($request->all());die;
+            $data=$request->all();
             $get = $this->model->login($request);
-            if($get && $request->g-recaptcha-response){
+            if($get && $data['g-recaptcha-response']){
             // echo "yes";die;
               return redirect('/')->with('success','Login Successfully!');
             }
-            else if($request->g-recaptcha-response==''){
+            else if($data['g-recaptcha-response']==''){
                 return redirect('/login')->with('captcha','invalid Captcha!!');
             }
             else{
