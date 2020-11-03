@@ -47,8 +47,8 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                    </div>
-                     <div class="col-md-6">
+                    
+                   
                         <div class="dropdown12 text-white">
                            <h4>Price</h4>
                             
@@ -77,21 +77,23 @@
                           </label><br>
                       
                         </div>
-                          
-                       </div> 
+                      </div>
+                            <div class="col-md-6 text-left">
+                    <input type="button" class="btn btn-primary"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option">
+  
+                  <div class="collapse" id="collapseExample">
+                       <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                  </div>
+
+                  
+                     </div>  
                        <div class="col-md-6 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                        
-                     </div>  
-                     <div class="col-md-6 text-center">
-                         <input type="button" class="btn btn-primary text-center" value=" Advance Filter option"data-toggle="modal" data-target="#exampleModal_video">
-
-                          <?php echo $__env->make('popup',['id'=>'video'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-                      <?php echo e(Form::close()); ?>
+                         <?php echo e(Form::close()); ?>
 
                      </div>  
+                    
                      </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
@@ -113,9 +115,7 @@
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
-                          </div>
-                          <div class="col-md-6">
-                               <div class="dropdown12 text-white">
+                           <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
                             <label class="">
@@ -143,6 +143,9 @@
                           
                           </label>
                           </div>
+                          </div>
+                          <div class="col-md-6">
+                              
                            </div>
                             <div class="col-md-12 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
@@ -173,8 +176,7 @@
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
-                          </div>
-                          <div class="col-md-6">
+                          
                                <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
@@ -201,13 +203,20 @@
                             
                           </label>
                           </div>
-                             </div>
+                          </div>
+                            <div class="col-md-6 text-left">
+                    <input type="button" class="btn btn-primary"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option">
+  
+                  <div class="collapse" id="collapseExample">
+                      <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                  </div>
+
+                     
+                     </div> 
                              <div class="col-md-12 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                       <input type="button" class="btn btn-primary" data-toggle="modal"value=" Advance Filter option" data-target="#exampleModal_artist">
-                           
-                     <?php echo $__env->make('popup', ['id' => 'artist'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                     
                       <?php echo e(Form::close()); ?>
 
                      </div> 
@@ -300,22 +309,19 @@
 
 </header>
 <style type="text/css">
-  .modal-backdrop.show {
-    opacity: 1;
-    display:none;
-}
-.modal-dialog.filter-popup {
-    width: 620px;
-    position: absolute;
-    right: 0;
-    top: 103px;
+div#collapseExample {
+    height: 380px;
+    overflow: scroll;
 }
 i.fa.fa-comment:hover {
     color: #fc0 !important;
 }
+.dropdown12 {
+   
+    height: 100px;
+    overflow-y: scroll;
+}
 </style>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/layouts/header.blade.php ENDPATH**/ ?>

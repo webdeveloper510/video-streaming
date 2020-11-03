@@ -25,7 +25,9 @@
     <div class="artist_image">
 
 
-      <a href="{{$login ? url('/artistDetail/'.$artist->id) : url('/register')}}"><img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}"></a>
+  <a href="{{$login ? url('/artistDetail/'.$artist->id) : url('/register')}}">
+  <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+</a>
 
     </div>
      @endforeach

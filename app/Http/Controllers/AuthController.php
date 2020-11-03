@@ -1,22 +1,36 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Registration;
+
 use Session;
+
 use App\File;
+
 use View;
+
 use Illuminate\Support\Facades\Validator;
+
 use Illuminate\Http\Request;
+
 use Illuminate\Foundation\Validation\ValidatesRequests;
+
 use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Http\RedirectResponse;
+
+
 use \Illuminate\Http\UploadedFile;
+
 use Stripe\Error\Card;
+
 use Stripe;
 
-//use Cartalyst\Stripe\Laravel\Facades\Stripe;
+
 use Illuminate\Support\Facades\Input;
-//use Validator;
+
+
 
 class AuthController extends Controller
 {
