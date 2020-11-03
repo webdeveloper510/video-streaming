@@ -44,7 +44,8 @@
                             @endforeach
                           
                       </div>
-                    
+                    </div>
+                    <div class="col-md-6">
                    
                         <div class="dropdown12 text-white">
                            <h4>Price</h4>
@@ -75,15 +76,14 @@
                       
                         </div>
                       </div>
-                            <div class="col-md-6 text-left">
-                    <input type="button" class="btn btn-primary"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option">
-  
-                  <div class="collapse" id="collapseExample">
+                      
+                            <div class="col-md-12 text-left mb-3">
+
+                    <input type="button" class="btn btn-primary section_advance"data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+                  <div class="collapse pt-4" id="collapseExample1">
                        @include('popup')
                   </div>
-
-                  
-                     </div>  
+                </div>
                        <div class="col-md-6 text-left">
                        {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
                          {{ Form::close() }}
@@ -108,6 +108,8 @@
                              @endif
                             @endforeach
                           </div>
+                             </div>
+                       <div class="col-md-6">
                            <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
@@ -124,8 +126,7 @@
                             </label>
                        
                         </div>
-                         
-                       
+                      
                              <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
                             <label>  
@@ -165,7 +166,8 @@
                              @endif
                             @endforeach
                           </div>
-                          
+                          </div>
+                          <div class="col-md-6">
                                <div class="dropdown12 text-white">
                            <h4>Price</h4>
   
@@ -193,10 +195,10 @@
                           </label>
                           </div>
                           </div>
-                            <div class="col-md-6 text-left">
-                    <input type="button" class="btn btn-primary"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option">
+                            <div class="col-md-12 text-left mb-3">
+                    <input type="button" class="btn btn-primary section_advance"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
   
-                  <div class="collapse" id="collapseExample">
+                  <div class="collapse mt-2" id="collapseExample">
                       @include('popup')
                   </div>
 
@@ -310,3 +312,6 @@ i.fa.fa-comment:hover {
 }
 </style>
 
+<script type="text/javascript">
+
+</script>
