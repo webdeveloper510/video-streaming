@@ -50,7 +50,7 @@
 <p>
   
 </p>
-   <div class="g-recaptcha" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
+   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
      @if(session('captcha'))
                 <div class="alert alert-danger">
                 {{session('captcha')}}
@@ -64,11 +64,18 @@
            
         
 <p class="text-white">Don't have an account yet ?</p>
-<a href="{{ URL::to('register')}}" class="ffff text-white"> Signup Now</a>
+<a href="{{ URL::to('register')}}" class="ffff "> Signup Now</a>
         </div>
       </div>
     </div>
   </section>
+  <style>
+
+    a.ffff {
+        color: blue;
+    }
+
+  </style>
   @include('layouts.footer')
 
 <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
