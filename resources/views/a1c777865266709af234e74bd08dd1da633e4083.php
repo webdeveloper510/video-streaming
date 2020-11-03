@@ -80,13 +80,12 @@
                         </div>
                       </div>
                       
-                            <div class="col-md-12 text-left mb-3">
-
-                    <input type="button" class="btn btn-primary section_advance"data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
-                  <div class="collapse pt-4" id="collapseExample1">
-                       <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                  </div>
-                </div>
+                   <div class="col-md-12 text-left mb-3">
+                <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
+              <div class="collapse pt-4" id="collapseExample1">
+                   <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+              </div>
+            </div>
                        <div class="col-md-6 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -207,7 +206,7 @@
                           </div>
                           </div>
                             <div class="col-md-12 text-left mb-3">
-                    <input type="button" class="btn btn-primary section_advance"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
+                    <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
   
                   <div class="collapse mt-2" id="collapseExample">
                       <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

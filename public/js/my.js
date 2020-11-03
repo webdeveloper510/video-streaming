@@ -146,8 +146,5 @@ $(document).on('click', '#checkPrice', function () {
 
 });
 
-  $('.section_advance').click(function(){
-    $(this).next('#collapseExample1').removeClass('show');
-  })
-
+  
 

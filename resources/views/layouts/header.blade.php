@@ -77,13 +77,12 @@
                         </div>
                       </div>
                       
-                            <div class="col-md-12 text-left mb-3">
-
-                    <input type="button" class="btn btn-primary section_advance"data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
-                  <div class="collapse pt-4" id="collapseExample1">
-                       @include('popup')
-                  </div>
-                </div>
+                   <div class="col-md-12 text-left mb-3">
+                <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
+              <div class="collapse pt-4" id="collapseExample1">
+                   @include('popup')
+              </div>
+            </div>
                        <div class="col-md-6 text-left">
                        {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
                          {{ Form::close() }}
@@ -196,7 +195,7 @@
                           </div>
                           </div>
                             <div class="col-md-12 text-left mb-3">
-                    <input type="button" class="btn btn-primary section_advance"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
+                    <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
   
                   <div class="collapse mt-2" id="collapseExample">
                       @include('popup')

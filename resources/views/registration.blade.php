@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
 
 <!--?php echo HTML::assets('style.css');?!-->
 <section class="background1">
