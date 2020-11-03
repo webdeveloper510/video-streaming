@@ -301,6 +301,10 @@ div#collapseExample {
     height: 380px;
     overflow: scroll;
 }
+div#collapseExample1 {
+    height: 380px;
+    overflow: scroll;
+}
 i.fa.fa-comment:hover {
     color: #fc0 !important;
 }
