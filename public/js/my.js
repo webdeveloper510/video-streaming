@@ -120,7 +120,7 @@ $(document).on('click', '#checkPrice', function () {
 				data: {"token": token},
 
 				success: function(data){
-						console.log(data);
+						//console.log(data);
 
 						if(data.status==1){
 
@@ -138,7 +138,7 @@ $(document).on('click', '#checkPrice', function () {
 						}
 
 						else{
-							console.log('te');
+							//console.log('te');
 						}
 					
 				}
