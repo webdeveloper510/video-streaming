@@ -178,7 +178,8 @@
                           </div>
                           </div>
                           <div class="col-md-6">
-                               <div class="dropdown12 text-white">
+                            <div class="bar">
+                               <div class="dropdown1 text-white">
                            <h4>Price</h4>
   
                             <label> 
@@ -193,7 +194,7 @@
                             </label>                       
                         </div>
                        
-                           <div class="dropdown12 text-white">
+                           <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
                             {{Form::checkbox('duration','asc')}}Shortest
@@ -204,24 +205,27 @@
                             
                           </label>
                           </div>
+                           <div class="collapse pt-4" id="collapseExample">
+                   @include('popup')
+              </div>
                           </div>
-                            <div class="col-md-12 text-left mb-3 ">
-                    <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
-  
-                  <div class="collapse mt-2" id="collapseExample">
-                      @include('popup')
-                  </div>
-
+                        </div>
+                          <div class="col-md-6 text-left">
+              
+                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                  <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
+              </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
                      
-                     </div> 
-                             <div class="col-md-12 text-left">
-                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
-                     
-                      {{ Form::close() }}
+                       
+                         {{ Form::close() }}
                      </div> 
                    </div>
                        
-                    </div>
+                    
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Menu 3</h3>
                       <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
@@ -308,10 +312,6 @@
 
 </header>
 <style type="text/css">
-  div#collapseExample {
-      height: 380px;
-      overflow: scroll;
-  }
   
   i.fa.fa-comment:hover {
       color: #fc0 !important;

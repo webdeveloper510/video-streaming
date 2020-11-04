@@ -56,3 +56,8 @@
   
 </table>
 </section>
+<style type="text/css">
+  .background1{
+    height: 100% !important;
+  }
+</style>
