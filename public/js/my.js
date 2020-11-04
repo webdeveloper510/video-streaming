@@ -146,5 +146,11 @@ $(document).on('click', '#checkPrice', function () {
 
 });
 
+$('.section_advance').click(function(){
+
+	$('.bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('.bar').addClass('rightbar');
+	
+})
+
   
 

@@ -28,7 +28,7 @@
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
                     <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                 <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -47,9 +47,11 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                   
-                   
-                        <div class="dropdown12 text-white">
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
                             <label class="">
@@ -66,7 +68,7 @@
                        
                         </div>
 
-                        <div class="dropdown12 text-white">
+                        <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
                              <?php echo e(Form::checkbox('duration','asc')); ?>Shortest 
@@ -78,29 +80,32 @@
                           </label><br>
                       
                         </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                   <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+              </div>
                       </div>
+                    </div>
                       
+                     
                         
-                    <div class="col-md-12 text-left">
-                <input type="button" class="btn btn-primary section_advance mb-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  ><br>
+                    <div class="col-md-6 text-left">
+              
                 <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
+                  <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
               </div>
-              </div>
+              <div class="col-md-6">
                        
             
-          
+            </div>
                      
                        
                          <?php echo e(Form::close()); ?>
 
                       
                     
-                     
+                     </div>
                     </div>
-                      <div class="collapse pt-4" id="collapseExample1">
-                   <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-              </div>
                     <div id="menu1" class="tab-pane fade">
                       <h3 style="color: #fff;">Audio</h3>
                         <div class="row">
@@ -211,7 +216,7 @@
                           </label>
                           </div>
                           </div>
-                            <div class="col-md-12 text-left mb-3">
+                            <div class="col-md-12 text-left mb-3 ">
                     <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"value=" Advance Filter option &#8594;">
   
                   <div class="collapse mt-2" id="collapseExample">
@@ -316,33 +321,45 @@
 
 </header>
 <style type="text/css">
-  .row.text-left.text-white.mt-3 {
-    position: absolute;
-    left: 314px;
-    height: 373px;
-    background: #bf0000;
-    overflow: scroll;
-    width: 425px;
-    top: 33%;
-}
   div#collapseExample {
       height: 380px;
       overflow: scroll;
   }
+  
   i.fa.fa-comment:hover {
       color: #fc0 !important;
   }
   .dropdown12 {
      
-      height: 100px;
+     height: 248px;
       overflow-y: scroll;
+
+  }
+.dropdown1 h4{
+   margin:0 !important;
+   color:white;
+}
+
+.dropdown1 {
+    background: #fff0;
+    padding: 19px;
+    margin-bottom: 19px;
+    position: relative;
+    padding-top: 7px !important;
+    border: 1px solid #fff;
+    margin-top: 10px;
+    width: 98%;
   }
   .nav-tabs {
     border-bottom: 1px solid #dee2e6;
     background: #bf0000;
 }
-input.btn.btn-primary.section_advance.mb-3 {
-    margin-left: 57px;
+.rightbar {
+    height: 300px;
+    overflow-y: scroll;
+}
+.row.text-left.text-white.mt-3.red {
+    width: 98%;
 }
 </style>
 

@@ -11,7 +11,7 @@ class Registration extends Model
     public function registration($data)
     {
         //print_r($data->all()); die;
-        $value=DB::table('users')->where('email', $data['email'])->get();
+        $value=DB::table('users')->where('email',$data['email'])->get();
         //print_r($value->count());die;
         if($value->count() == 0){
             $userdata=$data->all();
@@ -75,6 +75,7 @@ class Registration extends Model
              return 0; 
         }
 }
+
         public function Contentlogin($data){
             $value = DB::table('contentprovider')->where(array(
                 'email'=> $data->email,

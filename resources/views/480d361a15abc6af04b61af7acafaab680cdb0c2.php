@@ -1,4 +1,4 @@
- <div class="row text-left text-white mt-3">
+ <div class="row text-left text-white mt-3 red">
                                   <div class="col-md-4 mb-4">
                                     <label>Sexology</label><br>
                                     <?php echo e(Form::checkbox('sex[]','Hetero')); ?>Hetero <br>
