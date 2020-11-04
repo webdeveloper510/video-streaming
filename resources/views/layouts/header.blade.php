@@ -22,13 +22,13 @@
                     <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
                     <li><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Add Request</a></li>
+                    <!-- <li><a data-toggle="tab" href="#menu3">Add Request</a></li> -->
                     </ul>
 
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
                     <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <div class="dropdown12 text-white">
                            <h4>Categories </h4>
                 {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
@@ -76,26 +76,26 @@
                       
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        </div>
+                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-left">
                 <input type="button" class="btn btn-primary section_advance mb-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  ><br>
                 {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
               </div>
-              <div class="col-md-6">
-                       
-              <div class="collapse pt-4" id="collapseExample1">
-                   @include('popup')
               </div>
-            </div>
+                       
+            
+          
                      
                        
                          {{ Form::close() }}
                       
                     
-                     </div>
+                     
                     </div>
+                      <div class="collapse pt-4" id="collapseExample1">
+                   @include('popup')
+              </div>
                     <div id="menu1" class="tab-pane fade">
                       <h3 style="color: #fff;">Audio</h3>
                         <div class="row">
@@ -303,11 +303,16 @@
 
 </header>
 <style type="text/css">
+  .row.text-left.text-white.mt-3 {
+    position: absolute;
+    left: 314px;
+    height: 373px;
+    background: #bf0000;
+    overflow: scroll;
+    width: 425px;
+    top: 33%;
+}
   div#collapseExample {
-      height: 380px;
-      overflow: scroll;
-  }
-  div#collapseExample1 {
       height: 380px;
       overflow: scroll;
   }
@@ -322,6 +327,9 @@
   .nav-tabs {
     border-bottom: 1px solid #dee2e6;
     background: #bf0000;
+}
+input.btn.btn-primary.section_advance.mb-3 {
+    margin-left: 57px;
 }
 </style>
 

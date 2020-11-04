@@ -5144,11 +5144,9 @@ border: 0 none;
 ul.nav.custom.search ul.subnav li a {
     padding: 10px;
 }
+
 ul.nav.custom.search ul.subnav {
-    width: 600px;
-}
-ul.nav.custom.search ul.subnav {
-    width: 700px;
+    width: 300px;
     left: 0;
     background: #bf0000;
 }
