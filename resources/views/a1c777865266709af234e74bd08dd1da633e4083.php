@@ -47,8 +47,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                    </div>
-                    <div class="col-md-6">
+                   
                    
                         <div class="dropdown12 text-white">
                            <h4>Price</h4>
@@ -66,6 +65,7 @@
                             </label>
                        
                         </div>
+
                         <div class="dropdown12 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
@@ -79,19 +79,25 @@
                       
                         </div>
                       </div>
-                      
-                   <div class="col-md-12 text-left mb-3">
-                <input type="button" class="btn btn-primary section_advance" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
+                      <div class="col-md-6">
+                        </div>
+                        
+                    <div class="col-md-6 text-left">
+                <input type="button" class="btn btn-primary section_advance mb-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  ><br>
+                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
+              </div>
+              <div class="col-md-6">
+                       
               <div class="collapse pt-4" id="collapseExample1">
                    <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
               </div>
             </div>
-                       <div class="col-md-6 text-left">
-                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
-
+                     
+                       
                          <?php echo e(Form::close()); ?>
 
-                     </div>  
+                      
                     
                      </div>
                     </div>
@@ -310,21 +316,25 @@
 
 </header>
 <style type="text/css">
-div#collapseExample {
-    height: 380px;
-    overflow: scroll;
-}
-div#collapseExample1 {
-    height: 380px;
-    overflow: scroll;
-}
-i.fa.fa-comment:hover {
-    color: #fc0 !important;
-}
-.dropdown12 {
-   
-    height: 100px;
-    overflow-y: scroll;
+  div#collapseExample {
+      height: 380px;
+      overflow: scroll;
+  }
+  div#collapseExample1 {
+      height: 380px;
+      overflow: scroll;
+  }
+  i.fa.fa-comment:hover {
+      color: #fc0 !important;
+  }
+  .dropdown12 {
+     
+      height: 100px;
+      overflow-y: scroll;
+  }
+  .nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    background: #bf0000;
 }
 </style>
 
