@@ -78,7 +78,7 @@
                       
                         </div>
                           <div class="collapse pt-4" id="collapseExample1">
-                   @include('popup')
+                <!--   @include('popup') -->
               </div>
                       </div>
                     </div>
@@ -88,7 +88,7 @@
                     <div class="col-md-6 text-left">
               
                 {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
-                  <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
+         <!--input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  -->
               </div>
               <div class="col-md-6">
                        
