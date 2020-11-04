@@ -58,6 +58,6 @@
 </section>
 <style type="text/css">
   .background1{
-    height: 100% !important;
+    height:auto !important;
   }
 </style>
