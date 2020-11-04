@@ -26,7 +26,7 @@ Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
 Route::get('play', 'AuthController@play')->middleware('authentication');
-Route::get('search', 'AuthController@search')->middleware('authentication');
+Route::get('search', 'AuthController@search');
 
 Route::get('userWithdraw', 'AuthController@draw')->middleware('authentication');
 

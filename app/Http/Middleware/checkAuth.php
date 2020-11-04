@@ -16,7 +16,12 @@ class checkAuth
      */
     public function handle($request, Closure $next)
     {
-        $session_data =   Session::get('userType');
+
+           $redirect_url = $request->route()->uri;
+           
+           Session::put('redirect_url',$redirect_url); 
+
+          $session_data =   Session::get('userType');
         //$url = $request;
         if($session_data=='contentUser'){
             return redirect('artists/dashboard');
