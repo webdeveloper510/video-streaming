@@ -18,17 +18,18 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
         </thead>
          <tbody>
              <tr>
-                 <td><h1 style="margin-top: 10px;">Welcome{{$data['nickname']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;">Welcome  {{$data['nickname']}}</h1></td>
                  
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span>Name</span>, you're almost ready to start enjoying website simply click the big
+                     <p>Hey <span>{{$data['nickname']}}</span>, you're almost ready to start enjoying website simply click the big
                         blue button bellow to verify your email address.</p>
                 </td>
              </tr>
              <tr>
                  <td> 
+                    <a href="{{url('/verify/'.$id)}}">
                      <button type="button" style="margin-top: 12px;
                      color: #fff;
                      padding: 7px;
@@ -37,6 +38,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
                      font-size: 17px;
                      border-radius: 5px;
                      margin-bottom: 20px;">Verify Email Address</button>
+                 </a>
                 </td>
              </tr>
          </tbody>

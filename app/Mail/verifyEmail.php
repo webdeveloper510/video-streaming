@@ -16,10 +16,11 @@ class verifyEmail extends Mailable
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data,$id)
     {
         //
          $this->data = $data;
+         $this->userId = $id;
     }
 
     /**
@@ -34,7 +35,8 @@ class verifyEmail extends Mailable
                     ->view('mail')
                     ->with(
                       [
-                            'data' => $this->data
+                            'data' => $this->data,
+                            'id'=>$this->userId
                             
                       ]);
                      

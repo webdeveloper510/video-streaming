@@ -48,7 +48,7 @@ class Registration extends Model
                 );
                 $inserted_data =  DB::table('profiletable')->insert($data);
                 // $insertedid=$inserted_data->id;
-                return $inserted_data ? '1':'0';
+                return $inserted_data ? $insertedid :'0';
                 }
             
          }
@@ -68,9 +68,9 @@ class Registration extends Model
             $userdata['password']= md5($data['password']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
-            $inserted_data =  DB::table('contentprovider')->insert($userdata);
+            $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
 
-            return $inserted_data ? '1' : '0';
+            return $inserted_data ? $insertedid : '0';
             
          }
         else{
@@ -469,6 +469,18 @@ public function getRespectedSub($data){
 
         }
 
+
+    }
+
+    public function verifyEmail($userId){
+
+        $update = DB::table('users')->where('id',$userId)->update([
+
+            'verify' => 1
+
+          ]);
+
+        return $update ? 1 : 0;
 
     }
 

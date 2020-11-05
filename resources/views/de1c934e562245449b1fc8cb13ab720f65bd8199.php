@@ -19,7 +19,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <?php endif; ?>
         <?php if(session('success')): ?>
-        <div class="alert alert-danger" id="sucess">
+        <div class="alert alert-success" id="sucess">
         <?php echo e(session('success')); ?>
 
         </div>

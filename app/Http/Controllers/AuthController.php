@@ -368,6 +368,8 @@ class AuthController extends Controller
 
          else{
 
+            unset($request['person']);
+
            // echo "artist";die;
             $get = $this->artistPost($request);
          }
@@ -375,8 +377,8 @@ class AuthController extends Controller
 
        if($get){
         //echo "yes";die;
-           Mail::to($request->email)->send(new verifyEmail($request));
-         return redirect('/register')->with('success','Please Verify Your Email Your Gmail');
+           Mail::to($request->email)->send(new verifyEmail($request,$get));
+         return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
        }
        else{
         return redirect('/register#error')->with('error','Email Already Exist!');
@@ -773,6 +775,15 @@ public function createCharge($data,$cusid){
 
 }
 
+
+public function verifyEmail($id){
+  $verified = $this->model->verifyEmail($id);
+  if($verified){
+
+    return view('emailVerifySuccess');
+    
+  }
+}
 public function draw(){
 
   return view('/userDraw');
