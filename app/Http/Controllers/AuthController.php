@@ -301,18 +301,14 @@ class AuthController extends Controller
       }
       public function home(){
 
-           // $type=Session::get('userType');
-
-           // if($type=='contentUser'){
-           //   return redirect('artists/dashboard');
-           // }
 
          $Recentlydata= $this->model->getRecentlySearch();
+
            $artists=$this->model->getArtists();
 
-          print_r($artists);die;
-          
-          print_r($Recentlydata);die;
+          //print_r($artists);die;
+
+          //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
         return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes]);
