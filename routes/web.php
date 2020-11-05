@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 /*-------------------Web Site----------------------*/
 
-Route::get('/','AuthController@home')->middleware('authentication');
+Route::get('/','AuthController@home');
 
 Route::get('register', 'AuthController@register');
 Route::get('checkUser/{user}', 'AuthController@check');
