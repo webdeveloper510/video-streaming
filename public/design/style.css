@@ -3283,7 +3283,7 @@ span.skill {
 
 footer {
 	background: #632e62;
-	min-height: 375px;
+	min-height: 250px;
 	padding: 45px 0 !important;
 	position: relative;
 }
@@ -3411,14 +3411,16 @@ footer h2 {
 	margin-bottom: 30px;
 }
 
-footer h2::after {
-	width: 30px;
-	height: 4px;
-	content: "";
-	margin: 0;
-	display: block;
-	position: relative;
-	top: 7px;
+footer hr {
+    background: #bf0000;
+}
+ul.footer-menu li {
+    display: inline;
+    padding-left: 2%;
+    padding-right: 1%;
+    border-right-color: red;
+    border-right-style: solid;
+    border-right-width: 1px;
 }
 
 footer p {

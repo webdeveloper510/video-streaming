@@ -18,6 +18,11 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 use Illuminate\Support\Facades\Redirect;
 
+use Illuminate\Support\Facades\Mail;
+
+
+use App\Mail\verifyEmail;
+
 use Illuminate\Http\RedirectResponse;
 
 
@@ -350,6 +355,7 @@ class AuthController extends Controller
 
       unset($request['_token']);
       unset($request['terms']);
+      unset($request['AgeRestriction']);
      //print_r($request->all()); die;
          $model = new Registration();
 
@@ -369,7 +375,8 @@ class AuthController extends Controller
 
        if($get){
         //echo "yes";die;
-         return redirect('/register')->with('success','Registered successfully');
+           Mail::to($request->email)->send(new verifyEmail($request));
+         return redirect('/register')->with('success','Please Verify Your Email Your Gmail');
        }
        else{
         return redirect('/register#error')->with('error','Email Already Exist!');
