@@ -20,20 +20,6 @@
     <h3 class="tittle">Get to know our Artists</h3>
     </div>
     
-      <div id="owl-example4" class="owl-carousel">
-      @foreach ($artists as $artist)
-    <div class="artist_image">
-
-
-  <a href="{{$login ? url('/artistDetail/'.$artist->id) : url('/register')}}">
-  <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-</a>
-
-    </div>
-     @endforeach
-
-  
-</div>
   </div>
   </div> 
   @if(!$login) 

@@ -367,10 +367,10 @@ public function getRecentlySearch(){
   
 }
 
-// public function getArtists(){
-//   $artists=DB::table('contentprovider')->paginate(10);
-//   return $artists;
-// }
+public function getArtists(){
+  $artists=DB::table('contentprovider')->paginate(10);
+  return $artists;
+}
 
 public function getArtistDetail($artid){
       $artistsDetail=DB::table('contentprovider')

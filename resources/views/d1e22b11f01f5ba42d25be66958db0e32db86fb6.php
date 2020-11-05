@@ -20,20 +20,6 @@
     <h3 class="tittle">Get to know our Artists</h3>
     </div>
     
-      <div id="owl-example4" class="owl-carousel">
-      <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <div class="artist_image">
-
-
-  <a href="<?php echo e($login ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
-  <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-</a>
-
-    </div>
-     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-  
-</div>
   </div>
   </div> 
   <?php if(!$login): ?> 
