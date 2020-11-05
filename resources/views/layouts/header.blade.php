@@ -36,7 +36,7 @@
                             @foreach($category as $cat)
                             @if($cat->type=='video')
                    <label class=""> 
-                     {{Form::checkbox('category[]', $cat->id)}}
+                     {{Form::checkbox('catid[]', $cat->id)}}
                      {{$cat->category}} 
                      
                             </label><br>
@@ -112,7 +112,7 @@
                             @foreach($category as $cat)
                             @if($cat->type=='audio')
                    <label class="">
-                     {{Form::checkbox('category[]', $cat->id)}}{{$cat->category}} 
+                     {{Form::checkbox('catid[]', $cat->id)}}{{$cat->category}} 
                           
                             </label><br>
                              @endif

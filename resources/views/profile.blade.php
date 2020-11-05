@@ -74,7 +74,7 @@
             </div>
             <div class="col-md-6 mt-4 hide">
             {{Form::label('Ass', 'Ass')}} 
-                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
+                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small', 'Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
 
             </div>
               @if($errors->first('ass'))

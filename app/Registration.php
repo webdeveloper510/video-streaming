@@ -6,6 +6,8 @@ use Session;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Arr;
+
 class Registration extends Model
 {
     public function registration($data)
@@ -217,9 +219,10 @@ public function getContentProvider($type){
 
 public function getVedio($data){
 
-    //print_r($data);die;
-    //print_r($data);die;
-   $value = DB::table('media');
+  //print_r($data);die;
+
+      $value = DB::table('media');
+      
       if(isset($data['category'])){
         $value=DB::table('media')->whereIn('catid',$data['category']);
      }
@@ -258,6 +261,8 @@ public function getVedio($data){
     $data=$value->get();
     $data['subcategory']=$products;
     return $data;
+
+   
 }
 
 public function getSubcatVid($subid){
