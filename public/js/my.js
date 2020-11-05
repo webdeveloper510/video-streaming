@@ -148,9 +148,19 @@ $(document).on('click', '#checkPrice', function () {
 
 $('.section_advance').click(function(){
 
-	$('.bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('.bar').addClass('rightbar');
+	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
+
+	//$('#bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('#bar').addClass('rightbar');
 	
 })
 
+$('.link_click').click(function(){
+	 if($(this).hasClass('active')){
+}
+else{
+	$(this).parent().find('li').removeClass('active');
+	$(this).addClass('active');
+}
+})
   
 

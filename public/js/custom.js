@@ -67,10 +67,10 @@ $("#navbar_menu").menumaker({
         }
     });
     
-    if ($(".filter-button").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
+//     if ($(".filter-button").removeClass("active")) {
+// $(this).removeClass("active");
+// }
+// $(this).addClass("active");
 
 });
 

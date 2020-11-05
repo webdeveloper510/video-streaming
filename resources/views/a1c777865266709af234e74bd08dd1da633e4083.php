@@ -19,9 +19,9 @@
                 <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
                 <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Artists</a></li>
+                    <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
+                    <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
+                    <li class="link_click"><a data-toggle="tab" href="#menu2">Artists</a></li>
                     <!-- <li><a data-toggle="tab" href="#menu3">Add Request</a></li> -->
                     </ul>
 
@@ -127,7 +127,7 @@
                           </div>
                              </div>
                        <div class="col-md-6">
-                           <div class="dropdown12 text-white">
+                           <div class="dropdown1 text-white">
                            <h4>Price</h4>
   
                             <label class="">
@@ -144,7 +144,7 @@
                        
                         </div>
                       
-                             <div class="dropdown12 text-white">
+                             <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
                              <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
