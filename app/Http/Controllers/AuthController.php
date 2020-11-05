@@ -308,9 +308,8 @@ class AuthController extends Controller
            // }
 
          $Recentlydata= $this->model->getRecentlySearch();
-           $artists=$this->model->getArtists();
+           //$artists=$this->model->getArtists();
 
-           $artistSData= array();
           //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
