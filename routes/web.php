@@ -34,7 +34,7 @@ Route::get('userWithdraw', 'AuthController@draw')->middleware('authentication');
 
 Route::get('show/{id}', 'AuthController@subcat_video');
 
-Route::get('verify/{id}', 'AuthController@verifyEmail');
+Route::get('verify/{id}/{type}', 'AuthController@verifyEmail');
 
 Route::get('stripe', array('as' => 'stripe.stripe','uses' => 'AuthController@payWithStripe'));
 
@@ -47,6 +47,8 @@ Route::get('artist-video/{id}', 'artist@artistVideo')->middleware('authenticatio
 Route::get('logout', 'AuthController@logout'); 
 
 Route::get('paymentSuccess', 'AuthController@success'); 
+
+Route::get('success', 'AuthController@succssPage'); 
 
 Route::get('cart', 'artist@cart')->middleware('authentication');
 

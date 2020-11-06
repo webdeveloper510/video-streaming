@@ -352,6 +352,8 @@ class AuthController extends Controller
       
       );
 
+        $user = $request->person;
+
 
       unset($request['_token']);
       unset($request['terms']);
@@ -361,6 +363,7 @@ class AuthController extends Controller
 
         if($request->person=='user'){
 
+
             unset($request['person']);
           //echo "yes";die;
            $get = $this->model->registration($request);
@@ -368,16 +371,13 @@ class AuthController extends Controller
 
          else{
 
-            unset($request['person']);
-
-           // echo "artist";die;
             $get = $this->artistPost($request);
          }
 
 
        if($get){
         //echo "yes";die;
-           Mail::to($request->email)->send(new verifyEmail($request,$get));
+           Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
          return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
        }
        else{
@@ -605,7 +605,7 @@ class AuthController extends Controller
        $get = $this->model->postArtist($request);
        if($get){
 
-        return 1;
+        return $get;
          
        }
        else{
@@ -776,18 +776,27 @@ public function createCharge($data,$cusid){
 }
 
 
-public function verifyEmail($id){
-  $verified = $this->model->verifyEmail($id);
+public function verifyEmail($id, $type){
+    $type = base64_decode($type);
+    $id = base64_decode($id);
+
+    //echo $type. $id;die;
+  $verified = $this->model->verifyEmail($id,$type);
   if($verified){
 
-    return view('emailVerifySuccess');
-    
+    return redirect('/success');
+
   }
 }
 public function draw(){
 
   return view('/userDraw');
 
+}
+
+public function succssPage(){
+  
+  return view('emailVerifySuccess');
 }
 
 }

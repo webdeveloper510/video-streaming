@@ -11,16 +11,20 @@ class verifyEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
+    public $userId;
+    public $type;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data,$id)
+    public function __construct($data,$id,$person)
     {
         //
          $this->data = $data;
          $this->userId = $id;
+
+         $this->type=$person;
     }
 
     /**
@@ -36,7 +40,8 @@ class verifyEmail extends Mailable
                     ->with(
                       [
                             'data' => $this->data,
-                            'id'=>$this->userId
+                            'id'=>$this->userId,
+                            'type'=>$this->type
                             
                       ]);
                      

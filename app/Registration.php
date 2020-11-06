@@ -70,7 +70,7 @@ class Registration extends Model
             $userdata['updated_at']= now();
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
 
-            return $inserted_data ? $insertedid : '0';
+            return $insertedid ? $insertedid : '0';
             
          }
         else{
@@ -472,9 +472,11 @@ public function getRespectedSub($data){
 
     }
 
-    public function verifyEmail($userId){
+    public function verifyEmail($userId, $type){
 
-        $update = DB::table('users')->where('id',$userId)->update([
+      $table_name = $type == 'user' ? 'users' : 'contentprovider'; 
+
+        $update = DB::table($table_name)->where('id',$userId)->update([
 
             'verify' => 1
 
