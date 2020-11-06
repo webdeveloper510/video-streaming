@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
  <section class="background1">
 
   @include('layouts.header')

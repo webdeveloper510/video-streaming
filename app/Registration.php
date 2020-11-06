@@ -254,20 +254,20 @@ public function getVedio($data){
        /* -----------------------End Filter Data Using orderBy-------------------------------------- */
 
 
-$response = $result->get();
+                $response = $result->get();
 
 
 
 
-   $subid=$response->pluck("subid");
-    //print_r($subid);die;
+                   $subid=$response->pluck("subid");
+                    //print_r($subid);die;
 
-     $products = DB::table("subcategory")->whereIn('id', $subid)
-     ->pluck('id')
-     ->toArray();
-    $response['subcategory']=$products;
+                     $products = DB::table("subcategory")->whereIn('id', $subid)
+                     ->pluck('id')
+                     ->toArray();
+                    $response['subcategory']=$products;
 
-     return $response;
+                     return $response;
 
    
 }
