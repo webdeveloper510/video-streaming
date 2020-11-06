@@ -9,8 +9,7 @@
     <div class="row">
     	<div class="col"></div>
     	<div class="col-md-8">
-   <h3 class="text-center  pt-3 header-text" style="font-size: 27px;">
-      Get Personal Attention you deserve, build passive income and only let your fantasy give you limits to your creations!</h3> <h3 class="PAZ text-center header-text" style="font-size: 27px;">At PAZ you can make your biggest dreams become reality!</h3>
+  <h3 class="PAZ text-center header-text"  style="font-size: 27px;">Personal Attention, Passive Income And Creations that only your fantasy can set limits to!</h3>
        </div>
        <div class="col"></div>
    </div>
@@ -26,7 +25,9 @@
     <div class="artist_image">
 
 
-      <a href="<?php echo e($login ? url('/artistDetail/'.$artist->id) : url('/register')); ?>"><img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>"></a>
+  <a href="<?php echo e($login ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
+  <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+</a>
 
     </div>
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

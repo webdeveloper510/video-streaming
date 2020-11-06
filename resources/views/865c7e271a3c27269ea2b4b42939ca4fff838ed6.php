@@ -18,10 +18,10 @@
                 <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
                 <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home">Video</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Add Request</a></li>
+                    <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
+                    <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
+                    <li class="link_click"><a data-toggle="tab" href="#menu2">Artists</a></li>
+                    <!-- <li><a data-toggle="tab" href="#menu3">Add Request</a></li> -->
                     </ul>
 
                     <div class="tab-content">
@@ -37,7 +37,7 @@
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='video'): ?>
                    <label class=""> 
-                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?>
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
 
                      <?php echo e($cat->category); ?> 
                      
@@ -46,9 +46,11 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                    </div>
-                     <div class="col-md-6">
-                        <div class="dropdown12 text-white">
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
                             <label class="">
@@ -64,7 +66,8 @@
                             </label>
                        
                         </div>
-                        <div class="dropdown12 text-white">
+
+                        <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
                              <?php echo e(Form::checkbox('duration','asc')); ?>Shortest 
@@ -76,21 +79,30 @@
                           </label><br>
                       
                         </div>
-                          
-                       </div> 
-                       <div class="col-md-6 text-left">
-                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
-
+                          <div class="collapse pt-4" id="collapseExample1">
+                <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
                         
-                     </div>  
-                     <div class="col-md-6 text-center">
-                         <input type="button" class="btn btn-primary text-center" value=" Advance Filter option"data-toggle="modal" data-target="#exampleModal_video">
+                    <div class="col-md-6 text-left">
+              
+                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                          <?php echo $__env->make('popup',['id'=>'video'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+              </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         <?php echo e(Form::close()); ?>
 
-                      <?php echo e(Form::close()); ?>
-
-                     </div>  
+                      
+                    
                      </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
@@ -106,15 +118,15 @@
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='audio'): ?>
                    <label class="">
-                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?><?php echo e($cat->category); ?> 
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?><?php echo e($cat->category); ?> 
                           
                             </label><br>
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
-                          </div>
-                          <div class="col-md-6">
-                               <div class="dropdown12 text-white">
+                             </div>
+                       <div class="col-md-6">
+                           <div class="dropdown1 text-white">
                            <h4>Price</h4>
   
                             <label class="">
@@ -130,9 +142,8 @@
                             </label>
                        
                         </div>
-                         
-                       
-                             <div class="dropdown12 text-white">
+                      
+                             <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
                              <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
@@ -142,6 +153,9 @@
                           
                           </label>
                           </div>
+                          </div>
+                          <div class="col-md-6">
+                              
                            </div>
                             <div class="col-md-12 text-left">
                        <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
@@ -174,7 +188,8 @@
                           </div>
                           </div>
                           <div class="col-md-6">
-                               <div class="dropdown12 text-white">
+                            <div class="bar">
+                               <div class="dropdown1 text-white">
                            <h4>Price</h4>
   
                             <label> 
@@ -189,7 +204,7 @@
                             </label>                       
                         </div>
                        
-                           <div class="dropdown12 text-white">
+                           <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
@@ -200,19 +215,29 @@
                             
                           </label>
                           </div>
-                             </div>
-                             <div class="col-md-12 text-left">
-                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+                           <div class="collapse pt-4" id="collapseExample">
+                   <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+              </div>
+                          </div>
+                        </div>
+                          <div class="col-md-6 text-left">
+              
+                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                       <input type="button" class="btn btn-primary" data-toggle="modal"value=" Advance Filter option" data-target="#exampleModal_artist">
-                           
-                     <?php echo $__env->make('popup', ['id' => 'artist'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                      <?php echo e(Form::close()); ?>
+                  <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
+              </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         <?php echo e(Form::close()); ?>
 
                      </div> 
                    </div>
                        
-                    </div>
+                    
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Menu 3</h3>
                       <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
@@ -299,22 +324,45 @@
 
 </header>
 <style type="text/css">
-  .modal-backdrop.show {
-    opacity: 1;
-    display:none;
+  
+  i.fa.fa-comment:hover {
+      color: #fc0 !important;
+  }
+  .dropdown12 {
+     
+     height: 248px;
+      overflow-y: scroll;
+
+  }
+.dropdown1 h4{
+   margin:0 !important;
+   color:white;
 }
-.modal-dialog.filter-popup {
-    width: 620px;
-    position: absolute;
-    right: 0;
-    top: 103px;
+
+.dropdown1 {
+    background: #fff0;
+    padding: 19px;
+    margin-bottom: 19px;
+    position: relative;
+    padding-top: 7px !important;
+    border: 1px solid #fff;
+    margin-top: 10px;
+    width: 98%;
+  }
+  .nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    background: #bf0000;
 }
-i.fa.fa-comment:hover {
-    color: #fc0 !important;
+.rightbar {
+    height: 300px;
+    overflow-y: scroll;
+}
+.row.text-left.text-white.mt-3.red {
+    width: 98%;
 }
 </style>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+</script>
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/resources/views/layouts/header.blade.php ENDPATH**/ ?>

@@ -1,3 +1,5 @@
+
+
 <!--?php echo HTML::assets('style.css');?!-->
 <section class="background1">
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -17,7 +19,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <?php endif; ?>
         <?php if(session('success')): ?>
-        <div class="alert alert-danger" id="sucess">
+        <div class="alert alert-success" id="sucess">
         <?php echo e(session('success')); ?>
 
         </div>
@@ -116,5 +118,4 @@
   .register{
     border-radius: 28px !important;
   }
-</style>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/resources/views/registration.blade.php ENDPATH**/ ?>
+</style><?php /**PATH /home/personalattentio/public_html/resources/views/registration.blade.php ENDPATH**/ ?>

@@ -52,8 +52,15 @@
 <p>
   
 </p>
-   <div class="g-recaptcha" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
+   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
+     <?php if(session('captcha')): ?>
+                <div class="alert alert-danger">
+                <?php echo e(session('captcha')); ?>
 
+            
+             
+          </div>
+              <?php endif; ?>
 
             <p><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
             <?php echo e(Form::close()); ?>
@@ -61,11 +68,18 @@
            
         
 <p class="text-white">Don't have an account yet ?</p>
-<a href="<?php echo e(URL::to('register')); ?>" class="ffff text-white"> Signup Now</a>
+<a href="<?php echo e(URL::to('register')); ?>" class="ffff "> Signup Now</a>
         </div>
       </div>
     </div>
   </section>
+  <style>
+
+    a.ffff {
+        color: blue;
+    }
+
+  </style>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
