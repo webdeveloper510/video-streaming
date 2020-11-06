@@ -55,14 +55,18 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                             <?php echo e(Form::checkbox('price','free')); ?>Free  
+                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+
+                          <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
                             </label><br>
                             <label class="text-white">
-                               <?php echo e(Form::checkbox('price','asc')); ?>lowest  
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
+                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             </label><br>
                             <label class="">
-                               <?php echo e(Form::checkbox('price','desc')); ?>Higest  
+                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Higest
+                         <!--       <?php echo e(Form::checkbox('price','desc')); ?>Higest   -->
                             
                             </label>
                        
@@ -71,11 +75,13 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest 
+                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
                             <label class="">
-                           <?php echo e(Form::checkbox('duration','desc')); ?>Longest 
+                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           </label><br>
                       

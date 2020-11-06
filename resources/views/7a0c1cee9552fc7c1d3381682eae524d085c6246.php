@@ -29,7 +29,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                  <td> 
-                    <a href="<?php echo e(url('/verify/'.$id)); ?>">
+                    <a href="<?php echo e(url('/verify/'.base64_encode($id).'/'.base64_encode($type))); ?>">
                      <button type="button" style="margin-top: 12px;
                      color: #fff;
                      padding: 7px;

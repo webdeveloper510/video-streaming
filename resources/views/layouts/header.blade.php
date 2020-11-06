@@ -52,14 +52,18 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                             {{Form::checkbox('price','free')}}Free  
+                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+
+                          <!--    {{Form::checkbox('price','free')}}Free   -->
                           
                             </label><br>
                             <label class="text-white">
-                               {{Form::checkbox('price','asc')}}lowest  
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::checkbox('price','desc')}}Higest  
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
                             
                             </label>
                        
@@ -68,11 +72,13 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                             {{Form::checkbox('duration','asc')}}Shortest 
+                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
                             <label class="">
-                           {{Form::checkbox('duration','desc')}}Longest 
+                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
                             
                           </label><br>
                       
