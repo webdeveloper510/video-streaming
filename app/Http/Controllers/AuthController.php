@@ -423,7 +423,7 @@ class AuthController extends Controller
            //echo "yes";die;
            
            $update_data = $this->model->uploadDataFile($request);
-            if($update_data){
+            if($update_data==1){
               return redirect('/profile')->with('success','Data Updated Successfully!');
             }
             else{
@@ -510,7 +510,7 @@ class AuthController extends Controller
           //print_r($request->all());die;
           
           $update_data = $this->model->uploadContentData($data);
-            if($update_data){
+            if($update_data==1){
                 return redirect('artists/dashboard');
               }
               else

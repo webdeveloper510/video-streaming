@@ -189,7 +189,7 @@ public function uploadContentData($userdata){
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
        $userid=$session_data->id;
-      //print_r($data->all());die;
+     // print_r($userid);die;
     $update = DB::table('profiletable')->where('userid',$userid)->update([
         'backupemail' => $data['backupemail'],
         'aboutme' => $data['aboutme'],
@@ -217,50 +217,57 @@ public function getContentProvider($type){
 
 }
 
+
+
 public function getVedio($data){
 
-  //print_r($data);die;
 
-      $value = DB::table('media');
-      
-      if(isset($data['category'])){
-        $value=DB::table('media')->whereIn('catid',$data['category']);
-     }
-
-       if(isset($data['subid'])){
-        //echo "yes";
-         $value=DB::table('media')->where('subid',$data['subid']);
-      }
+   
+/* -----------------------Filter Data Using WhereIn-------------------------------------- */
 
 
-     if(isset($data['price']) && $data['price']=='free'){
-        //echo "yes";
-        $value=$value->where('price',$data['price']);
-      }
+  $result = DB::table('media')
+          ->leftjoin('contentprovider', 'media.contentProviderid', '=', 'contentprovider.id')
+          ->where(function($query) use ($data)
+                {
+                     foreach($data as $key=>$val){
+                     
+                  if(is_array($val))
+                     $query->whereIn($key, $val);
+                  
+                }
 
-    else{
-        //echo "no";
-         $value=$value->orderBy('price',$data['price']);
-    }
- if(isset($data['duration'])){
-    //echo "duration";
-     $value=$value->orderBy('duration',$data['duration']);
-    
-}
+                });
+
+/* -----------------------End Filter Data Using WhereIn-------------------------------------- */
+
+/* -----------------------Filter Data Using orderBy-------------------------------------- */
+
+       foreach($data as $key=>$val){
+           
+          if($key=='price' || $key=='duration'){
+             $val=='free' ? $result->where($key,$val) : $result->orderBy($key, $val);
+          }
+
+       }
+
+       /* -----------------------End Filter Data Using orderBy-------------------------------------- */
 
 
-   $subid=$value->pluck("subid");
-   //print_r($subid);die;
+$response = $result->get();
 
-    $products = DB::table("subcategory")->whereIn('id', $subid)
-    ->pluck('id')
-    ->toArray();
 
-    //print_r($products);die;
 
-    $data=$value->get();
-    $data['subcategory']=$products;
-    return $data;
+
+   $subid=$response->pluck("subid");
+    //print_r($subid);die;
+
+     $products = DB::table("subcategory")->whereIn('id', $subid)
+     ->pluck('id')
+     ->toArray();
+    $response['subcategory']=$products;
+
+     return $response;
 
    
 }
