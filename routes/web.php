@@ -70,6 +70,7 @@ Route::post('postContent', 'AuthController@providerContent');
 
 Route::post('artistPost', 'AuthController@artistPost');
 Route::post('getVedio', 'AuthController@getVedio');
+Route::post('getSelectingArtist','AuthController@getSelectingArtist');
 
 Route::post('postId', 
            [  'name' => 'postId', 

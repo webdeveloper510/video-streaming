@@ -20,9 +20,16 @@ class artist extends Controller
     //
     public function getArtists(){
    
-
+      $artistData = Session::get('artistData');
+      if($artistData){
+        $artists = $this->model->getArtistsbyfilter($artistData);
+      }
+      else{
+        $artists=$this->model->getArtists();
+      }
+      
       $data = $this->model->getCategory();
-      $artists=$this->model->getArtists();
+      
 
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
