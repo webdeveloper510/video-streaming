@@ -223,7 +223,7 @@ public function getVedio($data){
 
 
    
-/* -----------------------Filter Data Using WhereIn-------------------------------------- */
+/* ----------------------------------------------Filter Data Using WhereIn-------------------------------------- */
 
 
   $result = DB::table('media')
@@ -239,9 +239,9 @@ public function getVedio($data){
 
                 });
 
-/* -----------------------End Filter Data Using WhereIn-------------------------------------- */
+/* -------------------------------------------End Filter Data Using WhereIn-------------------------------------- */
 
-/* -----------------------Filter Data Using orderBy-------------------------------------- */
+/* -------------------------------------------Filter Data Using orderBy-------------------------------------- */
 
        foreach($data as $key=>$val){
            
@@ -271,7 +271,7 @@ public function getVedio($data){
 
    
 }
-
+/*-----------------------------------------Get Vedio By Subcategory Id------------------------------------------------*/
 public function getSubcatVid($subid){
 
     $value=DB::table('media')->where('subid', $subid)->get();
@@ -279,11 +279,14 @@ public function getSubcatVid($subid){
     return $value;
 
 }
-
+/*-----------------------------------------End------------------------------------------------*/
 public function getNewComes(){
      $newComes = DB::table('media')->orderBy('contentProviderid','desc')->take(10)->get();
     return $newComes;
 }
+
+
+/*-------------------------------Insert Recent Vedio Media Id---------------------------------------------------*/
 
 public function insertRecentTable($data){
 
@@ -307,6 +310,7 @@ public function insertRecentTable($data){
      }
      
 }
+/*-------------------------------End---------------------------------------------------*/
 public function addCategorytable($category){
     $category['created_at']=now();
     $category['updated_at']=now();
@@ -490,6 +494,24 @@ public function getRespectedSub($data){
           ]);
 
         return $update ? 1 : 0;
+
+    }
+
+    public function getArtistsbyfilter($filter){
+
+           $result = DB::table('contentprovider')
+             ->where(function($query) use ($filter)
+                {
+                     foreach($filter as $key=>$val){
+                     
+                  if(is_array($val))
+                     $query->whereIn($key, $val,'or');
+                  
+                }
+
+                })->paginate(10);
+            
+            return $result;
 
     }
 

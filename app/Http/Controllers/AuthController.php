@@ -635,6 +635,9 @@ class AuthController extends Controller
   }
 
 
+
+
+/*----------------------------------------------Stripe Payment-------------------------------------------------------*/
   public function postPaymentStripe(Request $request)
    {
 
@@ -684,7 +687,7 @@ class AuthController extends Controller
        if($customerId){
 
 
-            $charge = $this->createCharge($input,$customerId);
+            $charge = $this->createCharge($input,$customerId);/*---------------Call Create Charge Function-----------*/
 
 
 
@@ -701,12 +704,12 @@ class AuthController extends Controller
 
       else{
 
-        $customerData = $this->createCustomer($input,$userData,$token);
+        $customerData = $this->createCustomer($input,$userData,$token);/*---------------Call Create customer Function-----------*/
 
           
           if((array)$customerData){
 
-              $charge = $this->createCharge($input,$customerData->id);
+              $charge = $this->createCharge($input,$customerData->id);   //Create Charge
 
                if((array)$charge){
 
@@ -729,6 +732,9 @@ class AuthController extends Controller
  
  }
  }
+
+
+ /*----------------------------------------------End------------------------------------------------------*/
 
 public function createCustomer($data,$userdata,$token){
 
@@ -799,4 +805,17 @@ public function succssPage(){
   return view('emailVerifySuccess');
 }
 
+public function getSelectingArtist(Request $req){
+
+    $data=$req->all();
+
+         //print_r($data);die;
+
+      Session::put('artistData',$data);
+
+
+        
+         
+          return redirect('/getArtists');
+}
 }

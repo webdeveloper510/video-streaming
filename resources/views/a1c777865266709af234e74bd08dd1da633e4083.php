@@ -177,63 +177,22 @@
                     <div id="menu2" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
                       <div class="row">
-                          <div class="col-md-6">
-                      <div class="dropdown12 text-white">
-                           <h4>Categories </h4>
-                           <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+                             <?php echo Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true]); ?>
 
-                             <?php echo e(Form::token()); ?>
+                      <?php echo e(Form::token()); ?>
 
-                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($cat->type=='artist'): ?>
-                   <label>
-                     <?php echo e(Form::checkbox('category[]', $cat->id)); ?><?php echo e($cat->category); ?> 
+                          <div class="col-md-12">
+                             <div class="scroll12">
+                               
                             
-                            </label><br>
-                             <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="bar">
-                               <div class="dropdown1 text-white">
-                           <h4>Price</h4>
-  
-                            <label> 
-                               <?php echo e(Form::checkbox('price','free')); ?>Free 
-                            </label><br>
-                            <label> 
-                               <?php echo e(Form::checkbox('price','asc')); ?>lowest 
-                            </label><br>
-                            <label> 
-                               <?php echo e(Form::checkbox('price','desc')); ?>Higest
-                            
-                            </label>                       
+                          <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
-                       
-                           <div class="dropdown1 text-white">
-                           <h4 >Duration</h4>
-                            <label>  
-                            <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
-                            
-                            </label><br>
-                            <label> 
-                             <?php echo e(Form::checkbox('duration[]','desc')); ?>Longest
-                            
-                          </label>
-                          </div>
-                           <div class="collapse pt-4" id="collapseExample">
-                   <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-              </div>
-                          </div>
-                        </div>
-                          <div class="col-md-6 text-left">
+                             </div>
+                          <div class="col-md-6 text-left mt-3">
               
                 <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                  <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;"  >
-              </div>
-              <div class="col-md-6">
+           
                        
             
             </div>
@@ -340,6 +299,10 @@
      height: 248px;
       overflow-y: scroll;
 
+  }
+  .scroll12{
+    height: 250px;
+    overflow-y: scroll;
   }
 .dropdown1 h4{
    margin:0 !important;
