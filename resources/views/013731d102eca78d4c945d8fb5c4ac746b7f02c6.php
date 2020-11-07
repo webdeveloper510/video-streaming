@@ -1,3 +1,5 @@
+
+
 <!--?php echo HTML::assets('style.css');?!-->
 
 <section class="background1">
@@ -83,5 +85,4 @@
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/resources/views/login.blade.php ENDPATH**/ ?>
+  <?php /**PATH /home/personalattentio/public_html/resources/views/login.blade.php ENDPATH**/ ?>

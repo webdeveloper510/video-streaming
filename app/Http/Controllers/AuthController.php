@@ -292,7 +292,7 @@ class AuthController extends Controller
 
              $redirect_url=Session::get('redirect_url');
 
-            if($get && $data['g-recaptcha-response'] && $redirect_url){
+            if($get && $data['g-recaptcha-response'] || $redirect_url){
             // echo "yes";die;
               return redirect('/'.$redirect_url)->with('success','Login Successfully!');
             }
