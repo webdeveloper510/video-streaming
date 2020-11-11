@@ -210,17 +210,27 @@
 
                           <div class="col-md-6 ">
                             <div class="bar">
+                               <div class="dropdown1 text-white">
+                           <h4 >Media</h4>
+                            <label class=""> 
+                               {{Form::radio('media', 'asc', true ,['class'=>'user'])}} Audio
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('media', 'desc', false ,['class'=>'user'])}} Video 
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
                         <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
-                            <label class="">
-                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
-
-                          <!--    {{Form::checkbox('price','free')}}Free   -->
-                          
-                            </label><br>
+                  
+      
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', true ,['class'=>'user'])}} lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
@@ -231,20 +241,7 @@
                        
                         </div>
 
-                        <div class="dropdown1 text-white">
-                           <h4 >Duration</h4>
-                            <label class=""> 
-                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
-                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
-                           
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
-                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
-                            
-                          </label><br>
-                      
-                        </div>
+                       
                           <div class="collapse pt-4" id="collapseExample1">
                 @include('popup') 
               </div>

@@ -226,17 +226,27 @@
 
                           <div class="col-md-6 ">
                             <div class="bar">
+                               <div class="dropdown1 text-white">
+                           <h4 >Media</h4>
+                            <label class=""> 
+                               <?php echo e(Form::radio('media', 'asc', true ,['class'=>'user'])); ?> Audio
+                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('media', 'desc', false ,['class'=>'user'])); ?> Video 
+                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
                         <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
-                            <label class="">
-                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
-
-                          <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
-                          
-                            </label><br>
+                  
+      
                             <label class="text-white">
-                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
+                          <?php echo e(Form::radio('price', 'asc', true ,['class'=>'user'])); ?> lowest
                               <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             </label><br>
                             <label class="">
@@ -247,20 +257,7 @@
                        
                         </div>
 
-                        <div class="dropdown1 text-white">
-                           <h4 >Duration</h4>
-                            <label class=""> 
-                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
-                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
-                           
-                            </label><br>
-                            <label class="">
-                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
-                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
-                            
-                          </label><br>
-                      
-                        </div>
+                       
                           <div class="collapse pt-4" id="collapseExample1">
                 <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
               </div>
