@@ -21,8 +21,9 @@
                   <ul class="nav nav-tabs">
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li class="link_click"><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <!-- <li><a data-toggle="tab" href="#menu3">Add Request</a></li> -->
+                    <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
+                    <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
+                    <li  class="link_click"><a data-toggle="tab" href="#menu3">Add Request</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -41,8 +42,7 @@
                      <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
 
                      <?php echo e($cat->category); ?> 
-                     
-                            </label><br>
+                   </label><br>
                              <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
@@ -174,7 +174,7 @@
                            
                       </div>
                   
-                    <div id="menu2" class="tab-pane fade">
+                    <div id="menu4" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
                       <div class="row">
                              <?php echo Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true]); ?>
@@ -202,7 +202,175 @@
 
                      </div> 
                    </div>
+                    <div id="menu2" class="tab-pane fade1 in ">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                  <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='video'): ?>
+                   <label class=""> 
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                     <?php echo e($cat->category); ?> 
+                   </label><br>
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+
+                          <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
+                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Higest
+                         <!--       <?php echo e(Form::checkbox('price','desc')); ?>Higest   -->
+                            
+                            </label>
                        
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-6 text-left">
+              
+                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                       </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         <?php echo e(Form::close()); ?>
+
+                      
+                    
+                     </div>
+                    </div>
+                    
+                        <div id="menu4" class="tab-pane fade1 in ">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                  <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='video'): ?>
+                   <label class=""> 
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                     <?php echo e($cat->category); ?> 
+                   </label><br>
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+
+                          <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
+                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Higest
+                         <!--       <?php echo e(Form::checkbox('price','desc')); ?>Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-6 text-left">
+              
+                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                       </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         <?php echo e(Form::close()); ?>
+
+                      
+                    
+                     </div>
+                    </div>
                     
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Menu 3</h3>

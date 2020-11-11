@@ -21,8 +21,9 @@
                   <ul class="nav nav-tabs">
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li class="link_click"><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <!-- <li><a data-toggle="tab" href="#menu3">Add Request</a></li> -->
+                    <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
+                    <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
+                    <li  class="link_click"><a data-toggle="tab" href="#menu3">Add Request</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -38,8 +39,7 @@
                    <label class=""> 
                      {{Form::checkbox('catid[]', $cat->id)}}
                      {{$cat->category}} 
-                     
-                            </label><br>
+                   </label><br>
                              @endif
                             @endforeach
                           
@@ -165,7 +165,7 @@
                            
                       </div>
                   
-                    <div id="menu2" class="tab-pane fade">
+                    <div id="menu4" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
                       <div class="row">
                              {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
@@ -189,7 +189,165 @@
                          {{ Form::close() }}
                      </div> 
                    </div>
+                    <div id="menu2" class="tab-pane fade1 in ">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+
+                          <!--    {{Form::checkbox('price','free')}}Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
                        
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                @include('popup') 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-6 text-left">
+              
+                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                       </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         {{ Form::close() }}
+                      
+                    
+                     </div>
+                    </div>
+                    
+                        <div id="menu4" class="tab-pane fade1 in ">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+
+                          <!--    {{Form::checkbox('price','free')}}Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                @include('popup') 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-6 text-left">
+              
+                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                       </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         {{ Form::close() }}
+                      
+                    
+                     </div>
+                    </div>
                     
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Menu 3</h3>

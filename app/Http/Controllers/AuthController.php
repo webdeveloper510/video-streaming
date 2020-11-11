@@ -818,4 +818,9 @@ public function getSelectingArtist(Request $req){
          
           return redirect('/getArtists');
 }
+
+public function process(){
+  return view('siteProcess');
+}
+
 }

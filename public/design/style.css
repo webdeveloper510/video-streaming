@@ -5158,7 +5158,7 @@ ul.nav.custom.search ul.subnav {
     width: auto;
 }
 ul.nav.nav-tabs li {
-    width: 25%;
+    width: 20% !important;
 }
 .tab-content {
     padding-top: 25px;

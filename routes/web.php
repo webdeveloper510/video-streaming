@@ -50,6 +50,8 @@ Route::get('paymentSuccess', 'AuthController@success');
 
 Route::get('success', 'AuthController@succssPage'); 
 
+Route::get('inProcess', 'AuthController@process'); 
+
 Route::get('cart', 'artist@cart')->middleware('authentication');
 
 
