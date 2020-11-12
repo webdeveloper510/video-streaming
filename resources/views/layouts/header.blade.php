@@ -211,7 +211,7 @@
                 {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                   {{Form::token()}}
                             @foreach($category as $cat)
-                            @if($cat->type=='video')
+                            @if($cat->type=='audio')
                    <label class=""> 
                      {{Form::checkbox('catid[]', $cat->id)}}
                      {{$cat->category}} 
@@ -228,12 +228,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               {{Form::radio('media', 'asc', true ,['class'=>'user'])}} Audio
+                               {{Form::radio('media', 'asc', true ,['class'=>'media', 'id'=>'audio'])}} Audio
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               {{Form::radio('media', 'desc', false ,['class'=>'user'])}} Video 
+                               {{Form::radio('media', 'desc', false ,['class'=>'media', 'id'=>'video'])}} Video 
                           <!--  {{Form::checkbox('duration','desc')}}Longest  -->
                             
                           </label><br>

@@ -229,7 +229,7 @@
                   <?php echo e(Form::token()); ?>
 
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($cat->type=='video'): ?>
+                            <?php if($cat->type=='audio'): ?>
                    <label class=""> 
                      <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
 
@@ -247,12 +247,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               <?php echo e(Form::radio('media', 'asc', true ,['class'=>'user'])); ?> Audio
+                               <?php echo e(Form::radio('media', 'asc', true ,['class'=>'media', 'id'=>'audio'])); ?> Audio
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               <?php echo e(Form::radio('media', 'desc', false ,['class'=>'user'])); ?> Video 
+                               <?php echo e(Form::radio('media', 'desc', false ,['class'=>'media', 'id'=>'video'])); ?> Video 
                           <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           </label><br>

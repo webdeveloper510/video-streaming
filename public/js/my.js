@@ -162,5 +162,15 @@ else{
 	$(this).addClass('active');
 }
 })
-  
+
+
+  $(document).on('click', '.media', function () {
+
+  			
+  		var id = $(this).attr('id');
+
+  	var notId= $(".media:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
+  })
 
