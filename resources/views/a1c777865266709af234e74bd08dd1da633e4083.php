@@ -205,7 +205,24 @@
                     <div id="menu2" class="tab-pane fade1 in ">
                     <div class="row">
                     <div class="col-md-6">
-                      <div class="dropdown12 text-white">
+                      <div class="dropdown12 text-white" id="video">
+                           <h4>Categories </h4>
+                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                  <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='video'): ?>
+                   <label class=""> 
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                     <?php echo e($cat->category); ?> 
+                   </label><br>
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          
+                      </div>
+                      <div class="dropdown12 text-white" id="audio">
                            <h4>Categories </h4>
                 <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
 
@@ -229,6 +246,7 @@
                                <div class="dropdown1 text-white">
                            <h4 >Media</h4>
                             <label class=""> 
+
                                <?php echo e(Form::radio('media', 'asc', true ,['class'=>'user'])); ?> Audio
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
@@ -258,7 +276,7 @@
                         </div>
 
                        
-                          <div class="collapse pt-4" id="collapseExample1">
+                          <div class="collapse pt-4" id="collapseExample2">
                 <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
               </div>
                       </div>
@@ -267,10 +285,11 @@
                      
                         
                     <div class="col-md-6 text-left">
-              
+
                 <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
 
-                       </div>
+         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+              </div>
               <div class="col-md-6">
                        
             

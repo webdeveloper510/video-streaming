@@ -192,7 +192,21 @@
                     <div id="menu2" class="tab-pane fade1 in ">
                     <div class="row">
                     <div class="col-md-6">
-                      <div class="dropdown12 text-white">
+                      <div class="dropdown12 text-white" id="video">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                      <div class="dropdown12 text-white" id="audio">
                            <h4>Categories </h4>
                 {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                   {{Form::token()}}
@@ -213,6 +227,7 @@
                                <div class="dropdown1 text-white">
                            <h4 >Media</h4>
                             <label class=""> 
+
                                {{Form::radio('media', 'asc', true ,['class'=>'user'])}} Audio
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
@@ -242,7 +257,7 @@
                         </div>
 
                        
-                          <div class="collapse pt-4" id="collapseExample1">
+                          <div class="collapse pt-4" id="collapseExample2">
                 @include('popup') 
               </div>
                       </div>
@@ -251,9 +266,10 @@
                      
                         
                     <div class="col-md-6 text-left">
-              
+
                 {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
-                       </div>
+         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+              </div>
               <div class="col-md-6">
                        
             

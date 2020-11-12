@@ -83,7 +83,8 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I accept Terms & Conditions and Privacy Policy')}} <br>
+              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
+              <label>I accept <a class="text-white" href="https://www.websitepolicies.com/policies/view/iV2Lze7O">Terms & Condition</a>  and <a class="text-white" href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
                {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}
                 
