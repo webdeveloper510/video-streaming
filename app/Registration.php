@@ -394,7 +394,7 @@ public function getArtistDetail($artid){
        }
   }
 public function getCategory(){
-    $category = DB::table('category')->get()->toArray();
+    $category = DB::table('category')->get()->sortBy('category')->toArray();
     return $category;
 }
 
