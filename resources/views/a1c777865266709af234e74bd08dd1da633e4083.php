@@ -137,14 +137,18 @@
                            <h4>Price</h4>
   
                             <label class="">
-                             <?php echo e(Form::checkbox('price','free')); ?>Free 
+            
+
+                         <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
                             
                             </label><br>
                             <label class="">  
-                             <?php echo e(Form::checkbox('price','asc')); ?>lowest
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
+                      
                             </label><br>
                             <label class=""> 
-                               <?php echo e(Form::checkbox('price','desc')); ?>Higest 
+                          <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Higest
+                             
                             
                             </label>
                        
@@ -153,10 +157,12 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                             <?php echo e(Form::checkbox('duration','asc')); ?>Shortest
+                           <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+  
                             </label><br>
                             <label >
-                             <?php echo e(Form::checkbox('duration','desc')); ?>Longest 
+                        <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+              
                           
                           </label>
                           </div>
@@ -428,7 +434,7 @@
                           </form>
                       </div>
                       <div class="col">
-                        <div class="dropdown12 text-white">
+                        <div class="dropdown12 text-white" id="video">
                            <h4>Categories </h4>
                           <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
 
@@ -445,6 +451,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
+                       
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3"value=" Advance Filter option  &#8594;" >
                        
                              <div class="collapse pt-4" id="collapseExample3">

@@ -24,6 +24,12 @@ $(document).ready(function() {
   	var notId= $(".media:not(:checked)").attr('id');
   	$('#'+id).show();
   	$('#'+notId).hide();
+
+  	 	var id = $(".media1:checked").attr('id');
+
+  	var notId= $(".media1:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
         
     });
 
@@ -177,6 +183,15 @@ else{
   		var id = $(this).attr('id');
 
   	var notId= $(".media:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
+  })
+    $(document).on('click', '.media1', function () {
+
+  			
+  		var id = $(this).attr('id');
+
+  	var notId= $(".media1:not(:checked)").attr('id');
   	$('#'+id).show();
   	$('#'+notId).hide();
   })

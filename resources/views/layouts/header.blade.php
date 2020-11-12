@@ -130,14 +130,18 @@
                            <h4>Price</h4>
   
                             <label class="">
-                             {{Form::checkbox('price','free')}}Free 
+            
+
+                         {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
                             
                             </label><br>
                             <label class="">  
-                             {{Form::checkbox('price','asc')}}lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                      
                             </label><br>
                             <label class=""> 
-                               {{Form::checkbox('price','desc')}}Higest 
+                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                             
                             
                             </label>
                        
@@ -146,10 +150,12 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                             {{Form::checkbox('duration','asc')}}Shortest
+                           {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+  
                             </label><br>
                             <label >
-                             {{Form::checkbox('duration','desc')}}Longest 
+                        {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+              
                           
                           </label>
                           </div>
@@ -402,7 +408,7 @@
                           </form>
                       </div>
                       <div class="col">
-                        <div class="dropdown12 text-white">
+                        <div class="dropdown12 text-white" id="video">
                            <h4>Categories </h4>
                           {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                             {{Form::token()}}
@@ -416,6 +422,7 @@
                             @endforeach
                           
                       </div>
+                       
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3"value=" Advance Filter option  &#8594;" >
                        
                              <div class="collapse pt-4" id="collapseExample3">
