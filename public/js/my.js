@@ -17,6 +17,13 @@ $(document).ready(function() {
                 $(this).val()=='male' ? $('.hide').hide() : $('.hide').show();
             }
         });
+
+
+        	var id = $(".media:checked").attr('id');
+
+  	var notId= $(".media:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
         
     });
 
