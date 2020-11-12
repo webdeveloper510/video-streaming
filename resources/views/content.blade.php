@@ -122,14 +122,6 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-3 pt-4">
-                <select name="category" class='form-control'>
-                    <option value="">Choose category</option>
-                    @foreach($category as $cat)
-                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-                    @endforeach
-                </select>
-            </div>
             
              <div class="col-md-12 pt-3">
             {{Form::label('ABOUT ME', 'ABOUT ME')}} 
