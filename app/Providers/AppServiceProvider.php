@@ -33,6 +33,11 @@ class AppServiceProvider extends ServiceProvider
 
             $category = $model->getCategory();
 
+               // print_r( $category);die;
+
+
+            sort($category);
+
             $data=Session::get('User');
 
             $userId = isset($data) ? $data->id : '';
