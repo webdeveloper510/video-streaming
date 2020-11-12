@@ -363,9 +363,65 @@
                     </div>
                     
                     <div id="menu3" class="tab-pane fade">
-                      <h3 style="color: #fff;">Menu 3</h3>
-                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>
+                      <h3 style="color: #fff;">Request</h3>
+                      <div class="row">
+                        <div class="col">
+                          <div class="dropdown1 text-white">
+                           <h4 >Media</h4>
+                            <label class=""> 
+
+                               {{Form::radio('media', 'asc', true ,['class'=>'Media', 'id'=>'audio'])}} Audio
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('media', 'desc', false ,['class'=>'media', 'id'=>'video'])}} Video 
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                      </div>
+                      <div class="col">
+                       <form>
+                            <div class="form-group">
+                              <label class="text-white">Video Price</label>
+                              <input type="text" class="form-control" >
+                             
+                            </div>
+                            <div class="form-group">
+                              <label class="text-white">Title</label>
+                              <input type="text" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                              <label class="text-white">Description</label>
+                             <textarea id="w3review" name="w3review" rows="4" class="form-control" >
+                             </textarea>
+                            </div>
+                            
+                          </form>
+                      </div>
+                      <div class="col">
+                        <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                          {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                            {{Form::token()}}
+                                      @foreach($category as $cat)
+                                      @if($cat->type=='video')
+                             <label class=""> 
+                               {{Form::checkbox('catid[]', $cat->id)}}
+                               {{$cat->category}} 
+                             </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                          <!-- <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3"value=" Advance Filter option  &#8594;" >
+                       
+                             <div class="collapse pt-4" id="collapseExample3">
+                @include('popup') 
+              </div> -->
+
                     </div>
                 </ul>
             
@@ -476,6 +532,9 @@
     border: 1px solid #fff;
     margin-top: 10px;
     width: 98%;
+  }
+  .dropdown1 label {
+    display: inline-flex;
   }
   .nav-tabs {
     border-bottom: 1px solid #dee2e6;
