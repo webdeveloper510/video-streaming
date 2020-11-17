@@ -17,6 +17,19 @@ $(document).ready(function() {
                 $(this).val()=='male' ? $('.hide').hide() : $('.hide').show();
             }
         });
+
+
+        	var id = $(".media:checked").attr('id');
+
+  	var notId= $(".media:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
+
+  	 	var id = $(".media1:checked").attr('id');
+
+  	var notId= $(".media1:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
         
     });
 
@@ -162,5 +175,24 @@ else{
 	$(this).addClass('active');
 }
 })
-  
+
+
+  $(document).on('click', '.media', function () {
+
+  			
+  		var id = $(this).attr('id');
+
+  	var notId= $(".media:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
+  })
+    $(document).on('click', '.media1', function () {
+
+  			
+  		var id = $(this).attr('id');
+
+  	var notId= $(".media1:not(:checked)").attr('id');
+  	$('#'+id).show();
+  	$('#'+notId).hide();
+  })
 

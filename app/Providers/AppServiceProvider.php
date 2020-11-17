@@ -32,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
              $model = new Registration();
 
             $category = $model->getCategory();
+         
+
 
             $data=Session::get('User');
 

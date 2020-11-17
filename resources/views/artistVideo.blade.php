@@ -28,8 +28,10 @@
 				   <div class="content-cart">
 				   
                    <div class="cart1">  
-                   	<a href="{{url('cart1')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>
-                          <span class="itemCount">{{$count}}</span>
+                   	<a href="{{url('cart1')}}">
+                   	 <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                   	</a>
+                      <span class="itemCount">{{$count}}</span>
 
                    </div>
 

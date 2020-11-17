@@ -26,6 +26,7 @@ Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
 Route::get('play', 'AuthController@play')->middleware('authentication');
+
 Route::get('search', 'AuthController@search')->middleware('authentication');
 
 Route::get('userWithdraw', 'AuthController@draw')->middleware('authentication');
@@ -49,6 +50,8 @@ Route::get('logout', 'AuthController@logout');
 Route::get('paymentSuccess', 'AuthController@success'); 
 
 Route::get('success', 'AuthController@succssPage'); 
+
+Route::get('inProcess', 'AuthController@process'); 
 
 Route::get('cart', 'artist@cart')->middleware('authentication');
 

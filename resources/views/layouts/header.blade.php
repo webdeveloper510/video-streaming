@@ -21,8 +21,9 @@
                   <ul class="nav nav-tabs">
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li class="link_click"><a data-toggle="tab" href="#menu2">Artists</a></li>
-                    <!-- <li><a data-toggle="tab" href="#menu3">Add Request</a></li> -->
+                    <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
+                    <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
+                    <li  class="link_click"><a data-toggle="tab" href="#menu3">Add Request</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -38,8 +39,7 @@
                    <label class=""> 
                      {{Form::checkbox('catid[]', $cat->id)}}
                      {{$cat->category}} 
-                     
-                            </label><br>
+                   </label><br>
                              @endif
                             @endforeach
                           
@@ -130,14 +130,18 @@
                            <h4>Price</h4>
   
                             <label class="">
-                             {{Form::checkbox('price','free')}}Free 
+            
+
+                         {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
                             
                             </label><br>
                             <label class="">  
-                             {{Form::checkbox('price','asc')}}lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                      
                             </label><br>
                             <label class=""> 
-                               {{Form::checkbox('price','desc')}}Higest 
+                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                             
                             
                             </label>
                        
@@ -146,10 +150,12 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                             {{Form::checkbox('duration','asc')}}Shortest
+                           {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+  
                             </label><br>
                             <label >
-                             {{Form::checkbox('duration','desc')}}Longest 
+                        {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+              
                           
                           </label>
                           </div>
@@ -165,7 +171,7 @@
                            
                       </div>
                   
-                    <div id="menu2" class="tab-pane fade">
+                    <div id="menu4" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
                       <div class="row">
                              {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
@@ -189,12 +195,240 @@
                          {{ Form::close() }}
                      </div> 
                    </div>
+                    <div id="menu2" class="tab-pane fade1 in ">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white" id="video">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                      <div class="dropdown12 text-white" id="audio">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='audio')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                               <div class="dropdown1 text-white">
+                           <h4 >Media</h4>
+                            <label class=""> 
+
+                               {{Form::radio('media', 'asc', true ,['class'=>'media', 'id'=>'audio'])}} Audio
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('media', 'desc', false ,['class'=>'media', 'id'=>'video'])}} Video 
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                  
+      
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', true ,['class'=>'user'])}} lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
                        
+                        </div>
+
+                       
+                          <div class="collapse pt-4" id="collapseExample2">
+                @include('popup') 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-6 text-left">
+
+                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+              </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         {{ Form::close() }}
+                      
+                    
+                     </div>
+                    </div>
+                    
+                        <div id="menu4" class="tab-pane fade1 in ">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+
+                          <!--    {{Form::checkbox('price','free')}}Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                @include('popup') 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-6 text-left">
+              
+                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                       </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         {{ Form::close() }}
+                      
+                    
+                     </div>
+                    </div>
                     
                     <div id="menu3" class="tab-pane fade">
-                      <h3 style="color: #fff;">Menu 3</h3>
-                      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    </div>
+                      <h3 style="color: #fff;">Request</h3>
+                      <div class="row">
+                        <div class="col">
+                          <div class="dropdown1 text-white">
+                           <h4 >Media</h4>
+                            <label class=""> 
+
+                               {{Form::radio('media', 'asc', true ,['class'=>'Media', 'id'=>'audio'])}} Audio
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('media', 'desc', false ,['class'=>'media', 'id'=>'video'])}} Video 
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                      </div>
+                      <div class="col">
+                       <form>
+                            <div class="form-group">
+                              <label class="text-white">Video Price</label>
+                              <input type="text" class="form-control" >
+                             
+                            </div>
+                            <div class="form-group">
+                              <label class="text-white">Title</label>
+                              <input type="text" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                              <label class="text-white">Description</label>
+                             <textarea id="w3review" name="w3review" rows="4" class="form-control" >
+                             </textarea>
+                            </div>
+                            
+                          </form>
+                      </div>
+                      <div class="col">
+                        <div class="dropdown12 text-white" id="video">
+                           <h4>Categories </h4>
+                          {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                            {{Form::token()}}
+                                      @foreach($category as $cat)
+                                      @if($cat->type=='video')
+                             <label class=""> 
+                               {{Form::checkbox('catid[]', $cat->id)}}
+                               {{$cat->category}} 
+                             </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                       
+                          <!-- <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3"value=" Advance Filter option  &#8594;" >
+                       
+                             <div class="collapse pt-4" id="collapseExample3">
+                @include('popup') 
+              </div> -->
+
                     </div>
                 </ul>
             
@@ -305,6 +539,9 @@
     border: 1px solid #fff;
     margin-top: 10px;
     width: 98%;
+  }
+  .dropdown1 label {
+    display: inline-flex;
   }
   .nav-tabs {
     border-bottom: 1px solid #dee2e6;

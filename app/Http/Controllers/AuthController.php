@@ -479,7 +479,6 @@ class AuthController extends Controller
       $this->validate($request,[
         'image' => 'required|file',
        
-        'category'=>'required',
         'aboutme'=>'required',
         'sexology'=>'required',
         'ass'=>'sometimes|required',
@@ -818,4 +817,9 @@ public function getSelectingArtist(Request $req){
          
           return redirect('/getArtists');
 }
+
+public function process(){
+  return view('siteProcess');
+}
+
 }
