@@ -1,3 +1,4 @@
+
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
@@ -587,4 +588,4 @@
 <script type="text/javascript">
 
 </script>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/header.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/layouts/header.blade.php ENDPATH**/ ?>
