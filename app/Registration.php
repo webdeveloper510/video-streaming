@@ -152,6 +152,8 @@ public function uploadContentData($userdata){
 }
     public function login($data){
 
+
+
         $table = array('users','contentprovider') ;
 
           for($i=0; $i<count($table); $i++){
@@ -162,16 +164,19 @@ public function uploadContentData($userdata){
               'password'=>md5($data->password)))
               ->get()
               ->first();
-
-              if($value){
+              $varify = $value->verify;
+              if($value && $varify==1){
                 $tableName = $table[$i];
                 break; 
+              }
+              else if($varify==0){
+                return 'Not Verify';
               }
           }
 
            if(is_null($value)){
                   return 0;
-              }
+            }
               else{
 
       $tableName == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
@@ -181,7 +186,7 @@ public function uploadContentData($userdata){
 
 
      
-    
+    die;
 
         
 }
