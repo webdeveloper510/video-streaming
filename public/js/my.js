@@ -12,6 +12,7 @@ $('.rad_But').click(function(){
 
 $(document).ready(function() {
 
+
         $('.rad_But').each(function() {
             if ($(this).is(':checked') == true) {
                 $(this).val()=='male' ? $('.hide').hide() : $('.hide').show();
@@ -19,17 +20,18 @@ $(document).ready(function() {
         });
 
 
-        	var id = $(".media:checked").attr('id');
+        	var id= $(".media:checked").attr('class').split(' ');
 
-  	var notId= $(".media:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
+  	var notId= $(".media:not(:checked)").attr('class').split(' ');
+  	$('#'+id[1]).show();
+  	$('#'+notId[1]).hide();
 
-  	 	var id = $(".media1:checked").attr('id');
+  	   var id1= $(".media1:checked").attr('class').split(' ');
 
-  	var notId= $(".media1:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
+  	var notId2= $(".media1:not(:checked)").attr('class').split(' ');
+  	$('#'+id1[1]).show();
+  	$('#'+notId2[1]).hide();
+
         
     });
 
@@ -179,20 +181,24 @@ else{
 
   $(document).on('click', '.media', function () {
 
-  			
-  		var id = $(this).attr('id');
 
-  	var notId= $(".media:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
-  })
+  	    	var clas = $(this).attr('class').split(' ');
+
+  	    var notId= $(".media:not(:checked)").attr('class').split(' ');
+  	 
+    $('#'+clas[1]).show();
+  	$('#'+notId[1]).hide();
+
+
+  });
+
     $(document).on('click', '.media1', function () {
 
   			
-  		var id = $(this).attr('id');
+  		var clas1 = $(this).attr('class').split(' ');
 
-  	var notId= $(".media1:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
+  	var notId1= $(".media1:not(:checked)").attr('class').split(' ');
+  	$('#'+clas1[1]).show();
+  	$('#'+notId1[1]).hide();
   })
 
