@@ -82,7 +82,7 @@ class AuthController extends Controller
 
     }
 
-    /*-------------------------------------------------Filter Result-------------------------------------------*/
+    /*----------Filter Result-------------------------------------------*/
 
     public function search(){
 
