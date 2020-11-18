@@ -51,6 +51,8 @@ Route::get('paymentSuccess', 'AuthController@success');
 
 Route::get('success', 'AuthController@succssPage'); 
 
+Route::get('notify/{id}', 'AuthController@notify'); 
+
 Route::get('inProcess', 'AuthController@process'); 
 
 Route::get('cart', 'artist@cart')->middleware('authentication');
@@ -60,6 +62,10 @@ Route::get('cart', 'artist@cart')->middleware('authentication');
 
 
 Route::post('ajax-request', 'artist@cartSbmit');
+
+Route::post('notifyEmail', 'AuthController@notifyEmail');
+
+
 Route::post('updateProfile', 'AuthController@updateProfile');
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');

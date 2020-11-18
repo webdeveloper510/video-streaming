@@ -504,19 +504,44 @@ public function getRespectedSub($data){
 
     public function getArtistsbyfilter($filter){
 
-           $result = DB::table('contentprovider')
-             ->where(function($query) use ($filter)
-                {
-                     foreach($filter as $key=>$val){
-                     
-                  if(is_array($val))
-                     $query->whereIn($key, $val,'or');
-                  
-                }
+             $result = DB::table('contentprovider')
+                     ->where(function($query) use ($filter)
+                        {
+                             foreach($filter as $key=>$val){
+                             
+                          if(is_array($val))
+                             $query->whereIn($key, $val,'or');
+                          
+                        }
 
-                })->paginate(10);
-            
-            return $result;
+                        })->paginate(10);
+                    
+                    return $result;
+
+    }
+
+    public function notifyMe($data){
+
+        $data= $data->all();
+
+     $data['created_at']=now();
+    $data['updated_at']=now();
+    $data['status'] = 0 ;
+    $inserted=DB::table('all_emails')->insertGetId($data);
+      return $inserted ? $inserted :'0';
+
+    }
+
+    public function notifyConfirm($notify){
+
+      $data = array(
+
+        'status'=> 1
+      );
+
+      $update = DB::table('all_emails')->where('id',$notify)->update($data);
+
+      return $update ? 1 : 0 ; 
 
     }
 
