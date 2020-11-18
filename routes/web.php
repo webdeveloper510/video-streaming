@@ -65,6 +65,8 @@ Route::post('ajax-request', 'artist@cartSbmit');
 
 Route::post('notifyEmail', 'AuthController@notifyEmail');
 
+Route::post('request', 'AuthController@addRequest');
+
 
 Route::post('updateProfile', 'AuthController@updateProfile');
 Route::post('registration', 'AuthController@UserRegistration');

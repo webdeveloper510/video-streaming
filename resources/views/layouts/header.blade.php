@@ -23,7 +23,11 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
-                    <li  class="link_click"><a data-toggle="tab" href="#menu3">Add Request</a></li>
+                    @if($login)
+                    <li  class="link_click">
+                      <a data-toggle="tab" href="#menu3">Add Request</a>
+                    </li>
+                    @endif
                     </ul>
 
                     <div class="tab-content">
@@ -370,7 +374,7 @@
                     
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Request</h3>
-                         {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                         {!!Form::open(['action' => 'AuthController@addRequest', 'method' => 'post'])!!}
                             {{Form::token()}}
                       <div class="row">
                         <div class="col">
@@ -378,31 +382,44 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               {{Form::radio('media1', 'asc', true ,['class'=>'media1 audio1'])}} Audio
+                               {{Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])}} Audio
                            
                             </label><br>
                             <label class="">
-                               {{Form::radio('media1', 'desc', false ,['class'=>'media1 video1'])}} Video 
+                               {{Form::radio('media', 'video', false ,['class'=>'media1 video1'])}} Video 
 
                             
                           </label><br>
                       
                         </div>
+                          <div class="form-group">
+                              <label class="text-white">Description</label>
+              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
+                            </div>
                       </div>
                       <div class="col">
                                     <div class="form-group">
-                              <label class="text-white">Audio Price</label>
-                              <input type="text" class="form-control" >
+                              <label class="text-white">Price/Minutes</label>
+                               {{Form::text('price','',['class'=>'form-control'])}}
                              
                             </div>
                             <div class="form-group">
                               <label class="text-white">Title</label>
-                              <input type="text" class="form-control" >
+                            {{Form::text('title','',['class'=>'form-control'])}}
                             </div>
                             <div class="form-group">
-                              <label class="text-white">Description</label>
-                             <textarea id="w3review" name="w3review" rows="4" class="form-control" >
-                             </textarea>
+                              <div class="row">
+                                Duration:
+                              <div class="col">
+
+                                 <label class="text-white">Min :</label>
+                  {!! Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']) !!}
+                              </div>
+                              <div class="col">
+                                 <label class="text-white">Max :</label>
+                          {!! Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']) !!}
+                              </div>
+                            </div>
                             </div>
                             
                         
@@ -413,7 +430,7 @@
                                       @foreach($category as $cat)
                                       @if($cat->type=='video')
                              <label class=""> 
-                               {{Form::checkbox('catid[]', $cat->id)}}
+                               {{Form::checkbox('categories[]', $cat->id)}}
                                {{$cat->category}} 
                              </label><br>
                              @endif
@@ -425,7 +442,7 @@
                                       @foreach($category as $cat)
                                       @if($cat->type=='audio')
                              <label class=""> 
-                               {{Form::checkbox('catid[]', $cat->id)}}
+                               {{Form::checkbox('categories[]', $cat->id)}}
                                {{$cat->category}} 
                              </label><br>
                              @endif
@@ -436,6 +453,7 @@
                     </div>
 
                     </div>
+                     {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
                      {{ Form::close() }}
                   </div>
                 </ul>

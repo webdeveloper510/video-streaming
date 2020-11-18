@@ -698,7 +698,6 @@ class AuthController extends Controller
                      if((array)$charge){
 
         Session::flash('test', array('test1', 'test2', 'test3'));
-     //return View::make("/success")->with(array('charge'=>$charge));
         return redirect('/paymentSuccess');
 
 
@@ -865,6 +864,32 @@ public function notifyEmail(Request $req){
       else{
         echo "no";
       }
+
+    }
+
+    public function addRequest(Request $req){
+         $this->validate($req,[
+          'media' => 'required',
+          'description'=>'required',
+          'price'=>'required',
+          'title'=>'required',
+          'min'=>'required',
+          'max'=>'required',
+          'categories'=>'required'
+      ]
+        );
+
+         unset($req['_token']);
+
+        $add = $this->model->addRequest($req);
+
+        if($add == 1){
+
+          echo "yea";
+        }
+        else{
+          echo "no";
+        }
 
     }
 

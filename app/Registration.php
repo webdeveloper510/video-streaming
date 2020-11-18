@@ -545,6 +545,38 @@ public function getRespectedSub($data){
 
     }
 
+
+    public function addRequest($data){
+
+        $session_data =   Session::get('User');
+
+        $reqData = $data->all();
+
+          $reqData['created_at']=now();
+        $reqData['updated_at']=now();
+
+         $reqData['userid'] =  $session_data->id ;
+
+        $reqData['duration'] = $reqData['min'].'-'.$reqData['max'];
+
+        unset($reqData['min']);
+        unset($reqData['max']);
+        
+
+       $category = implode(',', $reqData['categories']);
+
+       unset($reqData['categories']);
+
+
+       $reqData['cat'] = $category;
+
+       //print_r($reqData);
+
+        $req = DB::table('add_request')->insert($reqData);
+
+        return $req ? 1 : 0 ;
+    }
+
     // public function getUserProfile($uid){
 
     //    $value=DB::table('users')->where('id', $userId)->get()->toArray();

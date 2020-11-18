@@ -23,7 +23,11 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
-                    <li  class="link_click"><a data-toggle="tab" href="#menu3">Add Request</a></li>
+                    <?php if($login): ?>
+                    <li  class="link_click">
+                      <a data-toggle="tab" href="#menu3">Add Request</a>
+                    </li>
+                    <?php endif; ?>
                     </ul>
 
                     <div class="tab-content">
@@ -396,7 +400,7 @@
                     
                     <div id="menu3" class="tab-pane fade">
                       <h3 style="color: #fff;">Request</h3>
-                         <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+                         <?php echo Form::open(['action' => 'AuthController@addRequest', 'method' => 'post']); ?>
 
                             <?php echo e(Form::token()); ?>
 
@@ -406,31 +410,49 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               <?php echo e(Form::radio('media1', 'asc', true ,['class'=>'media1 audio1'])); ?> Audio
+                               <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
                            
                             </label><br>
                             <label class="">
-                               <?php echo e(Form::radio('media1', 'desc', false ,['class'=>'media1 video1'])); ?> Video 
+                               <?php echo e(Form::radio('media', 'video', false ,['class'=>'media1 video1'])); ?> Video 
 
                             
                           </label><br>
                       
                         </div>
+                          <div class="form-group">
+                              <label class="text-white">Description</label>
+              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
+
+                            </div>
                       </div>
                       <div class="col">
                                     <div class="form-group">
-                              <label class="text-white">Audio Price</label>
-                              <input type="text" class="form-control" >
+                              <label class="text-white">Price/Minutes</label>
+                               <?php echo e(Form::text('price','',['class'=>'form-control'])); ?>
+
                              
                             </div>
                             <div class="form-group">
                               <label class="text-white">Title</label>
-                              <input type="text" class="form-control" >
+                            <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
+
                             </div>
                             <div class="form-group">
-                              <label class="text-white">Description</label>
-                             <textarea id="w3review" name="w3review" rows="4" class="form-control" >
-                             </textarea>
+                              <div class="row">
+                                Duration:
+                              <div class="col">
+
+                                 <label class="text-white">Min :</label>
+                  <?php echo Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']); ?>
+
+                              </div>
+                              <div class="col">
+                                 <label class="text-white">Max :</label>
+                          <?php echo Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']); ?>
+
+                              </div>
+                            </div>
                             </div>
                             
                         
@@ -441,7 +463,7 @@
                                       <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($cat->type=='video'): ?>
                              <label class=""> 
-                               <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
 
                                <?php echo e($cat->category); ?> 
                              </label><br>
@@ -454,7 +476,7 @@
                                       <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($cat->type=='audio'): ?>
                              <label class=""> 
-                               <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
 
                                <?php echo e($cat->category); ?> 
                              </label><br>
@@ -466,6 +488,8 @@
                     </div>
 
                     </div>
+                     <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+
                      <?php echo e(Form::close()); ?>
 
                   </div>
