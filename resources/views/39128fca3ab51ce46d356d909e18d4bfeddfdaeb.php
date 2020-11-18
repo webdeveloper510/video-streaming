@@ -16,34 +16,40 @@
         <div class="col"></div>
         <div class="col-md-8">
             <div class="text-center my-5">
-              <img src="{{asset('images/logos/Color.png')}}" width="300px">
+              <img src="<?php echo e(asset('images/logos/Color.png')); ?>" width="300px">
                 <h1  style="font-size: 83px;font-family: 'Satisfy', cursive;">We're Coming Soon</h1>
             </div>
 
-            @foreach($errors->all() as $error)
+            <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <div class="alert alert-danger">
-              {{$error}}
+              <?php echo e($error); ?>
+
             </div>
-             @endforeach
-                 {!!Form::open(['action' => 'AuthController@notifyEmail', 'method' => 'post'])!!}
-          {{Form::token()}}
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 <?php echo Form::open(['action' => 'AuthController@notifyEmail', 'method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?>
+
                 <div class="form-row">
                     <div class="col"></div>
          
                   <div class="col-sm-7">
-                  {{Form::label('Email', 'Enter your email here**')}} 
-                {{Form::text('emails', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                  <?php echo e(Form::label('Email', 'Enter your email here**')); ?> 
+                <?php echo e(Form::text('emails', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+
                   </div>
 
                   <div class="col-sm-3 mt-2">
                 
                       <br>
-                       {{ Form::submit('Notify Me!',['class'=>'form-control btn btn-dark']) }}
+                       <?php echo e(Form::submit('Notify Me!',['class'=>'form-control btn btn-dark'])); ?>
+
                   </div>
                   <div class="col"></div>
                 </div>
-                 {{ Form::close() }}
+                 <?php echo e(Form::close()); ?>
+
        
     </div>
     <div class="col"></div>
@@ -63,4 +69,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     -->
   </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/siteProcess.blade.php ENDPATH**/ ?>

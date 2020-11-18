@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\verifyEmail;
 
+use App\Mail\notifyEmail;
+
 use Illuminate\Http\RedirectResponse;
 
 
@@ -822,7 +824,48 @@ public function getSelectingArtist(Request $req){
 }
 
 public function process(){
+
   return view('siteProcess');
+
 }
+
+public function notifyEmail(Request $req){
+
+     $this->validate($req,[
+           
+              'emails'=>'required',   
+          ]
+            );
+
+      unset($req['_token']);
+
+      $insertid = $this->model->notifyMe($req);
+
+      if($insertid!=0){
+
+         Mail::to($req->emails)->send(new notifyEmail($insertid));
+
+
+
+      }      
+
+    }
+
+    public function notify($notifyId){
+
+      $notId = base64_decode($notifyId);
+
+      $up = $this->model->notifyConfirm($notId);
+
+      if($up){
+
+        echo 'yes';
+      }
+
+      else{
+        echo "no";
+      }
+
+    }
 
 }
