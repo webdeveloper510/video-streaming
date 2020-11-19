@@ -183,7 +183,7 @@ public function uploadContentData($userdata){
 
                 else{
 
-                  //echo "yes";die;
+                  echo "yes";die;
 
      $data->user == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
       $data->session()->put('User', $value);
