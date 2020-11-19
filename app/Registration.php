@@ -555,9 +555,9 @@ public function getRespectedSub($data){
 
     public function showRequests(){
 
-            $requests = DB::table('add_request')->get();
+            $requests = DB::table('add_request')->get()->toArray();
 
-            return $requests;
+             print_r($requests);
     }
 
 
