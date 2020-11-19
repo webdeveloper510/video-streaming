@@ -1,5 +1,20 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+ <?php if(session('success')): ?>
+<div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <h1 class="text-center text-uppercase"><?php echo e(session('success')); ?></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
 <!-- end header -->
 
 <!--1st slider start-->
@@ -449,4 +464,11 @@ rewindNav:false
 </body>
 
 </html>
-<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
+
+<script type="text/javascript">
+  $ (window).ready (function () {
+  setTimeout (function () {
+    $ ('#modal-subscribe').modal ("show")
+  }, 1000)
+})
+</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
