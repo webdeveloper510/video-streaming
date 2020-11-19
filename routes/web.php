@@ -106,13 +106,15 @@ Route::post('checkprice', 'AuthController@price');
 
 /*---------------------------End Admin-----------------------------*/
 
-/*-------------------------------------Artist Route ---------------------------*/
+/*-----------------------------------------------Artist Route ---------------------------------------------------------*/
 
      Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
     Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
 
     Route::get('artistRegister', 'AuthController@artistRegister');
+
+    Route::get('artist/requests', 'artist@showRequest');
 
     Route::get('artistLogin', 'AuthController@getLogin');
     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');

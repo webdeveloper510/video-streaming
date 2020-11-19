@@ -46,7 +46,9 @@ class AuthController extends Controller
 
     public function __construct()
     {
+
        $this->model= new Registration();
+
     }
 
 
@@ -82,7 +84,7 @@ class AuthController extends Controller
 
     }
 
-    /*----------Filter Result-------------------------------------------*/
+    /*----------------------------------------------------Filter Result-------------------------------------------*/
 
     public function search(){
 
@@ -298,9 +300,9 @@ class AuthController extends Controller
             // echo "yes";die;
               return redirect('/'.$redirect_url)->with('success','Login Successfully!');
             }
-            else if($data['g-recaptcha-response']==''){
-                return redirect('/login')->with('captcha','invalid Captcha!!');
-            }
+            // else if($data['g-recaptcha-response']==''){
+            //     return redirect('/login')->with('captcha','invalid Captcha!!');
+            // }
             else if($get='Not Verify'){
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
@@ -382,7 +384,7 @@ class AuthController extends Controller
 
        if($get){
         //echo "yes";die;
-           Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
+          //Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
          return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
        }
        else{

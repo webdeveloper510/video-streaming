@@ -20,7 +20,9 @@ $(document).ready(function() {
         });
 
 
-        	var id= $(".media:checked").attr('class').split(' ');
+     var id= $(".media:checked").attr('class').split(' ');
+
+     //alert(id);
 
   	var notId= $(".media:not(:checked)").attr('class').split(' ');
   	$('#'+id[1]).show();

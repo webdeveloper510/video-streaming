@@ -42,7 +42,13 @@
               
           </div>  
                 @endif
-          </div>  
+          </div> 
+
+          <div class="form-group">
+              {{Form::radio('user', 'contentprovider', true)}} Login As A Artist
+
+               {{Form::radio('user', 'users', false )}} Login As A User
+          </div> 
 
             
 
@@ -64,7 +70,7 @@
            
         
 <p class="text-white">Don't have an account yet ?</p>
-<a href="{{ URL::to('register')}}" class="ffff "> Signup Now</a>
+<a href="{{ URL::to('register')}}" class="ffff ">Signup Now</a>
         </div>
       </div>
     </div>

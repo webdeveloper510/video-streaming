@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+@include('layout.cdn')
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
@@ -393,32 +393,57 @@
                       
                         </div>
                           <div class="form-group">
-                              <label class="text-white">Description</label>
+                      <label class="text-white">Description</label>
               {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
-                            </div>
+                      </div>
+                @if($errors->first('description'))
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('description'); ?>
+                </div>
+                @endif
                       </div>
                       <div class="col">
-                                    <div class="form-group">
+                              <div class="form-group">
                               <label class="text-white">Price/Minutes</label>
                                {{Form::text('price','',['class'=>'form-control'])}}
                              
                             </div>
+                            @if($errors->first('price'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('price') ?>
+                            </div>
+                            @endif
                             <div class="form-group">
                               <label class="text-white">Title</label>
                             {{Form::text('title','',['class'=>'form-control'])}}
                             </div>
+                            @if($errors->first('title'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('title'); ?>
+                            </div>
+                            @endif
                             <div class="form-group">
+                               <label class="text-white">Duration</label><hr>
                               <div class="row">
-                                Duration:
                               <div class="col">
 
                                  <label class="text-white">Min :</label>
                   {!! Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']) !!}
                               </div>
+                               @if($errors->first('min'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('min'); ?>
+                            </div>
+                            @endif
                               <div class="col">
                                  <label class="text-white">Max :</label>
                           {!! Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']) !!}
                               </div>
+                               @if($errors->first('max'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('max'); ?>
+                            </div>
+                            @endif
                             </div>
                             </div>
                             
@@ -581,7 +606,8 @@
     width: 98%;
 }
 </style>
-
-<script type="text/javascript">
-
-</script>
+ @if($errors->all())
+  <script type="text/javascript">
+      alert('rrr');
+   </script>
+    @endif

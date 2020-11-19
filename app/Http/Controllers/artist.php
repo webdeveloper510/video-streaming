@@ -35,6 +35,15 @@ class artist extends Controller
     }
 
 
+    public function showRequest(){
+
+        $showRequest = $this->model->showRequests();
+
+        print_r($showRequest);
+
+    }
+
+
     public function artistDetail($artistid){
          
     	   $allArtists=     $this->model->getArtistDetail($artistid);

@@ -156,32 +156,37 @@ public function uploadContentData($userdata){
 
         $table = array('users','contentprovider') ;
 
-          for($i=0; $i<count($table); $i++){
+   
 
            // print_r($table);die;
-           $value = DB::table($table[$i])->where(array(
+           $value = DB::table($data->user)->where(array(
               'email'=> $data->email,
               'password'=>md5($data->password)))
               ->get()
               ->first();
-              $varify = $value->verify;
-              if($value && $varify==1){
-                $tableName = $table[$i];
-                break; 
-              }
-              else if($varify==0){
-                return 'Not Verify';
-              }
-          }
+             // print_r($value);die;
+            $varify = $value ? $value->verify : '';
+            
+
+
+         // print_r($value);die;
 
            if(is_null($value)){
                   return 0;
             }
               else{
 
-      $tableName == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
-            $data->session()->put('User', $value);
+                if($value->verify!=1){
+
+                            return 'Not Verify';
+                }
+
+                else{
+
+     $data->user == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
+      $data->session()->put('User', $value);
                 return 1;
+            }
               }
 
 
@@ -543,6 +548,14 @@ public function getRespectedSub($data){
 
       return $update ? 1 : 0 ; 
 
+    }
+
+
+    public function showRequests(){
+
+            $requests = DB::table('add_request')->get();
+            
+            return $requests;
     }
 
 

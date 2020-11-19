@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta name="csrf-token" content="{{ csrf_token() }}" />
+   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
   <title>
    Dashboard
   </title>
@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
  
   <!-- CSS Files -->
-  <link href="{{asset('artistdashboard//css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
+  <link href="<?php echo e(asset('artistdashboard//css/material-dashboard.css?v=2.1.2')); ?>" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
+  <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
 
 </head>
 
@@ -33,45 +33,46 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="" class="simple-text logo-normal">
-      	@isset($contentUser)
-       {{ $contentUser->nickname }}
-          @endisset
+      	<?php if(isset($contentUser)): ?>
+       <?php echo e($contentUser->nickname); ?>
+
+          <?php endif; ?>
         
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active ">
-            <a class="nav-link " href="{{url('artists/dashboard')}}">
+            <a class="nav-link " href="<?php echo e(url('artists/dashboard')); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{url('artist/Profile')}}">
+            <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{url('artist/contentUpload')}}">
+            <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload Content</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{url('/withdraw')}}">
+            <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
            <li class="nav-item ">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+            <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
               <i class="fa fa-money"></i>
               <p>Requests</p>
             </a>
           </li>
            <li class="nav-item ">
-            <a class="nav-link" href="{{url('/withdraw')}}">
+            <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>My Offers</p>
             </a>
@@ -119,9 +120,9 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="{{url('artist/edit')}}">Edit Profile</a>
+                  <a class="dropdown-item" href="<?php echo e(url('artist/edit')); ?>">Edit Profile</a>
                   <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{url('logout')}}">Log out</a>
+            <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
                 </div>
               </li>
             </ul>
@@ -132,3 +133,4 @@
        
       <!-- End Navbar -->
 
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
