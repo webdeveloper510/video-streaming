@@ -46,7 +46,13 @@
               
           </div>  
                 <?php endif; ?>
-          </div>  
+          </div> 
+
+          <div class="form-group">
+              <?php echo e(Form::radio('user', 'contentprovider', true)); ?> Login As A Artist
+
+               <?php echo e(Form::radio('user', 'users', false )); ?> Login As A User
+          </div> 
 
             
 
@@ -70,7 +76,7 @@
            
         
 <p class="text-white">Don't have an account yet ?</p>
-<a href="<?php echo e(URL::to('register')); ?>" class="ffff "> Signup Now</a>
+<a href="<?php echo e(URL::to('register')); ?>" class="ffff ">Signup Now</a>
         </div>
       </div>
     </div>

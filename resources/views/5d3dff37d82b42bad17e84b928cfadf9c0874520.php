@@ -1,3 +1,4 @@
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
@@ -420,37 +421,62 @@
                       
                         </div>
                           <div class="form-group">
-                              <label class="text-white">Description</label>
+                      <label class="text-white">Description</label>
               <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
 
-                            </div>
+                      </div>
+                <?php if($errors->first('description')): ?>
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('description'); ?>
+                </div>
+                <?php endif; ?>
                       </div>
                       <div class="col">
-                                    <div class="form-group">
+                              <div class="form-group">
                               <label class="text-white">Price/Minutes</label>
                                <?php echo e(Form::text('price','',['class'=>'form-control'])); ?>
 
                              
                             </div>
+                            <?php if($errors->first('price')): ?>
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('price') ?>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group">
                               <label class="text-white">Title</label>
                             <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
 
                             </div>
+                            <?php if($errors->first('title')): ?>
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('title'); ?>
+                            </div>
+                            <?php endif; ?>
                             <div class="form-group">
+                               <label class="text-white">Duration</label><hr>
                               <div class="row">
-                                Duration:
                               <div class="col">
 
                                  <label class="text-white">Min :</label>
                   <?php echo Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']); ?>
 
                               </div>
+                               <?php if($errors->first('min')): ?>
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('min'); ?>
+                            </div>
+                            <?php endif; ?>
                               <div class="col">
                                  <label class="text-white">Max :</label>
                           <?php echo Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']); ?>
 
                               </div>
+                               <?php if($errors->first('max')): ?>
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('max'); ?>
+                            </div>
+                            <?php endif; ?>
                             </div>
                             </div>
                             
@@ -617,8 +643,9 @@
     width: 98%;
 }
 </style>
-
-<script type="text/javascript">
-
-</script>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/header.blade.php ENDPATH**/ ?>
+ <?php if($errors->all()): ?>
+  <script type="text/javascript">
+      alert('rrr');
+   </script>
+    <?php endif; ?>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/header.blade.php ENDPATH**/ ?>

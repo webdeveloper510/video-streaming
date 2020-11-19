@@ -151,25 +151,18 @@ public function uploadContentData($userdata){
     }
 }
     public function login($data){
-
-
-
-        $table = array('users','contentprovider') ;
-
+        
+        $table = $data['user'];
    
-
-           // print_r($table);die;
-           $value = DB::table($data->user)->where(array(
-              'email'=> $data->email,
-              'password'=>md5($data->password)))
+            $value = DB::table($table)->where(array(
+              'email'=> $data['email'],
+              'password'=>md5($data['password'])))
               ->get()
               ->first();
+             
+              
              // print_r($value);die;
-           // $varify = $value ? $value->verify : '';
-            
-
-
-         print_r($value);
+          
 
            if(is_null($value)){
                   return 0;
@@ -183,17 +176,17 @@ public function uploadContentData($userdata){
 
                 else{
 
-                  echo "yes";die;
+                  //echo "yes";die;
 
-     $data->user == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
-      $data->session()->put('User', $value);
+    $data['user'] == 'users' ? Session::put('userType','User'): Session::put('userType','contentUser');
+     Session::put('User', $value);
                 return 1;
             }
               }
 
 
      
-    die;
+  
 
         
 }

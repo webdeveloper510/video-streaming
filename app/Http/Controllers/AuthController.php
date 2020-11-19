@@ -292,9 +292,10 @@ class AuthController extends Controller
             );
 
             $data=$request->all();
-            $get = $this->model->login($request);
+           // print_r($data);die;
+            $get = $this->model->login($data);
 
-           print_r($get);
+          // print_r($get);
 
              $redirect_url=Session::get('redirect_url');
 
@@ -302,9 +303,9 @@ class AuthController extends Controller
             // echo "yes";die;
               return redirect('/'.$redirect_url)->with('success','Login Successfully!');
             }
-            // else if($data['g-recaptcha-response']==''){
-            //     return redirect('/login')->with('captcha','invalid Captcha!!');
-            // }
+             else if($data['g-recaptcha-response']==''){
+                 return redirect('/login')->with('captcha','invalid Captcha!!');
+             }
             else if($get=='Not Verify'){
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
