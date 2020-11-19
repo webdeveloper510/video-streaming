@@ -165,11 +165,11 @@ public function uploadContentData($userdata){
               ->get()
               ->first();
              // print_r($value);die;
-            $varify = $value ? $value->verify : '';
+           // $varify = $value ? $value->verify : '';
             
 
 
-         // print_r($value);die;
+         //print_r($value);die;
 
            if(is_null($value)){
                   return 0;
@@ -182,6 +182,8 @@ public function uploadContentData($userdata){
                 }
 
                 else{
+
+                  //echo "yes";die;
 
      $data->user == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
       $data->session()->put('User', $value);
@@ -554,7 +556,7 @@ public function getRespectedSub($data){
     public function showRequests(){
 
             $requests = DB::table('add_request')->get();
-            
+
             return $requests;
     }
 

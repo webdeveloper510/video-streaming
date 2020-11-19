@@ -294,6 +294,8 @@ class AuthController extends Controller
             $data=$request->all();
             $get = $this->model->login($request);
 
+           // print_r($get);die;
+
              $redirect_url=Session::get('redirect_url');
 
             if($get==1 && $data['g-recaptcha-response'] || $redirect_url){
@@ -303,7 +305,7 @@ class AuthController extends Controller
             // else if($data['g-recaptcha-response']==''){
             //     return redirect('/login')->with('captcha','invalid Captcha!!');
             // }
-            else if($get='Not Verify'){
+            else if($get=='Not Verify'){
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
