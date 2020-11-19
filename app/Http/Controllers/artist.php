@@ -39,7 +39,9 @@ class artist extends Controller
 
         $showRequest = $this->model->showRequests();
 
-        print_r($showRequest);
+    
+
+        return view('artists.request',['request'=>$showRequest]);
 
     }
 

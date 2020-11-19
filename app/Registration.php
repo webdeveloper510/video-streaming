@@ -150,7 +150,11 @@ public function uploadContentData($userdata){
       return 0;
     }
 }
+<<<<<<< HEAD
     public function login($data){
+=======
+      public function login($data){
+>>>>>>> a702a4e6995ce2561280c4afef152ffb5fb3e242
         
         $table = $data['user'];
    
@@ -190,7 +194,6 @@ public function uploadContentData($userdata){
 
         
 }
-
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
        $userid=$session_data->id;
@@ -548,9 +551,25 @@ public function getRespectedSub($data){
 
     public function showRequests(){
 
-            $requests = DB::table('add_request')->get()->toArray();
 
-             print_r($requests);
+      $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name, (SELECT nickname from users WHERE i.userid=users.id  ) as user_name FROM    add_request i, category c WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.description,i.media,i.userid");
+  
+        return $data;
+        
+//       echo "<pre>";
+// print_r($data);die;
+//             $requests = DB::table('add_request')->get()->toArray();
+
+//             //return $requests;
+
+//             $requests[] = DB::table("category")->select('*')
+//             ->whereIn('id',function($query){
+//                $query->select('cat')->from('add_request');
+//             })
+//             ->get()->toArray();
+
+                 
+//             return $requests;
     }
 
 

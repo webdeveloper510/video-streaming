@@ -292,8 +292,10 @@ class AuthController extends Controller
             );
 
             $data=$request->all();
-           // print_r($data);die;
+
+
             $get = $this->model->login($data);
+
 
           // print_r($get);
 
