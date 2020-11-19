@@ -150,26 +150,19 @@ public function uploadContentData($userdata){
       return 0;
     }
 }
-    public function login($data){
-
-
-
-        $table = array('users','contentprovider') ;
-
+      public function login($data){
+        
+        $table = $data['user'];
    
-
-           // print_r($table);die;
-           $value = DB::table($data->user)->where(array(
-              'email'=> $data->email,
-              'password'=>md5($data->password)))
+            $value = DB::table($table)->where(array(
+              'email'=> $data['email'],
+              'password'=>md5($data['password'])))
               ->get()
               ->first();
+             
+              
              // print_r($value);die;
-           // $varify = $value ? $value->verify : '';
-            
-
-
-         print_r($value);
+          
 
            if(is_null($value)){
                   return 0;
@@ -183,21 +176,20 @@ public function uploadContentData($userdata){
 
                 else{
 
-                  echo "yes";die;
+                  //echo "yes";die;
 
-     $data->user == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
-      $data->session()->put('User', $value);
+    $data['user'] == 'users' ? Session::put('userType','User'): Session::put('userType','contentUser');
+     Session::put('User', $value);
                 return 1;
             }
               }
 
 
      
-    die;
+  
 
         
 }
-
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
        $userid=$session_data->id;
@@ -555,9 +547,25 @@ public function getRespectedSub($data){
 
     public function showRequests(){
 
-            $requests = DB::table('add_request')->get()->toArray();
 
-             print_r($requests);
+      $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name, (SELECT nickname from users WHERE i.userid=users.id  ) as user_name FROM    add_request i, category c WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.description,i.media,i.userid");
+  
+        return $data;
+        
+//       echo "<pre>";
+// print_r($data);die;
+//             $requests = DB::table('add_request')->get()->toArray();
+
+//             //return $requests;
+
+//             $requests[] = DB::table("category")->select('*')
+//             ->whereIn('id',function($query){
+//                $query->select('cat')->from('add_request');
+//             })
+//             ->get()->toArray();
+
+                 
+//             return $requests;
     }
 
 

@@ -292,9 +292,10 @@ class AuthController extends Controller
             );
 
             $data=$request->all();
-            $get = $this->model->login($request);
 
-           print_r($get);
+            $get = $this->model->login($data);
+
+          // print_r($get);
 
              $redirect_url=Session::get('redirect_url');
 
