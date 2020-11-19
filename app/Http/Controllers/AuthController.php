@@ -885,10 +885,10 @@ public function notifyEmail(Request $req){
 
         if($add == 1){
 
-          echo "yea";
+            return redirect('/')->with('success','Thank You Your Request Sent Successfully!');
         }
         else{
-          echo "no";
+          return redirect('/')->with('success','Some Error Occure!');
         }
 
     }
