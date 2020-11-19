@@ -169,7 +169,7 @@ public function uploadContentData($userdata){
             
 
 
-         //print_r($value);die;
+         print_r($value);
 
            if(is_null($value)){
                   return 0;
