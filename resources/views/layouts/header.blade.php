@@ -394,19 +394,7 @@
                           </label><br>
                       
                         </div>
-                          <div class="form-group">
-                      <label class="text-white">Description</label>
-              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
-                      </div>
-                @if($errors->first('description'))
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('description'); ?>
-                </div>
-                @endif
-                      </div>
-                      <div class="col">
-
-                        <div class="row">
+                           <div class="row">
                           <div class="col">
                              <div class="form-group">
                               <label class="text-white">Pay/Minutes</label>
@@ -433,17 +421,8 @@
                             @endif
                           </div>
                         </div>
-                             
-                            <div class="form-group">
-                              <label class="text-white">Title</label>
-                            {{Form::text('title','',['class'=>'form-control'])}}
-                            </div>
-                            @if($errors->first('title'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('title'); ?>
-                            </div>
-                            @endif
-                            <div class="form-group">
+
+                                <div class="form-group">
                                <label class="text-white">Duration in Minutes</label><hr>
                               <div class="row">
                               <div class="col">
@@ -467,6 +446,32 @@
                             @endif
                             </div>
                             </div>
+                
+                      </div>
+                      <div class="col">
+                             
+                            <div class="form-group">
+                              <label class="text-white">Title</label>
+                            {{Form::text('title','',['class'=>'form-control'])}}
+                            </div>
+                            @if($errors->first('title'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('title'); ?>
+                            </div>
+                            @endif
+
+                                      <div class="form-group">
+                      <label class="text-white">Description</label>
+              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 6, 'cols' => 40])}}
+                      </div>
+                @if($errors->first('description'))
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('description'); ?>
+                </div>
+                @endif
+
+
+                    
                             
                         
                       </div>

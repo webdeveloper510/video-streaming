@@ -25,7 +25,7 @@
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     <?php if($login): ?>
                     <li  class="link_click">
-                      <a data-toggle="tab" href="#menu3">Upload Now</a>
+                      <a data-toggle="tab" href="#menu3">Add Request</a>
                     </li>
                     <?php endif; ?>
                     </ul>
@@ -422,20 +422,7 @@
                           </label><br>
                       
                         </div>
-                          <div class="form-group">
-                      <label class="text-white">Description</label>
-              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
-
-                      </div>
-                <?php if($errors->first('description')): ?>
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('description'); ?>
-                </div>
-                <?php endif; ?>
-                      </div>
-                      <div class="col">
-
-                        <div class="row">
+                           <div class="row">
                           <div class="col">
                              <div class="form-group">
                               <label class="text-white">Pay/Minutes</label>
@@ -464,18 +451,8 @@
                             <?php endif; ?>
                           </div>
                         </div>
-                             
-                            <div class="form-group">
-                              <label class="text-white">Title</label>
-                            <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
 
-                            </div>
-                            <?php if($errors->first('title')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('title'); ?>
-                            </div>
-                            <?php endif; ?>
-                            <div class="form-group">
+                                <div class="form-group">
                                <label class="text-white">Duration in Minutes</label><hr>
                               <div class="row">
                               <div class="col">
@@ -501,6 +478,34 @@
                             <?php endif; ?>
                             </div>
                             </div>
+                
+                      </div>
+                      <div class="col">
+                             
+                            <div class="form-group">
+                              <label class="text-white">Title</label>
+                            <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
+
+                            </div>
+                            <?php if($errors->first('title')): ?>
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('title'); ?>
+                            </div>
+                            <?php endif; ?>
+
+                                      <div class="form-group">
+                      <label class="text-white">Description</label>
+              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 6, 'cols' => 40])); ?>
+
+                      </div>
+                <?php if($errors->first('description')): ?>
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('description'); ?>
+                </div>
+                <?php endif; ?>
+
+
+                    
                             
                         
                       </div>
@@ -535,7 +540,7 @@
                     </div>
 
                     </div>
-                     <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+                     <?php echo e(Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4'])); ?>
 
                      <?php echo e(Form::close()); ?>
 
