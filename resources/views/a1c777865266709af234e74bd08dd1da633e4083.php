@@ -453,7 +453,7 @@
                            <div class="col">
                              <div class="form-group">
                               <label class="text-white">Total Price</label>
-                               <?php echo e(Form::text('price','',['class'=>'form-control'])); ?>
+                               <?php echo e(Form::text('total','',['class'=>'form-control'])); ?>
 
                              
                             </div>

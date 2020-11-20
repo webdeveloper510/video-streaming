@@ -35,9 +35,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach($request as $req)
+                        @foreach($request as $index=>$req)
                       <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{$index}}</th>
                         <td>{{$req->description}}</td>
                         <td>{{$req->price}}</td>
                        

@@ -35,15 +35,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <tr>
-                        <th scope="row">1</th>
+                        <th scope="row"><?php echo e($index); ?></th>
                         <td><?php echo e($req->description); ?></td>
                         <td><?php echo e($req->price); ?></td>
                        
                         <td><?php echo e($req->title); ?></td>
                         <td><?php echo e($req->media); ?></td>
-                        <td><?php echo e($req->duration); ?></td>
+                        <td><?php echo e($req->duration.'Minutes'); ?></td>
                         <td><?php echo e($req->user_name); ?></td>
                          <td><?php echo e($req->category_name); ?></td>
                       </tr>

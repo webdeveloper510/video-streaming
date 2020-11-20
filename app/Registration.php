@@ -583,9 +583,12 @@ public function getRespectedSub($data){
 
          $reqData['userid'] =  $session_data->id ;
 
-        $reqData['duration'] = $reqData['min'].'-'.$reqData['max'];
+        $reqData['duration'] = $reqData['min'].' Minutes - '.$reqData['max'].'Minutes';
+
+        $reqData['total_price'] = $reqData['total'] ? $reqData['total'] : 0;
 
         unset($reqData['min']);
+        unset($reqData['total']);
         unset($reqData['max']);
         
 

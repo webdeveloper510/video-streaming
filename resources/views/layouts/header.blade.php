@@ -25,7 +25,7 @@
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     @if($login)
                     <li  class="link_click">
-                      <a data-toggle="tab" href="#menu3">Upload Now</a>
+                      <a data-toggle="tab" href="#menu3">Add Request</a>
                     </li>
                     @endif
                     </ul>
@@ -423,7 +423,7 @@
                            <div class="col">
                              <div class="form-group">
                               <label class="text-white">Total Price</label>
-                               {{Form::text('price','',['class'=>'form-control'])}}
+                               {{Form::text('total','',['class'=>'form-control'])}}
                              
                             </div>
                             @if($errors->first('price'))
@@ -499,7 +499,7 @@
                     </div>
 
                     </div>
-                     {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+                     {{ Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4']) }}
                      {{ Form::close() }}
                   </div>
                 </ul>
