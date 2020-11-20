@@ -20,17 +20,26 @@
 }
 .dropdown12 {
     border: 1px solid #cbc3c3;
+     margin-top: 25px;
 }
 .dropdown1 {
     border: 1px solid #cbc3c3;
+    margin-top: 25px;
 }
-
+.dropdown12 {
+    height: 330px;
+    overflow-y: scroll;
+}
 li.nav-item {
     padding: 10px;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #ffffff;
     background-color: #7b0000;
+    border: 1px solid #7b0000;
+}
+input.form-control.price::placeholder {
+    color: grey;
 }
 .fade:not(.show) {
     opacity: 1;
@@ -85,10 +94,10 @@ li.nav-item {
                             </div>
                             @endif
                           </div>
-                          OR
+                          <p style="padding-top: 33px;">or</p>
                            <div class="col">
                              <div class="form-group">
-                              <label class="text-white">Total Price</label>
+                              <label>Total Price</label>
                                {{Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
                              
                             </div>
@@ -101,7 +110,7 @@ li.nav-item {
                         </div>
 
                                 <div class="form-group">
-                               <label >Duration (in Minutes)</label><hr>
+                               <label >Duration <span style="color:grey;">(in Minutes)</span></label><hr>
                               <div class="row">
                               <div class="col">
 
@@ -140,7 +149,7 @@ li.nav-item {
 
                                       <div class="form-group">
                       <label >Description</label>
-              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 6, 'cols' => 40])}}
+              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 11, 'cols' => 40])}}
                       </div>
                 @if($errors->first('description'))
                 <div class="alert alert-danger">
@@ -190,12 +199,9 @@ li.nav-item {
    
    <div id="my" class="tab-pane fade">
         <div class="row">
-            <div class="col">
-
-            </div>
-            <div class="col-md-10 io">
-                <h2 class="text-center mb-5 mt-3">My Requests</h2>
-                
+            <div class="col-md-12 io">
+                <h3 class="text-center  mt-3">My Requests</h3>
+              <hr>   
              
                 <table class="table table-borderless">
                     <thead>
@@ -229,9 +235,6 @@ li.nav-item {
                     
                     </tbody>
                   </table>
-            </div>
-            <div class="col">
-                
             </div>
         </div>
         </div>

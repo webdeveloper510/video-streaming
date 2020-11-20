@@ -452,7 +452,7 @@
         <a href="<?php echo e(url('/my-requests/'.base64_encode($login->id))); ?>">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  <?php echo e($userProfile[0]->tokens); ?>PAZ
+  <b><?php echo e($userProfile[0]->tokens); ?></b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
