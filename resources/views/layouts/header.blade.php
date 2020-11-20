@@ -449,7 +449,7 @@
                               <div class="col">
 
                                  <label class="text-white">Min :</label>
-                  {!! Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']) !!}
+                  {!! Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']) !!}
                               </div>
                                @if($errors->first('min'))
                             <div class="alert alert-danger">
@@ -458,7 +458,7 @@
                             @endif
                               <div class="col">
                                  <label class="text-white">Max :</label>
-                          {!! Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']) !!}
+                          {!! Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']) !!}
                               </div>
                                @if($errors->first('max'))
                             <div class="alert alert-danger">

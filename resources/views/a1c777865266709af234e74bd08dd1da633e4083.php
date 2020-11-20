@@ -481,7 +481,7 @@
                               <div class="col">
 
                                  <label class="text-white">Min :</label>
-                  <?php echo Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']); ?>
+                  <?php echo Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']); ?>
 
                               </div>
                                <?php if($errors->first('min')): ?>
@@ -491,7 +491,7 @@
                             <?php endif; ?>
                               <div class="col">
                                  <label class="text-white">Max :</label>
-                          <?php echo Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']); ?>
+                          <?php echo Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']); ?>
 
                               </div>
                                <?php if($errors->first('max')): ?>

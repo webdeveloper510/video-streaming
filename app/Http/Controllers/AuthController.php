@@ -880,8 +880,8 @@ public function notifyEmail(Request $req){
           'description'=>'required',
           'price'=>'required',
           'title'=>'required',
-          'min'=>'required',
-          'max'=>'required',
+          'min'=>'required|numeric|min:0|lt:max',
+          'max'=>'required|numeric|min:0|gt:min',
           'categories'=>'required'
       ]
         );
