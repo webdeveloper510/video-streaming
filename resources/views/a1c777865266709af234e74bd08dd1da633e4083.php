@@ -425,8 +425,8 @@
                            <div class="row">
                           <div class="col">
                              <div class="form-group">
-                              <label class="text-white">Pay/Minutes</label>
-                               <?php echo e(Form::text('price','',['class'=>'form-control'])); ?>
+                              <label class="text-white">Pay</label>
+                               <?php echo e(Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])); ?>
 
                              
                             </div>
@@ -440,20 +440,20 @@
                            <div class="col">
                              <div class="form-group">
                               <label class="text-white">Total Price</label>
-                               <?php echo e(Form::text('total','',['class'=>'form-control'])); ?>
+                               <?php echo e(Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])); ?>
 
                              
                             </div>
                             <?php if($errors->first('price')): ?>
                             <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
+                              <?php echo $errors->first('total') ?>
                             </div>
                             <?php endif; ?>
                           </div>
                         </div>
 
                                 <div class="form-group">
-                               <label class="text-white">Duration in Minutes</label><hr>
+                               <label class="text-white">Duration (in Minutes)</label><hr>
                               <div class="row">
                               <div class="col">
 
@@ -668,6 +668,18 @@
 }
 .row.text-left.text-white.mt-3.red {
     width: 98%;
+}
+.price::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+.price:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.price::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
 }
 </style>
  <?php if($errors->all()): ?>

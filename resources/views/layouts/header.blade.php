@@ -397,8 +397,8 @@
                            <div class="row">
                           <div class="col">
                              <div class="form-group">
-                              <label class="text-white">Pay/Minutes</label>
-                               {{Form::text('price','',['class'=>'form-control'])}}
+                              <label class="text-white">Pay</label>
+                               {{Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])}}
                              
                             </div>
                             @if($errors->first('price'))
@@ -411,19 +411,19 @@
                            <div class="col">
                              <div class="form-group">
                               <label class="text-white">Total Price</label>
-                               {{Form::text('total','',['class'=>'form-control'])}}
+                               {{Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
                              
                             </div>
                             @if($errors->first('price'))
                             <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
+                              <?php echo $errors->first('total') ?>
                             </div>
                             @endif
                           </div>
                         </div>
 
                                 <div class="form-group">
-                               <label class="text-white">Duration in Minutes</label><hr>
+                               <label class="text-white">Duration (in Minutes)</label><hr>
                               <div class="row">
                               <div class="col">
 
@@ -538,8 +538,7 @@
 						<div class="navbar-nav ml-auto">
               @if(!$login)
 					  <a href="{{url('register')}}" class="nav-item nav-link">Register</a>
-              <a href="{{url('/login')}}" class="nav-item nav-link"> 
-           Login</a>  
+              <a href="{{url('/login')}}" class="nav-item nav-link">  Login</a>  
            @endif             
 
             @if($login)
@@ -631,9 +630,21 @@
 .row.text-left.text-white.mt-3.red {
     width: 98%;
 }
+.price::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+.price:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.price::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
+}
 </style>
  @if($errors->all())
   <script type="text/javascript">
-      alert('rrr');
+      //alert('rrr');
    </script>
-    @endif
+  @endif
