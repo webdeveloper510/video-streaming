@@ -125,7 +125,7 @@ function readURL(input) {
 }
 
 $(document).on('click', '#checkPrice', function () {
-	alert('hello');return false;
+	//alert('hello');return false;
 	var token= $('.token').val();
 	//console.log(token);
 	$.ajax({
