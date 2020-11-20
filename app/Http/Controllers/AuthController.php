@@ -878,7 +878,8 @@ public function notifyEmail(Request $req){
          $this->validate($req,[
           'media' => 'required',
           'description'=>'required',
-          'price'=>'required',
+          'price'=>'sometimes|required',
+          'total'=>'sometimes|required',
           'title'=>'required',
           'min'=>'required|numeric|min:0|lt:max',
           'max'=>'required|numeric|min:0|gt:min',
