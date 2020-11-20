@@ -150,11 +150,8 @@ public function uploadContentData($userdata){
       return 0;
     }
 }
-<<<<<<< HEAD
+
     public function login($data){
-=======
-      public function login($data){
->>>>>>> a702a4e6995ce2561280c4afef152ffb5fb3e242
         
         $table = $data['user'];
    

@@ -25,13 +25,14 @@
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     @if($login)
                     <li  class="link_click">
-                      <a data-toggle="tab" href="#menu3">Add Request</a>
+                      <a data-toggle="tab" href="#menu3">Upload Now</a>
                     </li>
                     @endif
                     </ul>
 
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
+                        <h3 style="color: #fff;">Video</h3>
                     <div class="row">
                     <div class="col-md-6">
                       <div class="dropdown12 text-white">
@@ -67,7 +68,7 @@
                             </label><br>
                             <label class="">
                                {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
-                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             </label>
                        
@@ -97,7 +98,7 @@
                         
                     <div class="col-md-6 text-left">
               
-                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
          <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
               </div>
               <div class="col-md-6">
@@ -168,7 +169,7 @@
                               
                            </div>
                             <div class="col-md-12 text-left">
-                       {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                       {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                       {{ Form::close() }}
                      </div> 
                             </div>
@@ -189,7 +190,7 @@
                              </div>
                           <div class="col-md-6 text-left mt-3">
               
-                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
            
                        
             
@@ -200,6 +201,7 @@
                      </div> 
                    </div>
                     <div id="menu2" class="tab-pane fade1 in ">
+                        <h3 style="color: #fff;">Offers</h3>
                     <div class="row">
                     <div class="col-md-6">
                       <div class="dropdown12 text-white" id="video">
@@ -277,7 +279,7 @@
                         
                     <div class="col-md-6 text-left">
 
-                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
          <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
               </div>
               <div class="col-md-6">
@@ -358,7 +360,7 @@
                         
                     <div class="col-md-6 text-left">
               
-                {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                        </div>
               <div class="col-md-6">
                        
@@ -403,8 +405,11 @@
                 @endif
                       </div>
                       <div class="col">
-                              <div class="form-group">
-                              <label class="text-white">Price/Minutes</label>
+
+                        <div class="row">
+                          <div class="col">
+                             <div class="form-group">
+                              <label class="text-white">Pay/Minutes</label>
                                {{Form::text('price','',['class'=>'form-control'])}}
                              
                             </div>
@@ -413,6 +418,22 @@
                               <?php echo $errors->first('price') ?>
                             </div>
                             @endif
+                          </div>
+                          OR
+                           <div class="col">
+                             <div class="form-group">
+                              <label class="text-white">Total Price</label>
+                               {{Form::text('price','',['class'=>'form-control'])}}
+                             
+                            </div>
+                            @if($errors->first('price'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('price') ?>
+                            </div>
+                            @endif
+                          </div>
+                        </div>
+                             
                             <div class="form-group">
                               <label class="text-white">Title</label>
                             {{Form::text('title','',['class'=>'form-control'])}}
@@ -423,7 +444,7 @@
                             </div>
                             @endif
                             <div class="form-group">
-                               <label class="text-white">Duration</label><hr>
+                               <label class="text-white">Duration in Minutes</label><hr>
                               <div class="row">
                               <div class="col">
 
@@ -478,7 +499,7 @@
                     </div>
 
                     </div>
-                     {{ Form::submit('Submit!',['class'=>'btn btn-primary mb-4']) }}
+                     {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                      {{ Form::close() }}
                   </div>
                 </ul>
