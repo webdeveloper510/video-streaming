@@ -23,11 +23,6 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
-                    <?php if($login): ?>
-                    <li  class="link_click">
-                      <a data-toggle="tab" href="#menu3">Add Request</a>
-                    </li>
-                    <?php endif; ?>
                     </ul>
 
                     <div class="tab-content">
@@ -399,152 +394,6 @@
                     
                      </div>
                     </div>
-                    
-                    <div id="menu3" class="tab-pane fade">
-                      <h3 style="color: #fff;">Request</h3>
-                         <?php echo Form::open(['action' => 'AuthController@addRequest', 'method' => 'post']); ?>
-
-                            <?php echo e(Form::token()); ?>
-
-                      <div class="row">
-                        <div class="col">
-                          <div class="dropdown1 text-white">
-                           <h4 >Media</h4>
-                            <label class=""> 
-
-                               <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
-                           
-                            </label><br>
-                            <label class="">
-                               <?php echo e(Form::radio('media', 'video', false ,['class'=>'media1 video1'])); ?> Video 
-
-                            
-                          </label><br>
-                      
-                        </div>
-                           <div class="row">
-                          <div class="col">
-                             <div class="form-group">
-                              <label class="text-white">Pay</label>
-                               <?php echo e(Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])); ?>
-
-                             
-                            </div>
-                            <?php if($errors->first('price')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
-                            </div>
-                            <?php endif; ?>
-                          </div>
-                          OR
-                           <div class="col">
-                             <div class="form-group">
-                              <label class="text-white">Total Price</label>
-                               <?php echo e(Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])); ?>
-
-                             
-                            </div>
-                            <?php if($errors->first('price')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('total') ?>
-                            </div>
-                            <?php endif; ?>
-                          </div>
-                        </div>
-
-                                <div class="form-group">
-                               <label class="text-white">Duration (in Minutes)</label><hr>
-                              <div class="row">
-                              <div class="col">
-
-                                 <label class="text-white">Min :</label>
-                  <?php echo Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']); ?>
-
-                              </div>
-                               <?php if($errors->first('min')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('min'); ?>
-                            </div>
-                            <?php endif; ?>
-                              <div class="col">
-                                 <label class="text-white">Max :</label>
-                          <?php echo Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']); ?>
-
-                              </div>
-                               <?php if($errors->first('max')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('max'); ?>
-                            </div>
-                            <?php endif; ?>
-                            </div>
-                            </div>
-                
-                      </div>
-                      <div class="col">
-                             
-                            <div class="form-group">
-                              <label class="text-white">Title</label>
-                            <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
-
-                            </div>
-                            <?php if($errors->first('title')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('title'); ?>
-                            </div>
-                            <?php endif; ?>
-
-                                      <div class="form-group">
-                      <label class="text-white">Description</label>
-              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 6, 'cols' => 40])); ?>
-
-                      </div>
-                <?php if($errors->first('description')): ?>
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('description'); ?>
-                </div>
-                <?php endif; ?>
-
-
-                    
-                            
-                        
-                      </div>
-                      <div class="col">
-                        <div class="dropdown12 text-white" id="video1">
-                           <h4>Categories </h4>
-                                      <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <?php if($cat->type=='video'): ?>
-                             <label class=""> 
-                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
-
-                               <?php echo e($cat->category); ?> 
-                             </label><br>
-                             <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          
-                      </div>
-                        <div class="dropdown12 text-white" id="audio1">
-                           <h4>Categories </h4>
-                                      <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <?php if($cat->type=='audio'): ?>
-                             <label class=""> 
-                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
-
-                               <?php echo e($cat->category); ?> 
-                             </label><br>
-                             <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          
-                      </div>
-
-                    </div>
-
-                    </div>
-                     <?php echo e(Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4'])); ?>
-
-                     <?php echo e(Form::close()); ?>
-
-                  </div>
                 </ul>
             
               <li id="search">
@@ -576,8 +425,7 @@
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
 					  <a href="<?php echo e(url('register')); ?>" class="nav-item nav-link">Register</a>
-              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> 
-           Login</a>  
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
            <?php endif; ?>             
 
             <?php if($login): ?>
@@ -600,6 +448,8 @@
          </a></button>
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
+         <button class="dropdown-item" type="button">
+        <a href="<?php echo e(url('/my-requests/'.base64_encode($login->id))); ?>">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   <?php echo e($userProfile[0]->tokens); ?>PAZ
@@ -684,7 +534,7 @@
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
-      alert('rrr');
+      //alert('rrr');
    </script>
-    <?php endif; ?>
+  <?php endif; ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/layouts/header.blade.php ENDPATH**/ ?>

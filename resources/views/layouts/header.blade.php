@@ -23,11 +23,6 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
-                    @if($login)
-                    <li  class="link_click">
-                      <a data-toggle="tab" href="#menu3">Add Request</a>
-                    </li>
-                    @endif
                     </ul>
 
                     <div class="tab-content">
@@ -373,140 +368,6 @@
                     
                      </div>
                     </div>
-                    
-                    <div id="menu3" class="tab-pane fade">
-                      <h3 style="color: #fff;">Request</h3>
-                         {!!Form::open(['action' => 'AuthController@addRequest', 'method' => 'post'])!!}
-                            {{Form::token()}}
-                      <div class="row">
-                        <div class="col">
-                          <div class="dropdown1 text-white">
-                           <h4 >Media</h4>
-                            <label class=""> 
-
-                               {{Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])}} Audio
-                           
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('media', 'video', false ,['class'=>'media1 video1'])}} Video 
-
-                            
-                          </label><br>
-                      
-                        </div>
-                           <div class="row">
-                          <div class="col">
-                             <div class="form-group">
-                              <label class="text-white">Pay</label>
-                               {{Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])}}
-                             
-                            </div>
-                            @if($errors->first('price'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
-                            </div>
-                            @endif
-                          </div>
-                          OR
-                           <div class="col">
-                             <div class="form-group">
-                              <label class="text-white">Total Price</label>
-                               {{Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
-                             
-                            </div>
-                            @if($errors->first('price'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('total') ?>
-                            </div>
-                            @endif
-                          </div>
-                        </div>
-
-                                <div class="form-group">
-                               <label class="text-white">Duration (in Minutes)</label><hr>
-                              <div class="row">
-                              <div class="col">
-
-                                 <label class="text-white">Min :</label>
-                  {!! Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']) !!}
-                              </div>
-                               @if($errors->first('min'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('min'); ?>
-                            </div>
-                            @endif
-                              <div class="col">
-                                 <label class="text-white">Max :</label>
-                          {!! Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']) !!}
-                              </div>
-                               @if($errors->first('max'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('max'); ?>
-                            </div>
-                            @endif
-                            </div>
-                            </div>
-                
-                      </div>
-                      <div class="col">
-                             
-                            <div class="form-group">
-                              <label class="text-white">Title</label>
-                            {{Form::text('title','',['class'=>'form-control'])}}
-                            </div>
-                            @if($errors->first('title'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('title'); ?>
-                            </div>
-                            @endif
-
-                                      <div class="form-group">
-                      <label class="text-white">Description</label>
-              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 6, 'cols' => 40])}}
-                      </div>
-                @if($errors->first('description'))
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('description'); ?>
-                </div>
-                @endif
-
-
-                    
-                            
-                        
-                      </div>
-                      <div class="col">
-                        <div class="dropdown12 text-white" id="video1">
-                           <h4>Categories </h4>
-                                      @foreach($category as $cat)
-                                      @if($cat->type=='video')
-                             <label class=""> 
-                               {{Form::checkbox('categories[]', $cat->id)}}
-                               {{$cat->category}} 
-                             </label><br>
-                             @endif
-                            @endforeach
-                          
-                      </div>
-                        <div class="dropdown12 text-white" id="audio1">
-                           <h4>Categories </h4>
-                                      @foreach($category as $cat)
-                                      @if($cat->type=='audio')
-                             <label class=""> 
-                               {{Form::checkbox('categories[]', $cat->id)}}
-                               {{$cat->category}} 
-                             </label><br>
-                             @endif
-                            @endforeach
-                          
-                      </div>
-
-                    </div>
-
-                    </div>
-                     {{ Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4']) }}
-                     {{ Form::close() }}
-                  </div>
                 </ul>
             
               <li id="search">
@@ -561,6 +422,8 @@
          </a></button>
       <button class="dropdown-item" type="button">
         <a href="{{url('/logout')}}">Logout</a></button>
+         <button class="dropdown-item" type="button">
+        <a href="{{url('/my-requests/'.base64_encode($login->id))}}">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   {{$userProfile[0]->tokens}}PAZ

@@ -599,11 +599,22 @@ public function getRespectedSub($data){
 
        $reqData['cat'] = $category;
 
-       //print_r($reqData);
+
+
+     //  print_r($reqData);die;
 
         $req = DB::table('add_request')->insert($reqData);
 
         return $req ? 1 : 0 ;
+    }
+
+
+    public function showUserRequests($uid){
+
+    $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name, (SELECT nickname from users WHERE i.userid=users.id  ) as user_name FROM add_request i, category c WHERE FIND_IN_SET(c.id, i.cat) && i.userid=$uid GROUP BY i.id,i.title,i.price,i.duration, i.description,i.media,i.userid");
+  
+        return $data;
+
     }
 
     // public function getUserProfile($uid){

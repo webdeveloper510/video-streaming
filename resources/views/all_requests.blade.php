@@ -1,0 +1,254 @@
+@include('layouts.header')
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+   
+
+  <style type="text/css">
+      .io {
+        height: 300px;
+      }
+      .nav-tabs {
+    border: 1px solid #dee2e6;
+    margin-top: 7%;
+    background: none; 
+}
+.dropdown12 {
+    border: 1px solid #cbc3c3;
+}
+.dropdown1 {
+    border: 1px solid #cbc3c3;
+}
+
+li.nav-item {
+    padding: 10px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #7b0000;
+}
+.fade:not(.show) {
+    opacity: 1;
+}
+  </style>
+  </head>
+  <body>
+ 
+<div class="container">  
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Add Request</a>
+    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Request</a>
+    
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          
+ <div id="add" class="tab-pane fade">
+                      <h3>Request</h3>
+                      <hr>
+                         {!!Form::open(['action' => 'AuthController@addRequest', 'method' => 'post'])!!}
+                            {{Form::token()}}
+                      <div class="row">
+                        <div class="col">
+                          <div class="dropdown1">
+                           <h4 >Media</h4>
+                            <label class=""> 
+
+                               {{Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])}} Audio
+                           
+                            </label><br>
+                            <label>
+                               {{Form::radio('media', 'video', false ,['class'=>'media1 video1'])}} Video 
+
+                            
+                          </label><br>
+                      
+                        </div>
+                           <div class="row">
+                          <div class="col">
+                             <div class="form-group">
+                              <label >Pay</label>
+                               {{Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])}}
+                             
+                            </div>
+                            @if($errors->first('price'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('price') ?>
+                            </div>
+                            @endif
+                          </div>
+                          OR
+                           <div class="col">
+                             <div class="form-group">
+                              <label class="text-white">Total Price</label>
+                               {{Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
+                             
+                            </div>
+                            @if($errors->first('total'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('total') ?>
+                            </div>
+                            @endif
+                          </div>
+                        </div>
+
+                                <div class="form-group">
+                               <label >Duration (in Minutes)</label><hr>
+                              <div class="row">
+                              <div class="col">
+
+                                 <label >Min :</label>
+                  {!! Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']) !!}
+                              </div>
+                               @if($errors->first('min'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('min'); ?>
+                            </div>
+                            @endif
+                              <div class="col">
+                                 <label >Max :</label>
+                          {!! Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']) !!}
+                              </div>
+                               @if($errors->first('max'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('max'); ?>
+                            </div>
+                            @endif
+                            </div>
+                            </div>
+                
+                      </div>
+                      <div class="col">
+                             
+                            <div class="form-group">
+                              <label>Title</label>
+                            {{Form::text('title','',['class'=>'form-control'])}}
+                            </div>
+                            @if($errors->first('title'))
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('title'); ?>
+                            </div>
+                            @endif
+
+                                      <div class="form-group">
+                      <label >Description</label>
+              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 6, 'cols' => 40])}}
+                      </div>
+                @if($errors->first('description'))
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('description'); ?>
+                </div>
+                @endif
+
+
+                    
+                            
+                        
+                      </div>
+                      <div class="col">
+                        <div class="dropdown12 " id="video1">
+                           <h4>Categories </h4>
+                                      @foreach($category as $cat)
+                                      @if($cat->type=='video')
+                             <label class=""> 
+                               {{Form::checkbox('categories[]', $cat->id)}}
+                               {{$cat->category}} 
+                             </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                        <div class="dropdown12 " id="audio1">
+                           <h4>Categories </h4>
+                                      @foreach($category as $cat)
+                                      @if($cat->type=='audio')
+                             <label class=""> 
+                               {{Form::checkbox('categories[]', $cat->id)}}
+                               {{$cat->category}} 
+                             </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+
+                    </div>
+
+                    </div>
+                     {{ Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4']) }}
+                     {{ Form::close() }}
+                  </div>
+              </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+   
+   <div id="my" class="tab-pane fade">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col-md-10 io">
+                <h2 class="text-center mb-5 mt-3">My Requests</h2>
+                
+             
+                <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Media</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Categories</th>
+                      
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($requests as $index=>$req)
+                      <tr>
+                        <th scope="row">{{$index}}</th>
+                        <td>{{$req->description}}</td>
+                        <td>{{$req->price}}</td>
+                       
+                        <td>{{$req->title}}</td>
+                        <td>{{$req->media}}</td>
+                        <td>{{$req->duration}}</td>
+                        <td>{{$req->user_name}}</td>
+                         <td>{{$req->category_name}}</td>
+                      </tr>
+                      
+                      @endforeach
+                    
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col">
+                
+            </div>
+        </div>
+        </div>
+
+             
+        </div>
+        </div>
+  
+
+
+
+</div>
+
+
+    @include('layouts.footer')
+
+
+  </body>
+
+</html>

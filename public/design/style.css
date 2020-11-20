@@ -5125,7 +5125,7 @@ ul.nav.custom.search li a {
     font-size: 12px;
     color: white;
     display: block;
-    line-height: 35px;
+   /* line-height: 35px;*/
     text-decoration: none;
     border-left: 1px solid #2e2e2e;
     font-family: Montserrat, sans-serif;
@@ -5158,7 +5158,7 @@ ul.nav.custom.search ul.subnav {
     width: auto;
 }
 ul.nav.nav-tabs li {
-    width: 20% !important;
+    width: 25% !important;
 }
 .tab-content {
     padding-top: 25px;
@@ -5223,7 +5223,6 @@ ul.nav.custom.search ul.subnav li.active a {
     margin-left: 30px;
 }
 .money button#myBtn {
-    padding: 7px 20px;
     background: #a60000;
     color: #fff !important;
     border: 1px solid #a60000;

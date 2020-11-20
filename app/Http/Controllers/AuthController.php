@@ -878,8 +878,8 @@ public function notifyEmail(Request $req){
          $this->validate($req,[
           'media' => 'required',
           'description'=>'required',
-          'price'=>'sometimes|required',
-          'total'=>'sometimes|required',
+         // 'price'=>'required_without_all:total',
+        // 'total'=>'required_without_all|price',
           'title'=>'required',
           'min'=>'required|numeric|lt:max',
           'max'=>'required|numeric|gt:min',
@@ -887,17 +887,33 @@ public function notifyEmail(Request $req){
       ]
         );
 
+         //print_r($req->all());die;
+
          unset($req['_token']);
 
         $add = $this->model->addRequest($req);
 
         if($add == 1){
 
+          echo "yes";
+
             return redirect('/')->with('success','Thank You Your Request Sent Successfully!');
         }
         else{
+          echo "no";
           return redirect('/')->with('success','Some Error Occure!');
         }
+
+    }
+
+
+    public function myRequests($userid){
+
+      $uid = base64_decode($userid);
+
+        $data = $this->model->showUserRequests($uid);
+
+        return view('all_requests',['requests'=>$data]);
 
     }
 

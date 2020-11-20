@@ -49,6 +49,8 @@ Route::get('logout', 'AuthController@logout');
 
 Route::get('paymentSuccess', 'AuthController@success'); 
 
+Route::get('my-requests/{id}','AuthController@myRequests');
+
 Route::get('success', 'AuthController@succssPage'); 
 
 Route::get('notify/{id}', 'AuthController@notify'); 

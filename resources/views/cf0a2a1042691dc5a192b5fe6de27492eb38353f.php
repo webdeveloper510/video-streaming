@@ -179,5 +179,4 @@
     margin-top: 7% !important;
   }
 
-</style>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>
+</style><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>
