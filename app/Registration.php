@@ -151,7 +151,9 @@ public function uploadContentData($userdata){
     }
 }
 
-    public function login($data){
+
+      public function login($data){
+
         
         $table = $data['user'];
    
