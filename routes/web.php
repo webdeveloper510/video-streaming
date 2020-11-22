@@ -92,6 +92,8 @@ Route::post('postId',
 
 Route::post('checkprice', 'AuthController@price');
 
+Route::post('updateStatus', 'AuthController@updateStatus');
+
    /*-------------------End Web Site Route----------------------*/
 
 
@@ -116,6 +118,13 @@ Route::post('checkprice', 'AuthController@price');
 
     Route::get('artistRegister', 'AuthController@artistRegister');
 
+
+    Route::get('artist/offer', 'artist@offer');
+
+
+
+
+
     Route::get('artist/requests', 'artist@showRequest');
 
     Route::get('artistLogin', 'AuthController@getLogin');
@@ -124,6 +133,10 @@ Route::post('checkprice', 'AuthController@price');
     Route::get('artist/Profile', 'artist@profile')->middleware('contentAuth');
 
     Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
+
+    Route::post('addDescription','artist@addDescription');
+    
+    Route::post('createOffer','artist@createOffer');
 
 
 /*---------------------------------------End Artist---------------------*/

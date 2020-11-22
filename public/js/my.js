@@ -65,7 +65,7 @@ $(document).ready(function() {
 
 			$.ajax({
 				type: 'POST',
-				   url:APP_URL+"/postId",
+			    url:APP_URL+"/postId",
 				dataType: "json",
 				 headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -205,3 +205,48 @@ else{
   	$('#'+notId1[1]).hide();
   })
 
+ $('.action').click(function(){
+
+ 	//console.log('kk');
+  		var value = $(this).val();
+
+  		var key = $(this).attr('data-key');
+
+  		var userid = $(this).attr('user-id');
+
+  		//console.log(value);
+
+  		$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/updateStatus",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"status": value, "key": key, "userid":userid},
+
+				success: function(data){
+
+					//console.log(data);return false;
+						
+						if(data.status==1){
+
+								$('#messge').show().html(data.messge);
+
+								setTimeout(function(){ 
+
+									location.reload();
+
+								}, 2000);
+
+						}
+					
+				}
+		});
+
+  })
+
+function getId(id){
+	//console.log(id);
+	$('#reqid').val(id);
+}
