@@ -134,4 +134,60 @@ class artist extends Controller
 
   }
 
+  public function addDescription(Request $req){
+
+      unset($req['_token']);
+
+      $update = $this->model->updateArtistDes($req);
+
+      if($update==1){
+
+        return redirect('artist/requests');
+      }
+      //print_r($req->all());
+  }
+
+  public function offer(){
+
+    return view('artists.offer');
+  }
+
+  public function createOffer(Request $req){
+
+      $this->validate($req,[
+          'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
+          'title'=>'required',
+          'keyword'=>'required',
+          'delieveryspeed'=>'required',
+          'description'=>'required',
+          'category'=>'required'
+      ]
+        );
+
+        if($req->media){
+
+            $data=$req->all();
+              $fileName = time().'_'.$req->media->getClientOriginalName();
+              $ext =$req->media->getClientOriginalExtension();
+              $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
+
+              unset($data['_token']);
+              $data['media']=$fileName;
+              $data['categoryid']=$req->category;
+              $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+                if($filePath){
+
+                $createOffer = $this->model->createOffer($data);
+                  if($createOffer==1){
+                      return redirect('artist/offer#success')->with('success','Data Created Successfully!');
+                    }
+                    else
+                    {
+                        return redirect('artist/offer#error')->with('error','Some Error Occure!');
+                    }
+              }
+      }
+
+
+  }
 }

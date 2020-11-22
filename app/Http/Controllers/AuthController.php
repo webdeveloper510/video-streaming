@@ -906,6 +906,16 @@ public function notifyEmail(Request $req){
 
     }
 
+    public function updateStatus(Request $request){
+
+        //print_r($request->all());
+        $updateStatus =  $this->model->updateStatus($request->all());
+
+ $returnData= $updateStatus==1 ? response()->json(array('status'=>1, 'messge'=>'Updated Successfully!')) : response()->json(array('status'=>1, 'messge'=>'Already Exist'));
+
+      return $returnData;
+    }
+
 
     public function myRequests($userid){
 

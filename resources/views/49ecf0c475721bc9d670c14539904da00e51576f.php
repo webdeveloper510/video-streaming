@@ -21,6 +21,9 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
+
 </head>
 
 <body class="">
@@ -72,7 +75,7 @@
             </a>
           </li>
            <li class="nav-item ">
-            <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
+            <a class="nav-link" href="<?php echo e(url('/artist/offer')); ?>">
               <i class="fa fa-money"></i>
               <p>My Offers</p>
             </a>

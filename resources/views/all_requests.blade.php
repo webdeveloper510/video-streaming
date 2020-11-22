@@ -214,6 +214,8 @@ input.form-control.price::placeholder {
                         <th scope="col">Duration</th>
                         <th scope="col">Username</th>
                         <th scope="col">Categories</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                       
                       </tr>
                     </thead>
@@ -229,6 +231,8 @@ input.form-control.price::placeholder {
                         <td>{{$req->duration}}</td>
                         <td>{{$req->user_name}}</td>
                          <td>{{$req->category_name}}</td>
+                         <td>{{$req->status}}</td>
+                         <td><button class="status"></button></td>
                       </tr>
                       
                       @endforeach
