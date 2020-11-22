@@ -389,7 +389,7 @@ class AuthController extends Controller
 
        if($get){
         //echo "yes";die;
-          //Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
+          Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
          return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
        }
        else{

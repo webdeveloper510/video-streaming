@@ -23,15 +23,11 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
-                    <?php if($login): ?>
-                    <li  class="link_click">
-                      <a data-toggle="tab" href="#menu3">Add Request</a>
-                    </li>
-                    <?php endif; ?>
                     </ul>
 
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
+                        <h3 style="color: #fff;">Video</h3>
                     <div class="row">
                     <div class="col-md-6">
                       <div class="dropdown12 text-white">
@@ -70,7 +66,7 @@
                             </label><br>
                             <label class="">
                                <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Higest
-                         <!--       <?php echo e(Form::checkbox('price','desc')); ?>Higest   -->
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             </label>
                        
@@ -100,7 +96,7 @@
                         
                     <div class="col-md-6 text-left">
               
-                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
          <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
               </div>
@@ -175,7 +171,7 @@
                               
                            </div>
                             <div class="col-md-12 text-left">
-                       <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+                       <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
 
@@ -200,7 +196,7 @@
                              </div>
                           <div class="col-md-6 text-left mt-3">
               
-                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
            
                        
@@ -213,6 +209,7 @@
                      </div> 
                    </div>
                     <div id="menu2" class="tab-pane fade1 in ">
+                        <h3 style="color: #fff;">Offers</h3>
                     <div class="row">
                     <div class="col-md-6">
                       <div class="dropdown12 text-white" id="video">
@@ -296,7 +293,7 @@
                         
                     <div class="col-md-6 text-left">
 
-                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
          <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
               </div>
@@ -382,7 +379,7 @@
                         
                     <div class="col-md-6 text-left">
               
-                <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
+                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
                        </div>
               <div class="col-md-6">
@@ -397,127 +394,6 @@
                     
                      </div>
                     </div>
-                    
-                    <div id="menu3" class="tab-pane fade">
-                      <h3 style="color: #fff;">Request</h3>
-                         <?php echo Form::open(['action' => 'AuthController@addRequest', 'method' => 'post']); ?>
-
-                            <?php echo e(Form::token()); ?>
-
-                      <div class="row">
-                        <div class="col">
-                          <div class="dropdown1 text-white">
-                           <h4 >Media</h4>
-                            <label class=""> 
-
-                               <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
-                           
-                            </label><br>
-                            <label class="">
-                               <?php echo e(Form::radio('media', 'video', false ,['class'=>'media1 video1'])); ?> Video 
-
-                            
-                          </label><br>
-                      
-                        </div>
-                          <div class="form-group">
-                      <label class="text-white">Description</label>
-              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
-
-                      </div>
-                <?php if($errors->first('description')): ?>
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('description'); ?>
-                </div>
-                <?php endif; ?>
-                      </div>
-                      <div class="col">
-                              <div class="form-group">
-                              <label class="text-white">Price/Minutes</label>
-                               <?php echo e(Form::text('price','',['class'=>'form-control'])); ?>
-
-                             
-                            </div>
-                            <?php if($errors->first('price')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
-                            </div>
-                            <?php endif; ?>
-                            <div class="form-group">
-                              <label class="text-white">Title</label>
-                            <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
-
-                            </div>
-                            <?php if($errors->first('title')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('title'); ?>
-                            </div>
-                            <?php endif; ?>
-                            <div class="form-group">
-                               <label class="text-white">Duration</label><hr>
-                              <div class="row">
-                              <div class="col">
-
-                                 <label class="text-white">Min :</label>
-                  <?php echo Form::number('min', '' , ['class' => 'form-control','placeholder'=>'Min']); ?>
-
-                              </div>
-                               <?php if($errors->first('min')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('min'); ?>
-                            </div>
-                            <?php endif; ?>
-                              <div class="col">
-                                 <label class="text-white">Max :</label>
-                          <?php echo Form::number('max', '' , ['class' => 'form-control','placeholder'=>'Max']); ?>
-
-                              </div>
-                               <?php if($errors->first('max')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('max'); ?>
-                            </div>
-                            <?php endif; ?>
-                            </div>
-                            </div>
-                            
-                        
-                      </div>
-                      <div class="col">
-                        <div class="dropdown12 text-white" id="video1">
-                           <h4>Categories </h4>
-                                      <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <?php if($cat->type=='video'): ?>
-                             <label class=""> 
-                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
-
-                               <?php echo e($cat->category); ?> 
-                             </label><br>
-                             <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          
-                      </div>
-                        <div class="dropdown12 text-white" id="audio1">
-                           <h4>Categories </h4>
-                                      <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <?php if($cat->type=='audio'): ?>
-                             <label class=""> 
-                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
-
-                               <?php echo e($cat->category); ?> 
-                             </label><br>
-                             <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          
-                      </div>
-
-                    </div>
-
-                    </div>
-                     <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary mb-4'])); ?>
-
-                     <?php echo e(Form::close()); ?>
-
-                  </div>
                 </ul>
             
               <li id="search">
@@ -549,8 +425,7 @@
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
 					  <a href="<?php echo e(url('register')); ?>" class="nav-item nav-link">Register</a>
-              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> 
-           Login</a>  
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
            <?php endif; ?>             
 
             <?php if($login): ?>
@@ -573,9 +448,11 @@
          </a></button>
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
+         <button class="dropdown-item" type="button">
+        <a href="<?php echo e(url('/my-requests/'.base64_encode($login->id))); ?>">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  <?php echo e($userProfile[0]->tokens); ?>PAZ
+  <b><?php echo e($userProfile[0]->tokens); ?></b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
@@ -642,10 +519,22 @@
 .row.text-left.text-white.mt-3.red {
     width: 98%;
 }
+.price::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+.price:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+.price::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
+}
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
-      alert('rrr');
+      //alert('rrr');
    </script>
-    <?php endif; ?>
+  <?php endif; ?>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/header.blade.php ENDPATH**/ ?>

@@ -427,7 +427,12 @@ button.btn.btn-primary.partner_col:hover {
     padding-top: 10px;
    font-size: 28px;
 }
-
+.modal-dialog {
+    margin-top: 18% !important;
+  }
+  .modal{
+        background: #7b0000;
+  }
 .artist_image img {
     padding: 12px;
 }
