@@ -226,6 +226,8 @@ input.form-control.price::placeholder {
                         <th scope="col">Duration</th>
                         <th scope="col">Username</th>
                         <th scope="col">Categories</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                       
                       </tr>
                     </thead>
@@ -241,6 +243,8 @@ input.form-control.price::placeholder {
                         <td><?php echo e($req->duration); ?></td>
                         <td><?php echo e($req->user_name); ?></td>
                          <td><?php echo e($req->category_name); ?></td>
+                         <td><?php echo e($req->status); ?></td>
+                         <td><button class="status"></button></td>
                       </tr>
                       
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
