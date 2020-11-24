@@ -207,7 +207,7 @@ input.form-control.price::placeholder {
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">Your Description</th>
                         <th scope="col">Price</th>
                         <th scope="col">Title</th>
                         <th scope="col">Media</th>
@@ -215,14 +215,16 @@ input.form-control.price::placeholder {
                         <th scope="col">Username</th>
                         <th scope="col">Categories</th>
                         <th scope="col">Status</th>
+                        <th>Artist Description</th>
                         <th scope="col">Action</th>
+                        
                       
                       </tr>
                     </thead>
                     <tbody>
                         @foreach($requests as $index=>$req)
                       <tr>
-                        <th scope="row">{{$index}}</th>
+                        <th scope="row">{{$index+1}}</th>
                         <td>{{$req->description}}</td>
                         <td>{{$req->price}}</td>
                        
@@ -232,7 +234,8 @@ input.form-control.price::placeholder {
                         <td>{{$req->user_name}}</td>
                          <td>{{$req->category_name}}</td>
                          <td>{{$req->status}}</td>
-                         <td><button class="status"></button></td>
+                         <td>{{$req->artist_description}}</td>
+                         <td><button class="btn btn-primary status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('{{$req->id}}','{{$req->description}}')">Edit</button></td>
                       </tr>
                       
                       @endforeach
@@ -248,7 +251,33 @@ input.form-control.price::placeholder {
         </div>
   
 
+<div class="modal fade" id="editdescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Description</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         {!!Form::open(['action' => 'artist@editDescription', 'method' => 'post'])!!}
+          {{Form::token()}}
+          {{Form::label('Your Description', 'Your Description')}} 
+                {{Form::textarea('Description',null,['class'=>'form-control description','rows' => 4, 'cols' => 40])}}
 
+       <input type="hidden" name="reqId" value="" id="offerid">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
+      </div>
+         {{ Form::close() }}
+    </div>
+  </div>
+</div>
 
 </div>
 

@@ -160,7 +160,8 @@ class artist extends Controller
           'keyword'=>'required',
           'delieveryspeed'=>'required',
           'description'=>'required',
-          'category'=>'required'
+          'category'=>'required',
+          'price'=>'required'
       ]
         );
 
@@ -190,4 +191,45 @@ class artist extends Controller
 
 
   }
+
+  public function myoffer(){
+
+     $offer = $this->model->getOffer();
+
+    // print_r($offer);die;
+
+    return view('artists.myoffer',['offer'=>$offer]);
+  }
+
+  public function editDescription(Request $req){
+
+            unset($req['_token']);
+
+          $data = $this->model->editDescription($req);
+          if($data==1){
+            return redirect('/my-requests')->with('success','Updated Successfully!');
+          }
+    }
+
+
+  public function editOffer(Request $req){
+
+    //print_r($req->all());die;
+
+    unset($req['_token']);
+
+        $offer = $this->model->editOfferDescription($req);
+
+        if($offer==1){
+
+            return redirect('artist/my-offer')->with('success','Update Successfully!');
+        }
+
+        else{
+          return redirect('artist/my-offer')->with('success','Error Occure!');
+        }
+
+  }
+
+
 }

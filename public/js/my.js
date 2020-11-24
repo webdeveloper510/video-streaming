@@ -250,3 +250,22 @@ function getId(id){
 	//console.log(id);
 	$('#reqid').val(id);
 }
+
+
+function getofferid(id,desc,userid){
+
+	//console.log(id);
+
+	$(".description").val(desc);
+
+	$('#offerid').val(id);
+	$('#userid').val(userid);
+
+}
+
+function editdesc(id,desc){
+
+$(".description").val(desc);
+
+$('#offerid').val(id);
+}

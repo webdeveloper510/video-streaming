@@ -30,6 +30,16 @@
                 </div>
                 <?php endif; ?>
             </div>
+             <div class="col-md-6 mt-5 ">
+            <?php echo e(Form::label('Price', 'Price')); ?> 
+                <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])); ?>
+
+                 <?php if($errors->first('price')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('price') ?>
+                </div>
+                <?php endif; ?>
+            </div>
               <div class="col-md-6 mt-5 ">
             <?php echo e(Form::label('Keyword', 'Keywords')); ?> 
            <?php echo e(Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Keywords'])); ?>
@@ -74,7 +84,6 @@
                 </div>
                 <?php endif; ?>
             </div>
-
                <div class="col-md-6 mt-4 pt-2">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>

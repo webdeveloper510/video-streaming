@@ -63,4 +63,4 @@
   </div>
 </footer>
 
-    <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/footer.blade.php ENDPATH**/ ?>
+    <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/layouts/footer.blade.php ENDPATH**/ ?>

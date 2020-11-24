@@ -586,6 +586,7 @@ class AuthController extends Controller
     return view('addToken');
   }
   public function contentProv(){
+
     $contenttype =   Session::get('userType');
     if($contenttype=='User'){
       return redirect('/');
@@ -917,13 +918,29 @@ public function notifyEmail(Request $req){
     }
 
 
-    public function myRequests($userid){
+    public function myRequests(){
 
-      $uid = base64_decode($userid);
+     
 
-        $data = $this->model->showUserRequests($uid);
+        $data = $this->model->showUserRequests();
 
         return view('all_requests',['requests'=>$data]);
+
+    }
+
+    public function showOffer(Request $req){
+
+      unset($req['_token']);
+
+       $this->model->showOfer($req);
+
+    }
+
+
+  
+    public function readNotification(){
+
+          $this->model->readNotification();
 
     }
 

@@ -74,11 +74,19 @@
               <p>Requests</p>
             </a>
           </li>
-           <li class="nav-item ">
-            <a class="nav-link" href="<?php echo e(url('/artist/offer')); ?>">
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
               <i class="fa fa-money"></i>
-              <p>My Offers</p>
-            </a>
+              My Offers
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<?php echo e(url('/artist/offer')); ?>">Create Offer</a>
+          <a class="dropdown-item" href="<?php echo e(url('/artist/my-offer')); ?>">My Offers</a>
+         
+        </div>
+         
+
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="#">

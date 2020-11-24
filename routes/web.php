@@ -49,7 +49,7 @@ Route::get('logout', 'AuthController@logout');
 
 Route::get('paymentSuccess', 'AuthController@success'); 
 
-Route::get('my-requests/{id}','AuthController@myRequests');
+Route::get('my-requests','AuthController@myRequests');
 
 Route::get('success', 'AuthController@succssPage'); 
 
@@ -71,6 +71,11 @@ Route::post('request', 'AuthController@addRequest');
 
 
 Route::post('updateProfile', 'AuthController@updateProfile');
+
+Route::post('showOffer','AuthController@showOffer');
+
+Route::post('editDescription','AuthController@editDescription');
+
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');
 
@@ -110,7 +115,7 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
 /*---------------------------End Admin-----------------------------*/
 
-/*-----------------------------------------------Artist Route ---------------------------------------------------------*/
+/*-----------------------------------------------Artist Route ----------------------------------*/
 
      Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
@@ -120,6 +125,7 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
 
     Route::get('artist/offer', 'artist@offer');
+    Route::get('artist/my-offer', 'artist@myoffer');
 
 
 
@@ -137,6 +143,9 @@ Route::post('updateStatus', 'AuthController@updateStatus');
     Route::post('addDescription','artist@addDescription');
     
     Route::post('createOffer','artist@createOffer');
+
+    Route::post('editOffer','artist@editOffer');
+    Route::post('editDescription','artist@editDescription');
 
 
 /*---------------------------------------End Artist---------------------*/

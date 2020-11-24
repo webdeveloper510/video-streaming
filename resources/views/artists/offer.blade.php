@@ -25,6 +25,15 @@
                 </div>
                 @endif
             </div>
+             <div class="col-md-6 mt-5 ">
+            {{Form::label('Price', 'Price')}} 
+                {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
+                 @if($errors->first('price'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('price') ?>
+                </div>
+                @endif
+            </div>
               <div class="col-md-6 mt-5 ">
             {{Form::label('Keyword', 'Keywords')}} 
            {{Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Keywords'])}}
@@ -65,7 +74,6 @@
                 </div>
                 @endif
             </div>
-
                <div class="col-md-6 mt-4 pt-2">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>

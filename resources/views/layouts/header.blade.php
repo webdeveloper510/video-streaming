@@ -201,7 +201,7 @@
                     <div class="col-md-6">
                       <div class="dropdown12 text-white" id="video">
                            <h4>Categories </h4>
-                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                {!!Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true])!!}
                   {{Form::token()}}
                             @foreach($category as $cat)
                             @if($cat->type=='video')
@@ -214,9 +214,6 @@
                           
                       </div>
                       <div class="dropdown12 text-white" id="audio">
-                           <h4>Categories </h4>
-                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                  {{Form::token()}}
                             @foreach($category as $cat)
                             @if($cat->type=='audio')
                    <label class=""> 
@@ -235,12 +232,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               {{Form::radio('media', 'asc', true ,['class'=>'media audio'])}} Audio
+                               {{Form::radio('type', 'audio', true ,['class'=>'media audio'])}} Audio
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               {{Form::radio('media', 'desc', false ,['class'=>'media video'])}} Video 
+                               {{Form::radio('type', 'video', false ,['class'=>'media video'])}} Video 
                           <!--  {{Form::checkbox('duration','desc')}}Longest  -->
                             
                           </label><br>
@@ -423,7 +420,7 @@
       <button class="dropdown-item" type="button">
         <a href="{{url('/logout')}}">Logout</a></button>
          <button class="dropdown-item" type="button">
-        <a href="{{url('/my-requests/'.base64_encode($login->id))}}">Requests</a></button>
+        <a href="{{url('/my-requests')}}">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   <b>{{$userProfile[0]->tokens}}</b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
