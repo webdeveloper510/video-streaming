@@ -404,13 +404,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs\\laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs\\laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
