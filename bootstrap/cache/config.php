@@ -1,7 +1,7 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://localhost/laravel/video-streaming/',
@@ -510,7 +510,7 @@
     'from' => 
     array (
       'address' => NULL,
-      'name' => 'Laravel',
+      'name' => 'laravel',
     ),
     'stream' => 
     array (
