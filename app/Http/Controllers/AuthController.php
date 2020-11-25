@@ -898,7 +898,7 @@ public function notifyEmail(Request $req){
 
           echo "yes";
 
-            return redirect('/')->with('success','Thank You Your Request Sent Successfully!');
+            return redirect('/my-requests')->with('success','Thank You Your Request Sent Successfully!');
         }
         else{
           echo "no";
@@ -932,16 +932,14 @@ public function notifyEmail(Request $req){
 
       unset($req['_token']);
 
-       $this->model->showOfer($req);
+       $showOffer = $this->model->showOfer($req);
+
+       return view('showoffer',['offer'=>$showOffer]);
 
     }
+
 
 
   
-    public function readNotification(){
-
-          $this->model->readNotification();
-
-    }
 
 }

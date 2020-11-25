@@ -30,6 +30,7 @@
     height: 330px;
     overflow-y: scroll;
 }
+
 li.nav-item {
     padding: 10px;
 }
@@ -61,6 +62,20 @@ input.form-control.price::placeholder {
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           
  <div id="add" class="tab-pane fade">
+
+     <?php if(session('success')): ?>
+        <div class="alert alert-success" id="success">
+        <?php echo e(session('success')); ?>
+
+        </div>
+        <?php endif; ?>
+           
+          <?php if(session('error')): ?>
+        <div class="alert alert-danger" id="error">
+        <?php echo e(session('error')); ?>
+
+        </div>
+        <?php endif; ?>
                       <h3>Request</h3>
                       <hr>
                          <?php echo Form::open(['action' => 'AuthController@addRequest', 'method' => 'post']); ?>
@@ -228,8 +243,8 @@ input.form-control.price::placeholder {
                         <th scope="col">Categories</th>
                         <th scope="col">Status</th>
                         <th>Artist Description</th>
-                        <th scope="col">Action</th>
-                        
+                       <!--  <th scope="col">Action</th>
+                         -->
                       
                       </tr>
                     </thead>
@@ -247,7 +262,7 @@ input.form-control.price::placeholder {
                          <td><?php echo e($req->category_name); ?></td>
                          <td><?php echo e($req->status); ?></td>
                          <td><?php echo e($req->artist_description); ?></td>
-                         <td><button class="btn btn-primary status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('<?php echo e($req->id); ?>','<?php echo e($req->description); ?>')">Edit</button></td>
+                        <!--  <td><button class=" status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('<?php echo e($req->id); ?>','<?php echo e($req->description); ?>')">Edit</button></td> -->
                       </tr>
                       
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

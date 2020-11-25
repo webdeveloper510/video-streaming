@@ -26,7 +26,7 @@
                 @endif
             </div>
              <div class="col-md-6 mt-5 ">
-            {{Form::label('Price', 'Price')}} 
+            {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
                 {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
                  @if($errors->first('price'))
                 <div class="alert alert-danger">
@@ -44,8 +44,8 @@
                 @endif
             </div>
             
-                <div class="col-md-6 mt-2 ">
-            {{Form::label('Delievery Speed', 'Delievery Speed')}} 
+                <div class="col-md-6 mt-5 ">
+            {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
                 {{Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])}}
                  @if($errors->first('delieveryspeed'))
                 <div class="alert alert-danger">
@@ -54,34 +54,39 @@
                 @endif
             </div>
 
-           
-            <div class="col-md-6 mt-5">
-                 {{Form::label('Audio/Video', 'Audio/Video')}} <br>
-            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
-                {{Form::file('media',['class'=>'custom-file-input'])}}
-                 @if($errors->first('media'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('media') ?>
-                </div>
-                @endif
-            </div>
-           <div class="col-md-12 mt-4">
-            {{Form::label('Description', 'Description')}} 
-                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
-                 @if($errors->first('description'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('description') ?>
-                </div>
-                @endif
-            </div>
-               <div class="col-md-6 mt-4 pt-2">
+               <div class="col-md-6 ">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
                     @endforeach
             </select>
+             {{Form::label('Description', 'Description')}} 
+                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])}}
+                 @if($errors->first('description'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('description') ?>
+                </div>
+                @endif
             </div>
+
+           
+            <div class="col-md-6 mt-5">
+                 {{Form::label('Audio/Video', 'Audio/Video')}} <br>
+            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
+                {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
+                 @if($errors->first('media'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('media') ?>
+                </div>
+                @endif
+                <video width="400" controls>
+             <source src="mov_bbb.mp4" id="blah">
+             Your browser does not support HTML5 video.
+             </video>
+            </div>
+          
+            
 
               <div class="col-md-12 text-center pt-3">
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
@@ -89,4 +94,16 @@
     
      </div>
   {{ Form::close() }}
+
+
+
+   <style>
+
+        li.nav-item a {
+    color: black !important;
+}
+a.navbar-brand.text-white {
+    color: black !important;
+}
+</style>
  @include('artists.dashboard_footer');

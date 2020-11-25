@@ -133,6 +133,10 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
     Route::get('artist/requests', 'artist@showRequest');
 
+    Route::get('artist/notification','artist@ShowArtistNotification');
+
+    Route::get('artist/readNotification/{id}','artist@readNotification');
+
     Route::get('artistLogin', 'AuthController@getLogin');
     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
@@ -145,6 +149,9 @@ Route::post('updateStatus', 'AuthController@updateStatus');
     Route::post('createOffer','artist@createOffer');
 
     Route::post('editOffer','artist@editOffer');
+
+    Route::post('postDescription','artist@addUserDescription');
+
     Route::post('editDescription','artist@editDescription');
 
 

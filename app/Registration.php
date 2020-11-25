@@ -49,6 +49,7 @@ class Registration extends Model
                 $inserted_data =  DB::table('profiletable')->insert($data);
                 // $insertedid=$inserted_data->id;
                 return $inserted_data ? $insertedid :'0';
+
                 }
             
          }
@@ -298,7 +299,7 @@ public function getNewComes(){
 }
 
 
-/*-------------------------------Insert Recent Vedio Media Id---------------------------------------------------*/
+/*------------------------Insert Recent Vedio media--------------------------------------------*/
 
 public function insertRecentTable($data){
 
@@ -576,6 +577,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $reqData['total_price'] = $reqData['total'] ? $reqData['total'] : 0;
 
+         $reqData['artist_description']= '';
+
         unset($reqData['min']);
         unset($reqData['total']);
         unset($reqData['max']);
@@ -745,7 +748,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         });
 
-        print_r($fetch->get());die;
+          return $fetch->get();
 
     }
 
@@ -787,8 +790,13 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     }
 
-    public function readNotification(){
+    public function readNotification($id){
 
+        $data=array('read'=>1);
+
+        $update = DB::table('notification')->where('id',$id)->update($data);
+
+        return $update ? 1 : 0;
 
     }
 
@@ -838,12 +846,54 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     }
 
+    public function getNotification(){
 
-    // public function getUserProfile($uid){
 
-    //    $value=DB::table('users')->where('id', $userId)->get()->toArray();
+          return DB::table('notification')->orderBy('id','desc')->get()->toArray();
+    }
 
-    // }
+    public function updateUserDesc($userdata){
+
+          $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+      $data = array(
+
+        'userdescription'=>$userdata['Description'],
+        'userid' =>$userid
+      );
+
+      $update = DB::table('offer')->where('id',$userdata['reqId'])->update($data);
+
+      if($update){
+
+        $offerdescription = $this->selectDataById('id','offer',$userdata['reqId']);
+        $nickname = $this->getUserProfile($userid);
+        //print_r($nickname);die;
+     $data = array(
+        'created_at'=>now(),
+        'updated_at'=>now(),
+        'read'=>0,
+        'artistid'=>$offerdescription[0]->artistid,
+        'userid'=>$userid,
+        'message'=>$nickname[0]->nickname." ".'Submit a request to your offer'." ".$offerdescription[0]->title,
+        'notificationfor'=>'artist'
+      );
+
+             $success = $this->insertNotification($data);
+
+             return $success ? 1 : 0;
+      }
+
+    }
+
+
+    public function getUserProfile($uid){
+
+       $value=DB::table('users')->where('id', $uid)->get()->toArray();
+       return $value;
+
+    }
 
 
 }

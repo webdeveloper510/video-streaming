@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
 
             $category = $model->getCategory();
          
-
+             $notification = $model->getNotification();
 
             $data=Session::get('User');
 
@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
 
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data, 'category'=>$category,  'userProfile'=>$tokens));    
+            $view->with(array('login'=>$data, 'notification'=>$notification,'category'=>$category,  'userProfile'=>$tokens));    
     }); 
 
     }

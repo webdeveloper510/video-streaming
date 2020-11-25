@@ -30,6 +30,7 @@
     height: 330px;
     overflow-y: scroll;
 }
+
 li.nav-item {
     padding: 10px;
 }
@@ -61,6 +62,18 @@ input.form-control.price::placeholder {
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           
  <div id="add" class="tab-pane fade">
+
+     @if(session('success'))
+        <div class="alert alert-success" id="success">
+        {{session('success')}}
+        </div>
+        @endif
+           
+          @if(session('error'))
+        <div class="alert alert-danger" id="error">
+        {{session('error')}}
+        </div>
+        @endif
                       <h3>Request</h3>
                       <hr>
                          {!!Form::open(['action' => 'AuthController@addRequest', 'method' => 'post'])!!}
@@ -216,8 +229,8 @@ input.form-control.price::placeholder {
                         <th scope="col">Categories</th>
                         <th scope="col">Status</th>
                         <th>Artist Description</th>
-                        <th scope="col">Action</th>
-                        
+                       <!--  <th scope="col">Action</th>
+                         -->
                       
                       </tr>
                     </thead>
@@ -235,7 +248,7 @@ input.form-control.price::placeholder {
                          <td>{{$req->category_name}}</td>
                          <td>{{$req->status}}</td>
                          <td>{{$req->artist_description}}</td>
-                         <td><button class="btn btn-primary status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('{{$req->id}}','{{$req->description}}')">Edit</button></td>
+                        <!--  <td><button class=" status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('{{$req->id}}','{{$req->description}}')">Edit</button></td> -->
                       </tr>
                       
                       @endforeach
