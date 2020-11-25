@@ -110,7 +110,10 @@
 
 
    <style>
-
+.btn.btn-secondary {
+    color: #333333;
+    background-color: #eeeeee;
+  }
         li.nav-item a {
     color: black !important;
 }

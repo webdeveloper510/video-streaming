@@ -29,12 +29,10 @@
     width: 300px;
     background: white;
     height: 300px;
-    position: absolute;
-    right: 47px;
-    top: 61px;
+   
     border: 1px solid;
     z-index: 999;
-    overflow: scroll;
+    overflow: hidden;
     padding: 12px;
     overflow-x: auto;
 }
@@ -45,8 +43,41 @@
     padding: 0 !important;
     margin-left: -40px;
 }
+.dropdown-menu.notif.text-center.show {
+    position: absolute;
+    left: -151px;
+}
 .notif.text-center ol li a {
     font-weight: 900;
+}
+button.hell {
+    border: 0px;
+    background: transparent;
+}
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    background-color: transparent;
+    border-color: transparent;
+    color: black;
+}
+span.text-center.text-dark {
+    position: absolute;
+    top: 259px;
+    right: 2px;
+    z-index: 999;
+    width: 295px;
+    background: white;
+    padding: 7px;
+    color: blue !important;
+}
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
+    box-shadow: none;
+    background-color: transparent;
+    color: black;
+}
+button#dropdownMenuButton {
+    background: transparent;
+    box-shadow: none;
+    border: transparent;
 }
  </style>
 </head>
@@ -141,15 +172,29 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" onclick="showDiv()" href="#">
-                 <i class="material-icons">notifications</i>
+              
+             
+              <li class="nav-item dropdown">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
                   <p class="d-lg-none d-md-block">
-                    Stats
+                    Account
                   </p>
                 </a>
+                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> Notification</h5><br>
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+    
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     <a href=""><span class="text-center text-dark">See More -></span></a>
+                </div>
               </li>
-             
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
@@ -168,20 +213,6 @@
         </div>
       </nav>
       
-       <div class="notif text-center" style="display:none;" >
-   <ol> 
-    <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='artist'): ?>
-    <li>
-      <a href="<?php echo e(url('artist/readNotification/'.base64_encode($val->id))); ?>"><?php echo e($val->message); ?></a>
-    </li>
-  
-    <hr>
-    <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-   </ol>
-  </div>
       <!-- End Navbar -->
 
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
