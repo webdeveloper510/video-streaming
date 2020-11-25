@@ -431,14 +431,17 @@
 </div>
 @endif
  <!-- Modal -->
-             <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle not" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   <i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i>
-  </button>
-  <div class="dropdown-menu notif text-center" aria-labelledby="dropdownMenuButton">
-     <h3 class="text-center"> Notification</h3>
+ <li class="nav-item dropdown">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> Notification</h5><br>
       @foreach($notification as $val)
-    @if($val->read==0 && $val->notificationfor=='user')
+    @if($val->notificationfor=='user')
     
       <a href="{{url('artist/readNotification/'.$val->id)}}">{{$val->message}}</a>
     
@@ -446,8 +449,10 @@
     <hr>
     @endif
     @endforeach
-     <a href="{{}}"><span class="text-center text-dark">See More -></span></a>
-  </div>
+     <a href="{{url('all_notification')}}"><span class="text-center text-dark">See More -></span></a>
+                </div>
+              </li>
+          
 </div>      
 
 
@@ -476,6 +481,7 @@
     overflow: hidden;
     padding: 12px;
     overflow-x: auto;
+    text-align: center;
 }
 
 .notif.text-center ul li {
@@ -484,12 +490,7 @@
     padding: 0 !important;
 
 }
-button.not {
-    background: transparent !important;
-    border: none;
-    min-width: 59px;
-    height: 35px;
-}
+
 .notif.text-center ul li a {
     font-weight: 900;
 }

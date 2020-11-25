@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
 
             $tokens = $model->getUserData($userId);
 
+           // print_r($data);die;
+
            // $profile = $model->getUserProfile($userId);
 
             //$type=Session::get('userType');

@@ -61,7 +61,7 @@ class Registration extends Model
  public function postArtist($data)
     {
         $value = $this->selectDataById('email','contentprovider',$data['email']);
-        if($value->count() == 0){
+        if(!$value){
 
             $userdata = $data->all();
             $userdata['password']= md5($data['password']);
@@ -642,8 +642,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
               'updated_at'=>now(),
               'artistid'=>$session_data->id,
               'userid'=>$data['userid'],
-              //'message'=>"Your request of'".$getData[0]['title'].'has been'.$data['status'],
-              'message'=>"Your Request of "." ".$getData[0]->title." "."has Been" .$data['status'],
+              //'message'=>"Your request of'".$getData[0]['title'].'has been'." ".$data['status'],
+              'message'=>"Your Request of "." ".$getData[0]->title." "."has Been"." ".$data['status'],
               'notificationfor'=>'user'
               );
 
@@ -717,7 +717,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function showOfer($data){
 
-        $result = $data->all();
+        $result = $data;
        // print_r($result);die;
         $fetch = DB::table('offer')
         ->where(function($query) use ($result){

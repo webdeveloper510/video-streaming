@@ -107,15 +107,16 @@ $(document).ready(function() {
 		}
 		});
 
-
-$('#file_input').change(function(){
+$(document).on('change', '#file_input', function () {
+	//alert('he;p');return false;
 	readURL(this);
 })
 
 function readURL(input) {
 
-  var $source = $('#video_here');
-  $source[0].src = URL.createObjectURL(input.files[0]);
+
+  var $source = $('#blah');
+   $source[0].src = URL.createObjectURL(input.files[0]);
   $source.parent()[0].load();
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -167,9 +168,7 @@ $(document).on('click', '#checkPrice', function () {
 		});
 
 });
-
-$('.section_advance').click(function(){
-
+$(document).on('click', '.section_advance', function () {
 	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
 
 	//$('#bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('#bar').addClass('rightbar');

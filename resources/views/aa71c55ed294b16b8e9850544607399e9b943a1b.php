@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta name="csrf-token" content="{{ csrf_token() }}" />
+   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
   <title>
    Dashboard
   </title>
@@ -17,12 +17,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
  
   <!-- CSS Files -->
-  <link href="{{asset('artistdashboard//css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
+  <link href="<?php echo e(asset('artistdashboard//css/material-dashboard.css?v=2.1.2')); ?>" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
+  <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
+     <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
 
 <style type="text/css">
   .notif {
@@ -92,39 +92,40 @@ button#dropdownMenuButton {
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="" class="simple-text logo-normal">
-      	@isset($contentUser)
-       {{ $contentUser->nickname }}
-          @endisset
+      	<?php if(isset($contentUser)): ?>
+       <?php echo e($contentUser->nickname); ?>
+
+          <?php endif; ?>
         
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active ">
-            <a class="nav-link " href="{{url('artists/dashboard')}}">
+            <a class="nav-link " href="<?php echo e(url('artists/dashboard')); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{url('artist/Profile')}}">
+            <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{url('artist/contentUpload')}}">
+            <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload Content</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{url('/withdraw')}}">
+            <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
            <li class="nav-item ">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+            <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
               <i class="fa fa-money"></i>
               <p>Requests</p>
             </a>
@@ -136,8 +137,8 @@ button#dropdownMenuButton {
               My Offers
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{url('/artist/offer')}}">Create Offer</a>
-          <a class="dropdown-item" href="{{url('/artist/my-offer')}}">My Offers</a>
+          <a class="dropdown-item" href="<?php echo e(url('/artist/offer')); ?>">Create Offer</a>
+          <a class="dropdown-item" href="<?php echo e(url('/artist/my-offer')); ?>">My Offers</a>
          
         </div>
          
@@ -182,15 +183,15 @@ button#dropdownMenuButton {
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> Notification</h5><br>
-      @foreach($notification as $val)
-    @if($val->notificationfor=='artist')
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->notificationfor=='artist'): ?>
     
-      <a href="{{url('artist/readNotification/'.$val->id)}}">{{$val->message}}</a>
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
     
   
     <hr>
-    @endif
-    @endforeach
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      <a href=""><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
@@ -202,9 +203,9 @@ button#dropdownMenuButton {
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="{{url('artist/edit')}}">Edit Profile</a>
+                  <a class="dropdown-item" href="<?php echo e(url('artist/edit')); ?>">Edit Profile</a>
                   <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{url('logout')}}">Log out</a>
+            <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
                 </div>
               </li>
             </ul>
@@ -214,3 +215,4 @@ button#dropdownMenuButton {
       
       <!-- End Navbar -->
 
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>

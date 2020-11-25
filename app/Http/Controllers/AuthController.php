@@ -932,10 +932,26 @@ public function notifyEmail(Request $req){
 
       unset($req['_token']);
 
-       $showOffer = $this->model->showOfer($req);
+      
 
-       return view('showoffer',['offer'=>$showOffer]);
+      Session::put('offer',$req->all());
 
+      
+
+       return redirect('/showoffers');
+
+    }
+
+    public function offers(){
+
+      $data = Session::get('offer');
+
+      //print_r($data->all());die;
+
+      $showOffer = $this->model->showOfer($data);
+
+      return view('showoffer',['offer'=>$showOffer]);
+      
     }
 
 

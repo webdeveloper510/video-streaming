@@ -14,13 +14,12 @@
         {{session('error')}}
         </div>
         @endif
-
 <div clas="row ">
 	@foreach($offer as $val)
 	<div class="col-4">
       <div class="card">
 	   <video width="100%" height="240" controls>
-  <source src="movie.mp4" type="video/mp4">
+  <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
 
   Your browser does not support the video tag.
 </video>

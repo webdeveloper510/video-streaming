@@ -59,7 +59,7 @@ Route::get('inProcess', 'AuthController@process');
 
 Route::get('cart', 'artist@cart')->middleware('authentication');
 
-
+Route::get('showoffers','AuthController@offers');
 
 
 

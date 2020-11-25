@@ -40,7 +40,7 @@
     <div class="artist_image">
 
 
-  <a href="{{$login ? url('/artistDetail/'.$artist->id) : url('/register')}}">
+  <a href="{{is_object($login) ? url('/artistDetail/'.$artist->id) : url('/register')}}">
   <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
 </a>
 

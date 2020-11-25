@@ -40,7 +40,7 @@
     <div class="artist_image">
 
 
-  <a href="<?php echo e($login ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
+  <a href="<?php echo e(is_object($login) ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
   <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
 </a>
 

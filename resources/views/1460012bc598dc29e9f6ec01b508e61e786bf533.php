@@ -455,8 +455,30 @@
 </div>
 <?php endif; ?>
  <!-- Modal -->
-                   
-<a href="#"  class="nav-item nav-link "  style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i></a>
+ <li class="nav-item dropdown">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> Notification</h5><br>
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->notificationfor=='user'): ?>
+    
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+    
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     <a href="<?php echo e(url('all_notification')); ?>"><span class="text-center text-dark">See More -></span></a>
+                </div>
+              </li>
+          
+</div>      
+
 
 
 
@@ -470,20 +492,7 @@
   <!-- header bottom end -->
   <!-- Button trigger modal -->
 
-<div class="notif text-center"  style="display:none;" >
-   <ul> 
-    <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
-    <li>
-      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
-    </li>
-  
-    <hr>
-    <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-   </ul>
-  </div>
 </header>
 <style type="text/css">
 
@@ -491,14 +500,12 @@
     width: 300px;
     background: white;
     height: 300px;
-    position: absolute;
-    right: 47px;
-    top: 61px;
     border: 1px solid;
     z-index: 999;
-    overflow: scroll;
+    overflow: hidden;
     padding: 12px;
     overflow-x: auto;
+    text-align: center;
 }
 
 .notif.text-center ul li {
@@ -507,6 +514,7 @@
     padding: 0 !important;
 
 }
+
 .notif.text-center ul li a {
     font-weight: 900;
 }
@@ -519,6 +527,9 @@
       overflow-y: scroll;
 
   }
+  .dropdown-menu.notif.text-center.show {
+    left: -156px;
+}
   .scroll12{
     height: 250px;
     overflow-y: scroll;
@@ -565,7 +576,15 @@
   color: red;
 }
 
-   
+  span.text-center.text-dark {
+    padding: 7px;
+    background: white;
+    width: 298px;
+    position: absolute;
+    top: 267px;
+    color: blue !important;
+    right: 1px;
+} 
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
