@@ -455,8 +455,27 @@
 </div>
 <?php endif; ?>
  <!-- Modal -->
-                   
-<a href="#"  class="nav-item nav-link" style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" class="fa fa-comment" aria-hidden="true"></i></a>
+             <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle not" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i>
+  </button>
+  <div class="dropdown-menu notif text-center" aria-labelledby="dropdownMenuButton">
+     <h3 class="text-center"> Notification</h3>
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+    
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     <a href="{{}}"><span class="text-center text-dark">See More -></span></a>
+  </div>
+</div>      
+
+
+
 
 						</div>
 					</div>
@@ -471,7 +490,33 @@
 
 </header>
 <style type="text/css">
-  
+
+  .notif {
+    width: 300px;
+    background: white;
+    height: 300px;
+    border: 1px solid;
+    z-index: 999;
+    overflow: hidden;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.notif.text-center ul li {
+    list-style: none;
+    text-align: center;
+    padding: 0 !important;
+
+}
+button.not {
+    background: transparent !important;
+    border: none;
+    min-width: 59px;
+    height: 35px;
+}
+.notif.text-center ul li a {
+    font-weight: 900;
+}
   i.fa.fa-comment:hover {
       color: #fc0 !important;
   }
@@ -481,6 +526,9 @@
       overflow-y: scroll;
 
   }
+  .dropdown-menu.notif.text-center.show {
+    left: -156px;
+}
   .scroll12{
     height: 250px;
     overflow-y: scroll;
@@ -526,6 +574,16 @@
 .price::-ms-input-placeholder { /* Microsoft Edge */
   color: red;
 }
+
+  span.text-center.text-dark {
+    padding: 7px;
+    background: white;
+    width: 298px;
+    position: absolute;
+    top: 267px;
+    color: blue !important;
+    right: 1px;
+} 
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
