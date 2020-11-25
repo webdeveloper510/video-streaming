@@ -4,13 +4,8 @@
     'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
-<<<<<<< HEAD
-    'url' => 'https://pornartistzone.com/developing-streaming/',
-    'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
-=======
     'url' => 'http://localhost/laravel/video-streaming/',
     'asset_url' => 'http://localhost/laravel/video-streaming/public',
->>>>>>> c6e046692d7e56924d9abae37b1623ab952bbf0c
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -358,13 +353,8 @@
       'public' => 
       array (
         'driver' => 'local',
-<<<<<<< HEAD
-        'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
-        'url' => 'https://pornartistzone.com/developing-streaming//storage',
-=======
         'root' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\app/public',
         'url' => 'http://localhost/laravel/video-streaming//storage',
->>>>>>> c6e046692d7e56924d9abae37b1623ab952bbf0c
         'visibility' => 'public',
       ),
       's3' => 

@@ -431,9 +431,30 @@
 </div>
 @endif
  <!-- Modal -->
-             <div class="dropdown">
+    <li class="nav-item dropdown" style="padding: 0px !important">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> Notification</h5><br>
+      @foreach($notification as $val)
+    @if($val->read==0 && $val->notificationfor=='user')
+    
+      <a href="{{url('artist/readNotification/'.$val->id)}}">{{$val->message}}</a>
+    
+  
+    <hr>
+    @endif
+    @endforeach
+     <a href=""><span class="text-center text-dark">See More -></span></a>
+                </div>
+              </li>
+            <!--  <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle not" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   <i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i>
+   <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
   </button>
   <div class="dropdown-menu notif text-center" aria-labelledby="dropdownMenuButton">
      <h3 class="text-center"> Notification</h3>
@@ -448,7 +469,7 @@
     @endforeach
      <a href="{{}}"><span class="text-center text-dark">See More -></span></a>
   </div>
-</div>      
+</div>      --> 
 
 
 
@@ -538,21 +559,21 @@ button.not {
 .row.text-left.text-white.mt-3.red {
     width: 98%;
 }
-.price::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.price::placeholder { 
   color: red;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
-.price:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.price:-ms-input-placeholder { 
   color: red;
 }
 
-.price::-ms-input-placeholder { /* Microsoft Edge */
+.price::-ms-input-placeholder { 
   color: red;
 }
 
   span.text-center.text-dark {
-    padding: 7px;
+    padding: 9px;
     background: white;
     width: 298px;
     position: absolute;
@@ -560,6 +581,10 @@ button.not {
     color: blue !important;
     right: 1px;
 } 
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    background: #7b0000;
+}
 </style>
  @if($errors->all())
   <script type="text/javascript">

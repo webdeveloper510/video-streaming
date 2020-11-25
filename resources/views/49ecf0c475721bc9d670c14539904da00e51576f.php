@@ -181,7 +181,7 @@ button#dropdownMenuButton {
                     Account
                   </p>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> Notification</h5><br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->read==0 && $val->notificationfor=='user'): ?>
