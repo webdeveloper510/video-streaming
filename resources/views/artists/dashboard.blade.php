@@ -180,7 +180,7 @@ button#dropdownMenuButton {
                     Account
                   </p>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> Notification</h5><br>
       @foreach($notification as $val)
     @if($val->read==0 && $val->notificationfor=='user')

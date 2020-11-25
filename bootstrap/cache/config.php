@@ -4,8 +4,10 @@
     'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
+
     'url' => 'https://pornartistzone.com/developing-streaming/',
     'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
+
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -353,8 +355,10 @@
       'public' => 
       array (
         'driver' => 'local',
+
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
         'url' => 'https://pornartistzone.com/developing-streaming//storage',
+
         'visibility' => 'public',
       ),
       's3' => 
