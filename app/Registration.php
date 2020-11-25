@@ -14,8 +14,8 @@ class Registration extends Model
     {
 
         $value = $this->selectDataById('email','users',$data['email']);
-        //print_r($value->count());die;
-        if($value->count() == 0){
+        print_r($value);die;
+        if(!$value){
             $userdata=$data->all();
             $userdata['password']= md5($data['password']);
             $userdata['created_at']= now();
