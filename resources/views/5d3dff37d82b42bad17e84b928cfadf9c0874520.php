@@ -214,7 +214,7 @@
                     <div class="col-md-6">
                       <div class="dropdown12 text-white" id="video">
                            <h4>Categories </h4>
-                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+                <?php echo Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true]); ?>
 
                   <?php echo e(Form::token()); ?>
 
@@ -230,11 +230,6 @@
                           
                       </div>
                       <div class="dropdown12 text-white" id="audio">
-                           <h4>Categories </h4>
-                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
-
-                  <?php echo e(Form::token()); ?>
-
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='audio'): ?>
                    <label class=""> 
@@ -254,12 +249,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               <?php echo e(Form::radio('media', 'asc', true ,['class'=>'media audio'])); ?> Audio
+                               <?php echo e(Form::radio('type', 'audio', true ,['class'=>'media audio'])); ?> Audio
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               <?php echo e(Form::radio('media', 'desc', false ,['class'=>'media video'])); ?> Video 
+                               <?php echo e(Form::radio('type', 'video', false ,['class'=>'media video'])); ?> Video 
                           <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           </label><br>
@@ -449,7 +444,7 @@
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
          <button class="dropdown-item" type="button">
-        <a href="<?php echo e(url('/my-requests/'.base64_encode($login->id))); ?>">Requests</a></button>
+        <a href="<?php echo e(url('/my-requests')); ?>">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   <b><?php echo e($userProfile[0]->tokens); ?></b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
