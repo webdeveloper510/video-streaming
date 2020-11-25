@@ -44,6 +44,7 @@
 </section>  
        
       <!-- End Navbar -->
+      
 
  @include('artists.dashboard_footer')
 

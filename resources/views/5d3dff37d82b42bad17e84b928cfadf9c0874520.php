@@ -455,8 +455,48 @@
 </div>
 <?php endif; ?>
  <!-- Modal -->
-                   
-<a href="#"  class="nav-item nav-link" style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" class="fa fa-comment" aria-hidden="true"></i></a>
+    <li class="nav-item dropdown" style="padding: 0px !important">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> Notification</h5><br>
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+    
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     <a href=""><span class="text-center text-dark">See More -></span></a>
+                </div>
+              </li>
+            <!--  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle not" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
+  </button>
+  <div class="dropdown-menu notif text-center" aria-labelledby="dropdownMenuButton">
+     <h3 class="text-center"> Notification</h3>
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+    
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     <a href="{{}}"><span class="text-center text-dark">See More -></span></a>
+  </div>
+</div>      --> 
+
+
+
 
 						</div>
 					</div>
@@ -471,7 +511,33 @@
 
 </header>
 <style type="text/css">
-  
+
+  .notif {
+    width: 300px;
+    background: white;
+    height: 300px;
+    border: 1px solid;
+    z-index: 999;
+    overflow: hidden;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.notif.text-center ul li {
+    list-style: none;
+    text-align: center;
+    padding: 0 !important;
+
+}
+button.not {
+    background: transparent !important;
+    border: none;
+    min-width: 59px;
+    height: 35px;
+}
+.notif.text-center ul li a {
+    font-weight: 900;
+}
   i.fa.fa-comment:hover {
       color: #fc0 !important;
   }
@@ -481,6 +547,9 @@
       overflow-y: scroll;
 
   }
+  .dropdown-menu.notif.text-center.show {
+    left: -156px;
+}
   .scroll12{
     height: 250px;
     overflow-y: scroll;
@@ -514,17 +583,31 @@
 .row.text-left.text-white.mt-3.red {
     width: 98%;
 }
-.price::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.price::placeholder { 
   color: red;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
-.price:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.price:-ms-input-placeholder { 
   color: red;
 }
 
-.price::-ms-input-placeholder { /* Microsoft Edge */
+.price::-ms-input-placeholder { 
   color: red;
+}
+
+  span.text-center.text-dark {
+    padding: 9px;
+    background: white;
+    width: 298px;
+    position: absolute;
+    top: 267px;
+    color: blue !important;
+    right: 1px;
+} 
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    background: #7b0000;
 }
 </style>
  <?php if($errors->all()): ?>
