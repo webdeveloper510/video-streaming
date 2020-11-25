@@ -1,5 +1,5 @@
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <section class="background1">
+      <section class="background139">
         <div class="row">
           <div class="col"></div>
           <div class="col-lg-10">

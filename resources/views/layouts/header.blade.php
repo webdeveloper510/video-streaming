@@ -18,7 +18,7 @@
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="{{asset('images/logos/filter.png')}}"></a></li>
                 <ul class="subnav" style="display: none">
-                  <ul class="nav nav-tabs">
+                  <ul class="nav nav-tabs text-center">
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
@@ -491,7 +491,8 @@
   .notif {
     width: 300px;
     background: white;
-    height: 300px;
+    max-height: 300px;
+    height: auto;
     border: 1px solid;
     z-index: 999;
     overflow: hidden;
@@ -505,12 +506,7 @@
     padding: 0 !important;
 
 }
-button.not {
-    background: transparent !important;
-    border: none;
-    min-width: 59px;
-    height: 35px;
-}
+
 .notif.text-center ul li a {
     font-weight: 900;
 }
@@ -577,7 +573,7 @@ button.not {
     background: white;
     width: 298px;
     position: absolute;
-    top: 267px;
+    top: 263px;
     color: blue !important;
     right: 1px;
 } 

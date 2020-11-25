@@ -1,5 +1,5 @@
   @include('layouts.header')
-      <section class="background1">
+      <section class="background139">
         <div class="row">
           <div class="col"></div>
           <div class="col-lg-10">
