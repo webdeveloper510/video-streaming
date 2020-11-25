@@ -113,6 +113,10 @@ $('#file_input').change(function(){
 })
 
 function readURL(input) {
+
+  var $source = $('#video_here');
+  $source[0].src = URL.createObjectURL(input.files[0]);
+  $source.parent()[0].load();
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     
@@ -269,3 +273,10 @@ $(".description").val(desc);
 
 $('#offerid').val(id);
 }
+
+function showDiv(){
+	$('.notif').toggle();
+}
+
+
+

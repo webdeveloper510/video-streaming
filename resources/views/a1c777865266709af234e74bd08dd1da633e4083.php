@@ -456,7 +456,9 @@
 <?php endif; ?>
  <!-- Modal -->
                    
-<a href="#"  class="nav-item nav-link" style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" class="fa fa-comment" aria-hidden="true"></i></a>
+<a href="#"  class="nav-item nav-link "  style="border-right-color: white;border-right-style: solid;"><i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i></a>
+
+
 
 						</div>
 					</div>
@@ -468,10 +470,46 @@
   <!-- header bottom end -->
   <!-- Button trigger modal -->
 
+<div class="notif text-center"  style="display:none;" >
+   <ul> 
+    <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    <li>
+      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+    </li>
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
+   </ul>
+  </div>
 </header>
 <style type="text/css">
-  
+
+  .notif {
+    width: 300px;
+    background: white;
+    height: 300px;
+    position: absolute;
+    right: 47px;
+    top: 61px;
+    border: 1px solid;
+    z-index: 999;
+    overflow: scroll;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.notif.text-center ul li {
+    list-style: none;
+    text-align: center;
+    padding: 0 !important;
+
+}
+.notif.text-center ul li a {
+    font-weight: 900;
+}
   i.fa.fa-comment:hover {
       color: #fc0 !important;
   }
@@ -526,6 +564,8 @@
 .price::-ms-input-placeholder { /* Microsoft Edge */
   color: red;
 }
+
+   
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">

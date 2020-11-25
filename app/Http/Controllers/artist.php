@@ -180,7 +180,7 @@ class artist extends Controller
 
                 $createOffer = $this->model->createOffer($data);
                   if($createOffer==1){
-                      return redirect('artist/offer#success')->with('success','Data Created Successfully!');
+                      return redirect('artist/offer#success')->with('success','Offer Created Successfully!');
                     }
                     else
                     {
@@ -231,5 +231,33 @@ class artist extends Controller
 
   }
 
+  public function addUserDescription(Request $req){
 
-}
+        unset($req['_token']);
+
+        $success = $this->model->updateUserDesc($req);
+
+        if($success ==1){
+          return redirect('/showOffer')->with('success','Add Description!');
+        }
+        else{
+           return redirect('/showOffer')->with('error','Some Error!');
+        }
+  }
+
+
+    public function readNotification($id){
+
+      $noti_id = base64_decode($id);
+
+          $notificationRead = $this->model->readNotification($noti_id);
+
+          if($notificationRead ==1){
+          return redirect('artist/my-offer')->with('success','Add Description!');
+        }
+        else{
+           return redirect('artist/my-offer')->with('error','Some Error!');
+        }
+
+    }
+  }

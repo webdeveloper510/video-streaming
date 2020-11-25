@@ -24,10 +24,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
 
+<style type="text/css">
+  .notif {
+    width: 300px;
+    background: white;
+    height: 300px;
+    position: absolute;
+    right: 47px;
+    top: 61px;
+    border: 1px solid;
+    z-index: 999;
+    overflow: scroll;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.notif.text-center ol li {
+    list-style: none;
+    text-align: center;
+    padding: 0 !important;
+    margin-left: -40px;
+}
+.notif.text-center ol li a {
+    font-weight: 900;
+}
+ </style>
 </head>
 
 <body class="">
-   
+
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
@@ -88,12 +113,6 @@
          
 
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
           
         </ul>
       </div>
@@ -122,6 +141,14 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" onclick="showDiv()" href="#">
+                 <i class="material-icons">notifications</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li>
              
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,7 +168,20 @@
         </div>
       </nav>
       
-       
+       <div class="notif text-center" style="display:none;" >
+   <ol> 
+    <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->read==0 && $val->notificationfor=='artist'): ?>
+    <li>
+      <a href="<?php echo e(url('artist/readNotification/'.base64_encode($val->id))); ?>"><?php echo e($val->message); ?></a>
+    </li>
+  
+    <hr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+   </ol>
+  </div>
       <!-- End Navbar -->
 
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>

@@ -25,7 +25,7 @@
       <th scope="col">Price</th>
       <th scope="col">Description</th>
       <th scope="col">User Description</th>
-      <th scope="col">Action</th>
+    <!--   <th scope="col">Action</th> -->
     </tr>
   </thead>
   <tbody>
@@ -38,14 +38,14 @@
       <td>{{$val->price}}</td>
       <td>{{$val->description}}</td>
       <td>{{$val->userdescription}}</td>
-      <td><button class="edit" onclick="getofferid('{{$val->id}}','{{$val->description}}','{{$val->userid}}')" data-toggle="modal" data-target="#editdescription">Edit Description</button></td>
+   <!--    <td><button class="edit" onclick="getofferid('{{$val->id}}','{{$val->description}}','{{$val->userid}}')" data-toggle="modal" data-target="#editdescription">Edit Description</button></td> -->
     </tr>
     @endforeach
   </tbody>
 </table>
 
 </div>
-
+<!-- 
 <div class="modal fade" id="editdescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -73,7 +73,15 @@
          {{ Form::close() }}
     </div>
   </div>
-</div>
+</div> -->
+ <style>
 
+        li.nav-item a {
+    color: black !important;
+}
+a.navbar-brand.text-white {
+    color: black !important;
+}
+</style>
 
  @include('artists.dashboard_footer')
