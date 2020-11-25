@@ -91,7 +91,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
               
                 {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
          <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
@@ -163,7 +163,7 @@
                           <div class="col-md-6">
                               
                            </div>
-                            <div class="col-md-12 text-left">
+                            <div class="col-md-12 pr-5 text-right">
                        {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                       {{ Form::close() }}
                      </div> 
@@ -183,7 +183,7 @@
                           @include('popup')
                         </div>
                              </div>
-                          <div class="col-md-6 text-left mt-3">
+                          <div class="col-md-12 text-right mt-3 pr-5">
               
                 {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
            
@@ -269,7 +269,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
 
                 {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
          <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
@@ -350,7 +350,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
               
                 {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                        </div>
@@ -522,6 +522,9 @@
   .dropdown-menu.notif.text-center.show {
     left: -156px;
 }
+.tab-pane h3 {
+    padding-left: 51px;
+}
   .scroll12{
     height: 250px;
     overflow-y: scroll;
@@ -580,6 +583,7 @@
 .nav-tabs {
     border-bottom: 1px solid #dee2e6;
     background: #7b0000;
+    border-top: 1px solid #dee2e6;
 }
 </style>
  @if($errors->all())

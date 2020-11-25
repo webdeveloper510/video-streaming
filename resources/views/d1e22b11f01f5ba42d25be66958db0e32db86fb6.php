@@ -21,15 +21,15 @@
  <!--1st slider start-->
  <div class="container">
    <div class="slider_tittle">
-    <div class="row">
+  <!--   <div class="row">
     	<div class="col"></div>
     	<div class="col-md-8">
-  <h3 class="PAZ text-center header-text"  style="font-size: 27px;">Personal Attention, Passive Income And Creations that only your fantasy can set limits to!</h3>
+  
        </div>
        <div class="col"></div>
-   </div>
+   </div> -->
 
-  <div class="container my-4">
+ <!--  <div class="container my-4">
     <div class="row">
     <div class="slider_tittle">
     <h3 class="tittle">Get to know our Artists</h3>
@@ -50,9 +50,9 @@
   
 </div>
   </div>
-  </div> 
+  </div> --> 
   <?php if(!$login): ?> 
-<div class="row">
+<div class="row mt-5">
   <div class="col-md-6">
       <div class="user1 mb-3">
       <div class="user-head text-center text-white">
@@ -62,7 +62,7 @@
     <div class="row">
      <div class="col-md-12">
        <div class="left pt-3">
-       	   <?php for($i = 0; $i < 13; $i++): ?>
+       	   <?php for($i = 0; $i < 10; $i++): ?>
            <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
@@ -70,35 +70,40 @@
   </div>
       <div class="right pt-3">
     
-      <p>You keep 90% of your profits</p>
+      <p>Offer Services in Categories You Love</p>
          <p>
-         Create content in categories you like 
+        Receive Donations from Happy Customers
+
           </p>
-         <p>Accept/reject/edit requests as you wish
+         <p>Discover More Jobs with our Search Engine
+
           </p>
-        <p> Create Samples for your fans to let them know what you can offer them
+        <p> Accept/Reject/Edit Requests as You Want
+
           </p>
-        <p>Invite other artists through our partnerprogram and build up a passive income 
+        <p>Join our Referral Program for Lifetime Passive Revenue Stream
+ 
           </p>
-          <p>Invite fans and get rewarded with passive income
+          <p>Stick out with our Top List
+
           </p>
-         <p>Stick out of the crowd with our Top Lists and get the attention from most paying fans
+         <p>Enjoy Reduced Advertising
+
           </p>
-         <p>Use PAZ Tokens as a save way for transactions
+         <p>Exchange your Tokens Every Day
+
           </p>
-         <p>Reduced Ads
+         <p>Upload free Content
+
           </p>
-         <p>Exchange and withdraw your Tokens at anytime
-          </p>
-         <p>Upload free Audio
-          </p>
-         <p>Upload free Video 
-          </p>
-          <p>Personalized Audio/Video offers
+         <p>90% Commission
+
+
+
           </p>
     </div>
   </div>
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center mt-2">
   <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/artist')); ?>">Register as Artist</a></button>
 
     </div>
@@ -112,14 +117,14 @@
     <div class="col-md-6">
       <div class="user1 mb-3">
       <div class="user-head text-center text-white">
-      <h3>User Features</h3>
+      <h3>Customer Features</h3>
     </div>
      <div class="user-body">
     <div class="row">
       <div class="col-md-12">
        <div class="left pt-3">
 
-   	   <?php for($i = 0; $i < 12; $i++): ?>
+   	   <?php for($i = 0; $i < 10; $i++): ?>
            <i class="fa fa-check" style="font-size:24px"></i>
       <br>
       <br>
@@ -130,47 +135,30 @@
   </div>
       <div class="right pt-3">
    
-      <p>Personal attention </p>
+      <p>Build Playlists, Stream, Download Content </p>
          
-          <p>Let Artists create Video/Audio
-          according to your imagination </p>
+          <p>Create Jobs for Artists according to Your Imagination </p>
          
-          <p>Download your requested
-          Video/Audio </p>
+          <p>Enjoy our Advance Filter Options</p>
          
-          <p>Save money by watching
-          Samples on how your request
-          could be carried out</p>
+          <p>Save money by watching Samples</p>
          
-          <p>Upload Requests and choose
-          the best offer 
+          <p>Stick out with our Top List
           </p>
-          <p>Stick out of the crowd with our
-          Top Lists and get the attention
-          from our most popular artists
+          <p>Join our Referral Program for Lifetime Passive Revenue Stream
           </p>
-          <p>Invite your favorite Artists
-          through our partnerprogram
-          and build up a passive income
+          <p>Create Playlists and Stream Anytime, Anywhere
           </p>
-          <p>Invite users and get rewarded
-          with passive income
+          <p>Enjoy Reduced Advertising
           </p>
-          <p>Create playlists and stream
-          anytime 
+          <p>Use Tokens for Buying and Donations
           </p>
-          <p>Reduced Ads
+          <p>Exchange your Tokens Every Day
           </p>
-          <p>Use PAZ Tokens as a save way
-          for transactions 
-          </p>
-          <p>Exchange and withdraw your
-          Tokens at anytime 
           
-          </p>
     </div>
      </div>
-    <div class="col-md-12 text-center mt-5">
+    <div class="col-md-12 text-center mt-2">
 
  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as User</a></button>
 
@@ -383,7 +371,7 @@ a.btn, button.btn {
 }
 .left .fa {
     color: green;
-    padding-top: 12px;
+    padding-top: 7px;
 }
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;
