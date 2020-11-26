@@ -41,7 +41,7 @@
 
                
 
-        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?> User
+        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
 
         <?php echo e(Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])); ?> Artist
                 <?php if($errors->first('email')): ?>
