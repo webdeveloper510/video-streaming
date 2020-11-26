@@ -1,5 +1,5 @@
  <div class="row text-left text-white mt-3 red">
-                                  <div class="col-md-4 mb-4">
+                                  <div class="col-md-4 mb-4 logy">
                                     <label>Sexology</label><br>
                                     {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                     {{Form::checkbox('sexology[]','Homo')}}Homo <br>
@@ -11,7 +11,7 @@
                                     {{Form::checkbox('titssize[]','Normal')}}Normal <br>
                                     {{Form::checkbox('titssize[]','Big')}}Big 
                                   </div>
-                                   <div class="col-md-4 mb-4">
+                                   <div class="col-md-4 mb-4 ass">
                                     <label>Ass</label><br>
                                     {{Form::checkbox('ass[]','Normal')}}Normal <br>
                                     {{Form::checkbox('ass[]','Small')}}Small <br>
@@ -19,7 +19,7 @@
                                     
  
                                   </div>
-                                  <div class="col-md-4 mb-4">
+                                  <div class="col-md-4 mb-4 logy">
                                       <label>Privy part</label><br>
                                     {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
                                     {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
@@ -46,7 +46,7 @@
                                     {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                   </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-4 mb-4 ass">
                                     <label>Hair color</label><br>
                                     {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('haircolor[]','brown')}}Brown <br>
@@ -63,7 +63,7 @@
                                     {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                   </div>
                                  
-                                   <div class="col-md-4 mb-4">
+                                   <div class="col-md-4 mb-4 logy">
                                       <label>Hair Length</label><br>
                                     {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
                                     {{Form::checkbox('hairlength[]','Short')}}Short <br>
