@@ -897,9 +897,15 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     public function allNotication($user){
 
       if($user=='user'){
+
+         $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+
         $data=DB::table('notification')
-        ->leftjoin('users', 'notification.userid', '=','users.id')
-         ->select('notification.*', 'users.*')
+        ->join('users', 'notification.userid', '=','users.id')
+        ->join('profiletable','profiletable.userid','=','notification.userid')
+         ->select('notification.*', 'users.*','profiletable.profilepicture')
          ->where('notification.notificationfor',$user)
          ->get()->toArray();
       }
