@@ -189,7 +189,7 @@ button#dropdownMenuButton {
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href=""><span class="text-center text-dark">See More -></span></a>
+     <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
               <li class="nav-item dropdown">

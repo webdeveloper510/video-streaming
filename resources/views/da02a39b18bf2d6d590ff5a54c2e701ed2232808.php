@@ -1,5 +1,5 @@
-<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-      <section class="background1">
+  <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+      <section class="background139">
         <div class="row">
           <div class="col"></div>
           <div class="col-lg-10">
@@ -28,7 +28,7 @@
            <div class="row">
             <div class="col-md-8">
        
-         <div class="text_one"><p>Refer <a href="#">personalattentionz.com </a> and earn 5% on purchases of every invited person!</p></div>
+         <div class="text_one"><p>Refer <a href="#">personalattentionz.com </a> and earn 10% on purchases of every invited person!</p></div>
        </div>
        <div class="col-md-4 mt-4 text-center">
           <div class="money"><button class="btn btn-primary" onclick="myFunction()" id="myBtn">Copy Link</button></div>
@@ -44,9 +44,6 @@
 </section>  
        
       <!-- End Navbar -->
-      
-
- <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//withdraw.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//userDraw.blade.php ENDPATH**/ ?>
