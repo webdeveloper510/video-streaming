@@ -94,7 +94,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
               
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -170,7 +170,7 @@
                           <div class="col-md-6">
                               
                            </div>
-                            <div class="col-md-12 text-left">
+                            <div class="col-md-12 pr-5 text-right">
                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
@@ -194,7 +194,7 @@
                           <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                              </div>
-                          <div class="col-md-6 text-left mt-3">
+                          <div class="col-md-12 text-right mt-3 pr-5">
               
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -286,7 +286,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
 
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -372,7 +372,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
               
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -546,6 +546,9 @@
   .dropdown-menu.notif.text-center.show {
     left: -156px;
 }
+.tab-pane h3 {
+    padding-left: 51px;
+}
   .scroll12{
     height: 250px;
     overflow-y: scroll;
@@ -604,6 +607,7 @@
 .nav-tabs {
     border-bottom: 1px solid #dee2e6;
     background: #7b0000;
+    border-top: 1px solid #dee2e6;
 }
 </style>
  <?php if($errors->all()): ?>
