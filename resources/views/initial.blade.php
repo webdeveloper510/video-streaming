@@ -106,7 +106,7 @@
    
       <p><i class="fa fa-check" style="font-size:24px"></i>  Build Playlists, Stream, Download Content </p>
          
-        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your Imagination </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your  <br><span style="padding-left:50px">Imagination</span> </p>
          
         <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advance Filter Options</p>
          
@@ -115,8 +115,7 @@
         <p><i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
           </p>
         
-        <p> <i class="fa fa-check" style="font-size:24px"></i>  Create Playlists and Stream Anytime
-          </p>
+      
          <p><i class="fa fa-check" style="font-size:24px"></i> Enjoy Reduced Advertising
           </p>
          <p><i class="fa fa-check" style="font-size:24px"></i>  Use Tokens for Buying and Donations

@@ -588,7 +588,7 @@
     padding-left: 36px;
 }
 .col-md-4.mb-4.ass {
-    margin-left: -43px;
+    margin-left: -28px;
 }
   .notif {
     width: 300px;
