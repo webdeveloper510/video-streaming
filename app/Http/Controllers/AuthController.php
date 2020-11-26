@@ -954,6 +954,16 @@ public function notifyEmail(Request $req){
       
     }
 
+    public function seeNotification($text){
+
+      $all_data = $this->model->allNotication($text);
+//echo "<pre>";
+    // print_r($all_data);die;
+
+             return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
+
+    }
+
 
 
   

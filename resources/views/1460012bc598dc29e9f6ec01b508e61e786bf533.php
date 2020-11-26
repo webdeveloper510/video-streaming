@@ -18,7 +18,7 @@
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
                 <ul class="subnav" style="display: none">
-                  <ul class="nav nav-tabs">
+                  <ul class="nav nav-tabs text-center">
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
@@ -455,14 +455,16 @@
 </div>
 <?php endif; ?>
  <!-- Modal -->
- <li class="nav-item dropdown">
+
+
+    <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <i style="font-size: 27px !important;" onclick="showDiv()"  class="fa fa-comment" aria-hidden="true"></i>
+                <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> Notification</h5><br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
@@ -473,11 +475,9 @@
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href="<?php echo e(url('all_notification')); ?>"><span class="text-center text-dark">See More -></span></a>
+     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
-          
-</div>      
 
 
 
@@ -499,7 +499,8 @@
   .notif {
     width: 300px;
     background: white;
-    height: 300px;
+    max-height: 300px;
+    height: auto;
     border: 1px solid;
     z-index: 999;
     overflow: hidden;
@@ -563,28 +564,32 @@
 .row.text-left.text-white.mt-3.red {
     width: 98%;
 }
-.price::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.price::placeholder { 
   color: red;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
-.price:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.price:-ms-input-placeholder { 
   color: red;
 }
 
-.price::-ms-input-placeholder { /* Microsoft Edge */
+.price::-ms-input-placeholder { 
   color: red;
 }
 
   span.text-center.text-dark {
-    padding: 7px;
+    padding: 9px;
     background: white;
     width: 298px;
     position: absolute;
-    top: 267px;
+    top: 263px;
     color: blue !important;
     right: 1px;
 } 
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    background: #7b0000;
+}
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">

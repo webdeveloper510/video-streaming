@@ -28,8 +28,8 @@
   .notif {
     width: 300px;
     background: white;
-    height: 300px;
-   
+     max-height: 300px;
+    height: auto;
     border: 1px solid;
     z-index: 999;
     overflow: hidden;
@@ -43,10 +43,7 @@
     padding: 0 !important;
     margin-left: -40px;
 }
-.dropdown-menu.notif.text-center.show {
-    position: absolute;
-    left: -151px;
-}
+
 .notif.text-center ol li a {
     font-weight: 900;
 }
@@ -181,8 +178,8 @@ button#dropdownMenuButton {
                     Account
                   </p>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdownProfile">
-                 <h5 class="text-center"> Notification</h5><br>
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> <b>Notification</b></h5><br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='artist'): ?>
     

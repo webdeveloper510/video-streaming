@@ -61,6 +61,8 @@ Route::get('cart', 'artist@cart')->middleware('authentication');
 
 Route::get('showoffers','AuthController@offers');
 
+Route::get('notification/{text}','AuthController@seeNotification');
+
 
 
 Route::post('ajax-request', 'artist@cartSbmit');

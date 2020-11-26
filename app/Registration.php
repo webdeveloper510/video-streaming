@@ -894,6 +894,26 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
        return $value;
 
     }
+    public function allNotication($user){
+
+      if($user=='user'){
+        $data=DB::table('notification')
+        ->leftjoin('users', 'notification.userid', '=','users.id')
+         ->select('notification.*', 'users.*')
+         ->where('notification.notificationfor',$user)
+         ->get()->toArray();
+      }
+      else{
+        $data=DB::table('notification')
+        ->leftjoin('contentprovider', 'notification.artistid', '=','contentprovider.id')
+         ->select('notification.*', 'contentprovider.*')
+         ->where('notification.notificationfor',$user)
+         ->get()->toArray();
+      }
+
+      return $data;
+
+    }
 
 
 }
