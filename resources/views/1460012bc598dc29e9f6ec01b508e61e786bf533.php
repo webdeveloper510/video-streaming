@@ -585,7 +585,7 @@
     margin-left: -36px;
 }
 .col-md-4.mb-4.logy {
-    padding-left: 67px;
+    padding-left: 36px;
 }
 .col-md-4.mb-4.ass {
     margin-left: -43px;
