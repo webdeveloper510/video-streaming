@@ -419,7 +419,7 @@
 
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
-					  <a href="<?php echo e(url('register')); ?>" class="nav-item nav-link">Register</a>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Register</a>
               <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
            <?php endif; ?>             
 
@@ -455,6 +455,8 @@
 </div>
 <?php endif; ?>
  <!-- Modal -->
+
+
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
@@ -465,7 +467,7 @@
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> Notification</h5><br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    <?php if($val->notificationfor=='user'): ?>
     
       <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
     
@@ -473,27 +475,9 @@
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href=""><span class="text-center text-dark">See More -></span></a>
+     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
-            <!--  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle not" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
-  </button>
-  <div class="dropdown-menu notif text-center" aria-labelledby="dropdownMenuButton">
-     <h3 class="text-center"> Notification</h3>
-      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
-    
-      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
-    
-  
-    <hr>
-    <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href="{{}}"><span class="text-center text-dark">See More -></span></a>
-  </div>
-</div>      --> 
 
 
 
@@ -522,6 +506,7 @@
     overflow: hidden;
     padding: 12px;
     overflow-x: auto;
+    text-align: center;
 }
 
 .notif.text-center ul li {

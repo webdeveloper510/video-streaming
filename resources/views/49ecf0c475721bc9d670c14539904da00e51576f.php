@@ -181,7 +181,7 @@ button#dropdownMenuButton {
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> <b>Notification</b></h5><br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    <?php if($val->notificationfor=='artist'): ?>
     
       <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
     
@@ -189,7 +189,7 @@ button#dropdownMenuButton {
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href=""><span class="text-center text-dark">See More -></span></a>
+     <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
               <li class="nav-item dropdown">
