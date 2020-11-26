@@ -25,8 +25,8 @@
             <ul class="footer-menu">
               <li style="border-left-color: red;
     border-left-style: solid;
-    border-left-width: 1px;"><a href="#"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="https://www.websitepolicies.com/policies/view/iV2Lze7O"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+    border-left-width: 1px;">
+              <a href="https://www.websitepolicies.com/policies/view/iV2Lze7O"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
                <li><a href="https://www.websitepolicies.com/policies/view/u5oiPx3i"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/GBVn25Ot"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
                 <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>

@@ -52,7 +52,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
 
                           <!--    {{Form::checkbox('price','free')}}Free   -->
                           
@@ -72,7 +72,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
@@ -93,8 +93,9 @@
                         
                     <div class="col-md-12 text-right pr-5">
               
-                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+               
+         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+          {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
               </div>
               <div class="col-md-6">
                        
@@ -132,7 +133,7 @@
                             <label class="">
             
 
-                         {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+                         {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
                             
                             </label><br>
                             <label class="">  
@@ -150,7 +151,7 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                           {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                           {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
   
                             </label><br>
                             <label >
@@ -318,12 +319,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               {{Form::radio('type', 'audio', true ,['class'=>'media audio'])}} Audio
+                               {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               {{Form::radio('type', 'video', false ,['class'=>'media video'])}} Video 
+                               {{Form::radio('type', 'video', true ,['class'=>'media video'])}} Video 
                           <!--  {{Form::checkbox('duration','desc')}}Longest  -->
                             
                           </label><br>
@@ -335,7 +336,7 @@
                   
       
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', true ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
@@ -357,8 +358,9 @@
                         
                     <div class="col-md-12 text-right pr-5">
 
-                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+               
+         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+          {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
               </div>
               <div class="col-md-6">
                        
@@ -397,7 +399,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
 
                           <!--    {{Form::checkbox('price','free')}}Free   -->
                           
@@ -417,7 +419,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
@@ -472,7 +474,7 @@
 				    <i class="fa fa-trophy"></i>TOP LIST</a>
 							<!-- <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a> -->
 							<!--a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a-->	
-		<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
+		<a href="{{'play'}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
     
 							<a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
 

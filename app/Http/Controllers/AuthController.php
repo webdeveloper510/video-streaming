@@ -77,12 +77,6 @@ class AuthController extends Controller
       return view('/contact');
     }
 
-    public function play(){
-
-      
-      return view('/play');
-
-    }
 
     /*----------------------------------------------------Filter Result-------------------------------------------*/
 
@@ -954,16 +948,21 @@ public function notifyEmail(Request $req){
       
     }
 
-    public function seeNotification($text){
+   
+ public function seeNotification($text){
 
       $all_data = $this->model->allNotication($text);
 
              return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
 
-    }
-
-
 
   
+
+}
+ public function play(){
+
+    return view('play');
+
+}
 
 }

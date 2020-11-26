@@ -36,7 +36,7 @@
 
                
 
-        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}} User
+        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}} Customer 
 
         {{Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])}} Artist
                 @if($errors->first('email'))

@@ -1,5 +1,5 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- end header -->
 <div class="inner-page">
@@ -148,3 +148,4 @@ button.btn.btn-default {
 }
 </style>
 </html>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>
