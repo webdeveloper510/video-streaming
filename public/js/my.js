@@ -9,7 +9,13 @@ $('.rad_But').click(function(){
 		$('.hide').show();
 	}
 })
-
+$(document).ready(function(){
+	//alert('hel');return false;
+  var firstName = $('.firstName').text();
+  //console.log(firstName);return false;
+   var intials = $('.firstName').text().charAt(0);
+   var profileImage = $('.profileImage').text(intials);
+});
 $(document).ready(function() {
 
 
@@ -275,6 +281,7 @@ $('#offerid').val(id);
 function showDiv(){
 	$('.notif').toggle();
 }
+
 
 
 

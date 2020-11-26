@@ -59,57 +59,39 @@
       <h3>Artists Features</h3>
     </div>
     <div class="user-body">
-    <div class="row">
-     <div class="col-md-12">
-       <div class="left pt-3">
-       	   <?php for($i = 0; $i < 10; $i++): ?>
-           <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-      <br>
-           <?php endfor; ?>   
-  </div>
-      <div class="right pt-3">
     
-      <p>Offer Services in Categories You Love</p>
-         <p>
-        Receive Donations from Happy Customers
+      <p>  <i class="fa fa-check" style="font-size:24px"></i>  Offer Services in Categories You Love</p>
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Receive Donations from Happy Customers
+          </p>
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Discover More Jobs with our Search Engine
 
           </p>
-         <p>Discover More Jobs with our Search Engine
+        <p>  <i class="fa fa-check" style="font-size:24px"></i>  Accept/Reject/Edit Requests as You Want
 
           </p>
-        <p> Accept/Reject/Edit Requests as You Want
+       
+          <p>   <i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
 
           </p>
-        <p>Join our Referral Program for Lifetime Passive Revenue Stream
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
+
+          </p>
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Exchange your Tokens Every Day
+
+          </p>
+         <p>   <i class="fa fa-check" style="font-size:24px"></i>  Upload free Content
+
+          </p>
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  90% Commission </p>
+          <p>   <i class="fa fa-check" style="font-size:24px"></i> Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
  
           </p>
-          <p>Stick out with our Top List
-
-          </p>
-         <p>Enjoy Reduced Advertising
-
-          </p>
-         <p>Exchange your Tokens Every Day
-
-          </p>
-         <p>Upload free Content
-
-          </p>
-         <p>90% Commission
-
-
-
-          </p>
-    </div>
-  </div>
-    <div class="col-md-12 text-center mt-2">
+         <div class="col-md-12 text-center mt-2">
   <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/artist')); ?>">Register as Artist</a></button>
 
     </div>
-  </div>
- 
-</div>
+    </div>
+
 
       </div>
       </div>
@@ -120,49 +102,38 @@
       <h3>Customer Features</h3>
     </div>
      <div class="user-body">
-    <div class="row">
-      <div class="col-md-12">
-       <div class="left pt-3">
 
-   	   <?php for($i = 0; $i < 10; $i++): ?>
-           <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-      <br>
-           <?php endfor; ?>  
-    
-      
    
-  </div>
-      <div class="right pt-3">
-   
-      <p>Build Playlists, Stream, Download Content </p>
+      <p><i class="fa fa-check" style="font-size:24px"></i>  Build Playlists, Stream, Download Content </p>
          
-          <p>Create Jobs for Artists according to Your Imagination </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your Imagination </p>
          
-          <p>Enjoy our Advance Filter Options</p>
+        <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advance Filter Options</p>
          
-          <p>Save money by watching Samples</p>
+         <p><i class="fa fa-check" style="font-size:24px"></i> Save money by watching Samples</p>
          
-          <p>Stick out with our Top List
+        <p><i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
           </p>
-          <p>Join our Referral Program for Lifetime Passive Revenue Stream
+        
+        <p> <i class="fa fa-check" style="font-size:24px"></i>  Create Playlists and Stream Anytime
           </p>
-          <p>Create Playlists and Stream Anytime, Anywhere
+         <p><i class="fa fa-check" style="font-size:24px"></i> Enjoy Reduced Advertising
           </p>
-          <p>Enjoy Reduced Advertising
+         <p><i class="fa fa-check" style="font-size:24px"></i>  Use Tokens for Buying and Donations
           </p>
-          <p>Use Tokens for Buying and Donations
+          <p><i class="fa fa-check" style="font-size:24px"></i>  Exchange your Tokens Every Day
           </p>
-          <p>Exchange your Tokens Every Day
+           <p><i class="fa fa-check" style="font-size:24px"></i>  Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
           </p>
-          
-    </div>
-     </div>
-    <div class="col-md-12 text-center mt-2">
+          <div class="col-md-12 text-center mt-2">
 
  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as User</a></button>
 
     </div>
+    </div>
+
+     </div>
+    
   </div>
  
 </div>
@@ -323,6 +294,10 @@
     background-color: #fff;
     color: black;
 }
+.user-body i {
+    padding-right: 21px;
+    color: green;
+}
 .user1 {
     box-shadow: 1px 1px 6px 1px #0000003d;
 }
@@ -349,17 +324,10 @@ a.btn, button.btn {
   button.btn.btn-primary a {
     color: white;
 }
-.left {
-    float: left;
-    width: 10%;
-}
-.right {
-    float: left;
-    width: 90%;
-}
-.left .fa {
-    color: green;
-    padding-top: 7px;
+.user-body p {
+    font-size: 20px;
+    padding-top: 12px;
+
 }
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;
@@ -370,10 +338,7 @@ button.btn.btn-primary.partner_col:hover {
     border: 2px solid #bf0000 !important;
 }
 
-.right p {
-    font-size: 20px;
-    padding-top: 12px;
-}
+
 .text-center.header-text {
     font-weight: 700;
     text-transform: capitalize;
@@ -412,6 +377,7 @@ button.btn.btn-primary.partner_col:hover {
 .artist_image img {
     padding: 12px;
 }
+
   </style>
  <!--End 4th slider-->
 

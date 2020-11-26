@@ -1,11 +1,12 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'laravel',
+    'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
     'url' => 'https://pornartistzone.com/developing-streaming/',
     'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
+
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -181,6 +182,7 @@
       array (
         'driver' => 'file',
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/framework/cache/data',
+
       ),
       'memcached' => 
       array (
@@ -266,7 +268,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'personalattentio_livestreaming_stage',
         'username' => 'personalattentio_livestreamuser',
@@ -287,7 +289,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'personalattentio_livestreaming_stage',
         'username' => 'personalattentio_livestreamuser',
@@ -302,7 +304,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'personalattentio_livestreaming_stage',
         'username' => 'personalattentio_livestreamuser',
@@ -348,13 +350,22 @@
       'local' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app',
+=======
+        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
       ),
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
         'url' => 'https://pornartistzone.com/developing-streaming//storage',
+=======
+        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
+        'url' => 'http://localhost/video-streaming//storage',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
         'visibility' => 'public',
       ),
       's3' => 
@@ -370,7 +381,11 @@
     ),
     'links' => 
     array (
+<<<<<<< HEAD
       '/home/personalattentio/public_html/developing-streaming/public/storage' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
+=======
+      'C:\\xampp\\htdocs\\video-streaming\\public\\storage' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
     ),
   ),
   'hashing' => 
@@ -404,13 +419,21 @@
       'single' => 
       array (
         'driver' => 'single',
+<<<<<<< HEAD
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+<<<<<<< HEAD
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
         'level' => 'debug',
         'days' => 14,
       ),
@@ -460,7 +483,11 @@
       ),
       'emergency' => 
       array (
+<<<<<<< HEAD
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
+=======
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
       ),
     ),
   ),
@@ -472,11 +499,19 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
+<<<<<<< HEAD
         'host' => 'smtp.googlemail.com',
         'port' => '587',
         'encryption' => 'TLS',
         'username' => 'personalattentionz@gmail.com',
         'password' => 'JFK7opS.',
+=======
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -510,7 +545,7 @@
     'from' => 
     array (
       'address' => NULL,
-      'name' => 'laravel',
+      'name' => 'Laravel',
     ),
     'stream' => 
     array (
@@ -526,7 +561,11 @@
       'theme' => 'default',
       'paths' => 
       array (
+<<<<<<< HEAD
         0 => '/home/personalattentio/public_html/developing-streaming/resources/views/vendor/mail',
+=======
+        0 => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views/vendor/mail',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
       ),
     ),
   ),
@@ -605,7 +644,11 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+<<<<<<< HEAD
     'files' => '/home/personalattentio/public_html/developing-streaming/storage/framework/sessions',
+=======
+    'files' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\framework/sessions',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -625,9 +668,15 @@
   array (
     'paths' => 
     array (
+<<<<<<< HEAD
       0 => '/home/personalattentio/public_html/developing-streaming/resources/views',
     ),
     'compiled' => '/home/personalattentio/public_html/developing-streaming/resources/views',
+=======
+      0 => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views',
+    ),
+    'compiled' => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views',
+>>>>>>> dd0fcac005f7b4afb7ef4f9dd019ba8bd1719bc9
   ),
   'flare' => 
   array (

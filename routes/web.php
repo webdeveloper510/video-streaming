@@ -49,22 +49,19 @@ Route::get('logout', 'AuthController@logout');
 
 Route::get('paymentSuccess', 'AuthController@success'); 
 
-Route::get('my-requests','AuthController@myRequests');
+Route::get('my-requests','AuthController@myRequests')->middleware('authentication');;
 
 Route::get('success', 'AuthController@succssPage'); 
 
-
-
-
-Route::get('notify/{id}', 'AuthController@notify'); 
+Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication');; 
 
 Route::get('inProcess', 'AuthController@process'); 
 
 Route::get('cart', 'artist@cart')->middleware('authentication');
 
-Route::get('showoffers','AuthController@offers');
+Route::get('showoffers','AuthController@offers')->middleware('authentication');;
 
-Route::get('notification/{text}','AuthController@seeNotification');
+Route::get('notification/{text}','AuthController@seeNotification')->middleware('authentication');;
 
 
 
@@ -136,7 +133,7 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
 
 
-    Route::get('artist/requests', 'artist@showRequest');
+    Route::get('artist/requests', 'artist@showRequest')->middleware('contentAuth');
 
     Route::get('artist/notification','artist@ShowArtistNotification');
 
