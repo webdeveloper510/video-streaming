@@ -174,8 +174,7 @@ $(document).on('click', '.section_advance', function () {
 	//$('#bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('#bar').addClass('rightbar');
 	
 })
-
-$('.link_click').click(function(){
+$(document).on('click', '.link_click', function () {
 	 if($(this).hasClass('active')){
 }
 else{
