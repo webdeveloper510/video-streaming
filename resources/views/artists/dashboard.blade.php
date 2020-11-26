@@ -188,7 +188,7 @@ button#dropdownMenuButton {
     <hr>
     @endif
     @endforeach
-     <a href=""><span class="text-center text-dark">See More -></span></a>
+     <a href="{{url('notification/artist')}}"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
               <li class="nav-item dropdown">

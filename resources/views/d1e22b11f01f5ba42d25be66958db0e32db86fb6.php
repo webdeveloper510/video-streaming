@@ -40,7 +40,7 @@
     <div class="artist_image">
 
 
-  <a href="<?php echo e($login ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
+  <a href="<?php echo e(is_object($login) ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
   <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
 </a>
 
@@ -171,19 +171,7 @@
 
       </div>
     
-      	<div class="user1-head text-center text-white col-md-12">
-      <h3>Passive income?</h3>
-    </div>
-    <div class="user1-body col-md-12">
-    	<div class="row">
-      <div class="col-md-8 pl-5 pt-4 text-right">
-      <p style="font-size: 20px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
-    </div>
-    <div class="col-md-4">
-     <button type="button" class="btn btn-primary partner_col"><a href="<?php echo e(url('/checkUser/user')); ?>">Become Partner</a></button>
-    </div>
-</div>
-    </div>
+    
 </div>
 <?php endif; ?>
  </div>
