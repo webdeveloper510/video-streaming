@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,5 +131,4 @@
 }
 </style>
 </html>
-
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//search.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//search.blade.php ENDPATH**/ ?>
