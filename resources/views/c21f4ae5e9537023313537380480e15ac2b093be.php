@@ -21,15 +21,15 @@
  <!--1st slider start-->
  <div class="container">
    <div class="slider_tittle">
-    <div class="row">
+  <!--   <div class="row">
     	<div class="col"></div>
     	<div class="col-md-8">
-  <h3 class="PAZ text-center header-text"  style="font-size: 27px;">Personal Attention, Passive Income And Creations that only your fantasy can set limits to!</h3>
+  
        </div>
        <div class="col"></div>
-   </div>
+   </div> -->
 
-  <div class="container my-4">
+ <!--  <div class="container my-4">
     <div class="row">
     <div class="slider_tittle">
     <h3 class="tittle">Get to know our Artists</h3>
@@ -50,61 +50,48 @@
   
 </div>
   </div>
-  </div> 
+  </div> --> 
   <?php if(!$login): ?> 
-<div class="row">
+<div class="row mt-5">
   <div class="col-md-6">
       <div class="user1 mb-3">
       <div class="user-head text-center text-white">
       <h3>Artists Features</h3>
     </div>
     <div class="user-body">
-    <div class="row">
-     <div class="col-md-12">
-       <div class="left pt-3">
-       	   <?php for($i = 0; $i < 13; $i++): ?>
-           <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-      <br>
-           <?php endfor; ?>   
-  </div>
-      <div class="right pt-3">
     
-      <p>You keep 90% of your profits</p>
-         <p>
-         Create content in categories you like 
+      <p>  <i class="fa fa-check" style="font-size:24px"></i>  Offer Services in Categories You Love</p>
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Receive Donations from Happy Customers
           </p>
-         <p>Accept/reject/edit requests as you wish
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Discover More Jobs with our Search Engine
+
           </p>
-        <p> Create Samples for your fans to let them know what you can offer them
+        <p>  <i class="fa fa-check" style="font-size:24px"></i>  Accept/Reject/Edit Requests as You Want
+
           </p>
-        <p>Invite other artists through our partnerprogram and build up a passive income 
+       
+          <p>   <i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
+
           </p>
-          <p>Invite fans and get rewarded with passive income
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
+
           </p>
-         <p>Stick out of the crowd with our Top Lists and get the attention from most paying fans
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  Exchange your Tokens Every Day
+
           </p>
-         <p>Use PAZ Tokens as a save way for transactions
+         <p>   <i class="fa fa-check" style="font-size:24px"></i>  Upload free Content
+
           </p>
-         <p>Reduced Ads
+         <p>  <i class="fa fa-check" style="font-size:24px"></i>  90% Commission </p>
+          <p>   <i class="fa fa-check" style="font-size:24px"></i> Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
+ 
           </p>
-         <p>Exchange and withdraw your Tokens at anytime
-          </p>
-         <p>Upload free Audio
-          </p>
-         <p>Upload free Video 
-          </p>
-          <p>Personalized Audio/Video offers
-          </p>
-    </div>
-  </div>
-    <div class="col-md-12 text-center">
+         <div class="col-md-12 text-center mt-2">
   <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/artist')); ?>">Register as Artist</a></button>
 
     </div>
-  </div>
- 
-</div>
+    </div>
+
 
       </div>
       </div>
@@ -112,69 +99,41 @@
     <div class="col-md-6">
       <div class="user1 mb-3">
       <div class="user-head text-center text-white">
-      <h3>User Features</h3>
+      <h3>Customer Features</h3>
     </div>
      <div class="user-body">
-    <div class="row">
-      <div class="col-md-12">
-       <div class="left pt-3">
 
-   	   <?php for($i = 0; $i < 12; $i++): ?>
-           <i class="fa fa-check" style="font-size:24px"></i>
-      <br>
-      <br>
-           <?php endfor; ?>  
-    
-      
    
-  </div>
-      <div class="right pt-3">
-   
-      <p>Personal attention </p>
+      <p><i class="fa fa-check" style="font-size:24px"></i>  Build Playlists, Stream, Download Content </p>
          
-          <p>Let Artists create Video/Audio
-          according to your imagination </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your Imagination </p>
          
-          <p>Download your requested
-          Video/Audio </p>
+        <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advance Filter Options</p>
          
-          <p>Save money by watching
-          Samples on how your request
-          could be carried out</p>
+         <p><i class="fa fa-check" style="font-size:24px"></i> Save money by watching Samples</p>
          
-          <p>Upload Requests and choose
-          the best offer 
+        <p><i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
           </p>
-          <p>Stick out of the crowd with our
-          Top Lists and get the attention
-          from our most popular artists
+        
+        <p> <i class="fa fa-check" style="font-size:24px"></i>  Create Playlists and Stream Anytime
           </p>
-          <p>Invite your favorite Artists
-          through our partnerprogram
-          and build up a passive income
+         <p><i class="fa fa-check" style="font-size:24px"></i> Enjoy Reduced Advertising
           </p>
-          <p>Invite users and get rewarded
-          with passive income
+         <p><i class="fa fa-check" style="font-size:24px"></i>  Use Tokens for Buying and Donations
           </p>
-          <p>Create playlists and stream
-          anytime 
+          <p><i class="fa fa-check" style="font-size:24px"></i>  Exchange your Tokens Every Day
           </p>
-          <p>Reduced Ads
+           <p><i class="fa fa-check" style="font-size:24px"></i>  Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
           </p>
-          <p>Use PAZ Tokens as a save way
-          for transactions 
-          </p>
-          <p>Exchange and withdraw your
-          Tokens at anytime 
-          
-          </p>
-    </div>
-     </div>
-    <div class="col-md-12 text-center mt-5">
+          <div class="col-md-12 text-center mt-2">
 
  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as User</a></button>
 
     </div>
+    </div>
+
+     </div>
+    
   </div>
  
 </div>
@@ -183,19 +142,7 @@
 
       </div>
     
-      	<div class="user1-head text-center text-white col-md-12">
-      <h3>Passive income?</h3>
-    </div>
-    <div class="user1-body col-md-12">
-    	<div class="row">
-      <div class="col-md-8 pl-5 pt-4 text-right">
-      <p style="font-size: 20px;">Become a partner of PAZ and get up to 25% passive revenue-share.  </p>
-    </div>
-    <div class="col-md-4">
-     <button type="button" class="btn btn-primary partner_col"><a href="<?php echo e(url('/checkUser/user')); ?>">Become Partner</a></button>
-    </div>
-</div>
-    </div>
+    
 </div>
 <?php endif; ?>
  </div>
@@ -347,6 +294,10 @@
     background-color: #fff;
     color: black;
 }
+.user-body i {
+    padding-right: 21px;
+    color: green;
+}
 .user1 {
     box-shadow: 1px 1px 6px 1px #0000003d;
 }
@@ -373,17 +324,10 @@ a.btn, button.btn {
   button.btn.btn-primary a {
     color: white;
 }
-.left {
-    float: left;
-    width: 10%;
-}
-.right {
-    float: left;
-    width: 90%;
-}
-.left .fa {
-    color: green;
+.user-body p {
+    font-size: 20px;
     padding-top: 12px;
+
 }
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;
@@ -394,10 +338,7 @@ button.btn.btn-primary.partner_col:hover {
     border: 2px solid #bf0000 !important;
 }
 
-.right p {
-    font-size: 20px;
-    padding-top: 12px;
-}
+
 .text-center.header-text {
     font-weight: 700;
     text-transform: capitalize;
@@ -435,6 +376,25 @@ button.btn.btn-primary.partner_col:hover {
   }
 .artist_image img {
     padding: 12px;
+}
+.dropdown12.text-white h4 {
+    padding-left: 27px;
+}
+.dropdown12 form {
+    padding-left: 27px;
+}
+.dropdown1 label {
+    display: inline-flex;
+    padding-left: 27px;
+}
+.dropdown1.text-white h4 {
+    padding-left: 27px;
+}
+.col-md-4.mb-4.logy {
+    padding-left: 67px;
+}
+.col-md-4.mb-4.ass {
+    margin-left: -43px;
 }
   </style>
  <!--End 4th slider-->

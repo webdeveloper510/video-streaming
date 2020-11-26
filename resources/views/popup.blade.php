@@ -1,17 +1,17 @@
  <div class="row text-left text-white mt-3 red">
-                                  <div class="col-md-4 mb-4">
+                                  <div class="col-md-12 mb-4 logy">
                                     <label>Sexology</label><br>
                                     {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                     {{Form::checkbox('sexology[]','Homo')}}Homo <br>
                                     {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
                                   </div>
-                                  <div class="col-md-4 mb-4">
+                                  <div class="col-md-12 mb-4">
                                       <label>Tits size</label><br>
                                     {{Form::checkbox('titssize[]','Small')}}Small <br>
                                     {{Form::checkbox('titssize[]','Normal')}}Normal <br>
                                     {{Form::checkbox('titssize[]','Big')}}Big 
                                   </div>
-                                   <div class="col-md-4 mb-4">
+                                   <div class="col-md-12 mb-4 ass">
                                     <label>Ass</label><br>
                                     {{Form::checkbox('ass[]','Normal')}}Normal <br>
                                     {{Form::checkbox('ass[]','Small')}}Small <br>
@@ -19,7 +19,7 @@
                                     
  
                                   </div>
-                                  <div class="col-md-4 mb-4">
+                                  <div class="col-md-12 mb-4 logy">
                                       <label>Privy part</label><br>
                                     {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
                                     {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
@@ -31,7 +31,7 @@
                                     {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
                                     {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                   </div>
-                                   <div class="col-md-4 mb-4">
+                                   <div class="col-md-12 mb-4">
                                     <label>Eye color</label><br>
                                     {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
@@ -46,7 +46,7 @@
                                     {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                   </div>
-                                        <div class="col-md-4 mb-4">
+                                        <div class="col-md-12 mb-4 ass">
                                     <label>Hair color</label><br>
                                     {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('haircolor[]','brown')}}Brown <br>
@@ -63,21 +63,21 @@
                                     {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                   </div>
                                  
-                                   <div class="col-md-4 mb-4">
+                                   <div class="col-md-12 mb-4 logy">
                                       <label>Hair Length</label><br>
                                     {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
                                     {{Form::checkbox('hairlength[]','Short')}}Short <br>
                                     {{Form::checkbox('hairlength[]','Long')}}Long <br>
                                     {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
                                   </div>
-                                   <div class="col-md-8 mb-4">
+                                   <div class="col-md-12 mb-4">
                                     <label>Weight</label><br>
                                     {{Form::checkbox('weight[]','Less than Average')}}Less than Average <br>
                                     {{Form::checkbox('weight[]','Normal')}}Normal <br>
                                     {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
                                     {{Form::checkbox('weight[]','Above Average')}}Above Average 
                                   </div>
-                                  <!--div class="col-md-4 mb-4">
+                                  <!--div class="col-md-12 mb-4">
                                    <label>Age</label><br>
                                     {{Form::checkbox('age[]','18-24')}}18-24 <br>
                                     {{Form::checkbox('age[]','25-34')}}25-34<br>
