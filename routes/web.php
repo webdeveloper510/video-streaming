@@ -53,6 +53,9 @@ Route::get('my-requests','AuthController@myRequests');
 
 Route::get('success', 'AuthController@succssPage'); 
 
+
+
+
 Route::get('notify/{id}', 'AuthController@notify'); 
 
 Route::get('inProcess', 'AuthController@process'); 
