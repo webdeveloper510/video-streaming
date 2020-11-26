@@ -324,7 +324,7 @@
                            
                             </label><br>
                             <label class="">
-                               {{Form::radio('type', 'video', false ,['class'=>'media video'])}} Video 
+                               {{Form::radio('type', 'video', true ,['class'=>'media video'])}} Video 
                           <!--  {{Form::checkbox('duration','desc')}}Longest  -->
                             
                           </label><br>

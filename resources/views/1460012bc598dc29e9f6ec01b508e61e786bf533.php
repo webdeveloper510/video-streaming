@@ -55,7 +55,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -75,7 +75,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
@@ -336,12 +336,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               <?php echo e(Form::radio('type', 'audio', true ,['class'=>'media audio'])); ?> Audio
+                               <?php echo e(Form::radio('type', 'audio', false ,['class'=>'media audio'])); ?> Audio
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               <?php echo e(Form::radio('type', 'video', false ,['class'=>'media video'])); ?> Video 
+                               <?php echo e(Form::radio('type', 'video', true ,['class'=>'media video'])); ?> Video 
                           <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           </label><br>
@@ -353,7 +353,7 @@
                   
       
                             <label class="text-white">
-                          <?php echo e(Form::radio('price', 'asc', true ,['class'=>'user'])); ?> lowest
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
                               <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             </label><br>
                             <label class="">
@@ -421,7 +421,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -441,7 +441,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
