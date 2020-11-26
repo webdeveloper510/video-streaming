@@ -47,7 +47,7 @@
           <div class="form-group">
               {{Form::radio('user', 'contentprovider', true)}} Login As A Artist
 
-               {{Form::radio('user', 'users', false )}} Login As A User
+               {{Form::radio('user', 'users', false )}} Login As A Customer 
           </div> 
 
             

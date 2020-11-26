@@ -126,7 +126,7 @@
           </p>
           <div class="col-md-12 text-center mt-5">
 
- <button type="button" class="btn btn-primary"><a href="{{url('/checkUser/user')}}">Register as User</a></button>
+ <button type="button" class="btn btn-primary px-3"><a href="{{url('/checkUser/user')}}">Register as Customer </a></button>
 
     </div>
     </div>

@@ -52,7 +52,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
 
                           <!--    {{Form::checkbox('price','free')}}Free   -->
                           
@@ -72,7 +72,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
@@ -133,7 +133,7 @@
                             <label class="">
             
 
-                         {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+                         {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
                             
                             </label><br>
                             <label class="">  
@@ -151,7 +151,7 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                           {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                           {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
   
                             </label><br>
                             <label >
@@ -319,7 +319,7 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               {{Form::radio('type', 'audio', true ,['class'=>'media audio'])}} Audio
+                               {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>
@@ -336,7 +336,7 @@
                   
       
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', true ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
@@ -399,7 +399,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          {{Form::radio('price', 'free', true ,['class'=>'user'])}} Free
+                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
 
                           <!--    {{Form::checkbox('price','free')}}Free   -->
                           
@@ -419,7 +419,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               {{Form::radio('duration', 'asc', true ,['class'=>'user'])}} Shortest
+                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
                             </label><br>

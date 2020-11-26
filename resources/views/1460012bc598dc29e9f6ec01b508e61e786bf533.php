@@ -140,7 +140,7 @@
                             <label class="">
             
 
-                         <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+                         <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
                             
                             </label><br>
                             <label class="">  
@@ -158,7 +158,7 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                           <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                           <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
   
                             </label><br>
                             <label >
