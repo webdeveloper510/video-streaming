@@ -377,25 +377,7 @@ button.btn.btn-primary.partner_col:hover {
 .artist_image img {
     padding: 12px;
 }
-.dropdown12.text-white h4 {
-    padding-left: 27px;
-}
-.dropdown12 form {
-    padding-left: 27px;
-}
-.dropdown1 label {
-    display: inline-flex;
-    padding-left: 27px;
-}
-.dropdown1.text-white h4 {
-    padding-left: 27px;
-}
-.col-md-4.mb-4.logy {
-    padding-left: 67px;
-}
-.col-md-4.mb-4.ass {
-    margin-left: -43px;
-}
+
   </style>
  <!--End 4th slider-->
 
