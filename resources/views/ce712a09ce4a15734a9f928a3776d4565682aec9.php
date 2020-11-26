@@ -226,7 +226,7 @@ input.form-control.price::placeholder {
    
    <div id="my" class="tab-pane fade">
         <div class="row">
-            <div class="col-md-12 io">
+            <div class="col-md-12 mb-5">
                 <h3 class="text-center  mt-3">My Requests</h3>
               <hr>   
              

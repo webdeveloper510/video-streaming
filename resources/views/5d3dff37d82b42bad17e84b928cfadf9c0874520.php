@@ -18,7 +18,7 @@
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
                 <ul class="subnav" style="display: none">
-                  <ul class="nav nav-tabs">
+                  <ul class="nav nav-tabs text-center">
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
@@ -94,7 +94,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
               
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -170,7 +170,7 @@
                           <div class="col-md-6">
                               
                            </div>
-                            <div class="col-md-12 text-left">
+                            <div class="col-md-12 pr-5 text-right">
                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
@@ -194,7 +194,7 @@
                           <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                         </div>
                              </div>
-                          <div class="col-md-6 text-left mt-3">
+                          <div class="col-md-12 text-right mt-3 pr-5">
               
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -286,7 +286,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
 
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -372,7 +372,7 @@
                       
                      
                         
-                    <div class="col-md-6 text-left">
+                    <div class="col-md-12 text-right pr-5">
               
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
@@ -419,7 +419,7 @@
 
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
-					  <a href="<?php echo e(url('register')); ?>" class="nav-item nav-link">Register</a>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Register</a>
               <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
            <?php endif; ?>             
 
@@ -455,6 +455,8 @@
 </div>
 <?php endif; ?>
  <!-- Modal -->
+
+
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
@@ -465,7 +467,7 @@
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> Notification</h5><br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
+    <?php if($val->notificationfor=='user'): ?>
     
       <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
     
@@ -473,27 +475,9 @@
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href=""><span class="text-center text-dark">See More -></span></a>
+     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
-            <!--  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle not" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
-  </button>
-  <div class="dropdown-menu notif text-center" aria-labelledby="dropdownMenuButton">
-     <h3 class="text-center"> Notification</h3>
-      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->read==0 && $val->notificationfor=='user'): ?>
-    
-      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
-    
-  
-    <hr>
-    <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href="{{}}"><span class="text-center text-dark">See More -></span></a>
-  </div>
-</div>      --> 
 
 
 
@@ -515,12 +499,14 @@
   .notif {
     width: 300px;
     background: white;
-    height: 300px;
+    max-height: 300px;
+    height: auto;
     border: 1px solid;
     z-index: 999;
     overflow: hidden;
     padding: 12px;
     overflow-x: auto;
+    text-align: center;
 }
 
 .notif.text-center ul li {
@@ -529,12 +515,7 @@
     padding: 0 !important;
 
 }
-button.not {
-    background: transparent !important;
-    border: none;
-    min-width: 59px;
-    height: 35px;
-}
+
 .notif.text-center ul li a {
     font-weight: 900;
 }
@@ -549,6 +530,9 @@ button.not {
   }
   .dropdown-menu.notif.text-center.show {
     left: -156px;
+}
+.tab-pane h3 {
+    padding-left: 51px;
 }
   .scroll12{
     height: 250px;
@@ -601,13 +585,14 @@ button.not {
     background: white;
     width: 298px;
     position: absolute;
-    top: 267px;
+    top: 263px;
     color: blue !important;
     right: 1px;
 } 
 .nav-tabs {
     border-bottom: 1px solid #dee2e6;
     background: #7b0000;
+    border-top: 1px solid #dee2e6;
 }
 </style>
  <?php if($errors->all()): ?>
