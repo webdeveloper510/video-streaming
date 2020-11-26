@@ -124,7 +124,7 @@
           </p>
            <p><i class="fa fa-check" style="font-size:24px"></i>  Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
           </p>
-          <div class="col-md-12 text-center mt-2">
+          <div class="col-md-12 text-center mt-5">
 
  <button type="button" class="btn btn-primary"><a href="{{url('/checkUser/user')}}">Register as User</a></button>
 
