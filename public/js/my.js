@@ -9,6 +9,20 @@ $('.rad_But').click(function(){
 		$('.hide').show();
 	}
 })
+
+$(document).on('click', '.user', function () {
+
+    if($(this).is(":checked")){
+
+    			$(this).prop('checked',false);
+    }
+
+    else{
+    	$(this).prop('checked',true);
+    		console.log('ff');
+    }
+
+})
 $(document).ready(function(){
 	//alert('hel');return false;
   var firstName = $('.firstName').text();
@@ -281,6 +295,7 @@ $('#offerid').val(id);
 function showDiv(){
 	$('.notif').toggle();
 }
+
 
 
 

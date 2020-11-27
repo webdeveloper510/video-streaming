@@ -14,7 +14,7 @@ class Registration extends Model
     {
 
         $value = $this->selectDataById('email','users',$data['email']);
-        print_r($value);die;
+       // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
             $userdata['password']= md5($data['password']);
