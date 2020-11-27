@@ -1,41 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Registration;
-
 use Session;
-
 use App\File;
-
-use View;
-
 use Illuminate\Support\Facades\Validator;
-
 use Illuminate\Http\Request;
-
-use Illuminate\Foundation\Validation\ValidatesRequests;
-
-use Illuminate\Support\Facades\Redirect;
-
-use Illuminate\Support\Facades\Mail;
-
-
-use App\Mail\verifyEmail;
-
-use App\Mail\notifyEmail;
-
-use Illuminate\Http\RedirectResponse;
-
-
 use \Illuminate\Http\UploadedFile;
-
-use Stripe\Error\Card;
-
-use Stripe;
-use Illuminate\Routing\Redirector;
-
 use Illuminate\Support\Facades\Input;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Redirect;
 
 class artist extends Controller
 {

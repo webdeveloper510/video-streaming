@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
 
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data, 'notification'=>$notification,'category'=>$category,  'userProfile'=>$tokens));    
+            $view->with(array('login'=>$data, 'notification'=>$notification,'category'=>$category,  'userProfile'=>isset($tokens) ? $tokens : ''));    
     }); 
 
     }
