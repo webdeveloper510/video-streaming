@@ -33,7 +33,7 @@ use \Illuminate\Http\UploadedFile;
 use Stripe\Error\Card;
 
 use Stripe;
-
+use Illuminate\Routing\Redirector;
 
 use Illuminate\Support\Facades\Input;
 
@@ -44,8 +44,17 @@ class AuthController extends Controller
 
   private $model;
 
-    public function __construct()
+    public function __construct(Request $request, Redirector $redirect)
     {
+
+         $uri = $request->route()->uri;
+         if($uri=='inProcess'){}
+         else{
+         $redirect->to('inProcess')->send();
+       $this->model= new Registration();
+         }
+      
+
 
        $this->model= new Registration();
 
