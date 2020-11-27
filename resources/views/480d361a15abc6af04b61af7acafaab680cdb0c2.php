@@ -69,8 +69,8 @@
                                     <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
                                   </div>
                                    <div class="col-md-12 mb-4">
-                                    <label>Weight</label><br>
-                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?>Less than Average <br>
+                                    <label>Body</label><br>
+                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?>Thin <br>
                                     <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
                                     <?php echo e(Form::checkbox('weight[]','Above Average')); ?>Above Average 

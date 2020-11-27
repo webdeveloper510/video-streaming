@@ -58,7 +58,7 @@
                           
                             </label><br>
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
@@ -137,7 +137,7 @@
                             
                             </label><br>
                             <label class="">  
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                       
                             </label><br>
                             <label class=""> 
@@ -334,7 +334,7 @@
                   
       
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
@@ -403,7 +403,7 @@
                           
                             </label><br>
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">

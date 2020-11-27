@@ -56,7 +56,7 @@
   </div>
   @else
   <div>
-     <h1>Your specific taste is not served yet-create a job here-</h1>
+     <h1>Your specific taste is not served yet</h1>
      <a href="{{url('my-requests')}}"><button class="btn btn-primary">
        Create Job
      </button></a>
