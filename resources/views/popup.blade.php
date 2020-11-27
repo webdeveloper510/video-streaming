@@ -69,8 +69,8 @@
                                     {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
                                   </div>
                                    <div class="col-md-12 mb-4">
-                                    <label>Weight</label><br>
-                                    {{Form::checkbox('weight[]','Less than Average')}}Less than Average <br>
+                                    <label>Body</label><br>
+                                    {{Form::checkbox('weight[]','Less than Average')}}Thin <br>
                                     {{Form::checkbox('weight[]','Normal')}}Normal <br>
                                     {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
                                     {{Form::checkbox('weight[]','Above Average')}}Above Average 
