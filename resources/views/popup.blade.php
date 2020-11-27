@@ -32,7 +32,7 @@
                                     {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                   </div>
                                    <div class="col-md-12 mb-4">
-                                    <label>Eye color</label><br>
+                                    <label>Eye/lenses</label><br>
                                     {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
                                     {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 
@@ -42,7 +42,6 @@
                                     {{Form::checkbox('eyecolor[]','red')}}Red <br>
                                     {{Form::checkbox('eyecolor[]','white')}}White <br>
                                     {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br>
-                                    {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                   </div>
@@ -58,7 +57,6 @@
                                     {{Form::checkbox('haircolor[]','white')}}White <br>
                                     {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
                                     {{Form::checkbox('haircolor[]','silver')}}Silver <br>
-                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                   </div>

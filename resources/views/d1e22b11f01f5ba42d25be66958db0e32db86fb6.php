@@ -106,7 +106,7 @@
    
       <p><i class="fa fa-check" style="font-size:24px"></i>  Build Playlists, Stream, Download Content </p>
          
-        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your Imagination </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your  <br><span style="padding-left:50px">Imagination</span> </p>
          
         <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advance Filter Options</p>
          
@@ -115,8 +115,7 @@
         <p><i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
           </p>
         
-        <p> <i class="fa fa-check" style="font-size:24px"></i>  Create Playlists and Stream Anytime
-          </p>
+      
          <p><i class="fa fa-check" style="font-size:24px"></i> Enjoy Reduced Advertising
           </p>
          <p><i class="fa fa-check" style="font-size:24px"></i>  Use Tokens for Buying and Donations
@@ -125,9 +124,9 @@
           </p>
            <p><i class="fa fa-check" style="font-size:24px"></i>  Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
           </p>
-          <div class="col-md-12 text-center mt-2">
+          <div class="col-md-12 text-center mt-5">
 
- <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as User</a></button>
+ <button type="button" class="btn btn-primary px-3"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as Customer </a></button>
 
     </div>
     </div>

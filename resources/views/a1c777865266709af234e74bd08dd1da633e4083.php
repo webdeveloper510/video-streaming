@@ -55,7 +55,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -75,7 +75,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
@@ -96,9 +96,10 @@
                         
                     <div class="col-md-12 text-right pr-5">
               
-                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+               
+         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+          <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
-         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
               </div>
               <div class="col-md-6">
                        
@@ -139,7 +140,7 @@
                             <label class="">
             
 
-                         <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+                         <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
                             
                             </label><br>
                             <label class="">  
@@ -157,7 +158,7 @@
                              <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label>  
-                           <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                           <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
   
                             </label><br>
                             <label >
@@ -335,12 +336,12 @@
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               <?php echo e(Form::radio('type', 'audio', true ,['class'=>'media audio'])); ?> Audio
+                               <?php echo e(Form::radio('type', 'audio', false ,['class'=>'media audio'])); ?> Audio
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
                             <label class="">
-                               <?php echo e(Form::radio('type', 'video', false ,['class'=>'media video'])); ?> Video 
+                               <?php echo e(Form::radio('type', 'video', true ,['class'=>'media video'])); ?> Video 
                           <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           </label><br>
@@ -352,7 +353,7 @@
                   
       
                             <label class="text-white">
-                          <?php echo e(Form::radio('price', 'asc', true ,['class'=>'user'])); ?> lowest
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> lowest
                               <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             </label><br>
                             <label class="">
@@ -374,9 +375,10 @@
                         
                     <div class="col-md-12 text-right pr-5">
 
-                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+               
+         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+          <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
-         <input type="button" class="btn btn-primary section_advance mb-4 ml-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
               </div>
               <div class="col-md-6">
                        
@@ -419,7 +421,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', true ,['class'=>'user'])); ?> Free
+                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -439,7 +441,7 @@
                         <div class="dropdown1 text-white">
                            <h4 >Duration</h4>
                             <label class=""> 
-                               <?php echo e(Form::radio('duration', 'asc', true ,['class'=>'user'])); ?> Shortest
+                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
                          <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             </label><br>
@@ -496,7 +498,7 @@
 				    <i class="fa fa-trophy"></i>TOP LIST</a>
 							<!-- <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a> -->
 							<!--a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a-->	
-		<a href="play.html"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
+		<a href="<?php echo e('play'); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
     
 							<a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
 
