@@ -488,6 +488,7 @@
             @if($login)
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
+             @if($userProfile[0]->profilepicture)
     
     @else
    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -508,7 +509,7 @@
         <a href="{{url('/my-requests')}}">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  <b>{{isset($userProfile) ? $userProfile[0]->tokens :''}}</b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   

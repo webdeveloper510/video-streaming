@@ -41,13 +41,15 @@ class AppServiceProvider extends ServiceProvider
 
             $tokens = $model->getUserData($userId);
 
+            //echo $tokens ? 'yes' : 'No';
+
             //print_r($tokens);die;
 
            // $profile = $model->getUserProfile($userId);
 
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data, 'notification'=>$notification,'category'=>$category,  'userProfile'=>isset($tokens) ? $tokens : ''));    
+            $view->with(array('login'=>$data, 'notification'=>$notification,'category'=>$category,  'userProfile'=>$tokens ? $tokens : ''));    
     }); 
 
     }
