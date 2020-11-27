@@ -453,7 +453,7 @@ public function getRespectedSub($data){
        ->join('profiletable', 'profiletable.userid', '=', 'users.id')
        ->select('profiletable.profilepicture', 'users.tokens','users.nickname')
        ->where('userid',$userId)
-       ->get();
+       ->get()->toArray();
 
        return $data;
 

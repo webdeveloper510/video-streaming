@@ -41,7 +41,7 @@ class AppServiceProvider extends ServiceProvider
 
             $tokens = $model->getUserData($userId);
 
-           // print_r($data);die;
+            //print_r($tokens);die;
 
            // $profile = $model->getUserProfile($userId);
 
