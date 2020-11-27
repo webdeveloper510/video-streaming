@@ -9,8 +9,15 @@ $('.rad_But').click(function(){
 		$('.hide').show();
 	}
 })
-
+$(document).ready(function(){
+	//alert('hel');return false;
+  var firstName = $('.firstName').text();
+  //console.log(firstName);return false;
+   var intials = $('.firstName').text().charAt(0);
+   var profileImage = $('.profileImage').text(intials);
+});
 $(document).ready(function() {
+
 
         $('.rad_But').each(function() {
             if ($(this).is(':checked') == true) {
@@ -19,17 +26,20 @@ $(document).ready(function() {
         });
 
 
-        	var id = $(".media:checked").attr('id');
+     var id= $(".media:checked").attr('class').split(' ');
 
-  	var notId= $(".media:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
+     //alert(id);
 
-  	 	var id = $(".media1:checked").attr('id');
+  	var notId= $(".media:not(:checked)").attr('class').split(' ');
+  	$('#'+id[1]).show();
+  	$('#'+notId[1]).hide();
 
-  	var notId= $(".media1:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
+  	   var id1= $(".media1:checked").attr('class').split(' ');
+
+  	var notId2= $(".media1:not(:checked)").attr('class').split(' ');
+  	$('#'+id1[1]).show();
+  	$('#'+notId2[1]).hide();
+
         
     });
 
@@ -61,7 +71,7 @@ $(document).ready(function() {
 
 			$.ajax({
 				type: 'POST',
-				   url:APP_URL+"/postId",
+			    url:APP_URL+"/postId",
 				dataType: "json",
 				 headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -96,19 +106,24 @@ $(document).ready(function() {
 					
 				}
 			});
-		}
+		}   
 		else
 		{
 			console.log('no');
 		}
 		});
 
-
-$('#file_input').change(function(){
+$(document).on('change', '#file_input', function () {
+	//alert('he;p');return false;
 	readURL(this);
 })
 
 function readURL(input) {
+
+
+  var $source = $('#blah');
+   $source[0].src = URL.createObjectURL(input.files[0]);
+  $source.parent()[0].load();
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     
@@ -121,6 +136,7 @@ function readURL(input) {
 }
 
 $(document).on('click', '#checkPrice', function () {
+	//alert('hello');return false;
 	var token= $('.token').val();
 	//console.log(token);
 	$.ajax({
@@ -158,16 +174,13 @@ $(document).on('click', '#checkPrice', function () {
 		});
 
 });
-
-$('.section_advance').click(function(){
-
+$(document).on('click', '.section_advance', function () {
 	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
 
 	//$('#bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('#bar').addClass('rightbar');
 	
 })
-
-$('.link_click').click(function(){
+$(document).on('click', '.link_click', function () {
 	 if($(this).hasClass('active')){
 }
 else{
@@ -179,20 +192,96 @@ else{
 
   $(document).on('click', '.media', function () {
 
-  			
-  		var id = $(this).attr('id');
 
-  	var notId= $(".media:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
-  })
+  	    	var clas = $(this).attr('class').split(' ');
+
+  	    var notId= $(".media:not(:checked)").attr('class').split(' ');
+  	 
+    $('#'+clas[1]).show();
+  	$('#'+notId[1]).hide();
+
+
+  });
+
     $(document).on('click', '.media1', function () {
 
   			
-  		var id = $(this).attr('id');
+  		var clas1 = $(this).attr('class').split(' ');
 
-  	var notId= $(".media1:not(:checked)").attr('id');
-  	$('#'+id).show();
-  	$('#'+notId).hide();
+  	var notId1= $(".media1:not(:checked)").attr('class').split(' ');
+  	$('#'+clas1[1]).show();
+  	$('#'+notId1[1]).hide();
   })
+
+ $('.action').click(function(){
+
+ 	//console.log('kk');
+  		var value = $(this).val();
+
+  		var key = $(this).attr('data-key');
+
+  		var userid = $(this).attr('user-id');
+
+  		//console.log(value);
+
+  		$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/updateStatus",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"status": value, "key": key, "userid":userid},
+
+				success: function(data){
+
+					//console.log(data);return false;
+						
+						if(data.status==1){
+
+								$('#messge').show().html(data.messge);
+
+								setTimeout(function(){ 
+
+									location.reload();
+
+								}, 2000);
+
+						}
+					
+				}
+		});
+
+  })
+
+function getId(id){
+	//console.log(id);
+	$('#reqid').val(id);
+}
+
+
+function getofferid(id,desc,userid){
+
+	//console.log(id);
+
+	$(".description").val(desc);
+
+	$('#offerid').val(id);
+	$('#userid').val(userid);
+
+}
+
+function editdesc(id,desc){
+
+$(".description").val(desc);
+
+$('#offerid').val(id);
+}
+
+function showDiv(){
+	$('.notif').toggle();
+}
+
+
+
 

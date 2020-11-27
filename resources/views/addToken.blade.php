@@ -6,7 +6,7 @@
             <div class="container">
           <div class="overlay1">
       <div class="container profile ">
-        <h1 class="text-center">Add Token</h1>
+        <h1 class="text-center">Add PAZ Token</h1>
           <div class="row align-items-center text-white">
             <div class="col-md-6 mt-2 ">
             {{Form::label('ADD', 'Token')}} 

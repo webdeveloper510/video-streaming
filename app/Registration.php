@@ -12,10 +12,10 @@ class Registration extends Model
 {
     public function registration($data)
     {
-        //print_r($data->all()); die;
-        $value=DB::table('users')->where('email',$data['email'])->get();
-        //print_r($value->count());die;
-        if($value->count() == 0){
+
+        $value = $this->selectDataById('email','users',$data['email']);
+        print_r($value);die;
+        if(!$value){
             $userdata=$data->all();
             $userdata['password']= md5($data['password']);
             $userdata['created_at']= now();
@@ -49,6 +49,7 @@ class Registration extends Model
                 $inserted_data =  DB::table('profiletable')->insert($data);
                 // $insertedid=$inserted_data->id;
                 return $inserted_data ? $insertedid :'0';
+
                 }
             
          }
@@ -59,10 +60,8 @@ class Registration extends Model
 
  public function postArtist($data)
     {
-        //print_r($data->all()); die;
-        $value=DB::table('contentprovider')->where('email', $data['email'])->get();
-        //print_r($value->count());die;
-        if($value->count() == 0){
+        $value = $this->selectDataById('email','contentprovider',$data['email']);
+        if(!$value){
 
             $userdata = $data->all();
             $userdata['password']= md5($data['password']);
@@ -99,9 +98,9 @@ class Registration extends Model
 
 
 public function getCart($cartid){
-       $value=DB::table('media')      
-       ->whereIn('id',$cartid)
-       ->get();
+
+   $value = $this->selectDataById('id','media',$cartid);
+
        return $value;
 }
 public function getTotalPrice($cartid){
@@ -150,42 +149,49 @@ public function uploadContentData($userdata){
       return 0;
     }
 }
-    public function login($data){
 
-        $table = array('users','contentprovider') ;
 
-          for($i=0; $i<count($table); $i++){
+      public function login($data){
 
-           // print_r($table);die;
-           $value = DB::table($table[$i])->where(array(
-              'email'=> $data->email,
-              'password'=>md5($data->password)))
+        
+        $table = $data['user'];
+   
+            $value = DB::table($table)->where(array(
+              'email'=> $data['email'],
+              'password'=>md5($data['password'])))
               ->get()
               ->first();
-
-              if($value){
-                $tableName = $table[$i];
-                break; 
-              }
-          }
+             
+              
+             // print_r($value);die;
+          
 
            if(is_null($value)){
                   return 0;
-              }
+            }
               else{
 
-      $tableName == 'users' ? $data->session()->put('userType','User') : $data->session()->put('userType','contentUser');
-            $data->session()->put('User', $value);
+                if($value->verify!=1){
+
+                            return 'Not Verify';
+                }
+
+                else{
+
+                  //echo "yes";die;
+
+    $data['user'] == 'users' ? Session::put('userType','User'): Session::put('userType','contentUser');
+     Session::put('User', $value);
                 return 1;
+            }
               }
 
 
      
-    
+  
 
         
 }
-
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
        $userid=$session_data->id;
@@ -239,9 +245,9 @@ public function getVedio($data){
 
                 });
 
-/* -------------------------------------------End Filter Data Using WhereIn-------------------------------------- */
+/* -------------------------------------------End Filter Data Using --------------------------- */
 
-/* -------------------------------------------Filter Data Using orderBy-------------------------------------- */
+/* -------------------------------------------Filter Data Using -------------------------------- */
 
        foreach($data as $key=>$val){
            
@@ -271,7 +277,8 @@ public function getVedio($data){
 
    
 }
-/*-----------------------------------------Get Vedio By Subcategory Id------------------------------------------------*/
+/*-----------------------------------------Get Vedio By Subcategory -----------------------------*/
+
 public function getSubcatVid($subid){
 
     $value=DB::table('media')->where('subid', $subid)->get();
@@ -279,14 +286,20 @@ public function getSubcatVid($subid){
     return $value;
 
 }
-/*-----------------------------------------End------------------------------------------------*/
+
+
+/*-----------------------------------------End---------------------------------------------------*/
+
+
 public function getNewComes(){
+
      $newComes = DB::table('media')->orderBy('contentProviderid','desc')->take(10)->get();
     return $newComes;
+
 }
 
 
-/*-------------------------------Insert Recent Vedio Media Id---------------------------------------------------*/
+/*------------------------Insert Recent Vedio media--------------------------------------------*/
 
 public function insertRecentTable($data){
 
@@ -499,27 +512,414 @@ public function getRespectedSub($data){
 
     public function getArtistsbyfilter($filter){
 
-           $result = DB::table('contentprovider')
-             ->where(function($query) use ($filter)
-                {
-                     foreach($filter as $key=>$val){
-                     
-                  if(is_array($val))
-                     $query->whereIn($key, $val,'or');
-                  
-                }
+             $result = DB::table('contentprovider')
+                     ->where(function($query) use ($filter)
+                        {
+                             foreach($filter as $key=>$val){
+                             
+                          if(is_array($val))
+                             $query->whereIn($key, $val,'or');
+                          
+                        }
 
-                })->paginate(10);
-            
-            return $result;
+                        })->paginate(10);
+                    
+                    return $result;
 
     }
 
-    // public function getUserProfile($uid){
+    public function notifyMe($data){
 
-    //    $value=DB::table('users')->where('id', $userId)->get()->toArray();
+        $data= $data->all();
 
-    // }
+     $data['created_at']=now();
+    $data['updated_at']=now();
+    $data['status'] = 0 ;
+    $inserted=DB::table('all_emails')->insertGetId($data);
+      return $inserted ? $inserted :'0';
+
+    }
+
+    public function notifyConfirm($notify){
+
+      $data = array(
+
+        'status'=> 1
+      );
+
+      $update = DB::table('all_emails')->where('id',$notify)->update($data);
+
+      return $update ? 1 : 0 ; 
+
+    }
+
+
+    public function showRequests(){
+
+$data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name, (SELECT nickname from users WHERE i.userid=users.id  ) as user_name FROM    add_request i, category c WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.artist_description , i.status,i.description,i.media,i.userid");
+  
+        return $data;
+    }
+
+
+    public function addRequest($data){
+
+        $session_data =   Session::get('User');
+
+        $reqData = $data->all();
+
+          $reqData['created_at']=now();
+        $reqData['updated_at']=now();
+
+         $reqData['userid'] =  $session_data->id ;
+
+        $reqData['duration'] = $reqData['min'].' Minutes - '.$reqData['max'].'Minutes';
+
+        $reqData['total_price'] = $reqData['total'] ? $reqData['total'] : 0;
+
+         $reqData['artist_description']= '';
+
+        unset($reqData['min']);
+        unset($reqData['total']);
+        unset($reqData['max']);
+        
+
+       $category = implode(',', $reqData['categories']);
+
+       unset($reqData['categories']);
+
+
+       $reqData['cat'] = $category;
+
+
+
+     //  print_r($reqData);die;
+
+        $req = DB::table('add_request')->insert($reqData);
+
+       
+
+        return $req ? 1 : 0 ;
+    }
+
+
+    public function showUserRequests(){
+
+
+             $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+
+    $data = DB::select("SELECT i.id,i.title,i.price,i.artist_description,i.duration, i.description,i.media,i.userid,i.status,GROUP_CONCAT(c.category) as category_name, (SELECT nickname from users WHERE i.userid=users.id  ) as user_name FROM add_request i, category c WHERE FIND_IN_SET(c.id, i.cat) && i.userid=$userid GROUP BY i.id,i.title,i.artist_description,i.price,i.duration, i.status,i.description,i.media,i.userid");
+  
+        return $data;
+
+    }
+
+
+
+    public function updateStatus($data){
+
+          $status= array(
+            'status'=>$data['status']
+          );
+
+
+            $getData = $this->selectDataById('id','add_request',$data['key']);
+
+              //print_r($getData);die;
+         
+
+         $update = DB::table('add_request')->where('id',$data['key'])->update($status);
+
+         if($update==1){
+
+               $session_data =   Session::get('User');
+
+              $data= array(
+
+              'created_at'=>now(),
+              'updated_at'=>now(),
+              'artistid'=>$session_data->id,
+              'userid'=>$data['userid'],
+              //'message'=>"Your request of'".$getData[0]['title'].'has been'." ".$data['status'],
+              'message'=>"Your Request of "." ".$getData[0]->title." "."has Been"." ".$data['status'],
+              'notificationfor'=>'user'
+              );
+
+              //print_r($data);
+
+                $success = $this->insertNotification($data);
+                
+
+
+         }
+
+        // print_r($update);die;
+
+         return $success ? 1 : 0;
+
+    }
+
+    public function selectDataById($key,$table,$where){
+
+        $value=DB::table($table)->where($key, $where)->get()->toArray();
+
+        return $value;
+
+    }
+
+    public function insertNotification($data){
+
+      return DB::table('notification')->insert($data);
+
+    }
+
+    public function updateArtistDes($data){
+
+        $description = $data->all();
+
+         $status= array(
+            'artist_description'=>$data['Description']
+          );
+
+      $update = DB::table('add_request')->where('id',$data['reqId'])->update($status);
+
+      return $update ? 1 : 0 ;
+
+    }
+
+
+    public function createOffer($data){
+
+        unset($data['category']);
+
+         $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+      $data['status'] = 'pending';
+      $data['created_at'] = now();
+      $data['updated_at'] = now();
+
+
+      $data['artistid'] = $userid;
+
+      $data['userid'] =0;
+
+
+        $insert = DB::table('offer')->insert($data);
+
+
+        return $insert ? 1 :0;
+        //print_r($data);die;
+
+    }
+
+    public function showOfer($data){
+
+        $result = $data;
+       // print_r($result);die;
+        $fetch = DB::table('offer')
+        ->where(function($query) use ($result){
+
+            foreach ($result as $key => $value) {
+
+                if(is_array($value)){
+
+                  $query->whereIn('categoryid',$value);
+
+                }
+
+                else{
+
+                  if($key=='price'){
+
+                    $query->orderBy('price',$value);
+                  }
+
+                  else{
+
+                   $query->where($key,$value);
+
+                 }
+                }
+
+            }
+
+        });
+
+          return $fetch->get();
+
+    }
+
+    public function editDescription($data)
+
+    {
+
+
+        $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+           $status= array(
+
+            'description'=>$data['Description']
+          );
+
+        $update = DB::table('add_request')->where('id',$data['reqId'])->update($status);
+
+        if($update==1){
+
+           $value = $this->selectDataById('id','users',$userid);
+
+            $data = array(
+              'created_at'=>now(),
+              'updated_at'=>now(),
+              'read'=>0,
+              'artistid'=>0,
+              'userid'=>$userid,
+              'message'=>'You`ve got a new Job-Request from'.$value[0]->nickname,
+              'notificationfor'=>'artist'
+            );
+
+             $success = $this->insertNotification($data);
+
+             return $success;
+        }
+
+
+
+    }
+
+    public function readNotification($id){
+
+        $data=array('read'=>1);
+
+        $update = DB::table('notification')->where('id',$id)->update($data);
+
+        return $update ? 1 : 0;
+
+    }
+
+    public function getOffer(){
+
+
+
+      return DB::table('offer')
+      ->leftjoin('category','offer.categoryid','=','category.id')
+      ->select('offer.*','category.category')
+      ->get()
+      ->toArray();
+
+    }
+
+    public function editOfferDescription($data){
+
+      //print_r($data->all());die;
+
+             $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+           $status= array(
+
+            'description'=>$data['Description'],
+            'userid'=>$data['user_id']
+          );
+
+        $update = DB::table('offer')->where('id',$data['reqId'])->update($status);
+
+        if($update==1){
+
+           //$value = $this->selectDataById('id','users',$userid);
+
+            $data = array(
+              'read'=>0,
+              'artistid'=>$userid,
+              'userid'=>$data['user_id'],
+              'message'=>'Artist Edit Description',
+              'notificationfor'=>'user'
+            );
+
+             $success = $this->insertNotification($data);
+
+             return $success;
+        }
+
+    }
+
+    public function getNotification(){
+
+
+          return DB::table('notification')->orderBy('id','desc')->get()->toArray();
+    }
+
+    public function updateUserDesc($userdata){
+
+          $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+      $data = array(
+
+        'userdescription'=>$userdata['Description'],
+        'userid' =>$userid
+      );
+
+      $update = DB::table('offer')->where('id',$userdata['reqId'])->update($data);
+
+      if($update){
+
+        $offerdescription = $this->selectDataById('id','offer',$userdata['reqId']);
+        $nickname = $this->getUserProfile($userid);
+        //print_r($nickname);die;
+     $data = array(
+        'created_at'=>now(),
+        'updated_at'=>now(),
+        'read'=>0,
+        'artistid'=>$offerdescription[0]->artistid,
+        'userid'=>$userid,
+        'message'=>$nickname[0]->nickname." ".'Submit a request to your offer'." ".$offerdescription[0]->title,
+        'notificationfor'=>'artist'
+      );
+
+             $success = $this->insertNotification($data);
+
+             return $success ? 1 : 0;
+      }
+
+    }
+
+
+    public function getUserProfile($uid){
+
+       $value=DB::table('users')->where('id', $uid)->get()->toArray();
+       return $value;
+
+    }
+    public function allNotication($user){
+
+      if($user=='user'){
+
+         $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+
+        $data=DB::table('notification')
+        ->join('users', 'notification.userid', '=','users.id')
+        ->join('profiletable','profiletable.userid','=','notification.userid')
+         ->select('notification.*', 'users.*','profiletable.profilepicture')
+         ->where('notification.notificationfor',$user)
+         ->get()->toArray();
+      }
+      else{
+        $data=DB::table('notification')
+        ->leftjoin('contentprovider', 'notification.artistid', '=','contentprovider.id')
+         ->select('notification.*', 'contentprovider.*')
+         ->where('notification.notificationfor',$user)
+         ->get()->toArray();
+      }
+
+      return $data;
+
+    }
 
 
 }

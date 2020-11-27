@@ -5,11 +5,14 @@
       <div class="col"></div>
       <div class="col-md-5 mt-5">
         <div class="overlay1 mt-5 ">
+           <div class="text-center p-3">
+    
+   <img width="150px"; height="100px" src="{{url('storage/app/public/uploads/1602525455_etsy inspo.jpg')}}">
+
+ </div>
      <table class="text-white table">
       <thead>
-   <tr class="text-center">
-   <img width="100px"; height="100px" src="{{url('storage/app/public/uploads/1602525455_etsy inspo.jpg')}}">
- </tr>
+  
           </thead>
           <tbody>
           <tr class="text-white">

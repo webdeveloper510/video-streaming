@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\verifyEmail;
 
+use App\Mail\notifyEmail;
+
 use Illuminate\Http\RedirectResponse;
 
 
@@ -44,6 +46,7 @@ class AuthController extends Controller
 
     public function __construct(Request $request, Redirector $redirect)
     {
+
          $uri = $request->route()->uri;
          if($uri=='inProcess'){}
          else{
@@ -51,6 +54,10 @@ class AuthController extends Controller
        $this->model= new Registration();
          }
       
+
+
+       $this->model= new Registration();
+
     }
 
 
@@ -79,14 +86,8 @@ class AuthController extends Controller
       return view('/contact');
     }
 
-    public function play(){
 
-      
-      return view('/play');
-
-    }
-
-    /*-------------------------------------------------Filter Result-------------------------------------------*/
+    /*----------------------------------------------------Filter Result-------------------------------------------*/
 
     public function search(){
 
@@ -146,6 +147,8 @@ class AuthController extends Controller
 
 
           $search_data->forget('subcategory'); // Remove subcategory key from filter result data
+
+         // print_r($search_data);die;
 
             if($recentSelected && $session_type=='User'){
 
@@ -294,16 +297,24 @@ class AuthController extends Controller
             );
 
             $data=$request->all();
-            $get = $this->model->login($request);
+
+
+            $get = $this->model->login($data);
+
+
+          // print_r($get);
 
              $redirect_url=Session::get('redirect_url');
 
-            if($get && $data['g-recaptcha-response'] || $redirect_url){
+            if($get==1 && $data['g-recaptcha-response'] || $redirect_url){
             // echo "yes";die;
               return redirect('/'.$redirect_url)->with('success','Login Successfully!');
             }
-            else if($data['g-recaptcha-response']==''){
-                return redirect('/login')->with('captcha','invalid Captcha!!');
+             else if($data['g-recaptcha-response']==''){
+                 return redirect('/login')->with('captcha','invalid Captcha!!');
+             }
+            else if($get=='Not Verify'){
+              return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
               return redirect('/login')->with('error','invalid credentials!');
@@ -383,7 +394,7 @@ class AuthController extends Controller
 
        if($get){
         //echo "yes";die;
-           Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
+          Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
          return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
        }
        else{
@@ -580,6 +591,7 @@ class AuthController extends Controller
     return view('addToken');
   }
   public function contentProv(){
+
     $contenttype =   Session::get('userType');
     if($contenttype=='User'){
       return redirect('/');
@@ -699,7 +711,6 @@ class AuthController extends Controller
                      if((array)$charge){
 
         Session::flash('test', array('test1', 'test2', 'test3'));
-     //return View::make("/success")->with(array('charge'=>$charge));
         return redirect('/paymentSuccess');
 
 
@@ -825,7 +836,144 @@ public function getSelectingArtist(Request $req){
 }
 
 public function process(){
+
   return view('siteProcess');
+
+}
+
+public function notifyEmail(Request $req){
+
+     $this->validate($req,[
+           
+              'emails'=>'required',   
+          ]
+            );
+
+      unset($req['_token']);
+
+      $insertid = $this->model->notifyMe($req);
+
+      if($insertid!=0){
+
+         Mail::to($req->emails)->send(new notifyEmail($insertid));
+
+
+
+      }      
+
+    }
+
+    public function notify($notifyId){
+
+      $notId = base64_decode($notifyId);
+
+      $up = $this->model->notifyConfirm($notId);
+
+      if($up){
+
+        echo 'yes';
+      }
+
+      else{
+        echo "no";
+      }
+
+    }
+
+    public function addRequest(Request $req){
+         $this->validate($req,[
+          'media' => 'required',
+          'description'=>'required',
+         // 'price'=>'required_without_all:total',
+        // 'total'=>'required_without_all|price',
+          'title'=>'required',
+          'min'=>'required|numeric|lt:max',
+          'max'=>'required|numeric|gt:min',
+          'categories'=>'required'
+      ]
+        );
+
+         //print_r($req->all());die;
+
+         unset($req['_token']);
+
+        $add = $this->model->addRequest($req);
+
+        if($add == 1){
+
+          echo "yes";
+
+            return redirect('/my-requests')->with('success','Thank You Your Request Sent Successfully!');
+        }
+        else{
+          echo "no";
+          return redirect('/')->with('success','Some Error Occure!');
+        }
+
+    }
+
+    public function updateStatus(Request $request){
+
+        //print_r($request->all());
+        $updateStatus =  $this->model->updateStatus($request->all());
+
+ $returnData= $updateStatus==1 ? response()->json(array('status'=>1, 'messge'=>'Updated Successfully!')) : response()->json(array('status'=>1, 'messge'=>'Already Exist'));
+
+      return $returnData;
+    }
+
+
+    public function myRequests(){
+
+     
+
+        $data = $this->model->showUserRequests();
+
+        return view('all_requests',['requests'=>$data]);
+
+    }
+
+    public function showOffer(Request $req){
+
+      unset($req['_token']);
+
+      
+
+      Session::put('offer',$req->all());
+
+      
+
+       return redirect('/showoffers');
+
+    }
+
+    public function offers(){
+
+      $data = Session::get('offer');
+
+      //print_r($data->all());die;
+
+      $showOffer = $this->model->showOfer($data);
+
+      return view('showoffer',['offer'=>$showOffer]);
+      
+    }
+
+   
+ public function seeNotification($text){
+
+      $all_data = $this->model->allNotication($text);
+
+             return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
+
+
+  
+
+}
+ public function play(){
+
+    return view('play');
+
 }
 
 }

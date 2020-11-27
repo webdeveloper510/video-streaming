@@ -21,10 +21,66 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--  <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script> -->
+
+<style type="text/css">
+  .notif {
+    width: 300px;
+    background: white;
+     max-height: 300px;
+    height: auto;
+    border: 1px solid;
+    z-index: 999;
+    overflow: hidden;
+    padding: 12px;
+    overflow-x: auto;
+}
+
+.notif.text-center ol li {
+    list-style: none;
+    text-align: center;
+    padding: 0 !important;
+    margin-left: -40px;
+}
+
+.notif.text-center ol li a {
+    font-weight: 900;
+}
+button.hell {
+    border: 0px;
+    background: transparent;
+}
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    background-color: transparent;
+    border-color: transparent;
+    color: black;
+}
+span.text-center.text-dark {
+    position: absolute;
+    top: 259px;
+    right: 2px;
+    z-index: 999;
+    width: 295px;
+    background: white;
+    padding: 7px;
+    color: blue !important;
+}
+.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
+    box-shadow: none;
+    background-color: transparent;
+    color: black;
+}
+button#dropdownMenuButton {
+    background: transparent;
+    box-shadow: none;
+    border: transparent;
+}
+ </style>
 </head>
 
 <body class="">
-   
+
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
@@ -64,11 +120,25 @@
               <p>Withdraw</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
+           <li class="nav-item ">
+            <a class="nav-link" href="{{url('artist/requests')}}">
+              <i class="fa fa-money"></i>
+              <p>Requests</p>
             </a>
+          </li>
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+              <i class="fa fa-money"></i>
+              My Offers
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{url('/artist/offer')}}">Create Offer</a>
+          <a class="dropdown-item" href="{{url('/artist/my-offer')}}">My Offers</a>
+         
+        </div>
+         
+
           </li>
           
         </ul>
@@ -98,7 +168,29 @@
                   </p>
                 </a>
               </li>
+              
              
+              <li class="nav-item dropdown">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
+                 <h5 class="text-center"> <b>Notification</b></h5><br>
+      @foreach($notification as $val)
+    @if($val->notificationfor=='artist')
+    
+      <a href="{{url('artist/readNotification/'.$val->id)}}">{{$val->message}}</a>
+    
+  
+    <hr>
+    @endif
+    @endforeach
+     <a href="{{url('notification/artist')}}"><span class="text-center text-dark">See More -></span></a>
+                </div>
+              </li>
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
@@ -117,6 +209,5 @@
         </div>
       </nav>
       
-       
       <!-- End Navbar -->
 

@@ -1,4 +1,4 @@
-@extends('layout.cdn')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +39,7 @@
 
 
     </div>
+    @if($video)
  <div class="row mt-5 pt-5">
  	  @foreach ($video as $vid)
  	   @if($vid->type=='video')
@@ -52,8 +53,15 @@
 			</div>
 			@endif
 			@endforeach
-		
   </div>
+  @else
+  <div>
+     <h1>Your specific taste is not served yet-create a job here-</h1>
+     <button class="btn btn-primary">
+       Create Job
+     </button>
+  </div> 
+  @endif
   <br/>
 </div> 
  

@@ -37,7 +37,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('revolution/css/layers.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('revolution/css/navigation.css')}}" />
 
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
 <!-- jQuery and JS bundle w/ Popper.js -->

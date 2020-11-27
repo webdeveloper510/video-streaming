@@ -42,7 +42,13 @@
               
           </div>  
                 @endif
-          </div>  
+          </div> 
+
+          <div class="form-group">
+              {{Form::radio('user', 'contentprovider', true)}} Artist
+
+               {{Form::radio('user', 'users', false )}}  Customer 
+          </div> 
 
             
 
@@ -50,7 +56,8 @@
 <p>
   
 </p>
-   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
+   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdmFu0ZAAAAAHLtJz0WN-gTc9bstIUt6lhNo2aq
+'; ?>"></div>
      @if(session('captcha'))
                 <div class="alert alert-danger">
                 {{session('captcha')}}
@@ -64,7 +71,7 @@
            
         
 <p class="text-white">Don't have an account yet ?</p>
-<a href="{{ URL::to('register')}}" class="ffff "> Signup Now</a>
+<a href="{{ URL::to('register')}}" class="ffff ">Signup Now</a>
         </div>
       </div>
     </div>

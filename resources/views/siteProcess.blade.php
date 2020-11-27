@@ -16,25 +16,34 @@
         <div class="col"></div>
         <div class="col-md-8">
             <div class="text-center my-5">
-              <img src="{{asset('images/logos/Color.png')}}" width="300px">
+              <img src="{{asset('images/logos/cominglogo.png')}}" width="300px">
                 <h1  style="font-size: 83px;font-family: 'Satisfy', cursive;">We're Coming Soon</h1>
             </div>
-            <form>
-               
+
+            @foreach($errors->all() as $error)
+
+            <div class="alert alert-danger">
+              {{$error}}
+            </div>
+             @endforeach
+                 {!!Form::open(['action' => 'AuthController@notifyEmail', 'method' => 'post'])!!}
+          {{Form::token()}}
                 <div class="form-row">
                     <div class="col"></div>
+         
                   <div class="col-sm-7">
-                    <label>Enter your email here**</label>
-                    <input type="email" class="form-control" placeholder="Example@gmail.com">
+                  {{Form::label('Email', 'Enter your email here**')}} 
+                {{Form::text('emails', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
                   </div>
+
                   <div class="col-sm-3 mt-2">
                 
                       <br>
-                    <input type="submit" class="form-control btn btn-dark" value="Notify Me!">
+                       {{ Form::submit('Notify Me!',['class'=>'form-control btn btn-dark']) }}
                   </div>
                   <div class="col"></div>
                 </div>
-              </form>
+                 {{ Form::close() }}
        
     </div>
     <div class="col"></div>

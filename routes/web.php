@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','AuthController@home');
 
-Route::get('register', 'AuthController@register');
+Route::get('/register', 'AuthController@register');
 Route::get('checkUser/{user}', 'AuthController@check');
 
 Route::get('addToken', 'AuthController@addtoken');
@@ -49,18 +49,35 @@ Route::get('logout', 'AuthController@logout');
 
 Route::get('paymentSuccess', 'AuthController@success'); 
 
+Route::get('my-requests','AuthController@myRequests')->middleware('authentication');;
+
 Route::get('success', 'AuthController@succssPage'); 
+
+Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication');; 
 
 Route::get('inProcess', 'AuthController@process'); 
 
 Route::get('cart', 'artist@cart')->middleware('authentication');
 
+Route::get('showoffers','AuthController@offers')->middleware('authentication');;
 
+Route::get('notification/{text}','AuthController@seeNotification')->middleware('authentication');;
 
 
 
 Route::post('ajax-request', 'artist@cartSbmit');
+
+Route::post('notifyEmail', 'AuthController@notifyEmail');
+
+Route::post('request', 'AuthController@addRequest');
+
+
 Route::post('updateProfile', 'AuthController@updateProfile');
+
+Route::post('showOffer','AuthController@showOffer');
+
+Route::post('editDescription','AuthController@editDescription');
+
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');
 
@@ -82,6 +99,8 @@ Route::post('postId',
 
 Route::post('checkprice', 'AuthController@price');
 
+Route::post('updateStatus', 'AuthController@updateStatus');
+
    /*-------------------End Web Site Route----------------------*/
 
 
@@ -98,7 +117,7 @@ Route::post('checkprice', 'AuthController@price');
 
 /*---------------------------End Admin-----------------------------*/
 
-/*-------------------------------------Artist Route ---------------------------*/
+/*-----------------------------------------------Artist Route ----------------------------------*/
 
      Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
@@ -106,12 +125,36 @@ Route::post('checkprice', 'AuthController@price');
 
     Route::get('artistRegister', 'AuthController@artistRegister');
 
+
+    Route::get('artist/offer', 'artist@offer');
+    Route::get('artist/my-offer', 'artist@myoffer');
+
+
+
+
+
+    Route::get('artist/requests', 'artist@showRequest')->middleware('contentAuth');
+
+    Route::get('artist/notification','artist@ShowArtistNotification');
+
+    Route::get('artist/readNotification/{id}','artist@readNotification');
+
     Route::get('artistLogin', 'AuthController@getLogin');
     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
     Route::get('artist/Profile', 'artist@profile')->middleware('contentAuth');
 
     Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
+
+    Route::post('addDescription','artist@addDescription');
+    
+    Route::post('createOffer','artist@createOffer');
+
+    Route::post('editOffer','artist@editOffer');
+
+    Route::post('postDescription','artist@addUserDescription');
+
+    Route::post('editDescription','artist@editDescription');
 
 
 /*---------------------------------------End Artist---------------------*/

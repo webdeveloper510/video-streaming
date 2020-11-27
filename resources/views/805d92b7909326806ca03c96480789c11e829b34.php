@@ -46,7 +46,13 @@
               
           </div>  
                 <?php endif; ?>
-          </div>  
+          </div> 
+
+          <div class="form-group">
+              <?php echo e(Form::radio('user', 'contentprovider', true)); ?> Artist
+
+               <?php echo e(Form::radio('user', 'users', false )); ?>  Customer 
+          </div> 
 
             
 
@@ -54,7 +60,8 @@
 <p>
   
 </p>
-   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdqSt4ZAAAAAEoqklLSyUv6x5siuZ3ynjSIG2mX'; ?>"></div>
+   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdmFu0ZAAAAAHLtJz0WN-gTc9bstIUt6lhNo2aq
+'; ?>"></div>
      <?php if(session('captcha')): ?>
                 <div class="alert alert-danger">
                 <?php echo e(session('captcha')); ?>
@@ -70,7 +77,7 @@
            
         
 <p class="text-white">Don't have an account yet ?</p>
-<a href="<?php echo e(URL::to('register')); ?>" class="ffff "> Signup Now</a>
+<a href="<?php echo e(URL::to('register')); ?>" class="ffff ">Signup Now</a>
         </div>
       </div>
     </div>
@@ -85,5 +92,4 @@
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/login.blade.php ENDPATH**/ ?>
+  <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/login.blade.php ENDPATH**/ ?>
