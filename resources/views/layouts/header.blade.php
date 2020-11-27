@@ -62,7 +62,7 @@
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             </label>
@@ -141,7 +141,7 @@
                       
                             </label><br>
                             <label class=""> 
-                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                              
                             
                             </label>
@@ -240,7 +240,6 @@
                                     {{Form::checkbox('haircolor[]','white')}}White <br>
                                     {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
                                     {{Form::checkbox('haircolor[]','silver')}}Silver <br>
-                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                   </div>
@@ -339,7 +338,7 @@
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--       {{Form::checkbox('price','desc')}}Higest   -->
                             
                             </label>
@@ -408,7 +407,7 @@
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--       {{Form::checkbox('price','desc')}}Higest   -->
                             
                             </label>
