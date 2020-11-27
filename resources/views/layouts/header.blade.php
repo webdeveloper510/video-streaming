@@ -522,7 +522,7 @@
 
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
+                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>

@@ -509,10 +509,11 @@
               <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
            <?php endif; ?>             
 
-            <?php if($login && $userProfile[0]->profilepicture): ?>
+            <?php if($login): ?>
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
+             <?php if($userProfile): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
-             <?php if($userProfile[0]->profilepicture): ?>
+            
     
     <?php else: ?>
    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -545,7 +546,7 @@
 
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
+                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
