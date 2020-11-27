@@ -51,7 +51,7 @@ class AuthController extends Controller
          if($uri=='inProcess'){}
          else{
          $redirect->to('inProcess')->send();
-       $this->model= new Registration();
+          $this->model= new Registration();
          }
       
 
