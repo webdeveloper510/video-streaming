@@ -303,11 +303,11 @@ class AuthController extends Controller
 
              $redirect_url=Session::get('redirect_url');
 
-             print_r($redirect_url);die;
+             //print_r($redirect_url);die;
 
-            if($get==1 && $data['g-recaptcha-response'] || $redirect_url){
+            if($get==1 && $data['g-recaptcha-response']){
             // echo "yes";die;
-              return redirect('/'.$redirect_url)->with('success','Login Successfully!');
+              $data['users']=='users' ? return redirect('/'.$redirect_url)->with('success','Login Successfully!'):return redirect('artists/dashboard')->with('success','Login Successfully!');
             }
              else if($data['g-recaptcha-response']==''){
                  return redirect('/login')->with('captcha','invalid Captcha!!');
