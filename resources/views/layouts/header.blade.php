@@ -485,10 +485,11 @@
               <a href="{{url('/login')}}" class="nav-item nav-link">  Login</a>  
            @endif             
 
-            @if($login && $userProfile)
+            @if($login)
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
+             @if($userProfile)
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
-             @if($userProfile[0]->profilepicture)
+            
     
     @else
    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
