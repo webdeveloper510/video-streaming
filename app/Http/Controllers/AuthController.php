@@ -47,8 +47,11 @@ class AuthController extends Controller
     public function __construct(Request $request, Redirector $redirect)
     {
 
+
        
        $this->model= new Registration();
+
+
 
       
 
