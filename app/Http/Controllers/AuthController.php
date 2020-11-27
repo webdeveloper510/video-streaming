@@ -47,16 +47,10 @@ class AuthController extends Controller
     public function __construct(Request $request, Redirector $redirect)
     {
 
-         $uri = $request->route()->uri;
-         if($uri=='inProcess'){}
-         else{
-         $redirect->to('inProcess')->send();
+       
        $this->model= new Registration();
-         }
+
       
-
-
-       $this->model= new Registration();
 
     }
 

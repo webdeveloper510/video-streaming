@@ -16,12 +16,8 @@ class artist extends Controller
 	  public function __construct(Request $request, Redirector $redirect)
     {
     		$this->model = new Registration();
-    		 $uri = $request->route()->uri;
-         if($uri=='inProcess'){}
-         else{
-         $redirect->to('inProcess')->send();
-       $this->model= new Registration();
-         }
+    
+      
     }
     //
     public function getArtists(){
