@@ -485,7 +485,7 @@
               <a href="{{url('/login')}}" class="nav-item nav-link">  Login</a>  
            @endif             
 
-            @if($login)
+            @if($login && $userProfile[0]->profilepicture)
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
              @if($userProfile[0]->profilepicture)

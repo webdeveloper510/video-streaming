@@ -509,7 +509,7 @@
               <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
            <?php endif; ?>             
 
-            <?php if($login): ?>
+            <?php if($login && $userProfile[0]->profilepicture): ?>
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
              <?php if($userProfile[0]->profilepicture): ?>
