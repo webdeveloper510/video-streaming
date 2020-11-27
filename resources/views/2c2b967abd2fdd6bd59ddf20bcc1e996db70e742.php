@@ -39,7 +39,7 @@
 
 
     </div>
-    <?php if($video!=''): ?>
+    <?php if($video): ?>
  <div class="row mt-5 pt-5">
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   <?php if($vid->type=='video'): ?>
