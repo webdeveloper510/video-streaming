@@ -139,6 +139,8 @@ class AuthController extends Controller
 
           $search_data->forget('subcategory'); // Remove subcategory key from filter result data
 
+         // print_r($search_data);die;
+
             if($recentSelected && $session_type=='User'){
 
               $this->recentData($search_data);

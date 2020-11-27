@@ -226,7 +226,7 @@
                                     <?php echo e(Form::checkbox('height[]','180cm<')); ?>180cm< <br>
                                   </div>
                                    <div class="col-md-4 mb-4">
-                                    <label>Eye color</label><br>
+                                    <label>Eyes/Lenses</label><br>
                                     <?php echo e(Form::checkbox('eyecolor[]','blue')); ?>Blue <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','brown')); ?>Brown <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','brown-green')); ?>Brown-green<br> 
@@ -236,7 +236,6 @@
                                     <?php echo e(Form::checkbox('eyecolor[]','red')); ?>Red <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','white')); ?>White <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','yellow')); ?>Yellow <br>
-                                    <?php echo e(Form::checkbox('eyecolor[]','blue')); ?>Blue <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','indigo')); ?>Indigo <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','violet')); ?>Violet <br>
                                   </div>
@@ -252,7 +251,7 @@
                                     <?php echo e(Form::checkbox('haircolor[]','white')); ?>White <br>
                                     <?php echo e(Form::checkbox('haircolor[]','yellow')); ?>Yellow <br>
                                     <?php echo e(Form::checkbox('haircolor[]','silver')); ?>Silver <br>
-                                    <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
+                       
                                     <?php echo e(Form::checkbox('haircolor[]','indigo')); ?>Indigo <br>
                                     <?php echo e(Form::checkbox('haircolor[]','violet')); ?>Violet <br>
                                   </div>
@@ -265,8 +264,8 @@
                                     <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
                                   </div>
                                    <div class="col-md-8 mb-4">
-                                    <label>Weight</label><br>
-                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?>Less than Average <br>
+                                    <label>Body</label><br>
+                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?>Thin <br>
                                     <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
                                     <?php echo e(Form::checkbox('weight[]','Above Average')); ?>Above Average 

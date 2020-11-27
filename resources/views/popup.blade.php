@@ -32,7 +32,7 @@
                                     {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                   </div>
                                    <div class="col-md-12 mb-4">
-                                    <label>Eye/lenses</label><br>
+                                    <label>Eyes/lenses</label><br>
                                     {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
                                     {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 

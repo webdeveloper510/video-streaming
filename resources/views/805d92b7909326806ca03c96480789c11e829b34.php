@@ -49,9 +49,9 @@
           </div> 
 
           <div class="form-group">
-              <?php echo e(Form::radio('user', 'contentprovider', true)); ?> Login As A Artist
+              <?php echo e(Form::radio('user', 'contentprovider', true)); ?> Artist
 
-               <?php echo e(Form::radio('user', 'users', false )); ?> Login As A User
+               <?php echo e(Form::radio('user', 'users', false )); ?>  Customer 
           </div> 
 
             
