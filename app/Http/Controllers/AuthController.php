@@ -114,7 +114,7 @@ class AuthController extends Controller
          $search_data = $this->model->getVedio($data);  // GET SUBCATEGORY ID AND DATA USING FILTER 
 
 
-          //print_r($search_data);die;
+        //  print_r($search_data);die;
        
 
           $sub=$search_data['subcategory'];
@@ -145,7 +145,7 @@ class AuthController extends Controller
 
           $search_data->forget('subcategory'); // Remove subcategory key from filter result data
 
-         // print_r($search_data);die;
+         //print_r($search_data);die;
 
             if($recentSelected && $session_type=='User'){
 
