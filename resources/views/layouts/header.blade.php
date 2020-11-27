@@ -215,7 +215,7 @@
                                     {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                   </div>
                                    <div class="col-md-4 mb-4">
-                                    <label>Eyes/Lenses</label><br>
+                                    <label>Eye color</label><br>
                                     {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
                                     {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 
@@ -225,6 +225,7 @@
                                     {{Form::checkbox('eyecolor[]','red')}}Red <br>
                                     {{Form::checkbox('eyecolor[]','white')}}White <br>
                                     {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br>
+                                    {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                   </div>
@@ -240,7 +241,7 @@
                                     {{Form::checkbox('haircolor[]','white')}}White <br>
                                     {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
                                     {{Form::checkbox('haircolor[]','silver')}}Silver <br>
-                       
+                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                   </div>
@@ -253,8 +254,8 @@
                                     {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
                                   </div>
                                    <div class="col-md-8 mb-4">
-                                    <label>Body</label><br>
-                                    {{Form::checkbox('weight[]','Less than Average')}}Thin <br>
+                                    <label>Weight</label><br>
+                                    {{Form::checkbox('weight[]','Less than Average')}}Less than Average <br>
                                     {{Form::checkbox('weight[]','Normal')}}Normal <br>
                                     {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
                                     {{Form::checkbox('weight[]','Above Average')}}Above Average 
