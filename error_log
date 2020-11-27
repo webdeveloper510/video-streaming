@@ -1,3 +1,7 @@
 
 [28-Oct-2020 16:19:17 UTC] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
 [28-Oct-2020 16:31:37 UTC] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 4096 bytes) in phar:///opt/cpanel/composer/bin/composer/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Nov-2020 17:56:12 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 260050944 bytes) in /home/personalattentio/public_html/app/Http/Controllers/AuthController.php on line 47
+[17-Nov-2020 17:56:12 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 507904 bytes) in /home/personalattentio/public_html/vendor/facade/ignition/resources/views/errorPage.php on line 49
+[17-Nov-2020 17:56:15 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 260050944 bytes) in /home/personalattentio/public_html/app/Http/Controllers/AuthController.php on line 47
+[17-Nov-2020 17:56:15 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 507904 bytes) in /home/personalattentio/public_html/vendor/facade/ignition/resources/views/errorPage.php on line 49

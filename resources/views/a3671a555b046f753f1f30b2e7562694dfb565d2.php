@@ -1,3 +1,4 @@
+
  <section class="background1">
 
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -178,5 +179,4 @@
     margin-top: 7% !important;
   }
 
-</style>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/resources/views/profile.blade.php ENDPATH**/ ?>
+</style><?php /**PATH /home/personalattentio/public_html/resources/views/profile.blade.php ENDPATH**/ ?>
