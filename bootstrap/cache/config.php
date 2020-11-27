@@ -537,7 +537,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/personalattentio/public_html/developing-streaming/resources
+        0 => '/home/personalattentio/public_html/developing-streaming/resources',
       ),
     ),
   ),
