@@ -179,4 +179,8 @@
     margin-top: 7% !important;
   }
 
+<<<<<<< HEAD:resources/views/a3671a555b046f753f1f30b2e7562694dfb565d2.php
+</style><?php /**PATH /home/personalattentio/public_html/resources/views/profile.blade.php ENDPATH**/ ?>
+=======
 </style><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>
+>>>>>>> e7b869dd25f954a7a1659437589f4012cf3da0f2:resources/views/a06eb3939fe6eb8838555ecaab5c80dceff0898c.php

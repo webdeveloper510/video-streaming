@@ -12,6 +12,19 @@ use Illuminate\Support\Facades\Input;
 class admin extends Controller
 {
     //
+   private $model;
+
+    public function __construct(Request $request, Redirector $redirect)
+    {
+         $uri = $request->route()->uri;
+         if($uri=='inProcess'){}
+         else{
+         $redirect->to('inProcess')->send();
+       $this->model= new Registration();
+         }
+      
+    }
+
     public function showCategorypage(){
       
        $model = new Registration();
