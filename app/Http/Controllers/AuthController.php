@@ -303,6 +303,8 @@ class AuthController extends Controller
 
              $redirect_url=Session::get('redirect_url');
 
+             print_r($redirect_url);die;
+
             if($get==1 && $data['g-recaptcha-response'] || $redirect_url){
             // echo "yes";die;
               return redirect('/'.$redirect_url)->with('success','Login Successfully!');

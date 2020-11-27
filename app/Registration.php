@@ -154,7 +154,7 @@ public function uploadContentData($userdata){
       public function login($data){
 
         
-        echo $table = $data['user'];
+         $table = $data['user'];
    
             $value = DB::table($table)->where(array(
               'email'=> $data['email'],
@@ -163,7 +163,7 @@ public function uploadContentData($userdata){
               ->first();
              
               
-             print_r($value);die;
+             //print_r($value);die;
           
 
            if(is_null($value)){
