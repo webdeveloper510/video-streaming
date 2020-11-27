@@ -10,19 +10,20 @@ $('.rad_But').click(function(){
 	}
 })
 
-// $(document).on('click', '.user', function () {
+$(document).on('click', '.user', function () {
 
-//     if($(this).is(":checked")){
+    if($(this).hasClass("imChecked")){
 
-//     			$(this).prop('checked',false);
-//     }
+      $(this).prop('checked', false);
+       $(this).removeClass("imChecked");
+    }
 
-//     else{
-//     	$(this).prop('checked',true);
-//     		console.log('ff');
-//     }
+    else{
+     $(this).prop('checked', true);
+       $(this).addClass("imChecked");
+    }
 
-// })
+})
 $(document).ready(function(){
 	//alert('hel');return false;
   var firstName = $('.firstName').text();
