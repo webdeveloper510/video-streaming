@@ -13,8 +13,9 @@
                                   </div>
                                    <div class="col-md-12 mb-4 ass">
                                     <label>Ass</label><br>
+                                       {{Form::checkbox('ass[]','Small')}}Small <br>
                                     {{Form::checkbox('ass[]','Normal')}}Normal <br>
-                                    {{Form::checkbox('ass[]','Small')}}Small <br>
+                                 
                                     {{Form::checkbox('ass[]','Big')}}Big 
                                     
  
@@ -73,7 +74,7 @@
                                     {{Form::checkbox('weight[]','Less than Average')}}Thin <br>
                                     {{Form::checkbox('weight[]','Normal')}}Normal <br>
                                     {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
-                                    {{Form::checkbox('weight[]','Above Average')}}Above Average 
+                                    {{Form::checkbox('weight[]','Chubby')}}Chubby
                                   </div>
                                   <!--div class="col-md-12 mb-4">
                                    <label>Age</label><br>

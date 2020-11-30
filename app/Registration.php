@@ -921,5 +921,16 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     }
 
+    public function createPlaylist($data){
+
+        $result = $data->all();
+
+        $insert  = DB::table('listname')->insert($result);
+
+        return $insert ? 1 : 0;
+
+
+    }
+
 
 }

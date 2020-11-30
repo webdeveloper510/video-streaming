@@ -267,7 +267,7 @@
                                     <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
                                     <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
-                                    <?php echo e(Form::checkbox('weight[]','Above Average')); ?>Above Average 
+                                    <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
                                   </div>
                                   <!--div class="col-md-4 mb-4">
                                    <label>Age</label><br>

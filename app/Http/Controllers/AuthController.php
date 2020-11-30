@@ -950,8 +950,6 @@ public function notifyEmail(Request $req){
 
       $data = Session::get('offer');
 
-      //print_r($data->all());die;
-
       $showOffer = $this->model->showOfer($data);
 
       return view('showoffer',['offer'=>$showOffer]);
@@ -963,11 +961,8 @@ public function notifyEmail(Request $req){
 
       $all_data = $this->model->allNotication($text);
 
-             return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
-
-
+          return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
   
-
 }
  public function play(){
 
@@ -975,4 +970,13 @@ public function notifyEmail(Request $req){
 
 }
 
+public function createPlaylist(Request $request){
+
+      $this->model->createPlaylist($request);
+
 }
+
+// public function 
+
+
+ }
