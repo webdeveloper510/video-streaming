@@ -7,9 +7,6 @@
     'url' => 'https://pornartistzone.com/developing-streaming/',
     'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
 
-    'url' => 'http://localhost/video-streaming/',
-    'asset_url' => 'http://localhost/video-streaming/public',
-
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',

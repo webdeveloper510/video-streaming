@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <title>mistree</title>
@@ -294,5 +295,4 @@
 
   </body>
 
-  </html>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>
+  </html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>
