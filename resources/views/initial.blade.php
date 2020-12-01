@@ -145,6 +145,9 @@
 </div>
 @endif
  </div>
+  @if($login) 
+  <h1 class="text-white center">Welcome to the Porn-Artist-Zone!</h1>
+  @endif
 <div class="outer_slider">
   <div class="coner my-4">
     
@@ -159,8 +162,6 @@
     <!--Carousel Wrapper-->
     @if($login && $recently)
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    
 
 
       <div id="owl-example" class="owl-carousel">
@@ -322,6 +323,10 @@ a.btn, button.btn {
   }
   button.btn.btn-primary a {
     color: white;
+}
+
+.owl-carousel{
+  display: block !important;
 }
 .user-body p {
     font-size: 20px;

@@ -33,7 +33,7 @@ use \Illuminate\Http\UploadedFile;
 use Stripe\Error\Card;
 
 use Stripe;
-
+use Illuminate\Routing\Redirector;
 
 use Illuminate\Support\Facades\Input;
 
@@ -44,10 +44,16 @@ class AuthController extends Controller
 
   private $model;
 
-    public function __construct()
+    public function __construct(Request $request, Redirector $redirect)
     {
 
+
+       
        $this->model= new Registration();
+
+
+
+      
 
     }
 
@@ -108,7 +114,7 @@ class AuthController extends Controller
          $search_data = $this->model->getVedio($data);  // GET SUBCATEGORY ID AND DATA USING FILTER 
 
 
-          //print_r($search_data);die;
+        //  print_r($search_data);die;
        
 
           $sub=$search_data['subcategory'];
@@ -138,6 +144,8 @@ class AuthController extends Controller
 
 
           $search_data->forget('subcategory'); // Remove subcategory key from filter result data
+
+         //print_r($search_data);die;
 
             if($recentSelected && $session_type=='User'){
 
@@ -291,13 +299,15 @@ class AuthController extends Controller
             $get = $this->model->login($data);
 
 
-          // print_r($get);
+           //print_r($get);
 
              $redirect_url=Session::get('redirect_url');
 
-            if($get==1 && $data['g-recaptcha-response'] || $redirect_url){
+             //print_r($redirect_url);die;
+
+            if($get==1 && $data['g-recaptcha-response']){
             // echo "yes";die;
-              return redirect('/'.$redirect_url)->with('success','Login Successfully!');
+        return  $data['user']=='users' ?  redirect('/'.$redirect_url)->with('success','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
             }
              else if($data['g-recaptcha-response']==''){
                  return redirect('/login')->with('captcha','invalid Captcha!!');
@@ -940,8 +950,6 @@ public function notifyEmail(Request $req){
 
       $data = Session::get('offer');
 
-      //print_r($data->all());die;
-
       $showOffer = $this->model->showOfer($data);
 
       return view('showoffer',['offer'=>$showOffer]);
@@ -953,16 +961,49 @@ public function notifyEmail(Request $req){
 
       $all_data = $this->model->allNotication($text);
 
-             return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
-
-
+      return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
   
+}
+   public function play(){
+
+      return view('play');
+
+  }
+
+public function selectListname(Request $request){
+
+      Session::put('listname',$request->listname);
 
 }
- public function play(){
 
-    return view('play');
+public function addToLibrary(Request $req){
+
+        unset($req['_token']);
+
+        $addTolibrary = $req->all();
+
+     
+
+       //$addTolibrary['playlistname'] = $listname;
+
+        $this->model->addToLibrary($addTolibrary);
+
 
 }
 
+public function buyVideo(Request $req){
+
+      unset($req['_token']);
+      $this->model->buyVideo($req);
+
 }
+
+public function new(){
+
+   $this->model->addToLibrary1();
+
+}
+
+
+
+ }

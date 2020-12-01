@@ -9,6 +9,44 @@ $('.rad_But').click(function(){
 		$('.hide').show();
 	}
 })
+
+$(document).on('click', '.user', function () {
+
+    if($(this).hasClass("imChecked")){
+
+      $(this).prop('checked', false);
+       $(this).removeClass("imChecked");
+    }
+
+    else{
+     $(this).prop('checked', true);
+       $(this).addClass("imChecked");
+    }
+
+})
+
+$(document).on('click','#div',function(){
+
+		var listname= $(this).text();
+	//console.log(token);
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/selectListname",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"listname": listname},
+
+				success: function(data){
+
+					console.log(data);
+
+					
+				}
+		});
+
+})
 $(document).ready(function(){
 	//alert('hel');return false;
   var firstName = $('.firstName').text();
@@ -281,6 +319,7 @@ $('#offerid').val(id);
 function showDiv(){
 	$('.notif').toggle();
 }
+
 
 
 

@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Input;
 class admin extends Controller
 {
     //
+   private $model;
+
+    public function __construct(Request $request, Redirector $redirect)
+    {
+        
+        
+       $this->model= new Registration();
+         }
+      
+    }
+
     public function showCategorypage(){
       
        $model = new Registration();

@@ -148,4 +148,4 @@ button.btn.btn-default {
 }
 </style>
 </html>
-<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>

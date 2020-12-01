@@ -39,6 +39,7 @@
 
 
     </div>
+    @if(!$video->isEmpty())
  <div class="row mt-5 pt-5">
  	  @foreach ($video as $vid)
  	   @if($vid->type=='video')
@@ -52,8 +53,15 @@
 			</div>
 			@endif
 			@endforeach
-		
   </div>
+  @else
+  <div>
+     <h1>Your specific taste is not served yet</h1>
+     <a href="{{url('my-requests')}}"><button class="btn btn-primary">
+       Create Job
+     </button></a>
+  </div> 
+  @endif
   <br/>
 </div> 
  

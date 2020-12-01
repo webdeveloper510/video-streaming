@@ -39,6 +39,7 @@
 
 
     </div>
+    <?php if(!$video->isEmpty()): ?>
  <div class="row mt-5 pt-5">
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   <?php if($vid->type=='video'): ?>
@@ -52,8 +53,15 @@
 			</div>
 			<?php endif; ?>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-		
   </div>
+  <?php else: ?>
+  <div>
+     <h1>Your specific taste is not served yet</h1>
+     <a href="<?php echo e(url('my-requests')); ?>"><button class="btn btn-primary">
+       Create Job
+     </button></a>
+  </div> 
+  <?php endif; ?>
   <br/>
 </div> 
  
@@ -131,4 +139,4 @@
 }
 </style>
 </html>
-<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//search.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>

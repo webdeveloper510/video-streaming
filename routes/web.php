@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*-------------------Web Site----------------------*/
+/*----------------------------------------Web Site---------------------------------------------*/
 
 Route::get('/','AuthController@home');
 
@@ -57,7 +57,13 @@ Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication')
 
 Route::get('inProcess', 'AuthController@process'); 
 
+Route::get('new', 'AuthController@new'); 
+
+
+
 Route::get('cart', 'artist@cart')->middleware('authentication');
+
+//Route::get()
 
 Route::get('showoffers','AuthController@offers')->middleware('authentication');;
 
@@ -67,9 +73,13 @@ Route::get('notification/{text}','AuthController@seeNotification')->middleware('
 
 Route::post('ajax-request', 'artist@cartSbmit');
 
+Route::post('selectListname', 'AuthController@selectListname');
+
 Route::post('notifyEmail', 'AuthController@notifyEmail');
 
 Route::post('request', 'AuthController@addRequest');
+
+Route::post('addToLibrary', 'AuthController@addToLibrary');
 
 
 Route::post('updateProfile', 'AuthController@updateProfile');
@@ -80,6 +90,8 @@ Route::post('editDescription','AuthController@editDescription');
 
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');
+
+
 
 //Route::post('checkPrice', 'AuthController@checkPrice');
 
@@ -149,6 +161,8 @@ Route::post('updateStatus', 'AuthController@updateStatus');
     Route::post('addDescription','artist@addDescription');
     
     Route::post('createOffer','artist@createOffer');
+
+    Route::post('createPlaylist','artist@createPlaylist');
 
     Route::post('editOffer','artist@editOffer');
 

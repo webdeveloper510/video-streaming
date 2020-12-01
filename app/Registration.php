@@ -14,7 +14,7 @@ class Registration extends Model
     {
 
         $value = $this->selectDataById('email','users',$data['email']);
-        print_r($value);die;
+       // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
             $userdata['password']= md5($data['password']);
@@ -154,7 +154,7 @@ public function uploadContentData($userdata){
       public function login($data){
 
         
-        $table = $data['user'];
+         $table = $data['user'];
    
             $value = DB::table($table)->where(array(
               'email'=> $data['email'],
@@ -163,7 +163,7 @@ public function uploadContentData($userdata){
               ->first();
              
               
-             // print_r($value);die;
+             //print_r($value);die;
           
 
            if(is_null($value)){
@@ -453,7 +453,7 @@ public function getRespectedSub($data){
        ->join('profiletable', 'profiletable.userid', '=', 'users.id')
        ->select('profiletable.profilepicture', 'users.tokens','users.nickname')
        ->where('userid',$userId)
-       ->get();
+       ->get()->toArray();
 
        return $data;
 
@@ -920,6 +920,205 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
       return $data;
 
     }
+
+    public function createPlaylist($data){
+
+        $result = $data->all();
+
+        $insert  = DB::table('listname')->insert($result);
+
+        return $insert ? 1 : 0;
+
+
+    }
+
+    public function getPlaylist(){
+
+        $session_data =   Session::get('User');
+        $userid=  $session_data->id;
+
+       $value=DB::table('listname')->where('userid', $userid)->get()->toArray();
+
+       return $value;
+
+    }
+
+    public function buyVideo($vid){
+
+        $session_data =   Session::get('User');
+
+        $userid=  $session_data->id;
+
+        //$vid['']
+
+        $checkTokn = $this->selectDataById('id','users',$userid);
+        $token = $checkTokn[0]->tokens;
+
+        if($token > $vid['price']*20){
+
+            $data = $this->selectDataById('userid','user_video',$userid);
+
+      count($data) > 0 ? $this->updateUserVideo($userid,$vid,$token) : $this->insertUserVideo($userid,$vid,$token);
+
+
+        }
+
+
+    }
+
+    public function updateUserVideo($uid,$video,$tok){
+
+      $update = DB::table('user_video')->where(array('userid'=>$uid))
+      ->update([
+            'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid']."')"),
+            'Isbuyed'=>'yes'
+          ]);
+
+          if($update==1){
+            $return = DB::table('users')->where(array('id'=>$uid))
+            ->update([
+            'tokens' =>  DB::raw('tokens -'.$video['price']*20)
+          ]);
+
+            return $return;
+
+          }
+
+          else{
+
+              return 0;
+          }
+    }
+
+    public function insertUserVideo($uid,$video,$tok){
+      $video['created_at'] = now();
+      $video['updated_at'] = now();
+      $video['userid'] =$uid;
+      $video['videoid'] = $video['videoid'];
+      $video['Isbuyed'] = 'No';
+
+        $insert = DB::table('user_video')->insert($video);
+
+        if($insert==1){
+            $return = DB::table('users')->where(array('id'=>$uid))->update([
+            'tokens' =>  DB::raw('tokens -'.$video['price']*20)
+            ]);
+            return $return;
+        }
+
+        else{
+          return 0;
+        }
+
+
+      
+    }
+
+    public function addToLibrary($lists){
+
+        $session_data =   Session::get('User');
+
+        $userid =  $session_data->id;
+
+        $listname = Session::get('listname');
+
+        $addTolibrary['playlistname'] = $listname;
+
+        $lists['userid'] = $userid;
+
+        $tokensData = $this->selectDataById('id','users',$userid);
+
+    $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
+
+        if(count($data) >  0){
+
+            $videoid = $lists['videoid'];
+
+         $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
+            'listvideo' => DB::raw("CONCAT(listvideo,',".$videoid."')")
+          ]);
+
+         if($update==1){
+
+              $tokens = $tokensData[0]->tokens;
+
+                $reduce  = $this->reduceTokens($tokens,$userid,$lists);
+
+                return $reduce;
+
+         }
+
+         else
+         {
+            return  0;
+         }  
+
+        }
+
+        else {
+
+           $addTolibrary['listvideo'] = $video;
+
+            $tokens = $tokensData[0]->tokens;
+
+              $insert  = DB::table('playlist')->insert($addTolibrary);
+
+              $returnData = $insert ? $this->reduceTokens($tokens,$userid,$lists)  : 0;
+
+              return $returnData;
+        }
+
+    }
+
+public function reduceTokens($tokns,$userid,$data){
+
+          $paz = $data['tokens'];
+
+        if($paz < $tokns){
+             $update = DB::table('users')->where(array('id'=>$userid))->update([
+            'tokens' =>  DB::raw('tokens -'.$paz)
+          ]);
+
+             return $update ? 1 : 0;
+
+        }
+
+        else
+        {
+            return 'Insufficient Paz Tokens';
+        }
+}
+    // public function addToLibrary1(){
+
+    //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();
+
+    //      // print_r($data);die;
+
+    //       if(count($data)> 0){
+
+    //         //echo "yes";die;
+
+    //            $video = 'Xyz.mp4';
+    //  $update = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))
+    //  ->update([
+    //         'listvideo' => DB::raw("CONCAT(listvideo,',".$video."')")
+    //          ]);
+
+    //        if($update==1){
+
+    //           $tokens = 111;
+
+    //             $reduce  = $this->reduceTokens($tokens,22,100);
+
+    //             print_r($reduce);
+
+    //      }
+
+    // }
+
+
+
+    // }
 
 
 }

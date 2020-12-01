@@ -58,11 +58,11 @@
                           
                             </label><br>
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             </label>
@@ -137,11 +137,11 @@
                             
                             </label><br>
                             <label class="">  
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                       
                             </label><br>
                             <label class=""> 
-                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                              
                             
                             </label>
@@ -196,8 +196,9 @@
                                   </div>
                                    <div class="col-md-4 mb-4 ass">
                                     <label>Ass</label><br>
+                                     {{Form::checkbox('ass[]','Small')}}Small <br>
                                     {{Form::checkbox('ass[]','Normal')}}Normal <br>
-                                    {{Form::checkbox('ass[]','Small')}}Small <br>
+                                   
                                     {{Form::checkbox('ass[]','Big')}}Big 
                                     
  
@@ -215,7 +216,7 @@
                                     {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                   </div>
                                    <div class="col-md-4 mb-4">
-                                    <label>Eye color</label><br>
+                                    <label>Eyes/lenses</label><br>
                                     {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
                                     {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 
@@ -225,7 +226,6 @@
                                     {{Form::checkbox('eyecolor[]','red')}}Red <br>
                                     {{Form::checkbox('eyecolor[]','white')}}White <br>
                                     {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br>
-                                    {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                   </div>
@@ -241,7 +241,6 @@
                                     {{Form::checkbox('haircolor[]','white')}}White <br>
                                     {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
                                     {{Form::checkbox('haircolor[]','silver')}}Silver <br>
-                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                     {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
                                     {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                   </div>
@@ -254,11 +253,11 @@
                                     {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
                                   </div>
                                    <div class="col-md-8 mb-4">
-                                    <label>Weight</label><br>
-                                    {{Form::checkbox('weight[]','Less than Average')}}Less than Average <br>
+                                    <label>Body</label><br>
+                                    {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
                                     {{Form::checkbox('weight[]','Normal')}}Normal <br>
                                     {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
-                                    {{Form::checkbox('weight[]','Above Average')}}Above Average 
+                                    {{Form::checkbox('weight[]','Chubby')}}Chubby 
                                   </div>
                                   <!--div class="col-md-4 mb-4">
                                    <label>Age</label><br>
@@ -336,11 +335,11 @@
                   
       
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--       {{Form::checkbox('price','desc')}}Higest   -->
                             
                             </label>
@@ -405,11 +404,11 @@
                           
                             </label><br>
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} lowest
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
                             </label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Higest
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--       {{Form::checkbox('price','desc')}}Higest   -->
                             
                             </label>
@@ -489,8 +488,9 @@
 
             @if($login)
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
+             @if($userProfile)
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
-             @if($userProfile[0]->profilepicture)
+            
     
     @else
    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -511,7 +511,7 @@
         <a href="{{url('/my-requests')}}">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  <b>{{$userProfile[0]->tokens}}</b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
@@ -523,7 +523,7 @@
 
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="font-size: 27px !important;"   class="fa fa-comment" aria-hidden="true"></i>
+                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
