@@ -4,8 +4,8 @@
     'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost/laravel/video-streaming/',
-    'asset_url' => 'http://localhost/laravel/video-streaming/public',
+    'url' => 'http://localhost/video-streaming/',
+    'asset_url' => 'http://localhost/video-streaming/public',
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -353,8 +353,13 @@
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\app/public',
         'url' => 'http://localhost/laravel/video-streaming//storage',
+=======
+        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
+        'url' => 'http://localhost/video-streaming//storage',
+>>>>>>> 06a9e312035230e23ae56e5ca484d3e80a1b8a42
         'visibility' => 'public',
       ),
       's3' => 
