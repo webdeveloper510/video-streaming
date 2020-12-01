@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html>
 <title>mistree</title>
@@ -55,7 +56,7 @@
 
 
   <body>
-    @include('layouts.header')
+    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  <section class="mistress-sec">
 <div class="container-fluid">
 <div class="row">
@@ -73,12 +74,12 @@
 <div class="main-mistree-sec1">
 <div class="main-mistree">
 <div class="main-mistree-circle">
-<img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}">
+<img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
 </div>
 
 
 <div class="misstress kelly">
-<h3>{{$details[0]->nickname}}</h3>
+<h3><?php echo e($details[0]->nickname); ?></h3>
 </div>
 
 
@@ -132,18 +133,18 @@
 
 <div class="col-md-9">
 <div id="owl-example" class="owl-carousel">
-      @foreach ($details as $detail)
-            @if($detail->type=='video')
+      <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($detail->type=='video'): ?>
             <div class="col-md-4">
 
           <video width="300" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
 
          </div>
-            @endif
-             @endforeach
+            <?php endif; ?>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 
 
@@ -156,7 +157,7 @@
 
 
 <div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
+<button type="button" onclick="alert('Hello world!')">Add to Cart</button>
 <div class="price-btn">
 <a href="#"><p>$9.9</p></a>
 </div>
@@ -219,20 +220,20 @@
 
 
 <div class="row">
-       @foreach ($details as $detail)
-            @if($detail->type=='video')
+       <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($detail->type=='video'): ?>
     <div class="col-md-4 pr-4">
-        <a href="{{url('artist-video/'.$detail->id)}}">
+        <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="300" height="200" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </a>
-          <div class="price">{{'$'.$detail->price}}</div>
+          <div class="price"><?php echo e('$'.$detail->price); ?></div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
-    <a href="a{{url('artist-video/'.$detail->id)}}">
-<p>{{$detail->title}}</p>
+    <a href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
+<p><?php echo e($detail->title); ?></p>
 </a>
 <div class="camera">
 <i class="fa fa-video-camera" aria-hidden="true"></i>
@@ -242,8 +243,8 @@
     </div>
 </div>
 </div>
-@endif
-@endforeach
+<?php endif; ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 
 
@@ -296,3 +297,4 @@
   </body>
 
   </html>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

@@ -422,4 +422,4 @@ rewindNav:false
     $ ('#modal-subscribe').modal ("show")
   }, 1000)
 })
-</script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>

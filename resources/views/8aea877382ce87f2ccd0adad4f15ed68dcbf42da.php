@@ -83,4 +83,4 @@
                                     <?php echo e(Form::checkbox('age[]','35-44')); ?>35-44<br>
                                     <?php echo e(Form::checkbox('age[]','45 +')); ?>45 +
                                 </div-->
-                              </div><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/popup.blade.php ENDPATH**/ ?>
+                              </div><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/popup.blade.php ENDPATH**/ ?>
