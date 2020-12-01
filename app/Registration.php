@@ -1002,6 +1002,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
         if($insert==1){
             $return = DB::table('users')->where(array('id'=>$uid))->update([
             'tokens' =>  DB::raw('tokens -'.$video['price']*20)
+            ]);
             return $return;
         }
 
