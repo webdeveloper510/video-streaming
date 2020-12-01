@@ -1004,6 +1004,11 @@ public function new(){
 
 }
 
+public function createList(Request $request){
+
+          print_r($request);
+}
+
 
 
  }

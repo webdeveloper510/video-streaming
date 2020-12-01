@@ -24,6 +24,9 @@ $(document).on('click', '.user', function () {
     }
 
 })
+$(document).on('click', '.show_list', function () {
+	$('.create_playlistt').show();
+})
 
 $(document).on('click','#div',function(){
 
@@ -185,6 +188,46 @@ $(document).on('click', '#checkPrice', function () {
                },
 
 				data: {"token": token},
+
+				success: function(data){
+						//console.log(data);
+
+						if(data.status==1){
+
+							$('#stripeDiv').show();
+
+						var beforePrice= parseInt(data.token)/20;
+						var afterPrice=beforePrice * (data.fee/100);
+						var credit = 2.9;
+						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
+						$('.calculate').html('');
+						$('.calculate').append("<table  class='table text-white'><tr><th>Price:</th><td>" +beforePrice+"</td></tr><tr class='text-white'><th>Fee:</th><td>"+data.fee+"%"+"</td></tr><tr><th>Total:</th><td>"+total.toFixed(2)+"</td></tr></table>")
+						$('.amount').text('$'+total.toFixed(2));
+						$('.price').val(total.toFixed(2));
+						$('#tokens').val(data.token);
+						}
+
+						else{
+							//console.log('te');
+						}
+					
+				}
+		});
+
+});
+
+$(document).on('click', '.create_list', function () {
+	//alert('hello');return false;
+	var listname= $('.list').val();
+	console.log(listname);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/createList",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"listname": listname},
 
 				success: function(data){
 						//console.log(data);

@@ -51,9 +51,14 @@
       <div class="modal-body text-left">
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
-      	<h5>playlist  <a href="">edit</a> </h5><br>
-      	<h5>playlist  <a href="">edit</a> </h5><br>
-      	<a href="">Create New Playlist +</a>
+      	<?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      	<h5><?php echo e($val->listname); ?>  <a href="" class="aedit">edit</a> </h5><br>
+      	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      	<a href="#" class="show_list">Create New Playlist +</a>
+      	<span class="create_playlistt" style="display: none">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+      		<button class="create_list">Create</button>
+      	</span>
       </div>
       <div class="text-center mt-4">
       <h2>Token:500 PAZ</h2>

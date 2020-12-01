@@ -105,6 +105,8 @@ class artist extends Controller
 
          $all_play_lists = $this->model->getPlaylist();
 
+         //print_r($all_play_lists);die;
+
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
           $category_data = $this->model->getCategory();

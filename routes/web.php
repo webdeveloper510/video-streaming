@@ -112,6 +112,7 @@ Route::post('postId',
 Route::post('checkprice', 'AuthController@price');
 
 Route::post('updateStatus', 'AuthController@updateStatus');
+Route::post('createList', 'AuthController@createList');
 
    /*-------------------End Web Site Route----------------------*/
 

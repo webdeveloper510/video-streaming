@@ -51,9 +51,14 @@
       <div class="modal-body text-left">
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
-      	<h5>playlist  <a href="" class="aedit">edit</a> </h5><br>
-      	<h5>playlist  <a href="" class="aedit">edit</a> </h5><br>
-      	<a href="">Create New Playlist +</a>
+      	@foreach($listname as $index=>$val)
+      	<h5>{{$val->listname}}  <a href="" class="aedit">edit</a> </h5><br>
+      	@endforeach
+      	<a href="#" class="show_list">Create New Playlist +</a>
+      	<span class="create_playlistt" style="display: none">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+      		<button class="create_list">Create</button>
+      	</span>
       </div>
       <div class="text-center mt-4">
       <h2>Token:500 PAZ</h2>
