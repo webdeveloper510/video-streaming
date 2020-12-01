@@ -4,8 +4,8 @@
     'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost/laravel/video-streaming/',
-    'asset_url' => 'http://localhost/laravel/video-streaming/public',
+    'url' => 'https://pornartistzone.com/developing-streaming/',
+    'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -180,7 +180,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\framework/cache/data',
+        'path' => '/home/personalattentio/public_html/developing-streaming/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -258,7 +258,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'livestreaming',
+        'database' => 'personalattentio_livestreaming_stage',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -266,11 +266,11 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'livestreaming',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'personalattentio_livestreaming_stage',
+        'username' => 'personalattentio_livestreamuser',
+        'password' => 'livestream@321',
         'unix_socket' => '',
         'charset' => 'utf8',
         'collation' => 'utf8_unicode_ci',
@@ -287,11 +287,11 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'livestreaming',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'personalattentio_livestreaming_stage',
+        'username' => 'personalattentio_livestreamuser',
+        'password' => 'livestream@321',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -302,11 +302,11 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
-        'database' => 'livestreaming',
-        'username' => 'root',
-        'password' => '',
+        'database' => 'personalattentio_livestreaming_stage',
+        'username' => 'personalattentio_livestreamuser',
+        'password' => 'livestream@321',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -348,13 +348,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app',
+        'root' => '/home/personalattentio/public_html/developing-streaming/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
-        'url' => 'http://localhost/laravel/video-streaming//storage',
+        'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
+        'url' => 'https://pornartistzone.com/developing-streaming//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -370,7 +370,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\video-streaming\\public\\storage' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
+      '/home/personalattentio/public_html/developing-streaming/public/storage' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
     ),
   ),
   'hashing' => 
@@ -404,13 +404,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
+        'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
+        'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -460,7 +460,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
+        'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -472,11 +472,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.googlemail.com',
+        'port' => '587',
+        'encryption' => 'TLS',
+        'username' => 'contact@pornartistzone.com',
+        'password' => 'JFK7opS.',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -526,7 +526,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views/vendor/mail',
+        0 => '/home/personalattentio/public_html/developing-streaming/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -605,7 +605,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\framework/sessions',
+    'files' => '/home/personalattentio/public_html/developing-streaming/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -625,9 +625,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views',
+      0 => '/home/personalattentio/public_html/developing-streaming/resources/views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views',
+    'compiled' => '/home/personalattentio/public_html/developing-streaming/resources/views',
   ),
   'flare' => 
   array (

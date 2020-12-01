@@ -156,7 +156,7 @@
 
 
 <div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Cart</button>
+<button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
 <div class="price-btn">
 <a href="#"><p>$9.9</p></a>
 </div>
