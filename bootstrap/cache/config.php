@@ -1,11 +1,15 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'laravel',
+    'name' => 'Laravel',
     'env' => 'local',
     'debug' => true,
     'url' => 'https://pornartistzone.com/developing-streaming/',
     'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
+
+    'url' => 'http://localhost/video-streaming/',
+    'asset_url' => 'http://localhost/video-streaming/public',
+
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -266,7 +270,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'personalattentio_livestreaming_stage',
         'username' => 'personalattentio_livestreamuser',
@@ -287,7 +291,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'personalattentio_livestreaming_stage',
         'username' => 'personalattentio_livestreamuser',
@@ -302,7 +306,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'personalattentio_livestreaming_stage',
         'username' => 'personalattentio_livestreamuser',
@@ -348,11 +352,14 @@
       'local' => 
       array (
         'driver' => 'local',
+
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app',
+
       ),
       'public' => 
       array (
         'driver' => 'local',
+
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
         'url' => 'https://pornartistzone.com/developing-streaming//storage',
         'visibility' => 'public',
@@ -370,6 +377,7 @@
     ),
     'links' => 
     array (
+
       '/home/personalattentio/public_html/developing-streaming/public/storage' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
     ),
   ),
@@ -404,6 +412,7 @@
       'single' => 
       array (
         'driver' => 'single',
+
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
         'level' => 'debug',
       ),
@@ -472,11 +481,17 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
+
         'host' => 'smtp.googlemail.com',
         'port' => '587',
         'encryption' => 'TLS',
         'username' => 'personalattentionz@gmail.com',
         'password' => 'JFK7opS.',
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -510,7 +525,7 @@
     'from' => 
     array (
       'address' => NULL,
-      'name' => 'laravel',
+      'name' => 'Laravel',
     ),
     'stream' => 
     array (
@@ -526,6 +541,7 @@
       'theme' => 'default',
       'paths' => 
       array (
+
         0 => '/home/personalattentio/public_html/developing-streaming/resources/views/vendor/mail',
       ),
     ),
@@ -625,6 +641,7 @@
   array (
     'paths' => 
     array (
+
       0 => '/home/personalattentio/public_html/developing-streaming/resources/views',
     ),
     'compiled' => '/home/personalattentio/public_html/developing-streaming/resources/views',

@@ -20,7 +20,7 @@
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3><sub>$</sub><?php echo e($video->price); ?></h3>
+					  <h3><?php echo e($video->price); ?>PAZ</h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -34,9 +34,8 @@
 
                    </div>
  <button type="button" id="<?php echo e($video->id); ?>" class="addToCart">
- 	 	<form action="" method="post">
+ 	 	
  	Add to Cart
- </form>
  </button>
 
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
@@ -61,15 +60,7 @@
 </div>
 
 
-					  <div class="dropdown">
-			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						 </button>
-						 <div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Link 1</a>
-							<a class="dropdown-item" href="#">Link 2</a>
-							<a class="dropdown-item" href="#">Link 3</a>
-						 </div>
-					  </div>
+					  
 				   </div>
 				</div>
 			 </div>
@@ -359,11 +350,7 @@
   
 }
 
-button.btn-primary.library {
-    padding-left: 13px;
-    margin-right: 10px;
-    border-radius: 50%;
-}
+
 
 .content-area h3 {
     color: #a60000;
@@ -384,16 +371,10 @@ button.btn-primary.library {
 
 .content-price h3 {
     color: #36B1E9;
-    font-size: 50px;
-    font-weight: 300;
+    font-size: 22px;
 }
 
-.content-price h3 sub {
-    vertical-align: top;
-    font-weight: 600;
-    font-size: 28px;
-   
-}
+
 .cart1 {
     position: absolute;
     top: -58px;
@@ -419,13 +400,14 @@ button.btn-primary.library {
 
 
 
-.content-cart button {
+.content-cart .addToCart, .library {
     background-color: #a60000;
     border: 2px solid #a60000;
     color: #fff;
-    width: 210px;
-    padding: 10px;
-    font-size: 22px;
+    padding: 6px;
+    
+    margin-right:10px;
+
 }
 
 .content-cart {
@@ -435,10 +417,7 @@ button.btn-primary.library {
     justify-content: flex-end;
 	padding-right: 10px;
 }
-button.btn {
-    min-width: 39px !important;
-    height: 26px !important;
-}
+
 button.btn.btn-primary.dropdown-toggle {
     width: 100%;
     margin-left: 1px;
@@ -830,4 +809,5 @@ $(".addToCart").click(function(e) {
         }
     });
 });
-</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>
+</script>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>

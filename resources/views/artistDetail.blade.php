@@ -1,4 +1,3 @@
-@extends('layout.cdn')
 
 <!doctype html>
 <html>
