@@ -51,8 +51,8 @@
       <div class="modal-body text-left">
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
-      	<h5>playlist  <a href="">edit</a> </h5><br>
-      	<h5>playlist  <a href="">edit</a> </h5><br>
+      	<h5>playlist  <a href="" class="aedit">edit</a> </h5><br>
+      	<h5>playlist  <a href="" class="aedit">edit</a> </h5><br>
       	<a href="">Create New Playlist +</a>
       </div>
       <div class="text-center mt-4">

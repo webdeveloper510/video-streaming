@@ -266,7 +266,24 @@
 </div>
 
 </div>
+     <script>
 
+ 
+  $("#owl-example").owlCarousel({
+    items:3,
+	loop:true, //HERE YOU ARE SAYING I WANT THE INFINITE LOOP
+	margin:0,
+	autoPlay:true,
+	autoPlay: 1000,
+	autoPlayTimeout:1000,
+	autoPlayHoverPause:true,
+	nav:false,
+	dots:false,
+	 rewindNav:false //**This
+  
+  });
+ 
+ </script>
 </section>
 
 
