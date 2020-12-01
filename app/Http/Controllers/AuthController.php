@@ -678,12 +678,12 @@ class AuthController extends Controller
     $stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
     try {
          $token = \Stripe\Token::create([
-         'card' => [
-         'number' => $request->get('card_no'),
-         'exp_month' => $request->get('ccExpiryMonth'),
-         'exp_year' => $request->get('ccExpiryYear'),
-         'cvc' => $request->get('cvvNumber'),
-         ],
+              'card' => [
+              'number' => $request->get('card_no'),
+              'exp_month' => $request->get('ccExpiryMonth'),
+              'exp_year' => $request->get('ccExpiryYear'),
+              'cvc' => $request->get('cvvNumber'),
+              ],
          ]);
 
   //         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
@@ -692,7 +692,7 @@ class AuthController extends Controller
   //       ['amount' => -500, 'currency' => 'usd']
   // );
 
-     // print_r($customer);die;
+      print_r($token);die;
 
       $input = $request->all();
 

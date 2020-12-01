@@ -954,7 +954,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
         $checkTokn = $this->selectDataById('id','users',$userid);
         $token = $checkTokn[0]->tokens;
 
-        if($token > $vid['price']*20){
+        if($token > $vid['price']){
 
             $data = $this->selectDataById('userid','user_video',$userid);
 
@@ -1001,7 +1001,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         if($insert==1){
             $return = DB::table('users')->where(array('id'=>$uid))->update([
-            'tokens' =>  DB::raw('tokens -'.$video['price']*20)
+            'tokens' =>  DB::raw('tokens -'.$video['price'])
             ]);
             return $return;
         }
