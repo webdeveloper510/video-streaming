@@ -961,22 +961,49 @@ public function notifyEmail(Request $req){
 
       $all_data = $this->model->allNotication($text);
 
-          return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
+      return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
   
 }
- public function play(){
+   public function play(){
 
-    return view('play');
+      return view('play');
+
+  }
+
+public function selectListname(Request $request){
+
+      Session::put('listname',$request->listname);
 
 }
 
-public function createPlaylist(Request $request){
+public function addToLibrary(Request $req){
 
-      $this->model->createPlaylist($request);
+        unset($req['_token']);
+
+        $addTolibrary = $req->all();
+
+     
+
+       //$addTolibrary['playlistname'] = $listname;
+
+        $this->model->addToLibrary($addTolibrary);
+
 
 }
 
-// public function 
+public function buyVideo(Request $req){
+
+      unset($req['_token']);
+      $this->model->buyVideo($req);
+
+}
+
+public function new(){
+
+   $this->model->addToLibrary1();
+
+}
+
 
 
  }

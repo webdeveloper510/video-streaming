@@ -13,8 +13,9 @@
                                   </div>
                                    <div class="col-md-12 mb-4 ass">
                                     <label>Ass</label><br>
+                                       <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
                                     <?php echo e(Form::checkbox('ass[]','Normal')); ?>Normal <br>
-                                    <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
+                                 
                                     <?php echo e(Form::checkbox('ass[]','Big')); ?>Big 
                                     
  

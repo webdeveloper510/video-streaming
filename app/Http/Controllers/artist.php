@@ -89,6 +89,7 @@ class artist extends Controller
         $cartData= $this->model->getCart($arrayId);
         $totalPrice= $this->model->getTotalPrice($arrayId);
 
+          //print_r($cartData);die;
         
         return view('cart',['cart'=>$cartData,'totalPrice'=>$totalPrice]);
     }
@@ -102,12 +103,30 @@ class artist extends Controller
       
           $allVedios = $this->model->getVideo($vedioid);
 
+         $all_play_lists = $this->model->getPlaylist();
+
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
           $category_data = $this->model->getCategory();
   
-       return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);
+       return view('artistVideo',['vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
     }
+
+
+
+    public function createPlaylist(Request $request){
+
+      $createList = $this->model->createPlaylist($request);
+
+      if($createList==1){
+
+      }
+      else{
+
+      }
+
+}
+
 
     public function getRespectedSubId(Request $req){
 

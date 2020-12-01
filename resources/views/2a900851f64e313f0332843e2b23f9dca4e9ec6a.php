@@ -41,17 +41,19 @@
           </tr>
         </thead>
       <tbody>
-        @foreach($cart as $index=>$carts)
+        <?php echo e($cart); ?>
+
+        <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$carts): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <tr>
-           <th scope="row">{{$index+1}}</th>
+           <th scope="row"><?php echo e($index); ?></th>
            <td><video width="200px" height="200px" controls="">
-             <source src="{{url('storage/app/public/video/'.$carts->media)}}" type="">
+             <source src="<?php echo e(url('storage/app/public/video/'.$carts->media)); ?>" type="">
            </video></td>
-           <td>{{$carts->price}}</td>
+           <td><?php echo e($carts->price); ?></td>
            <td>1</td>
-           <td>{{$carts->price}}</td>
+           <td><?php echo e($carts->price); ?></td>
         </tr>
-          @endforeach
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
 
    </table>
@@ -84,7 +86,7 @@
   <tbody>
     <tr>
       <th scope="row">Total</th>
-      <td>${{$totalPrice[0]->total_price}}</td>
+      <td>$<?php echo e($totalPrice[0]->total_price); ?></td>
         </tr>
    
   </tbody>
@@ -107,4 +109,4 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/cart.blade.php ENDPATH**/ ?>
