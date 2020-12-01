@@ -958,7 +958,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
             $data = $this->selectDataById('userid','user_video',$userid);
 
-          count($data) > 0 ? $this->updateUserVideo($userid,$vid,$token) : $this->insertUserVideo($userid,$vid,$token)
+      count($data) > 0 ? $this->updateUserVideo($userid,$vid,$token) : $this->insertUserVideo($userid,$vid,$token);
 
 
         }
