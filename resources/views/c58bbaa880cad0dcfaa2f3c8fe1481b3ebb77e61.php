@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html>
 <title>mistree</title>
@@ -157,7 +156,7 @@
 
 
 <div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Cart</button>
+<button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
 <div class="price-btn">
 <a href="#"><p>$9.9</p></a>
 </div>
@@ -268,7 +267,7 @@
 
 </div>
      <script>
-  $(document).ready(function() {
+
  
   $("#owl-example").owlCarousel({
     items:3,
@@ -284,7 +283,6 @@
   
   });
  
-});
  </script>
 </section>
 
@@ -296,5 +294,4 @@
 
   </body>
 
-  </html>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
+  </html><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

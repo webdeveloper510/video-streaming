@@ -35,7 +35,7 @@
                    </div>
  <button type="button" id="<?php echo e($video->id); ?>" class="addToCart">
  	 	
- 	Add to Cart
+ 	Add to Wishlist
  </button>
 
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
@@ -43,13 +43,22 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body text-left">
+      <h3>Choose Playlist</h3>
+      <div class="Playlist1">
+      	<h5>playlist  <a href="">edit</a> </h5><br>
+      	<h5>playlist  <a href="">edit</a> </h5><br>
+      	<a href="">Create New Playlist +</a>
+      </div>
+      <div class="text-center mt-4">
+      <h2>Token:500 PAZ</h2>
+      <button type="button" class="btn btn-primary">ADD NOW</button>
+  </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -398,7 +407,13 @@
     text-align: end;
 }
 
-
+.Playlist1 {
+    border: 1px solid;
+    padding: 10px;
+}
+.modal-backdrop {
+    background-color: transparent !important;
+}
 
 .content-cart .addToCart, .library {
     background-color: #a60000;

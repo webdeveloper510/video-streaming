@@ -4,8 +4,10 @@
     'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
+
     'url' => 'https://pornartistzone.com/developing-streaming/',
     'asset_url' => 'https://pornartistzone.com/developing-streaming/public',
+
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -180,7 +182,9 @@
       'file' => 
       array (
         'driver' => 'file',
+
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/framework/cache/data',
+
       ),
       'memcached' => 
       array (
@@ -348,13 +352,16 @@
       'local' => 
       array (
         'driver' => 'local',
+
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app',
-      ),
+
       'public' => 
       array (
         'driver' => 'local',
+
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
         'url' => 'https://pornartistzone.com/developing-streaming//storage',
+
         'visibility' => 'public',
       ),
       's3' => 
@@ -370,7 +377,9 @@
     ),
     'links' => 
     array (
+
       '/home/personalattentio/public_html/developing-streaming/public/storage' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
+
     ),
   ),
   'hashing' => 
@@ -404,13 +413,17 @@
       'single' => 
       array (
         'driver' => 'single',
+
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
+
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
+
         'level' => 'debug',
         'days' => 14,
       ),
@@ -460,7 +473,9 @@
       ),
       'emergency' => 
       array (
+
         'path' => '/home/personalattentio/public_html/developing-streaming/storage/logs/laravel.log',
+
       ),
     ),
   ),
@@ -472,10 +487,17 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
+<<<<<<< HEAD
         'host' => 'smtp.googlemail.com',
         'port' => '587',
         'encryption' => 'TLS',
         'username' => 'contact@pornartistzone.com',
+=======
+        'host' => 'smtp.gmail.com',
+        'port' => '465',
+        'encryption' => 'SSL',
+        'username' => 'pornartistzone@gmail.com',
+>>>>>>> 0acc66e8ce8c78fb3aa0e7c1cd1caa2c04e4d416
         'password' => 'JFK7opS.',
         'timeout' => NULL,
         'auth_mode' => NULL,
@@ -526,8 +548,9 @@
       'theme' => 'default',
       'paths' => 
       array (
+
         0 => '/home/personalattentio/public_html/developing-streaming/resources/views/vendor/mail',
-      ),
+
     ),
   ),
   'queue' => 
@@ -605,7 +628,9 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+
     'files' => '/home/personalattentio/public_html/developing-streaming/storage/framework/sessions',
+
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -625,9 +650,11 @@
   array (
     'paths' => 
     array (
+
       0 => '/home/personalattentio/public_html/developing-streaming/resources/views',
     ),
     'compiled' => '/home/personalattentio/public_html/developing-streaming/resources/views',
+
   ),
   'flare' => 
   array (
