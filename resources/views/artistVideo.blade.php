@@ -49,7 +49,14 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+       <h2>Choose Playlist</h2>
+	   <div class="playlist1">
+	   <h4>Playlist</h4><a href="">edit</a>
+	   <h4>Playlist</h4><a href="">edit</a>
+	   <a href="">Create Playlist +</a>
+	   </div>
+	   <h2></h2>
+	   <button type="button">ADD NOW</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

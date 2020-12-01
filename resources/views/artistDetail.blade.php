@@ -267,7 +267,7 @@
 
 </div>
      <script>
-  $(document).ready(function() {
+
  
   $("#owl-example").owlCarousel({
     items:3,
@@ -283,7 +283,6 @@
   
   });
  
-});
  </script>
 </section>
 
