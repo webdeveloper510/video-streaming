@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Redirect;
 
 class admin extends Controller
 {
@@ -21,7 +23,7 @@ class admin extends Controller
        $this->model= new Registration();
          }
       
-    }
+  
 
     public function showCategorypage(){
       
