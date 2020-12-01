@@ -21,7 +21,7 @@ class admin extends Controller
        $this->model= new Registration();
          }
       
-    }
+  
 
     public function showCategorypage(){
       
