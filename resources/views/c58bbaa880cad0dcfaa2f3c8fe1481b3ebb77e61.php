@@ -42,6 +42,15 @@
     right: 39px;
     padding: 0px !important;
 }
+.checkall input {
+    height: 20px;
+    width: 20px;
+}
+.checkall {
+    position: absolute;
+    top: 1px;
+    right: 2px;
+}
 .are {
     float: left;
     margin-right: 10px;
@@ -275,6 +284,7 @@ button.iconsearch {
             Your browser does not support the video tag.
         </video>
     </a>
+    <div class="checkall"><form> <input type="checkbox"></form></div>
           <div class="price"><?php echo e('$'.$detail->price); ?></div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
