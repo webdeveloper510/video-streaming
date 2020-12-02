@@ -12,6 +12,12 @@
 				</div>
 				<?php $__currentLoopData = $vedios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 				<?php if($video->type=='video'): ?>
+				<?php 
+				$GLOBALS['paz'] = $video->price ;
+
+				$GLOBALS['videoid'] = $video->id ;
+
+				?>
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3><?php echo e($video->title); ?></h3>
@@ -20,7 +26,7 @@
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3><?php echo e($video->price); ?>PAZ</h3>
+					  <h3 class="paz_price"><?php echo e($video->price); ?>PAZ</h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -49,26 +55,25 @@
         </button>
       </div>
       <div class="modal-body text-left">
+      	<div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
-<<<<<<< Updated upstream
       	<?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      	<h5><?php echo e($val->listname); ?> </h5> <a href="" class="aedit">edit</a><br>
+      	<h5 class="select_list"><?php echo e($val->listname); ?> </h5> <a href="" class="aedit">edit</a><br>
       	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
-      		<button class="create_list">Create</button>
+      		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
-=======
-      	<h5>playlist </h5> <a href="" class="aedit">edit</a> <br>
-      	<h5>playlist  <a href="" class="aedit">edit</a> </h5><br>
-      	<a href="">Create New Playlist +</a>
->>>>>>> Stashed changes
       </div>
       <div class="text-center mt-4">
-      <h2>Token:500 PAZ</h2>
-      <button type="button" class="btn btn-primary">ADD NOW</button>
+      <h2>Token:<?php echo e($GLOBALS['paz']); ?> PAZ</h2>
+      <input type="hidden" id="vidid" name="videoid" value="<?php echo e($GLOBALS['videoid']); ?>">
+      <input type="hidden" class="token" name="token" value="<?php echo e($GLOBALS['paz']); ?>">
+      <button type="button" class="btn btn-primary addNow">ADD NOW</button>
   </div>
       </div>
       <div class="modal-footer">
@@ -369,15 +374,10 @@
     border-radius: 50%;
   
 }
-<<<<<<< Updated upstream
 a.aedit {
     float: right;
     margin-top: -18px;
 }
-=======
-
-
->>>>>>> Stashed changes
 
 
 .content-area h3 {
@@ -438,11 +438,7 @@ a.aedit {
     background-color: #a60000;
     border: 2px solid #a60000;
     color: #fff;
-<<<<<<< Updated upstream
     padding: 5px;
-=======
-    padding: 6px;
->>>>>>> Stashed changes
     
     margin-right:10px;
 
@@ -609,6 +605,11 @@ a.carousel-control-prev {
     top: 250px !important;
     bottom: 0;
     
+}
+
+
+h5.select_list.active {
+    color: red;
 }
 
 
@@ -812,12 +813,6 @@ span.itemCount {
     top: 92% !important;
    
 }
-
-
-
-
-
-
 }
 
 
