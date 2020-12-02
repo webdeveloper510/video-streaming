@@ -25,7 +25,7 @@
           @foreach($videos as $indx=> $val)
             <div class="col-md-3 pb-video">
                 <video width="320" height="240" controls>
-            <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
            </video>
             </div>
             @endforeach
@@ -40,19 +40,16 @@
 		  <h3 class="tittle">Wish list</h3>		  
 		</div>
         <div class="row pb-row">
+              @if($videos)
+              @foreach($videos as $indx=> $val)
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
+             <video width="320" height="240" controls>
+    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
+             </video>
             </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
+            @endforeach
+            @endif
 			<div class="out_red">
 			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
         </div>

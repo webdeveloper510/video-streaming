@@ -430,7 +430,7 @@ function showDiv(){
 /*------------Select Multiple Video By  Choose--------------------------------------*/
 
 $(document).on('click', '.bardot', function () {
-	 $('.choose1').show();
+	// $('.choose1').show();
 	 $('.checkall').show();
 
 	});
@@ -443,39 +443,42 @@ $(document).on('click','.slct_video',function(){
 
 	   var count = $('.count').text();
 
+	   //count==0 ? $('.choose1').hide() : $('.choose1').show();
+
 	   var tokens = $('.paz').text();
 
-	  // console.log(count);
-	   //console.log(tokens);
+	   	 if($(this).prop("checked") == true){
 
-		if($(this).hasClass('checked')){
+                var Ischeck = true;
 
-			var newCount = parseInt(count)-1;
+		      var newCount = parseInt(count)+1;
 
-			$('.count').text(newCount);
+		     var newPaz = parseInt(tokens)+parseInt(price);
 
-			 var newPaz = parseInt(tokens)-parseInt(price);
+		        $('.paz').text(newPaz);
 
-		    $('.paz').text(newPaz);
+		        $('.count').text(newCount);
 
-			$(this).removeClass('checked');
-		}
+		          $('.choose1').show();
+            }
 
-		else{
+            else{
+            	var Ischeck = false;
 
-		   $(this).addClass('checked');
+		 	var newCount = parseInt(count)-1;
 
-		  
+		 	$('.count').text(newCount);
 
-		  var newCount = parseInt(count)+1;
+		 	 var newPaz = parseInt(tokens)-parseInt(price);
 
-		  var newPaz = parseInt(tokens)+parseInt(price);
+		     $('.paz').text(newPaz);
+            }
 
-		    $('.paz').text(newPaz);
+            newCount==0 ? $('.choose1').hide() : $('.choose1').show();
+		
 
-		  $('.count').text(newCount);
 
-  	
+
 
   		$.ajax({
 				type: 'POST',
@@ -484,7 +487,7 @@ $(document).on('click','.slct_video',function(){
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {"price": price, "id": id},
+				data: {"price": price, "id": id, "isCheck":Ischeck},
 
 				success: function(data){
 
@@ -493,8 +496,6 @@ $(document).on('click','.slct_video',function(){
 					
 				}
 		});
-
-		}
 
 })
 

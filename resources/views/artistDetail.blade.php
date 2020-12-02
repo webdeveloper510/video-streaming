@@ -315,7 +315,7 @@ button.iconsearch {
 </div>
 
 </div>
-<div class="choose1" style="display:block;">
+<div class="choose1" style="display:none;">
   <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

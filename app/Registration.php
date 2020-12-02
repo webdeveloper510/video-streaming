@@ -1220,6 +1220,26 @@ public function getVideosbyList($id){
 
 }
 
+public function getWishlist(){
+
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+
+  $value=DB::table('wishlist')->where(array('userid'=>$userid))->pluck('videoid')->toArray();
+
+
+  if($value){
+
+    $ids = explode(',',$value[0]);
+
+    $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
+
+
+         return $videos;
+       }
+
+}
+
     // public function addToLibrary1(){
 
     //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();

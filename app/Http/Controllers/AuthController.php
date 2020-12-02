@@ -968,24 +968,64 @@ public function notifyEmail(Request $req){
 
     $ids = Session::get('listid');
 
+     //$wishlistids=Session::get('ids');
+
     //print_r($ids);
 
     $playName = $this->model->getPlayListName();
 
+      $wishList = $this->model->getWishlist();
+
+
     $videos = $this->model->getVideosbyList($ids);
 
-    //print_r($videos);die;
+  
 
-    // play
-
-     return view('play',['listname'=>$playName,'videos'=>$videos]);
+     return view('play',['listname'=>$playName,'videos'=>$videos,'wishList'=>$wishList]);
 
   }
 
   public function selectMultiple(Request $req){
 
-        print_r($req->all());
+        $idsData = $req->all();
 
+        //print_r($idsData);die;
+
+     $multipleIds = Session::get('SessionmultipleIds');
+
+        if($idsData['isCheck']=='false'){
+
+          $pos = array_search($idsData['id'], $multipleIds);
+
+            unset($multipleIds[$pos]);
+
+        }
+
+        else{
+
+                  if($multipleIds){
+
+                      if(!in_array($idsData['id'], $multipleIds)){
+
+                          $multipleIds[] = $idsData['id'];
+
+                          Session::put('SessionmultipleIds',$multipleIds);
+                      }
+
+                }
+
+        else{
+
+                      $arr=array();
+
+                      $arr[] = $idsData['id'];
+
+                      Session::put('SessionmultipleIds',$arr);
+            }   
+
+      }  
+
+      //print_r($multipleIds);
 
   }
 
