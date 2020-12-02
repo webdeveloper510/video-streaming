@@ -76,6 +76,10 @@
     margin-top: -11px;
 
 }
+button.close.off {
+    margin-top: -3px;
+    font-size: 31px;
+}
 button.iconsearch {
     padding: 4px;
     background: deepskyblue;
@@ -313,6 +317,9 @@ button.iconsearch {
 
 </div>
 <div class="choose1" style="display:block;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 <div class="row ">
 <div class="col-md-3">
 <h4><span>1</span>Item  Selected</h4>
