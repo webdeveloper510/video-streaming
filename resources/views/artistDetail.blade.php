@@ -303,10 +303,10 @@ button.iconsearch {
 <div class="choose1" style="display:none;">
 <div class="row ">
 <div class="col-md-3">
-<h4><span>1</span>Item  Selected</h4>
+<h4><span class="count">1</span>Item  Selected</h4>
 </div>
 <div class="col-md-3">
-<h4>Price : <span>50PAZ</span></h4>
+<h4>Price : <span class="paz">50</span>PAZ</h4>
 </div>
 <div class="col-md-3 pt-3">
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>

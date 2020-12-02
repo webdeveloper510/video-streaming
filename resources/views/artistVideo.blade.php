@@ -33,7 +33,7 @@
 				   <div class="content-cart">
 				   
                    <div class="cart1">  
-                   	<a href="{{url('cart')}}">
+                   	<a href="{{url('play')}}">
                    	 <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
                    	</a>
                       <span class="itemCount">{{$count}}</span>

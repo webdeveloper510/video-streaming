@@ -427,6 +427,13 @@ function showDiv(){
 	$('.notif').toggle();
 }
 
+/*------------Select Multiple Video By  Choose--------------------------------------*/
+
+$(document).on('click', '.bardot', function () {
+	 $('.choose1').show();
+
+	});
+
 
 
 
