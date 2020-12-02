@@ -6,21 +6,30 @@
   <div class="container">
       <div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">Play list</h3>		  
+		  <h3 class="tittle">Play list</h3>	
+      <form>	
+       <div class="form-group">
+    <label for="exampleFormControlSelect1"> Select Playlist</label>
+    <select class="form-control" name="playlist" id="exampleFormControlSelect1">
+      <option value="">Choose..</option>
+       @foreach($listname as $val)
+<option value="{{$val->id}}">{{$val->playlistname}}</option>
+@endforeach
+    </select>
+
+  </div>
+  </form>  
 		</div>
         <div class="row pb-row">
+          @if($videos)
+          @foreach($videos as $indx=> $val)
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
+                <video width="320" height="240" controls>
+            <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+           </video>
             </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
+            @endforeach
+            @endif
 			<div class="out_red">
 			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
         </div>
@@ -77,57 +86,7 @@
 <!--body end-->
 
 <!--footer -->
-<footer class="footer_style_2">
-  <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
-            </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-            <ul class="social_icons">
-              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Additional links</h2>
-            </div>
-            <ul class="footer-menu">
-              <li><a href="#"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> News</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Contact us</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Contact us</h2>
-            </div>
-            <p>123 Second Street Fifth Avenue,<br>
-              Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-            <div class="footer_mail-section">
-              <form>
-                <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      <div class="cprt">
-        <p>PAZ © Copyrights 2019 Design by PAZ</p>
-      </div>
-    </div>
-  </div>
-</footer>
+@include('layouts.footer')
 </body>
 <style>
 form.form-horizontal {
@@ -145,6 +104,11 @@ button.btn.btn-default {
     float: left;
     width: 100%;
     margin: 20px 0px;
+}
+.form-group {
+    float: right;
+    width: 35%;
+    margin-top: -74px;
 }
 </style>
 </html>

@@ -966,16 +966,38 @@ public function notifyEmail(Request $req){
 }
    public function play(){
 
-      return view('play');
+    $ids = Session::get('listid');
+
+    //print_r($ids);
+
+    $playName = $this->model->getPlayListName();
+
+    $videos = $this->model->getVideosbyList($ids);
+
+    //print_r($videos);die;
+
+    // play
+
+     return view('play',['listname'=>$playName,'videos'=>$videos]);
 
   }
 
 public function selectListname(Request $request){
 
+  //print_r($request->listname);die;
+
       Session::put('listname',$request->listname);
 
 }
+  public function listname(){
 
+    $playName = $this->model->getPlayListName();
+
+    // play
+
+      return view('listname',['listname'=>$playName]);
+
+  }
 public function addToLibrary(Request $req){
 
         unset($req['_token']);
@@ -983,10 +1005,26 @@ public function addToLibrary(Request $req){
         $addTolibrary = $req->all();
 
      
-
+          //print_r($addTolibrary);die;
        //$addTolibrary['playlistname'] = $listname;
 
-        $this->model->addToLibrary($addTolibrary);
+        $data = $this->model->addToLibrary($addTolibrary);
+        //print_r($data);die; 
+
+        if($data=='Insufficient Paz Tokens'){
+
+            return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+        }
+
+        else if($data==1){
+
+           return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
+
+        }
+
+        else{
+             return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
+        }
 
 
 }
@@ -1006,7 +1044,20 @@ public function new(){
 
 public function createList(Request $request){
 
-          print_r($request);
+
+          $yes = $this->model->createList($request);
+
+   $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!')) :response()->json(array('status'=>0, 'message'=>'Some Error Occure'));
+
+   return $returnData;
+
+}
+
+public function showLists(Request $request){
+
+  Session::put('listid',$request->all());
+
+    //print_r($request->all());
 }
 
 
