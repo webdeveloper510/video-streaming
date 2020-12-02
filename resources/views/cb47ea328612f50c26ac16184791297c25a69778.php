@@ -33,7 +33,7 @@
 				   <div class="content-cart">
 				   
                    <div class="cart1">  
-                   	<a href="<?php echo e(url('cart')); ?>">
+                   	<a href="<?php echo e(url('play')); ?>">
                    	 <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
                    	</a>
                       <span class="itemCount"><?php echo e($count); ?></span>
@@ -835,7 +835,8 @@ $(".addToCart").click(function(e) {
              "_token": "<?php echo e(csrf_token()); ?>", 
         },
         success: function(result) {
-            $('.itemCount').text(result);
+        	console.log(result);
+           // $('.itemCount').text(result);
         },
         error: function(result) {
             alert('error');

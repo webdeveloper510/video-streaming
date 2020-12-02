@@ -89,6 +89,18 @@ button.iconsearch {
     padding-left: 10px;
     padding-right: 10px;
 }
+.Playlist1 {
+    border: 2px solid;
+    padding: 20px;
+}
+button.addNow {
+    padding: 5px;
+    background: #a60000;
+    color: white;
+    border-radius: 8px;
+    border: 2px solid #a60000;
+    font-size: 16px;
+}
 .bardot {
     font-size: 16px;
     padding: 4px;
@@ -100,6 +112,10 @@ button.iconsearch {
     display: flex;
     position: absolute;
     left: 0;
+}
+.itemsel {
+    border: 2px solid;
+    padding: 6px;
 }
   </style>
 
@@ -291,7 +307,9 @@ button.iconsearch {
             Your browser does not support the video tag.
         </video>
     </a>
+
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}"></form></div>
+
           <div class="price">{{'$'.$detail->price}}</div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
@@ -350,9 +368,34 @@ button.iconsearch {
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
       </div>
+      <div class="container">
+         <h3>Items </h3>
+         <div class="itemsel">
+         <div class="row ">
+          <div class="col"><h5>hello</h5></div>
+          <div class="col"><span>60PAZ</span>
+          </div>
+          <div class="col"><button type="button" class="close " data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          
+      </div>
+       <div class="row">
+          <div class="col"><h5>hello</h5></div>
+          <div class="col"><span>60PAZ</span>
+          </div>
+          <div class="col"><button type="button" class="close " data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+          
+      </div>
+    </div>
+  </div>
       <div class="text-center mt-4">
-     
-      <button type="button" class="btn btn-primary addNow">ADD NOW</button>
+           <h3>Prize : 600PAZ</h3>
+      <button type="button" class=" addNow">ADD NOW</button>
   </div>
       </div>
       

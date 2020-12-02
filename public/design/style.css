@@ -5502,3 +5502,6 @@ span.profile-img.text-white {
 i.fa.fa-shopping-cart {
     color: white;
 }
+.dropdown-menu.notif.text-center.show {
+    background: white;
+}
