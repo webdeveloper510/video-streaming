@@ -1155,6 +1155,52 @@ public function getPlayListName(){
 
 }
 
+public function addWishlist($data1){
+
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+ $data = $this->selectDataById('userid','wishlist',$userid);
+
+ $returnData = count($data)>0 ? $this->updateWishlist($data1,$userid) : $this->insertWishlist($data1,$userid);
+
+ return $returnData;
+
+  
+}
+
+public function updateWishlist($data,$uid){
+
+      $update = DB::table('wishlist')->where(array('userid'=>$uid))
+      ->update([
+            'videoid' => DB::raw("CONCAT(videoid,',".$data[0]."')"),
+          ]);
+
+      return $update;
+
+}
+
+public function insertWishlist($data,$uid){
+
+ // print_r($data);
+ // echo $uid;die;
+
+  //echo "yes";die;
+
+        $array= array(
+
+          'created_at'=>now(),
+          'updated_at'=>now(),
+          'userid'=>$uid,
+          'videoid'=>$data[0]
+        );
+
+        $insert = DB::table('wishlist')->insert($array);
+
+        return $insert;
+
+  
+}
+
 public function getVideosbyList($id){
 
 
@@ -1173,6 +1219,7 @@ public function getVideosbyList($id){
        }
 
 }
+
     // public function addToLibrary1(){
 
     //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();

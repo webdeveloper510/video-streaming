@@ -835,7 +835,8 @@ $(".addToCart").click(function(e) {
              "_token": "{{ csrf_token() }}", 
         },
         success: function(result) {
-            $('.itemCount').text(result);
+        	console.log(result);
+           // $('.itemCount').text(result);
         },
         error: function(result) {
             alert('error');
