@@ -51,6 +51,7 @@
       <div class="modal-body text-left">
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
+<<<<<<< Updated upstream
       	<?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       	<h5><?php echo e($val->listname); ?> </h5> <a href="" class="aedit">edit</a><br>
       	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -59,6 +60,11 @@
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
       		<button class="create_list">Create</button>
       	</span>
+=======
+      	<h5>playlist </h5> <a href="" class="aedit">edit</a> <br>
+      	<h5>playlist  <a href="" class="aedit">edit</a> </h5><br>
+      	<a href="">Create New Playlist +</a>
+>>>>>>> Stashed changes
       </div>
       <div class="text-center mt-4">
       <h2>Token:500 PAZ</h2>
@@ -363,10 +369,15 @@
     border-radius: 50%;
   
 }
+<<<<<<< Updated upstream
 a.aedit {
     float: right;
     margin-top: -18px;
 }
+=======
+
+
+>>>>>>> Stashed changes
 
 
 .content-area h3 {
@@ -427,7 +438,11 @@ a.aedit {
     background-color: #a60000;
     border: 2px solid #a60000;
     color: #fff;
+<<<<<<< Updated upstream
     padding: 5px;
+=======
+    padding: 6px;
+>>>>>>> Stashed changes
     
     margin-right:10px;
 

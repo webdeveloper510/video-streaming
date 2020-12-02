@@ -797,12 +797,6 @@ span.itemCount {
     top: 92% !important;
    
 }
-
-
-
-
-
-
 }
 
 
