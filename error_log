@@ -495,3 +495,45 @@ Stack trace:
 #3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
 #4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
 >>>>>>> e7b869dd25f954a7a1659437589f4012cf3da0f2
+[01-Dec-2020 19:17:08 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[01-Dec-2020 19:17:13 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[01-Dec-2020 19:17:14 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[01-Dec-2020 19:17:16 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[01-Dec-2020 19:17:17 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[01-Dec-2020 19:17:18 UTC] PHP Fatal error:  Uncaught ReflectionException: Class config does not exist in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('config')
+#1 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('config')
+#2 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('config', Array, true)
+#3 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('config', Array)
+#4 /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminat in /home/personalattentio/public_html/developing-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811

@@ -355,12 +355,14 @@
 
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app',
 
+      ),
       'public' => 
       array (
         'driver' => 'local',
 
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
         'url' => 'https://pornartistzone.com/developing-streaming//storage',
+
 
         'visibility' => 'public',
       ),
@@ -487,17 +489,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-<<<<<<< HEAD
         'host' => 'smtp.googlemail.com',
         'port' => '587',
         'encryption' => 'TLS',
         'username' => 'contact@pornartistzone.com',
-=======
-        'host' => 'smtp.gmail.com',
-        'port' => '465',
-        'encryption' => 'SSL',
-        'username' => 'pornartistzone@gmail.com',
->>>>>>> 0acc66e8ce8c78fb3aa0e7c1cd1caa2c04e4d416
+
         'password' => 'JFK7opS.',
         'timeout' => NULL,
         'auth_mode' => NULL,
@@ -551,6 +547,7 @@
 
         0 => '/home/personalattentio/public_html/developing-streaming/resources/views/vendor/mail',
 
+      ),
     ),
   ),
   'queue' => 
