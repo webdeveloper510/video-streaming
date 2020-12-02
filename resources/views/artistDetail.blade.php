@@ -291,7 +291,11 @@ button.iconsearch {
             Your browser does not support the video tag.
         </video>
     </a>
+<<<<<<< Updated upstream
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}"></form></div>
+=======
+    <div class="checkall" style="display:none;"><form> <input type="checkbox"></form></div>
+>>>>>>> Stashed changes
           <div class="price">{{'$'.$detail->price}}</div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
@@ -315,7 +319,7 @@ button.iconsearch {
 </div>
 
 </div>
-<div class="choose1" style="display:block;">
+<div class="choose1" style="display:none;">
   <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
