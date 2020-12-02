@@ -431,8 +431,72 @@ function showDiv(){
 
 $(document).on('click', '.bardot', function () {
 	 $('.choose1').show();
+	 $('.checkall').show();
 
 	});
+
+$(document).on('click','.slct_video',function(){
+
+	 var price = $(this).attr('data-id');
+
+	 	var id = $(this).attr('id');
+
+	   var count = $('.count').text();
+
+	   var tokens = $('.paz').text();
+
+	  // console.log(count);
+	   //console.log(tokens);
+
+		if($(this).hasClass('checked')){
+
+			var newCount = parseInt(count)-1;
+
+			$('.count').text(newCount);
+
+			 var newPaz = parseInt(tokens)-parseInt(price);
+
+		    $('.paz').text(newPaz);
+
+			$(this).removeClass('checked');
+		}
+
+		else{
+
+		   $(this).addClass('checked');
+
+		  
+
+		  var newCount = parseInt(count)+1;
+
+		  var newPaz = parseInt(tokens)+parseInt(price);
+
+		    $('.paz').text(newPaz);
+
+		  $('.count').text(newCount);
+
+  	
+
+  		$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/selectMultiple",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"price": price, "id": id},
+
+				success: function(data){
+
+				console.log(data);return false;
+					
+					
+				}
+		});
+
+		}
+
+})
 
 
 

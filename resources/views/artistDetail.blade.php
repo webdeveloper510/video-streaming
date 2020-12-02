@@ -284,7 +284,7 @@ button.iconsearch {
             Your browser does not support the video tag.
         </video>
     </a>
-    <div class="checkall"><form> <input type="checkbox"></form></div>
+    <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}"></form></div>
           <div class="price">{{'$'.$detail->price}}</div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
@@ -295,7 +295,6 @@ button.iconsearch {
 <i class="fa fa-video-camera" aria-hidden="true"></i>
 <p>vid</p>
 
-<p><span><br>MISTRESS KELLY KALASHNIK</span></p>
     </div>
 </div>
 </div>
@@ -312,10 +311,10 @@ button.iconsearch {
 <div class="choose1" style="display:none;">
 <div class="row ">
 <div class="col-md-3">
-<h4><span class="count">1</span>Item  Selected</h4>
+<h4><span class="count">0</span>Item  Selected</h4>
 </div>
 <div class="col-md-3">
-<h4>Price : <span class="paz">50</span>PAZ</h4>
+<h4>Price : <span class="paz">0</span>PAZ</h4>
 </div>
 <div class="col-md-3 pt-3">
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>

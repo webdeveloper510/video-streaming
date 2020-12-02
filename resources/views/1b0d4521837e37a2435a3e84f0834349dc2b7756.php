@@ -42,6 +42,15 @@
     right: 39px;
     padding: 0px !important;
 }
+.checkall input {
+    height: 20px;
+    width: 20px;
+}
+.checkall {
+    position: absolute;
+    top: 1px;
+    right: 2px;
+}
 .are {
     float: left;
     margin-right: 10px;
@@ -74,8 +83,11 @@ button.iconsearch {
     padding-right: 10px;
 }
 .bardot {
-    border: 1px solid;
-    font-size: 22px;
+    font-size: 16px;
+    padding: 4px;
+    color: white;
+    border: 2px solid #36b1ea;
+    background: #36b1ea;
 }
 .camera {
     display: flex;
@@ -91,7 +103,7 @@ button.iconsearch {
 <div class="row">
 <div class="col-md-12">
 <div class="sec-video-area">
-<h3><strong>$</strong> Top Selling Content</h3>
+  <h3><strong>$</strong> Top Selling Content</h3>
 </div>
 </div>
 </div>
@@ -103,39 +115,39 @@ button.iconsearch {
 <div class="main-mistree-sec1">
 <div class="main-mistree">
 <div class="main-mistree-circle">
-<img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
+  <img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
 </div>
 
 
 <div class="misstress kelly">
-<h3><?php echo e($details[0]->nickname); ?></h3>
+  <h3><?php echo e($details[0]->nickname); ?></h3>
 </div>
 
 
 <div class="clip-icon">
-<i class="fa fa-play" aria-hidden="true"></i>
+  <i class="fa fa-play" aria-hidden="true"></i>
 
-<p>Buy Clips</p>
+  <p>Buy Clips</p>
 </div>
 
 <div class="clips-social-icons">
 <div class="clips-social1">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<p>Tribute Me</p>
-</div>
-</div>
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<p>Message Me</p>
+  <i class="fa fa-envelope" aria-hidden="true"></i>
+  <p>Tribute Me</p>
 </div>
 </div>
 
 <div class="clips-social-icons">
 <div class="clips-social1">
-<i class="fa fa-heart" aria-hidden="true"></i>
-<p>Favorite Me</p>
+  <i class="fa fa-envelope" aria-hidden="true"></i>
+  <p>Message Me</p>
+</div>
+</div>
+
+<div class="clips-social-icons">
+<div class="clips-social1">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  <p>Favorite Me</p>
 </div>
 </div>
 
@@ -186,9 +198,9 @@ button.iconsearch {
 
 
 <div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
+  <button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
 <div class="price-btn">
-<a href="#"><p>$9.9</p></a>
+  <a href="#"><p>$9.9</p></a>
 </div>
 </div>
 </div>
@@ -197,24 +209,24 @@ button.iconsearch {
 
 
 <div class="rope bondag">
-<p>Ballbusting, Rope Bondage</p>
-<p>File Type: mp4</p>
-<p>Resolution: HD 720p</p>
+  <p>Ballbusting, Rope Bondage</p>
+  <p>File Type: mp4</p>
+  <p>Resolution: HD 720p</p>
 </div>
 
 
 <div class="result">
 
 <div class=" my content">
-<h3>My Content</h3>
-<p>199 results</p>
+  <h3>My Content</h3>
+  <p>199 results</p>
 </div>
 <div class="row">
 <div class="col-md-4">
  <div class="search content">
-<form action="/action_page.php">
-      <input type="text" placeholder="Search content"class="form-control" name="search">
-      <button class="iconsearch" type="submit"><i class="fa fa-search"></i></button>
+  <form action="/action_page.php">
+        <input type="text" placeholder="Search content"class="form-control" name="search">
+        <button class="iconsearch" type="submit"><i class="fa fa-search"></i></button>
     </form>
     </div>
     </div>
@@ -252,13 +264,9 @@ button.iconsearch {
   <div class="col-md-1 pt-4">
     
       <div class="dropdown">
-       <button class="bardot" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          &#xFE19;
+       <button class="bardot" type="button">
+          Select
         </button>
-          <div class="dropdown-menu dropdown-menu-left" >
-            <a class="dropdown-item" href="#">Selet</a>
-            <a class="dropdown-item" href="#"></a>
-  </div>
    </div>
   </div>
 </div>
@@ -276,6 +284,7 @@ button.iconsearch {
             Your browser does not support the video tag.
         </video>
     </a>
+    <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>"></form></div>
           <div class="price"><?php echo e('$'.$detail->price); ?></div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
@@ -286,7 +295,6 @@ button.iconsearch {
 <i class="fa fa-video-camera" aria-hidden="true"></i>
 <p>vid</p>
 
-<p><span><br>MISTRESS KELLY KALASHNIK</span></p>
     </div>
 </div>
 </div>
@@ -303,10 +311,10 @@ button.iconsearch {
 <div class="choose1" style="display:none;">
 <div class="row ">
 <div class="col-md-3">
-<h4><span class="count">1</span>Item  Selected</h4>
+<h4><span class="count">0</span>Item  Selected</h4>
 </div>
 <div class="col-md-3">
-<h4>Price : <span>50</span>PAZ</h4>
+<h4>Price : <span class="paz">0</span>PAZ</h4>
 </div>
 <div class="col-md-3 pt-3">
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>

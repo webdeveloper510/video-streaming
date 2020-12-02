@@ -982,6 +982,13 @@ public function notifyEmail(Request $req){
 
   }
 
+  public function selectMultiple(Request $req){
+
+        print_r($req->all());
+
+
+  }
+
 public function selectListname(Request $request){
 
   //print_r($request->listname);die;

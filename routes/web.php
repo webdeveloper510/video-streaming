@@ -82,6 +82,8 @@ Route::post('request', 'AuthController@addRequest');
 
 Route::post('addToLibrary', 'AuthController@addToLibrary');
 
+Route::post('selectMultiple', 'AuthController@selectMultiple');
+
 
 Route::post('updateProfile', 'AuthController@updateProfile');
 
