@@ -21,6 +21,9 @@
     margin-right:10px;
 
 }
+.show {
+    background: transparent;
+}
    .main-mistree {
    margin-top: -22px;
 }
@@ -72,6 +75,10 @@
 .sortby {
     margin-top: -11px;
 
+}
+button.close.off {
+    margin-top: -3px;
+    font-size: 31px;
 }
 button.iconsearch {
     padding: 4px;
@@ -309,7 +316,10 @@ button.iconsearch {
 </div>
 
 </div>
-<div class="choose1" style="display:none;">
+<div class="choose1" style="display:block;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 <div class="row ">
 <div class="col-md-3">
 <h4><span>1</span>Item  Selected</h4>
@@ -342,16 +352,11 @@ button.iconsearch {
       	</span>
       </div>
       <div class="text-center mt-4">
-      <h2>Token PAZ</h2>
-      <input type="hidden" id="vidid" name="videoid" >
-      <input type="hidden" class="token" name="token" >
+     
       <button type="button" class="btn btn-primary addNow">ADD NOW</button>
   </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>
