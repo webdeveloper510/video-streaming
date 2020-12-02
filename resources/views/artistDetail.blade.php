@@ -74,8 +74,11 @@ button.iconsearch {
     padding-right: 10px;
 }
 .bardot {
-    border: 1px solid;
-    font-size: 22px;
+    font-size: 16px;
+    padding: 4px;
+    color: white;
+    border: 2px solid #36b1ea;
+    background: #36b1ea;
 }
 .camera {
     display: flex;
@@ -91,7 +94,7 @@ button.iconsearch {
 <div class="row">
 <div class="col-md-12">
 <div class="sec-video-area">
-<h3><strong>$</strong> Top Selling Content</h3>
+  <h3><strong>$</strong> Top Selling Content</h3>
 </div>
 </div>
 </div>
@@ -103,39 +106,39 @@ button.iconsearch {
 <div class="main-mistree-sec1">
 <div class="main-mistree">
 <div class="main-mistree-circle">
-<img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}">
+  <img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}">
 </div>
 
 
 <div class="misstress kelly">
-<h3>{{$details[0]->nickname}}</h3>
+  <h3>{{$details[0]->nickname}}</h3>
 </div>
 
 
 <div class="clip-icon">
-<i class="fa fa-play" aria-hidden="true"></i>
+  <i class="fa fa-play" aria-hidden="true"></i>
 
-<p>Buy Clips</p>
+  <p>Buy Clips</p>
 </div>
 
 <div class="clips-social-icons">
 <div class="clips-social1">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<p>Tribute Me</p>
-</div>
-</div>
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<p>Message Me</p>
+  <i class="fa fa-envelope" aria-hidden="true"></i>
+  <p>Tribute Me</p>
 </div>
 </div>
 
 <div class="clips-social-icons">
 <div class="clips-social1">
-<i class="fa fa-heart" aria-hidden="true"></i>
-<p>Favorite Me</p>
+  <i class="fa fa-envelope" aria-hidden="true"></i>
+  <p>Message Me</p>
+</div>
+</div>
+
+<div class="clips-social-icons">
+<div class="clips-social1">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  <p>Favorite Me</p>
 </div>
 </div>
 
@@ -186,9 +189,9 @@ button.iconsearch {
 
 
 <div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
+  <button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
 <div class="price-btn">
-<a href="#"><p>$9.9</p></a>
+  <a href="#"><p>$9.9</p></a>
 </div>
 </div>
 </div>
@@ -197,24 +200,24 @@ button.iconsearch {
 
 
 <div class="rope bondag">
-<p>Ballbusting, Rope Bondage</p>
-<p>File Type: mp4</p>
-<p>Resolution: HD 720p</p>
+  <p>Ballbusting, Rope Bondage</p>
+  <p>File Type: mp4</p>
+  <p>Resolution: HD 720p</p>
 </div>
 
 
 <div class="result">
 
 <div class=" my content">
-<h3>My Content</h3>
-<p>199 results</p>
+  <h3>My Content</h3>
+  <p>199 results</p>
 </div>
 <div class="row">
 <div class="col-md-4">
  <div class="search content">
-<form action="/action_page.php">
-      <input type="text" placeholder="Search content"class="form-control" name="search">
-      <button class="iconsearch" type="submit"><i class="fa fa-search"></i></button>
+  <form action="/action_page.php">
+        <input type="text" placeholder="Search content"class="form-control" name="search">
+        <button class="iconsearch" type="submit"><i class="fa fa-search"></i></button>
     </form>
     </div>
     </div>
@@ -252,13 +255,9 @@ button.iconsearch {
   <div class="col-md-1 pt-4">
     
       <div class="dropdown">
-       <button class="bardot" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          &#xFE19;
+       <button class="bardot" type="button">
+          Select
         </button>
-          <div class="dropdown-menu dropdown-menu-left" >
-            <a class="dropdown-item" href="#">Selet</a>
-            <a class="dropdown-item" href="#"></a>
-  </div>
    </div>
   </div>
 </div>
