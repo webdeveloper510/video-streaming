@@ -28,10 +28,12 @@ $(document).on('click', '.show_list', function () {
 	$('.create_playlistt').show();
 })
 
-$(document).on('click','#div',function(){
+$(document).on('click','.select_list',function(){
 
 		var listname= $(this).text();
-	//console.log(token);
+		$(this).parent().find('.select_list').removeClass('active');
+		$(this).addClass('active');
+	//console.log(listname);return false;
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/selectListname",
@@ -50,6 +52,33 @@ $(document).on('click','#div',function(){
 		});
 
 })
+
+$(document).on('change','#exampleFormControlSelect1',function(){
+
+		var listid= $(this).val();
+	//console.log(listid);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/showLists",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"id": listid},
+
+				success: function(data){
+
+				window.location.href = APP_URL+'/play';
+
+
+					
+				}
+		});
+
+})
+
+
+
 $(document).ready(function(){
 	//alert('hel');return false;
   var firstName = $('.firstName').text();
@@ -176,6 +205,8 @@ function readURL(input) {
   }
 }
 
+
+
 $(document).on('click', '#checkPrice', function () {
 	//alert('hello');return false;
 	var token= $('.token').val();
@@ -219,7 +250,7 @@ $(document).on('click', '#checkPrice', function () {
 $(document).on('click', '.create_list', function () {
 	//alert('hello');return false;
 	var listname= $('.list').val();
-	console.log(listname);return false;
+	//console.log(listname);return false;
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/createList",
@@ -230,31 +261,64 @@ $(document).on('click', '.create_list', function () {
 				data: {"listname": listname},
 
 				success: function(data){
-						//console.log(data);
 
-						if(data.status==1){
+					//console.log(data);return false;
+					
+					if(data.status==1){
+						$('.message').show();
 
-							$('#stripeDiv').show();
+						$('.message').html(data.message);
 
-						var beforePrice= parseInt(data.token)/20;
-						var afterPrice=beforePrice * (data.fee/100);
-						var credit = 2.9;
-						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
-						$('.calculate').html('');
-						$('.calculate').append("<table  class='table text-white'><tr><th>Price:</th><td>" +beforePrice+"</td></tr><tr class='text-white'><th>Fee:</th><td>"+data.fee+"%"+"</td></tr><tr><th>Total:</th><td>"+total.toFixed(2)+"</td></tr></table>")
-						$('.amount').text('$'+total.toFixed(2));
-						$('.price').val(total.toFixed(2));
-						$('#tokens').val(data.token);
-						}
+					}
 
-						else{
-							//console.log('te');
-						}
+					else{
+							$('.message').show();
+
+						$('.message').html(data.message);
+					}
+
+						
 					
 				}
 		});
 
 });
+
+$(document).on('click', '.addNow', function () {
+	//alert('hello');return false;
+	var token= $('.token').val();
+	var videoid= $('#vidid').val();
+	//console.log(token);
+	//console.log(videoid);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addToLibrary",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"listvideo": videoid,'tokens':token},
+
+				success: function(data){
+
+					//console.log(data);return false;
+					
+					if(data.status==1){
+						$('.message').show();
+
+						$('.message').html(data.messge);
+
+					}
+
+
+						
+					
+				}
+		});
+
+});
+
+
 $(document).on('click', '.section_advance', function () {
 	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
 
@@ -362,6 +426,8 @@ $('#offerid').val(id);
 function showDiv(){
 	$('.notif').toggle();
 }
+
+
 
 
 

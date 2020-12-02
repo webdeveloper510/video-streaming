@@ -156,7 +156,7 @@
 
 
 <div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Cart</button>
+<button type="button" onclick="alert('Hello world!')">Add to Wishlist</button>
 <div class="price-btn">
 <a href="#"><p>$9.9</p></a>
 </div>
@@ -266,9 +266,7 @@
 </div>
 
 </div>
-     <script>
-  $(document).ready(function() {
- 
+     <script> 
   $("#owl-example").owlCarousel({
     items:3,
 	loop:true, //HERE YOU ARE SAYING I WANT THE INFINITE LOOP
@@ -283,7 +281,6 @@
   
   });
  
-});
  </script>
 </section>
 
@@ -295,4 +292,5 @@
 
   </body>
 
-  </html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>
+  </html>
+ <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>

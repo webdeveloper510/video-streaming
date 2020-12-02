@@ -1020,29 +1020,41 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $userid =  $session_data->id;
 
+        $tokens = $lists['tokens'];
+
         $listname = Session::get('listname');
 
-        $addTolibrary['playlistname'] = $listname;
+        $lists['playlistname'] = $listname;
 
         $lists['userid'] = $userid;
 
         $tokensData = $this->selectDataById('id','users',$userid);
 
+       //print_r($tokensData);die;
+        //print_r($lists);die;
+
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
 
-        if(count($data) >  0){
 
-            $videoid = $lists['videoid'];
+      if($tokens < $tokensData[0]->tokens){
+
+        if(count($data)>0){
+
+           // echo "jj";die;
+
+            $videoid = $lists['listvideo'];
 
          $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
             'listvideo' => DB::raw("CONCAT(listvideo,',".$videoid."')")
           ]);
 
+         //print_r($update);die;
+
          if($update==1){
 
-              $tokens = $tokensData[0]->tokens;
+              //$tokens = $tokensData[0]->tokens;
 
-                $reduce  = $this->reduceTokens($tokens,$userid,$lists);
+                $reduce  = $this->reduceTokens($tokensData,$userid,$tokens);
 
                 return $reduce;
 
@@ -1057,26 +1069,43 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         else {
 
-           $addTolibrary['listvideo'] = $video;
+         // echo "dd";die;
+
+           $lists['listvideo'] = $lists['listvideo'];
 
             $tokens = $tokensData[0]->tokens;
+              unset($lists['tokens']);
+            $lists['created_at'] = now();
+            $lists['updated_at'] = now();
 
-              $insert  = DB::table('playlist')->insert($addTolibrary);
+          $insert  =DB::table('playlist')->insert($lists);
 
-              $returnData = $insert ? $this->reduceTokens($tokens,$userid,$lists)  : 0;
+             //print_r($insert);die;
 
-              return $returnData;
+               $returnData = $insert ? $this->reduceTokens($tokensData,$userid,$tokens)  : 0;
+
+               return $returnData;
         }
 
     }
 
-public function reduceTokens($tokns,$userid,$data){
+    else{
+      return 'Insufficient Paz Tokens';
+    }
+  }
 
-          $paz = $data['tokens'];
+public function reduceTokens($tokns,$userid,$tok){
 
-        if($paz < $tokns){
+  $databasetoks = $tokns[0]->tokens;
+
+//echo $databasetoks;
+//echo $tok;die;
+          //$paz = $data['tokens'];
+
+        if($tok < $databasetoks){
+         // echo "yes";die;
              $update = DB::table('users')->where(array('id'=>$userid))->update([
-            'tokens' =>  DB::raw('tokens -'.$paz)
+            'tokens' =>  DB::raw('tokens -'.$tok)
           ]);
 
              return $update ? 1 : 0;
@@ -1085,8 +1114,64 @@ public function reduceTokens($tokns,$userid,$data){
 
         else
         {
+          //echo "jj";die;
             return 'Insufficient Paz Tokens';
         }
+}
+
+public function createList($create){
+
+        $data['listname'] = $create->listname;
+
+     $session_data =   Session::get('User');
+
+        $userid =  $session_data->id;
+
+        $data['created_at']= now();
+
+        $data['updated_at']= now();
+
+        $data['userid']= $userid;
+
+        //print_r($data);die;
+
+        $insert  = DB::table('listname')->insert($data);
+
+        return $insert ? 1 :0 ;
+
+
+
+
+}
+
+public function getPlayListName(){
+
+    $session_data =   Session::get('User');
+        $userid =  $session_data->id;
+
+         $value=DB::table('playlist')->where('userid', $userid)->get()->toArray();
+
+         return $value;
+
+}
+
+public function getVideosbyList($id){
+
+
+   $value=DB::table('playlist')->where(array('id'=>$id))->pluck('listvideo')->toArray();
+
+   if($value){
+
+    $ids = explode(',',$value[0]);
+
+    $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
+
+
+    //print_r($videos);die;
+
+         return $videos;
+       }
+
 }
     // public function addToLibrary1(){
 
