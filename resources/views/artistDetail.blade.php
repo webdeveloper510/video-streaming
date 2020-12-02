@@ -394,7 +394,7 @@ button.addNow {
     </div>
   </div>
       <div class="text-center mt-4">
-           
+           <h3>Prize : 600PAZ</h3>
       <button type="button" class=" addNow">ADD NOW</button>
   </div>
       </div>
