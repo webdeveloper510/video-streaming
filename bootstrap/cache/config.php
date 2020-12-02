@@ -4,8 +4,8 @@
     'name' => 'laravel',
     'env' => 'local',
     'debug' => true,
-    'url' => 'http://localhost/laravel/video-streaming/',
-    'asset_url' => 'http://localhost/laravel/video-streaming/public',
+    'url' => 'http://localhost/video-streaming/',
+    'asset_url' => 'http://localhost/video-streaming/public',
     'timezone' => 'UTC',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -180,7 +180,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -266,7 +266,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'livestreaming',
         'username' => 'root',
@@ -287,7 +287,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'livestreaming',
         'username' => 'root',
@@ -302,7 +302,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'port' => '3306',
         'database' => 'livestreaming',
         'username' => 'root',
@@ -348,13 +348,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\app/public',
-        'url' => 'http://localhost/laravel/video-streaming//storage',
+        'root' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
+        'url' => 'http://localhost/video-streaming//storage',
         'visibility' => 'public',
       ),
       's3' => 
@@ -370,7 +370,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\laravel\\video-streaming\\public\\storage' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\app/public',
+      'C:\\xampp\\htdocs\\video-streaming\\public\\storage' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -404,13 +404,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -460,7 +460,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -472,11 +472,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.gmail.com',
-        'port' => '465',
-        'encryption' => 'SSL',
-        'username' => 'pornartistzone@gmail.com',
-        'password' => 'JFK7opS.',
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -526,7 +526,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -605,7 +605,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\video-streaming\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -625,9 +625,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\laravel\\video-streaming\\resources\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\video-streaming\\resources\\views',
   ),
   'flare' => 
   array (

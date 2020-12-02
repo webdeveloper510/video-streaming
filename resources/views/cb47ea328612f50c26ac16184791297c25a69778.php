@@ -20,7 +20,7 @@
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3><sub>$</sub><?php echo e($video->price); ?></h3>
+					  <h3><?php echo e($video->price); ?>PAZ</h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -34,9 +34,8 @@
 
                    </div>
  <button type="button" id="<?php echo e($video->id); ?>" class="addToCart">
- 	 	<form action="" method="post">
- 	Add to Cart
- </form>
+ 	 	
+ 	Add to Wishlist
  </button>
 
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
@@ -44,13 +43,27 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
+      <div class="modal-body text-left">
+      <h3>Choose Playlist</h3>
+      <div class="Playlist1">
+      	<?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      	<h5><?php echo e($val->listname); ?> </h5> <a href="" class="aedit">edit</a><br>
+      	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      	<a href="#" class="show_list">Create New Playlist +</a>
+      	<span class="create_playlistt" style="display: none">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+      		<button class="create_list">Create</button>
+      	</span>
+      </div>
+      <div class="text-center mt-4">
+      <h2>Token:500 PAZ</h2>
+      <button type="button" class="btn btn-primary">ADD NOW</button>
+  </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -61,15 +74,7 @@
 </div>
 
 
-					  <div class="dropdown">
-			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						 </button>
-						 <div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Link 1</a>
-							<a class="dropdown-item" href="#">Link 2</a>
-							<a class="dropdown-item" href="#">Link 3</a>
-						 </div>
-					  </div>
+					  
 				   </div>
 				</div>
 			 </div>
@@ -358,12 +363,11 @@
     border-radius: 50%;
   
 }
-
-button.btn-primary.library {
-    padding-left: 13px;
-    margin-right: 10px;
-    border-radius: 50%;
+a.aedit {
+    float: right;
+    margin-top: -18px;
 }
+
 
 .content-area h3 {
     color: #a60000;
@@ -384,16 +388,10 @@ button.btn-primary.library {
 
 .content-price h3 {
     color: #36B1E9;
-    font-size: 50px;
-    font-weight: 300;
+    font-size: 22px;
 }
 
-.content-price h3 sub {
-    vertical-align: top;
-    font-weight: 600;
-    font-size: 28px;
-   
-}
+
 .cart1 {
     position: absolute;
     top: -58px;
@@ -417,15 +415,22 @@ button.btn-primary.library {
     text-align: end;
 }
 
+.Playlist1 {
+    border: 1px solid;
+    padding: 10px;
+}
+.modal-backdrop {
+    background-color: transparent !important;
+}
 
-
-.content-cart button {
+.content-cart .addToCart, .library {
     background-color: #a60000;
     border: 2px solid #a60000;
     color: #fff;
-    width: 210px;
-    padding: 10px;
-    font-size: 22px;
+    padding: 5px;
+    
+    margin-right:10px;
+
 }
 
 .content-cart {
@@ -435,10 +440,7 @@ button.btn-primary.library {
     justify-content: flex-end;
 	padding-right: 10px;
 }
-button.btn {
-    min-width: 39px !important;
-    height: 26px !important;
-}
+
 button.btn.btn-primary.dropdown-toggle {
     width: 100%;
     margin-left: 1px;
@@ -830,4 +832,5 @@ $(".addToCart").click(function(e) {
         }
     });
 });
-</script><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>
+</script>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>

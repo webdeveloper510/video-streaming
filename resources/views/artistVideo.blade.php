@@ -52,7 +52,7 @@
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
       	@foreach($listname as $index=>$val)
-      	<h5>{{$val->listname}}  <a href="" class="aedit">edit</a> </h5><br>
+      	<h5>{{$val->listname}} </h5> <a href="" class="aedit">edit</a><br>
       	@endforeach
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">
@@ -363,7 +363,10 @@
     border-radius: 50%;
   
 }
-
+a.aedit {
+    float: right;
+    margin-top: -18px;
+}
 
 
 .content-area h3 {
@@ -424,7 +427,7 @@
     background-color: #a60000;
     border: 2px solid #a60000;
     color: #fff;
-    padding: 6px;
+    padding: 5px;
     
     margin-right:10px;
 

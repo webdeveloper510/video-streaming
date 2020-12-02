@@ -1,18 +1,5 @@
 
-<!doctype html>
-<html>
-<title>mistree</title>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device width, initial-scale=1.0">
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script-->
- 
-
-  </head>
+    @include('layouts.header')
 
 
   <style>
@@ -54,8 +41,7 @@
   </style>
 
 
-  <body>
-    @include('layouts.header')
+
  <section class="mistress-sec">
 <div class="container-fluid">
 <div class="row">
@@ -185,8 +171,6 @@
       <input type="text" placeholder="Search content" name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-
-
 <form action="/action_page.php">
   <label for="cars">Filter:</label>
   <select name="cars" id="cars">
@@ -211,6 +195,19 @@
     <option value="opel">Opel</option>
     <option value="audi">Audi</option>
   </select>
+  
+  <div class="dropdown">
+  <button class="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+  &#xFE19;
+</button>
+  <div class="dropdown-menu dropdown-menu-right" >
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+
+  </form>
   </div>
   </div>
 </div>
@@ -283,14 +280,5 @@
  
  </script>
 </section>
-
-
-
-
-
-
-
-  </body>
-
-  </html>
+@include('layouts.footer')
  
