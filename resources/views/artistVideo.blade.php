@@ -12,6 +12,12 @@
 				</div>
 				@foreach($vedios as $video)
 				@if($video->type=='video')
+				<?php 
+				$GLOBALS['paz'] = $video->price ;
+
+				$GLOBALS['videoid'] = $video->id ;
+
+				?>
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3>{{$video->title}}</h3>
@@ -20,7 +26,7 @@
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3>{{$video->price}}PAZ</h3>
+					  <h3 class="paz_price">{{$video->price}}PAZ</h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -49,15 +55,25 @@
         </button>
       </div>
       <div class="modal-body text-left">
+      	<div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
-      	<h5>playlist  <a href="">edit</a> </h5><br>
-      	<h5>playlist  <a href="">edit</a> </h5><br>
-      	<a href="">Create New Playlist +</a>
+      	@foreach($listname as $index=>$val)
+      	<h5 class="select_list">{{$val->listname}} </h5> <a href="" class="aedit">edit</a><br>
+      	@endforeach
+      	<a href="#" class="show_list">Create New Playlist +</a>
+      	<span class="create_playlistt" style="display: none">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+      		<button class="create_list btn btn-primary" type="button">Create</button>
+      	</span>
       </div>
       <div class="text-center mt-4">
-      <h2>Token:500 PAZ</h2>
-      <button type="button" class="btn btn-primary">ADD NOW</button>
+      <h2>Token:{{ $GLOBALS['paz'] }} PAZ</h2>
+      <input type="hidden" id="vidid" name="videoid" value="{{$GLOBALS['videoid']}}">
+      <input type="hidden" class="token" name="token" value="{{ $GLOBALS['paz'] }}">
+      <button type="button" class="btn btn-primary addNow">ADD NOW</button>
   </div>
       </div>
       <div class="modal-footer">
@@ -358,7 +374,10 @@
     border-radius: 50%;
   
 }
-
+a.aedit {
+float: right;
+margin-top: -18px;
+}
 
 
 .content-area h3 {
@@ -586,6 +605,11 @@ a.carousel-control-prev {
     top: 250px !important;
     bottom: 0;
     
+}
+
+
+h5.select_list.active {
+    color: red;
 }
 
 

@@ -360,9 +360,9 @@
       array (
         'driver' => 'local',
 
+
         'root' => '/home/personalattentio/public_html/developing-streaming/storage/app/public',
         'url' => 'https://pornartistzone.com/developing-streaming//storage',
-
 
         'visibility' => 'public',
       ),

@@ -24,11 +24,16 @@ $(document).on('click', '.user', function () {
     }
 
 })
+$(document).on('click', '.show_list', function () {
+	$('.create_playlistt').show();
+})
 
-$(document).on('click','#div',function(){
+$(document).on('click','.select_list',function(){
 
 		var listname= $(this).text();
-	//console.log(token);
+		$(this).parent().find('.select_list').removeClass('active');
+		$(this).addClass('active');
+	//console.log(listname);return false;
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/selectListname",
@@ -47,6 +52,33 @@ $(document).on('click','#div',function(){
 		});
 
 })
+
+$(document).on('change','#exampleFormControlSelect1',function(){
+
+		var listid= $(this).val();
+	//console.log(listid);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/showLists",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"id": listid},
+
+				success: function(data){
+
+				window.location.href = APP_URL+'/play';
+
+
+					
+				}
+		});
+
+})
+
+
+
 $(document).ready(function(){
 	//alert('hel');return false;
   var firstName = $('.firstName').text();
@@ -173,6 +205,8 @@ function readURL(input) {
   }
 }
 
+
+
 $(document).on('click', '#checkPrice', function () {
 	//alert('hello');return false;
 	var token= $('.token').val();
@@ -212,6 +246,79 @@ $(document).on('click', '#checkPrice', function () {
 		});
 
 });
+
+$(document).on('click', '.create_list', function () {
+	//alert('hello');return false;
+	var listname= $('.list').val();
+	//console.log(listname);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/createList",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"listname": listname},
+
+				success: function(data){
+
+					//console.log(data);return false;
+					
+					if(data.status==1){
+						$('.message').show();
+
+						$('.message').html(data.message);
+
+					}
+
+					else{
+							$('.message').show();
+
+						$('.message').html(data.message);
+					}
+
+						
+					
+				}
+		});
+
+});
+
+$(document).on('click', '.addNow', function () {
+	//alert('hello');return false;
+	var token= $('.token').val();
+	var videoid= $('#vidid').val();
+	//console.log(token);
+	//console.log(videoid);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addToLibrary",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"listvideo": videoid,'tokens':token},
+
+				success: function(data){
+
+					//console.log(data);return false;
+					
+					if(data.status==1){
+						$('.message').show();
+
+						$('.message').html(data.messge);
+
+					}
+
+
+						
+					
+				}
+		});
+
+});
+
+
 $(document).on('click', '.section_advance', function () {
 	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
 
@@ -319,6 +426,8 @@ $('#offerid').val(id);
 function showDiv(){
 	$('.notif').toggle();
 }
+
+
 
 
 

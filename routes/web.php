@@ -26,6 +26,7 @@ Route::get('login', 'AuthController@login');
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
 Route::get('play', 'AuthController@play')->middleware('authentication');
+Route::get('listname', 'AuthController@listname')->middleware('authentication');
 
 Route::get('search', 'AuthController@search')->middleware('authentication');
 
@@ -91,6 +92,8 @@ Route::post('editDescription','AuthController@editDescription');
 Route::post('registration', 'AuthController@UserRegistration');
 Route::post('login', 'AuthController@postLogin');
 
+Route::post('showLists', 'AuthController@showLists');
+
 
 
 //Route::post('checkPrice', 'AuthController@checkPrice');
@@ -112,6 +115,7 @@ Route::post('postId',
 Route::post('checkprice', 'AuthController@price');
 
 Route::post('updateStatus', 'AuthController@updateStatus');
+Route::post('createList', 'AuthController@createList');
 
    /*-------------------End Web Site Route----------------------*/
 
