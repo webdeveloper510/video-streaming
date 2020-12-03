@@ -33,7 +33,7 @@
 				   <div class="content-cart">
 				   
                    <div class="cart1">  
-                   	<a href="<?php echo e(url('cart')); ?>">
+                   	<a href="<?php echo e(url('play')); ?>">
                    	 <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
                    	</a>
                       <span class="itemCount"><?php echo e($count); ?></span>
@@ -375,8 +375,8 @@
   
 }
 a.aedit {
-float: right;
-margin-top: -18px;
+    float: right;
+    margin-top: -18px;
 }
 
 
@@ -438,7 +438,7 @@ margin-top: -18px;
     background-color: #a60000;
     border: 2px solid #a60000;
     color: #fff;
-    padding: 6px;
+    padding: 5px;
     
     margin-right:10px;
 
@@ -813,12 +813,6 @@ span.itemCount {
     top: 92% !important;
    
 }
-
-
-
-
-
-
 }
 
 
@@ -841,7 +835,8 @@ $(".addToCart").click(function(e) {
              "_token": "<?php echo e(csrf_token()); ?>", 
         },
         success: function(result) {
-            $('.itemCount').text(result);
+        	console.log(result);
+           // $('.itemCount').text(result);
         },
         error: function(result) {
             alert('error');
