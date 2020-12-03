@@ -29,7 +29,7 @@
           <div class="col"><h5>{{$value->title}}</h5></div>
           <div class="col"><span>{{$value->price}}PAZ</span>
           </div>
-    <div class="col"><button type="button" class="removeSession btn btn-primary" id="{{$value->id}}" data-dismiss="choose1" aria-label="Close">
+    <div class="col text-right"><button type="button" class="removeSession btn btn-light" id="{{$value->id}}" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>  

@@ -270,7 +270,7 @@ a,
 	width: 100%;
 }
 
-a.btn,
+/*a.btn,
 button.btn {
 	min-width: 170px;
 	height: 50px;
@@ -288,7 +288,7 @@ button.btn {
 	position: relative;
 	font-family: 'Poppins', sans-serif;
 }
-
+*/
 .btn.dark_gray_bt {
 	background: #252525;
 }
@@ -298,15 +298,15 @@ a.btn.border_btn {
 	background: transparent;
 }
 
-a.btn:hover,
+/*a.btn:hover,
 button.btn:hover,
 a.btn:focus,
 button.btn:focus {
 	background: #252525;
 	color: #fff;
-}
+}*/
 
-button.btn.white_btn,
+/*button.btn.white_btn,
 a.btn.white_btnbutton.btn.white_btn,
 a.btn.white_btn {
 	background: #fff;
@@ -327,7 +327,7 @@ a.btn.white_btn {
 .bottom_info .pull-right {
 	margin-top: 17px !important;
 }
-
+*/
 .blog_grid .bottom_info .pull-right {
 	margin-top: 0 !important;
 }
@@ -5428,13 +5428,18 @@ a.logout1 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.btn-group.login-btn .btn.btn-link.dropdown-toggle {
+    color: white;
+}
+.btn-group.login-btn .btn.btn-link.dropdown-toggle:hover {
+    color: white;
+}
 
-
-a.btn:hover, button.btn:hover, a.btn:focus, button.btn:focus {
+/*a.btn:hover, button.btn:hover, a.btn:focus, button.btn:focus {
     background: transparent; 
   color: #fff; 
 }
-
+*/
 .hello p {
     padding: 14px;
     border: 1px solid black;
