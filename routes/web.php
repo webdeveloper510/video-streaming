@@ -98,6 +98,8 @@ Route::post('login', 'AuthController@postLogin');
 
 Route::post('showLists', 'AuthController@showLists');
 
+Route::post('addToWish', 'AuthController@addToWish');
+
 
 
 //Route::post('checkPrice', 'AuthController@checkPrice');
