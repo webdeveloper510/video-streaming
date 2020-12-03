@@ -89,6 +89,18 @@ button.iconsearch {
     padding-left: 10px;
     padding-right: 10px;
 }
+.Playlist1 {
+    border: 2px solid;
+    padding: 20px;
+}
+button.addNow {
+    padding: 5px;
+    background: #a60000;
+    color: white;
+    border-radius: 8px;
+    border: 2px solid #a60000;
+    font-size: 16px;
+}
 .bardot {
     font-size: 16px;
     padding: 4px;
@@ -100,6 +112,10 @@ button.iconsearch {
     display: flex;
     position: absolute;
     left: 0;
+}
+.itemsel {
+    border: 2px solid;
+    padding: 6px;
 }
   </style>
 
@@ -291,7 +307,9 @@ button.iconsearch {
             Your browser does not support the video tag.
         </video>
     </a>
+
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>"></form></div>
+
           <div class="price"><?php echo e('$'.$detail->price); ?></div>
           <div class="time">00:23:56</div>
 <div class="video-icon">
@@ -327,38 +345,9 @@ button.iconsearch {
 <h4>Price : <span class="paz">0</span>PAZ</h4>
 </div>
 <div class="col-md-3 pt-3">
-<button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<button type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-left">
-      	
-      <h3>Choose Playlist</h3>
-      <div class="Playlist1">
-     
-      	<h5 class="select_list"> </h5> <a href="" class="aedit">edit</a><br>
-      
-      	<a href="#" class="show_list">Create New Playlist +</a>
-      	<span class="create_playlistt" style="display: none">
-      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
-      		<button class="create_list btn btn-primary" type="button">Create</button>
-      	</span>
-      </div>
-      <div class="text-center mt-4">
-     
-      <button type="button" class="btn btn-primary addNow">ADD NOW</button>
   </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
 </div>
 <div class="col-md-3 pt-3">
 <button type="button" class="addToCart" >Add To Wishlist </button>

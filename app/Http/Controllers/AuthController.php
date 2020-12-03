@@ -1076,6 +1076,18 @@ public function addToLibrary(Request $req){
 
 }
 
+public function addMultipleVideo(){
+
+    $multipleIds = Session::get('SessionmultipleIds');
+
+    $cartVideo = $this->model->getVideoWhereIn($multipleIds);
+
+    //print_r($cartVideo);die;
+
+        return view('playlistpop',['cartVideo'=>$cartVideo]);
+
+}
+
 public function buyVideo(Request $req){
 
       unset($req['_token']);

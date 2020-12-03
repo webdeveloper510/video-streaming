@@ -51,11 +51,15 @@ class artist extends Controller
 
 
     public function artistDetail($artistid){
+
+     Session::forget('SessionmultipleIds');
          
     	   $allArtists=     $this->model->getArtistDetail($artistid);
          $category_data = $this->model->getCategory();
-      	
-    	   return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
+
+       
+
+   return view('artistDetail',['cartVideo'=>'','details'=>$allArtists,'category'=> $category_data ]);
     }
 
     public function cartSbmit(Request $req){
@@ -85,7 +89,7 @@ class artist extends Controller
                 return count($arrayId);
               }
 
-          
+
            
     }
 

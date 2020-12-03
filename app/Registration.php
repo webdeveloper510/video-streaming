@@ -1240,6 +1240,15 @@ public function getWishlist(){
 
 }
 
+public function getVideoWhereIn($mutli){
+
+
+  $value = DB::table("media")->whereIn('id', $mutli)->get()->toArray();
+
+  return $value;
+
+}
+
     // public function addToLibrary1(){
 
     //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();

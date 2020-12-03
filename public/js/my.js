@@ -318,6 +318,36 @@ $(document).on('click', '.addNow', function () {
 
 });
 
+$(document).on('click', '.library', function () {
+
+	//console.log(token);
+	//console.log(videoid);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addMultipleVideo",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {},
+
+				success: function(data){
+
+					//console.log(data);return false;
+
+					$('#exampleModal').html(data);
+
+					
+
+
+
+						
+					
+				}
+		});
+
+});
+
 
 $(document).on('click', '.section_advance', function () {
 	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
