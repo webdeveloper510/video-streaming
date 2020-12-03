@@ -40,8 +40,8 @@
 		  <h3 class="tittle">Wish list</h3>		  
 		</div>
         <div class="row pb-row">
-              @if($videos)
-              @foreach($videos as $indx=> $val)
+              @if($wishList)
+              @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
              <video width="320" height="240" controls>
     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">

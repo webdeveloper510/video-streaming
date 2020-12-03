@@ -1155,28 +1155,44 @@ public function getPlayListName(){
 
 }
 
+
+
 public function addWishlist($data1){
 
-  $wishlist = implode(',', $data1);
+  // $wishlist = implode(',', $data1);
 
-  print_r($wishlist);die;
+
 
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
- $data = $this->selectDataById('userid','wishlist',$userid);
+ $data = $this->selectSingleById('userid','wishlist',$userid);
 
- $returnData = count($data)>0 ? $this->updateWishlist($wishlist,$userid) : $this->insertWishlist($wishlist,$userid);
+ //print_r(count($data));die;
+  $newArray = explode(",",$data[0]);
+ 
+  $aunion=  array_merge(array_intersect($data1, $newArray),array_diff($data1, $newArray),array_diff($newArray, $data1));
+
+  $result_array = array_unique($aunion);
+ $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid) : $this->insertWishlist($wishlist,$userid);
 
  return $returnData;
 
   
 }
 
+public function selectSingleById($key,$table,$where){
+
+  $value=DB::table($table)->where(array($key=>$where))->pluck('videoid')->toArray();
+
+  return $value;
+
+}
+
 public function updateWishlist($data,$uid){
 
       $update = DB::table('wishlist')->where(array('userid'=>$uid))
       ->update([
-            'videoid' => DB::raw("CONCAT(videoid,',".$data[0]."')"),
+            'videoid' => $data//DB::raw("CONCAT(videoid,',".$data[0]."')"),
           ]);
 
       return $update;

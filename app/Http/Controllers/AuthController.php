@@ -976,6 +976,7 @@ public function notifyEmail(Request $req){
 
       $wishList = $this->model->getWishlist();
 
+            //print_r($wishList);die;
 
     $videos = $this->model->getVideosbyList($ids);
 
@@ -986,35 +987,35 @@ public function notifyEmail(Request $req){
   }
 
   public function selectMultiple(Request $req){
-
         $idsData = $req->all();
+       $multipleIds = Session::get('SessionmultipleIds');
+        // print_r($multipleIds);
+          if($idsData['isCheck']=='false'){
+                //echo "yes";
+              $pos = array_search($idsData['id'], $multipleIds);
 
-        //print_r($idsData);die;
+                 unset($multipleIds[$pos]);
 
-     $multipleIds = Session::get('SessionmultipleIds');
-
-        if($idsData['isCheck']=='false'){
-
-          $pos = array_search($idsData['id'], $multipleIds);
-
-            unset($multipleIds[$pos]);
+                 Session::put('SessionmultipleIds',$multipleIds);
 
         }
 
         else{
+                  //echo "no";die;
+                    if($multipleIds){
 
-                  if($multipleIds){
+                        if(!in_array($idsData['id'], $multipleIds)){
 
-                      if(!in_array($idsData['id'], $multipleIds)){
+                            $multipleIds[] = $idsData['id'];
 
-                          $multipleIds[] = $idsData['id'];
+                            Session::put('SessionmultipleIds',$multipleIds);
+                        }
 
-                          Session::put('SessionmultipleIds',$multipleIds);
-                      }
-
-                }
+                  }
 
         else{
+
+          //echo "no";die;
 
                       $arr=array();
 
@@ -1025,7 +1026,7 @@ public function notifyEmail(Request $req){
 
       }  
 
-      //print_r($multipleIds);
+     // print_r($multipleIds);
 
   }
 
@@ -1076,13 +1077,22 @@ public function addToLibrary(Request $req){
 
 }
 
-public function addMultipleVideo(){
+public function addMultipleVideo(Request $req){
 
-    $multipleIds = Session::get('SessionmultipleIds');
+       $remove = $req['isRemove'];
+       
+       $multipleIds = Session::get('SessionmultipleIds');
+       if($remove=='yes'){
 
-    $cartVideo = $this->model->getVideoWhereIn($multipleIds);
+             $pos = array_search($req['id'], $multipleIds);
 
-    //print_r($cartVideo);die;
+             unset($multipleIds[$pos]);
+
+           Session::put('SessionmultipleIds',$multipleIds);
+
+       }
+
+        $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 
         return view('playlistpop',['cartVideo'=>$cartVideo]);
 
@@ -1119,7 +1129,7 @@ public function showLists(Request $request){
     //print_r($request->all());
 }
 
-public function addToWish(Request $req){
+   public function addToWish(Request $req){
 
     $multipleIds = Session::get('SessionmultipleIds');
 

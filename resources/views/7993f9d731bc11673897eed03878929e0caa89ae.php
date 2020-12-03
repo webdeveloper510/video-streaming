@@ -40,8 +40,8 @@
 		  <h3 class="tittle">Wish list</h3>		  
 		</div>
         <div class="row pb-row">
-              <?php if($videos): ?>
-              <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($wishList): ?>
+              <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
              <video width="320" height="240" controls>
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
