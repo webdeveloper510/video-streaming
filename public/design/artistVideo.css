@@ -75,9 +75,7 @@ a.aedit {
     border: 1px solid;
     padding: 10px;
 }
-.modal-backdrop {
-    background-color: transparent !important;
-}
+
 
 .content-cart .addToCart, .library {
     background-color: #a60000;

@@ -179,7 +179,7 @@
 
 
 
-<div class="row">
+<div class="row media_div">
        <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
     <div class="col-md-4 pr-4">
@@ -227,14 +227,16 @@
 <h4>Price : <span class="paz">0</span>PAZ</h4>
 </div>
 <div class="col-md-3 pt-3">
-<button type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  </div>
+<button type="button" class="btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
 </div>
 <div class="col-md-3 pt-3">
-<button type="button" class="addToCart" >Add To Wishlist </button>
+<button type="button" class="addTowishlist" >Add To Wishlist </button>
 </div>
 </div>
+</div>
+<div class="modal" role="dialog" id="exampleModal" >
+
+
 </div>
    <script> 
   $("#owl-example").owlCarousel({

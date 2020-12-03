@@ -1,5 +1,6 @@
 
 @include('layouts.header')
+<link rel="stylesheet" href="{{asset('design/initial.css')}}" />
  @if(session('success'))
 <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -282,106 +283,7 @@
 @endif
   <br/><br/>
   <style>
-  	body{
-
-    background:black;
-
-  	}
-  	h3.tittle {
-    color: white;
-}
-    tr:nth-child(even) {
-    background-color: #fff;
-    color: black;
-}
-.user-body i {
-    padding-right: 21px;
-    color: green;
-}
-.user1 {
-    box-shadow: 1px 1px 6px 1px #0000003d;
-}
-.user-body {
-    padding: 14px;
-    background: white;
-    border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-}
-.user-head.text-center {
-    padding: 13px;
-    background: #bf0000;
-    border-top-left-radius: 25px !important;
-    border-top-right-radius: 25px !important;
-}
-.user-head.text-center.text-white h3 {
-    color: white;
-    padding-top: 12px;
-    font-size: 28px;
-}
-a.btn, button.btn {
-    line-height: 100% !important;
-  }
-  button.btn.btn-primary a {
-    color: white;
-}
-
-.owl-carousel{
-  display: block !important;
-}
-.user-body p {
-    font-size: 20px;
-    padding-top: 12px;
-
-}
-.col-md-12.text-center button:hover {
-    background: #bf0000 !important;
-    border: 2px solid #bf0000 !important;
-}
-button.btn.btn-primary.partner_col:hover {
-     background: #bf0000 !important;
-    border: 2px solid #bf0000 !important;
-}
-
-
-.text-center.header-text {
-    font-weight: 700;
-    text-transform: capitalize;
-    /* font-family: 'Playfair Display', serif; */
-    color: white;
-}
-.PAZ.text-center.header-text {
-    color: white;
-    font-weight: 700;
-    margin-top: -10px;
-}
-.user1-body.col-md-12 {
-    background: white;
-    color: white;
-    padding-bottom: 12px;
-    border-bottom-right-radius: 27px;
-    border-bottom-left-radius: 27px;
-}
-.user1-head.text-center {
-
-    background: #bf0000;
-    border-top-left-radius: 25px !important;
-    border-top-right-radius: 25px !important;
-}
-.user1-head.text-center.text-white.col-md-12 h3 {
-    color: white;
-    padding-top: 10px;
-   font-size: 28px;
-}
-.modal-dialog {
-    margin-top: 18% !important;
-  }
-  .modal{
-        background: #7b0000;
-  }
-.artist_image img {
-    padding: 12px;
-}
-
+  
   </style>
  <!--End 4th slider-->
 

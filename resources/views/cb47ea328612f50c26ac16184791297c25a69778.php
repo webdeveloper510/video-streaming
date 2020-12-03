@@ -46,7 +46,7 @@
  </button>
 
 <button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
