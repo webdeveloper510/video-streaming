@@ -1,124 +1,6 @@
 
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
-  <style>
-  
-  .owl-carousel {
-    display: block !important;
-}
-.video-icon a {
-    text-align: center;
-    position: relative;
-    left: 119px;
-}
-.addToCart, .library {
-    background-color: #a60000;
-    border: 2px solid #a60000;
-    color: #fff;
-    padding: 5px;
-    
-    margin-right:10px;
-
-}
-.show {
-    background: transparent;
-}
-   .main-mistree {
-   margin-top: -22px;
-}
-.price {
-    position: absolute;
-    margin-top: -37px;
-    background: white;
-    padding: 8px;
-}
-.choose1 {
-    text-align: center;
-    background: white;
-    border: 1px solid red;
-    position: fixed;
-    z-index: 99999999999999;
-    color: black;
-    bottom: 10px;
-    width: 60%;
-    right: 39px;
-    padding: 0px !important;
-}
-.checkall input {
-    height: 20px;
-    width: 20px;
-}
-.checkall {
-    position: absolute;
-    top: 1px;
-    right: 2px;
-}
-.are {
-    float: left;
-    margin-right: 10px;
-}
-.time {
-    position: absolute;
-    right: 18px;
-    margin-top: -37px;
-    padding: 8px;
-    background: white;
-}
-.search.content .form-control {
-    float: left;
-    width: 70%;
-}
-.newest form select#cars {
-    width: 220px !important;
-}
-.sortby {
-    margin-top: -11px;
-
-}
-button.close.off {
-    margin-top: -3px;
-    font-size: 31px;
-}
-button.iconsearch {
-    padding: 4px;
-    background: deepskyblue;
-    border: 2px solid cornflowerblue;
-    color: white;
-    margin-left: 11px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.Playlist1 {
-    border: 2px solid;
-    padding: 20px;
-}
-button.addNow {
-    padding: 5px;
-    background: #a60000;
-    color: white;
-    border-radius: 8px;
-    border: 2px solid #a60000;
-    font-size: 16px;
-}
-.bardot {
-    font-size: 16px;
-    padding: 4px;
-    color: white;
-    border: 2px solid #36b1ea;
-    background: #36b1ea;
-}
-.camera {
-    display: flex;
-    position: absolute;
-    left: 0;
-}
-.itemsel {
-    border: 2px solid;
-    padding: 6px;
-}
-  </style>
-
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 
 
  <section class="mistress-sec">
@@ -256,7 +138,7 @@ button.addNow {
     <div class="col-md-4 mb-3">
 <form action="/action_page.php">
   <label for="cars">Filter:</label>
-  <select class="form-control" name="cars" id="cars">
+  <select class="form-control" name="cars" id="cars1">
     <option value="volvo">See All</option>
     <option value="saab">Saab</option>
     <option value="opel">Opel</option>
@@ -345,63 +227,9 @@ button.addNow {
 <h4>Price : <span class="paz">0</span>PAZ</h4>
 </div>
 <div class="col-md-3 pt-3">
-<button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<button type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-left">
-      	
-      <h3>Choose Playlist</h3>
-      <div class="Playlist1">
-     
-      	<h5 class="select_list"> </h5> <a href="" class="aedit">edit</a><br>
-      
-      	<a href="#" class="show_list">Create New Playlist +</a>
-      	<span class="create_playlistt" style="display: none">
-      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
-      		<button class="create_list btn btn-primary" type="button">Create</button>
-      	</span>
-      </div>
-      <div class="container">
-         <h3>Items </h3>
-         <div class="itemsel">
-         <div class="row ">
-          <div class="col"><h5>hello</h5></div>
-          <div class="col"><span>60PAZ</span>
-          </div>
-          <div class="col"><button type="button" class="close " data-dismiss="choose1" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-          
-      </div>
-       <div class="row">
-          <div class="col"><h5>hello</h5></div>
-          <div class="col"><span>60PAZ</span>
-          </div>
-          <div class="col"><button type="button" class="close " data-dismiss="choose1" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-          
-      </div>
-    </div>
   </div>
-      <div class="text-center mt-4">
-           <h3>Prize : 600PAZ</h3>
-      <button type="button" class=" addNow">ADD NOW</button>
-  </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
 </div>
 <div class="col-md-3 pt-3">
 <button type="button" class="addToCart" >Add To Wishlist </button>
