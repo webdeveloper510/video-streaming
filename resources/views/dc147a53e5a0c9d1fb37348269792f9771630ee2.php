@@ -15,7 +15,7 @@
 
 <link rel="icon" href="<?php echo e(asset('images/fevicon/fevicon.png')); ?>" type="image/gif" />
 <!-- bootstrap css -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 <!-- Site css -->
@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="<?php echo e(asset('design/responsive.css')); ?>" />
 <link rel="stylesheet" href="<?php echo e(asset('design/detailpage.css')); ?>" />
 <!-- colors css -->
-<link rel="stylesheet" href="<?php echo e(asset('design/colors1.css')); ?>" />
+<!-- <link rel="stylesheet" href="<?php echo e(asset('design/colors1.css')); ?>" /> -->
 <!-- custom css -->
 <link rel="stylesheet" href="<?php echo e(asset('design/custom.css')); ?>" />
 <!-- wow Animation css -->
