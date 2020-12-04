@@ -512,12 +512,16 @@
 
             <?php if($login): ?>
            <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
-             <?php if($userProfile): ?>
+             <?php if($userProfile[0]->profilepicture): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
     
     <?php else: ?>
-   <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <div class="">
+		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile[0]->nickname); ?></span>
+	           	<div class="profileImage"></div>
+	  </div>
+   <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
    <?php endif; ?>
    <span class="profile-img text-white">
    <?php echo e($login->nickname); ?> <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
@@ -637,6 +641,19 @@
 .dropdown1 h4{
    margin:0 !important;
    color:white;
+}
+
+.profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+    margin-right: 14px;
+    margin-top: 4px;
 }
 
 .dropdown1 {

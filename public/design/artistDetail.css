@@ -2,11 +2,7 @@
   .owl-carousel {
     display: block !important;
 }
-.video-icon a {
-    text-align: center;
-    position: relative;
-    left: 119px;
-}
+
 .addTowishlist, .library {
     background-color: #a60000;
     border: 2px solid #a60000;
@@ -16,15 +12,51 @@
     margin-right:10px;
 
 }
+.pricevideo {
+    position: absolute;
+    top: 38px;
+    padding: 5px;
+    background: black;
+    color: white;
+    font-weight: 700;
+    left: 15px;
+}
+.timevideo {
+    position: absolute;
+    top: 38px;
+    right: -206px;
+    background: black;
+    padding: 5px;
+    font-weight: 700;
+    color: white;
+}
+.main-mistree-circle .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    left: 29%;
+    top: 15px;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    position: relative;
+    margin-top: 4px;
+}
 
    .main-mistree {
    margin-top: -22px;
 }
 .price {
     position: absolute;
-    margin-top: -37px;
-    background: white;
+    background: #010001;
     padding: 8px;
+    top: 24px;
+    color: white;
+    font-weight: 700;
+   left: 17px;
 }
 .choose1 {
     text-align: center;
@@ -53,10 +85,12 @@
 }
 .time {
     position: absolute;
-    right: 8px;
-    margin-top: -37px;
+    right: 40px;
     padding: 8px;
-    background: white;
+    font-weight: 700;
+    background: #010001;
+    color: white;
+    top: 24px;
 }
 .search.content .form-control {
     float: left;

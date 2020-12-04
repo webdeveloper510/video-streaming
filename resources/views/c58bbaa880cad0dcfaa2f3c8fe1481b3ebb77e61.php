@@ -18,9 +18,17 @@
 <div class="col-md-3">
 
 <div class="main-mistree-sec1">
-<div class="main-mistree">
+<div class="main-mistree" id="sidebar">
 <div class="main-mistree-circle">
+<?php if($details[0]->profilepicture): ?>
   <img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
+
+  <?php else: ?>
+    
+		    	  <span class="firstName" style="display: none;"><?php echo e($details[0]->nickname); ?></span>
+	           	<div class="profileImage"></div>
+             
+             <?php endif; ?>
 </div>
 
 
@@ -87,7 +95,8 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
+              <div class="pricevideo"><?php echo e(''.$detail->price); ?>PAZ</div>
+          <div class="timevideo">00:03:56</div>
          </div>
             <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -113,10 +122,18 @@
 </div>
 
 
-<div class="rope bondag">
+<div class="rope bondag text-center">
+  <div class="row">
+    <div class="col-md-4">
   <p>Ballbusting, Rope Bondage</p>
+</div>
+<div class="col-md-4">
   <p>File Type: mp4</p>
+</div>
+<div class="col-md-4">
   <p>Resolution: HD 720p</p>
+</div>
+</div>
 </div>
 
 
@@ -182,9 +199,9 @@
 <div class="row media_div">
        <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
-    <div class="col-md-4 pr-4">
+    <div class="col-md-4 pr-4 mt-3">
         <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-        <video width="300" height="200" controls allowfullscreen>
+        <video width="270" height="200" controls allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -192,16 +209,14 @@
 
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>"></form></div>
 
-          <div class="price"><?php echo e('$'.$detail->price); ?></div>
-          <div class="time">00:23:56</div>
-<div class="video-icon">
+          <div class="price"><?php echo e(''.$detail->price); ?>PAZ</div>
+          <div class="time">00:03:56</div>
+<div class=" text-center">
     <a class="text-center" href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
-<p><?php echo e($detail->title); ?></p>
+<i class="fa fa-video-camera" aria-hidden="true"></i>  <?php echo e($detail->title); ?>
+
 </a>
 <div class="camera">
-<i class="fa fa-video-camera" aria-hidden="true"></i>
-<p>vid</p>
-
     </div>
 </div>
 </div>
@@ -255,4 +270,23 @@
  
  </script>
 </section>
+<script type="text/javascript">
+  $(document).ready(function(){
+$(window).scroll(function () {   
+   
+ if($(window).scrollTop() > 200) {
+    $('#sidebar').css('position','fixed');
+    $('#sidebar').css('top','0'); 
+ }
+
+ else if ($(window).scrollTop() <= 200) {
+    $('#sidebar').css('position','');
+    $('#sidebar').css('top','');
+ }  
+    if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
+        $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+    }
+});
+});
+</script>
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

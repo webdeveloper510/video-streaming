@@ -19,6 +19,19 @@
           margin-left: -11px;
       }
 
+      .artist .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    margin-top: 4px;
+}
+
     </style>
   </head>
   <body>
@@ -56,11 +69,19 @@
            <div class="col-md-2">
              
                <div class="artist text-center">
-               
+               <?php if($artist->profilepicture): ?>
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
                 <div class="overlay">
                   <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
                </div>
+               <?php else: ?>
+               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
+	           	<div class="profileImage"></div>
+
+               </a>
+             
+             <?php endif; ?>
                </div>
            </div>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

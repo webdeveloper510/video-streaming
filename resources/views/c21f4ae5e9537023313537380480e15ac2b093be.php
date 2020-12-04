@@ -10,7 +10,10 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <h1 class="text-center text-uppercase"><?php echo e(session('success')); ?></h1>
+        <h1 class="text-center text-uppercase comimg1"><?php echo e(session('success')); ?></h1>
+      </div>
+       <div class="modal-footer">
+        .
       </div>
     </div>
   </div>
