@@ -333,6 +333,8 @@ $(document).on('click', '.multipleAdd', function () {
 
 				success: function(data){
 
+					//console.log(data);return false;
+
 					if(data.status==1){
 						$('.message').show();
 

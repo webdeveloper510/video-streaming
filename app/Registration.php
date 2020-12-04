@@ -1169,20 +1169,23 @@ public function addWishlist($data1){
 
   // $wishlist = implode(',', $data1);
 
-
+  unset($data1['_token']);
 
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
  $data = $this->selectSingleById('userid','wishlist',$userid);
 
- //print_r(count($data));die;
-  $newArray = explode(",",$data[0]);
+
+ //print_r($data);die;
+ if($data){
+     $newArray =  explode(",",$data[0]);
+    $aunion=  array_merge(array_intersect($data1, $newArray),array_diff($data1, $newArray),array_diff($newArray, $data1));
+     
+    $result_array = array_unique($aunion);
+ }
  
-  $aunion=  array_merge(array_intersect($data1, $newArray),array_diff($data1, $newArray),array_diff($newArray, $data1));
-
-  $result_array = array_unique($aunion);
- $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid) : $this->insertWishlist($wishlist,$userid);
-
+ $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid) : $this->insertWishlist($data1,$userid);
+ //print_r($returnData);die;
  return $returnData;
 
   
