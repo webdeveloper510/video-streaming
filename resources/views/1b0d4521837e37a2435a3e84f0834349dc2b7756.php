@@ -20,7 +20,15 @@
 <div class="main-mistree-sec1">
 <div class="main-mistree">
 <div class="main-mistree-circle">
+<?php if($details[0]->profilepicture): ?>
   <img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
+
+  <?php else: ?>
+    
+		    	  <span class="firstName" style="display: none;"><?php echo e($details[0]->nickname); ?></span>
+	           	<div class="profileImage"></div>
+             
+             <?php endif; ?>
 </div>
 
 
@@ -199,10 +207,7 @@
 <p><?php echo e($detail->title); ?></p>
 </a>
 <div class="camera">
-<i class="fa fa-video-camera" aria-hidden="true"></i>
-<p>vid</p>
-
-    </div>
+<i class="fa fa-video-camera" aria-hidden="true"></i>    </div>
 </div>
 </div>
 <?php endif; ?>

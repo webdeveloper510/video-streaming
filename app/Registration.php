@@ -323,7 +323,7 @@ public function insertRecentTable($data){
      }
      
 }
-/*-------------------------------End---------------------------------------------------*/
+/*----------------------------------------------------End---------------------------------------------------*/
 public function addCategorytable($category){
     $category['created_at']=now();
     $category['updated_at']=now();
@@ -1016,6 +1016,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function addToLibrary($lists){
 
+      $newData=array();
+
       //print_r($lists);die;
 
         $session_data =   Session::get('User');
@@ -1027,10 +1029,11 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
         $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
+        $newData[] = $lists['id'] ? $lists['id'] : '';
 
         $lists['userid'] = $userid;
 
-        $ids  = isset($lists['listvideo']) ? $lists : $multipleIds = Session::get('SessionmultipleIds');
+        $ids  = isset($lists['id']) ? $newData : $multipleIds = Session::get('SessionmultipleIds');
         //print_r($ids);die;
 
         $tokensData = $this->selectDataById('id','users',$userid);

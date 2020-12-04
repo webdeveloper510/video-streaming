@@ -16,6 +16,21 @@
     margin-right:10px;
 
 }
+.main-mistree-circle .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    left: 29%;
+    top: 15px;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    position: relative;
+    margin-top: 4px;
+}
 
    .main-mistree {
    margin-top: -22px;

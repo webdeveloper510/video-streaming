@@ -19,6 +19,19 @@
           margin-left: -11px;
       }
 
+      .artist .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    margin-top: 4px;
+}
+
     </style>
   </head>
   <body>
@@ -56,11 +69,19 @@
            <div class="col-md-2">
              
                <div class="artist text-center">
-               
+               @if($artist->profilepicture)
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
                 <div class="overlay">
                   <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
                </div>
+               @else
+               <a href="{{url('artistDetail/'.$artist->id)}}">
+		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
+	           	<div class="profileImage"></div>
+
+               </a>
+             
+             @endif
                </div>
            </div>
              @endforeach
