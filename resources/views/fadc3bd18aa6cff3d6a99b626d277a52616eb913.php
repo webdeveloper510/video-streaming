@@ -45,4 +45,4 @@
       </div>
       
     </div>
-  </div><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/playlistpop.blade.php ENDPATH**/ ?>
+  </div><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/playlistpop.blade.php ENDPATH**/ ?>

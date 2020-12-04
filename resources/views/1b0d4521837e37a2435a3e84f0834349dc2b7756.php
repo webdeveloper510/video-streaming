@@ -1,122 +1,6 @@
 
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
-  <style>
-  
-  .owl-carousel {
-    display: block !important;
-}
-.video-icon a {
-    text-align: center;
-    position: relative;
-    left: 119px;
-}
-.addTowishlist, .library {
-    background-color: #a60000;
-    border: 2px solid #a60000;
-    color: #fff;
-    padding: 5px;
-    
-    margin-right:10px;
-
-}
-
-   .main-mistree {
-   margin-top: -22px;
-}
-.price {
-    position: absolute;
-    margin-top: -37px;
-    background: white;
-    padding: 8px;
-}
-.choose1 {
-    text-align: center;
-    background: white;
-    border: 1px solid red;
-    position: fixed;
-    z-index: 99999999999999;
-    color: black;
-    bottom: 10px;
-    width: 60%;
-    right: 39px;
-    padding: 0px !important;
-}
-.checkall input {
-    height: 20px;
-    width: 20px;
-}
-.checkall {
-    position: absolute;
-    top: 1px;
-    right: 2px;
-}
-.are {
-    float: left;
-    margin-right: 10px;
-}
-.time {
-    position: absolute;
-    right: 18px;
-    margin-top: -37px;
-    padding: 8px;
-    background: white;
-}
-.search.content .form-control {
-    float: left;
-    width: 70%;
-}
-.newest form select#cars {
-    width: 220px !important;
-}
-.sortby {
-    margin-top: -11px;
-
-}
-button.close.off {
-    margin-top: -3px;
-    font-size: 31px;
-}
-button.iconsearch {
-    padding: 4px;
-    background: deepskyblue;
-    border: 2px solid cornflowerblue;
-    color: white;
-    margin-left: 11px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.Playlist1 {
-    border: 2px solid;
-    padding: 20px;
-}
-button.addNow {
-    padding: 5px;
-    background: #a60000;
-    color: white;
-    border-radius: 8px;
-    border: 2px solid #a60000;
-    font-size: 16px;
-}
-.bardot {
-    font-size: 16px;
-    padding: 4px;
-    color: white;
-    border: 2px solid #36b1ea;
-    background: #36b1ea;
-}
-.camera {
-    display: flex;
-    position: absolute;
-    left: 0;
-}
-.itemsel {
-    border: 2px solid;
-    padding: 6px;
-}
-  </style>
-
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 
 
  <section class="mistress-sec">
@@ -254,7 +138,7 @@ button.addNow {
     <div class="col-md-4 mb-3">
 <form action="/action_page.php">
   <label for="cars">Filter:</label>
-  <select class="form-control" name="cars" id="cars">
+  <select class="form-control" name="cars" id="cars1">
     <option value="volvo">See All</option>
     <option value="saab">Saab</option>
     <option value="opel">Opel</option>
