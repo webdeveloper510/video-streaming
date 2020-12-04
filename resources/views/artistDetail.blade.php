@@ -122,10 +122,18 @@
 </div>
 
 
-<div class="rope bondag">
+<div class="rope bondag text-center">
+  <div class="row">
+    <div class="col-md-4">
   <p>Ballbusting, Rope Bondage</p>
+</div>
+<div class="col-md-4">
   <p>File Type: mp4</p>
+</div>
+<div class="col-md-4">
   <p>Resolution: HD 720p</p>
+</div>
+</div>
 </div>
 
 
