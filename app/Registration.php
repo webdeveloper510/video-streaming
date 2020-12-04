@@ -1157,11 +1157,15 @@ public function getPlayListName(){
 
 public function addWishlist($data1){
 
+  $wishlist = implode(',', $data1);
+
+  print_r($wishlist);die;
+
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
  $data = $this->selectDataById('userid','wishlist',$userid);
 
- $returnData = count($data)>0 ? $this->updateWishlist($data1,$userid) : $this->insertWishlist($data1,$userid);
+ $returnData = count($data)>0 ? $this->updateWishlist($wishlist,$userid) : $this->insertWishlist($wishlist,$userid);
 
  return $returnData;
 

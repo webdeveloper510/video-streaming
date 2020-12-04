@@ -96,19 +96,19 @@ $(document).ready(function() {
         });
 
 
-     var id= $(".media:checked").attr('class').split(' ');
+     //var id= $(".media:checked").attr('class').split(' ');
 
      //alert(id);
 
   	var notId= $(".media:not(:checked)").attr('class').split(' ');
-  	$('#'+id[1]).show();
-  	$('#'+notId[1]).hide();
+  	//$('#'+id[1]).show();
+  	//$('#'+notId[1]).hide();
 
-  	   var id1= $(".media1:checked").attr('class').split(' ');
+  	   //var id1= $(".media1:checked").attr('class').split(' ');
 
-  	var notId2= $(".media1:not(:checked)").attr('class').split(' ');
-  	$('#'+id1[1]).show();
-  	$('#'+notId2[1]).hide();
+  	//var notId2= $(".media1:not(:checked)").attr('class').split(' ');
+  	//$('#'+id1[1]).show();
+  	//$('#'+notId2[1]).hide();
 
         
     });
@@ -528,6 +528,36 @@ $(document).on('click','.slct_video',function(){
 		});
 
 })
+
+
+$(document).on('click','.off',function(){
+
+		$('.media_div').find('.slct_video:checked').trigger("click");
+		 $('.media_div').find('.checkall').css("display",'none');
+})
+
+$(document).on('click', '.addTowishlist', function () {
+
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addToWish",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {},
+
+				success: function(data){
+
+					console.log(data);return false;	
+
+
+						
+					
+				}
+		});
+
+});
 
 
 

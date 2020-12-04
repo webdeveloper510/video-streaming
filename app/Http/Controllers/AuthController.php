@@ -1119,6 +1119,14 @@ public function showLists(Request $request){
     //print_r($request->all());
 }
 
+public function addToWish(Request $req){
 
+    $multipleIds = Session::get('SessionmultipleIds');
+
+      $return = $this->model->addWishlist($multipleIds);
+
+      print_r($return);die;
+
+}
 
  }
