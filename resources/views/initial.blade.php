@@ -12,6 +12,9 @@
       <div class="modal-body">
         <h1 class="text-center text-uppercase">{{session('success')}}</h1>
       </div>
+       <div class="modal-footer">
+        .
+      </div>
     </div>
   </div>
 </div>
