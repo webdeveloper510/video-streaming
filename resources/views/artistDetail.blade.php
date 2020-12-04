@@ -95,7 +95,8 @@
             <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
+              <div class="pricevideo">{{''.$detail->price}}PAZ</div>
+          <div class="timevideo">00:03:56</div>
          </div>
             @endif
              @endforeach

@@ -12,6 +12,24 @@
     margin-right:10px;
 
 }
+.pricevideo {
+    position: absolute;
+    top: 39px;
+    padding: 5px;
+    background: black;
+    color: white;
+    font-weight: 700;
+    left: 15px;
+}
+.timevideo {
+    position: absolute;
+    top: 39px;
+    right: -206px;
+    background: black;
+    padding: 5px;
+    font-weight: 700;
+    color: white;
+}
 .main-mistree-circle .profileImage {
     width: 125px;
     height: 125px;

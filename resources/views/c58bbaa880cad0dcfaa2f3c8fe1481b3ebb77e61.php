@@ -95,7 +95,8 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
+              <div class="pricevideo"><?php echo e(''.$detail->price); ?>PAZ</div>
+          <div class="timevideo">00:03:56</div>
          </div>
             <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
