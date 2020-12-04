@@ -6,11 +6,11 @@
  <section class="mistress-sec">
 <div class="container-fluid">
 <div class="row">
-<div class="col-md-12">
-<div class="sec-video-area">
-  <h3><strong>$</strong> Top Selling Content</h3>
-</div>
-</div>
+    <div class="col-md-12">
+      <div class="sec-video-area">
+        <h3><strong>$</strong> Top Selling Content</h3>
+      </div>
+    </div>
 </div>
 
 <div class="row">
@@ -224,25 +224,25 @@
   <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-<div class="row ">
-<div class="col-md-3">
-<h4><span class="count">0</span>Item  Selected</h4>
-</div>
-<div class="col-md-3">
-<h4>Price : <span class="paz">0</span>PAZ</h4>
-</div>
-<div class="col-md-3 pt-3">
-<button type="button" class="btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
-</div>
-<div class="col-md-3 pt-3">
-<button type="button" class="addTowishlist" >Add To Wishlist </button>
-</div>
-</div>
-</div>
-<div class="modal" role="dialog" id="exampleModal" >
+   <div class="row ">
+      <div class="col-md-3">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-3">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+    <div class="col-md-3 pt-3">
+             <button type="button" class="btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3">
+           <button type="button" class="addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div>
+    <div class="modal" role="dialog" id="exampleModal" >
 
 
-</div>
+    </div>
    <script> 
   $("#owl-example").owlCarousel({
     items:3,
