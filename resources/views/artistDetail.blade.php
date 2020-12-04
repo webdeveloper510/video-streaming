@@ -1,5 +1,6 @@
 
     @include('layouts.header')
+   
 <link rel="stylesheet" href="{{asset('design/artistDetail.css')}}" />
 
 
@@ -12,7 +13,6 @@
       </div>
     </div>
 </div>
-
 <div class="row">
 
 <div class="col-md-3">
@@ -86,6 +86,9 @@
 
 
 <div class="col-md-9">
+<div class="alert alert-success message" id="message" style="display:none" role="alert">
+  A simple success alert—check it out!
+</div>
 <div id="owl-example" class="owl-carousel">
       @foreach ($details as $detail)
             @if($detail->type=='video')
@@ -270,23 +273,23 @@
  </script>
 </section>
 <script type="text/javascript">
-  $(document).ready(function(){
-$(window).scroll(function () {   
+//   $(document).ready(function(){
+// $(window).scroll(function () {   
    
- if($(window).scrollTop() > 200) {
-    $('#sidebar').css('position','fixed');
-    $('#sidebar').css('top','0'); 
-     $('#sidebar').css('width','23%');
- }
+//  if($(window).scrollTop() > 200) {
+//     $('#sidebar').css('position','fixed');
+//     $('#sidebar').css('top','0'); 
+//      $('#sidebar').css('width','23%');
+//  }
 
- else if ($(window).scrollTop() <= 200) {
-    $('#sidebar').css('position','');
-    $('#sidebar').css('top','');
-    $('#sidebar').css('width','100%');
- }  
-    if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
-        $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
-    }
-});
-});
+//  else if ($(window).scrollTop() <= 200) {
+//     $('#sidebar').css('position','');
+//     $('#sidebar').css('top','auto');
+//     $('#sidebar').css('width','100%');
+//  }  
+//     if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
+//         $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+//     }
+// });
+// });
 </script>

@@ -29,7 +29,7 @@
          <div class="itemsel">
           @if($cartVideo)
             @foreach($cartVideo as $index=>$value)
-         <div class="row ">
+         <div class="row py-2">
           <div class="col"><h5>{{$value->title}}</h5></div>
           <div class="col"><span>{{$value->price}}PAZ</span>
           </div>

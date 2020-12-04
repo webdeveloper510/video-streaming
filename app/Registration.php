@@ -1018,7 +1018,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
       $newData=array();
 
-      //print_r($lists);die;
+     // print_r($lists);die;
 
         $session_data =   Session::get('User');
 
@@ -1029,15 +1029,17 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
         $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
-        $newData[] = $lists['id'] ? $lists['id'] : '';
+
+       // print_r($lists);die;
+        $newData[] = array_key_exists("id",$lists) ? $lists['id'] : '';
 
         $lists['userid'] = $userid;
 
-        $ids  = isset($lists['id']) ? $newData : $multipleIds = Session::get('SessionmultipleIds');
+        $ids  = array_key_exists("id",$lists) ? $newData : Session::get('SessionmultipleIds');
         //print_r($ids);die;
 
         $tokensData = $this->selectDataById('id','users',$userid);
-
+       // print_r($tokensData);die;
     
 
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
@@ -1166,6 +1168,8 @@ public function getPlayListName(){
 
 
 public function addWishlist($data1){
+
+ // print_r($data1);die;
 
   // $wishlist = implode(',', $data1);
 

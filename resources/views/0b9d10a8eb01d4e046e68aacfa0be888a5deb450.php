@@ -29,7 +29,7 @@
          <div class="itemsel">
           <?php if($cartVideo): ?>
             <?php $__currentLoopData = $cartVideo; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-         <div class="row ">
+         <div class="row py-2">
           <div class="col"><h5><?php echo e($value->title); ?></h5></div>
           <div class="col"><span><?php echo e($value->price); ?>PAZ</span>
           </div>

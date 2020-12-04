@@ -1,5 +1,6 @@
 
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+   
 <link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 
 
@@ -12,7 +13,6 @@
       </div>
     </div>
 </div>
-
 <div class="row">
 
 <div class="col-md-3">
@@ -86,6 +86,9 @@
 
 
 <div class="col-md-9">
+<div class="alert alert-success message" id="message" style="display:none" role="alert">
+  A simple success alert—check it out!
+</div>
 <div id="owl-example" class="owl-carousel">
       <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
@@ -95,7 +98,8 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
+              <div class="pricevideo"><?php echo e(''.$detail->price); ?>PAZ</div>
+          <div class="timevideo">00:03:56</div>
          </div>
             <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -121,10 +125,18 @@
 </div>
 
 
-<div class="rope bondag">
+<div class="rope bondag text-center">
+  <div class="row">
+    <div class="col-md-4">
   <p>Ballbusting, Rope Bondage</p>
+</div>
+<div class="col-md-4">
   <p>File Type: mp4</p>
+</div>
+<div class="col-md-4">
   <p>Resolution: HD 720p</p>
+</div>
+</div>
 </div>
 
 
@@ -190,7 +202,7 @@
 <div class="row media_div">
        <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
-    <div class="col-md-4 pr-4 mt-3">
+    <div class="col-md-4 pr-4 mt-3 mb-5" >
         <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="270" height="200" controls allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
@@ -262,21 +274,24 @@
  </script>
 </section>
 <script type="text/javascript">
-  $(document).ready(function(){
-$(window).scroll(function () {   
+//   $(document).ready(function(){
+// $(window).scroll(function () {   
    
- if($(window).scrollTop() > 200) {
-    $('#sidebar').css('position','fixed');
-    $('#sidebar').css('top','0'); 
- }
+//  if($(window).scrollTop() > 200) {
+//     $('#sidebar').css('position','fixed');
+//     $('#sidebar').css('top','0'); 
+//      $('#sidebar').css('width','23%');
+//  }
 
- else if ($(window).scrollTop() <= 200) {
-    $('#sidebar').css('position','');
-    $('#sidebar').css('top','');
- }  
-    if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
-        $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
-    }
-});
-});
-</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
+//  else if ($(window).scrollTop() <= 200) {
+//     $('#sidebar').css('position','');
+//     $('#sidebar').css('top','auto');
+//     $('#sidebar').css('width','100%');
+//  }  
+//     if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
+//         $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
+//     }
+// });
+// });
+</script>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
