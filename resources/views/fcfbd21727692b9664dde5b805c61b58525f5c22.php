@@ -10,7 +10,10 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <h1 class="text-center text-uppercase"><?php echo e(session('success')); ?></h1>
+        <h1 class="text-center text-uppercase comimg1"><?php echo e(session('success')); ?></h1>
+      </div>
+       <div class="modal-footer">
+        .
       </div>
     </div>
   </div>
@@ -88,7 +91,7 @@
  
           </p>
          <div class="col-md-12 text-center mt-2">
-  <button type="button" class="btn btn-primary"><a href="<?php echo e(url('/checkUser/artist')); ?>">Register as Artist</a></button>
+  <button type="button" class="btn btn-primary btn-lg"><a href="<?php echo e(url('/checkUser/artist')); ?>">Register as Artist</a></button>
 
     </div>
     </div>
@@ -127,7 +130,7 @@
           </p>
           <div class="col-md-12 text-center mt-5">
 
- <button type="button" class="btn btn-primary px-3"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as Customer </a></button>
+ <button type="button" class="btn btn-primary btn-lg px-3"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as Customer </a></button>
 
     </div>
     </div>

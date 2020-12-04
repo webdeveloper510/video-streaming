@@ -7,12 +7,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="alert alert-success message" style="display: none" role="alert">
+  A simple success alert—check it out!
+</div>
       <div class="modal-body text-left">
       	
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
-     
-      	<h5 class="select_list"> </h5> <a href="" class="aedit">edit</a><br>
+        <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      	<h5 class="select_list"><?php echo e($val->listname); ?> </h5><br>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">
@@ -39,8 +43,8 @@
     </div>
   </div>
       <div class="text-center mt-4">
-           <h3>Prize : 600PAZ</h3>
-      <button type="button" class=" addNow">ADD NOW</button>
+           <h3>Prize : <span class="total"><?php echo e($total_sum); ?></span></h3>
+      <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
   </div>
       </div>
       
