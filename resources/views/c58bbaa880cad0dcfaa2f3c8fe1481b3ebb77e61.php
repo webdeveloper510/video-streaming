@@ -95,7 +95,8 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-
+              <div class="pricevideo"><?php echo e(''.$detail->price); ?>PAZ</div>
+          <div class="timevideo">00:03:56</div>
          </div>
             <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -121,10 +122,18 @@
 </div>
 
 
-<div class="rope bondag">
+<div class="rope bondag text-center">
+  <div class="row">
+    <div class="col-md-4">
   <p>Ballbusting, Rope Bondage</p>
+</div>
+<div class="col-md-4">
   <p>File Type: mp4</p>
+</div>
+<div class="col-md-4">
   <p>Resolution: HD 720p</p>
+</div>
+</div>
 </div>
 
 
@@ -268,11 +277,13 @@ $(window).scroll(function () {
  if($(window).scrollTop() > 200) {
     $('#sidebar').css('position','fixed');
     $('#sidebar').css('top','0'); 
+     $('#sidebar').css('width','23%');
  }
 
  else if ($(window).scrollTop() <= 200) {
     $('#sidebar').css('position','');
     $('#sidebar').css('top','');
+    $('#sidebar').css('width','100%');
  }  
     if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
         $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
@@ -280,4 +291,4 @@ $(window).scroll(function () {
 });
 });
 </script>
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
