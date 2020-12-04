@@ -199,7 +199,7 @@
 <div class="row media_div">
        @foreach ($details as $detail)
             @if($detail->type=='video')
-    <div class="col-md-4 pr-4 mt-3">
+    <div class="col-md-4 pr-4 mt-3 mb-5" >
         <a href="{{url('artist-video/'.$detail->id)}}">
         <video width="270" height="200" controls allowfullscreen>
             <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
