@@ -2,11 +2,7 @@
   .owl-carousel {
     display: block !important;
 }
-.video-icon a {
-    text-align: center;
-    position: relative;
-    left: 119px;
-}
+
 .addTowishlist, .library {
     background-color: #a60000;
     border: 2px solid #a60000;
@@ -37,9 +33,12 @@
 }
 .price {
     position: absolute;
-    margin-top: -37px;
-    background: white;
+    background: #010001;
     padding: 8px;
+    top: 24px;
+    color: white;
+    font-weight: 700;
+   left: 17px;
 }
 .choose1 {
     text-align: center;
@@ -68,10 +67,12 @@
 }
 .time {
     position: absolute;
-    right: 8px;
-    margin-top: -37px;
+    right: 40px;
     padding: 8px;
-    background: white;
+    font-weight: 700;
+    background: #010001;
+    color: white;
+    top: 24px;
 }
 .search.content .form-control {
     float: left;
