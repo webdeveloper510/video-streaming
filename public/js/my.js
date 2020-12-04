@@ -297,7 +297,7 @@ $(document).on('click', '.addNow', function () {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {"listvideo": videoid,'tokens':token},
+				data: {"id": videoid,'tokens':token},
 
 				success: function(data){
 
@@ -309,6 +309,39 @@ $(document).on('click', '.addNow', function () {
 						$('.message').html(data.messge);
 
 					}
+
+
+						
+					
+				}
+		});
+
+});
+
+$(document).on('click', '.multipleAdd', function () {
+
+	var token= $('.total').text();
+	
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addmMltiple",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'tokens':token},
+
+				success: function(data){
+
+					if(data.status==1){
+						$('.message').show();
+
+						$('.message').html(data.messge);
+
+					}
+
+					
+				
 
 
 						
@@ -331,7 +364,9 @@ $(document).on('click', '.removeSession', function () {
 
 	var id = $(this).attr('id');
 
-	$('.media_div').find('.slct_video:checked').trigger("click");
+
+
+	$('.media_div').find('#'+id).trigger("click");
 
 		//console.log('hhhss');return false;
 		addMultiple('false',id);
@@ -369,6 +404,9 @@ function addMultiple(check,id){
 					//console.log(data);return false;
 
 					$('#exampleModal').html(data);
+						if($('.total').text()==0){
+							$('.close').trigger('click');
+						}
 
 					
 

@@ -1016,6 +1016,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function addToLibrary($lists){
 
+      //print_r($lists);die;
+
         $session_data =   Session::get('User');
 
         $userid =  $session_data->id;
@@ -1028,31 +1030,37 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $lists['userid'] = $userid;
 
+        $ids  = isset($lists['listvideo']) ? $lists : $multipleIds = Session::get('SessionmultipleIds');
+        //print_r($ids);die;
+
         $tokensData = $this->selectDataById('id','users',$userid);
 
-       //print_r($tokensData);die;
-        //print_r($lists);die;
+    
 
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
+
 
 
       if($tokens < $tokensData[0]->tokens){
 
         if(count($data)>0){
 
-           // echo "jj";die;
 
-            $videoid = $lists['listvideo'];
+        $newArray = explode(",",$data[0]);
+ 
+   $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
 
-         $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
-            'listvideo' => DB::raw("CONCAT(listvideo,',".$videoid."')")
+  $result_array = array_unique($aunion);
+
+    $newListid = implode(',',$result_array);
+
+     $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
+            'listvideo' =>$newListid  //DB::raw("CONCAT(listvideo,',".$videoid."')")
           ]);
 
-         //print_r($update);die;
+        
 
          if($update==1){
-
-              //$tokens = $tokensData[0]->tokens;
 
                 $reduce  = $this->reduceTokens($tokensData,$userid,$tokens);
 
@@ -1069,9 +1077,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         else {
 
-         // echo "dd";die;
-
-           $lists['listvideo'] = $lists['listvideo'];
+           $lists['listvideo'] = $lists['id'];
 
             $tokens = $tokensData[0]->tokens;
               unset($lists['tokens']);
@@ -1080,8 +1086,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
           $insert  =DB::table('playlist')->insert($lists);
 
-             //print_r($insert);die;
-
+         
                $returnData = $insert ? $this->reduceTokens($tokensData,$userid,$tokens)  : 0;
 
                return $returnData;
@@ -1261,11 +1266,19 @@ public function getWishlist(){
 }
 
 public function getVideoWhereIn($mutli){
+      
+            $value = DB::table("media")
 
+            ->select(DB::raw('*'))
+          
+            ->whereIn('id', $mutli)
+            //->groupBy('id','media','price')
+            ->get()->toArray();
 
-  $value = DB::table("media")->whereIn('id', $mutli)->get()->toArray();
+            //print_r($value);die;
 
-  return $value;
+       $sum = array_sum(array_column($value, 'price'));
+        return ['result'=>$value,'sum'=>$sum];
 
 }
 

@@ -1079,9 +1079,12 @@ public function addToLibrary(Request $req){
 
 public function addMultipleVideo(Request $req){
 
+
+
        $remove = $req['isRemove'];
        
        $multipleIds = Session::get('SessionmultipleIds');
+       //print_r($multipleIds);die;
        if($remove=='yes'){
 
              $pos = array_search($req['id'], $multipleIds);
@@ -1094,7 +1097,16 @@ public function addMultipleVideo(Request $req){
 
         $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 
-        return view('playlistpop',['cartVideo'=>$cartVideo]);
+            $all_play_lists = $this->model->getPlaylist();
+
+            //print_r($all_play_lists);die;
+
+        $total = $cartVideo['sum'];
+        $result = $cartVideo['result'];
+
+        //print_r($cartVideo);die;
+
+ return view('playlistpop',['cartVideo'=>$result, 'total_sum'=>$total,'listname'=>$all_play_lists]);
 
 }
 
@@ -1137,6 +1149,29 @@ public function showLists(Request $request){
 
       print_r($return);die;
 
+}
+
+public function addmMltiple(Request $req){
+
+         $addTolibrary = $req->all();
+
+        $data = $this->model->addToLibrary($addTolibrary);
+
+        
+        if($data=='Insufficient Paz Tokens'){
+
+            return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+        }
+
+        else if($data==1){
+
+           return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
+
+        }
+
+        else{
+             return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
+        }
 }
 
  }
