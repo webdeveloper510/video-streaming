@@ -280,4 +280,3 @@ $(window).scroll(function () {
 });
 });
 </script>
-@include('layouts.footer')
