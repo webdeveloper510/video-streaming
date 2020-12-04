@@ -297,7 +297,7 @@ $(document).on('click', '.addNow', function () {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {"listvideo": videoid,'tokens':token},
+				data: {"id": videoid,'tokens':token},
 
 				success: function(data){
 
@@ -318,10 +318,78 @@ $(document).on('click', '.addNow', function () {
 
 });
 
+$(document).on('click', '.multipleAdd', function () {
+
+	var token= $('.total').text();
+	
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addmMltiple",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'tokens':token},
+
+				success: function(data){
+
+					if(data.status==1){
+						$('.message').show();
+
+						$('.message').html(data.messge);
+
+					}
+
+					
+				
+
+
+						
+					
+				}
+		});
+
+});
+
 $(document).on('click', '.library', function () {
 
-	//console.log(token);
-	//console.log(videoid);return false;
+		//console.log('hh');return false;
+		addMultiple('true',id='');
+
+	
+
+});
+
+$(document).on('click', '.removeSession', function () {
+
+	var id = $(this).attr('id');
+
+
+
+	$('.media_div').find('#'+id).trigger("click");
+
+		//console.log('hhhss');return false;
+		addMultiple('false',id);
+
+	
+
+});
+
+
+
+function addMultiple(check,id){
+
+	if(check=='false'){
+
+		var remove = 'yes';
+	}
+
+	else{
+		var remove = 'No';
+	}
+
+	//console.log('yes');return false;
+
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/addMultipleVideo",
@@ -329,13 +397,16 @@ $(document).on('click', '.library', function () {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {},
+				data: {'isRemove':remove,'id':id},
 
 				success: function(data){
 
 					//console.log(data);return false;
 
 					$('#exampleModal').html(data);
+						if($('.total').text()==0){
+							$('.close').trigger('click');
+						}
 
 					
 
@@ -346,7 +417,7 @@ $(document).on('click', '.library', function () {
 				}
 		});
 
-});
+}
 
 
 $(document).on('click', '.section_advance', function () {

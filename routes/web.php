@@ -89,6 +89,8 @@ Route::post('selectMultiple', 'AuthController@selectMultiple');
 
 Route::post('updateProfile', 'AuthController@updateProfile');
 
+Route::post('addmMltiple', 'AuthController@addmMltiple');
+
 Route::post('showOffer','AuthController@showOffer');
 
 Route::post('editDescription','AuthController@editDescription');

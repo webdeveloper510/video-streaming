@@ -1,5 +1,5 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- end header -->
 <div class="inner-page">
@@ -12,24 +12,24 @@
     <label for="exampleFormControlSelect1"> Select Playlist</label>
     <select class="form-control" name="playlist" id="exampleFormControlSelect1">
       <option value="">Choose..</option>
-       @foreach($listname as $val)
-<option value="{{$val->id}}">{{$val->playlistname}}</option>
-@endforeach
+       <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<option value="<?php echo e($val->id); ?>"><?php echo e($val->playlistname); ?></option>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </select>
 
   </div>
   </form>  
 		</div>
         <div class="row pb-row">
-          @if($videos)
-          @foreach($videos as $indx=> $val)
+          <?php if($videos): ?>
+          <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
                 <video width="320" height="240" controls>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
            </video>
             </div>
-            @endforeach
-            @endif
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
 			<div class="out_red">
 			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
         </div>
@@ -40,16 +40,16 @@
 		  <h3 class="tittle">Wish list</h3>		  
 		</div>
         <div class="row pb-row">
-              @if($wishList)
-              @foreach($wishList as $indx=> $val)
+              <?php if($wishList): ?>
+              <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
              <video width="320" height="240" controls>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
             </div>
-            @endforeach
-            @endif
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
 			<div class="out_red">
 			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
         </div>
@@ -83,7 +83,7 @@
 <!--body end-->
 
 <!--footer -->
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 <style>
 form.form-horizontal {
@@ -109,3 +109,4 @@ button.btn.btn-default {
 }
 </style>
 </html>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>

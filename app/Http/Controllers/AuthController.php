@@ -976,6 +976,7 @@ public function notifyEmail(Request $req){
 
       $wishList = $this->model->getWishlist();
 
+            //print_r($wishList);die;
 
     $videos = $this->model->getVideosbyList($ids);
 
@@ -986,35 +987,35 @@ public function notifyEmail(Request $req){
   }
 
   public function selectMultiple(Request $req){
-
         $idsData = $req->all();
+       $multipleIds = Session::get('SessionmultipleIds');
+        // print_r($multipleIds);
+          if($idsData['isCheck']=='false'){
+                //echo "yes";
+              $pos = array_search($idsData['id'], $multipleIds);
 
-        //print_r($idsData);die;
+                 unset($multipleIds[$pos]);
 
-     $multipleIds = Session::get('SessionmultipleIds');
-
-        if($idsData['isCheck']=='false'){
-
-          $pos = array_search($idsData['id'], $multipleIds);
-
-            unset($multipleIds[$pos]);
+                 Session::put('SessionmultipleIds',$multipleIds);
 
         }
 
         else{
+                  //echo "no";die;
+                    if($multipleIds){
 
-                  if($multipleIds){
+                        if(!in_array($idsData['id'], $multipleIds)){
 
-                      if(!in_array($idsData['id'], $multipleIds)){
+                            $multipleIds[] = $idsData['id'];
 
-                          $multipleIds[] = $idsData['id'];
+                            Session::put('SessionmultipleIds',$multipleIds);
+                        }
 
-                          Session::put('SessionmultipleIds',$multipleIds);
-                      }
-
-                }
+                  }
 
         else{
+
+          //echo "no";die;
 
                       $arr=array();
 
@@ -1025,7 +1026,7 @@ public function notifyEmail(Request $req){
 
       }  
 
-      //print_r($multipleIds);
+     // print_r($multipleIds);
 
   }
 
@@ -1076,15 +1077,36 @@ public function addToLibrary(Request $req){
 
 }
 
-public function addMultipleVideo(){
+public function addMultipleVideo(Request $req){
 
-    $multipleIds = Session::get('SessionmultipleIds');
 
-    $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 
-    //print_r($cartVideo);die;
+       $remove = $req['isRemove'];
+       
+       $multipleIds = Session::get('SessionmultipleIds');
+       //print_r($multipleIds);die;
+       if($remove=='yes'){
 
-        return view('playlistpop',['cartVideo'=>$cartVideo]);
+             $pos = array_search($req['id'], $multipleIds);
+
+             unset($multipleIds[$pos]);
+
+           Session::put('SessionmultipleIds',$multipleIds);
+
+       }
+
+        $cartVideo = $this->model->getVideoWhereIn($multipleIds);
+
+            $all_play_lists = $this->model->getPlaylist();
+
+            //print_r($all_play_lists);die;
+
+        $total = $cartVideo['sum'];
+        $result = $cartVideo['result'];
+
+        //print_r($cartVideo);die;
+
+ return view('playlistpop',['cartVideo'=>$result, 'total_sum'=>$total,'listname'=>$all_play_lists]);
 
 }
 
@@ -1119,7 +1141,7 @@ public function showLists(Request $request){
     //print_r($request->all());
 }
 
-public function addToWish(Request $req){
+   public function addToWish(Request $req){
 
     $multipleIds = Session::get('SessionmultipleIds');
 
@@ -1127,6 +1149,29 @@ public function addToWish(Request $req){
 
       print_r($return);die;
 
+}
+
+public function addmMltiple(Request $req){
+
+         $addTolibrary = $req->all();
+
+        $data = $this->model->addToLibrary($addTolibrary);
+
+        
+        if($data=='Insufficient Paz Tokens'){
+
+            return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+        }
+
+        else if($data==1){
+
+           return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
+
+        }
+
+        else{
+             return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
+        }
 }
 
  }
