@@ -10,7 +10,7 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <h1 class="text-center text-uppercase">{{session('success')}}</h1>
+        <h1 class="text-center text-uppercase comimg1">{{session('success')}}</h1>
       </div>
        <div class="modal-footer">
         .

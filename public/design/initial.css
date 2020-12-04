@@ -14,6 +14,9 @@
     padding-right: 21px;
     color: green;
 }
+h1.text-center.text-uppercase.comimg1 {
+    margin-top: -24px;
+}
 .user1 {
     box-shadow: 1px 1px 6px 1px #0000003d;
 }
