@@ -18,12 +18,15 @@
       	<h5 class="select_list"><?php echo e($val->listname); ?> </h5><br>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       
-      	<a href="#" class="show_list">Create New Playlist +</a>
-      	<span class="create_playlistt" style="display: none">
+      	
+      	
+      </div>
+
+      <a href="#" class="show_list">Create New Playlist +</a>
+      <span class="create_playlistt" style="display: none">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
-      </div>
       <div class="container">
          <h3>Items </h3>
          <div class="itemsel">
@@ -43,7 +46,7 @@
     </div>
   </div>
       <div class="text-center mt-4">
-           <h3>Prize : <span class="total"><?php echo e($total_sum); ?></span></h3>
+           <h3>Total Price : <span class="total"><?php echo e($total_sum); ?></span>PAZ</h3>
       <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
   </div>
       </div>

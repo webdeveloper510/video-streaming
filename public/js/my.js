@@ -266,8 +266,9 @@ $(document).on('click', '.create_list', function () {
 					
 					if(data.status==1){
 						$('.message').show();
-
+						$('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
 						$('.message').html(data.message);
+						$('.list').val('');
 
 					}
 
@@ -601,7 +602,7 @@ $(document).on('click','.slct_video',function(){
 
 				success: function(data){
 
-				console.log(data);return false;
+				     console.log(data);return false;
 					
 					
 				}

@@ -1039,16 +1039,21 @@ public function selectMultiple(Request $req){
 
         $idsData = $req->all();
 
+        print_r($idsData);
      $multipleIds = Session::get('SessionmultipleIds');
   
     if($idsData['isCheck']=='false'){
-      print_r($multipleIds);
+        echo "false";
       echo $idsData['id'];
-      echo "false";
+
+      print_r($multipleIds);
         
         $pos = array_search($idsData['id'], $multipleIds);
 
+        echo $multipleIds[$pos];
+
            unset($multipleIds[$pos]);
+          
 
            Session::put('SessionmultipleIds',$multipleIds);
 
@@ -1060,7 +1065,7 @@ public function selectMultiple(Request $req){
 
                   if(!in_array($idsData['id'], $multipleIds)){
 
-                    echo "yes nhi h";
+               
 
                       $multipleIds[] = $idsData['id'];
 
@@ -1071,7 +1076,6 @@ public function selectMultiple(Request $req){
 
   else{
 
-    echo "new array";
 
                 $arr=array();
 
@@ -1082,21 +1086,22 @@ public function selectMultiple(Request $req){
 
 }  
 
-       print_r($multipleIds);
+$multipleIds = Session::get('SessionmultipleIds');
+    print_r($multipleIds);
 
 }
 
 public function addMultipleVideo(Request $req){
 
           $multipleIds = Session::get('SessionmultipleIds');
-        // 
+
             $remove = $req['isRemove'];
         
   
       
        if($remove=='yes'){
 
-            print_r($multipleIds);
+        
 
              $pos = array_search($req['id'], $multipleIds);
 
@@ -1105,7 +1110,7 @@ public function addMultipleVideo(Request $req){
            Session::put('SessionmultipleIds',$multipleIds);
            $multipleIds = Session::get('SessionmultipleIds');
 
-           print_r($multipleIds);
+        
        }
 
         $cartVideo = $this->model->getVideoWhereIn($multipleIds);
@@ -1141,7 +1146,7 @@ public function createList(Request $request){
 
           $yes = $this->model->createList($request);
 
-   $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!')) :response()->json(array('status'=>0, 'message'=>'Some Error Occure'));
+   $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!','listname'=>$request->listname)) :response()->json(array('status'=>0, 'message'=>'Some Error Occure'));
 
    return $returnData;
 
