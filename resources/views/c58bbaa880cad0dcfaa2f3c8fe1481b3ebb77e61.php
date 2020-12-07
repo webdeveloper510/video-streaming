@@ -199,7 +199,7 @@
 <div class="row media_div">
        <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
-    <div class="col-md-4 pr-4 mt-3">
+    <div class="col-md-4 pr-4 mt-3 mb-5" >
         <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="270" height="200" controls allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
@@ -277,11 +277,13 @@ $(window).scroll(function () {
  if($(window).scrollTop() > 200) {
     $('#sidebar').css('position','fixed');
     $('#sidebar').css('top','0'); 
+     $('#sidebar').css('width','23%');
  }
 
  else if ($(window).scrollTop() <= 200) {
     $('#sidebar').css('position','');
     $('#sidebar').css('top','');
+    $('#sidebar').css('width','100%');
  }  
     if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
         $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));

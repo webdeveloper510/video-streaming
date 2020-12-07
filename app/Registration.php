@@ -1018,7 +1018,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
       $newData=array();
 
-      //print_r($lists);die;
+     // print_r($lists);die;
 
         $session_data =   Session::get('User');
 
@@ -1029,15 +1029,17 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
         $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
-        $newData[] = $lists['id'] ? $lists['id'] : '';
+
+       // print_r($lists);die;
+        $newData[] = array_key_exists("id",$lists) ? $lists['id'] : '';
 
         $lists['userid'] = $userid;
 
-        $ids  = isset($lists['id']) ? $newData : $multipleIds = Session::get('SessionmultipleIds');
+        $ids  = array_key_exists("id",$lists) ? $newData : Session::get('SessionmultipleIds');
         //print_r($ids);die;
 
         $tokensData = $this->selectDataById('id','users',$userid);
-
+       // print_r($tokensData);die;
     
 
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
@@ -1167,22 +1169,27 @@ public function getPlayListName(){
 
 public function addWishlist($data1){
 
+ // print_r($data1);die;
+
   // $wishlist = implode(',', $data1);
 
-
+  unset($data1['_token']);
 
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
  $data = $this->selectSingleById('userid','wishlist',$userid);
 
- //print_r(count($data));die;
-  $newArray = explode(",",$data[0]);
+
+ //print_r($data);die;
+ if($data){
+     $newArray =  explode(",",$data[0]);
+    $aunion=  array_merge(array_intersect($data1, $newArray),array_diff($data1, $newArray),array_diff($newArray, $data1));
+     
+    $result_array = array_unique($aunion);
+ }
  
-  $aunion=  array_merge(array_intersect($data1, $newArray),array_diff($data1, $newArray),array_diff($newArray, $data1));
-
-  $result_array = array_unique($aunion);
- $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid) : $this->insertWishlist($wishlist,$userid);
-
+ $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid) : $this->insertWishlist($data1,$userid);
+ //print_r($returnData);die;
  return $returnData;
 
   

@@ -266,8 +266,9 @@ $(document).on('click', '.create_list', function () {
 					
 					if(data.status==1){
 						$('.message').show();
-
+						$('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
 						$('.message').html(data.message);
+						$('.list').val('');
 
 					}
 
@@ -333,10 +334,15 @@ $(document).on('click', '.multipleAdd', function () {
 
 				success: function(data){
 
+				//console.log(data);return false;
+
 					if(data.status==1){
 						$('.message').show();
 
 						$('.message').html(data.messge);
+						setTimeout(function(){ 
+							location.reload();
+						 }, 2000);
 
 					}
 
@@ -366,7 +372,7 @@ $(document).on('click', '.removeSession', function () {
 
 
 
-	$('.media_div').find('#'+id).trigger("click");
+	
 
 		//console.log('hhhss');return false;
 		addMultiple('false',id);
@@ -401,7 +407,11 @@ function addMultiple(check,id){
 
 				success: function(data){
 
-					//console.log(data);return false;
+					if(id!=''){
+						$('.media_div').find('#'+id).trigger("click");
+					}
+
+					console.log(data);
 
 					$('#exampleModal').html(data);
 						if($('.total').text()==0){
@@ -592,7 +602,7 @@ $(document).on('click','.slct_video',function(){
 
 				success: function(data){
 
-				console.log(data);return false;
+				     console.log(data);return false;
 					
 					
 				}
@@ -620,7 +630,19 @@ $(document).on('click', '.addTowishlist', function () {
 
 				success: function(data){
 
-					console.log(data);return false;	
+					//console.log(data);return false;
+
+					if(data.status==1){
+						$('html,body').animate({
+							scrollTop: $("#message").offset().top
+						}, 'slow');
+						$('.message#message').show();
+
+						$('.message').html(data.message);	
+					}
+
+
+
 
 
 						

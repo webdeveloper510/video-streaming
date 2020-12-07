@@ -65,6 +65,8 @@ class artist extends Controller
     public function cartSbmit(Request $req){
         
             $data=$req->all();
+
+            //print_r($data);die;
           
             $arrayId=Session::get('ids');
             if($arrayId){
