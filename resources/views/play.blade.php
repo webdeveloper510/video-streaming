@@ -1,7 +1,5 @@
-
 @include('layouts.header')
 <link rel="stylesheet" href="{{asset('design/play.css')}}" />
-
 <!-- end header -->
 <div class="inner-page">
   <div class="container">
@@ -22,35 +20,30 @@
   </form>  
 		</div>
         <div class="row pb-row">
-           <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-
-      <div id="owl-example" class="owl-carousel">
-      @forelse ($recently as $recnt)
-            @if($recnt->type=='video')
-            <div class="col-md-4">
-            
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          
-            </div>
-            @endif
-            @empty
-             @endforelse
-
-  
-</div>
           @if($videos)
-          @foreach($videos as $indx=> $val)
+          <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-            <div class="col-md-3 pb-video">
-                <video width="100%" height="100%" controls>
-               <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
-           </video>
-            </div>
-            @endforeach
+
+<div id="owl-example" class="owl-carousel">
+@forelse ($videos as $vid)
+      @if($vid->type=='video')
+      <div class="col-md-4">
+      
+    <video width="370" height="245" controls allowfullscreen>
+      <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+      </div>
+      @endif
+      @empty
+       @endforelse
+
+
+</div>
+
+
+</div>
             @endif
 			<div class="out_red">
 			<button onclick="myFunction()" id="myBtn">See more</button></div>
@@ -100,8 +93,26 @@
         </div>
 	</div>	
   </div>
-</div>  
+</div>
 
+<script>
+  $(document).ready(function() {
+ 
+  $("#owl-example").owlCarousel({
+    items:3
+ loop:true,
+margin:10,
+autoPlay:true,
+nav:true,
+rewindNav:false
+  });
+});
+ </script>
+<style>
+ .owl-carousel {
+    display: block !important;
+  }
+</style>
 <!--body end-->
 
 <!--footer -->
