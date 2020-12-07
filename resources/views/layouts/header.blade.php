@@ -24,7 +24,7 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     </ul>
-
+                      @if($login)
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
                         <h3 style="color: #fff;">Video</h3>
@@ -452,6 +452,7 @@
                     
                      </div>
                     </div>
+                    @endif
                 </ul>
             
               <li id="search">

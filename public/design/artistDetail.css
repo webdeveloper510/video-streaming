@@ -106,6 +106,10 @@ h5.select_list.active {
     margin-top: -11px;
 
 }
+.modal{
+
+bottom: 80px !important;
+}
 button.close.off {
     margin-top: -3px;
     font-size: 31px;
