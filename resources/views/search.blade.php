@@ -1,22 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>PAZ html</title>
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-</head>
-<body id="default_theme" class="it_service">
-<!-- header -->
 @include('layouts.header')
 <!-- end header -->
 <div class="container">
@@ -39,7 +21,7 @@
 
 
     </div>
-    <button type="button" class="btn btn-primary bardot">Select</button>
+    <button type="button" class="btn btn-primary bardot mt-3">Select</button>
     @if(!$video->isEmpty())
  <div class="row mt-5 pt-5">
  	  @foreach ($video as $vid)
@@ -51,6 +33,7 @@
        Your browser does not support the video tag.
             </video>
 				</div>
+         <div class="checkall" style="display: block"><form> <input type="checkbox" class="slct_video"  data-id=""></form></div>
 			</div>
 			@endif
 			@endforeach
@@ -65,9 +48,32 @@
   @endif
   <br/>
 </div> 
- 
-<!--body start>
 
+<div class="choose1" style="display:none;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+   <div class="row ">
+      <div class="col-md-3">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-3">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+    <div class="col-md-3 pt-3">
+             <button type="button" class="btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3">
+           <button type="button" class="addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div>
+    <div class="modal" role="dialog" id="exampleModal" >
+
+
+    </div>
+     
+<!--body start>
 <body end-->
 
 <!--footer -->
@@ -89,6 +95,13 @@
 }
 button.btn.btn-primary.bardot {
     float: right;
+}
+input.slct_video {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
 }
 </style>
 </html>
