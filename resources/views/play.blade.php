@@ -1,6 +1,7 @@
 
 @include('layouts.header')
- if
+<link rel="stylesheet" href="{{asset('design/play.css')}}" />
+
 <!-- end header -->
 <div class="inner-page">
   <div class="container">
@@ -21,17 +22,38 @@
   </form>  
 		</div>
         <div class="row pb-row">
+           <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+      <div id="owl-example" class="owl-carousel">
+      @forelse ($recently as $recnt)
+            @if($recnt->type=='video')
+            <div class="col-md-4">
+            
+          <video width="370" height="245" controls allowfullscreen>
+            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+            </div>
+            @endif
+            @empty
+             @endforelse
+
+  
+</div>
           @if($videos)
           @foreach($videos as $indx=> $val)
+
             <div class="col-md-3 pb-video">
                 <video width="100%" height="100%" controls>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+               <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
            </video>
             </div>
             @endforeach
             @endif
 			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
+			<button onclick="myFunction()" id="myBtn">See more</button></div>
         </div>
 	</div>
 	<br/>
@@ -51,7 +73,7 @@
             @endforeach
             @endif
 			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
+			<button onclick="myFunction()" id="myBtn">See more</button></div>
         </div>
 	</div>
 	<br/>
@@ -74,7 +96,7 @@
                 <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
             </div>
 			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
+			<button onclick="myFunction()" id="myBtn">See more</button></div>
         </div>
 	</div>	
   </div>
@@ -85,27 +107,5 @@
 <!--footer -->
 @include('layouts.footer')
 </body>
-<style>
-form.form-horizontal {
-    width: 100%;
-    float: left;
-    display: flex;
-}
-button.btn.btn-default {
-    background: #a60000;
-}
-.uploa_outer form {
-    padding: 10px 20px;
-}
-.uploa_outer {
-    float: left;
-    width: 100%;
-    margin: 20px 0px;
-}
-.form-group {
-    float: right;
-    width: 35%;
-    margin-top: -74px;
-}
-</style>
+
 </html>
