@@ -1,5 +1,6 @@
 
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+   
 <link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 
 
@@ -12,7 +13,6 @@
       </div>
     </div>
 </div>
-
 <div class="row">
 
 <div class="col-md-3">
@@ -86,6 +86,9 @@
 
 
 <div class="col-md-9">
+<div class="alert alert-success message" id="message" style="display:none" role="alert">
+  A simple success alert—check it out!
+</div>
 <div id="owl-example" class="owl-carousel">
       <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
@@ -281,8 +284,8 @@ $(window).scroll(function () {
  }
 
  else if ($(window).scrollTop() <= 200) {
-    $('#sidebar').css('position','');
-    $('#sidebar').css('top','');
+    $('#sidebar').css('position','relative');
+    $('#sidebar').css('top','auto');
     $('#sidebar').css('width','100%');
  }  
     if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {

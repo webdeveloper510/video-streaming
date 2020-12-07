@@ -248,6 +248,7 @@ a.carousel-control-prev {
     position: absolute;
     top: 250px !important;
     bottom: 0;
+    right: 24% !important;
     
 }
 

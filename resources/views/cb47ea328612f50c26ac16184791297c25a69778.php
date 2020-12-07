@@ -370,7 +370,7 @@ $(".addToCart").click(function(e) {
              "_token": "<?php echo e(csrf_token()); ?>", 
         },
         success: function(result) {
-        	console.log(result);
+        	console.log(result);return false;
            // $('.itemCount').text(result);
         },
         error: function(result) {
