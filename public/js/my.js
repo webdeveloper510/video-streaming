@@ -408,7 +408,8 @@ function addMultiple(check,id){
 				success: function(data){
 
 					if(id!=''){
-						$('.media_div').find('#'+id).trigger("click");
+						console.log('id h');
+						//$('.media_div').find('#'+id).trigger("click");
 					}
 
 					console.log(data);
@@ -554,8 +555,6 @@ $(document).on('click','.slct_video',function(){
 
 	   var count = $('.count').text();
 
-	   //count==0 ? $('.choose1').hide() : $('.choose1').show();
-
 	   var tokens = $('.paz').text();
 
 	   	 if($(this).prop("checked") == true){
@@ -574,15 +573,15 @@ $(document).on('click','.slct_video',function(){
             }
 
             else{
-            	var Ischeck = false;
+            var Ischeck = false;
 
 		 	var newCount = parseInt(count)-1;
 
 		 	$('.count').text(newCount);
 
 		 	 var newPaz = parseInt(tokens)-parseInt(price);
-
-		     $('.paz').text(newPaz);
+			 $('.paz').text(newPaz);
+			 
             }
 
             newCount==0 ? $('.choose1').hide() : $('.choose1').show();

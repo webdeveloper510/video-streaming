@@ -1108,10 +1108,6 @@ public function reduceTokens($tokns,$userid,$tok){
 
   $databasetoks = $tokns[0]->tokens;
 
-//echo $databasetoks;
-//echo $tok;die;
-          //$paz = $data['tokens'];
-
         if($tok < $databasetoks){
          // echo "yes";die;
              $update = DB::table('users')->where(array('id'=>$userid))->update([

@@ -1009,12 +1009,8 @@ public function addToLibrary(Request $req){
 
         $addTolibrary = $req->all();
 
-     
-          //print_r($addTolibrary);die;
-       //$addTolibrary['playlistname'] = $listname;
 
         $data = $this->model->addToLibrary($addTolibrary);
-        //print_r($data);die; 
 
         if($data=='Insufficient Paz Tokens'){
 
@@ -1039,14 +1035,19 @@ public function selectMultiple(Request $req){
 
         $idsData = $req->all();
 
+       
+
      $multipleIds = Session::get('SessionmultipleIds');
   
     if($idsData['isCheck']=='false'){
 
-        
+      echo "false";
+
+        echo $idsData['id'];
+
         $pos = array_search($idsData['id'], $multipleIds);
 
-       
+       echo $pos;
 
            unset($multipleIds[$pos]);
           
@@ -1056,7 +1057,7 @@ public function selectMultiple(Request $req){
   }
 
   else{
-            //echo "no";die;
+        
               if($multipleIds){
 
                   if(!in_array($idsData['id'], $multipleIds)){
@@ -1083,11 +1084,12 @@ public function selectMultiple(Request $req){
 }  
 
 $multipleIds = Session::get('SessionmultipleIds');
-    //print_r($multipleIds);
+    print_r($multipleIds);
 
 }
 
 public function addMultipleVideo(Request $req){
+
 
           $multipleIds = Session::get('SessionmultipleIds');
 
@@ -1097,14 +1099,20 @@ public function addMultipleVideo(Request $req){
       
        if($remove=='yes'){
 
-        
+            echo "removed";
+
+            echo $req['id'];
 
              $pos = array_search($req['id'], $multipleIds);
 
-             unset($multipleIds[$pos]);
+            echo $pos;
+
+            unset($multipleIds[$pos]);
 
            Session::put('SessionmultipleIds',$multipleIds);
            $multipleIds = Session::get('SessionmultipleIds');
+
+           print_r($multipleIds);
 
         
        }
