@@ -1039,18 +1039,14 @@ public function selectMultiple(Request $req){
 
         $idsData = $req->all();
 
-        print_r($idsData);
      $multipleIds = Session::get('SessionmultipleIds');
   
     if($idsData['isCheck']=='false'){
-        echo "false";
-      echo $idsData['id'];
 
-      print_r($multipleIds);
         
         $pos = array_search($idsData['id'], $multipleIds);
 
-        echo $multipleIds[$pos];
+       
 
            unset($multipleIds[$pos]);
           
@@ -1087,7 +1083,7 @@ public function selectMultiple(Request $req){
 }  
 
 $multipleIds = Session::get('SessionmultipleIds');
-    print_r($multipleIds);
+    //print_r($multipleIds);
 
 }
 
