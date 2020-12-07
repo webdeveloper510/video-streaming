@@ -234,6 +234,7 @@ public function getVedio($data){
 
   $result = DB::table('media')
           ->leftjoin('contentprovider', 'media.contentProviderid', '=', 'contentprovider.id')
+          ->select('contentprovider.*', 'media.*')
           ->where(function($query) use ($data)
                 {
                      foreach($data as $key=>$val){
@@ -262,7 +263,7 @@ public function getVedio($data){
 
                 $response = $result->get();
 
-
+      
 
 
                    $subid=$response->pluck("subid");
@@ -1177,6 +1178,7 @@ public function addWishlist($data1){
 
 
  //print_r($data);die;
+ 
  if($data){
      $newArray =  explode(",",$data[0]);
     $aunion=  array_merge(array_intersect($data1, $newArray),array_diff($data1, $newArray),array_diff($newArray, $data1));

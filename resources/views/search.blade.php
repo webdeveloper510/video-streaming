@@ -1,5 +1,6 @@
 
 @include('layouts.header')
+
 <!-- end header -->
 <div class="container">
     <div class="row" >
@@ -21,6 +22,9 @@
 
 
     </div>
+    <div class="alert alert-success message" id="message" style="display:none" role="alert">
+  A simple success alert—check it out!
+</div>
     <button type="button" class="btn btn-primary bardot mt-3">Select</button>
     @if(!$video->isEmpty())
  <div class="row mt-5 pt-5">
@@ -33,7 +37,7 @@
        Your browser does not support the video tag.
             </video>
 				</div>
-         <div class="checkall" style="display: block"><form> <input type="checkbox" class="slct_video"  data-id=""></form></div>
+         <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
 			</div>
 			@endif
 			@endforeach
@@ -61,10 +65,10 @@
            <h4>Price : <span class="paz">0</span>PAZ</h4>
       </div>
     <div class="col-md-3 pt-3">
-             <button type="button" class="btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+             <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
     </div>
     <div class="col-md-3 pt-3">
-           <button type="button" class="addTowishlist" >Add To Wishlist </button>
+           <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
     </div>
    </div>
   </div>

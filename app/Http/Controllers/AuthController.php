@@ -92,6 +92,7 @@ class AuthController extends Controller
 
        $session_type =   Session::get('userType');
 
+       Session::forget('SessionmultipleIds');
 
        if($session_type=='contentUser'){
 
@@ -1035,6 +1036,7 @@ public function selectMultiple(Request $req){
 
         $idsData = $req->all();
 
+        //print_r($idsData);die;
        
 
      $multipleIds = Session::get('SessionmultipleIds');
@@ -1095,7 +1097,7 @@ public function addMultipleVideo(Request $req){
 
             $remove = $req['isRemove'];
         
-  
+        //print_r($req->all());
       
        if($remove=='yes'){
 
@@ -1167,7 +1169,7 @@ public function showLists(Request $request){
 
     $multipleIds = Session::get('SessionmultipleIds');
 
-    //print_r($multipleIds);die;
+    //print_r($multipleIds);
 
       $return = $this->model->addWishlist($multipleIds);
 
