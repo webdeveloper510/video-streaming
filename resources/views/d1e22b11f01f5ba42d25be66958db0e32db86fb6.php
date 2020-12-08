@@ -192,35 +192,134 @@
 
 
   <br/><br/>
+  
 
  
  <!--End 1st slider-->
  
  
- 
- <?php if($recently): ?>
- <!--2nd slider start-->
+
+ <!--   Videos    -->
+
+
+
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Popular</h3>
+	  <h3 class="tittle">Videos</h3>
 	</div>
-    <!--Carousel Wrapper-->
-    <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-             <div id="owl-example1" class="owl-carousel">
-            <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+          <div class="row">
+          <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-            <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                <video width="370" height="245" controls allowfullscreen>
+                  <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div> 
+
+               <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>    
+
+             </div>
+            </div>
+    
+
+  
+      <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+<br/><br/>
+ <!--End 3rd slider-->
+ 
+
+  <!---------------------------------------------Offer Videos--------------------------------------------->
+
+<div class="outer_slider last">
+  <div class="container my-4">
+    <div class="slider_tittle">
+	  <h3 class="tittle">Offers</h3>
+	</div>
+   <div class="row">
+         <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($offer->type=='video'): ?>
+              <div class="col-md-4">
+                
+                  <video width="370" height="245" controls allowfullscreen>
+
+                  <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+               
+              </div>
+              <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
+           
+        
+        
+  
+            </div>
+    </div>
+  </div>
+  <br/><br/>
+
+
+
+ <!--------------------------------------------------------------Audio------------------------------------------------->
+
+
+<div class="outer_slider">
+  <div class="container my-4">
+          <div class="slider_tittle">
+              <h3 class="tittle">Audio</h3>
+           </div>
+   <div class="row">
+         <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                 <?php if($recnt->type=='video'): ?>
+              <div class="col-md-4">
+                
+                <video width="370" height="245" controls allowfullscreen>
+
+                  <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
+        
+  
+            </div>
+
+  
+            </div>
+    
+
+  
+      <!--/.Slides-->
+
+    </div>
+
+    <div class="outer_slider">
+  <div class="container my-4">
+          <div class="slider_tittle">
+              <h3 class="tittle">Artists</h3>
+           </div>
+   <div class="row">
+         <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 <?php if($artist->profilepicture): ?>
+              <div class="col-md-4">
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="200px" height="200px">
+              </div>
+              <?php endif; ?>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        
+  
+            </div>
 
   
             </div>
@@ -231,58 +330,6 @@
 
     </div>
     <!--/.Carousel Wrapper-->
-
-
-  </div>  </div>
-  <?php endif; ?>
-
-
-  <br/><br/>
- <!--End 2nd slider-->
- 
- 
- 
-  <!--3rd slider start-->
-<br/><br/>
- <!--End 3rd slider-->
- 
- <?php if($recently): ?>
-  <!--4th slider start-->
-<div class="outer_slider last">
-  <div class="container my-4">
-    <div class="slider_tittle">
-	  <h3 class="tittle">Special offer</h3>
-	</div>
-    <!--Carousel Wrapper-->
-    <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-         <div id="owl-example3" class="owl-carousel">
-            <?php $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <?php if($recnt->type=='video'): ?>
-              <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
-
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
-          <?php endif; ?>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-  
-            </div>
-    
-
-    
-
-    </div>
-    <!--/.Carousel Wrapper-->
-
-
-  </div>  </div>
-<?php endif; ?>
-  <br/><br/>
   <style>
   .owl-carousel {
     display: block !important;
@@ -308,7 +355,7 @@
   });
     $("#owl-example4").owlCarousel({
     items:3,
-      loop:true,
+    loop:true,
 margin:10,
 autoPlay:true,
 nav:true,

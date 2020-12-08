@@ -1301,6 +1301,10 @@ public function getHistoryVideo(){
   return $all_videos;
 }
 
+public function getallOffer(){
+  return DB::table('offer')->get()->toArray();
+}
+
 public function insertHistory($postData,$uid){
 
   //echo "yes";die;
