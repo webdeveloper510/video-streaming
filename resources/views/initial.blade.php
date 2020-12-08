@@ -208,6 +208,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Video</h3>
+    <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
           <div class="row">
             <div class="col-md-4">
@@ -253,6 +254,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Offers</h3>
+     <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
    <div class="row">
               <div class="col-md-4">
@@ -300,6 +302,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
     <h3 class="tittle">Audio</h3>
+     <button class="btn btn-primary seemore" type="button">See All</button>
   </div>
    <div class="row">
               <div class="col-md-4">
