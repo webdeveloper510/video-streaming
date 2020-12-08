@@ -286,7 +286,9 @@
 <?php endif; ?>
   <br/><br/>
   <style>
-  
+  .owl-carousel {
+    display: block !important;
+  }
   </style>
  <!--End 4th slider-->
 
