@@ -328,12 +328,14 @@ class AuthController extends Controller
 
            $artists=$this->model->getArtists();
 
+           $offersVideos = $this->model->getallOffer();
+
           //print_r($artists);die;
 
           //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
-        return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes]);
+        return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos]);
 
       }
       public function contentPostLogin(Request $request){
@@ -981,9 +983,11 @@ public function notifyEmail(Request $req){
 
     $videos = $this->model->getVideosbyList($ids);
 
+    $historyVideos = $this->model->getHistoryVideo();
+
   
 
-     return view('play',['listname'=>$playName,'videos'=>$videos,'wishList'=>$wishList]);
+     return view('play',['listname'=>$playName,'videos'=>$videos,'history'=>$historyVideos,'wishList'=>$wishList]);
 
   }
 
@@ -1208,6 +1212,14 @@ public function addmMltiple(Request $req){
         else{
              return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
         }
+}
+
+public function addTohistory(Request $req){
+
+     // print_r($req->all());
+
+      $this->model->addToHistory($req->all());
+
 }
 
  }

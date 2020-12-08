@@ -266,12 +266,14 @@
 	autoPlayHoverPause:true,
 	nav:false,
 	dots:false,
+  navText: ['<span class="fas fa-chevron-left fa-2x"></span>','<span class="fas fa-chevron-right fa-2x"></span>'],
 	 rewindNav:false //**This
   
   });
  
  </script>
 </section>
+
 <script type="text/javascript">
   $(document).ready(function(){
 $(window).scroll(function () {   
@@ -293,3 +295,5 @@ $(window).scroll(function () {
 });
 });
 </script>
+
+

@@ -149,9 +149,7 @@
 </div>
 @endif
  </div>
-  @if($login) 
-  <h1 class="text-white center">Welcome to the Porn-Artist-Zone!</h1>
-  @endif
+
 <div class="outer_slider">
   <div class="coner my-4">
     
@@ -194,6 +192,7 @@
 
 
   <br/><br/>
+  
 
  
  <!--End 1st slider-->
@@ -211,28 +210,18 @@
     <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
           <div class="row">
+          @forelse ($recently as $recnt)
+            @if($recnt->type=='video')
             <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-                <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-                <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-           
+                <video width="370" height="245" controls allowfullscreen>
+                  <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div> 
+
+               @endif
+              @empty
+             @endforelse    
 
              </div>
             </div>
@@ -248,7 +237,7 @@
  <!--End 3rd slider-->
  
 
-  <!----------Offer Videos------------>
+  <!---------------------------------------------Offer Videos--------------------------------------------->
 
 <div class="outer_slider last">
   <div class="container my-4">
@@ -257,34 +246,21 @@
      <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
    <div class="row">
+         @forelse ($offers as $offer)
+            @if($offer->type=='video')
               <div class="col-md-4">
                 
-            <video width="370" height="245" controls allowfullscreen>
+                  <video width="370" height="245" controls allowfullscreen>
 
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+                  <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
                
               </div>
-               <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
-
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
-        
-             <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
-
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
+              @endif
+              @empty
+             @endforelse
+           
         
         
   
@@ -295,7 +271,7 @@
 
 
 
- <!-------Audio-------->
+ <!--------------------------------------------------------------Audio------------------------------------------------->
 
 
 <div class="outer_slider">
@@ -305,35 +281,46 @@
      <button class="btn btn-primary seemore" type="button">See All</button>
   </div>
    <div class="row">
+         @forelse ($recently as $recnt)
+                 @if($recnt->type=='video')
               <div class="col-md-4">
                 
-            <video width="370" height="245" controls allowfullscreen>
+                <video width="370" height="245" controls allowfullscreen>
 
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
+                  <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
               </div>
-               <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
-
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
+              @endif
+              @empty
+             @endforelse
         
-             <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
+  
+            </div>
 
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
+  
+            </div>
+    
+
+  
+      <!--/.Slides-->
+
+    </div>
+
+    <div class="outer_slider">
+  <div class="container my-4">
+          <div class="slider_tittle">
+              <h3 class="tittle">Artists</h3>
+              <button class="btn btn-primary seemore" type="button">See All</button>
+           </div>
+   <div class="row">
+         @foreach($artists as $artist)
+                 @if($artist->profilepicture)
+              <div class="col-md-4">
+                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="200px" height="200px">
               </div>
-        
+              @endif
+             @endforeach
         
   
             </div>
@@ -372,7 +359,7 @@
   });
     $("#owl-example4").owlCarousel({
     items:3,
-      loop:true,
+    loop:true,
 margin:10,
 autoPlay:true,
 nav:true,
