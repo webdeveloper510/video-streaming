@@ -981,9 +981,11 @@ public function notifyEmail(Request $req){
 
     $videos = $this->model->getVideosbyList($ids);
 
+    $historyVideos = $this->model->getHistoryVideo();
+
   
 
-     return view('play',['listname'=>$playName,'videos'=>$videos,'wishList'=>$wishList]);
+     return view('play',['listname'=>$playName,'videos'=>$videos,'history'=>$historyVideos,'wishList'=>$wishList]);
 
   }
 
@@ -1208,6 +1210,14 @@ public function addmMltiple(Request $req){
         else{
              return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
         }
+}
+
+public function addTohistory(Request $req){
+
+     // print_r($req->all());
+
+      $this->model->addToHistory($req->all());
+
 }
 
  }

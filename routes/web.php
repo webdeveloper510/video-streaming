@@ -113,6 +113,7 @@ Route::post('postContent', 'AuthController@providerContent');
 
 Route::post('artistPost', 'AuthController@artistPost');
 Route::post('getVedio', 'AuthController@getVedio');
+Route::post('addTohistory', 'AuthController@addTohistory');
 Route::post('getSelectingArtist','AuthController@getSelectingArtist');
 
 Route::post('postId', 

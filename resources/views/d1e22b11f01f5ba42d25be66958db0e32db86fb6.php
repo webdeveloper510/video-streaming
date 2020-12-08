@@ -149,9 +149,7 @@
 </div>
 <?php endif; ?>
  </div>
-  <?php if($login): ?> 
-  <h1 class="text-white center">Welcome to the Porn-Artist-Zone!</h1>
-  <?php endif; ?>
+
 <div class="outer_slider">
   <div class="coner my-4">
     
@@ -286,7 +284,9 @@
 <?php endif; ?>
   <br/><br/>
   <style>
-  
+  .owl-carousel {
+    display: block !important;
+  }
   </style>
  <!--End 4th slider-->
 

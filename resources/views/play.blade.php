@@ -45,9 +45,7 @@
 
 </div>
             @endif
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn">See more</button></div>
-        </div>
+			
 	</div>
 	<br/>
 	<div class="col-md-12 uploa_outer">
@@ -65,9 +63,7 @@
             </div>
             @endforeach
             @endif
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn">See more</button></div>
-        </div>
+		
 	</div>
 	<br/>
 	<div class="col-md-12 uploa_outer">
@@ -75,22 +71,19 @@
 		  <h3 class="tittle">History</h3>		  
 		</div>
         <div class="row pb-row">
+
+        @if($history)
+              @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
+             <video width="100%" height="100%" controls>
+
+               <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
+             </video>
             </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn">See more</button></div>
-        </div>
+            @endforeach
+            @endif
+			
 	</div>	
   </div>
 </div>
@@ -108,6 +101,7 @@ rewindNav:false
   });
 });
  </script>
+
 <style>
  .owl-carousel {
     display: block !important;

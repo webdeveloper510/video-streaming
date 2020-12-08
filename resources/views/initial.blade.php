@@ -149,9 +149,7 @@
 </div>
 @endif
  </div>
-  @if($login) 
-  <h1 class="text-white center">Welcome to the Porn-Artist-Zone!</h1>
-  @endif
+
 <div class="outer_slider">
   <div class="coner my-4">
     
@@ -205,7 +203,7 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Popular</h3>
+	  <h3 class="tittle">Videos</h3>
 	</div>
     <!--Carousel Wrapper-->
     <div id="Popular_slid" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -253,7 +251,7 @@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Special offer</h3>
+	  <h3 class="tittle">Special Offers</h3>
 	</div>
     <!--Carousel Wrapper-->
     <div id="Special_offer" class="carousel slide carousel-multi-item" data-ride="carousel">

@@ -1253,6 +1253,70 @@ public function getVideosbyList($id){
 
 }
 
+public function addToHistory($data){
+
+ // print_r($data);die;
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+  $data1 = $this->selectSingleById('userid','history',$userid);
+  count($data1) > 0 ? $this->updateHistory($data,$userid,$data1) : $this->insertHistory($data,$userid);
+  //print_r(count($data));
+}
+
+public function updateHistory($postdata,$uid,$tableData){
+
+  //$postdata['id'] = 11;
+ // $postdata['id'] = 12;
+
+  $newArray =  explode(",",$tableData[0]);
+ 
+  $aunion=  array_merge(array_intersect($postdata, $newArray),array_diff($postdata, $newArray),array_diff($newArray, $postdata));
+   
+  $result_array = array_unique($aunion);
+
+      $updatedId = implode(",",$result_array);
+
+      $update = DB::table('history')->where(array('userid'=>$uid))
+      ->update([
+            'videoid' =>  $updatedId//DB::raw("CONCAT(videoid,',".$data[0]."')"),
+          ]);
+
+      return $update;
+
+
+
+
+}
+
+public function getHistoryVideo(){
+
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+
+  $videos = DB::table("history")->where(array('userid'=>$userid))->get()->toArray();
+  $videoId = $videos[0]->videoid;
+  $arrayId = explode(",",$videoId);
+
+  $all_videos = DB::table("media")->whereIn('id', $arrayId)->get()->toArray();
+  return $all_videos;
+}
+
+public function insertHistory($postData,$uid){
+
+  //echo "yes";die;
+       // print_r($postData);die;
+        $id = $postData['id'];
+
+       $tableData = array(
+            'created_at' => now(),
+           'updated_at' => now(),
+            'userid'=> $uid,
+            'videoid' => $id
+       );
+
+       return DB::table('history')->insert($tableData);
+
+}
 public function getWishlist(){
 
   $session_data =   Session::get('User');
