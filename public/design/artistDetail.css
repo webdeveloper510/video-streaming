@@ -30,6 +30,9 @@
     font-weight: 700;
     color: white;
 }
+h5.select_list.active {
+    color: red;
+}
 .main-mistree-circle .profileImage {
     width: 125px;
     height: 125px;
@@ -97,11 +100,15 @@
     width: 70%;
 }
 .newest form select#cars {
-    width: 220px !important;
+    width: 200px !important;
 }
 .sortby {
     margin-top: -11px;
 
+}
+.modal{
+
+bottom: 80px !important;
 }
 button.close.off {
     margin-top: -3px;
@@ -144,3 +151,5 @@ button.addNow {
     border: 2px solid;
     padding: 6px;
 }
+
+/*--------------------slider css------------------------*/

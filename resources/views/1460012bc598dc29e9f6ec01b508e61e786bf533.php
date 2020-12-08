@@ -7,7 +7,7 @@
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo-new.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/newlogo.gif')); ?>" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     </ul>
-
+                      <?php if($login): ?>
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
                         <h3 style="color: #fff;">Video</h3>
@@ -476,6 +476,7 @@
                     
                      </div>
                     </div>
+                    <?php endif; ?>
                 </ul>
             
               <li id="search">

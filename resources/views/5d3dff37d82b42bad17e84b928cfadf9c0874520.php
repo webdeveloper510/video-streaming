@@ -7,7 +7,7 @@
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo-new.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/newlogo.gif')); ?>" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
                     <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     </ul>
-
+                      <?php if($login): ?>
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
                         <h3 style="color: #fff;">Video</h3>
@@ -476,6 +476,7 @@
                     
                      </div>
                     </div>
+                    <?php endif; ?>
                 </ul>
             
               <li id="search">
@@ -493,8 +494,6 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
-				<a href="<?php echo e(url('/getArtists')); ?>" class="nav-item nav-link active">
-				    <i class="fa fa-trophy"></i>TOP LIST</a>
 							<!-- <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a> -->
 							<!--a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a-->	
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>

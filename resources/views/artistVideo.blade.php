@@ -370,7 +370,7 @@ $(".addToCart").click(function(e) {
              "_token": "{{ csrf_token() }}", 
         },
         success: function(result) {
-        	console.log(result);
+        	console.log(result);return false;
            // $('.itemCount').text(result);
         },
         error: function(result) {
@@ -378,6 +378,44 @@ $(".addToCart").click(function(e) {
         }
     });
 });
+</script>
+<script>
+	$('docoment').ready(function(){
+
+		var id = "{{$GLOBALS['videoid']}}";
+
+		$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addTohistory",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'id':id},
+
+				success: function(data){
+
+					console.log(data);return false;
+
+					// if(data.status==1){
+					// 	$('html,body').animate({
+					// 		scrollTop: $("#message").offset().top
+					// 	}, 'slow');
+					// 	$('.message#message').show();
+
+					// 	$('.message').html(data.message);	
+					// }
+
+
+
+
+
+						
+					
+				}
+		});
+
+	})
 </script>
 
 @include('layouts.footer')

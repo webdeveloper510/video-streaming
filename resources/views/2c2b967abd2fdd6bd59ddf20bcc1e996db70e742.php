@@ -1,21 +1,21 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- end header -->
 <div class="container">
     <div class="row" >
       
-    @if($subcategory)
-      @forelse($subcategory as $sub)
+    <?php if($subcategory): ?>
+      <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
       <div class="col-md-2  hello">
 
-        <a href="{{url('show/'.$sub->id)}}"><p>{{$sub->subcategory}}</p></a>
+        <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
 
 
       </div>
-       @empty
-       @endforelse
-        @endif
+       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+       <?php endif; ?>
+        <?php endif; ?>
       
 
 
@@ -26,30 +26,30 @@
   A simple success alert—check it out!
 </div>
     <button type="button" class="btn btn-primary bardot mt-3">Select</button>
-    @if(!$video->isEmpty())
+    <?php if(!$video->isEmpty()): ?>
  <div class="row mt-5 pt-5">
- 	  @foreach ($video as $vid)
- 	   @if($vid->type=='video')
+ 	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+ 	   <?php if($vid->type=='video'): ?>
             <div class="col-md-4 pt-3">
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240" controls>
-              <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+              <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
        Your browser does not support the video tag.
             </video>
 				</div>
-         <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+         <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
 			</div>
-			@endif
-			@endforeach
+			<?php endif; ?>
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
-  @else
+  <?php else: ?>
   <div>
      <h1>Your specific taste is not served yet</h1>
-     <a href="{{url('my-requests')}}"><button class="btn btn-primary">
+     <a href="<?php echo e(url('my-requests')); ?>"><button class="btn btn-primary">
        Create Job
      </button></a>
   </div> 
-  @endif
+  <?php endif; ?>
   <br/>
 </div> 
 
@@ -81,7 +81,7 @@
 <body end-->
 
 <!--footer -->
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <style>
 
 .inner-page {
@@ -109,3 +109,4 @@ input.slct_video {
 }
 </style>
 </html>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>

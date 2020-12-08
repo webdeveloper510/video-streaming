@@ -379,5 +379,43 @@ $(".addToCart").click(function(e) {
     });
 });
 </script>
+<script>
+	$('docoment').ready(function(){
 
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>
+		var id = "<?php echo e($GLOBALS['videoid']); ?>";
+
+		$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addTohistory",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'id':id},
+
+				success: function(data){
+
+					console.log(data);return false;
+
+					// if(data.status==1){
+					// 	$('html,body').animate({
+					// 		scrollTop: $("#message").offset().top
+					// 	}, 'slow');
+					// 	$('.message#message').show();
+
+					// 	$('.message').html(data.message);	
+					// }
+
+
+
+
+
+						
+					
+				}
+		});
+
+	})
+</script>
+
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>

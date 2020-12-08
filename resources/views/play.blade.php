@@ -1,6 +1,5 @@
-
 @include('layouts.header')
-
+<link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
 <div class="inner-page">
   <div class="container">
@@ -22,17 +21,31 @@
 		</div>
         <div class="row pb-row">
           @if($videos)
-          @foreach($videos as $indx=> $val)
-            <div class="col-md-3 pb-video">
-                <video width="320" height="240" controls>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
-           </video>
-            </div>
-            @endforeach
+          <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+
+<div id="owl-example" class="owl-carousel">
+@forelse ($videos as $vid)
+      @if($vid->type=='video')
+      <div class="col-md-4">
+      
+    <video width="370" height="245" controls allowfullscreen>
+      <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+      </div>
+      @endif
+      @empty
+       @endforelse
+
+
+</div>
+
+
+</div>
             @endif
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
+			
 	</div>
 	<br/>
 	<div class="col-md-12 uploa_outer">
@@ -43,16 +56,14 @@
               @if($wishList)
               @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="320" height="240" controls>
+             <video width="100%" height="100%" controls>
     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
              </video>
             </div>
             @endforeach
             @endif
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
+		
 	</div>
 	<br/>
 	<div class="col-md-12 uploa_outer">
@@ -60,52 +71,46 @@
 		  <h3 class="tittle">History</h3>		  
 		</div>
         <div class="row pb-row">
+
+        @if($history)
+              @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
+             <video width="100%" height="100%" controls>
+
+               <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
+             </video>
             </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
+            @endforeach
+            @endif
+			
 	</div>	
   </div>
-</div>  
+</div>
 
+<script>
+  $(document).ready(function() {
+ 
+  $("#owl-example").owlCarousel({
+    items:3
+ loop:true,
+margin:10,
+autoPlay:true,
+nav:true,
+rewindNav:false
+  });
+});
+ </script>
+
+<style>
+ .owl-carousel {
+    display: block !important;
+  }
+</style>
 <!--body end-->
 
 <!--footer -->
 @include('layouts.footer')
 </body>
-<style>
-form.form-horizontal {
-    width: 100%;
-    float: left;
-    display: flex;
-}
-button.btn.btn-default {
-    background: #a60000;
-}
-.uploa_outer form {
-    padding: 10px 20px;
-}
-.uploa_outer {
-    float: left;
-    width: 100%;
-    margin: 20px 0px;
-}
-.form-group {
-    float: right;
-    width: 35%;
-    margin-top: -74px;
-}
-</style>
+
 </html>

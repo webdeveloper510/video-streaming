@@ -1,7 +1,7 @@
 
-@include('layouts.header')
-<link rel="stylesheet" href="{{asset('design/initial.css')}}" />
- @if(session('success'))
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
+ <?php if(session('success')): ?>
 <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -10,7 +10,7 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <h1 class="text-center text-uppercase comimg1">{{session('success')}}</h1>
+        <h1 class="text-center text-uppercase comimg1"><?php echo e(session('success')); ?></h1>
       </div>
        <div class="modal-footer">
         .
@@ -18,7 +18,7 @@
     </div>
   </div>
 </div>
-@endif
+<?php endif; ?>
 <!-- end header -->
 
 <!--1st slider start-->
@@ -40,22 +40,22 @@
     </div>
     
       <div id="owl-example4" class="owl-carousel">
-      @foreach ($artists as $artist)
+      <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="artist_image">
 
 
-  <a href="{{is_object($login) ? url('/artistDetail/'.$artist->id) : url('/register')}}">
-  <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+  <a href="<?php echo e(is_object($login) ? url('/artistDetail/'.$artist->id) : url('/register')); ?>">
+  <img width="100%" height="200px"  src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
 </a>
 
     </div>
-     @endforeach
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
   
 </div>
   </div>
   </div> --> 
-  @if(!$login) 
+  <?php if(!$login): ?> 
 <div class="row mt-5">
   <div class="col-md-6">
       <div class="user1 mb-3">
@@ -91,7 +91,7 @@
  
           </p>
          <div class="col-md-12 text-center mt-2">
-  <button type="button" class="btn btn-primary btn-lg"><a href="{{url('/checkUser/artist')}}">Register as Artist</a></button>
+  <button type="button" class="btn btn-primary btn-lg"><a href="<?php echo e(url('/checkUser/artist')); ?>">Register as Artist</a></button>
 
     </div>
     </div>
@@ -130,7 +130,7 @@
           </p>
           <div class="col-md-12 text-center mt-5">
 
- <button type="button" class="btn btn-primary btn-lg px-3"><a href="{{url('/checkUser/user')}}">Register as Customer </a></button>
+ <button type="button" class="btn btn-primary btn-lg px-3"><a href="<?php echo e(url('/checkUser/user')); ?>">Register as Customer </a></button>
 
     </div>
     </div>
@@ -147,46 +147,46 @@
     
     
 </div>
-@endif
+<?php endif; ?>
  </div>
 
 <div class="outer_slider">
   <div class="coner my-4">
     
-       @if($login && $recently)
+       <?php if($login && $recently): ?>
 	  <h3 class="tittle">
      
      Recently Search
 
      </h3> 
-     @endif
+     <?php endif; ?>
 	</div>
     <!--Carousel Wrapper-->
-    @if($login && $recently)
+    <?php if($login && $recently): ?>
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 
       <div id="owl-example" class="owl-carousel">
-      @forelse ($recently as $recnt)
-            @if($recnt->type=='video')
+      <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
             
           <video width="370" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           
             </div>
-            @endif
-            @empty
-             @endforelse
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
 
   
 </div>
 
 
     </div>
-    @endif
+    <?php endif; ?>
 
   </div>  </div>
 
@@ -206,22 +206,21 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Video</h3>
-    <button class="btn btn-primary seemore" type="button">See All</button>
+	  <h3 class="tittle">Videos</h3>
 	</div>
           <div class="row">
-          @forelse ($recently as $recnt)
-            @if($recnt->type=='video')
+          <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
                 <video width="370" height="245" controls allowfullscreen>
-                  <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+                  <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
             </div> 
 
-               @endif
-              @empty
-             @endforelse    
+               <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>    
 
              </div>
             </div>
@@ -243,23 +242,22 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Offers</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
    <div class="row">
-         @forelse ($offers as $offer)
-            @if($offer->type=='video')
+         <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($offer->type=='video'): ?>
               <div class="col-md-4">
                 
                   <video width="370" height="245" controls allowfullscreen>
 
-                  <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
+                  <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
                
               </div>
-              @endif
-              @empty
-             @endforelse
+              <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
            
         
         
@@ -276,24 +274,23 @@
 
 <div class="outer_slider">
   <div class="container my-4">
-    <div class="slider_tittle">
-    <h3 class="tittle">Audio</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
-  </div>
+          <div class="slider_tittle">
+              <h3 class="tittle">Audio</h3>
+           </div>
    <div class="row">
-         @forelse ($recently as $recnt)
-                 @if($recnt->type=='video')
+         <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                 <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
                 
                 <video width="370" height="245" controls allowfullscreen>
 
-                  <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+                  <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </div>
-              @endif
-              @empty
-             @endforelse
+              <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
         
   
             </div>
@@ -311,16 +308,15 @@
   <div class="container my-4">
           <div class="slider_tittle">
               <h3 class="tittle">Artists</h3>
-              <button class="btn btn-primary seemore" type="button">See All</button>
            </div>
    <div class="row">
-         @foreach($artists as $artist)
-                 @if($artist->profilepicture)
+         <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 <?php if($artist->profilepicture): ?>
               <div class="col-md-4">
-                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="200px" height="200px">
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="200px" height="200px">
               </div>
-              @endif
-             @endforeach
+              <?php endif; ?>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
   
             </div>
@@ -367,7 +363,7 @@ rewindNav:false
   });
 });
  </script>
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </body>
 
 </html>
@@ -378,4 +374,4 @@ rewindNav:false
     $ ('#modal-subscribe').modal ("show")
   }, 1000)
 })
-</script>
+</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
