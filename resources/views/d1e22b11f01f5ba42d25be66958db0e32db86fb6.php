@@ -206,7 +206,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Videos</h3>
+	  <h3 class="tittle">Video</h3>
+    <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -242,6 +243,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Offers</h3>
+     <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -274,9 +276,10 @@
 
 <div class="outer_slider">
   <div class="container my-4">
-          <div class="slider_tittle">
-              <h3 class="tittle">Audio</h3>
-           </div>
+    <div class="slider_tittle">
+    <h3 class="tittle">Audio</h3>
+     <button class="btn btn-primary seemore" type="button">See All</button>
+  </div>
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                  <?php if($recnt->type=='video'): ?>
@@ -308,12 +311,13 @@
   <div class="container my-4">
           <div class="slider_tittle">
               <h3 class="tittle">Artists</h3>
+              <button class="btn btn-primary seemore" type="button">See All</button>
            </div>
    <div class="row">
          <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                  <?php if($artist->profilepicture): ?>
               <div class="col-md-4">
-                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="200px" height="200px">
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="100%" height="200px">
               </div>
               <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -334,6 +338,10 @@
   .owl-carousel {
     display: block !important;
   }
+  button.btn.btn-primary.seemore {
+    float: right;
+    margin-top: -43px;
+}
   </style>
  <!--End 4th slider-->
 

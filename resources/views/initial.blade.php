@@ -171,7 +171,7 @@
             @if($recnt->type=='video')
             <div class="col-md-4">
             
-          <video width="370" height="245" controls allowfullscreen>
+          <video width="100%" height="100%" controls allowfullscreen>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -213,7 +213,7 @@
           @forelse ($recently as $recnt)
             @if($recnt->type=='video')
             <div class="col-md-4">
-                <video width="370" height="245" controls allowfullscreen>
+                <video width="100%" height="100%" controls allowfullscreen>
                   <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -250,7 +250,7 @@
             @if($offer->type=='video')
               <div class="col-md-4">
                 
-                  <video width="370" height="245" controls allowfullscreen>
+                  <video width="100%" height="100%" controls allowfullscreen>
 
                   <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                     Your browser does not support the video tag.
@@ -285,7 +285,7 @@
                  @if($recnt->type=='video')
               <div class="col-md-4">
                 
-                <video width="370" height="245" controls allowfullscreen>
+                <video width="100%" height="100%" controls allowfullscreen>
 
                   <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
@@ -317,7 +317,7 @@
          @foreach($artists as $artist)
                  @if($artist->profilepicture)
               <div class="col-md-4">
-                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="200px" height="200px">
+                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="100%" height="200px">
               </div>
               @endif
              @endforeach
@@ -338,6 +338,10 @@
   .owl-carousel {
     display: block !important;
   }
+  button.btn.btn-primary.seemore {
+    float: right;
+    margin-top: -43px;
+}
   </style>
  <!--End 4th slider-->
 
