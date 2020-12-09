@@ -494,8 +494,6 @@
 					</div>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
-				<a href="<?php echo e(url('/getArtists')); ?>" class="nav-item nav-link active">
-				    <i class="fa fa-trophy"></i>TOP LIST</a>
 							<!-- <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a> -->
 							<!--a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a-->	
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
