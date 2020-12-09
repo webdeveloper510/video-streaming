@@ -186,7 +186,7 @@
 
 
     </div>
-    @endif
+ 
 
   </div>  </div>
 
@@ -200,8 +200,7 @@
  
 
  <!--   Videos    -->
-
-
+<div>
 
 <div class="outer_slider">
   <div class="container my-4">
@@ -238,7 +237,7 @@
  
 
   <!---------------------------------------------Offer Videos--------------------------------------------->
-
+@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
@@ -334,6 +333,8 @@
       <!--/.Slides-->
 
     </div>
+    </div>
+    @endif
     <!--/.Carousel Wrapper-->
   <style>
   .owl-carousel {

@@ -186,7 +186,7 @@
 
 
     </div>
-    <?php endif; ?>
+ 
 
   </div>  </div>
 
@@ -200,8 +200,7 @@
  
 
  <!--   Videos    -->
-
-
+<div>
 
 <div class="outer_slider">
   <div class="container my-4">
@@ -238,7 +237,7 @@
  
 
   <!---------------------------------------------Offer Videos--------------------------------------------->
-
+@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
@@ -281,6 +280,7 @@
      <button class="btn btn-primary seemore" type="button">See All</button>
   </div>
    <div class="row">
+   <?php if($recently): ?>
          <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                  <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
@@ -294,7 +294,7 @@
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
-        
+          <?php endif; ?>
   
             </div>
 
@@ -333,6 +333,8 @@
       <!--/.Slides-->
 
     </div>
+    </div>
+    <?php endif; ?>
     <!--/.Carousel Wrapper-->
   <style>
   .owl-carousel {
