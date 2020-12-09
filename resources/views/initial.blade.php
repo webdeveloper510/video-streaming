@@ -281,6 +281,7 @@
      <button class="btn btn-primary seemore" type="button">See All</button>
   </div>
    <div class="row">
+   @if($recently)
          @forelse ($recently as $recnt)
                  @if($recnt->type=='video')
               <div class="col-md-4">
@@ -294,7 +295,7 @@
               @endif
               @empty
              @endforelse
-        
+          @endif
   
             </div>
 
