@@ -17,7 +17,7 @@ class Registration extends Model
        // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
-            $userdata['password']= md5($data['password']);
+            $userdata['password']= md5($data['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
            // print_r($userdata);die;
@@ -64,7 +64,7 @@ class Registration extends Model
         if(!$value){
 
             $userdata = $data->all();
-            $userdata['password']= md5($data['password']);
+            $userdata['password']= md5($data['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
@@ -392,8 +392,15 @@ public function getRecentlySearch(){
   
 }
 
-public function getArtists(){
-  $artists=DB::table('contentprovider')->paginate(10);
+public function getArtists($flag){
+    if($flag=='No'){
+
+      $artists=DB::table('contentprovider')->take(3)->get()->toArray();
+    }
+    else{
+
+      $artists=DB::table('contentprovider')->paginate(10);
+    }
   return $artists;
 }
 
@@ -1286,11 +1293,24 @@ public function updatePopular($data,$uid){
 
 }
 
-public function PopularVideos(){
+public function PopularVideos($flag){
 
-    $videoId =  DB::table('popular')->orderBy('count','desc')->take(10)->pluck('videoid')->toArray();
+  $videoId =  DB::table('popular')->orderBy('count','desc')->pluck('videoid')->toArray();
 
-    $videos = DB::table("media")->whereIn('id', $videoId)->get()->toArray();
+      if($flag=='No'){
+
+        $videos = DB::table("media")->whereIn('id', $videoId)->take(3)->get()->toArray();
+
+      }
+      else{
+
+        $videos = DB::table("media")->whereIn('id', $videoId)->get()->toArray();
+
+      }
+
+   
+
+    
 
     return $videos;
 }
@@ -1347,8 +1367,15 @@ public function getHistoryVideo(){
   return $all_videos;
 }
 
-public function getallOffer(){
-  return DB::table('offer')->get()->toArray();
+public function getallOffer($flag){
+        if($flag=='No'){
+
+          return DB::table('offer')->take(3)->get()->toArray();
+        }
+  else{
+
+        return DB::table('offer')->paginate(10);
+  }
 }
 
 public function insertHistory($postData,$uid){

@@ -326,11 +326,11 @@ class AuthController extends Controller
 
          $Recentlydata= $this->model->getRecentlySearch();
 
-           $artists=$this->model->getArtists();
+           $artists=$this->model->getArtists($paginate='No');
 
-           $offersVideos = $this->model->getallOffer();
+           $offersVideos = $this->model->getallOffer($paginate='No');
 
-           $popularVideos = $this->model->PopularVideos();
+           $popularVideos = $this->model->PopularVideos($paginate='No');
 
           //print_r($popularVideos);die;
 
@@ -367,7 +367,7 @@ class AuthController extends Controller
           'person'=>'required',
           'email'=>'required',
           'nickname'=>'required',
-          'password'=>'required',
+          'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
           'terms'=>'required',
           'AgeRestriction'=>'required'
       ]
@@ -1223,6 +1223,36 @@ public function addTohistory(Request $req){
 
       $this->model->addToHistory($req->all());
 
+}
+
+public function seeall($flag){
+    // echo $flag;
+     if($flag=='audios'){
+
+
+
+     }
+
+     if($flag=='offer'){
+
+      $videos = $this->model->getallOffer($paginate='yes');
+    }
+
+    if($flag=='videos'){
+
+      $videos = $this->model->PopularVideos($paginate='yes');
+
+    }
+    if($flag=='artists'){
+
+            return redirect('/getArtists');
+
+    }
+
+    print_r($videos);die;
+
+    return view('getAlldata',['videos'=>$videos]);
+     
 }
 
  }

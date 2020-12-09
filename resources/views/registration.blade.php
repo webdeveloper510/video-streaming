@@ -80,6 +80,19 @@
             </div>
           </div>
           @endif
+
+          <div class="row align-items-center mt-4">
+            <div class="col">
+            {{Form::label('Confirm-Password', 'Confirm-Password')}}
+                {{Form::password('confirm',['class'=>'form-control','placeholder'=>'Confirm-Password'])}}
+                @if($errors->first('confirm'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('confirm') ?>
+                </div>
+            </div>
+          </div>
+          @endif
+
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
