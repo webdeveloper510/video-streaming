@@ -205,8 +205,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Video</h3>
-    <button class="btn btn-primary seemore" type="button">See All</button>
+	  <h3 class="tittle">Videos</h3>
+      <a href="{{url('seeall/videos')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
           @forelse ($popular as $pop)
@@ -242,7 +242,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Offers</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
+     <a href="{{url('/seeall/offer')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
    <div class="row">
          @forelse ($offers as $offer)
@@ -276,8 +276,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Audio</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
+    <h3 class="tittle">Audios</h3>
+     <a href="{{url('/seeall/audios')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
    @if($recently)
@@ -311,7 +311,7 @@
   <div class="container my-4">
           <div class="slider_tittle">
               <h3 class="tittle">Artists</h3>
-              <button class="btn btn-primary seemore" type="button">See All</button>
+              <a href="{{url('seeall/artists')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
    <div class="row">
          @foreach($artists as $artist)

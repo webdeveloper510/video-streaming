@@ -29,7 +29,7 @@ class artist extends Controller
         $artists = $this->model->getArtistsbyfilter($artistData);
       }
       else{
-        $artists=$this->model->getArtists();
+        $artists=$this->model->getArtists($paginate='');
       }
       
       $data = $this->model->getCategory();
