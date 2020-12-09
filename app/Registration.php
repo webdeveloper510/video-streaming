@@ -1259,8 +1259,54 @@ public function addToHistory($data){
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
   $data1 = $this->selectSingleById('userid','history',$userid);
-  count($data1) > 0 ? $this->updateHistory($data,$userid,$data1) : $this->insertHistory($data,$userid);
-  //print_r(count($data));
+    
+  $returnadata = count($data1) > 0 ? $this->updateHistory($data,$userid,$data1) : $this->insertHistory($data,$userid);
+  //print_r($returnadata);die;
+        $this->getPopularTable($data,$userid);
+      
+}
+
+public function getPopularTable($post,$uid){
+  //print_r($post);die;
+  $vid = $post['id'];
+  $videos = DB::table("popular")->where(array('userid'=>$uid,'videoid'=>$vid))->get()->toArray();
+    $return = count($videos) > 0 ? $this->updatePopular($post,$uid) : $this->insertPopular($post,$uid);
+    print_r($return);
+}
+
+public function updatePopular($data,$uid){
+    //echo "yss";die;
+  $count = 1;
+
+  $update = DB::table('popular')->where(array('userid'=>$uid,'videoid'=>$data['id']))->update([
+    'count' =>  DB::raw('count +'.$count)
+  ]);
+
+     return $update ? 1 : 0;
+
+}
+
+public function PopularVideos(){
+
+    $videoId =  DB::table('popular')->orderBy('count','desc')->take(10)->pluck('videoid')->toArray();
+
+    $videos = DB::table("media")->whereIn('id', $videoId)->get()->toArray();
+
+    return $videos;
+}
+
+public function insertPopular($data,$id){
+  $popular = array(
+    'created_at'=>now(),
+    'updated_at'=>now(),
+    'userid'=>$id,
+    'videoid'=>$data['id']
+  );
+
+  $insert = DB::table('popular')->insert($popular);
+
+  return $insert;
+
 }
 
 public function updateHistory($postdata,$uid,$tableData){

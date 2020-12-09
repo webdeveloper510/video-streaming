@@ -171,7 +171,7 @@
             @if($recnt->type=='video')
             <div class="col-md-4">
             
-          <video width="100%" height="100%" controls allowfullscreen>
+          <video width="350px" height="275px" controls allowfullscreen>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -210,11 +210,11 @@
     <button class="btn btn-primary seemore" type="button">See All</button>
 	</div>
           <div class="row">
-          @forelse ($recently as $recnt)
-            @if($recnt->type=='video')
+          @forelse ($popular as $pop)
+            @if($pop->type=='video')
             <div class="col-md-4">
                 <video width="100%" height="100%" controls allowfullscreen>
-                  <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+                  <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
             </div> 

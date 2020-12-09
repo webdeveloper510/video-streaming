@@ -330,12 +330,15 @@ class AuthController extends Controller
 
            $offersVideos = $this->model->getallOffer();
 
-          //print_r($artists);die;
+           $popularVideos = $this->model->PopularVideos();
+
+          //print_r($popularVideos);die;
 
           //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
-        return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos]);
+
+    return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos]);
 
       }
       public function contentPostLogin(Request $request){
