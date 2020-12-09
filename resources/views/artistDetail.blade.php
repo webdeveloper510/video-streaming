@@ -209,6 +209,14 @@
             Your browser does not support the video tag.
         </video>
     </a>
+    @else
+    <a href="{{url('artist-video/'.$detail->id)}}">
+        <audio controls width="270" height="200"  allowfullscreen>
+                <source src="{{url('storage/app/public/audio/'.$detail->media) }}" type="audio/mp3">
+               
+      </audio>
+    </a>
+    @endif
 
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}"></form></div>
 
@@ -222,7 +230,7 @@
     </div>
 </div>
 </div>
-@endif
+
 @endforeach
 </div>
 
