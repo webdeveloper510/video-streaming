@@ -603,6 +603,9 @@
       overflow-y: scroll;
 
   }
+  i.fa.fa-plus.text-white {
+    color: #ffbb11 !important;
+}
   .dropdown-menu.notif.text-center.show {
     left: -156px;
 }
