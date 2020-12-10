@@ -1329,7 +1329,7 @@ public function insertPopular($data,$id){
     'updated_at'=>now(),
     'userid'=>$id,
     'mediaid'=>$data['id'],
-    'type'=>$data['type']
+    'type'=>$data['types']
   );
 
   $insert = DB::table('popular')->insert($popular);
