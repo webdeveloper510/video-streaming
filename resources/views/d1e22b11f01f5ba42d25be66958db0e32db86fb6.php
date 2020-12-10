@@ -205,8 +205,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Video</h3>
-    <button class="btn btn-primary seemore" type="button">See All</button>
+	  <h3 class="tittle">Videos</h3>
+      <a href="<?php echo e(url('seeall/videos')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -242,7 +242,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Offers</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
+     <a href="<?php echo e(url('/seeall/offer')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -276,25 +276,22 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Audio</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
+    <h3 class="tittle">Audios</h3>
+     <a href="<?php echo e(url('/seeall/audios')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
-   <?php if($recently): ?>
-         <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                 <?php if($recnt->type=='video'): ?>
+         <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                 <?php if($audio->type=='audio'): ?>
               <div class="col-md-4">
                 
-                <video width="100%" height="100%" controls allowfullscreen>
+              <audio controls>
+                 <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
+            </audio>
 
-                  <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
               </div>
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
-          <?php endif; ?>
   
             </div>
 
@@ -311,7 +308,7 @@
   <div class="container my-4">
           <div class="slider_tittle">
               <h3 class="tittle">Artists</h3>
-              <button class="btn btn-primary seemore" type="button">See All</button>
+              <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
    <div class="row">
          <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

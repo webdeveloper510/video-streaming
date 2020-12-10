@@ -17,7 +17,7 @@ class Registration extends Model
        // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
-            $userdata['password']= md5($data['password']);
+            $userdata['password']= md5($data['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
            // print_r($userdata);die;
@@ -64,7 +64,7 @@ class Registration extends Model
         if(!$value){
 
             $userdata = $data->all();
-            $userdata['password']= md5($data['password']);
+            $userdata['password']= md5($data['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
@@ -392,8 +392,15 @@ public function getRecentlySearch(){
   
 }
 
-public function getArtists(){
-  $artists=DB::table('contentprovider')->paginate(10);
+public function getArtists($flag){
+    if($flag=='No'){
+
+      $artists=DB::table('contentprovider')->take(3)->get()->toArray();
+    }
+    else{
+
+      $artists=DB::table('contentprovider')->paginate(10);
+    }
   return $artists;
 }
 
@@ -1269,7 +1276,7 @@ public function addToHistory($data){
 public function getPopularTable($post,$uid){
   //print_r($post);die;
   $vid = $post['id'];
-  $videos = DB::table("popular")->where(array('userid'=>$uid,'videoid'=>$vid))->get()->toArray();
+  $videos = DB::table("popular")->where(array('userid'=>$uid,'mediaid'=>$vid))->get()->toArray();
     $return = count($videos) > 0 ? $this->updatePopular($post,$uid) : $this->insertPopular($post,$uid);
     print_r($return);
 }
@@ -1278,7 +1285,7 @@ public function updatePopular($data,$uid){
     //echo "yss";die;
   $count = 1;
 
-  $update = DB::table('popular')->where(array('userid'=>$uid,'videoid'=>$data['id']))->update([
+  $update = DB::table('popular')->where(array('userid'=>$uid,'mediaid'=>$data['id']))->update([
     'count' =>  DB::raw('count +'.$count)
   ]);
 
@@ -1286,11 +1293,32 @@ public function updatePopular($data,$uid){
 
 }
 
-public function PopularVideos(){
+public function PopularVideos($flag,$type){
 
-    $videoId =  DB::table('popular')->orderBy('count','desc')->take(10)->pluck('videoid')->toArray();
+  //echo $type;
 
-    $videos = DB::table("media")->whereIn('id', $videoId)->get()->toArray();
+  $videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
+
+    //print_r($videoId1);die;
+
+      if($flag=='No'){
+
+        //echo "yuuu";die;
+
+        //print_r($videoId1);die;
+
+        $videos = DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray();
+
+      }
+      else{
+
+        $videos = DB::table("media")->whereIn('id', $videoId1)->paginate(3);
+
+      }
+
+   
+
+    
 
     return $videos;
 }
@@ -1300,7 +1328,8 @@ public function insertPopular($data,$id){
     'created_at'=>now(),
     'updated_at'=>now(),
     'userid'=>$id,
-    'videoid'=>$data['id']
+    'mediaid'=>$data['id'],
+    'type'=>$data['type']
   );
 
   $insert = DB::table('popular')->insert($popular);
@@ -1347,8 +1376,15 @@ public function getHistoryVideo(){
   return $all_videos;
 }
 
-public function getallOffer(){
-  return DB::table('offer')->get()->toArray();
+public function getallOffer($flag){
+        if($flag=='No'){
+
+          return DB::table('offer')->take(3)->get()->toArray();
+        }
+  else{
+
+        return DB::table('offer')->paginate(3);
+  }
 }
 
 public function insertHistory($postData,$uid){

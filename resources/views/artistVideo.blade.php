@@ -12,13 +12,18 @@
 				   </div>
 				</div>
 				@foreach($vedios as $video)
-				@if($video->type=='video')
 				<?php 
-				$GLOBALS['paz'] = $video->price ;
+			
+			$GLOBALS['videoid'] = $video->id ;
+			$GLOBALS['type'] = $video->type ;
 
-				$GLOBALS['videoid'] = $video->id ;
+			$GLOBALS['paz'] = $video->price ;
 
-				?>
+			?>
+			
+			
+				@if($video->type=='video')
+			
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3>{{$video->title}}</h3>
@@ -384,6 +389,8 @@ $(".addToCart").click(function(e) {
 
 		var id = "{{$GLOBALS['videoid']}}";
 
+		var type = "{{$GLOBALS['type']}}";
+
 		$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/addTohistory",
@@ -391,7 +398,7 @@ $(".addToCart").click(function(e) {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {'id':id},
+				data: {'id':id, 'type':type},
 
 				success: function(data){
 

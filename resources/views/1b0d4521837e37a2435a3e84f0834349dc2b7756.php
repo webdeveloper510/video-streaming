@@ -209,6 +209,14 @@
             Your browser does not support the video tag.
         </video>
     </a>
+    <?php else: ?>
+    <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
+        <audio controls width="270" height="200"  allowfullscreen>
+                <source src="<?php echo e(url('storage/app/public/audio/'.$detail->media)); ?>" type="audio/mp3">
+               
+      </audio>
+    </a>
+    <?php endif; ?>
 
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>"></form></div>
 
@@ -223,7 +231,7 @@
     </div>
 </div>
 </div>
-<?php endif; ?>
+
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 

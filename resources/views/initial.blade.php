@@ -205,8 +205,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Video</h3>
-    <button class="btn btn-primary seemore" type="button">See All</button>
+	  <h3 class="tittle"><a href="{{url('seeall/video')}}">Videos</a></h3>
+      <a href="{{url('seeall/video')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
           @forelse ($popular as $pop)
@@ -241,8 +241,8 @@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Offers</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
+	  <h3 class="tittle">  <a href="{{url('/seeall/offer')}}">Offers</a></h3>
+     <a href="{{url('/seeall/offer')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
    <div class="row">
          @forelse ($offers as $offer)
@@ -276,25 +276,22 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Audio</h3>
-     <button class="btn btn-primary seemore" type="button">See All</button>
+    <h3 class="tittle"> <a href="{{url('/seeall/audio')}}">Audios</a></h3>
+     <a href="{{url('/seeall/audio')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
-   @if($recently)
-         @forelse ($recently as $recnt)
-                 @if($recnt->type=='video')
+         @forelse ($popularAudios as $audio)
+                 @if($audio->type=='audio')
               <div class="col-md-4">
                 
-                <video width="100%" height="100%" controls allowfullscreen>
+              <audio controls>
+                 <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
+            </audio>
 
-                  <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
               </div>
               @endif
               @empty
              @endforelse
-          @endif
   
             </div>
 
@@ -310,8 +307,8 @@
     <div class="outer_slider">
   <div class="container my-4">
           <div class="slider_tittle">
-              <h3 class="tittle">Artists</h3>
-              <button class="btn btn-primary seemore" type="button">See All</button>
+              <h3 class="tittle"><a href="{{url('seeall/artists')}}">Artists</a></h3>
+              <a href="{{url('seeall/artists')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
    <div class="row">
          @foreach($artists as $artist)
@@ -343,7 +340,10 @@
   button.btn.btn-primary.seemore {
     float: right;
     margin-top: -43px;
-}
+  }
+   h3.tittle a {
+    color: white;
+   }
   </style>
  <!--End 4th slider-->
 

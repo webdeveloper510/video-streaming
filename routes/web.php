@@ -57,6 +57,7 @@ Route::get('success', 'AuthController@succssPage');
 Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication');; 
 
 Route::get('inProcess', 'AuthController@process'); 
+Route::get('seeall/{text}', 'AuthController@seeall'); 
 
 Route::get('new', 'AuthController@new'); 
 

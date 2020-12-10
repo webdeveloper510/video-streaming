@@ -149,9 +149,7 @@
 </div>
 <?php endif; ?>
  </div>
-  <?php if($login): ?> 
-  <h1 class="text-white center">Welcome to the Porn-Artist-Zone!</h1>
-  <?php endif; ?>
+
 <div class="outer_slider">
   <div class="coner my-4">
     
@@ -173,7 +171,7 @@
             <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
             
-          <video width="370" height="245" controls allowfullscreen>
+          <video width="350px" height="275px" controls allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -188,12 +186,13 @@
 
 
     </div>
-    <?php endif; ?>
+ 
 
   </div>  </div>
 
 
   <br/><br/>
+  
 
  
  <!--End 1st slider-->
@@ -201,37 +200,27 @@
  
 
  <!--   Videos    -->
-
-
+<div>
 
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Video</h3>
+	  <h3 class="tittle"><a href="<?php echo e(url('seeall/videos')); ?>">Videos</a></h3>
+      <a href="<?php echo e(url('seeall/videos')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
+          <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($pop->type=='video'): ?>
             <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-                <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-                <div class="col-md-4">
-           
-          <video width="370" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-               </div>
-           
+                <video width="100%" height="100%" controls allowfullscreen>
+                  <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div> 
+
+               <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>    
 
              </div>
             </div>
@@ -247,42 +236,30 @@
  <!--End 3rd slider-->
  
 
-  <!----------Offer Videos------------>
-
+  <!---------------------------------------------Offer Videos--------------------------------------------->
+@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Offers</h3>
+	  <h3 class="tittle">  <a href="<?php echo e(url('/seeall/offer')); ?>">Offers</a></h3>
+     <a href="<?php echo e(url('/seeall/offer')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
    <div class="row">
+         <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+            <?php if($offer->type=='video'): ?>
               <div class="col-md-4">
                 
-            <video width="370" height="245" controls allowfullscreen>
+                  <video width="100%" height="100%" controls allowfullscreen>
 
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+                  <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
                
               </div>
-               <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
-
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
-        
-             <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
-
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
+              <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
+           
         
         
   
@@ -293,44 +270,57 @@
 
 
 
- <!-------Audio-------->
+ <!--------------------------------------------------------------Audio------------------------------------------------->
 
 
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Audio</h3>
+    <h3 class="tittle"> <a href="<?php echo e(url('/seeall/audios')); ?>">Audios</a></h3>
+     <a href="<?php echo e(url('/seeall/audios')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
+   <?php if($recently): ?>
+         <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                 <?php if($recnt->type=='video'): ?>
               <div class="col-md-4">
                 
-            <video width="370" height="245" controls allowfullscreen>
+                <video width="100%" height="100%" controls allowfullscreen>
 
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
+                  <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
               </div>
-               <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
+              <?php endif; ?>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+             <?php endif; ?>
+          <?php endif; ?>
+  
+            </div>
 
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
-              </div>
-        
-             <div class="col-md-4">
-                
-            <video width="370" height="245" controls allowfullscreen>
+  
+            </div>
+    
 
-            <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-               
+  
+      <!--/.Slides-->
+
+    </div>
+
+    <div class="outer_slider">
+  <div class="container my-4">
+          <div class="slider_tittle">
+              <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
+              <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
+           </div>
+   <div class="row">
+         <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                 <?php if($artist->profilepicture): ?>
+              <div class="col-md-4">
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="100%" height="200px">
               </div>
-        
+              <?php endif; ?>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
   
             </div>
@@ -343,11 +333,20 @@
       <!--/.Slides-->
 
     </div>
+    </div>
+    <?php endif; ?>
     <!--/.Carousel Wrapper-->
   <style>
   .owl-carousel {
     display: block !important;
   }
+  button.btn.btn-primary.seemore {
+    float: right;
+    margin-top: -43px;
+  }
+   h3.tittle a {
+    color: white;
+   }
   </style>
  <!--End 4th slider-->
 
@@ -369,7 +368,7 @@
   });
     $("#owl-example4").owlCarousel({
     items:3,
-      loop:true,
+    loop:true,
 margin:10,
 autoPlay:true,
 nav:true,
