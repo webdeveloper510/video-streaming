@@ -61,6 +61,14 @@ h5.select_list.active {
     font-weight: 700;
    left: 17px;
 }
+.audioprice {
+    background: #010001;
+    padding: 8px;
+   
+    color: white;
+    font-weight: 700;
+   left: 17px;
+}
 .choose1 {
     text-align: center;
     background: white;
@@ -87,6 +95,15 @@ h5.select_list.active {
     margin-right: 10px;
 }
 .videotime {
+    position: absolute;
+    right: 40px;
+    padding: 8px;
+    font-weight: 700;
+    background: #010001;
+    color: white;
+    top: 24px;
+}
+.audiotime {
     position: absolute;
     right: 40px;
     padding: 8px;
