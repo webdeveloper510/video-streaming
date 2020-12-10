@@ -197,12 +197,15 @@
 </div>
 
 
-
+<h2>Video</h2>
+<hr>
 
 <div class="row media_div">
-       <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+<?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4 pr-4 mt-3 mb-5" >
-            <?php if($detail->type=='video'): ?>
+   
+    
   
         <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="270" height="200" controls allowfullscreen>
@@ -210,32 +213,49 @@
             Your browser does not support the video tag.
         </video>
     </a>
-    <?php else: ?>
-    <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-        <audio controls width="270" height="200"  allowfullscreen>
-                <source src="<?php echo e(url('storage/app/public/audio/'.$detail->media)); ?>" type="audio/mp3">
-               
-      </audio>
-    </a>
-    <?php endif; ?>
-
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>"></form></div>
 
-          <div class="<?php echo e($detail->type=='video' ? 'videoprice' : 'audioprice'); ?>"><?php echo e(''.$detail->price); ?>PAZ</div>
-          <div class="<?php echo e($detail->type=='video' ? 'videotime' : 'audiotime'); ?>">00:03:56</div>
-    <div class=" text-center">
-    <a class="text-center" href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
-     <i class="fa fa-video-camera" aria-hidden="true"></i>  <?php echo e($detail->title); ?>
+          <div class="videoprice"><?php echo e(''.$detail->price); ?>PAZ</div>
+          <div class="videotime">00:03:56</div>
+      <div class=" text-center">
+          <a class="text-center" href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
+      <i class="fa fa-video-camera" aria-hidden="true"></i>  <?php echo e($detail->title); ?>
 
-    </a>
-     <div class="camera">
-    </div>
-</div>
-</div>
+      </a>
+      <div class="camera">
+          </div>
+      </div>
+      </div>
 
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+<h2>Audio</h2>
+<hr>
+<div class="row media_div">
+ 
+     <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <div class="col-md-4 pr-4 mt-3 mb-5" >
+        <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+        <audio width="270" height="200" controls allowfullscreen>
+            <source src="<?php echo e(url('storage/app/public/video/'.$aud->media)); ?>" type="video/mp4">
+            Your browser does not support the video tag.
+      </audio>
+        </a>
+     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($aud->id); ?>" data-id="<?php echo e($aud->price); ?>"></form></div>
+
+          <div class="audioprice"><?php echo e(''.$aud->price); ?>PAZ</div>
+          <div class="audiotime">00:03:56</div>
+      <div class=" text-center">
+          <a class="text-center" href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
+      <i class="fa fa-play" aria-hidden="true"></i>  <?php echo e($aud->title); ?>
+
+      </a>
+      <div class="camera">
+       </div>
+      </div>
+
+</div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</div>
-
 </div>
 
 </div>
