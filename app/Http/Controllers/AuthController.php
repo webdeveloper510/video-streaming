@@ -1226,7 +1226,7 @@ public function addTohistory(Request $req){
 
 public function seeall($flag){
     // echo $flag;
-     if($flag=='audios'){
+     if($flag=='audio'){
 
       $videos = $this->model->PopularVideos($paginate='yes',$flag);
 
@@ -1237,7 +1237,7 @@ public function seeall($flag){
       $videos = $this->model->getallOffer($paginate='yes');
     }
 
-    if($flag=='videos'){
+    if($flag=='video'){
 
       $videos = $this->model->PopularVideos($paginate='yes',$flag);
 
