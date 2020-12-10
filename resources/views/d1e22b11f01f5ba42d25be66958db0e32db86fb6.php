@@ -205,8 +205,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Videos</h3>
-      <a href="<?php echo e(url('seeall/videos')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
+	  <h3 class="tittle"><a href="<?php echo e(url('seeall/video')); ?>">Videos</a></h3>
+      <a href="<?php echo e(url('seeall/video')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -241,7 +241,7 @@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Offers</h3>
+	  <h3 class="tittle">  <a href="<?php echo e(url('/seeall/offer')); ?>">Offers</a></h3>
      <a href="<?php echo e(url('/seeall/offer')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
    <div class="row">
@@ -276,8 +276,8 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Audios</h3>
-     <a href="<?php echo e(url('/seeall/audios')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
+    <h3 class="tittle"> <a href="<?php echo e(url('/seeall/audio')); ?>">Audios</a></h3>
+     <a href="<?php echo e(url('/seeall/audio')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -307,7 +307,7 @@
     <div class="outer_slider">
   <div class="container my-4">
           <div class="slider_tittle">
-              <h3 class="tittle">Artists</h3>
+              <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
               <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
    <div class="row">
@@ -340,7 +340,10 @@
   button.btn.btn-primary.seemore {
     float: right;
     margin-top: -43px;
-}
+  }
+   h3.tittle a {
+    color: white;
+   }
   </style>
  <!--End 4th slider-->
 

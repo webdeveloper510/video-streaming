@@ -1295,29 +1295,24 @@ public function updatePopular($data,$uid){
 
 public function PopularVideos($flag,$type){
 
-  //echo $type;
 
   $videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
 
-    //print_r($videoId1);die;
 
       if($flag=='No'){
 
-        //echo "yuuu";die;
-
-        //print_r($videoId1);die;
 
         $videos = DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray();
 
       }
       else{
 
-        $videos = DB::table("media")->whereIn('id', $videoId1)->paginate(3);
+        $videos = DB::table("media")->whereIn('id', $videoId1)->paginate(30);
 
       }
 
    
-
+        //print_r($videos);die;
     
 
     return $videos;
