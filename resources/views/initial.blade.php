@@ -206,7 +206,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle">Videos</h3>
-      <a href="{{url('seeall/videos')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
+      <a href="{{url('seeall/video')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
           @forelse ($popular as $pop)
@@ -277,23 +277,21 @@
   <div class="container my-4">
     <div class="slider_tittle">
     <h3 class="tittle">Audios</h3>
-     <a href="{{url('/seeall/audios')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
+     <a href="{{url('/seeall/audio')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
-   @if($recently)
-         @forelse ($recently as $recnt)
-                 @if($recnt->type=='audio')
+         @forelse ($popularAudios as $audio)
+                 @if($audio->type=='audio')
               <div class="col-md-4">
                 
               <audio controls>
-                 <source src="{{url('storage/app/public/audio/'.$offer->media) }}" type="audio/ogg">
+                 <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
             </audio>
 
               </div>
               @endif
               @empty
              @endforelse
-          @endif
   
             </div>
 

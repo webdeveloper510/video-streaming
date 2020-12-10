@@ -627,6 +627,9 @@
       overflow-y: scroll;
 
   }
+  i.fa.fa-plus.text-white {
+    color: #ffbb11 !important;
+}
   .dropdown-menu.notif.text-center.show {
     left: -156px;
 }
@@ -691,7 +694,9 @@
 .price::-ms-input-placeholder { 
   color: red;
 }
-
+span.profile-img hr{
+  height:5px !important;
+}
   span.text-center.text-dark {
     padding: 9px;
     background: white;

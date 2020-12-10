@@ -280,20 +280,18 @@
      <a href="<?php echo e(url('/seeall/audios')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
-   <?php if($recently): ?>
-         <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                 <?php if($recnt->type=='audio'): ?>
+         <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                 <?php if($audio->type=='audio'): ?>
               <div class="col-md-4">
                 
               <audio controls>
-                 <source src="<?php echo e(url('storage/app/public/audio/'.$offer->media)); ?>" type="audio/ogg">
+                 <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
             </audio>
 
               </div>
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
-          <?php endif; ?>
   
             </div>
 

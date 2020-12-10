@@ -115,6 +115,8 @@ class artist extends Controller
       
           $allVedios = $this->model->getVideo($vedioid);
 
+          //print_r($allVedios);die;
+
          $all_play_lists = $this->model->getPlaylist();
 
          //echo "<pre>";
