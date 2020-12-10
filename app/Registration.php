@@ -163,27 +163,30 @@ public function uploadContentData($userdata){
               ->first();
              
               
-             //print_r($value);die;
+           $return = 0;
           
 
            if(is_null($value)){
-                  return 0;
+             //echo "eee";die;
+             $return = 0;
             }
               else{
 
                 if($value->verify!=1){
 
-                            return 'Not Verify';
+                 // echo "if";
+
+                 $return = 'Not Verify';
                 }
 
                 else{
-
-                  //echo "yes";die;
+           
 
     $data['user'] == 'users' ? Session::put('userType','User'): Session::put('userType','contentUser');
      Session::put('User', $value);
-                return 1;
+                  $return =1;
             }
+            return $return;
               }
 
 

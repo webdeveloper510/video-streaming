@@ -300,19 +300,20 @@ class AuthController extends Controller
             $get = $this->model->login($data);
 
 
-           //print_r($get);die;
+
 
              $redirect_url=Session::get('redirect_url');
 
-             //print_r($redirect_url);die;
+    
 
             if($get==1 && $data['g-recaptcha-response']){
-            // echo "yes";die;
         return  $data['user']=='users' ?  redirect('/'.$redirect_url)->with('success','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
             }
-             else if($data['g-recaptcha-response']==''){
-                 return redirect('/login')->with('captcha','invalid Captcha!!');
-             }
+
+           else if($data['g-recaptcha-response']==''){
+
+               return redirect('/login')->with('captcha','invalid Captcha!!');
+           }
             else if($get=='Not Verify'){
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
