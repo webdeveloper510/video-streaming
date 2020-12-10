@@ -510,7 +510,7 @@
            <?php endif; ?>             
 
             <?php if($login): ?>
-           <div class="btn-group login-btn"style="border-right-color: white;border-right-style: solid;">
+           <div class="btn-group login-btn text-center"style="border-right-color: white;border-right-style: solid;">
              <?php if($userProfile[0]->profilepicture): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
@@ -694,8 +694,9 @@
 .price::-ms-input-placeholder { 
   color: red;
 }
-span.profile-img hr{
-  height:5px !important;
+span.profile-img hr {
+    height: 2px !important;
+    width: 100px;
 }
   span.text-center.text-dark {
     padding: 9px;
