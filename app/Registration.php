@@ -1441,6 +1441,20 @@ public function getVideoWhereIn($mutli){
 
 }
 
+public function checkNameExist($data){
+
+   $tablename = $data['table'];
+
+   $name = $data['nickname'];
+
+  $dataExist = $this->selectDataById('nickname',$tablename,$name);
+
+ return  count($dataExist) > 0 ? 1 : 0; 
+
+   
+
+}
+
     // public function addToLibrary1(){
 
     //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();

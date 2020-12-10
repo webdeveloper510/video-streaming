@@ -62,6 +62,7 @@ h5.select_list.active {
    left: 17px;
 }
 .audioprice {
+    position: absolute;
     background: #010001;
     padding: 8px;
    
@@ -110,7 +111,7 @@ h5.select_list.active {
     font-weight: 700;
     background: #010001;
     color: white;
-    top: 24px;
+   
 }
 .search.content .form-control {
     float: left;

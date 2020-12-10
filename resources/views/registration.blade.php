@@ -29,9 +29,9 @@
 
                
 
-        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}} Customer 
+        {{Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])}} Customer 
 
-        {{Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])}} Artist
+        {{Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])}} Artist
                 @if($errors->first('email'))
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
@@ -53,12 +53,14 @@
           <div class="row align-items-center mt-4">
             <div class="col">
             {{Form::label('Nickname', 'Nickname')}} 
-                {{Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
+                {{Form::text('nickname',null,['class'=>'form-control checknameExist','placeholder'=>'Enter Nickname'])}}
                 @if(session('errors'))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger alreadyNickname">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 @endif
+                <div class="alert alert-danger alreadyNickname" style="display:none">
+                </div>
 
             </div>
           </div>
@@ -117,4 +119,8 @@
   .register{
     border-radius: 28px !important;
   }
+
+  .alert-danger {
+    margin-top: 10px;
+}
 </style>
