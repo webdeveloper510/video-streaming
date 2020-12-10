@@ -41,26 +41,28 @@
            <div class="row align-items-center">
             <div class="col mt-4">
             <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
-                <?php echo e(Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+                <?php echo e(Form::email('email1',null,['class'=>'form-control checknameExist','data-id'=>'email','placeholder'=>'example@gmail.com'])); ?>
 
                 <?php if($errors->first('email')): ?>
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
                 </div>
                 <?php endif; ?>
+                <div class="alert alert-danger alreadyNickname" id="email" style="display:none">
+                </div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
             <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
-                <?php echo e(Form::text('nickname',null,['class'=>'form-control checknameExist','placeholder'=>'Enter Nickname'])); ?>
+                <?php echo e(Form::text('nickname',null,['class'=>'form-control checknameExist','data-id'=>'nickname','placeholder'=>'Enter Nickname'])); ?>
 
                 <?php if($errors->first('nickname')): ?>
                 <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 <?php endif; ?>
-                <div class="alert alert-danger alreadyNickname" style="display:none">
+                <div class="alert alert-danger alreadyNickname" id="nickname" style="display:none">
                 </div>
                
 

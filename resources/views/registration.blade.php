@@ -37,24 +37,26 @@
            <div class="row align-items-center">
             <div class="col mt-4">
             {{Form::label('email', 'E-Mail Address')}} 
-                {{Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                {{Form::email('email1',null,['class'=>'form-control checknameExist','data-id'=>'email','placeholder'=>'example@gmail.com'])}}
                 @if($errors->first('email'))
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
                 </div>
                 @endif
+                <div class="alert alert-danger alreadyNickname" id="email" style="display:none">
+                </div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
             {{Form::label('Nickname', 'Nickname')}} 
-                {{Form::text('nickname',null,['class'=>'form-control checknameExist','placeholder'=>'Enter Nickname'])}}
+                {{Form::text('nickname',null,['class'=>'form-control checknameExist','data-id'=>'nickname','placeholder'=>'Enter Nickname'])}}
                 @if($errors->first('nickname'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 @endif
-                <div class="alert alert-danger alreadyNickname" style="display:none">
+                <div class="alert alert-danger alreadyNickname" id="nickname" style="display:none">
                 </div>
                
 
