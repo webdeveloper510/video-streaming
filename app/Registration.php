@@ -1370,7 +1370,7 @@ public function getHistoryVideo(){
   $userid =  $session_data->id;
 
   $videos = DB::table("history")->where(array('userid'=>$userid))->get()->toArray();
-  $videoId = $videos[0]->videoid;
+  $videoId = $videos ? $videos[0]->videoid:'';
   $arrayId = explode(",",$videoId);
 
   $all_videos = DB::table("media")->whereIn('id', $arrayId)->get()->toArray();
