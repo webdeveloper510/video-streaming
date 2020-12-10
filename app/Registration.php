@@ -407,12 +407,15 @@ public function getArtists($flag){
   return $artists;
 }
 
-public function getArtistDetail($artid){
+public function getArtistDetail($artid,$type){
+    //echo $type;die;
       $artistsDetail=DB::table('contentprovider')
       ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->select('contentprovider.*', 'media.*')
-       ->where('contentprovider.id',$artid)
+       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
+      // ->where('contentprovider.id',$artid && 'media.type',$type)
        ->get()->toArray();
+       //print_r($artistsDetail);die;
        if($artistsDetail){
            return $artistsDetail;
        }
@@ -1435,6 +1438,20 @@ public function getVideoWhereIn($mutli){
 
        $sum = array_sum(array_column($value, 'price'));
         return ['result'=>$value,'sum'=>$sum];
+
+}
+
+public function checkNameExist($data){
+
+   $tablename = $data['table'];
+
+   $name = $data['nickname'];
+
+  $dataExist = $this->selectDataById('nickname',$tablename,$name);
+
+ return  count($dataExist) > 0 ? 1 : 0; 
+
+   
 
 }
 

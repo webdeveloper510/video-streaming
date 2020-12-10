@@ -33,7 +33,7 @@
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		</div>
 		<style type="text/css">
-			.profileImage {
+.profileImage {
   width: 100px;
   height: 100px;
   border-radius: 50%;

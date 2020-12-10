@@ -197,43 +197,63 @@
 </div>
 
 
-
+<h2>Video</h2>
+<hr>
 
 <div class="row media_div">
-       @foreach ($details as $detail)
-            @if($detail->type=='video')
-    <div class="col-md-4 pr-4 mt-3 mb-5" >
+
+@foreach ($details as $detail)
+       <div class="col-md-4 pr-4 mt-3 mb-5" >
+   
+    
+  
         <a href="{{url('artist-video/'.$detail->id)}}">
         <video width="270" height="200" controls allowfullscreen>
             <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </a>
-    @else
-    <a href="{{url('artist-video/'.$detail->id)}}">
-        <audio controls width="270" height="200"  allowfullscreen>
-                <source src="{{url('storage/app/public/audio/'.$detail->media) }}" type="audio/mp3">
-               
-      </audio>
-    </a>
-    @endif
-
     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}"></form></div>
 
-          <div class="price">{{''.$detail->price}}PAZ</div>
-          <div class="time">00:03:56</div>
-<div class=" text-center">
-    <a class="text-center" href="a{{url('artist-video/'.$detail->id)}}">
-<i class="fa fa-video-camera" aria-hidden="true"></i>  {{$detail->title}}
-</a>
-<div class="camera">
-    </div>
-</div>
-</div>
+          <div class="videoprice">{{''.$detail->price}}PAZ</div>
+          <div class="videotime">00:03:56</div>
+      <div class=" text-center">
+          <a class="text-center" href="a{{url('artist-video/'.$detail->id)}}">
+      <i class="fa fa-video-camera" aria-hidden="true"></i>  {{$detail->title}}
+      </a>
+      <div class="camera">
+          </div>
+      </div>
+      </div>
 
+      @endforeach
+</div>
+<h2>Audio</h2>
+<hr>
+<div class="row media_div">
+ 
+     @foreach ($audio as $aud)
+    <div class="col-md-4 pr-4 mt-3 mb-5" >
+        <a href="{{url('artist-video/'.$aud->id)}}">
+        <audio width="270" height="200" controls allowfullscreen>
+            <source src="{{url('storage/app/public/video/'.$aud->media) }}" type="video/mp4">
+            Your browser does not support the video tag.
+      </audio>
+        </a>
+     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$aud->id}}" data-id="{{$aud->price}}"></form></div>
+
+          <div class="audioprice">{{''.$aud->price}}PAZ</div>
+          <div class="audiotime">00:03:56</div>
+      <div class=" text-center">
+          <a class="text-center" href="a{{url('artist-video/'.$detail->id)}}">
+      <i class="fa fa-play" aria-hidden="true"></i>  {{$aud->title}}
+      </a>
+      <div class="camera">
+       </div>
+      </div>
+
+</div>
 @endforeach
-</div>
-
 </div>
 
 </div>

@@ -83,6 +83,8 @@ Route::post('request', 'AuthController@addRequest');
 
 Route::post('addToLibrary', 'AuthController@addToLibrary');
 
+Route::post('checknameExist', 'AuthController@checknameExist');
+
 Route::post('addMultipleVideo', 'AuthController@addMultipleVideo');
 
 Route::post('selectMultiple', 'AuthController@selectMultiple');

@@ -52,11 +52,20 @@ h5.select_list.active {
    .main-mistree {
    margin-top: -22px;
 }
-.price {
+.videoprice {
     position: absolute;
     background: #010001;
     padding: 8px;
     top: 24px;
+    color: white;
+    font-weight: 700;
+   left: 17px;
+}
+.audioprice {
+    position: absolute;
+    background: #010001;
+    padding: 8px;
+   
     color: white;
     font-weight: 700;
    left: 17px;
@@ -86,7 +95,7 @@ h5.select_list.active {
     float: left;
     margin-right: 10px;
 }
-.time {
+.videotime {
     position: absolute;
     right: 40px;
     padding: 8px;
@@ -94,6 +103,15 @@ h5.select_list.active {
     background: #010001;
     color: white;
     top: 24px;
+}
+.audiotime {
+    position: absolute;
+    right: 40px;
+    padding: 8px;
+    font-weight: 700;
+    background: #010001;
+    color: white;
+   
 }
 .search.content .form-control {
     float: left;

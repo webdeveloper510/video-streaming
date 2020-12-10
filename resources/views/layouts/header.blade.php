@@ -536,7 +536,7 @@
       @foreach($notification as $val)
     @if($val->notificationfor=='user')
     
-      <a href="{{url('artist/readNotification/'.$val->id)}}">{{$val->message}}</a>
+      <a href="{{url('notification/user')}}">{{$val->message}}</a>
     
   
     <hr>

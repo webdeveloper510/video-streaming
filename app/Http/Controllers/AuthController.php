@@ -307,7 +307,9 @@ class AuthController extends Controller
     
 
             if($get==1 && $data['g-recaptcha-response']){
+
         return  $data['user']=='users' ?  redirect('/'.$redirect_url)->with('success','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
+
             }
 
            else if($data['g-recaptcha-response']==''){
@@ -318,7 +320,7 @@ class AuthController extends Controller
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
-              return redirect('/login')->with('error','Invalid Email and Password!');
+              return redirect('/login')->with('error','Invalid Email or Password!');
             }
 
       }
@@ -383,7 +385,7 @@ class AuthController extends Controller
      //print_r($request->all()); die;
          $model = new Registration();
 
-        if($request->person=='user'){
+        if($request->person=='users'){
 
 
             unset($request['person']);
@@ -1226,7 +1228,6 @@ public function addTohistory(Request $req){
 }
 
 public function seeall($flag){
-    // echo $flag;
      if($flag=='audio'){
 
       $audios = $this->model->PopularVideos($paginate='yes',$flag);
@@ -1249,10 +1250,18 @@ public function seeall($flag){
 
     }
 
-   // print_r($videos);die;
-
     return view('getAlldata',['videos'=>isset($videos) ? $videos : '','audio'=>$audios]);
      
+}
+/*----------------------------------------------------Check Already Nickname Exist-------------------------------------------------*/
+public function checknameExist(Request $req){
+
+  //print_r($req->all());die;
+
+  $flag = $this->model->checkNameExist($req->all());
+
+  return $flag;
+
 }
 
  }

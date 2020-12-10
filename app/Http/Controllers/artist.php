@@ -54,12 +54,14 @@ class artist extends Controller
 
      Session::forget('SessionmultipleIds');
          
-    	   $allArtists=     $this->model->getArtistDetail($artistid);
+    	   $allArtistsVideo=     $this->model->getArtistDetail($artistid,'video');
+         $allArtistsAudio=     $this->model->getArtistDetail($artistid,'audio');
+        // print_r($allArtistsVideo);die;
          $category_data = $this->model->getCategory();
 
        
 
-   return view('artistDetail',['cartVideo'=>'','details'=>$allArtists,'category'=> $category_data ]);
+   return view('artistDetail',['cartVideo'=>'','details'=>$allArtistsVideo,'audio'=>$allArtistsAudio,'category'=> $category_data ]);
     }
 
     public function cartSbmit(Request $req){
@@ -289,9 +291,8 @@ class artist extends Controller
 
     public function readNotification($id){
 
-      $noti_id = base64_decode($id);
 
-          $notificationRead = $this->model->readNotification($noti_id);
+          $notificationRead = $this->model->readNotification($id);
 
           if($notificationRead ==1){
           return redirect('artist/my-offer')->with('success','Add Description!');
