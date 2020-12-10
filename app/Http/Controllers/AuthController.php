@@ -300,7 +300,7 @@ class AuthController extends Controller
             $get = $this->model->login($data);
 
 
-           print_r($get);die;
+           //print_r($get);die;
 
              $redirect_url=Session::get('redirect_url');
 
@@ -317,7 +317,7 @@ class AuthController extends Controller
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
-              return redirect('/login')->with('error','invalid credentials!');
+              return redirect('/login')->with('error','Invalid Email and Password!');
             }
 
       }
