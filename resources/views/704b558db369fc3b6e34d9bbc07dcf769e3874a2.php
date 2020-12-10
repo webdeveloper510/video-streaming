@@ -36,11 +36,6 @@
         <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
 
         <?php echo e(Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])); ?> Artist
-                <?php if($errors->first('email')): ?>
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('email'); ?>
-                </div>
-                <?php endif; ?>
             </div>
           </div>
            <div class="row align-items-center">
@@ -60,13 +55,14 @@
             <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
                 <?php echo e(Form::text('nickname',null,['class'=>'form-control checknameExist','placeholder'=>'Enter Nickname'])); ?>
 
-                <?php if(session('errors')): ?>
-                <div class="alert alert-danger alreadyNickname">
+                <?php if($errors->first('nickname')): ?>
+                <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 <?php endif; ?>
                 <div class="alert alert-danger alreadyNickname" style="display:none">
                 </div>
+               
 
             </div>
           </div>
@@ -135,6 +131,9 @@
   }
 
   .alert-danger {
+    margin-top: 10px;
+}
+.alert-success {
     margin-top: 10px;
 }
 </style><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/registration.blade.php ENDPATH**/ ?>
