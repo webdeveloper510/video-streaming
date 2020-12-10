@@ -291,9 +291,8 @@ class artist extends Controller
 
     public function readNotification($id){
 
-      $noti_id = base64_decode($id);
 
-          $notificationRead = $this->model->readNotification($noti_id);
+          $notificationRead = $this->model->readNotification($id);
 
           if($notificationRead ==1){
           return redirect('artist/my-offer')->with('success','Add Description!');

@@ -10,14 +10,6 @@
           <div class="row">
             <div class="col text-center">
               <h1 class="text-white">Register As</h1>
-              <?php if(count($errors)>0): ?>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="alert registration alert-danger">
-          <?php echo e($error); ?>
-
-        </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <?php endif; ?>
         <?php if(session('success')): ?>
         <div class="alert alert-success" id="sucess">
         <?php echo e(session('success')); ?>
@@ -89,6 +81,21 @@
             </div>
           </div>
           <?php endif; ?>
+
+          <div class="row align-items-center mt-4">
+            <div class="col">
+            <?php echo e(Form::label('Confirm-Password', 'Confirm-Password')); ?>
+
+                <?php echo e(Form::password('confirm',['class'=>'form-control','placeholder'=>'Confirm-Password'])); ?>
+
+                <?php if($errors->first('confirm')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('confirm') ?>
+                </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
