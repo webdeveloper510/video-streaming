@@ -54,13 +54,14 @@
             <div class="col">
             {{Form::label('Nickname', 'Nickname')}} 
                 {{Form::text('nickname',null,['class'=>'form-control checknameExist','placeholder'=>'Enter Nickname'])}}
-                @if(session('errors'))
-                <div class="alert alert-danger alreadyNickname">
+                @if($errors->first('nickname'))
+                <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 @endif
                 <div class="alert alert-danger alreadyNickname" style="display:none">
                 </div>
+               
 
             </div>
           </div>
@@ -121,6 +122,9 @@
   }
 
   .alert-danger {
+    margin-top: 10px;
+}
+.alert-success {
     margin-top: 10px;
 }
 </style>

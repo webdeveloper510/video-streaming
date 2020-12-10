@@ -560,7 +560,7 @@
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
     
-      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+      <a href="<?php echo e(url('notification/user')); ?>"><?php echo e($val->message); ?></a>
     
   
     <hr>

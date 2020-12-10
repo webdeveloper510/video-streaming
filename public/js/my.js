@@ -676,8 +676,20 @@ $(document).on('keyup', '.checknameExist', function () {
 			if(data==1){
 				console.log('ys');
 				$('.alreadyNickname').show();
-				$('.alreadyNickname').html('User Already Exist');
+				$('.alreadyNickname').addClass('alert alert-danger').removeClass('alert-success');
+				$('.alreadyNickname').html('User Already Exist!');
 			}
+
+			else{
+			$('.alreadyNickname').show();
+
+		$('.alreadyNickname').addClass('alert alert-success').removeClass('alert-danger');
+
+		$('.alreadyNickname').html('User Availabe!');
+
+			}
+
+
 	
 			
 		}
