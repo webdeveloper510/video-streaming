@@ -1228,7 +1228,7 @@ public function seeall($flag){
     // echo $flag;
      if($flag=='audio'){
 
-      $videos = $this->model->PopularVideos($paginate='yes',$flag);
+      $audios = $this->model->PopularVideos($paginate='yes',$flag);
 
      }
 
@@ -1250,7 +1250,7 @@ public function seeall($flag){
 
    // print_r($videos);die;
 
-    return view('getAlldata',['videos'=>$videos]);
+    return view('getAlldata',['videos'=>isset($videos) ? $videos : '','audio'=>$audios]);
      
 }
 

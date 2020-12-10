@@ -10,13 +10,6 @@
           <div class="row">
             <div class="col text-center">
               <h1 class="text-white">Register As</h1>
-              @if(count($errors)>0)
-        @foreach($errors->all() as $error)
-        <div class="alert registration alert-danger">
-          {{$error}}
-        </div>
-        @endforeach
-        @endif
         @if(session('success'))
         <div class="alert alert-success" id="sucess">
         {{session('success')}}
