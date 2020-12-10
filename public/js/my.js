@@ -652,8 +652,37 @@ $(document).on('click', '.addTowishlist', function () {
 });
 
 
+/*--------------------------------------------check Name Exist-------------------------------------------------*/
 
 
+$(document).on('keyup', '.checknameExist', function () {
 
+	var redioChecked = $('.user:checked').val();
+
+	//console.log(redioChecked);return false;
+
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/checknameExist",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'nickname':$(this).val(),'table':redioChecked},
+
+		success: function(data){
+
+			console.log(data);
+			if(data==1){
+				console.log('ys');
+				$('.alreadyNickname').show();
+				$('.alreadyNickname').html('User Already Exist');
+			}
+	
+			
+		}
+});
+
+})
 
 
