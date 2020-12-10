@@ -12,13 +12,18 @@
 				   </div>
 				</div>
 				<?php $__currentLoopData = $vedios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-				<?php if($video->type=='video'): ?>
 				<?php 
-				$GLOBALS['paz'] = $video->price ;
+			
+			$GLOBALS['videoid'] = $video->id ;
+			$GLOBALS['type'] = $video->type ;
 
-				$GLOBALS['videoid'] = $video->id ;
+			$GLOBALS['paz'] = $video->price ;
 
-				?>
+			?>
+			
+			
+				<?php if($video->type=='video'): ?>
+			
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3><?php echo e($video->title); ?></h3>
@@ -384,6 +389,8 @@ $(".addToCart").click(function(e) {
 
 		var id = "<?php echo e($GLOBALS['videoid']); ?>";
 
+		var type = "<?php echo e($GLOBALS['type']); ?>";
+
 		$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/addTohistory",
@@ -391,7 +398,7 @@ $(".addToCart").click(function(e) {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {'id':id},
+				data: {'id':id, 'type':type},
 
 				success: function(data){
 
