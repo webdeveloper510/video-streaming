@@ -32,11 +32,6 @@
         {{Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])}} Customer 
 
         {{Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])}} Artist
-                @if($errors->first('email'))
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('email'); ?>
-                </div>
-                @endif
             </div>
           </div>
            <div class="row align-items-center">

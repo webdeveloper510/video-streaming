@@ -36,11 +36,6 @@
         <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
 
         <?php echo e(Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])); ?> Artist
-                <?php if($errors->first('email')): ?>
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('email'); ?>
-                </div>
-                <?php endif; ?>
             </div>
           </div>
            <div class="row align-items-center">
