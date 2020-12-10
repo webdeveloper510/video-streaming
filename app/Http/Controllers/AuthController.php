@@ -307,7 +307,9 @@ class AuthController extends Controller
     
 
             if($get==1 && $data['g-recaptcha-response']){
+
         return  $data['user']=='users' ?  redirect('/'.$redirect_url)->with('success','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
+        
             }
 
            else if($data['g-recaptcha-response']==''){
@@ -318,7 +320,7 @@ class AuthController extends Controller
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
-              return redirect('/login')->with('error','Invalid Email and Password!');
+              return redirect('/login')->with('error','Invalid Email or Password!');
             }
 
       }

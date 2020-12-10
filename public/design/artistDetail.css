@@ -52,7 +52,7 @@ h5.select_list.active {
    .main-mistree {
    margin-top: -22px;
 }
-.price {
+.videoprice {
     position: absolute;
     background: #010001;
     padding: 8px;
@@ -86,7 +86,7 @@ h5.select_list.active {
     float: left;
     margin-right: 10px;
 }
-.time {
+.videotime {
     position: absolute;
     right: 40px;
     padding: 8px;

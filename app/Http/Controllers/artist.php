@@ -54,12 +54,14 @@ class artist extends Controller
 
      Session::forget('SessionmultipleIds');
          
-    	   $allArtists=     $this->model->getArtistDetail($artistid);
+    	   $allArtistsVideo=     $this->model->getArtistDetail($artistid,'video');
+         $allArtistsAudio=     $this->model->getArtistDetail($artistid,'audio');
+        // print_r($allArtistsVideo);die;
          $category_data = $this->model->getCategory();
 
        
 
-   return view('artistDetail',['cartVideo'=>'','details'=>$allArtists,'category'=> $category_data ]);
+   return view('artistDetail',['cartVideo'=>'','details'=>$allArtistsVideo,'audio'=>$allArtistsAudio,'category'=> $category_data ]);
     }
 
     public function cartSbmit(Request $req){
