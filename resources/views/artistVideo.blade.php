@@ -398,7 +398,7 @@ $(".addToCart").click(function(e) {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {'id':id, 'type':type},
+				data: {'id':id, 'types':type},
 
 				success: function(data){
 
