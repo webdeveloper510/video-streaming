@@ -206,7 +206,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle"><a href="{{url('seeall/video')}}">Videos</a></h3>
-      <a href="{{url('seeall/video')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
+      <button class="btn btn-primary seemore" type="button"><a href="{{url('seeall/video')}}">See All</a></button>
 	</div>
           <div class="row">
           @forelse ($popular as $pop)
@@ -338,8 +338,9 @@
     display: block !important;
   }
   button.btn.btn-primary.seemore {
-    float: right;
+    position: absolute;
     margin-top: -43px;
+    right: 100px;
   }
    h3.tittle a {
     color: white;
