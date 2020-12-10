@@ -3,82 +3,18 @@
 
 <div class="container">
    <div class="row">
+   @foreach($videos as $vid)
        <div class="col-md-4">
            <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
+            <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    </div>
+    @endforeach
 
     </div>
 
-
+{{$videos->links()}}
 
 
 

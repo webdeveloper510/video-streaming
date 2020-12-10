@@ -330,15 +330,14 @@ class AuthController extends Controller
 
            $offersVideos = $this->model->getallOffer($paginate='No');
 
-           $popularVideos = $this->model->PopularVideos($paginate='No');
-
-          //print_r($popularVideos);die;
+           $popularVideos = $this->model->PopularVideos($paginate='No','video');
+           $popularaudios = $this->model->PopularVideos($paginate='No','audio');
 
           //print_r($Recentlydata);die;
 
           $newComes=$this->model->getNewComes();
 
-    return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos]);
+    return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos,'popularAudios'=>$popularaudios]);
 
       }
       public function contentPostLogin(Request $request){
@@ -1227,9 +1226,9 @@ public function addTohistory(Request $req){
 
 public function seeall($flag){
     // echo $flag;
-     if($flag=='audios'){
+     if($flag=='audio'){
 
-
+      $videos = $this->model->PopularVideos($paginate='yes',$flag);
 
      }
 
@@ -1238,9 +1237,9 @@ public function seeall($flag){
       $videos = $this->model->getallOffer($paginate='yes');
     }
 
-    if($flag=='videos'){
+    if($flag=='video'){
 
-      $videos = $this->model->PopularVideos($paginate='yes');
+      $videos = $this->model->PopularVideos($paginate='yes',$flag);
 
     }
     if($flag=='artists'){
@@ -1249,7 +1248,7 @@ public function seeall($flag){
 
     }
 
-    print_r($videos);die;
+   // print_r($videos);die;
 
     return view('getAlldata',['videos'=>$videos]);
      

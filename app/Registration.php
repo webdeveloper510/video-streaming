@@ -1276,7 +1276,7 @@ public function addToHistory($data){
 public function getPopularTable($post,$uid){
   //print_r($post);die;
   $vid = $post['id'];
-  $videos = DB::table("popular")->where(array('userid'=>$uid,'videoid'=>$vid))->get()->toArray();
+  $videos = DB::table("popular")->where(array('userid'=>$uid,'mediaid'=>$vid))->get()->toArray();
     $return = count($videos) > 0 ? $this->updatePopular($post,$uid) : $this->insertPopular($post,$uid);
     print_r($return);
 }
@@ -1285,7 +1285,7 @@ public function updatePopular($data,$uid){
     //echo "yss";die;
   $count = 1;
 
-  $update = DB::table('popular')->where(array('userid'=>$uid,'videoid'=>$data['id']))->update([
+  $update = DB::table('popular')->where(array('userid'=>$uid,'mediaid'=>$data['id']))->update([
     'count' =>  DB::raw('count +'.$count)
   ]);
 
@@ -1293,18 +1293,26 @@ public function updatePopular($data,$uid){
 
 }
 
-public function PopularVideos($flag){
+public function PopularVideos($flag,$type){
 
-  $videoId =  DB::table('popular')->orderBy('count','desc')->pluck('videoid')->toArray();
+  //echo $type;
+
+  $videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
+
+    //print_r($videoId1);die;
 
       if($flag=='No'){
 
-        $videos = DB::table("media")->whereIn('id', $videoId)->take(3)->get()->toArray();
+        //echo "yuuu";die;
+
+        //print_r($videoId1);die;
+
+        $videos = DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray();
 
       }
       else{
 
-        $videos = DB::table("media")->whereIn('id', $videoId)->get()->toArray();
+        $videos = DB::table("media")->whereIn('id', $videoId1)->paginate(3);
 
       }
 
@@ -1320,7 +1328,8 @@ public function insertPopular($data,$id){
     'created_at'=>now(),
     'updated_at'=>now(),
     'userid'=>$id,
-    'videoid'=>$data['id']
+    'mediaid'=>$data['id'],
+    'type'=>$data['types']
   );
 
   $insert = DB::table('popular')->insert($popular);
@@ -1374,7 +1383,7 @@ public function getallOffer($flag){
         }
   else{
 
-        return DB::table('offer')->paginate(10);
+        return DB::table('offer')->paginate(3);
   }
 }
 
