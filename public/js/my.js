@@ -657,7 +657,11 @@ $(document).on('click', '.addTowishlist', function () {
 
 $(document).on('keyup', '.checknameExist', function () {
 
+	
+
 	var redioChecked = $('.user:checked').val();
+
+	var id = $(this).attr('data-id');
 
 	//console.log(redioChecked);return false;
 
@@ -668,24 +672,24 @@ $(document).on('keyup', '.checknameExist', function () {
 		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	   },
 
-		data: {'nickname':$(this).val(),'table':redioChecked},
+		data: {'nickname':$(this).val(),'name':$(this).attr('name'),'table':redioChecked},
 
 		success: function(data){
 
-			console.log(data);
+			//console.log(data);
 			if(data==1){
 				console.log('ys');
-				$('.alreadyNickname').show();
-				$('.alreadyNickname').addClass('alert alert-danger').removeClass('alert-success');
-				$('.alreadyNickname').html('User Already Exist!');
+				$('#'+id).show();
+				$('#'+id).addClass('alert alert-danger').removeClass('alert-success');
+				$('#'+id).html(id=='email'?'Email Already Exist':'User Already Exist!');
 			}
 
 			else{
-			$('.alreadyNickname').show();
 
-		$('.alreadyNickname').addClass('alert alert-success').removeClass('alert-danger');
+				$('#'+id).show();
+				$('#'+id).addClass('alert alert-success').removeClass('alert-danger');
 
-		$('.alreadyNickname').html('User Availabe!');
+				$('#'+id).html(id=='email' ? 'Email Available!':'User Available');
 
 			}
 

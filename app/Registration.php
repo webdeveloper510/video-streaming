@@ -13,7 +13,7 @@ class Registration extends Model
     public function registration($data)
     {
 
-        $value = $this->selectDataById('email','users',$data['email']);
+        $value = $this->selectDataById('email','users',$data['email1']);
        // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
@@ -60,7 +60,7 @@ class Registration extends Model
 
  public function postArtist($data)
     {
-        $value = $this->selectDataById('email','contentprovider',$data['email']);
+        $value = $this->selectDataById('email','contentprovider',$data['email1']);
         if(!$value){
 
             $userdata = $data->all();
@@ -1443,13 +1443,16 @@ public function getVideoWhereIn($mutli){
 
 public function checkNameExist($data){
 
+  //print_r($data);die;
+
    $tablename = $data['table'];
 
    $name = $data['nickname'];
+   $feildname = $data['name'];
 
-  $dataExist = $this->selectDataById('nickname',$tablename,$name);
+  $dataExist = $this->selectDataById($feildname=='nickname' ? 'nickname':'email',$tablename,$name);
 
- return  count($dataExist) > 0 ? 1 : 0; 
+    return  count($dataExist) > 0 ? 1 : 0; 
 
    
 

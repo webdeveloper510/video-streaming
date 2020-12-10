@@ -367,7 +367,7 @@ class AuthController extends Controller
        // print_r($_POST); die;
         $this->validate($request,[
           'person'=>'required',
-          'email'=>'required',
+          'email1'=>'required',
           'nickname'=>'required',
           'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
           'terms'=>'required',
