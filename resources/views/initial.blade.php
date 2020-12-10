@@ -205,7 +205,7 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Videos</h3>
+	  <h3 class="tittle"><a href="{{url('seeall/video')}}">Videos</a></h3>
       <a href="{{url('seeall/video')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
           <div class="row">
@@ -241,7 +241,7 @@
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">
-	  <h3 class="tittle">Offers</h3>
+	  <h3 class="tittle">  <a href="{{url('/seeall/offer')}}">Offers</a></h3>
      <a href="{{url('/seeall/offer')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
 	</div>
    <div class="row">
@@ -276,7 +276,7 @@
 <div class="outer_slider">
   <div class="container my-4">
     <div class="slider_tittle">
-    <h3 class="tittle">Audios</h3>
+    <h3 class="tittle"> <a href="{{url('/seeall/audio')}}">Audios</a></h3>
      <a href="{{url('/seeall/audio')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
   </div>
    <div class="row">
@@ -307,7 +307,7 @@
     <div class="outer_slider">
   <div class="container my-4">
           <div class="slider_tittle">
-              <h3 class="tittle">Artists</h3>
+              <h3 class="tittle"><a href="{{url('seeall/artists')}}">Artists</a></h3>
               <a href="{{url('seeall/artists')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
    <div class="row">
@@ -340,7 +340,10 @@
   button.btn.btn-primary.seemore {
     float: right;
     margin-top: -43px;
-}
+  }
+   h3.tittle a {
+    color: white;
+   }
   </style>
  <!--End 4th slider-->
 
