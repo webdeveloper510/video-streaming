@@ -1,5 +1,6 @@
 
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+   
 <link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 
 
@@ -12,7 +13,6 @@
       </div>
     </div>
 </div>
-
 <div class="row">
 
 <div class="col-md-3">
@@ -86,6 +86,9 @@
 
 
 <div class="col-md-9">
+<div class="alert alert-success message" id="message" style="display:none" role="alert">
+  A simple success alert—check it out!
+</div>
 <div id="owl-example" class="owl-carousel">
       <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
@@ -199,7 +202,7 @@
 <div class="row media_div">
        <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php if($detail->type=='video'): ?>
-    <div class="col-md-4 pr-4 mt-3">
+    <div class="col-md-4 pr-4 mt-3 mb-5" >
         <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="270" height="200" controls allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
@@ -264,12 +267,14 @@
 	autoPlayHoverPause:true,
 	nav:false,
 	dots:false,
+  navText: ['<span class="fas fa-chevron-left fa-2x"></span>','<span class="fas fa-chevron-right fa-2x"></span>'],
 	 rewindNav:false //**This
   
   });
  
  </script>
 </section>
+
 <script type="text/javascript">
   $(document).ready(function(){
 $(window).scroll(function () {   
@@ -277,11 +282,13 @@ $(window).scroll(function () {
  if($(window).scrollTop() > 200) {
     $('#sidebar').css('position','fixed');
     $('#sidebar').css('top','0'); 
+     $('#sidebar').css('width','23%');
  }
 
  else if ($(window).scrollTop() <= 200) {
-    $('#sidebar').css('position','');
-    $('#sidebar').css('top','');
+    $('#sidebar').css('position','relative');
+    $('#sidebar').css('top','auto');
+    $('#sidebar').css('width','100%');
  }  
     if ($('#sidebar').offset().top + $("#sidebar").height() > $("#footer").offset().top) {
         $('#sidebar').css('top',-($("#sidebar").offset().top + $("#sidebar").height() - $("#footer").offset().top));
@@ -289,4 +296,6 @@ $(window).scroll(function () {
 });
 });
 </script>
+
+
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>
