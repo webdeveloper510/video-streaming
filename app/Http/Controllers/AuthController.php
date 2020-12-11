@@ -1312,4 +1312,8 @@ public function readNotification(Request $request){
       Mail::to($email)->send(new forgotPassword());
 
     }
+
+    public function reset(){
+          return view('resetPass');
+    }
  }

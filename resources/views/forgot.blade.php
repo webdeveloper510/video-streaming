@@ -23,14 +23,14 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span>{{$data['nickname']}}</span>, you're almost ready to start enjoying website simply click the big
+                     <p>Hey  you're almost ready to start enjoying website simply click the big
                         blue Link bellow to Change Password.</p>
                 </td>
              </tr>
              <tr>
                  <td> 
-                    <a href="{{url('/verify/'.base64_encode($id).'/'.base64_encode($type))}}">
-                   Verify Email Address
+                    <a href="{{url('/reset')}}">Click Here</a>
+                  
                 </td>
              </tr>
          </tbody>
