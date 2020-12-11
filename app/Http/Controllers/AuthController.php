@@ -817,7 +817,7 @@ public function verifyEmail($id, $type){
     $type = base64_decode($type);
     $id = base64_decode($id);
 
-    //echo $type. $id;die;
+    echo $type. $id;die;
   $verified = $this->model->verifyEmail($id,$type);
   if($verified){
 
