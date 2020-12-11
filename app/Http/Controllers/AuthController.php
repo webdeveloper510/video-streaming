@@ -1303,11 +1303,13 @@ public function readNotification(Request $request){
 }
 
 /*------------------------------------------------Reset  Password---------------------------------------------------*/
-public function resetPassword(Request $req){
+    public function resetPassword(Request $req){
 
-  $email = $req->email;
+      $email = $req->email;
 
-  Mail::to($email)->send(new forgotPassword());
+      Session::put('email',$email);
 
-}
+      Mail::to($email)->send(new forgotPassword());
+
+    }
  }
