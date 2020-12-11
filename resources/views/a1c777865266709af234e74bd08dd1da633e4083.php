@@ -556,7 +556,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
-                 <h5 class="text-center"> Notification</h5><br>
+                <br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
 <?php 
@@ -570,7 +570,7 @@
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <input type="hidden" value="<?php echo  implode(",",$GLOBALS['ids']); ?>" id="notids"/>
-     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">See More -></span></a>
+     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
                 </div>
               </li>
 

@@ -532,7 +532,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
-                 <h5 class="text-center"> Notification</h5><br>
+                <br>
       @foreach($notification as $val)
     @if($val->notificationfor=='user')
 <?php 
@@ -546,7 +546,7 @@
     @endif
     @endforeach
     <input type="hidden" value="<?php echo  implode(",",$GLOBALS['ids']); ?>" id="notids"/>
-     <a href="{{url('notification/user')}}"><span class="text-center text-dark">See More -></span></a>
+     <a href="{{url('notification/user')}}"><span class="text-center text-dark">Notification History -></span></a>
                 </div>
               </li>
 
