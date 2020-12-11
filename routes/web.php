@@ -59,6 +59,8 @@ Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication')
 Route::get('inProcess', 'AuthController@process'); 
 Route::get('seeall/{text}', 'AuthController@seeall'); 
 
+Route::get('reset', 'AuthController@reset'); 
+
 Route::get('new', 'AuthController@new'); 
 
 
@@ -74,6 +76,8 @@ Route::get('notification/{text}','AuthController@seeNotification')->middleware('
 
 
 Route::post('ajax-request', 'artist@cartSbmit');
+
+Route::post('resetPassword','AuthController@resetPassword');
 
 Route::post('selectListname', 'AuthController@selectListname');
 

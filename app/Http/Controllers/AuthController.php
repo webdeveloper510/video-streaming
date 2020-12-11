@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\verifyEmail;
 
+use App\Mail\forgotPassword;
+
 use App\Mail\notifyEmail;
 
 use Illuminate\Http\RedirectResponse;
@@ -1101,7 +1103,7 @@ public function selectMultiple(Request $req){
 }  
 
 $multipleIds = Session::get('SessionmultipleIds');
-    print_r($multipleIds);
+    //print_r($multipleIds);
 
 }
 
@@ -1300,4 +1302,18 @@ public function readNotification(Request $request){
 
 }
 
+/*------------------------------------------------Reset  Password---------------------------------------------------*/
+    public function resetPassword(Request $req){
+
+      $email = $req->email;
+
+      Session::put('email',$email);
+
+      Mail::to($email)->send(new forgotPassword());
+
+    }
+
+    public function reset(){
+          return view('resetPass');
+    }
  }
