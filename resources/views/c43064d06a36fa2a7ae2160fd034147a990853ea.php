@@ -1,5 +1,5 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="background1">
 	 <div class="container mt-5 mb-5">
@@ -28,4 +28,4 @@
 
 
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/resetPass.blade.php ENDPATH**/ ?>
