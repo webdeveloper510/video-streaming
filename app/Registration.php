@@ -17,6 +17,8 @@ class Registration extends Model
        // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
+            $userdata['email']=$data['email1'];
+            unset($userdata['email1']);
             $userdata['password']= md5($data['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
@@ -65,6 +67,7 @@ class Registration extends Model
 
             $userdata = $data->all();
             $userdata['password']= md5($data['confirm']);
+            $userdata['email']= $data['email1'];
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
