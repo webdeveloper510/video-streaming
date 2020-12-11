@@ -19,7 +19,9 @@ class Registration extends Model
             $userdata=$data->all();
             $userdata['email']=$data['email1'];
             unset($userdata['email1']);
+            unset($userdata['confirm']);
             $userdata['password']= md5($data['confirm']);
+
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
            // print_r($userdata);die;

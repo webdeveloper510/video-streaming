@@ -1,4 +1,10 @@
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+<link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
+
+
+
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
   <div class="header_bottom">
@@ -510,7 +516,7 @@
            <?php endif; ?>             
 
             <?php if($login): ?>
-           <div class="btn-group login-btn text-center"style="border-right-color: white;border-right-style: solid;">
+           <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">
              <?php if($userProfile[0]->profilepicture): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
@@ -589,132 +595,7 @@
 
 </header>
 <style type="text/css">
-.tab-content h3 {
-    margin-left: -36px;
-}
-.col-md-4.mb-4.logy {
-    padding-left: 36px;
-}
-.col-md-4.mb-4.ass {
-    margin-left: -28px;
-}
-  .notif {
-    width: 300px;
-    background: white;
-    max-height: 300px;
-    height: auto;
-    border: 1px solid;
-    z-index: 999;
-    overflow: hidden;
-    padding: 12px;
-    overflow-x: auto;
-    text-align: center;
-}
 
-.notif.text-center ul li {
-    list-style: none;
-    text-align: center;
-    padding: 0 !important;
-
-}
-
-.notif.text-center ul li a {
-    font-weight: 900;
-}
-  i.fa.fa-comment:hover {
-      color: #fc0 !important;
-  }
-  .dropdown12 {
-     
-     height: 248px;
-      overflow-y: scroll;
-
-  }
-  i.fa.fa-plus.text-white {
-    color: #ffbb11 !important;
-}
-  .dropdown-menu.notif.text-center.show {
-    left: -156px;
-}
-.tab-pane h3 {
-    padding-left: 51px;
-}
-  .scroll12{
-    height: 250px;
-    overflow-y: scroll;
-  }
-.dropdown1 h4{
-   margin:0 !important;
-   color:white;
-}
-
-.profileImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #512DA8;
-    font-size: 20px;
-    color: #fff;
-    text-align: center;
-    line-height: 48px;
-    margin-right: 14px;
-    margin-top: 4px;
-}
-
-.dropdown1 {
-    background: #fff0;
-    padding: 19px;
-    margin-bottom: 19px;
-    position: relative;
-    padding-top: 7px !important;
-    border: 1px solid #fff;
-    margin-top: 10px;
-    width: 98%;
-  }
-  .dropdown1 label {
-    display: inline-flex;
-  }
-  .nav-tabs {
-    border-bottom: 1px solid #dee2e6;
-    background: #bf0000;
-}
-.rightbar {
-    height: 300px;
-    overflow-y: scroll;
-}
-.row.text-left.text-white.mt-3.red {
-    width: 98%;
-}
-.price::placeholder { 
-  color: red;
-  opacity: 1;
-}
-
-.price:-ms-input-placeholder { 
-  color: red;
-}
-
-.price::-ms-input-placeholder { 
-  color: red;
-}
-span.profile-img hr {
-    height: 2px !important;
-    width: 100px;
-}
-  span.text-center.text-dark {
-    padding: 9px;
-    background: white;
-    width: 298px;
-    position: absolute;
-    top: 263px;
-    color: blue !important;
-    right: 1px;
-} 
-.nav-tabs {
-    border-bottom: 1px solid #dee2e6;
-    background: #7b0000;
-    border-top: 1px solid #dee2e6;
-}
 </style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
