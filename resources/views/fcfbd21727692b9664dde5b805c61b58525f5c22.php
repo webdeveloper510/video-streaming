@@ -206,7 +206,7 @@
   <div class="container my-4">
     <div class="slider_tittle">
 	  <h3 class="tittle"><a href="<?php echo e(url('seeall/video')); ?>">Videos</a></h3>
-      <a href="<?php echo e(url('seeall/video')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
+      <button class="btn btn-primary seemore" type="button"><a href="<?php echo e(url('seeall/video')); ?>">See All</a></button>
 	</div>
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -338,8 +338,9 @@
     display: block !important;
   }
   button.btn.btn-primary.seemore {
-    float: right;
+    position: absolute;
     margin-top: -43px;
+    right: 100px;
   }
    h3.tittle a {
     color: white;

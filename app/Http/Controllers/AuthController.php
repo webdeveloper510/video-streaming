@@ -364,15 +364,21 @@ class AuthController extends Controller
 
    
     public function UserRegistration(Request $request){
+
+      $messages = [
+        'password.regex'=>"Password must contain at least one number, one character and one special number",
+    ];
        // print_r($_POST); die;
         $this->validate($request,[
           'person'=>'required',
           'email1'=>'required',
           'nickname'=>'required',
-          'password' => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+          'password.regex'=>"Password must contain at least one number, one character and one special number",
+          'confirm' => 'min:8',
           'terms'=>'required',
           'AgeRestriction'=>'required'
-      ]
+      ], $messages
       
       );
 

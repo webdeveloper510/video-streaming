@@ -33,9 +33,9 @@
 
                
 
-        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
+        <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
 
-        <?php echo e(Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])); ?> Artist
+        <?php echo e(Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])); ?> Artist
                 <?php if($errors->first('email')): ?>
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
@@ -58,13 +58,15 @@
           <div class="row align-items-center mt-4">
             <div class="col">
             <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
-                <?php echo e(Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
+                <?php echo e(Form::text('nickname',null,['class'=>'form-control checknameExist','placeholder'=>'Enter Nickname'])); ?>
 
                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
+                <div class="alert alert-danger alreadyNickname">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 <?php endif; ?>
+                <div class="alert alert-danger alreadyNickname" style="display:none">
+                </div>
 
             </div>
           </div>
@@ -131,4 +133,8 @@
   .register{
     border-radius: 28px !important;
   }
+
+  .alert-danger {
+    margin-top: 10px;
+}
 </style><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/registration.blade.php ENDPATH**/ ?>
