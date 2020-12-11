@@ -107,7 +107,7 @@
    
       <p><i class="fa fa-check" style="font-size:24px"></i>  Build Playlists, Stream, Download Content </p>
          
-        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Jobs for Artists according to Your  <br><span style="padding-left:50px">Imagination</span> </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Project for Artists according to Your  <br><span style="padding-left:50px">Imagination</span> </p>
          
         <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advance Filter Options</p>
          
@@ -232,7 +232,7 @@
  
 
   <!---------------------------------------------Offer Videos--------------------------------------------->
-@
+
 <div class="outer_slider last">
   <div class="container my-4">
     <div class="slider_tittle">

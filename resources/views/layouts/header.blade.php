@@ -514,7 +514,7 @@
         <a href="{{url('/my-requests')}}">Requests</a></button>
   </div>
    <hr/ style="color:white;background: white;">
-  <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
@@ -525,24 +525,28 @@
 
 
     <li class="nav-item dropdown" style="padding: 0px !important">
-  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
-                 <h5 class="text-center"> Notification</h5><br>
+                <br>
       @foreach($notification as $val)
     @if($val->notificationfor=='user')
+<?php 
+  $GLOBALS['ids'][] = $val->id;
+?>
     
-      <a href="{{url('notification/user')}}">{{$val->message}}</a>
+      <a href="{{url('notification/user')}}" id="bold" class="bold">{{$val->message}}</a>
     
   
     <hr>
     @endif
     @endforeach
-     <a href="{{url('notification/user')}}"><span class="text-center text-dark">See More -></span></a>
+    <input type="hidden" value="<?php echo  implode(",",$GLOBALS['ids']); ?>" id="notids"/>
+     <a href="{{url('notification/user')}}"><span class="text-center text-dark">Notification History -></span></a>
                 </div>
               </li>
 
@@ -554,7 +558,6 @@
 				</nav>
 		    </div>
 	   </div>  
-  
   </div>
   <!-- header bottom end -->
   <!-- Button trigger modal -->

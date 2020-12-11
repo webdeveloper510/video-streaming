@@ -701,4 +701,31 @@ $(document).on('keyup', '.checknameExist', function () {
 
 })
 
+function updateRead(){
+
+	var ids = $('#notids').val();
+	
+
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/readNotification",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'id':ids},
+
+		success: function(data){
+
+			//console.log(data);
+			if(data==1){
+			  $('#bold').removeClass("bold");
+			}
+
+	
+			
+		}
+});
+
+}
 

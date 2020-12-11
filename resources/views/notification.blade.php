@@ -11,7 +11,7 @@
 		@foreach($notification1 as $val)
 		    <div class="row">
 		    	@if($val->profilepicture=='')
-		    	<div class="col-md-2">
+		    	<div class="col-md-2 notification">
 		    	  <span class="firstName" style="display: none;">{{$val->nickname}}</span>
 	           	<div class="profileImage"></div>
 	          </div>
@@ -33,7 +33,7 @@
 		@endforeach
 		</div>
 		<style type="text/css">
-.profileImage {
+.notification .profileImage {
   width: 100px;
   height: 100px;
   border-radius: 50%;

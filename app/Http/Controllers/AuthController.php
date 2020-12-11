@@ -1270,4 +1270,34 @@ public function checknameExist(Request $req){
 
 }
 
+public function readNotification(Request $request){
+
+  $ids = $request->id;
+
+  $notificationids = explode(',',$ids);
+
+  $readUpdate = $this->model->readNotification($notificationids);
+
+  if($readUpdate==1){
+    return 1;
+  }
+
+  else{
+    return 0;
+  }
+
+ // print_r($readUpdate);
+
+//   print_r($request->all());
+//   $notificationRead = $this->model->readNotification($id);
+
+//   if($notificationRead ==1){
+//   return redirect('artist/my-offer')->with('success','Add Description!');
+// }
+// else{
+//    return redirect('artist/my-offer')->with('error','Some Error!');
+// }
+
+}
+
  }
