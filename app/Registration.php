@@ -519,7 +519,7 @@ public function getRespectedSub($data){
 
     public function verifyEmail($userId, $type){
 
-      $table_name = $type == 'user' ? 'users' : 'contentprovider'; 
+      $table_name = $type == 'users' ? 'users' : 'contentprovider'; 
 
         $update = DB::table($table_name)->where('id',$userId)->update([
 
