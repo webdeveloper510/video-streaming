@@ -77,6 +77,8 @@ Route::post('ajax-request', 'artist@cartSbmit');
 
 Route::post('selectListname', 'AuthController@selectListname');
 
+Route::post('readNotification','AuthController@readNotification');
+
 Route::post('notifyEmail', 'AuthController@notifyEmail');
 
 Route::post('request', 'AuthController@addRequest');
@@ -165,7 +167,7 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artist/notification','artist@ShowArtistNotification');
 
-    Route::get('artist/readNotification/{id}','artist@readNotification');
+   
 
     Route::get('artistLogin', 'AuthController@getLogin');
     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');

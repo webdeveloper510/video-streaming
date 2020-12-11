@@ -288,18 +288,4 @@ class artist extends Controller
         }
   }
 
-
-    public function readNotification($id){
-
-
-          $notificationRead = $this->model->readNotification($id);
-
-          if($notificationRead ==1){
-          return redirect('artist/my-offer')->with('success','Add Description!');
-        }
-        else{
-           return redirect('artist/my-offer')->with('error','Some Error!');
-        }
-
-    }
   }

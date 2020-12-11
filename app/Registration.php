@@ -808,7 +808,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $data=array('read'=>1);
 
-        $update = DB::table('notification')->where('id',$id)->update($data);
+        $update = DB::table('notification')->whereIn('id',$id)->update($data);
 
         return $update ? 1 : 0;
 
@@ -863,7 +863,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     public function getNotification(){
 
 
-          return DB::table('notification')->orderBy('id','desc')->get()->toArray();
+          return DB::table('notification')->orderBy('id','desc')->take(4)->get()->toArray();
     }
 
     public function updateUserDesc($userdata){
@@ -910,6 +910,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     }
     public function allNotication($user){
 
+      $this->updateAllNotification($user);
+
       if($user=='user'){
 
          $session_data =   Session::get('User');
@@ -934,6 +936,21 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
       return $data;
 
     }
+
+    public function updateAllNotification($user){
+
+      $session_data =   Session::get('User');
+      $userid=  $session_data->id;
+
+      $status= array(
+
+        'read'=>1
+      );
+
+      $update = DB::table('notification')->where($user=='user'?'userid':'artistid',$userid)->update($status);
+
+
+  }
 
     public function createPlaylist($data){
 
