@@ -1482,6 +1482,32 @@ public function checkNameExist($data){
 
 }
 
+public function updatePassword($email,$password){
+
+  $value = $this->selectDataById('email','users',$email);
+
+  if(count($value) > 0){
+
+    $update = DB::table('users')->where(array('email'=>$email))->update([
+      'password' =>  $password
+    ]);
+  
+      
+  }
+
+  else{
+
+    $update = DB::table('contentprovider')->where(array('email'=>$email))->update([
+      'password' =>  $password
+    ]);
+
+  }
+
+  return $update ? 1 : 0;
+
+
+}
+
     // public function addToLibrary1(){
 
     //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();
