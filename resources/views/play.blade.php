@@ -113,6 +113,4 @@ rewindNav:false
 
 <!--footer -->
 @include('layouts.footer')
-</body>
 
-</html>

@@ -47,7 +47,7 @@
 		</style>
 
 		@if($viewName=='user')
-@include('layouts.footer');
+@include('layouts.footer')
 @else
-@include('artists.dashboard_footer');
+@include('artists.dashboard_footer')
 @endif
