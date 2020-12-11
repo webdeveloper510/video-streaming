@@ -1309,11 +1309,14 @@ public function readNotification(Request $request){
 
       Session::put('email',$email);
 
-      Mail::to($email)->send(new forgotPassword());
+      if(Mail::to($email)->send(new forgotPassword())){
+        return 1;
+      }
 
     }
 
     public function reset(){
+      
           return view('resetPass');
     }
  }
