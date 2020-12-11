@@ -71,13 +71,14 @@
           </div>
               <?php endif; ?>
 
-            <p><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
+            <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
             <?php echo e(Form::close()); ?>
 
            
-        
+    <div class="bottom mt-5">
 <p class="text-white">Don't have an account yet ?</p>
 <a href="<?php echo e(URL::to('register')); ?>" class="ffff ">Signup Now</a>
+</div>
         </div>
       </div>
     </div>
