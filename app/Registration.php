@@ -70,6 +70,8 @@ class Registration extends Model
             $userdata = $data->all();
             $userdata['password']= md5($data['confirm']);
             $userdata['email']= $data['email1'];
+            unset($userdata['email1']);
+            unset($userdata['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
