@@ -74,9 +74,6 @@
 
           </p>
        
-          <p>   <i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
-
-          </p>
          <p>  <i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
 
           </p>
@@ -116,8 +113,6 @@
          
          <p><i class="fa fa-check" style="font-size:24px"></i> Save money by watching Samples</p>
          
-        <p><i class="fa fa-check" style="font-size:24px"></i>  Stick out with our Top List
-          </p>
         
       
          <p><i class="fa fa-check" style="font-size:24px"></i> Enjoy Reduced Advertising
