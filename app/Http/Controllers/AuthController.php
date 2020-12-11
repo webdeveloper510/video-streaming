@@ -1309,9 +1309,9 @@ public function readNotification(Request $request){
 
       Session::put('email',$email);
 
-      if(Mail::to($email)->send(new forgotPassword())){
+     Mail::to($email)->send(new forgotPassword());
         return 1;
-      }
+      
 
     }
 
