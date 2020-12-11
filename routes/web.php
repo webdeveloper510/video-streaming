@@ -75,6 +75,8 @@ Route::get('notification/{text}','AuthController@seeNotification')->middleware('
 
 Route::post('ajax-request', 'artist@cartSbmit');
 
+Route::post('resetPassword','AuthController@resetPassword');
+
 Route::post('selectListname', 'AuthController@selectListname');
 
 Route::post('readNotification','AuthController@readNotification');

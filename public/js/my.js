@@ -651,6 +651,35 @@ $(document).on('click', '.addTowishlist', function () {
 
 });
 
+/*-------------------------------------------------Forget Password Link----------------------------------------------------*/
+$(document).on('click', '#forgetLink', function () {
+
+	var email = $('#email').val();
+
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/resetPassword",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'email':email},
+
+				success: function(data){
+
+					console.log(data);return false;
+
+
+
+
+
+
+						
+					
+				}
+		});
+
+});
 
 /*--------------------------------------------check Name Exist-------------------------------------------------*/
 
