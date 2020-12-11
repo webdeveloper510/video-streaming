@@ -30,13 +30,7 @@ class forgotPassword extends Mailable
     {
         return $this->from('sender@example.com')
                      ->subject('Reset Password')
-                    ->view('forgot')
-                    ->with(
-                      [
-                            'data' => $this->data,
-                            'id'=>$this->userId,
-                            'type'=>$this->type
-                            
-                      ]);
+                    ->view('forgot');
+                    
     }
 }

@@ -667,7 +667,9 @@ $(document).on('click', '#forgetLink', function () {
 
 				success: function(data){
 
-					console.log(data);return false;
+					if(data==1){
+						$('.show_message').html('Please Check your Email');
+					}
 
 
 
