@@ -1484,6 +1484,8 @@ public function checkNameExist($data){
 
 public function updatePassword($email,$password){
 
+  echo $email;
+
   $value = $this->selectDataById('email','users',$email);
 
  
