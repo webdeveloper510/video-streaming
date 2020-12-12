@@ -1486,6 +1486,8 @@ public function updatePassword($email,$password){
 
   $value = $this->selectDataById('email','users',$email);
 
+  print_r($value);die;
+
   if(count($value) > 0){
 
     $update = DB::table('users')->where(array('email'=>$email))->update([
