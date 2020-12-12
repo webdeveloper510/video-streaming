@@ -8,18 +8,37 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
           
           <h1 class="text-white">Reset Password</h1>
-	      <form>
+		  <?php echo Form::open(['action' => 'AuthController@passwordReset', 'method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?>
+
 			  <div class="form-group">
-			    <label>New Pasword</label>
-			    <input type="password" class="form-control" Placeholder="New Password" >
+			  <?php echo e(Form::label('New Password', 'New Password')); ?> 
+                <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'New Password'])); ?>
+
+				<?php if($errors->first('password')): ?>
+                 <div class="alert alert-danger">
+                <?php echo $errors->first('password'); ?>
+              
+          </div>  
+                <?php endif; ?>
 			 </div>
 			  <div class="form-group">
-			    <label>Confirm Password</label>
-			    <input type="password" class="form-control"Placeholder="Confirm Password">
+			  <?php echo e(Form::label('Confirm New Password', 'Confirm New Password')); ?> 
+                <?php echo e(Form::password('confirm',['class'=>'form-control','placeholder'=>'Confirm New Password'])); ?>
+
+				<?php if($errors->first('confirm')): ?>
+                 <div class="alert alert-danger">
+                <?php echo $errors->first('confirm'); ?>
+              
+          </div>  
+                <?php endif; ?>
 			  </div>
 			  
-			  <button type="submit" class="btn btn-primary">Submit</button>
-			</form>
+			  <?php echo e(Form::submit('Reset!',['class'=>'btn btn-primary'])); ?>
+
+			  <?php echo e(Form::close()); ?>
+
 		</div>
 	  </div>
    </div>

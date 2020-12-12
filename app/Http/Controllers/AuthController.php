@@ -1319,4 +1319,30 @@ public function readNotification(Request $request){
       
           return view('resetPass');
     }
+
+    public function passwordReset(Request $req){
+
+      $this->validate($request,[
+        'password' => 'required',
+        
+        'confirm' => 'required'
+      
+    ]
+    
+    );
+
+    $email = Session::get('email');
+    $confirm = $req->confirm;
+
+    $update = $this->model->updatePassword($email,md5($confirm));
+
+    if($update==1){
+      return redirect('/reset')->with('success','Reset Successfull!');
+    }
+
+    else{
+      return redirect('/reset')->with('error','Not Reset!');
+    }
+    
+    }
  }
