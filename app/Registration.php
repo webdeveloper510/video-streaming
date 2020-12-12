@@ -1485,12 +1485,15 @@ public function checkNameExist($data){
 public function updatePassword($email,$password){
 
   echo $email;
+  echo $password;
 
   $value = $this->selectDataById('email','users',$email);
 
  
 
   if(count($value) > 0){
+
+    echo "yes";
 
     $update = DB::table('users')->where(array('email'=>$email))->update([
       'password' =>  $password
