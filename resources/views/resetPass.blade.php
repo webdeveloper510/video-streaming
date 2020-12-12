@@ -4,18 +4,19 @@
 <section class="background1">
 	 <div class="container mt-5 mb-5">
 
-	 @if(session('error'))
+	
+
+      <div class="row justify-content-center">
+	  @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
         </div>
         @endif
 		@if(session('success'))
-        <div class="alert alert-danger" id="error">
+        <div class="alert alert-success" id="error">
         {{session('success')}}
         </div>
         @endif
-
-      <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
           
           <h1 class="text-white">Reset Password</h1>
