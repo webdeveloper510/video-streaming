@@ -1322,7 +1322,7 @@ public function readNotification(Request $request){
 
     public function passwordReset(Request $req){
 
-      $this->validate($request,[
+      $this->validate($req,[
         'password' => 'required',
         
         'confirm' => 'required'
