@@ -122,7 +122,7 @@
 </div>  
 <body end-->
 
-<!--footer -->
+<!-- 
 <footer class="footer_style_2">
   <div class="container">
         <div class="row">
@@ -173,7 +173,8 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
+@include('layouts.footer')
 </body>
 <style>
 form.form-horizontal {

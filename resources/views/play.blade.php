@@ -1,6 +1,15 @@
 @include('layouts.header')
 <link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
+
+
+
+  <!-- -------------------------- Play List  Start--------------------------->
+
+
+
+
+
 <div class="inner-page">
   <div class="container">
       <div class="col-md-12 uploa_outer">
@@ -19,6 +28,13 @@
   </div>
   </form>  
 		</div>
+
+
+
+       <!-- -------------------------- Video Section  Start--------------------------->
+
+
+
         <div class="row pb-row">
           @if($videos)
           <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -48,6 +64,12 @@
 			
 	</div>
 	<br/>
+
+
+  <!-- -------------------------- Wish list Start--------------------------->
+
+
+
 	<div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">Wish list</h3>		  
@@ -66,6 +88,10 @@
 		
 	</div>
 	<br/>
+
+  <!-- -------------------------- History Section  Start--------------------------->
+
+
 	<div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">History</h3>		  
