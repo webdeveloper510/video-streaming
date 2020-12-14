@@ -11,7 +11,7 @@
 		<?php $__currentLoopData = $notification1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 		    <div class="row">
 		    	<?php if($val->profilepicture==''): ?>
-		    	<div class="col-md-2">
+		    	<div class="col-md-2 notification">
 		    	  <span class="firstName" style="display: none;"><?php echo e($val->nickname); ?></span>
 	           	<div class="profileImage"></div>
 	          </div>
@@ -33,7 +33,7 @@
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		</div>
 		<style type="text/css">
-.profileImage {
+.notification .profileImage {
   width: 100px;
   height: 100px;
   border-radius: 50%;

@@ -113,7 +113,5 @@ rewindNav:false
 
 <!--footer -->
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-</body>
 
-</html>
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>
