@@ -1512,7 +1512,7 @@ public function updatePassword($email,$password){
 
   //print_r($update);die;
 
-  return $update ? 1 : 0;
+  return $update;
 
 
 }

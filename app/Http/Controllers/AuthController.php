@@ -1322,21 +1322,25 @@ public function readNotification(Request $request){
 
     public function passwordReset(Request $req){
 
-      $this->validate($req,[
-        'password' => 'required',
-        
-        'confirm' => 'required'
+      $messages = [
+        'password.regex'=>"Password must contain at least one number, one character and one special character",
+    ];
+       // print_r($_POST); die;
+        $this->validate($req,[
+          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+          'password.regex'=>"Password must contain at least one number, one character and one special character",
+          'confirm' => 'min:8'
+      ], $messages
       
-    ]
-    
-    );
+      );
 
     $email = Session::get('email');
+
     $confirm = $req->confirm;
 
     $update = $this->model->updatePassword($email,md5($confirm));
 
-    if($update==1){
+    if($update!=''){
       return redirect('/reset')->with('success','Reset Successfull!');
     }
 
