@@ -94,7 +94,7 @@
       </div>
       <div class="modal-body">
         <label>Enter Email :</label>
-        <input type="email" id="email"/> 
+        <input type="email" class="form-control" placeholder="Enter Register Email" id="email"/> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
