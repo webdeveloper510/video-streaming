@@ -55,9 +55,9 @@
           </div> 
 
             
-<button type="button" class="btn btn-primary" style="float:right;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<a href="#"  style="float:right; color:blue;" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Forget Password
-</button>
+</a>
 <!-- if there are login errors, show them here -->
 <p>
   
@@ -96,7 +96,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
         <div class="show_message"></div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <input type="email" id="email"/> 
