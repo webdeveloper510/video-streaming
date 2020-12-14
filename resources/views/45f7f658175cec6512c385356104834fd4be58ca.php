@@ -4,20 +4,21 @@
 <section class="background1">
 	 <div class="container mt-5 mb-5">
 
-	 <?php if(session('error')): ?>
+	
+
+      <div class="row justify-content-center">
+	  <?php if(session('error')): ?>
         <div class="alert alert-danger" id="error">
         <?php echo e(session('error')); ?>
 
         </div>
         <?php endif; ?>
 		<?php if(session('success')): ?>
-        <div class="alert alert-danger" id="error">
+        <div class="alert alert-success" id="error">
         <?php echo e(session('success')); ?>
 
         </div>
         <?php endif; ?>
-
-      <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
           
           <h1 class="text-white">Reset Password</h1>
