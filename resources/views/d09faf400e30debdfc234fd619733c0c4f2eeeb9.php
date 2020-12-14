@@ -56,7 +56,7 @@
 
             
 <a href="#"  style="float:right; color:blue;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Forget Password
+  Forgot Password?
 </a>
 <!-- if there are login errors, show them here -->
 <p>
