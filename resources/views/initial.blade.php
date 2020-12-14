@@ -1,6 +1,11 @@
 
 @include('layouts.header')
 <link rel="stylesheet" href="{{asset('design/initial.css')}}" />
+
+
+         <!-- --------------Popup on login success ----------------------------------->
+
+
  @if(session('success'))
 <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -144,7 +149,7 @@
 </div>
 @endif
  </div>
-
+                    <!--------------------------------- On login show data ------------------------------------->
 <div class="outer_slider">
   <div class="coner my-4">
     
@@ -343,7 +348,7 @@
     color: white;
    }
   </style>
- <!--End 4th slider-->
+ 
 
  <script>
   $(document).ready(function() {
@@ -372,9 +377,7 @@ rewindNav:false
 });
  </script>
 @include('layouts.footer')
-</body>
 
-</html>
 
 <script type="text/javascript">
   $ (window).ready (function () {

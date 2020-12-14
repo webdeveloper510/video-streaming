@@ -18,6 +18,11 @@
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
 					</button>
+
+    
+                     <!----------------------------- search Menu --------------------->
+
+
 					<div class="search_meu">
 					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
 					<ul class="nav custom search">
@@ -31,6 +36,12 @@
                     <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
                     </ul>
                      
+
+                     <!-- --------------------------Tab Content --------------------------->
+
+
+
+
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
                         <h3 style="color: #fff;">Video</h3>
@@ -114,6 +125,11 @@
                     
                      </div>
                     </div>
+
+
+                      <!-- -------------------------- 2nd Tab  Start--------------------------->
+
+
                     <div id="menu1" class="tab-pane fade">
                       <h3 style="color: #fff;">Audio</h3>
                         <div class="row">
@@ -177,6 +193,10 @@
                             </div>
                            
                       </div>
+
+
+                        <!-- -------------------------- 3rd Tab  Start--------------------------->
+
                   
                     <div id="menu4" class="tab-pane fade">
                       <h3 style="color: #fff;">Artists</h3>
@@ -287,6 +307,15 @@
                          {{ Form::close() }}
                      </div> 
                    </div>
+
+
+
+                         <!-- -------------------------- 4th Tab  Start--------------------------->
+
+
+
+
+
                     <div id="menu2" class="tab-pane fade1 in ">
                         <h3 style="color: #fff;">Offers</h3>
                     <div class="row">
@@ -378,6 +407,9 @@
                     
                      </div>
                     </div>
+
+                      <!-- -------------------------- 5th Tab  Start--------------------------->
+
                     
                         <div id="menu4" class="tab-pane fade1 in ">
                     <div class="row">
@@ -485,6 +517,12 @@
 
 						</div>
 
+
+
+                   <!-- -------------------------- Registration & login Section  Start--------------------------->
+
+
+
 						<div class="navbar-nav ml-auto">
               @if(!$login)
 					  <a href="{{url('/register')}}" class="nav-item nav-link">Register</a>
@@ -565,14 +603,11 @@
 		    </div>
 	   </div>  
   </div>
-  <!-- header bottom end -->
-  <!-- Button trigger modal -->
+  
 
 
 </header>
-<style type="text/css">
 
-</style>
  @if($errors->all())
   <script type="text/javascript">
       //alert('rrr');
