@@ -56,7 +56,7 @@
 
             
 <a href="#"  style="float:right; color:blue;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Forget Password
+  Forgot Password?
 </a>
 <!-- if there are login errors, show them here -->
 <p>
@@ -100,7 +100,7 @@
       </div>
       <div class="modal-body">
         <label>Enter Email :</label>
-        <input type="email" id="email"/> 
+        <input type="email" class="form-control" placeholder="Enter Register Email" id="email"/> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
