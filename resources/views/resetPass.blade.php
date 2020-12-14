@@ -7,7 +7,10 @@
 	
 
       <div class="row justify-content-center">
-	  @if(session('error'))
+
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
+
+        @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
         </div>
@@ -17,7 +20,8 @@
         {{session('success')}}
         </div>
         @endif
-        <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
+
+
           
           <h1 class="text-white">Reset Password</h1>
 		  {!!Form::open(['action' => 'AuthController@passwordReset', 'method' => 'post'])!!}

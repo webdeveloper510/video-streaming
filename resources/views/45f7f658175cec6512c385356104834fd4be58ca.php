@@ -7,7 +7,13 @@
 	
 
       <div class="row justify-content-center">
+<<<<<<< HEAD
 	  <?php if(session('error')): ?>
+=======
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
+
+        <?php if(session('error')): ?>
+>>>>>>> 45556497915fde9bb41ed569291c24beae9fcea5
         <div class="alert alert-danger" id="error">
         <?php echo e(session('error')); ?>
 
@@ -19,7 +25,10 @@
 
         </div>
         <?php endif; ?>
+<<<<<<< HEAD
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
+=======
+>>>>>>> 45556497915fde9bb41ed569291c24beae9fcea5
           
           <h1 class="text-white">Reset Password</h1>
 		  <?php echo Form::open(['action' => 'AuthController@passwordReset', 'method' => 'post']); ?>
