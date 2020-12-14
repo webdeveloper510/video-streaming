@@ -93,6 +93,7 @@
         <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
+        <label>Enter Email :</label>
         <input type="email" id="email"/> 
       </div>
       <div class="modal-footer">
