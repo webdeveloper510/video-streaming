@@ -409,7 +409,7 @@ class AuthController extends Controller
 
        if($get){
         //echo "yes";die;
-          Mail::to($request->email)->send(new verifyEmail($request,$get,$user));
+          Mail::to($request->email1)->send(new verifyEmail($request,$get,$user));
          return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
        }
        else{
@@ -1309,14 +1309,40 @@ public function readNotification(Request $request){
 
       Session::put('email',$email);
 
-      if(Mail::to($email)->send(new forgotPassword())){
+     Mail::to($email)->send(new forgotPassword());
         return 1;
-      }
+      
 
     }
 
     public function reset(){
       
           return view('resetPass');
+    }
+
+    public function passwordReset(Request $req){
+
+      $this->validate($req,[
+        'password' => 'required',
+        
+        'confirm' => 'required'
+      
+    ]
+    
+    );
+
+    $email = Session::get('email');
+    $confirm = $req->confirm;
+
+    $update = $this->model->updatePassword($email,md5($confirm));
+
+    if($update==1){
+      return redirect('/reset')->with('success','Reset Successfull!');
+    }
+
+    else{
+      return redirect('/reset')->with('error','Not Reset!');
+    }
+    
     }
  }

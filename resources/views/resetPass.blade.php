@@ -4,22 +4,47 @@
 <section class="background1">
 	 <div class="container mt-5 mb-5">
 
+	
+
       <div class="row justify-content-center">
+	  @if(session('error'))
+        <div class="alert alert-danger" id="error">
+        {{session('error')}}
+        </div>
+        @endif
+		@if(session('success'))
+        <div class="alert alert-success" id="error">
+        {{session('success')}}
+        </div>
+        @endif
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
           
           <h1 class="text-white">Reset Password</h1>
-	      <form>
+		  {!!Form::open(['action' => 'AuthController@passwordReset', 'method' => 'post'])!!}
+          {{Form::token()}}
 			  <div class="form-group">
-			    <label>New Pasword</label>
-			    <input type="password" class="form-control" Placeholder="New Password" >
+			  {{Form::label('New Password', 'New Password')}} 
+                {{Form::password('password',['class'=>'form-control','placeholder'=>'New Password'])}}
+				@if($errors->first('password'))
+                 <div class="alert alert-danger">
+                <?php echo $errors->first('password'); ?>
+              
+          </div>  
+                @endif
 			 </div>
 			  <div class="form-group">
-			    <label>Confirm Password</label>
-			    <input type="password" class="form-control"Placeholder="Confirm Password">
+			  {{Form::label('Confirm New Password', 'Confirm New Password')}} 
+                {{Form::password('confirm',['class'=>'form-control','placeholder'=>'Confirm New Password'])}}
+				@if($errors->first('confirm'))
+                 <div class="alert alert-danger">
+                <?php echo $errors->first('confirm'); ?>
+              
+          </div>  
+                @endif
 			  </div>
 			  
-			  <button type="submit" class="btn btn-primary">Submit</button>
-			</form>
+			  {{ Form::submit('Reset!',['class'=>'btn btn-primary']) }}
+			  {{ Form::close() }}
 		</div>
 	  </div>
    </div>

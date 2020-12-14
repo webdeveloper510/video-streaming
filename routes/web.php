@@ -86,6 +86,7 @@ Route::post('readNotification','AuthController@readNotification');
 Route::post('notifyEmail', 'AuthController@notifyEmail');
 
 Route::post('request', 'AuthController@addRequest');
+Route::post('passwordReset', 'AuthController@passwordReset');
 
 Route::post('addToLibrary', 'AuthController@addToLibrary');
 

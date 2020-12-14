@@ -17,7 +17,11 @@ class Registration extends Model
        // print_r($value);die;
         if(!$value){
             $userdata=$data->all();
+            $userdata['email']=$data['email1'];
+            unset($userdata['email1']);
+            unset($userdata['confirm']);
             $userdata['password']= md5($data['confirm']);
+
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
            // print_r($userdata);die;
@@ -65,6 +69,9 @@ class Registration extends Model
 
             $userdata = $data->all();
             $userdata['password']= md5($data['confirm']);
+            $userdata['email']= $data['email1'];
+            unset($userdata['email1']);
+            unset($userdata['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
@@ -512,7 +519,7 @@ public function getRespectedSub($data){
 
     public function verifyEmail($userId, $type){
 
-      $table_name = $type == 'user' ? 'users' : 'contentprovider'; 
+      $table_name = $type == 'users' ? 'users' : 'contentprovider'; 
 
         $update = DB::table($table_name)->where('id',$userId)->update([
 
@@ -1472,6 +1479,41 @@ public function checkNameExist($data){
     return  count($dataExist) > 0 ? 1 : 0; 
 
    
+
+}
+
+public function updatePassword($email,$password){
+
+  //echo $email;
+  //echo $password;
+
+  $value = $this->selectDataById('email','users',$email);
+
+ 
+
+  if(count($value) > 0){
+
+    //echo "yes";
+
+    $update = DB::table('users')->where(array('email'=>$email))->update([
+      'password' =>  $password
+    ]);
+  
+      
+  }
+
+  else{
+
+    $update = DB::table('contentprovider')->where(array('email'=>$email))->update([
+      'password' =>  $password
+    ]);
+
+  }
+
+  //print_r($update);die;
+
+  return $update ? 1 : 0;
+
 
 }
 
