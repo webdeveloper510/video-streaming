@@ -18,6 +18,10 @@
         </div>
         @endif
 
+  <!-- --------------------------  Profile Update Section Start--------------------------->
+
+
+
   {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile ">
@@ -152,6 +156,11 @@
      </div>
   {{ Form::close() }}
   </div>
+
+  <!-- -------------------------- Profile Upadte section End--------------------------->
+
+
+
 </div>
 </div>
 </section>
