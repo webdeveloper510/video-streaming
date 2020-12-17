@@ -615,7 +615,7 @@ public function artistselling(){
 
     return view('artistoffers');
   }
-  public function artistprofilepage(){
+0  public function artistprofilepage(){
 
     return view('artistprofilepage');
   }

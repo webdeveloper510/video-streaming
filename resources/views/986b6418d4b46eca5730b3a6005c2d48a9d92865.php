@@ -152,4 +152,6 @@
 .checked {
   color: orange;
 }
-	</style><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>
+	</style>
+	
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>
