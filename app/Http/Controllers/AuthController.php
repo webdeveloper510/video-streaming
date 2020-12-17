@@ -605,6 +605,16 @@ class AuthController extends Controller
 
     return view('addToken');
   }
+
+public function artistselling(){
+
+    return view('artistselling');
+  }
+
+
+
+
+  
   public function contentProv(){
 
     $contenttype =   Session::get('userType');

@@ -1,7 +1,7 @@
 
-    @include('layouts.header')
+    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    
-<link rel="stylesheet" href="{{asset('design/artistDetail.css')}}" />
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 
 
  <section class="mistress-sec">
@@ -20,20 +20,20 @@
 <div class="main-mistree-sec1">
 <div class="main-mistree" id="sidebar">
 <div class="main-mistree-circle">
-@if($details[0]->profilepicture)
-  <img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}">
+<?php if($details[0]->profilepicture): ?>
+  <img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
 
-  @else
+  <?php else: ?>
     
-		    	  <span class="firstName" style="display: none;">{{$details[0]->nickname}}</span>
+		    	  <span class="firstName" style="display: none;"><?php echo e($details[0]->nickname); ?></span>
 	           	<div class="profileImage"></div>
              
-             @endif
+             <?php endif; ?>
 </div>
 
 
 <div class="misstress kelly">
-  <h3>{{$details[0]->nickname}}</h3>
+  <h3><?php echo e($details[0]->nickname); ?></h3>
 </div>
 
 
@@ -90,19 +90,19 @@
   A simple success alert—check it out!
 </div>
 <div id="owl-example" class="owl-carousel">
-      @foreach ($details as $detail)
-            @if($detail->type=='video')
+      <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php if($detail->type=='video'): ?>
             <div class="col-md-4">
 
           <video width="300" height="245" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-              <div class="pricevideo">{{''.$detail->price}}PAZ</div>
+              <div class="pricevideo"><?php echo e(''.$detail->price); ?>PAZ</div>
           <div class="timevideo">00:03:56</div>
          </div>
-            @endif
-             @endforeach
+            <?php endif; ?>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 
 
@@ -202,57 +202,59 @@
 
 <div class="row media_div">
 
-@foreach ($details as $detail)
+<?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4 pr-4 mt-3 mb-5" >
    
-        <a href="{{url('artist-video/'.$detail->id)}}">
+        <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
         <video width="270" height="200" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </a>
-    <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}"></form></div>
+    <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>"></form></div>
 
-          <div class="videoprice">{{''.$detail->price}}PAZ</div>
+          <div class="videoprice"><?php echo e(''.$detail->price); ?>PAZ</div>
           <div class="videotime">00:03:56</div>
       <div class=" text-center">
-          <a class="text-center" href="a{{url('artist-video/'.$detail->id)}}">
-      <i class="fa fa-video-camera" aria-hidden="true"></i>  {{$detail->title}}
+          <a class="text-center" href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
+      <i class="fa fa-video-camera" aria-hidden="true"></i>  <?php echo e($detail->title); ?>
+
       </a>
       <div class="camera">
           </div>
       </div>
       </div>
 
-      @endforeach
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 <h2>Audio</h2>
 <hr>
 <div class="row media_div">
- @if($audio)
-     @foreach ($audio as $aud)
+ <?php if($audio): ?>
+     <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <div class="col-md-4 pr-4 mt-3 mb-5" >
-        <a href="{{url('artist-video/'.$aud->id)}}">
+        <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
         <audio width="270" height="200" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$aud->media) }}" type="video/mp3">
+            <source src="<?php echo e(url('storage/app/public/video/'.$aud->media)); ?>" type="video/mp3">
             Your browser does not support the video tag.
       </audio>
         </a>
-     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$aud->id}}" data-id="{{$aud->price}}"></form></div>
+     <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($aud->id); ?>" data-id="<?php echo e($aud->price); ?>"></form></div>
 
-          <div class="audioprice">{{''.$aud->price}}PAZ</div>
+          <div class="audioprice"><?php echo e(''.$aud->price); ?>PAZ</div>
           <div class="audiotime">00:03:56</div>
       <div class=" text-center">
-          <a class="text-center" href="a{{url('artist-video/'.$detail->id)}}">
-      <i class="fa fa-play" aria-hidden="true"></i>  {{$aud->title}}
+          <a class="text-center" href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
+      <i class="fa fa-play" aria-hidden="true"></i>  <?php echo e($aud->title); ?>
+
       </a>
       <div class="camera">
        </div>
       </div>
 
 </div>
-@endforeach
-@endif
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php endif; ?>
 </div>
 
 </div>
@@ -324,3 +326,4 @@ $(window).scroll(function () {
 </script>
 
 
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

@@ -13,6 +13,7 @@
 .user-body i {
     padding-right: 21px;
     color: green;
+    float: left;
 }
 h1.text-center.text-uppercase.comimg1 {
     margin-top: -24px;

@@ -88,7 +88,7 @@
 
           </p>
          <p>  <i class="fa fa-check" style="font-size:24px"></i>  90% Commission </p>
-          <p>   <i class="fa fa-check" style="font-size:24px"></i> Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
+          <p>   <i class="fa fa-check" style="font-size:24px"></i> Join our Referral Program for Lifetime Passive Revenue Stream
  
           </p>
          <div class="col-md-12 text-center mt-2">
@@ -111,7 +111,7 @@
    
       <p><i class="fa fa-check" style="font-size:24px"></i>  Build Playlists, Stream, Download Content </p>
          
-        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Project for Artists according to Your  <br><span style="padding-left:50px">Imagination</span> </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i> Create Project for Artists according to Your Imagination </p>
          
         <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advance Filter Options</p>
          
@@ -125,7 +125,7 @@
           </p>
           <p><i class="fa fa-check" style="font-size:24px"></i>  Exchange your Tokens Every Day
           </p>
-           <p><i class="fa fa-check" style="font-size:24px"></i>  Join our Referral Program for Lifetime <br><span style="padding-left:50px">Passive Revenue Stream</span>
+           <p><i class="fa fa-check" style="font-size:24px"></i>  Join our Referral Program for Lifetime Passive Revenue Stream
           </p>
           <div class="col-md-12 text-center mt-5">
 

@@ -62,6 +62,7 @@ Route::get('seeall/{text}', 'AuthController@seeall');
 Route::get('reset', 'AuthController@reset'); 
 
 Route::get('new', 'AuthController@new'); 
+Route::get('artistselling', 'AuthController@artistselling'); 
 
 
 
