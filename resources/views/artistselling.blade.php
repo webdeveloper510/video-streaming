@@ -41,28 +41,28 @@
           </div>
           <div class="row mb-5">
               
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -79,14 +79,14 @@
           </div>
           <div class="row mb-5">
              
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -103,28 +103,28 @@
           </div>
           <div class="row mb-5">
              
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
                </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -141,28 +141,28 @@
           <div class="row mb-5">
              
            
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
               <source src="horse.ogg" type="audio/ogg">
               <source src="horse.mp3" type="audio/mpeg">
               Your browser does not support the audio tag.
             </audio>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
               
               <source src="horse.mp3" type="audio/mpeg">
               Your browser does not support the audio tag.
             </audio>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
             
               <source src="horse.mp3" type="audio/mpeg">
               Your browser does not support the audio tag.
             </audio>
                </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
             
               <source src="horse.mp3" type="audio/mpeg">
@@ -178,28 +178,28 @@
           </div>
           <div class="row mb-5">
             
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
                </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
