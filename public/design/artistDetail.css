@@ -169,5 +169,16 @@ button.addNow {
     border: 2px solid;
     padding: 6px;
 }
+/*--------------------- Responsive css --------------------------*/
+@media only screen and (max-width: 768px) {
+.videodata {
+    background: white;
+}
+.main-mistree {
+    margin-top: -184px !important;
+}
+.timevideo{
 
-/*--------------------slider css------------------------*/
+    right: -314px !important;
+}
+}
