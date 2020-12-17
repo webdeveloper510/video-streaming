@@ -636,4 +636,4 @@
   <script type="text/javascript">
       //alert('rrr');
    </script>
-  <?php endif; ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/header.blade.php ENDPATH**/ ?>
+  <?php endif; ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/layouts/header.blade.php ENDPATH**/ ?>
