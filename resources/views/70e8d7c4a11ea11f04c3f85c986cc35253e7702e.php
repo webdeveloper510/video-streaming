@@ -34,35 +34,37 @@
 
           </div>
       <div class="container">
+
                  <!-- --------------Simples Videos -------------------->
+
               <h2>Simples</h2>
               <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
           </div>
           <div class="row mb-5">
               
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -73,20 +75,21 @@
 
 
 <!-- -------------------Offer Videos ----------------------------->
+
               <h2><i class="fa fa-shopping-cart" style="color:black"></i>  Offer</h2>
               <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
           </div>
           <div class="row mb-5">
              
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -97,34 +100,35 @@
           </div>
 
                  <!-- --------------Clubs videos -------------------->
+
             <h2><i class="fa fa-rocket"></i>  Clubs</h2>
             <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
           </div>
           <div class="row mb-5">
              
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
                </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -134,6 +138,7 @@
           </div>
 
            <!-- --------------Audio videos -------------------->
+
                 <h2><i class="fa fa-microphone"></i> Recodings</h2>
                 <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
@@ -141,28 +146,28 @@
           <div class="row mb-5">
              
            
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
-              <source src="horse.ogg" type="audio/ogg">
-              <source src="horse.mp3" type="audio/mpeg">
+             
+              <source src="horse.mp3" type="audio/mp3">
               Your browser does not support the audio tag.
             </audio>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
               
               <source src="horse.mp3" type="audio/mpeg">
               Your browser does not support the audio tag.
             </audio>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
             
               <source src="horse.mp3" type="audio/mpeg">
               Your browser does not support the audio tag.
             </audio>
                </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
            <audio controls>
             
               <source src="horse.mp3" type="audio/mpeg">
@@ -171,35 +176,36 @@
             </div>
           </div>
 
-            <!-- --------------Goals videos -------------------->
+            <!-- --------------Long videos -------------------->
+            
               <h2><i class="fa fa-video-camera"></i> Long Videos</h2>
               <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
           </div>
           <div class="row mb-5">
             
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
                </div>
-            <div class="col-md-3">
+            <div class="col-md-3 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
