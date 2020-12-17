@@ -5510,7 +5510,11 @@ i.fa.fa-shopping-cart {
 .dropdown-menu.notif.text-center.show {
     background: white;
 }
-
+.col-md-12.col-sm-12.col-lg-12.text-center.mt-5 p{
+    border: 2px dashed red;
+    padding: 16px;
+    margin-bottom: 30px;
+}
 
 /*--------------------- Responsive css --------------------------*/
 @media only screen and (max-width: 768px) {
@@ -5538,6 +5542,16 @@ ul.nav.custom.search ul.subnav {
   margin-top: -21px !important; 
  
 }
+section.background139{
+	height:100% !important;
+}
+.money button {
+    padding: 0px;
+}
+.overlay1.ovr {
+    margin-top: 13% !important;
+}
+
 .artistdetail11.mb-5 {
     margin-left: 4% !important;
     padding-top: 30px !important;

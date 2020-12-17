@@ -4,7 +4,7 @@
   @include('layouts.header')
 
             <div class="container">
-          <div class="overlay1">
+          <div class="overlay1 ovr">
 
             @if(session('success'))
         <div class="alert alert-success" id="success">

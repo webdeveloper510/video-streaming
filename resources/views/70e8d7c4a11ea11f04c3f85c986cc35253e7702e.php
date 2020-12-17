@@ -34,7 +34,9 @@
 
           </div>
       <div class="container">
+
                  <!-- --------------Simples Videos -------------------->
+
               <h2>Simples</h2>
               <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
@@ -73,6 +75,7 @@
 
 
 <!-- -------------------Offer Videos ----------------------------->
+
               <h2><i class="fa fa-shopping-cart" style="color:black"></i>  Offer</h2>
               <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
@@ -97,6 +100,7 @@
           </div>
 
                  <!-- --------------Clubs videos -------------------->
+
             <h2><i class="fa fa-rocket"></i>  Clubs</h2>
             <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
@@ -134,6 +138,7 @@
           </div>
 
            <!-- --------------Audio videos -------------------->
+
                 <h2><i class="fa fa-microphone"></i> Recodings</h2>
                 <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
@@ -143,8 +148,8 @@
            
             <div class="col-md-3 mb-3">
            <audio controls>
-              <source src="horse.ogg" type="audio/ogg">
-              <source src="horse.mp3" type="audio/mpeg">
+             
+              <source src="horse.mp3" type="audio/mp3">
               Your browser does not support the audio tag.
             </audio>
             </div>
@@ -171,7 +176,8 @@
             </div>
           </div>
 
-            <!-- --------------Goals videos -------------------->
+            <!-- --------------Long videos -------------------->
+            
               <h2><i class="fa fa-video-camera"></i> Long Videos</h2>
               <div class="text-right seemore11">
               <button type="button" class="btn btn-primary">See More</button>
