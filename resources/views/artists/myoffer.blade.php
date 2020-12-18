@@ -45,35 +45,6 @@
 </table>
 
 </div>
-<!-- 
-<div class="modal fade" id="editdescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Description</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-         {!!Form::open(['action' => 'artist@editOffer', 'method' => 'post'])!!}
-          {{Form::token()}}
-          {{Form::label('Your Description', 'Your Description')}} 
-                {{Form::textarea('Description',null,['class'=>'form-control description','rows' => 4, 'cols' => 40])}}
-
-       <input type="hidden" name="reqId" value="" id="offerid">
-
-       <input type="hidden" name="user_id" value="" id="userid">
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
-      </div>
-         {{ Form::close() }}
-    </div>
-  </div>
-</div> -->
  <style>
 
         li.nav-item a {

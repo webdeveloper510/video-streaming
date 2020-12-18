@@ -27,8 +27,7 @@
       <img width="100%" height="250px" src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
     </div>
      @endforeach
-
-  
+     
 </div>
   </div>
   </div>  

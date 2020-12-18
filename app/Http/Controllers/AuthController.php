@@ -615,11 +615,14 @@ public function artistselling(){
 
     return view('artistoffers');
   }
-  public function artistprofilepage(){
+ public function artistprofilepage(){
 
     return view('artistprofilepage');
   }
+  public function view1(){
 
+    return view('view1');
+  }
 
 
 

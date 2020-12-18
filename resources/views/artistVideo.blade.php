@@ -85,10 +85,7 @@
     
     </div>
   </div>
-</div>
-
-
-					  
+</div>		  
 				   </div>
 				</div>
 			 </div>
@@ -400,25 +397,7 @@ $(".addToCart").click(function(e) {
 
 				data: {'id':id, 'types':type},
 
-				success: function(data){
-
-					console.log(data);return false;
-
-					// if(data.status==1){
-					// 	$('html,body').animate({
-					// 		scrollTop: $("#message").offset().top
-					// 	}, 'slow');
-					// 	$('.message#message').show();
-
-					// 	$('.message').html(data.message);	
-					// }
-
-
-
-
-
-						
-					
+				success: function(data){	
 				}
 		});
 
