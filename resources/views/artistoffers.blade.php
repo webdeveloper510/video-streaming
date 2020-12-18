@@ -153,3 +153,5 @@
   color: orange;
 }
 	</style>
+	
+@include('layouts.footer')
