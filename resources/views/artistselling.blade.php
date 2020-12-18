@@ -13,41 +13,48 @@
          
             <button type="button" class="btn btn-primary">Add to Library</button>
           </div>
+          <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offer</a>
+    <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+    <a class="nav-link tabss" id="nav-Playlist-tab" data-toggle="tab" href="#nav-Playlist" role="tab" aria-controls="nav-Playlist" aria-selected="false">Playlist</a>
+    <a class="nav-link tabss" id="nav-Audio-tab" data-toggle="tab" href="#nav-Audio" role="tab" aria-controls="nav-Audio" aria-selected="false">Audio</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
 
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Offers</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">All Content</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="Playlists-tab" data-bs-toggle="tab" href="#Playlists" role="tab" aria-controls="Playlists" aria-selected="false">Playlists</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="Audio-tab" data-bs-toggle="tab" href="#Audio" role="tab" aria-controls="Audio" aria-selected="false">Audio</a>
-                </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">abc</div>
-                <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-                <div class="tab-pane fade" id="Playlists" role="tabpanel" aria-labelledby="Playlists-tab">...</div>
-                <div class="tab-pane fade" id="Audio" role="tabpanel" aria-labelledby="Audio-tab">...</div>
-                </div>
+     <!-- --------------Offer videos -------------------->
+     
+  <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <!-- -------------------Offer Videos ----------------------------->
+  
+   <h2><i class="fa fa-shopping-cart" style="color:black"></i>  Offer</h2>
+              <div class="text-right seemore11">
+              <button type="button" class="btn btn-primary">See More</button>
+          </div>
+          <div class="row mb-5">
+             
+            <div class="col-md-3 mb-3">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            <div class="col-md-3 mb-3">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+          
+          </div></div>
 
+  <!-- --------------Contant videos -------------------->
 
-
-
-
-
-
-
-
-                <div class="container">
+  <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">            <div class="container">
 
                  <!-- --------------Simples Videos -------------------->
 
@@ -88,30 +95,8 @@
           </div>
 
 
-<!-- -------------------Offer Videos ----------------------------->
 
-              <h2><i class="fa fa-shopping-cart" style="color:black"></i>  Offer</h2>
-              <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
-          <div class="row mb-5">
-             
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
-          
-          </div>
+         
 
                  <!-- --------------Clubs videos -------------------->
 
@@ -151,44 +136,7 @@
             </div>
           </div>
 
-           <!-- --------------Audio videos -------------------->
-
-                <h2><i class="fa fa-microphone"></i> Recodings</h2>
-                <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
-          <div class="row mb-5">
-             
-           
-            <div class="col-md-3 mb-3">
-           <audio controls>
-             
-              <source src="horse.mp3" type="audio/mp3">
-              Your browser does not support the audio tag.
-            </audio>
-            </div>
-            <div class="col-md-3 mb-3">
-           <audio controls>
-              
-              <source src="horse.mp3" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-            </div>
-            <div class="col-md-3 mb-3">
-           <audio controls>
-            
-              <source src="horse.mp3" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-               </div>
-            <div class="col-md-3 mb-3">
-           <audio controls>
-            
-              <source src="horse.mp3" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-            </div>
-          </div>
+         
 
             <!-- --------------Long videos -------------------->
             
@@ -230,7 +178,167 @@
 
           
        
-    </div>
+    </div></div>
+
+
+ <!-- ---------------------------------Playlist videos -------------------->
+
+
+  <div class="tab-pane fade" id="nav-Playlist" role="tabpanel" aria-labelledby="nav-Playlist-tab"> 
+<div class="container">
+              <h2>Playlist</h2>
+              <div class="text-right seemore11">
+              <button type="button" class="btn btn-primary">See More</button>
+          </div>
+          <div class="row mb-5">
+              
+            <div class="col-md-3 mb-3">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            <div class="col-md-3 mb-3">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            <div class="col-md-3 mb-3">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+            <div class="col-md-3 mb-3">
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+          </div>
+</div>
+</div>
+
+ <!-- --------------Audio videos ---------------------------------------->
+
+  <div class="tab-pane fade" id="nav-Audio" role="tabpanel" aria-labelledby="nav-Audio-tab"> 
+  
+        <div class="container">
+        <h2><i class="fa fa-microphone"></i> Recodings</h2>
+        <div class="text-right seemore11">
+        <button type="button" class="btn btn-primary">See More</button>
+        </div>
+        <div class="row mb-5">
+
+
+        <div class="col-md-3 mb-3">
+        <audio controls>
+
+        <source src="horse.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="col-md-3 mb-3">
+        <audio controls>
+
+        <source src="horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="col-md-3 mb-3">
+        <audio controls>
+
+        <source src="horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="col-md-3 mb-3">
+        <audio controls>
+
+        <source src="horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div></div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          
+         
+  <!-- Profile veiw -->
+  
+  <div class="container">
+      <h2 >Profile</h2>
+      <h1>Overview</h1>
+      <div class="row">
+        <div class="col-md-2 col-sm-2 col-lg-2">
+        </div>
+        <div class="col-md-8 col-sm-8 col-lg-8">
+            <video width="100%" height="100%" controls>
+                      <source src="movie.mp4" type="video/mp4">
+                      <source src="movie.ogg" type="video/ogg">
+                      Your browser does not support the video tag.
+                  </video>
+  
+          </div>
+            <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
+            </div>
+              <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
+                <h1>About Me</h1>
+                <hr>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+              </div>
+  
+      </div>
+      <div class="row text-center text-black">
+            <div class="col">
+              <label><b>Gender</b></label>
+              <p>Female</p>
+            </div>
+            <div class="col">
+                <label><b>Sexology</b></label>
+                <p>Homo</p>
+            </div>
+            <div class="col">
+              <label><b>Height</b></label>
+              <p>167cm</p>
+            </div>
+            <div class="col">
+                  <label><b>Weight</b></label>
+              <p>Normal</p>
+            </div>
+      </div>
+        <div class="row text-center mb-5">
+            <div class="col">
+                <label><b>Hair Color</b></label>
+              <p>Blue</p>
+            </div>
+            <div class="col">
+                <label><b>Eyes Color</b></label>
+              <p>Green</p>
+            </div>
+            <div class="col">
+                <label><b>Privy part</b></label>
+              <p>Shaved</p>
+            </div>
+            <div class="col">
+                <label><b>Hair Length</b></label>
+              <p>Long</p>
+            </div>
+          </div>
+        </div>
+  
+  </div>
+  </div>
+  
+</div>
+
+    
+    
 </div>
 </div>
 <style>
@@ -239,6 +347,10 @@ ul.nav.nav-tabs li {
 }
 ul.nav.nav-tabs li a {
     font-size: 15px !important;
+    color: white;
+}
+.nav-link.tabss {
+    width: 20%;
     color: white;
 }
 </style>
