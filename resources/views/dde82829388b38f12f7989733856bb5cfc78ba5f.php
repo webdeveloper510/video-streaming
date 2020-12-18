@@ -86,7 +86,7 @@
          
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
+         <h4>$10-$50 PAZ</h4>
         </div>
       </div>
     </div>
