@@ -28,7 +28,7 @@
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   <!-- -------------------Offer Videos ----------------------------->
   
-   <h2><i class="fa fa-shopping-cart" style="color:black"></i>  Offer</h2>
+   <h2><i class="fa fa-shopping-cart" style="color:black"></i> Offers</h2>
               
           <div class="container">
    <div class="row mb-5">
@@ -48,7 +48,7 @@
           
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 PAZ</h4>
+         <h4>$10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
           
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 PAZ</h4>
+        <h4>$10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
          
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
+        <h4>$10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -105,7 +105,7 @@
         
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 PAZ</h4>
+        <h4>$10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@
          
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 PAZ</h4>
+        <h4>$10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -143,7 +143,7 @@
          
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 PAZ</h4>
+         <h4>$10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -202,6 +202,49 @@
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
+            </div>
+            
+          </div>
+                    <!-- --------------Playlists Videos -------------------->
+            <h2>Playlists</h2>
+          <div class="row mb-5">
+             
+            <div class="col-md-4 mb-3 play1">
+ <div class="overlayplay1">
+     <h2 class="text-white">21</h2>
+                <i class="fa fa-play"></i>
+                    </div>
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            
+        
+            </div>
+            <div class="col-md-4 mb-3 play2">
+           
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+              <div class="overlayplay2">
+                <h2 class="text-white">21</h2>
+                <i class="fa fa-play"></i>
+        </div>
+            </div>
+            <div class="col-md-4 mb-3 play3">
+            
+            <video width="100%" height="100%" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+             <div class="overlayplay3">
+                 <h2 class="text-white">21</h2>
+                <i class="fa fa-play"></i>
+        </div>
             </div>
             
           </div>
@@ -404,6 +447,63 @@ ul.nav.nav-tabs li a {
     padding-left: 7px;
     margin-bottom: -23px;
 }
+.col-md-4.mb-3.play1:hover .overlayplay1 {
+  opacity: 1;
+}
+.col-md-4.mb-3.play2:hover .overlayplay2 {
+  opacity: 1;
+}
+.col-md-4.mb-3.play3:hover .overlayplay3 {
+  opacity: 1;
+}
+.overlayplay1 {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 100%;
+    background: rgb(245 243 243 / 51%) !important;
+    color: #f1f1f1;
+    width: 41%;
+    opacity: 0;
+    z-index: 999999999;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.overlayplay2 {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 100%;
+    background: rgb(245 243 243 / 51%) !important;
+    color: #f1f1f1;
+    width: 41%;
+    opacity: 0;
+    z-index: 999999999;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.overlayplay3 {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 100%;
+    background: rgb(245 243 243 / 51%) !important;
+    color: #f1f1f1;
+    width: 41%;
+    opacity: 0;
+    z-index: 999999999;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
