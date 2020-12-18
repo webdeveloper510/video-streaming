@@ -29,34 +29,141 @@
   <!-- -------------------Offer Videos ----------------------------->
   
    <h2><i class="fa fa-shopping-cart" style="color:black"></i>  Offer</h2>
-              <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
-          <div class="row mb-5">
-             
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
+              
+          <div class="container">
+   <div class="row mb-5">
+     
+      
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2 pt-3 pl-3">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2>Offer Title</h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
           
-          </div></div>
+        </div>
+        <div class="col-md-2">
+         <h4>$10-$50 PAZ</h4>
+        </div>
+      </div>
+    </div>
+        <hr>
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2>Offer Title</h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
+          
+        </div>
+        <div class="col-md-2">
+         <h4>$10-$50 PAZ</h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2>Offer Title</h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
+         
+        </div>
+        <div class="col-md-2">
+         <h4>$10-$50 USD</h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2>Offer Title</h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
+        
+        </div>
+        <div class="col-md-2">
+         <h4>$10-$50 PAZ</h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2>Offer Title</h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
+         
+        </div>
+        <div class="col-md-2">
+         <h4>$10-$50 PAZ</h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2>Offer Title</h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
+         
+        </div>
+        <div class="col-md-2">
+         <h4>$10-$50 PAZ</h4>
+        </div>
+      </div>
+    </div>
+   </div>
+
+    </div>
+
+    <style type="text/css">
+        .row hr {
+    width: 100%;
+}
+ </style>
+</div>
 
   <!-- --------------Contant videos -------------------->
 
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
 
    <div class="container">
-    <div class="row">
+    <div class="row mb-5">
         <div class="col"></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
@@ -64,200 +171,135 @@
   <option selected>Choose . . . . . .</option>
   <option value="1">Audio</option>
   <option value="2">Video</option>
+  <option value="3">Playlists</option>
   
 </select>
 </div>
 </div>
                  <!-- --------------Simples Videos -------------------->
 
-              <h2>Simples</h2>
-              <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
+             
+              
           <div class="row mb-5">
               
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
+            
           </div>
 
                  <!-- --------------Clubs videos -------------------->
 
-            <h2><i class="fa fa-rocket"></i>  Clubs</h2>
-            <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
-          <div class="row mb-5">
-             
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-               </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
-          </div>
+          
+         
 
-        <h2><i class="fa fa-microphone"></i> Recodings</h2>
-        <div class="text-right seemore11">
-        <button type="button" class="btn btn-primary">See More</button>
-        </div>
+        
+        
         <div class="row mb-5">
 
 
-        <div class="col-md-3 mb-3">
-            <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg">
+        <div class="col-md-4 mb-3">
+            <img src="{{asset('images/logos/voice.jpg')}}">
         <audio controls>
 
         <source src="horse.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
         </div>
-        <div class="col-md-3 mb-3">
-            <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg">
+        <div class="col-md-4 mb-3">
+            <img src="{{asset('images/logos/voice.jpg')}}">
         <audio controls>
 
         <source src="horse.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
         </audio>
         </div>
-        <div class="col-md-3 mb-3">
-            <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg">
+        <div class="col-md-4 mb-3">
+             <img src="{{asset('images/logos/voice.jpg')}}">
         <audio controls>
 
         <source src="horse.mp3" type="audio/mpeg">
         Your browser does not support the audio tag.
         </audio>
         </div>
-        <div class="col-md-3 mb-3">
-            <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg">
-        <audio controls>
-
-        <source src="horse.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-        </audio>
-        </div>
+       
         </div>
          
 
-              <h2>Playlist</h2>
-              <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
+            
+             
           <div class="row mb-5">
               
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
+            
           </div>
 
             <!-- --------------Long videos -------------------->
             
-              <h2><i class="fa fa-video-camera"></i> Long Videos</h2>
-              <div class="text-right seemore11">
-              <button type="button" class="btn btn-primary">See More</button>
-          </div>
+             
+              
           <div class="row mb-5">
             
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
             </div>
-            <div class="col-md-3 mb-3">
+            <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
                </div>
-            <div class="col-md-3 mb-3">
-            <video width="100%" height="100%" controls>
-                <source src="movie.mp4" type="video/mp4">
-                <source src="movie.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-            </video>
-            </div>
+           
           </div>
 
           
@@ -357,8 +399,8 @@ ul.nav.nav-tabs li a {
     text-align: center;
     color: white;
 }
-.col-md-3.mb-3 img {
-    height: 151px;
+.col-md-4.mb-3 img {
+    height: 165px;
     padding-left: 7px;
     margin-bottom: -23px;
 }
