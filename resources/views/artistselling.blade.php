@@ -56,7 +56,18 @@
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
 
    <div class="container">
-
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col-md-4 text-right">
+      <select class="form-select form-control" aria-label="Default select example">
+  <option selected>Choose . . . . . .</option>
+  <option value="1">Audio</option>
+  <option value="2">Video</option>
+  
+</select>
+</div>
+</div>
                  <!-- --------------Simples Videos -------------------->
 
               <h2>Simples</h2>
