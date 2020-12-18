@@ -621,6 +621,8 @@ public function artistselling(){
   }
   public function view1(){
 
+    echo "yes";
+
     return view('view1');
   }
 
