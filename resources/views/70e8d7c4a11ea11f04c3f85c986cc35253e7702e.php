@@ -13,27 +13,41 @@
          
             <button type="button" class="btn btn-primary">Add to Library</button>
           </div>
-          <div class="artistlist11">
-           <div class="row text-center">
-            <div class="col">
-                  <h3>Offers</h3>
-              </div>
-               <div class="col">
-                  <h3>Profile</h3>
-              </div>
-               <div class="col">
-                  <h3>All Content</h3>
-              </div>
-               <div class="col">
-                  <h3>Playlists</h3>
-              </div>
-               <div class="col">
-                  <h3>Audio</h3>
-              </div>
-              </div>
 
-          </div>
-      <div class="container">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Offers</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">All Content</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="Playlists-tab" data-bs-toggle="tab" href="#Playlists" role="tab" aria-controls="Playlists" aria-selected="false">Playlists</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="Audio-tab" data-bs-toggle="tab" href="#Audio" role="tab" aria-controls="Audio" aria-selected="false">Audio</a>
+                </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">abc</div>
+                <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                <div class="tab-pane fade" id="Playlists" role="tabpanel" aria-labelledby="Playlists-tab">...</div>
+                <div class="tab-pane fade" id="Audio" role="tabpanel" aria-labelledby="Audio-tab">...</div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="container">
 
                  <!-- --------------Simples Videos -------------------->
 
@@ -219,6 +233,16 @@
     </div>
 </div>
 </div>
-
+<style>
+ul.nav.nav-tabs li {
+    width: 20% !important;
+}
+ul.nav.nav-tabs li a {
+    font-size: 15px !important;
+    color: white;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistselling.blade.php ENDPATH**/ ?>

@@ -39,23 +39,18 @@
    <div class="container">
        <div class="row">
            <div class="col-md-4">
-            <div class="form-group mt-4">
-               
+            <div class="form-group mt-4">               
               <form class="form-inline text-center align-center">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
               </form>
-             
-              
-         </div>
-           </div>
+            </div>
+          </div>
            <div class="col-md-4 text-right pt-3 mt-3">
               <span>Short:</span>
            </div>
            <div class="col-md-4 mt-3">
-  
-            <select class="custom-select form-inline m-2">
-             
+              <select class="custom-select form-inline m-2">
                  <option selected>Open this select menu</option>
                  <option value="1">One</option>
                  <option value="2">Two</option>
@@ -65,24 +60,22 @@
        </div>
        <hr>
        <div class="row mb-5">
-    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-           <div class="col-md-2">
-             
-               <div class="artist text-center">
-               <?php if($artist->profilepicture): ?>
-                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-                <div class="overlay">
-                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
-               </div>
-               <?php else: ?>
-               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
-		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
-	           	<div class="profileImage"></div>
-
-               </a>
-             
-             <?php endif; ?>
-               </div>
+          <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           <div class="col-md-2">   
+             <div class="artist text-center">
+                <?php if($artist->profilepicture): ?>
+                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+                  <div class="overlay">
+                   <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
+                 </div>
+                   <?php else: ?>
+                    <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+		    	            <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
+	           	          <div class="profileImage">
+                         </div>
+                    </a>     
+                      <?php endif; ?>
+             </div>
            </div>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
