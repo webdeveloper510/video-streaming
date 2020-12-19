@@ -1,4 +1,4 @@
-@include('layouts.header')
+
 
 
 <div class="container mt-5 pt-5">
@@ -63,6 +63,3 @@
       </div>
 
 </div>
-
-	
-@include('layouts.footer')
