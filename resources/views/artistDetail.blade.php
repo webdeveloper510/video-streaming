@@ -185,6 +185,7 @@
         @foreach ($details as $detail)
              @if($detail->type=='video') 
             <div class="col-md-4 mb-3">
+               <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$aud->id}}" data-id="{{$aud->price}}"></form></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
             <video width="100%" height="100%" controls>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
@@ -252,6 +253,7 @@
 
 
         <div class="col-md-4 mb-3">
+           <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$aud->id}}" data-id="{{$aud->price}}"></form></div>
             <img src="{{asset('images/logos/voice.jpg')}}">
         <audio controls>
 
@@ -284,6 +286,7 @@
           <div class="row mb-5">
               
             <div class="col-md-4 mb-3">
+               <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$aud->id}}" data-id="{{$aud->price}}"></form></div>
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -314,6 +317,7 @@
           <div class="row mb-5">
             
             <div class="col-md-4 mb-3">
+               <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="{{$aud->id}}" data-id="{{$aud->price}}"></form></div>
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
