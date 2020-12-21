@@ -254,12 +254,15 @@
 
         <div class="col-md-4 mb-3">
            <div class="checkall" ><form> <input type="checkbox" class="slct_video"></form></div>
+             <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+
         <audio controls>
 
         <source src="horse.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
+      </a>
         </div>
         <div class="col-md-4 mb-3">
             <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
@@ -286,12 +289,15 @@
           <div class="row mb-5">
               
             <div class="col-md-4 mb-3">
+
                <div class="checkall" ><form> <input type="checkbox" class="slct_video" ></form></div>
+                 <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
+          </a>
             </div>
             <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
@@ -318,11 +324,13 @@
             
             <div class="col-md-4 mb-3">
                <div class="checkall"><form> <input type="checkbox" class="slct_video" ></form></div>
+                 <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
             </video>
+          </a>
             </div>
             <div class="col-md-4 mb-3">
             <video width="100%" height="100%" controls>
@@ -374,7 +382,7 @@
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           
          
-  <!-- Profile veiw -->
+  <!--------------- Profile veiw ------------------------->
   
   <div class="container">
       <h2 >Profile</h2>
@@ -442,8 +450,6 @@
   
 </div>
 
-    
-    
 </div>
 </div>
 <style>
