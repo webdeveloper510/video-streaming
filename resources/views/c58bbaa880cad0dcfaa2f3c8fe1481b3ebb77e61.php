@@ -167,12 +167,12 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
-            <button type="button" class="btn btn-primary">Add to Library</button>
+            <button type="button" class="btn btn-primary">Choose</button>
       <select class="form-select form-control" aria-label="Default select example">
-  <option selected>Choose . . . . . .</option>
+  <option selected>Video</option>
   <option value="1">Audio</option>
-  <option value="2">Video</option>
-  <option value="3">Playlists</option>
+
+  <option value="2">Playlists</option>
   
 </select>
 </div>
@@ -185,7 +185,7 @@
         <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
              <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
-               <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($aud->id); ?>" data-id="<?php echo e($aud->price); ?>"></form></div>
+               <div class="checkall"><form> <input type="checkbox" class="slct_video" ></form></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
@@ -253,7 +253,7 @@
 
 
         <div class="col-md-4 mb-3">
-           <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($aud->id); ?>" data-id="<?php echo e($aud->price); ?>"></form></div>
+           <div class="checkall" ><form> <input type="checkbox" class="slct_video"></form></div>
             <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
         <audio controls>
 
@@ -286,7 +286,7 @@
           <div class="row mb-5">
               
             <div class="col-md-4 mb-3">
-               <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($aud->id); ?>" data-id="<?php echo e($aud->price); ?>"></form></div>
+               <div class="checkall" ><form> <input type="checkbox" class="slct_video" ></form></div>
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -317,7 +317,7 @@
           <div class="row mb-5">
             
             <div class="col-md-4 mb-3">
-               <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video" id="<?php echo e($aud->id); ?>" data-id="<?php echo e($aud->price); ?>"></form></div>
+               <div class="checkall"><form> <input type="checkbox" class="slct_video" ></form></div>
             <video width="100%" height="100%" controls>
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
@@ -343,12 +343,33 @@
 
           
        
-    </div></div>
+    </div>
+    <div class="choose1" style="display:none;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+   <div class="row ">
+      <div class="col-md-3">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-3">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+    <div class="col-md-3 pt-3 text-center">
+             <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3 text-center">
+           <button type="button" class="btn btn-primary addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div>
+   <div class="modal" role="dialog" id="exampleModal" >
 
 
- <!-- ---------------------------------Playlist videos -------------------->
+    </div>
+    </div>
 
- <!-- --------------Audio videos ---------------------------------------->
+
 
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           
@@ -443,6 +464,14 @@ ul.nav.nav-tabs li a {
     padding-left: 7px;
     margin-bottom: -23px;
 }
+.choose1 {
+    border: 2px solid;
+    position: fixed;
+    bottom: 10px;
+    z-index: 9999999;
+    background: white;
+    width: 95%;
+}
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
@@ -469,6 +498,18 @@ ul.nav.nav-tabs li a {
 }
 .col-md-4.text-right .btn.btn-primary {
     margin-top: -244px;
+    border-radius: 50%;
+}
+.checkall input {
+    height: 20px;
+    width: 20px;
+}
+.checkall {
+   position: absolute;
+    top: 1px;
+    z-index: 999;
+    right: 10px;
+
 }
 .overlayplay2 {
     position: absolute;
@@ -504,7 +545,6 @@ ul.nav.nav-tabs li a {
 
 
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
