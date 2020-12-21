@@ -4,7 +4,7 @@
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <div class="container">
-          <div class="overlay1">
+          <div class="overlay1 ovr">
 
             <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
