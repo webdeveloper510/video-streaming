@@ -28,7 +28,7 @@
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   <!-- -------------------Offer Videos ----------------------------->
   
-   <h2><i class="fa fa-shopping-cart" style="color:black"></i> Offers</h2>
+   <h2> Offers</h2>
               
           <div class="container">
    <div class="row mb-5">

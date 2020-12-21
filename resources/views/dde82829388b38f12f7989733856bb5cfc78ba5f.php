@@ -11,11 +11,11 @@
         <div class="artistdetail11 mb-5">
             <h3>Artist Name <i class="fa fa-star" style="color:red;"></i></h3>
          
-            <button type="button" class="btn btn-primary">Add to Library</button>
+         
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offer</a>
+    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
    
@@ -28,7 +28,7 @@
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   <!-- -------------------Offer Videos ----------------------------->
   
-   <h2><i class="fa fa-shopping-cart" style="color:black"></i> Offers</h2>
+   <h2> Offers</h2>
               
           <div class="container">
    <div class="row mb-5">
@@ -40,7 +40,7 @@
         <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
     </div>
         <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
+         <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
            <a href="">Arisit Name</a>
            <br>
@@ -48,7 +48,7 @@
           
         </div>
         <div class="col-md-2">
-         <h4>$10/min PAZ</h4>
+         <h4>10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
         <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
     </div>
         <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
+        <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
            <a href="">Arisit Name</a>
            <br>
@@ -67,7 +67,7 @@
           
         </div>
         <div class="col-md-2">
-        <h4>$10/min PAZ</h4>
+        <h4>10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -78,7 +78,7 @@
         <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
     </div>
         <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
+        <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
            <a href="">Arisit Name</a>
            <br>
@@ -86,7 +86,7 @@
          
         </div>
         <div class="col-md-2">
-        <h4>$10/min PAZ</h4>
+        <h4>10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
         <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
     </div>
         <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
+         <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
            <a href="">Arisit Name</a>
            <br>
@@ -105,7 +105,26 @@
         
         </div>
         <div class="col-md-2">
-        <h4>$10/min PAZ</h4>
+        <h4>10/min PAZ</h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
+    </div>
+        <div class="col-md-8 pl-5">
+         <h2><a href="">Offer Title</a></h2>
+         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           <a href="">Arisit Name</a>
+           <br>
+         <a href="">Categories :</a>
+         
+        </div>
+        <div class="col-md-2">
+        <h4>10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -124,26 +143,7 @@
          
         </div>
         <div class="col-md-2">
-        <h4>$10/min PAZ</h4>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="col-md-12">
-      <div class="artistoffer row">
-        <div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Categories :</a>
-         
-        </div>
-        <div class="col-md-2">
-         <h4>$10/min PAZ</h4>
+         <h4>10/min PAZ</h4>
         </div>
       </div>
     </div>
@@ -167,6 +167,7 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
+               <button type="button" class="btn btn-primary">Add to Library</button>
       <select class="form-select form-control" aria-label="Default select example">
   <option selected>Choose . . . . . .</option>
   <option value="1">Audio</option>
@@ -470,6 +471,9 @@ ul.nav.nav-tabs li a {
     font-size: 20px;
     padding: 20px;
     text-align: center;
+}
+.col-md-4.text-right .btn.btn-primary {
+    margin-top: -244px;
 }
 .overlayplay2 {
     position: absolute;
