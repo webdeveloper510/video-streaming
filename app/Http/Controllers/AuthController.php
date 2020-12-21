@@ -612,14 +612,7 @@ public function artistselling(){
     return view('artistselling');
   }
 
-  public function artistoffers(){
 
-    return view('artistoffers');
-  }
- public function artistprofilepage(){
-
-    return view('artistprofilepage');
-  }
   public function view1(){
 
     echo "yes";
