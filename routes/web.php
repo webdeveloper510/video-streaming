@@ -63,7 +63,7 @@ Route::get('reset', 'AuthController@reset');
 
 Route::get('new', 'AuthController@new'); 
 Route::get('artistselling', 'AuthController@artistselling'); 
-Route::get('artistoffers', 'AuthController@artistoffers'); 
+//Route::get('artistoffers', 'AuthController@artistoffers'); 
 Route::get('artistprofilepage', 'AuthController@artistprofilepage'); 
 
 
