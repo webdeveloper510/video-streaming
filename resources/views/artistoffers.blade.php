@@ -38,14 +38,10 @@
            <a href="">Arisit Name</a>
            <br>
          <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
+          
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
+         <h4>10/min PAZ</h4>
         </div>
       </div>
    	</div>
