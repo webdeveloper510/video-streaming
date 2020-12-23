@@ -132,16 +132,23 @@ Your browser does not support the audio tag.
             <h2>Playlists</h2>
           <div class="row mb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php 
+              $videos = explode(',',$play->videos);
+              $count = count($videos);
+              //print_r($videos);
+            ?>
             <div class="col-md-4 mb-3 play1">
                 <div class="overlayplay1">
-            <h2 class="text-white">21</h2>
+            <h2 class="text-white"><?php echo e($count); ?></h2>
                 <i class="fa fa-play"></i>
            </div>
+    
             <video width="100%" height="100%" controls>
-                <source src="<?php echo e(url('storage/app/public/video/'.$play->videos)); ?>" type="video/mp4">
+                <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
+
             
         <h4 class="text-center"><?php echo e($play->playlistname); ?></h4>
             </div>
