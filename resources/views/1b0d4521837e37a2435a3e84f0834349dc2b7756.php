@@ -336,4 +336,4 @@ ul.nav.nav-tabs li a {
 </style>
 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

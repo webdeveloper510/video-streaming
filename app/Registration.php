@@ -422,11 +422,26 @@ public function getArtistDetail($artid,$type){
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
       // ->where('contentprovider.id',$artid && 'media.type',$type)
        ->get()->toArray();
-       //print_r($artistsDetail);die;
+      //  echo "<pre>";
+      //  print_r($artistsDetail);die;
        if($artistsDetail){
            return $artistsDetail;
        }
   }
+
+  public function getArtistOffer($artistId){
+
+    $offer=DB::table('offer')
+    ->leftjoin('category', 'category.id', '=','offer.categoryid')
+     ->select('offer.*', 'category.*')
+     ->where('offer.artistid',$artistId)
+     ->get()->toArray();
+     if($offer){
+         return $offer;
+     }
+
+  }
+
 public function getCategory(){
     $category = DB::table('category')->get()->sortBy('category')->toArray();
     return $category;
@@ -1186,6 +1201,16 @@ public function createList($create){
 
 
 
+}
+
+public function getAllPlaylist(){
+  $data = \DB::table("playlist")
+  ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+  ->groupBy("playlist.id","playlist.playlistname")
+  ->get();
+  
+    return $data;
 }
 
 public function getPlayListName(){
