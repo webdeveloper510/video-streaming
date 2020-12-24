@@ -73,13 +73,13 @@
 
 <!-----------------------------------------------Show Offer-------------------------------------------------------->
 
-<div class="tab-pane fade " id="offer" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade " id="offer" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
-   <h2> Show Offer</h2>
+     <h2> Show Offer</h2>
               
           <div class="container">
-   <div class="row mb-5">
-   <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="row mb-5">
+                <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <div class="col-md-12">
       <div class="artistoffer row">
         <div class="col-md-2">
