@@ -62,7 +62,7 @@ class artist extends Controller
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
-        //   echo "<pre>";
+        //  echo "<pre>";
 
         //  print_r($allArtistsVideo);die;
 
@@ -70,7 +70,7 @@ class artist extends Controller
 
        
 
-   return view('artistDetail',['cartVideo'=>'','details'=>$allArtistsVideo,'playlist'=>$allPlaylist,'audio'=>$allArtistsAudio,'category'=> $category_data, 'offerData'=>$allArtistOffer]);
+   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo: [],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
     }
 
     public function cartSbmit(Request $req){

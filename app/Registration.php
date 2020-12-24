@@ -416,8 +416,8 @@ public function getArtists($flag){
 
 public function getArtistDetail($artid,$type){
     //echo $type;die;
-      $artistsDetail=DB::table('contentprovider')
-      ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
+      $artistsDetail = DB::table('contentprovider')
+       ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->select('contentprovider.*', 'media.*')
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
       // ->where('contentprovider.id',$artid && 'media.type',$type)
@@ -433,7 +433,7 @@ public function getArtistDetail($artid,$type){
 
     $offer=DB::table('offer')
     ->leftjoin('category', 'category.id', '=','offer.categoryid')
-     ->select('offer.*', 'category.*')
+     ->select('offer.*', 'category.category')
      ->where('offer.artistid',$artistId)
      ->get()->toArray();
      if($offer){

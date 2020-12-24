@@ -3,13 +3,13 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-            <img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}" width="100%" height="300px">
+          <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy.png') }}" width="100%" height="300px">
         </div>
         <div class="profileimg">
-        <img src="{{url('storage/app/public/uploads/'.$details[0]->profilepicture) }}" width="200px" height="200px">
+        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy.png') }}" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3>{{$details[0]->nickname}}   <i class="fa fa-star" style="color:red;"></i></h3>
+            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: ''}}   <i class="fa fa-star" style="color:red;"></i></h3>
          
           
           </div>
@@ -17,6 +17,7 @@
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+    <a class="nav-link tabss" id="nav-offer-tab" data-toggle="tab" href="#offer" role="tab" aria-controls="nav-profile" aria-selected="false">Offer Page</a>
     <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
    
   </div>
@@ -26,7 +27,6 @@
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
-  <!-- -------------------Offer Videos ----------------------------->
   
    <h2> Offers</h2>
               
@@ -42,12 +42,12 @@
                 Your browser does not support the video tag.
             </video>
       </div>
-        <div class="col-md-8 pl-5">
-        <h2><a href="{{url('artistoffers/'.$offer->id)}}">{{$offer->title}}</a></h2>
+        <div class="col-md-8 pl-5 showoffer" id="{{$offer->id}}"  onclick="$('#nav-offer-tab').trigger('click')">
+        <h2>{{$offer->title}}</h2>
          <p>{{$offer->description}}</p>
-           <a href="">{{$details[0]->nickname}}</a>
+           {{$details[0]->nickname}}
            <br>
-         <a href="">Categories :{{$offer->category}}</a>
+         Categories :{{$offer->category}}
          
         </div>
         <div class="col-md-2">
@@ -67,6 +67,47 @@
     width: 100%;
 }
  </style>
+</div>
+
+<!-----------------------------------------------Show Offer-------------------------------------------------------->
+
+<div class="tab-pane fade " id="offer" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  
+   <h2> Show Offer</h2>
+              
+          <div class="container">
+   <div class="row mb-5">
+   @foreach($offerData as $offer)
+      <div class="col-md-12">
+      <div class="artistoffer row">
+        <div class="col-md-2">
+        <video width="100%" height="100%" controls>
+                <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
+                
+                Your browser does not support the video tag.
+            </video>
+      </div>
+        <div class="col-md-8 pl-5">
+        <h2><a href="{{url('artistoffers/'.$offer->id)}}">{{$offer->title}}</a></h2>
+         <p>{{$offer->description}}</p>
+           {{$details[0]->nickname}}
+           <br>
+         Categories :{{$offer->category}}
+         
+        </div>
+        <div class="col-md-2">
+         <h4>{{$offer->price}}/min PAZ</h4>
+        </div>
+        <hr>
+      
+      </div>
+    </div>
+    @endforeach
+   </div>
+
+    </div>
+
+
 </div>
 
   <!-- ----------------------------------------------Contant videos ---------------------------------------------------->
@@ -209,10 +250,10 @@ Your browser does not support the audio tag.
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
             <video width="100%" height="100%" controls>
-                      <source src="{{url('storage/app/public/video/'.$details[0]->media) }}" type="video/mp4">
+                      <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
-  
+                  
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
             </div>
@@ -224,6 +265,7 @@ Your browser does not support the audio tag.
   
       </div>
       <div class="row text-center text-black">
+        @if(isset($details[0]))
       @foreach($details[0] as $key=>$profile)
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
             <div class="col-md-3">
@@ -232,6 +274,7 @@ Your browser does not support the audio tag.
             </div>
           @endif
       @endforeach
+      @endif
       </div>
       
         </div>
@@ -252,7 +295,7 @@ ul.nav.nav-tabs li a {
     color: white;
 }
 .nav-link.tabss {
-    width: 33.33%;
+    width: 25%;
     text-align: center;
     color: white;
 }
@@ -271,6 +314,10 @@ ul.nav.nav-tabs li a {
 }
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
+}
+
+.showoffer {
+    cursor: pointer;
 }
 
 .overlayplay1 {

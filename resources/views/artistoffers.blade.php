@@ -13,7 +13,7 @@
             </video>
       </div>
         <div class="col-md-8 pl-5">
-        <h2><a href="">{{$offerdata->title}}</a></h2>
+        <h2>{{$offerdata->title}}</h2>
          <p>{{$offerdata->description}}</p>
            
          
