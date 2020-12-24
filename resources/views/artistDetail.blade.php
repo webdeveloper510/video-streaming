@@ -43,7 +43,7 @@
             </video>
       </div>
         <div class="col-md-8 pl-5">
-        <h2><a href="">{{$offer->title}}</a></h2>
+        <h2><a href="{{url('artistoffers/'.$offer->id)}}">{{$offer->title}}</a></h2>
          <p>{{$offer->description}}</p>
            <a href="">{{$details[0]->nickname}}</a>
            <br>
@@ -114,7 +114,7 @@
 @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" ><form> <input type="checkbox" class="slct_video"></form></div>
+   <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
      <a href="{{url('artist-video/'.$aud->id)}}">
     <img src="{{asset('images/logos/voice.jpg')}}">
 
@@ -132,16 +132,23 @@ Your browser does not support the audio tag.
             <h2>Playlists</h2>
           <div class="row mb-5">
           @foreach ($playlist as $play)
+            <?php 
+              $videos = explode(',',$play->videos);
+              $count = count($videos);
+              //print_r($videos);
+            ?>
             <div class="col-md-4 mb-3 play1">
                 <div class="overlayplay1">
-            <h2 class="text-white">21</h2>
+            <h2 class="text-white">{{$count}}</h2>
                 <i class="fa fa-play"></i>
            </div>
+    
             <video width="100%" height="100%" controls>
-                <source src="{{url('storage/app/public/video/'.$play->videos) }}" type="video/mp4">
+                <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
+
             
         <h4 class="text-center">{{$play->playlistname}}</h4>
             </div>
@@ -264,12 +271,7 @@ ul.nav.nav-tabs li a {
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
-.col-md-4.mb-3.play2:hover .overlayplay2 {
-  opacity: 1;
-}
-.col-md-4.mb-3.play3:hover .overlayplay3 {
-  opacity: 1;
-}
+
 .overlayplay1 {
     position: absolute;
     top: 0;
@@ -300,38 +302,6 @@ ul.nav.nav-tabs li a {
     right: 10px;
 
 }
-.overlayplay2 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.overlayplay3 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
 
 </style>
 

@@ -114,7 +114,7 @@ Route::post('login', 'AuthController@postLogin');
 Route::post('showLists', 'AuthController@showLists');
 
 Route::post('addToWish', 'AuthController@addToWish');
-
+Route::get('artistoffers/{id}', 'AuthController@artistoffers');
 
 
 //Route::post('checkPrice', 'AuthController@checkPrice');

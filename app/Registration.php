@@ -848,6 +848,13 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     }
 
+    public function getofferByid($id){
+      
+      $value=DB::table('offer')->where('id', $id)->get()->toArray();
+
+      return $value;
+    }
+
     public function editOfferDescription($data){
 
       //print_r($data->all());die;
@@ -1209,7 +1216,7 @@ public function getAllPlaylist(){
   ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
   ->groupBy("playlist.id","playlist.playlistname")
   ->get();
-  
+  //print_r($data);die;
     return $data;
 }
 
