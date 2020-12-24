@@ -43,7 +43,7 @@
             </video>
       </div>
         <div class="col-md-8 pl-5">
-        <h2><a href=""><?php echo e($offer->title); ?></a></h2>
+        <h2><a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>"><?php echo e($offer->title); ?></a></h2>
          <p><?php echo e($offer->description); ?></p>
            <a href=""><?php echo e($details[0]->nickname); ?></a>
            <br>
@@ -114,7 +114,7 @@
 <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" ><form> <input type="checkbox" class="slct_video"></form></div>
+   <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
     <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
@@ -271,12 +271,7 @@ ul.nav.nav-tabs li a {
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
-.col-md-4.mb-3.play2:hover .overlayplay2 {
-  opacity: 1;
-}
-.col-md-4.mb-3.play3:hover .overlayplay3 {
-  opacity: 1;
-}
+
 .overlayplay1 {
     position: absolute;
     top: 0;
@@ -307,38 +302,6 @@ ul.nav.nav-tabs li a {
     right: 10px;
 
 }
-.overlayplay2 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.overlayplay3 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
 
 </style>
 

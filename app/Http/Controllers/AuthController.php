@@ -611,7 +611,13 @@ public function artistselling(){
 
     return view('artistselling');
   }
+  public function artistoffers($id){
+    
+    //echo $id;
+    $data = $this->model->getofferByid($id);
 
+    return view('artistoffers',['offer'=>$data]);
+  }
 
   public function view1(){
 
