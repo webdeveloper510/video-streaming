@@ -54,9 +54,10 @@
          <h4>{{$offer->price}}/min PAZ</h4>
         </div>
         <hr>
-        @endforeach
+      
       </div>
     </div>
+    @endforeach
    </div>
 
     </div>
