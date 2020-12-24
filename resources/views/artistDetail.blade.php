@@ -77,7 +77,7 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
-            <button type="button" class="btn btn-primary ">Choose</button>
+            <button type="button" class="btn btn-primary bardot">Choose</button>
       <select class="form-select form-control" aria-label="Default select example">
   <option selected>Video</option>
   <option value="1">Audio</option>
