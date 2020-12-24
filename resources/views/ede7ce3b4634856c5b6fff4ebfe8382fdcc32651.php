@@ -54,9 +54,10 @@
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
         </div>
         <hr>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      
       </div>
     </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
    </div>
 
     </div>
