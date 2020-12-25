@@ -42,16 +42,19 @@
                 Your browser does not support the video tag.
             </video>
       </div>
-        <div class="col-md-8 pl-5 showoffer" id="<?php echo e($offer->id); ?>"  onclick="$('#nav-offer-tab').trigger('click')">
-        <h2><?php echo e($offer->title); ?></h2>
-         <p><?php echo e($offer->description); ?></p>
-           <?php echo e($details[0]->nickname); ?>
+       
+        <div class="col-md-8 pl-5 showoffer">
+        <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
+           <h2><?php echo e($offer->title); ?></h2>
+               <p><?php echo e($offer->description); ?></p>
+                 <?php echo e($details[0]->nickname); ?>
 
            <br>
          Categories :<?php echo e($offer->category); ?>
 
-         
+         </a>
         </div>
+       
         <div class="col-md-2">
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
         </div>
