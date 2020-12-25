@@ -368,7 +368,7 @@ class AuthController extends Controller
     public function UserRegistration(Request $request){
 
       $messages = [
-        'password.regex'=>"Please Apply Given Format With 8 Character : Big letter(ABC), Small letter(abc), Special Characeter(@#$%^&+.)",
+        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)  and minimum 8 characters all together",
     ];
        // print_r($_POST); die;
         $this->validate($request,[

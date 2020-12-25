@@ -48,5 +48,6 @@
 </div>
 <button class="btn btn-primary">Order Now</button>
 </div>
+</div>
 	
 @include('layouts.footer')
