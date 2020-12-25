@@ -1347,7 +1347,7 @@ public function readNotification(Request $request){
     public function passwordReset(Request $req){
 
       $messages = [
-        'password.regex'=>"Password must contain at least one number, one character and one special character",
+        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)  and minimum 8 characters all together",
     ];
        // print_r($_POST); die;
         $this->validate($req,[
