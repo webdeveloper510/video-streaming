@@ -616,6 +616,7 @@ public function artistselling(){
     //echo $id;
     $data = $this->model->getofferByid($id);
 
+    //print_r($data);die;
     return view('artistoffers',['offer'=>$data]);
   }
 
@@ -1347,11 +1348,11 @@ public function readNotification(Request $request){
     public function passwordReset(Request $req){
 
       $messages = [
-        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)  and minimum 8 characters all together",
+        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)and minimum 8 characters all together",
     ];
        // print_r($_POST); die;
         $this->validate($req,[
-          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
+          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*[a-z])(?=.*\d).+$/',
           'password.regex'=>"Password must contain at least one number, one character and one special character",
           'confirm' => 'min:8'
       ], $messages
