@@ -1,43 +1,53 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <div class="container">
-   <div class="row">
-   <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <div class="col-md-12">
-      <div class="artistoffer row">
-        <div class="col-md-2">
-        <video width="100%" height="100%" controls>
-                <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
-                
-                Your browser does not support the video tag.
-            </video>
-      </div>
-        <div class="col-md-8 pl-5">
-        <h2><a href=""><?php echo e($offerdata->title); ?></a></h2>
-         <p><?php echo e($offerdata->description); ?></p>
-           
-         
-        </div>
-        <div class="col-md-2">
-         <h4><?php echo e($offerdata->price); ?>/min PAZ</h4>
-        </div>
-        <hr>
-        </div>
-      </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-      
-   	</div>
-   </div>
 
+<div class="offer">
+<h2>Offer Tittle</h2>
+<h5>Audio/Video</h5>
+<p>Artistname<i class=""></i>761</p><button class="btn btn-primary">SUBSCRIBE</button>
+<p>Sample</p>
 
+<video width="320" height="240" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+<h4>Description</h4>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 
-	<style type="text/css">
-		.row hr {
-    width: 100%;
-}
-.checked {
-  color: orange;
-}
-	</style>
+<div class="row">
+	<div class="col-md-3">
+      <h3>Minimum</h3>
+      <p>3min</p>
+	</div>
+	<div class="col-md-3">
+         <h3>Minimum</h3>
+      <p>3min</p>
+	</div>
+	<div class="col-md-3">
+       <h3>Minimum</h3>
+      <p>3min</p>
+	</div>
+	<div class="col-md-3">
+       <h3>Minimum</h3>
+      <p>3min</p>
+	</div>
+    <div class="col-md-3">
+       <h3>Minimum</h3>
+      <p>3min</p>
+	</div>
+</div>
+<div class="">
+	<h3>Set Duration</h3>
+	<input type="text" name="duration">
+</div>
+<div class="">
+	<h3>Set Duration</h3>
+	<textarea class="form-control"></textarea>
+</div>
+<button class="btn btn-primary">Order Now</button>
+</div>
+</div>
 	
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>
