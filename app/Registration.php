@@ -850,9 +850,15 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function getofferByid($id){
       
-      $value=DB::table('offer')->where('id', $id)->get()->toArray();
-
-      return $value;
+      $offer=DB::table('offer')
+    ->join('category', 'category.id', '=', 'offer.categoryid')
+    ->join('contentprovider', 'contentprovider.id', '=', 'offer.artistid')
+     ->select('offer.*', 'category.category','contentprovider.nickname')
+     ->where('offer.id',$id)
+     ->get()->toArray();
+     if($offer){
+         return $offer;
+     }
     }
 
     public function editOfferDescription($data){
