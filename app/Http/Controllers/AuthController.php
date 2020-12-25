@@ -617,7 +617,7 @@ public function artistselling(){
     $data = $this->model->getofferByid($id);
 
     //print_r($data);die;
-    return view('artistoffers',['offer'=>$data]);
+    return view('artistoffers',['offer'=>isset($data) ? $data :[]]);
   }
 
   public function view1(){
