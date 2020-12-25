@@ -20,11 +20,6 @@
       <h3>Minimum</h3>
       <p>3min</p>
 	</div>
-
-	<div class="col-md-3">
-       <h3>Minimum</h3>
-      <p>3min</p>
-	</div>
 </div>
 <div class="">
 	<h3>Set Duration</h3>
