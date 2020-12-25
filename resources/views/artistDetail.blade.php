@@ -42,14 +42,17 @@
                 Your browser does not support the video tag.
             </video>
       </div>
-        <div class="col-md-8 pl-5 showoffer" id="{{$offer->id}}"  onclick="$('#nav-offer-tab').trigger('click')">
-        <h2>{{$offer->title}}</h2>
-         <p>{{$offer->description}}</p>
-           {{$details[0]->nickname}}
+       
+        <div class="col-md-8 pl-5 showoffer">
+        <a target="_blank" href="{{url('artistoffers/'.$offer->id)}}">
+           <h2>{{$offer->title}}</h2>
+               <p>{{$offer->description}}</p>
+                 {{$details[0]->nickname}}
            <br>
          Categories :{{$offer->category}}
-         
+         </a>
         </div>
+       
         <div class="col-md-2">
          <h4>{{$offer->price}}/min PAZ</h4>
         </div>

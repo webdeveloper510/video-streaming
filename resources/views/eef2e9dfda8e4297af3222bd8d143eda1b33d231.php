@@ -13,7 +13,7 @@
             </video>
       </div>
         <div class="col-md-8 pl-5">
-        <h2><a href=""><?php echo e($offerdata->title); ?></a></h2>
+        <h2><?php echo e($offerdata->title); ?></h2>
          <p><?php echo e($offerdata->description); ?></p>
            
          
