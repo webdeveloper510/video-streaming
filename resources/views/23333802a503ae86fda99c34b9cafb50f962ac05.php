@@ -2,148 +2,34 @@
 
 <div class="container">
    <div class="row">
-   		<h2>Offers</h2>
-   		<hr/>
-   	<div class="col-md-12">
+   <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <div class="col-md-12">
       <div class="artistoffer row">
-      	<div class="col-md-2 pt-3 pl-3">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
+        <div class="col-md-2">
+        <video width="100%" height="100%" controls>
+                <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
+                
+                Your browser does not support the video tag.
+            </video>
+      </div>
         <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
+        <h2><?php echo e($offerdata->title); ?></h2>
+         <p><?php echo e($offerdata->description); ?></p>
+           
+         
         </div>
         <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
+         <h4><?php echo e($offerdata->price); ?>/min PAZ</h4>
+        </div>
+        <hr>
         </div>
       </div>
-   	</div>
-   		<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-   	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-  	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-         <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-  	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-   	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      
    	</div>
    </div>
 
-	</div>
+
 
 	<style type="text/css">
 		.row hr {

@@ -732,6 +732,8 @@ $(document).on('keyup', '.checknameExist', function () {
 
 })
 
+
+
 function updateRead(){
 
 	var ids = $('#notids').val();
@@ -759,4 +761,19 @@ function updateRead(){
 });
 
 }
+
+// $(document).on('click', '.showoffer', function () {
+
+// 	$('#nav-tab').find('.tabss').removeClass('active');
+
+// 	//alert('hello');
+
+// 	$('#nav-tab').find('#nav-offer-tab').addClass('active').trigger('classChange');
+
+// 	$('#nav-offer-tab').trigger('click');
+
+
+
+
+// })
 
