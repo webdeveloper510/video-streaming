@@ -30,10 +30,6 @@
 	<h3>Set Duration</h3>
 	<input type="text" name="duration">
 </div>
-<div class="">
-	<h3>Set Duration</h3>
-	<textarea class="form-control"></textarea>
-</div>
 @endforeach
 <button class="btn btn-primary">Order Now</button>
 </div>
