@@ -285,6 +285,7 @@ ul.nav.nav-tabs li a {
 .overlayplay1 {
     position: absolute;
     top: 0;
+    padding-top: 83px;
     right: 0px;
     height: 100%;
     background: rgb(245 243 243 / 51%) !important;
