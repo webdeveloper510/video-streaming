@@ -2,16 +2,20 @@
 
 <div class="container">
 
-<div class="offer">
-<h2>Offer Tittle</h2>
+<div class="offer ">
+<h2 style="    margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
-<p>Artistname<br/><i class=""></i>{{$offer[0]->nickname}}</p><button class="btn btn-primary">SUBSCRIBE</button>
+<p>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </p>
+<div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
+</div>
 <p>Sample</p>
 @foreach($offer as $offerdata)
-<video width="320" height="240" controls>
+<div class="container">
+<video width="100%" height="340" controls>
   <source src="{{url('storage/app/public/video/'.$offerdata->media) }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+</div>
 <h4>Description</h4>
 <p>{{$offerdata->description}}</p>
 
@@ -21,12 +25,16 @@
       <p>3min</p>
 	</div>
 </div>
-<div class="">
+<div class="col-md-4">
 	<h3>Set Duration</h3>
-	<input type="text" name="duration">
+	<input type="number" class="form-control" name="duration">
 </div>
 @endforeach
-<button class="btn btn-primary">Order Now</button>
+<h4>Additional Description<small>(not guaranteed)</small></h4>
+<textarea class="form-control mb-4" placeholder="Add Description" id="floatingTextarea2" style="height: 100px"></textarea>
+<div class="text-right">
+<button class="btn btn-primary mb-5 btn-lg ">Order Now</button>
+</div>
 </div>
 </div>
 	
