@@ -85,6 +85,19 @@
              Your browser does not support HTML5 video.
              </video>
             </div>
+            <div class="col-md-6 mt-5 ">
+            <div class="row">
+               <div class="col">
+
+               <label>Min :</label>
+               <input class="form-control" min="0" placeholder="Min" name="min" type="number" value="">
+                 </div>
+                     <div class="col">
+                   <label>Max :</label>
+                    <input class="form-control" min="0" placeholder="Max" name="max" type="number" value="">
+                         </div>
+                     </div>
+            </div>
           
             
 

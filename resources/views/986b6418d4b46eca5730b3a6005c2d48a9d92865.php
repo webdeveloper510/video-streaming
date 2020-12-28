@@ -25,9 +25,19 @@
       <p>3min</p>
 	</div>
 </div>
-<div class="col-md-4">
+<div class="col-md-6">
 	<h3>Set Duration</h3>
-	<input type="number" class="form-control" name="duration">
+  <div class="row">
+                              <div class="col">
+
+                                 <label>Min :</label>
+                  <input class="form-control" min="0" placeholder="Min" name="min" type="number" value="">
+                              </div>
+                                                             <div class="col">
+                                 <label>Max :</label>
+                          <input class="form-control" min="0" placeholder="Max" name="max" type="number" value="">
+                              </div>
+                                                           </div>
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <h4>Additional Description<small>(not guaranteed)</small></h4>
