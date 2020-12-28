@@ -25,6 +25,7 @@
                 </div>
                 @endif
             </div>
+           
              <div class="col-md-6 mt-5 ">
             {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
                 {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
@@ -43,8 +44,7 @@
                 </div>
                 @endif
             </div>
-            
-                <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mt-5 ">
             {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
                 {{Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])}}
                  @if($errors->first('delieveryspeed'))
@@ -53,6 +53,20 @@
                 </div>
                 @endif
             </div>
+            <div class="col-md-6 mt-5 ">
+            <div class="row">
+               <div class="col">
+
+               <label>Min :</label>
+               <input class="form-control" min="0" placeholder="Min" name="min" type="number" value="">
+                 </div>
+                     <div class="col">
+                   <label>Max :</label>
+                    <input class="form-control" min="0" placeholder="Max" name="max" type="number" value="">
+                         </div>
+                     </div>
+            </div>
+               
 
                <div class="col-md-6 ">
             <select name="category" id="selectCategory" class='form-control'>
@@ -85,19 +99,7 @@
              Your browser does not support HTML5 video.
              </video>
             </div>
-            <div class="col-md-6 mt-5 ">
-            <div class="row">
-               <div class="col">
-
-               <label>Min :</label>
-               <input class="form-control" min="0" placeholder="Min" name="min" type="number" value="">
-                 </div>
-                     <div class="col">
-                   <label>Max :</label>
-                    <input class="form-control" min="0" placeholder="Max" name="max" type="number" value="">
-                         </div>
-                     </div>
-            </div>
+         
           
             
 

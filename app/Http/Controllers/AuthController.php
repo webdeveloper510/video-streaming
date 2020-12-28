@@ -615,8 +615,8 @@ public function artistselling(){
     
     //echo $id;
     $data = $this->model->getofferByid($id);
-    //   echo "<pre>";
-    // print_r($data);die;
+       echo "<pre>";
+     print_r($data);die;
     return view('artistoffers',['offer'=>isset($data) ? $data :[]]);
   }
 
