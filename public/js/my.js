@@ -762,6 +762,66 @@ function updateRead(){
 
 }
 
+/*--------------------------------------------Order Video-------------------------------------------------*/
+
+// $('#form_sub').on('submit', function(e) {
+//     e.preventDefault();
+
+//     var ser = $(this).serializeArray();
+
+//     $.ajax({
+//         url: APP_URL+"/orderVideo",
+//         type: 'post',
+//         //dataType: 'json',
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+//         },
+//         data: {
+//             "_token": $('meta[name="csrf-token"]').attr('content'),
+//             data : ser
+//         },
+//         success: function(data) {
+//          console.log(data)
+//         },
+//         error: function(data){
+//          console.log('error');
+//         },
+//     });
+
+// });
+
+$(document).on('click','.off',function(){
+
+	$('.media_div').find('.slct_video:checked').trigger("click");
+	 $('.media_div').find('.checkall').css("display",'none');
+})
+
+$(document).on('submit', '#form_sub', function (event) {
+	event.preventDefault();
+$.ajax({
+			type: 'POST',
+			url:APP_URL+"/orderVideo",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: $(this).serialize(),
+
+			success: function(data){
+
+				console.log(data);return false;
+
+
+
+
+
+
+					
+				
+			}
+	});
+
+});
 // $(document).on('click', '.showoffer', function () {
 
 // 	$('#nav-tab').find('.tabss').removeClass('active');

@@ -135,6 +135,7 @@ Route::post('postId',
            ]);
 
 Route::post('checkprice', 'AuthController@price');
+Route::post('orderVideo', 'AuthController@orderVideo');
 
 Route::post('updateStatus', 'AuthController@updateStatus');
 Route::post('createList', 'AuthController@createList');
