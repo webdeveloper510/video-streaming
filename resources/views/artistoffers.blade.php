@@ -17,8 +17,20 @@
 
 <div class="row">
 	<div class="col-md-3">
-      <h3>Minimum</h3>
-      <p>3min</p>
+      <h3>Duration</h3>
+      <p>5 Min - 20 Min</p>
+	</div>
+  <div class="col-md-3">
+      <h3>Price</h3>
+      <p>{{$offerdata->price}}/PAZ</p>
+	</div>
+  <div class="col-md-3">
+      <h3>Category</h3>
+      <p>{{$offerdata->category}}</p>
+	</div>
+  <div class="col-md-3">
+      <h3>Delievery Speed</h3>
+      <p>{{$offerdata->delieveryspeed}}</p>
 	</div>
 </div>
 <div class="">

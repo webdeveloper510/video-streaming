@@ -17,22 +17,25 @@
 
 <div class="row">
 	<div class="col-md-3">
-      <h3>Minimum</h3>
-      <p>3min</p>
+      <h3>Duration</h3>
+      <p>Maximum : 10Min</p>
 	</div>
-
-	<div class="col-md-3">
-       <h3>Minimum</h3>
-      <p>3min</p>
+  <div class="col-md-3">
+      <h3>Price</h3>
+      <p><?php echo e($offerdata->price); ?>/PAZ</p>
+	</div>
+  <div class="col-md-3">
+      <h3>Category</h3>
+      <p><?php echo e($offerdata->category); ?></p>
+	</div>
+  <div class="col-md-3">
+      <h3>Delievery Speed</h3>
+      <p><?php echo e($offerdata->delieveryspeed); ?></p>
 	</div>
 </div>
 <div class="">
 	<h3>Set Duration</h3>
 	<input type="text" name="duration">
-</div>
-<div class="">
-	<h3>Set Duration</h3>
-	<textarea class="form-control"></textarea>
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <button class="btn btn-primary">Order Now</button>

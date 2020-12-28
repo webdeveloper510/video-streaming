@@ -17,7 +17,6 @@
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-link tabss" id="nav-offer-tab" data-toggle="tab" href="#offer" role="tab" aria-controls="nav-profile" aria-selected="false">Offer Page</a>
     <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
    
   </div>
@@ -74,48 +73,6 @@
  </style>
 </div>
 
-<!-----------------------------------------------Show Offer-------------------------------------------------------->
-
-  <div class="tab-pane fade " id="offer" role="tabpanel" aria-labelledby="nav-home-tab"> 
-  
-     <h2> Show Offer</h2>
-              
-          <div class="container">
-              <div class="row mb-5">
-                <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <div class="col-md-12">
-      <div class="artistoffer row">
-        <div class="col-md-2">
-        <video width="100%" height="100%" controls>
-                <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
-                
-                Your browser does not support the video tag.
-            </video>
-      </div>
-        <div class="col-md-8 pl-5">
-        <h2><a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>"><?php echo e($offer->title); ?></a></h2>
-         <p><?php echo e($offer->description); ?></p>
-           <?php echo e($details[0]->nickname); ?>
-
-           <br>
-         Categories :<?php echo e($offer->category); ?>
-
-         
-        </div>
-        <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
-        </div>
-        <hr>
-      
-      </div>
-    </div>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-   </div>
-
-    </div>
-
-
-</div>
 
   <!-- ----------------------------------------------Contant videos ---------------------------------------------------->
 
@@ -302,7 +259,7 @@ ul.nav.nav-tabs li a {
     color: white;
 }
 .nav-link.tabss {
-    width: 25%;
+    width:33.33%;
     text-align: center;
     color: white;
 }
