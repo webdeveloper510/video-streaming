@@ -79,6 +79,7 @@
              
            
             <div class="col-md-12 mt-5">
+            <label>Sample Audio/Video/Image(Max 30s)</label>
                  {{Form::label('Audio/Video', 'Audio/Video')}} <br>
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
