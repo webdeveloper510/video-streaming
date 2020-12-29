@@ -40,7 +40,6 @@
           <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 
-<div id="owl-example" class="owl-carousel">
 @forelse ($videos as $vid)
       @if($vid->type=='video')
       <div class="col-md-4">
@@ -56,7 +55,7 @@
        @endforelse
 
 
-</div>
+
 
 
 </div>

@@ -1381,7 +1381,6 @@ public function readNotification(Request $request){
 
         $requestData = $this->model->buyofferVideo($request->all());
 
-        die;
 
           if($requestData==1){
 

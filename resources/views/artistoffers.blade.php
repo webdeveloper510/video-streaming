@@ -51,8 +51,8 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 @endforeach
 <h4>Additional Description<small>(not guaranteed)</small></h4>
-{{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 30])}}
-<div class="text-right">
+{{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])}}
+<div class="text-right mt-5">
 {{ Form::submit('Order Now!',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit']) }}
 </div>
 {{ Form::close() }}
