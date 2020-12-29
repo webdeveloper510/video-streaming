@@ -37,7 +37,7 @@
 
         <div class="row pb-row">
           @if($videos)
-          <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+        
 
 
 @forelse ($videos as $vid)
@@ -58,7 +58,6 @@
 
 
 
-</div>
             @endif
 			
 	</div>

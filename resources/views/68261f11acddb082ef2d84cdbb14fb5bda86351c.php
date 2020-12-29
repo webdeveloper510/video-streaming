@@ -37,7 +37,7 @@
 
         <div class="row pb-row">
           <?php if($videos): ?>
-          <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+        
 
 
 <?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -58,7 +58,6 @@
 
 
 
-</div>
             <?php endif; ?>
 			
 	</div>
