@@ -1381,6 +1381,8 @@ public function readNotification(Request $request){
 
         $requestData = $this->model->buyofferVideo($request->all());
 
+        die;
+
           if($requestData==1){
 
             return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
