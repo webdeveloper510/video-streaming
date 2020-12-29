@@ -156,7 +156,7 @@ Your browser does not support the audio tag.
             </video>
 
             
-        <h4 class="text-center">{{$play->playlistname}}</h4>
+        <h4 class="text-center mb-5">{{$play->playlistname}}</h4>
             </div>
            @endforeach
           </div>
