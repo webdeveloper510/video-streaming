@@ -1606,6 +1606,8 @@ public function updatePassword($email,$password){
 }
 
 public function buyofferVideo($data){
+
+     print_r($data);
       
       unset($data['_token']);
 
