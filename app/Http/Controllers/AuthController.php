@@ -1379,9 +1379,18 @@ public function readNotification(Request $request){
       public function orderVideo(Request $request){
 
 
-        $this->model->buyofferVideo($request->all());
+        $requestData = $this->model->buyofferVideo($request->all());
 
-             //print_r($request->all());
+          if($requestData==1){
+
+            return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
+
+          }
+
+          else
+          {
+            return response()->json(array('status'=>0, 'message'=>'Some Error Occure!'));
+          }
 
 
       }

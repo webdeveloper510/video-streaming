@@ -57,6 +57,9 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 {{ Form::close() }}
 </div>
+<div class="alert alert-success show_alert" role="alert" style="display:none">
+  A simple success alert—check it out!
+</div>
 </div>
 	
 @include('layouts.footer')

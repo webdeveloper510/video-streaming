@@ -62,6 +62,9 @@ $GLOBALS['price'] = $offerdata->price;
 <?php echo e(Form::close()); ?>
 
 </div>
+<div class="alert alert-success show_alert" role="alert" style="display:none">
+  A simple success alert—check it out!
+</div>
 </div>
 	
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>

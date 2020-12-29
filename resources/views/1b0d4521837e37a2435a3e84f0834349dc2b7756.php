@@ -74,7 +74,7 @@
 </div>
 
 
-  <!-- ----------------------------------------------Contant videos ---------------------------------------------------->
+  <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
 
@@ -93,6 +93,7 @@
 </select>
 </div>
 </div>
+
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
@@ -134,6 +135,7 @@ Your browser does not support the audio tag.
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
+
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
             <h2>Playlists</h2>
           <div class="row mb-5">
@@ -283,10 +285,13 @@ ul.nav.nav-tabs li a {
 .showoffer {
     cursor: pointer;
 }
-
+.overlayplay1 h2 {
+    padding-top: 58px;
+}
 .overlayplay1 {
     position: absolute;
     top: 0;
+    padding-top: 83px;
     right: 0px;
     height: 100%;
     background: rgb(245 243 243 / 51%) !important;

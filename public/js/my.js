@@ -764,32 +764,6 @@ function updateRead(){
 
 /*--------------------------------------------Order Video-------------------------------------------------*/
 
-// $('#form_sub').on('submit', function(e) {
-//     e.preventDefault();
-
-//     var ser = $(this).serializeArray();
-
-//     $.ajax({
-//         url: APP_URL+"/orderVideo",
-//         type: 'post',
-//         //dataType: 'json',
-//         headers: {
-//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-//         },
-//         data: {
-//             "_token": $('meta[name="csrf-token"]').attr('content'),
-//             data : ser
-//         },
-//         success: function(data) {
-//          console.log(data)
-//         },
-//         error: function(data){
-//          console.log('error');
-//         },
-//     });
-
-// });
-
 $(document).on('click','.off',function(){
 
 	$('.media_div').find('.slct_video:checked').trigger("click");
@@ -798,7 +772,7 @@ $(document).on('click','.off',function(){
 
 $(document).on('submit', '#form_sub', function (event) {
 	event.preventDefault();
-$.ajax({
+       $.ajax({
 			type: 'POST',
 			url:APP_URL+"/orderVideo",
 			 headers: {
@@ -809,14 +783,16 @@ $.ajax({
 
 			success: function(data){
 
-				console.log(data);return false;
-
-
-
-
-
-
+					if(data.status==1){
+						//console.log('yes');
+						$('.show_alert').show();
+						$('.show_alert').html(data.message);
+					}	
 					
+					else{
+						$('.show_alert').show();
+						$('.show_alert').html(data.message);
+					}
 				
 			}
 	});

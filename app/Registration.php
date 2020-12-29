@@ -1025,9 +1025,10 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
 
-      count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
+      $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
 
-
+          return $return;
+          
         }
 
 
@@ -1043,21 +1044,28 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
               'userdescription' =>$video['description'],
               'choice'=>$video['duration']
               ]);
+
+            $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
+            ->update([
+                  'videoid' => DB::raw("CONCAT(videoid,',".$id[0]."')"),
+                ]);
       }
 
-      
+      else{
 
-      $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
-      ->update([
-            'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid'] ? $video['videoid'] : $id[0]."')"),
-          ]);
-
-          if($update==1){
-            $return = DB::table('users')->where(array('id'=>$uid))
+             $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
             ->update([
-            'tokens' =>  DB::raw('tokens -'.$video['price']*20)
-          ]);
+                  'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid']."')"),
+                ]);
+      }
+          //
+              if($update==1){
 
+             $return = DB::table('users')->where(array('id'=>$uid))
+            ->update([
+            'tokens' =>  DB::raw('tokens -'.$video['price'])
+          ]);
+          //print_r($return);die;
             return $return;
 
           }
@@ -1614,9 +1622,9 @@ public function buyofferVideo($data){
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
 
-       count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
+       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 
-
+          return  $return;
     }
 
 }
