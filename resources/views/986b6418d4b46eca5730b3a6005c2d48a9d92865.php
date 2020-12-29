@@ -53,14 +53,17 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <h4>Additional Description<small>(not guaranteed)</small></h4>
-<?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 30])); ?>
+<?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
 
-<div class="text-right">
+<div class="text-right mt-5">
 <?php echo e(Form::submit('Order Now!',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
 
 </div>
 <?php echo e(Form::close()); ?>
 
+</div>
+<div class="alert alert-success show_alert" role="alert" style="display:none">
+  A simple success alert—check it out!
 </div>
 </div>
 	

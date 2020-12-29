@@ -138,7 +138,7 @@ Your browser does not support the audio tag.
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
             <h2>Playlists</h2>
-          <div class="row mb-5">
+          <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
               $videos = explode(',',$play->videos);
@@ -158,7 +158,7 @@ Your browser does not support the audio tag.
             </video>
 
             
-        <h4 class="text-center"><?php echo e($play->playlistname); ?></h4>
+        <h4 class="text-center mb-5"><?php echo e($play->playlistname); ?></h4>
             </div>
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
@@ -193,7 +193,7 @@ Your browser does not support the audio tag.
 
 
 
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           
          
   <!----------------------------------------------- Profile veiw --------------------------------------------->
@@ -276,7 +276,7 @@ ul.nav.nav-tabs li a {
     cursor: pointer;
 }
 .overlayplay1 h2 {
-    padding-top: 58px;
+    padding-top: 100px;
 }
 .overlayplay1 {
     position: absolute;
