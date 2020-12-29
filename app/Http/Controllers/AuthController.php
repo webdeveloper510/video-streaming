@@ -993,7 +993,7 @@ public function notifyEmail(Request $req){
 
       $showOffer = $this->model->showOfer($data);
 
-      return view('showoffer',['offer'=>$showOffer]);
+      return view('showoffer',['offer'=>isset($showOffer) ? $showOffer :[]]);
       
     }
 

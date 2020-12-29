@@ -161,7 +161,7 @@
      <?php endif; ?>
 	</div>
     <!--Carousel Wrapper-->
-    <?php if($login && $recently): ?>
+    <?php if($login): ?>
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 
