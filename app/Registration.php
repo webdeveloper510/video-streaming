@@ -1079,7 +1079,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function insertUserVideo($uid,$video,$tok,$type){
 
-         print_r($video);
+         //print_r($video);
 
       if(isset($video['user_id'])){
 
