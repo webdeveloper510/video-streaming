@@ -142,4 +142,4 @@ a.navbar-brand.text-white {
     color: black !important;
 }
 </style>
- <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/offer.blade.php ENDPATH**/ ?>
+ <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/offer.blade.php ENDPATH**/ ?>

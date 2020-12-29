@@ -615,8 +615,8 @@ public function artistselling(){
     
     //echo $id;
     $data = $this->model->getofferByid($id);
-
-    //print_r($data);die;
+    //    echo "<pre>";
+    //  print_r($data);die;
     return view('artistoffers',['offer'=>isset($data) ? $data :[]]);
   }
 
@@ -733,7 +733,7 @@ public function artistselling(){
   //       ['amount' => -500, 'currency' => 'usd']
   // );
 
-      print_r($token);die;
+     // print_r($token);die;
 
       $input = $request->all();
 
@@ -1374,4 +1374,25 @@ public function readNotification(Request $request){
     }
     
     }
- }
+
+/*-----------------------------------------------Order Video By User-------------------------------------------------*/
+      public function orderVideo(Request $request){
+
+
+        $requestData = $this->model->buyofferVideo($request->all());
+
+          if($requestData==1){
+
+            return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
+
+          }
+
+          else
+          {
+            return response()->json(array('status'=>0, 'message'=>'Some Error Occure!'));
+          }
+
+
+      }
+
+}

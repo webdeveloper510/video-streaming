@@ -762,6 +762,42 @@ function updateRead(){
 
 }
 
+/*--------------------------------------------Order Video-------------------------------------------------*/
+
+$(document).on('click','.off',function(){
+
+	$('.media_div').find('.slct_video:checked').trigger("click");
+	 $('.media_div').find('.checkall').css("display",'none');
+})
+
+$(document).on('submit', '#form_sub', function (event) {
+	event.preventDefault();
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/orderVideo",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: $(this).serialize(),
+
+			success: function(data){
+
+					if(data.status==1){
+						//console.log('yes');
+						$('.show_alert').show();
+						$('.show_alert').html(data.message);
+					}	
+					
+					else{
+						$('.show_alert').show();
+						$('.show_alert').html(data.message);
+					}
+				
+			}
+	});
+
+});
 // $(document).on('click', '.showoffer', function () {
 
 // 	$('#nav-tab').find('.tabss').removeClass('active');

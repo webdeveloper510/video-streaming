@@ -1,157 +1,67 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <div class="container">
-   <div class="row">
-   		<h2>Offers</h2>
-   		<hr/>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2 pt-3 pl-3">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-   		<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-   	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-  	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-         <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-  	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-   	<hr>
-   	<div class="col-md-12">
-      <div class="artistoffer row">
-      	<div class="col-md-2">
-        <img src="http://localhost/video-streaming/storage/app/public/uploads/1606412754_marriage.jpg" width="100px" height="100px">
-    </div>
-        <div class="col-md-8 pl-5">
-         <h2>Offer Title</h2>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
-           <br>
-         <a href="">Rating :</a>
-           <span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star checked"></span>
-			<span class="fa fa-star"></span>
-			<span class="fa fa-star"></span>
-        </div>
-        <div class="col-md-2">
-         <h4>$10-$50 USD</h4>
-        </div>
-      </div>
-   	</div>
-   </div>
 
+<div class="offer ">
+<h2 style="    margin-top: 10% !important;">Offer Tittle</h2>
+<h5>Audio/Video</h5>
+<p><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </p>
+<div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
+</div>
+<p>Sample</p>
+<?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<?php 
+$GLOBALS['id'] = $offerdata->id;
+$GLOBALS['user_id'] = $offerdata->userid;
+$GLOBALS['price'] = $offerdata->price;
+?>
+<div class="container">
+<video width="100%" height="340" controls>
+  <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
+<h4>Description</h4>
+<p><?php echo e($offerdata->description); ?></p>
+
+<div class="row">
+	<div class="col-md-3">
+      <h3>Duration</h3>
+      <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
 	</div>
+  <div class="col-md-3">
+      <h3>Price</h3>
+      <p><?php echo e($offerdata->price); ?>/PAZ</p>
+	</div>
+  <div class="col-md-3">
+      <h3>Category</h3>
+      <p><?php echo e($offerdata->category); ?></p>
+	</div>
+  <div class="col-md-3">
+      <h3>Delievery Speed</h3>
+      <p><?php echo e($offerdata->delieveryspeed); ?> Days</p>
+	</div>
+</div>
+<?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
 
-	<style type="text/css">
-		.row hr {
-    width: 100%;
-}
-.checked {
-  color: orange;
-}
-	</style>
+<input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
+<input type="hidden" name="price" value="<?php echo e($GLOBALS['price']); ?>"/>
+<div class="col-md-4">
+	<h3>Set Duration</h3>
+  <?php echo e(Form::number('duration', '',['class'=>'form-control','placeholder'=>'Duration'])); ?>
+
+</div>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<h4>Additional Description<small>(not guaranteed)</small></h4>
+<?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 30])); ?>
+
+<div class="text-right">
+<?php echo e(Form::submit('Order Now!',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
+
+</div>
+<?php echo e(Form::close()); ?>
+
+</div>
+</div>
 	
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>

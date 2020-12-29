@@ -1011,6 +1011,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function buyVideo($vid){
 
+
         $session_data =   Session::get('User');
 
         $userid=  $session_data->id;
@@ -1022,30 +1023,49 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         if($token > $vid['price']){
 
-            $data = $this->selectDataById('userid','user_video',$userid);
+        $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
 
-      count($data) > 0 ? $this->updateUserVideo($userid,$vid,$token) : $this->insertUserVideo($userid,$vid,$token);
+      $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
 
-
+          return $return;
+          
         }
 
 
     }
 
-    public function updateUserVideo($uid,$video,$tok){
+    public function updateUserVideo($uid,$video,$tok,$type){
 
-      $update = DB::table('user_video')->where(array('userid'=>$uid))
-      ->update([
-            'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid']."')"),
-            'Isbuyed'=>'yes'
-          ]);
+      if(isset($video['user_id'])){
+            $ids = $video['user_id'];
+            $id = explode('_',$ids);
 
-          if($update==1){
-            $return = DB::table('users')->where(array('id'=>$uid))
+            $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
+              'userdescription' =>$video['description'],
+              'choice'=>$video['duration']
+              ]);
+
+            $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
             ->update([
-            'tokens' =>  DB::raw('tokens -'.$video['price']*20)
-          ]);
+                  'videoid' => DB::raw("CONCAT(videoid,',".$id[0]."')"),
+                ]);
+      }
 
+      else{
+
+             $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
+            ->update([
+                  'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid']."')"),
+                ]);
+      }
+          //
+              if($update==1){
+
+             $return = DB::table('users')->where(array('id'=>$uid))
+            ->update([
+            'tokens' =>  DB::raw('tokens -'.$video['price'])
+          ]);
+          //print_r($return);die;
             return $return;
 
           }
@@ -1056,20 +1076,49 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
           }
     }
 
-    public function insertUserVideo($uid,$video,$tok){
+    public function insertUserVideo($uid,$video,$tok,$type){
+
+      //print_r($video);die;
+
+      if(isset($video['user_id'])){
+
+           $ids = $video['user_id'];
+           $description = $video['description'];
+           $duration = $video['duration'];
+           $price = $video['price'];
+           $id = explode('_',$ids);
+           unset($video['user_id']);
+           unset($video['price']);
+           unset($video['duration']);
+           unset($video['description']);
+      }
+  
       $video['created_at'] = now();
       $video['updated_at'] = now();
       $video['userid'] =$uid;
-      $video['videoid'] = $video['videoid'];
-      $video['Isbuyed'] = 'No';
+      $video['videoid'] = isset($video['videoid']) ? $video['videoid'] : $id[0];
+      if($type=='offer'){
+
+        $video['type']= $type;
+
+        $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
+          'userdescription' =>$description,
+          'choice'=>$duration
+          ]);
+
+      }
+
+      else{}
+      
 
         $insert = DB::table('user_video')->insert($video);
 
         if($insert==1){
-            $return = DB::table('users')->where(array('id'=>$uid))->update([
-            'tokens' =>  DB::raw('tokens -'.$video['price'])
-            ]);
-            return $return;
+
+              $return = DB::table('users')->where(array('id'=>$uid))->update([
+              'tokens' =>  DB::raw('tokens -'.$price)
+              ]);
+              return $return;
         }
 
         else{
@@ -1554,6 +1603,33 @@ public function updatePassword($email,$password){
 
 
 }
+
+public function buyofferVideo($data){
+      
+      unset($data['_token']);
+
+      $ids = $data['user_id'];
+
+      $session_data =   Session::get('User');
+      $userid =  $session_data->id;
+
+      $id = explode('_',$ids);
+
+      $checkTokn = $this->selectDataById('id','users',$userid);
+      $token = $checkTokn[0]->tokens;
+
+      if($token > $data['price']){
+
+        $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
+
+       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
+
+          return  $return;
+    }
+
+}
+
+
 
     // public function addToLibrary1(){
 
