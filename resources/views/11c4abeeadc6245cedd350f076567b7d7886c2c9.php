@@ -74,27 +74,20 @@
                          </div>
                      </div>
             </div>
-               
-
-               <div class="col-md-6 ">
+               <div class="col-md-6 mt-5 pt-4">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
-             <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])); ?>
-
-                 <?php if($errors->first('description')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('description') ?>
-                </div>
-                <?php endif; ?>
             </div>
 
+         
+             
            
-            <div class="col-md-6 mt-5">
+            <div class="col-md-12 mt-5">
+            <label>Sample Audio/Video/Image(Max 30s)</label>
                  <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
@@ -104,12 +97,25 @@
                   <?php echo $errors->first('media') ?>
                 </div>
                 <?php endif; ?>
+                </div>
+              
+            <div class="col-md-6 mt-5">
+             <?php echo e(Form::label('Description', 'Description')); ?> 
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])); ?>
+
+                 <?php if($errors->first('description')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('description') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 mt-5">
                 <video width="400" controls>
              <source src="mov_bbb.mp4" id="blah">
              Your browser does not support HTML5 video.
              </video>
             </div>
-         
+           
           
             
 
