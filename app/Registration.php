@@ -1011,6 +1011,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function buyVideo($vid){
 
+        print_r($vid);die;
 
         $session_data =   Session::get('User');
 
