@@ -783,6 +783,8 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
+				console.log(data);return false;
+
 					if(data.status==1){
 						//console.log('yes');
 						$('.show_alert').show();

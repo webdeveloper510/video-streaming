@@ -161,7 +161,7 @@
      @endif
 	</div>
     <!--Carousel Wrapper-->
-    @if($login && $recently)
+    @if($login)
     <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
 
 

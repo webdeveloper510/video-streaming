@@ -1028,7 +1028,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
 
           return $return;
-          
+
         }
 
 
@@ -1078,7 +1078,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function insertUserVideo($uid,$video,$tok,$type){
 
-      //print_r($video);die;
+      print_r($video);die;
 
       if(isset($video['user_id'])){
 

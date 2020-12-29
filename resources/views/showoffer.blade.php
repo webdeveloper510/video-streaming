@@ -15,6 +15,7 @@
         </div>
         @endif
 <div class="row ">
+  @if($offer)
 	@foreach($offer as $val)
 	<div class="col-md-4">
       <div class="card">
@@ -43,6 +44,7 @@
    </div>
  </div>
  @endforeach
+ @endif
 </div>
 
 <div class="modal fade" id="addDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
