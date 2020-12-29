@@ -1079,7 +1079,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function insertUserVideo($uid,$video,$tok,$type){
 
-      print_r($video);die;
+         print_r($video);
 
       if(isset($video['user_id'])){
 
@@ -1607,7 +1607,7 @@ public function updatePassword($email,$password){
 
 public function buyofferVideo($data){
 
-     print_r($data);
+    // print_r($data);
       
       unset($data['_token']);
 
