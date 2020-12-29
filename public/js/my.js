@@ -783,18 +783,18 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-				console.log(data);return false;
+				console.log(data);
 
-					if(data.status==1){
-						//console.log('yes');
-						$('.show_alert').show();
-						$('.show_alert').html(data.message);
-					}	
+					// if(data.status==1){
+					// 	//console.log('yes');
+					// 	$('.show_alert').show();
+					// 	$('.show_alert').html(data.message);
+					// }	
 					
-					else{
-						$('.show_alert').show();
-						$('.show_alert').html(data.message);
-					}
+					// else{
+					// 	$('.show_alert').show();
+					// 	$('.show_alert').html(data.message);
+					// }
 				
 			}
 	});
