@@ -156,7 +156,7 @@ Your browser does not support the audio tag.
             </video>
 
             
-        <h4 class="text-center">{{$play->playlistname}}</h4>
+        <h4 class="text-center mb-5">{{$play->playlistname}}</h4>
             </div>
            @endforeach
           </div>
@@ -274,7 +274,7 @@ ul.nav.nav-tabs li a {
     cursor: pointer;
 }
 .overlayplay1 h2 {
-    padding-top: 58px;
+    padding-top: 100px;
 }
 .overlayplay1 {
     position: absolute;

@@ -158,7 +158,7 @@ Your browser does not support the audio tag.
             </video>
 
             
-        <h4 class="text-center"><?php echo e($play->playlistname); ?></h4>
+        <h4 class="text-center mb-5"><?php echo e($play->playlistname); ?></h4>
             </div>
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
@@ -276,7 +276,7 @@ ul.nav.nav-tabs li a {
     cursor: pointer;
 }
 .overlayplay1 h2 {
-    padding-top: 58px;
+    padding-top: 100px;
 }
 .overlayplay1 {
     position: absolute;

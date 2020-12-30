@@ -37,10 +37,9 @@
 
         <div class="row pb-row">
           <?php if($videos): ?>
-          <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+        
 
 
-<div id="owl-example" class="owl-carousel">
 <?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
       <?php if($vid->type=='video'): ?>
       <div class="col-md-4">
@@ -56,10 +55,9 @@
        <?php endif; ?>
 
 
-</div>
 
 
-</div>
+
             <?php endif; ?>
 			
 	</div>
