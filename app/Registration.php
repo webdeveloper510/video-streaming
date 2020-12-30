@@ -1616,7 +1616,8 @@ public function updatePassword($email,$password){
 
       $checkTokn = $this->selectDataById('id','users',$userid);
 
-      print_r($checkTokn);die;
+      //print_r($checkTokn);die;
+
       $token = $checkTokn[0]->tokens;
 
       if($token > $data['price']){
@@ -1626,6 +1627,11 @@ public function updatePassword($email,$password){
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 
           return  $return;
+    }
+
+    else{
+      
+       return  0;
     }
 
 }
