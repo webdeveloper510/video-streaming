@@ -39,7 +39,7 @@ $GLOBALS['price'] = $offerdata->price;
 	</div>
   <div class="col-md-3">
       <h3>Delievery Speed</h3>
-      <p>{{$offerdata->deliveryspeed}} Days</p>
+      <p>{{$offerdata->delieveryspeed}} Days</p>
 	</div>
 </div>
 {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
