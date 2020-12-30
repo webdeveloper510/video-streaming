@@ -45,7 +45,7 @@ Route::post('addmoney/stripe', 'AuthController@postPaymentStripe');
 Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 Route::get('artistDetail/{id}', 'artist@artistDetail');
 //Route::get('artist-profile', 'artist@artistProfile');
-Route::get('artist-video/{id}', 'artist@artistVideo')->middleware('authentication');
+Route::get('artist-video/{id}', 'artist@artistVideo');
 Route::get('logout', 'AuthController@logout'); 
 Route::get('view1', 'AuthController@view1'); 
 Route::get('paymentSuccess', 'AuthController@success'); 
