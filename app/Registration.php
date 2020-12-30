@@ -1615,6 +1615,8 @@ public function updatePassword($email,$password){
       $id = explode('_',$ids);
 
       $checkTokn = $this->selectDataById('id','users',$userid);
+
+      print_r($checkTokn);die;
       $token = $checkTokn[0]->tokens;
 
       if($token > $data['price']){
