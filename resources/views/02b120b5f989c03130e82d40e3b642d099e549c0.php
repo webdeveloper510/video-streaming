@@ -73,7 +73,6 @@
                    <label>Max :</label>
                    <?php echo e(Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])); ?>
 
-                    <input class="form-control" min="0" placeholder="Max" name="max" type="number" value="">
                          </div>
                      </div>
             </div>
