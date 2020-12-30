@@ -281,8 +281,8 @@
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                  <?php if($audio->type=='audio'): ?>
-              <div class="col-md-4">
-                
+              <div class="col-md-4 mb-3">
+              <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
               <audio controls>
                  <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
             </audio>
@@ -338,6 +338,11 @@
   .owl-carousel {
     display: block !important;
   }
+  .col-md-4.mb-3 img {
+    height: 165px;
+    padding-left: 7px;
+    margin-bottom: -23px;
+}
   button.btn.btn-primary.seemore {
     position: absolute;
     margin-top: -43px;
