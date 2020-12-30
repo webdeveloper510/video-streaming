@@ -1351,7 +1351,7 @@ public function readNotification(Request $request){
     ];
        // print_r($_POST); die;
         $this->validate($req,[
-          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*[a-z])(?=.*\d).+$/',
+          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
           'password.regex'=>"Password must contain at least one number, one character and one special character",
           'confirm' => 'min:8'
       ], $messages
