@@ -3,7 +3,7 @@
 <div class="container">
 
 <div class="offer ">
-<h2 style="    margin-top: 10% !important;">Offer Tittle</h2>
+<h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
 <p>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </p>
 <div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
@@ -39,7 +39,7 @@ $GLOBALS['price'] = $offerdata->price;
 	</div>
   <div class="col-md-3">
       <h3>Delievery Speed</h3>
-      <p>{{$offerdata->delieveryspeed}} Days</p>
+      <p>{{$offerdata->deliveryspeed}} Days</p>
 	</div>
 </div>
 {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
@@ -51,8 +51,8 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 @endforeach
 <h4>Additional Description<small>(not guaranteed)</small></h4>
-{{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 30])}}
-<div class="text-right">
+{{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])}}
+<div class="text-right mt-5">
 {{ Form::submit('Order Now!',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit']) }}
 </div>
 {{ Form::close() }}

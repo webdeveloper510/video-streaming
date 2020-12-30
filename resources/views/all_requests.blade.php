@@ -17,34 +17,34 @@
     border: 1px solid #dee2e6;
     margin-top: 7%;
     background: none; 
-}
-.dropdown12 {
-    border: 1px solid #cbc3c3;
-     margin-top: 25px;
-}
-.dropdown1 {
-    border: 1px solid #cbc3c3;
-    margin-top: 25px;
-}
-.dropdown12 {
-    height: 330px;
-    overflow-y: scroll;
-}
+      }
+      .dropdown12 {
+          border: 1px solid #cbc3c3;
+          margin-top: 25px;
+      }
+      .dropdown1 {
+          border: 1px solid #cbc3c3;
+          margin-top: 25px;
+      }
+      .dropdown12 {
+          height: 330px;
+          overflow-y: scroll;
+      }
 
-li.nav-item {
-    padding: 10px;
-}
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: #ffffff;
-    background-color: #7b0000;
-    border: 1px solid #7b0000;
-}
-input.form-control.price::placeholder {
-    color: grey;
-}
-.fade:not(.show) {
-    opacity: 1;
-}
+      li.nav-item {
+          padding: 10px;
+      }
+      .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+          color: #ffffff;
+          background-color: #7b0000;
+          border: 1px solid #7b0000;
+      }
+      input.form-control.price::placeholder {
+          color: grey;
+      }
+      .fade:not(.show) {
+          opacity: 1;
+      }
   </style>
   </head>
   <body>
@@ -169,10 +169,6 @@ input.form-control.price::placeholder {
                      <?php echo $errors->first('description'); ?>
                 </div>
                 @endif
-
-
-                    
-                            
                         
                       </div>
                       <div class="col">
