@@ -58,10 +58,11 @@
                <div class="col">
 
                <label>Min :</label>
-               <input class="form-control" min="0" placeholder="Min" name="min" type="number" value="">
+               {{Form::number('min', '',['class'=>'form-control','placeholder'=>'Min'])}}
                  </div>
                      <div class="col">
                    <label>Max :</label>
+                   {{Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])}}
                     <input class="form-control" min="0" placeholder="Max" name="max" type="number" value="">
                          </div>
                      </div>
