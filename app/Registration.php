@@ -1572,9 +1572,7 @@ public function checkNameExist($data){
 
 public function updatePassword($email,$password){
 
-  //echo $email;
-  //echo $password;
-
+  
   $value = $this->selectDataById('email','users',$email);
 
  
@@ -1605,10 +1603,8 @@ public function updatePassword($email,$password){
 
 }
 
-public function buyofferVideo($data){
+    public function buyofferVideo($data){
 
-    // print_r($data);
-      
       unset($data['_token']);
 
       $ids = $data['user_id'];
