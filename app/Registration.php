@@ -1063,11 +1063,10 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
               if($update==1){
 
              $return = DB::table('users')->where(array('id'=>$uid))
-            ->update([
-            'tokens' =>  DB::raw('tokens -'.$video['price'])
-          ]);
-          //print_r($return);die;
-            return $return;
+              ->update([
+                'tokens' =>  DB::raw('tokens -'.$video['price'])
+              ]);
+              return $return;
 
           }
 
@@ -1630,7 +1629,7 @@ public function updatePassword($email,$password){
     }
 
     else{
-      
+
        return  0;
     }
 
