@@ -1390,7 +1390,7 @@ public function readNotification(Request $request){
 
           else
           {
-            return response()->json(array('status'=>0, 'message'=>'Tokens is not enough!'));
+            return response()->json(array('status'=>0, 'message'=>'Insufficient PAZ Tokens!'));
           }
 
 
