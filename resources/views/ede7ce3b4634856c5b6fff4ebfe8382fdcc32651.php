@@ -275,7 +275,7 @@ ul.nav.nav-tabs li a {
     cursor: pointer;
 }
 .overlayplay1 h2 {
-    padding-top: 26px;
+    padding-top: 48px;
 }
 .overlayplay1 {
     position: absolute;
