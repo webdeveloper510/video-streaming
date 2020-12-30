@@ -137,8 +137,8 @@ Your browser does not support the audio tag.
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-            <h2>Playlists</h2>
-          <div class="row mb-5">
+         <h2>Playlists</h2>
+          <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
               $videos = explode(',',$play->videos);
@@ -194,8 +194,7 @@ Your browser does not support the audio tag.
 
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          
-         
+  
   <!----------------------------------------------- Profile veiw --------------------------------------------->
   
   <div class="container">

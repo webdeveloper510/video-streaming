@@ -290,10 +290,10 @@ class artist extends Controller
         $success = $this->model->updateUserDesc($req);
 
         if($success ==1){
-          return redirect('/showOffer')->with('success','Add Description!');
+          return redirect('/showOffers')->with('success','Add Description!');
         }
         else{
-           return redirect('/showOffer')->with('error','Some Error!');
+           return redirect('/showOffers')->with('error','Some Error!');
         }
   }
 

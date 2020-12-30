@@ -10,8 +10,7 @@
         </div>
         <div class="artistdetail11 mb-5">
             <h3>Artist Name <i class="fa fa-star" style="color:red;"></i></h3>
-         
-         
+
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -206,13 +205,16 @@
             </div>
             
           </div>
+
                     <!-- --------------Playlists Videos -------------------->
-            <h2>Playlists</h2>
+
+
+         <h2>Playlists</h2>
           <div class="row mb-5">
              
             <div class="col-md-4 mb-3 play1">
- <div class="overlayplay1">
-     <h2 class="text-white">21</h2>
+         <div class="overlayplay1">
+           <h2 class="text-white">21</h2>
                 <i class="fa fa-play"></i>
                     </div>
             <video width="100%" height="100%" controls>
@@ -251,11 +253,6 @@
           </div>
 
                  <!-- --------------Clubs videos -------------------->
-
-          
-         
-
-        
         
         <div class="row mb-5">
 
@@ -287,8 +284,6 @@
        
         </div>
          
-
-            
              
           <div class="row mb-5">
               
@@ -351,14 +346,10 @@
     </div></div>
 
 
- <!-- ---------------------------------Playlist videos -------------------->
-
- <!-- --------------Audio videos ---------------------------------------->
-
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           
          
-  <!-- Profile veiw -->
+  <!------------------------------------------ Profile veiw ------------------------------------->
   
   <div class="container">
       <h2 >Profile</h2>
