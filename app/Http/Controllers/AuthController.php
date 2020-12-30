@@ -375,8 +375,7 @@ class AuthController extends Controller
           'person'=>'required',
           'email1'=>'required',
           'nickname'=>'required',
-          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
-          'password.regex'=>"Password must contain at least one number, one character and one special number",
+          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
           'confirm' => 'min:8',
           'terms'=>'required',
           'AgeRestriction'=>'required'
