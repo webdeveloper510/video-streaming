@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{asset('design/initial.css')}}" />
 
 
-         <!-- --------------Popup on login success ----------------------------------->
+  <!------------ --------------------------Popup on login success ----------------------------------------->
 
 
  @if(session('success'))

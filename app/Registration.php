@@ -861,7 +861,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
       //print_r($data->all());die;
 
-             $session_data =   Session::get('User');
+         $session_data =   Session::get('User');
         $userid=  $session_data->id;
 
            $status= array(
@@ -893,8 +893,25 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function getNotification(){
 
+      $session_data =   Session::get('userType');
 
-          return DB::table('notification')->orderBy('id','desc')->take(4)->get()->toArray();
+      //$userid=  $session_data->id;
+
+         $count = $this->getCountofNotification(array('read'=>0,'notificationfor'=>$session_data=='User' ? 'user' : 'artist'));
+
+
+           $data = DB::table('notification')->orderBy('id','desc')->take(4)->get()->toArray();
+
+           return array('count'=>$count,'notifications'=>$data);
+    }
+
+
+    public function getCountofNotification($where){
+
+      $count = DB::table('notification')->where($where)->count();
+
+      return $count;
+      
     }
 
     public function updateUserDesc($userdata){
