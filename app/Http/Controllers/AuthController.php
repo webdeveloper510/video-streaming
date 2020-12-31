@@ -368,7 +368,7 @@ class AuthController extends Controller
     public function UserRegistration(Request $request){
 
       $messages = [
-        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)  and minimum 8 characters all together",
+        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.) and minimum 8 characters all together",
     ];
        // print_r($_POST); die;
         $this->validate($request,[
@@ -493,9 +493,6 @@ class AuthController extends Controller
 
            return redirect('/');
         }
-
-
-
       $data = $this->model->getCategory();
       //print_r($data);die;
       return view('content',['category'=>$data]);
@@ -507,9 +504,8 @@ class AuthController extends Controller
               unset($request['titssize']);
               }
 
-      $this->validate($request,[
+       $this->validate($request,[
         'image' => 'required|file',
-       
         'aboutme'=>'required',
         'sexology'=>'required',
         'ass'=>'sometimes|required',
@@ -519,30 +515,24 @@ class AuthController extends Controller
         'haircolor'=>'required',
         'height'=>'required',
         'weight'=>'required',        
-    ]
+           ]
       );
   
       if($request->image){
-        $data=$request->all();  
-      ///echo "<pre>";
-        //print_r($data); die;
-        //echo "yes";
-         $fileName = time().'_'.$request->image->getClientOriginalName();
-         $ext =$request->image->getClientOriginalExtension();
-         $filePath = $request->image->storeAs('uploads', $fileName, 'public');
-         $data['image'] = '';
-         unset($data['image']);
-         unset($data['_token']);
-         //echo "<pre>";
-         //print_r($data);die;
-         $data['profilepicture']=$fileName;
-         if($filePath){
-          //print_r($request->all());die;
-          
-          $update_data = $this->model->uploadContentData($data);
-            if($update_data==1){
-                return redirect('artists/dashboard');
-              }
+
+              $data=$request->all();  
+              $fileName = time().'_'.$request->image->getClientOriginalName();
+              $ext = $request->image->getClientOriginalExtension();
+              $filePath = $request->image->storeAs('uploads', $fileName, 'public');
+              $data['image'] = '';
+              unset($data['image']);
+              unset($data['_token']);
+              $data['profilepicture']=$fileName;
+         if($filePath){          
+              $update_data = $this->model->uploadContentData($data);
+                if($update_data==1){
+                    return redirect('artists/dashboard');
+                  }
               else
               {
                   return redirect('/getContent#error')->with('error','Some Error Occure!');
@@ -1351,7 +1341,7 @@ public function readNotification(Request $request){
     ];
        // print_r($_POST); die;
         $this->validate($req,[
-          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
+          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
           'password.regex'=>"Password must contain at least one number, one character and one special character",
           'confirm' => 'min:8'
       ], $messages
