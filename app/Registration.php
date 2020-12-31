@@ -415,15 +415,11 @@ public function getArtists($flag){
 }
 
 public function getArtistDetail($artid,$type){
-    //echo $type;die;
       $artistsDetail = DB::table('contentprovider')
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->select('contentprovider.*', 'media.*')
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
-      // ->where('contentprovider.id',$artid && 'media.type',$type)
        ->get()->toArray();
-      //  echo "<pre>";
-      //  print_r($artistsDetail);die;
        if($artistsDetail){
            return $artistsDetail;
        }
@@ -436,9 +432,9 @@ public function getArtistDetail($artid,$type){
      ->select('offer.*', 'category.category')
      ->where('offer.artistid',$artistId)
      ->get()->toArray();
-     if($offer){
-         return $offer;
-     }
+      if($offer){
+          return $offer;
+      }
 
   }
 
