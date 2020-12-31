@@ -172,7 +172,7 @@ button#dropdownMenuButton {
              
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
+  <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><h6>{{$count}}</h6></div> <i class="material-icons">notifications</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -182,7 +182,7 @@ button#dropdownMenuButton {
       @foreach($notification as $val)
     @if($val->notificationfor=='artist')
     
-      <a href="{{url('artist/readNotification/'.$val->id)}}">{{$val->message}}</a>
+      <a href="{{url('notification/artist')}}">{{$val->message}}</a>
     
   
     <hr>
@@ -208,6 +208,26 @@ button#dropdownMenuButton {
           </div>
         </div>
       </nav>
-      
+      <style>
+.noti-icon {
+  color: white;
+  border-radius: 50%;
+  height: 19px;
+  z-index:999;
+  background: #cb0000;
+  border: 1px solid #cb0000;
+  width: 19px;
+  padding-left: 5px;
+  position: absolute;
+  right: 13px;
+  top: 0px;
+}
+.noti-icon h6 {
+    color: white;
+    font-weight: bold;
+    margin-top: -1px;
+}
+
+</style>
       <!-- End Navbar -->
 
