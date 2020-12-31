@@ -594,7 +594,7 @@
 
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
+               <div class="noti-icon"><p>3</p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -631,7 +631,21 @@
 
 
 </header>
+<style>
+.noti-icon {
+  color: white;
+  border-radius: 50%;
+  height: 20px;
+  background: #cb0000;
+  border: 1px solid #cb0000;
+  width: 20px;
+  padding-left: 5px;
+  position: absolute;
+  right: 16px;
+  top: 4px;
+}
 
+</style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
       //alert('rrr');

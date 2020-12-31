@@ -310,7 +310,7 @@ class AuthController extends Controller
 
             if($get==1 && $data['g-recaptcha-response']){
 
-        return  $data['user']=='users' ?  redirect('/'.$redirect_url)->with('success','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
+        return  $data['user']=='users' ?  redirect('/'.$redirect_url)->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
 
             }
 
