@@ -173,7 +173,7 @@ button#dropdownMenuButton {
              
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <div class="noti-icon"><h6><?php echo e($count); ?></h6></div> <i class="material-icons">notifications</i>
+  <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="material-icons">notifications</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>

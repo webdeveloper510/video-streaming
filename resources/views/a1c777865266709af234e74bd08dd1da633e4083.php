@@ -635,22 +635,23 @@
 
 </header>
 <style>
+
 .noti-icon {
-  color: white;
-  border-radius: 50%;
-  height: 20px;
-  background: #cb0000;
-  border: 1px solid #cb0000;
-  width: 20px;
-  padding-left: 5px;
-  position: absolute;
-  right: 16px;
-  top: 4px;
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    background: #ffa0ae;
+    border: 1px solid silver;
+    width: 20px;
+    padding-left: 5px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
 }
 .noti-icon p {
     color: white;
     font-weight: bold;
-    margin-top: -3px;
+    margin-top: -1px;
 }
 
 </style>
