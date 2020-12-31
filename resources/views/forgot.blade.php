@@ -18,7 +18,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
         </thead>
          <tbody>
              <tr>
-                 <td><h1 style="margin-top: 10px;">Forget Password</h1></td>
+                 <td><h1 style="margin-top: 10px;">Reset Password</h1></td>
                  
              </tr>
              <tr>
