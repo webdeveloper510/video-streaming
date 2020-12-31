@@ -149,7 +149,7 @@ Your browser does not support the audio tag.
                 <i class="fa fa-play"></i>
            </div>
     
-            <video width="100%" height="100%" controls>
+            <video width="100%" height="250" controls>
                 <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -273,7 +273,7 @@ ul.nav.nav-tabs li a {
     cursor: pointer;
 }
 .overlayplay1 h2 {
-    padding-top: 100px;
+    padding-top: 48px;
 }
 .overlayplay1 {
     position: absolute;

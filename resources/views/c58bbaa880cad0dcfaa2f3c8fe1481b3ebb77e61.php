@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy.png')); ?>" width="100%" height="300px">
+          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy')); ?>" width="100%" height="300px">
         </div>
         <div class="profileimg">
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy.png')); ?>" width="200px" height="200px">
@@ -137,7 +137,7 @@ Your browser does not support the audio tag.
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-            <h2>Playlists</h2>
+         <h2>Playlists</h2>
           <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
@@ -194,8 +194,7 @@ Your browser does not support the audio tag.
 
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          
-         
+  
   <!----------------------------------------------- Profile veiw --------------------------------------------->
   
   <div class="container">

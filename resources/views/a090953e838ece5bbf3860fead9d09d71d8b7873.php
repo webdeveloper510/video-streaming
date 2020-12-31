@@ -35,4 +35,4 @@
   </div>
 </footer>
 
-    
+    <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
