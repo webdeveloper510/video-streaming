@@ -1,5 +1,5 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
@@ -244,75 +244,6 @@ Your browser does not support the audio tag.
 
 </div>
 </div>
-<style>
-ul.nav.nav-tabs li {
-    width: 20% !important;
-}
-ul.nav.nav-tabs li a {
-    font-size: 15px !important;
-    color: white;
-}
-.nav-link.tabss {
-    width:33.33%;
-    text-align: center;
-    color: white;
-}
-.col-md-4.mb-3 img {
-    height: 165px;
-    padding-left: 7px;
-    margin-bottom: -23px;
-}
-.choose1 {
-    border: 2px solid;
-    position: fixed;
-    bottom: 10px;
-    z-index: 9999999;
-    background: white;
-    width: 95%;
-}
-.col-md-4.mb-3.play1:hover .overlayplay1 {
-  opacity: 1;
-}
-
-.showoffer {
-    cursor: pointer;
-}
-.overlayplay1 h2 {
-    padding-top: 48px;
-}
-.overlayplay1 {
-    position: absolute;
-    top: 0;
-
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-.col-md-4.text-right .btn.btn-primary {
-    margin-top: -244px;
-    border-radius: 50%;
-}
-.checkall input {
-    height: 20px;
-    width: 20px;
-}
-.checkall {
-   position: absolute;
-    top: 1px;
-    z-index: 999;
-    right: 10px;
-
-}
-
-</style>
 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>

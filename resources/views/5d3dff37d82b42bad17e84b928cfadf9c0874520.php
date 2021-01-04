@@ -644,7 +644,7 @@
 }
 button.btn.btn-warning.text-white {
     margin-bottom: auto;
-    margin-top: auto;
+    margin-top: 8px;
     height: 36px !important;
     margin-right: 10px;
     border-bottom-right-radius: 6px !important;
