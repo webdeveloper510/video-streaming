@@ -37,8 +37,6 @@
 
         <div class="row pb-row">
           <?php if($videos): ?>
-        
-
 
 <?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
       <?php if($vid->type=='video'): ?>
@@ -53,10 +51,6 @@
       <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
        <?php endif; ?>
-
-
-
-
 
             <?php endif; ?>
 			

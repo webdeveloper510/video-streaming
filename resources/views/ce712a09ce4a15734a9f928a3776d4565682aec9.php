@@ -183,7 +183,7 @@
                       </div>
                       <div class="col">
                         <div class="dropdown12 " id="video1">
-                           <h4 style="color:black !important;">Categories </h4>
+                           <h4 style="color:black !important;">Video </h4>
                                       <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($cat->type=='video'): ?>
                              <label class=""> 
@@ -196,7 +196,7 @@
                           
                       </div>
                         <div class="dropdown12 " id="audio1">
-                           <h4 style="color:black !important;">Categories </h4>
+                           <h4 style="color:black !important;">Audio </h4>
                                       <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($cat->type=='audio'): ?>
                              <label class=""> 
