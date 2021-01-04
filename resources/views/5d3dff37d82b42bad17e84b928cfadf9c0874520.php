@@ -547,7 +547,7 @@
             <?php if($login): ?>
            <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">
              <?php if($userProfile[0]->profilepicture): ?>
-             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Upload Project</button></a>
+             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
     
@@ -641,6 +641,7 @@ button.btn.btn-warning.text-white {
     margin-bottom: auto;
     margin-top: 8px;
     height: 36px !important;
+    background-color: #ffbb11 !important;
     margin-right: 10px;
     border-bottom-right-radius: 6px !important;
     border-top-right-radius: 6px !important;

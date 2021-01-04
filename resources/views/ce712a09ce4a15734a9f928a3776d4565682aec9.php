@@ -85,7 +85,7 @@
                       <div class="row">
                         <div class="col">
                           <div class="dropdown1">
-                           <h4 >Media</h4>
+                           <h4 style="color:black !important;" >Media</h4>
                             <label class=""> 
 
                                <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
