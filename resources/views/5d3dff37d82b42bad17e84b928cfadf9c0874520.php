@@ -579,7 +579,7 @@
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
          <button class="dropdown-item" type="button">
-        <a href="<?php echo e(url('/my-requests')); ?>">Requests</a></button>
+        <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>

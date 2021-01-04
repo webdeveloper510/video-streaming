@@ -316,4 +316,4 @@
   </body>
 
 </html>
-<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/all_requests.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/all_requests.blade.php ENDPATH**/ ?>

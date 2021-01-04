@@ -53,8 +53,8 @@
 
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Add Request</a>
-    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Request</a>
+    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Add Project</a>
+    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Project</a>
     
   </div>
 </nav>
@@ -74,7 +74,7 @@
         {{session('error')}}
         </div>
         @endif
-                      <h3>Request</h3>
+                      <h3>Project</h3>
                       <hr>
                          {!!Form::open(['action' => 'AuthController@addRequest', 'method' => 'post'])!!}
                             {{Form::token()}}
@@ -209,7 +209,7 @@
    <div id="my" class="tab-pane fade">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h3 class="text-center  mt-3">My Requests</h3>
+                <h3 class="text-center  mt-3">My Projects</h3>
               <hr>   
              
                 <table class="table table-borderless">

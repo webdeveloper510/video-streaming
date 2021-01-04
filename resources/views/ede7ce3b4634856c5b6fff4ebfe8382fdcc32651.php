@@ -102,7 +102,10 @@
         <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
              <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
-               <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video" ></form></div>
+               <div class="checkall" style="display:none">
+               <form> 
+                  <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
+               </form></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
