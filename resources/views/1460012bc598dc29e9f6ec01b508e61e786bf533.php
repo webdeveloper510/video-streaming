@@ -579,7 +579,7 @@
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
          <button class="dropdown-item" type="button">
-        <a href="<?php echo e(url('/my-requests')); ?>">Requests</a></button>
+        <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
@@ -594,11 +594,14 @@
 
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
+  <?php if($login): ?>
+               
+               <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
                 </a>
+                <?php endif; ?>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                 <br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -631,7 +634,27 @@
 
 
 </header>
+<style>
 
+.noti-icon {
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    background: #ffa0ae;
+    border: 1px solid silver;
+    width: 20px;
+    padding-left: 5px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
+}
+.noti-icon p {
+    color: white;
+    font-weight: bold;
+    margin-top: -1px;
+}
+
+</style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
       //alert('rrr');

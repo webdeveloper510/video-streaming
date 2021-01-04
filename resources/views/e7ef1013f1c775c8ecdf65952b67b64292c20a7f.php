@@ -1,4 +1,4 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -63,32 +63,36 @@
           
  <div id="add" class="tab-pane fade">
 
-     @if(session('success'))
+     <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
-        {{session('success')}}
+        <?php echo e(session('success')); ?>
+
         </div>
-        @endif
+        <?php endif; ?>
            
-          @if(session('error'))
+          <?php if(session('error')): ?>
         <div class="alert alert-danger" id="error">
-        {{session('error')}}
+        <?php echo e(session('error')); ?>
+
         </div>
-        @endif
+        <?php endif; ?>
                       <h3>Project</h3>
                       <hr>
-                         {!!Form::open(['action' => 'AuthController@addRequest', 'method' => 'post'])!!}
-                            {{Form::token()}}
+                         <?php echo Form::open(['action' => 'AuthController@addRequest', 'method' => 'post']); ?>
+
+                            <?php echo e(Form::token()); ?>
+
                       <div class="row">
                         <div class="col">
                           <div class="dropdown1">
                            <h4 >Media</h4>
                             <label class=""> 
 
-                               {{Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])}} Audio
+                               <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
                            
                             </label><br>
                             <label>
-                               {{Form::radio('media', 'video', false ,['class'=>'media1 video1'])}} Video 
+                               <?php echo e(Form::radio('media', 'video', false ,['class'=>'media1 video1'])); ?> Video 
 
                             
                           </label><br>
@@ -98,27 +102,29 @@
                           <div class="col">
                              <div class="form-group">
                               <label >Pay</label>
-                               {{Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])}}
+                               <?php echo e(Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])); ?>
+
                              
                             </div>
-                            @if($errors->first('price'))
+                            <?php if($errors->first('price')): ?>
                             <div class="alert alert-danger">
                               <?php echo $errors->first('price') ?>
                             </div>
-                            @endif
+                            <?php endif; ?>
                           </div>
                           <p style="padding-top: 33px;">or</p>
                            <div class="col">
                              <div class="form-group">
                               <label>Total Price</label>
-                               {{Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
+                               <?php echo e(Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])); ?>
+
                              
                             </div>
-                            @if($errors->first('total'))
+                            <?php if($errors->first('total')): ?>
                             <div class="alert alert-danger">
                               <?php echo $errors->first('total') ?>
                             </div>
-                            @endif
+                            <?php endif; ?>
                           </div>
                         </div>
 
@@ -128,22 +134,24 @@
                               <div class="col">
 
                                  <label >Min :</label>
-                  {!! Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']) !!}
+                  <?php echo Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']); ?>
+
                               </div>
-                               @if($errors->first('min'))
+                               <?php if($errors->first('min')): ?>
                             <div class="alert alert-danger">
                               <?php echo $errors->first('min'); ?>
                             </div>
-                            @endif
+                            <?php endif; ?>
                               <div class="col">
                                  <label >Max :</label>
-                          {!! Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']) !!}
+                          <?php echo Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']); ?>
+
                               </div>
-                               @if($errors->first('max'))
+                               <?php if($errors->first('max')): ?>
                             <div class="alert alert-danger">
                               <?php echo $errors->first('max'); ?>
                             </div>
-                            @endif
+                            <?php endif; ?>
                             </div>
                             </div>
                 
@@ -152,56 +160,62 @@
                              
                             <div class="form-group">
                               <label>Title</label>
-                            {{Form::text('title','',['class'=>'form-control'])}}
+                            <?php echo e(Form::text('title','',['class'=>'form-control'])); ?>
+
                             </div>
-                            @if($errors->first('title'))
+                            <?php if($errors->first('title')): ?>
                             <div class="alert alert-danger">
                               <?php echo $errors->first('title'); ?>
                             </div>
-                            @endif
+                            <?php endif; ?>
 
                                       <div class="form-group">
                       <label >Description</label>
-              {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 11, 'cols' => 40])}}
+              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 11, 'cols' => 40])); ?>
+
                       </div>
-                @if($errors->first('description'))
+                <?php if($errors->first('description')): ?>
                 <div class="alert alert-danger">
                      <?php echo $errors->first('description'); ?>
                 </div>
-                @endif
+                <?php endif; ?>
                         
                       </div>
                       <div class="col">
                         <div class="dropdown12 " id="video1">
                            <h4>Categories </h4>
-                                      @foreach($category as $cat)
-                                      @if($cat->type=='video')
+                                      <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <?php if($cat->type=='video'): ?>
                              <label class=""> 
-                               {{Form::checkbox('categories[]', $cat->id)}}
-                               {{$cat->category}} 
+                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
+
+                               <?php echo e($cat->category); ?> 
                              </label><br>
-                             @endif
-                            @endforeach
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
                         <div class="dropdown12 " id="audio1">
                            <h4>Categories </h4>
-                                      @foreach($category as $cat)
-                                      @if($cat->type=='audio')
+                                      <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <?php if($cat->type=='audio'): ?>
                              <label class=""> 
-                               {{Form::checkbox('categories[]', $cat->id)}}
-                               {{$cat->category}} 
+                               <?php echo e(Form::checkbox('categories[]', $cat->id)); ?>
+
+                               <?php echo e($cat->category); ?> 
                              </label><br>
-                             @endif
-                            @endforeach
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
 
                     </div>
 
                     </div>
-                     {{ Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4']) }}
-                     {{ Form::close() }}
+                     <?php echo e(Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                     <?php echo e(Form::close()); ?>
+
                   </div>
               </div>
   <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -231,23 +245,23 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach($requests as $index=>$req)
+                        <?php $__currentLoopData = $requests; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <tr>
-                        <th scope="row">{{$index+1}}</th>
-                        <td>{{$req->description}}</td>
-                        <td>{{$req->price}}</td>
+                        <th scope="row"><?php echo e($index+1); ?></th>
+                        <td><?php echo e($req->description); ?></td>
+                        <td><?php echo e($req->price); ?></td>
                        
-                        <td>{{$req->title}}</td>
-                        <td>{{$req->media}}</td>
-                        <td>{{$req->duration}}</td>
-                        <td>{{$req->user_name}}</td>
-                         <td>{{$req->category_name}}</td>
-                         <td>{{$req->status}}</td>
-                         <td>{{$req->artist_description}}</td>
-                        <!--  <td><button class=" status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('{{$req->id}}','{{$req->description}}')">Edit</button></td> -->
+                        <td><?php echo e($req->title); ?></td>
+                        <td><?php echo e($req->media); ?></td>
+                        <td><?php echo e($req->duration); ?></td>
+                        <td><?php echo e($req->user_name); ?></td>
+                         <td><?php echo e($req->category_name); ?></td>
+                         <td><?php echo e($req->status); ?></td>
+                         <td><?php echo e($req->artist_description); ?></td>
+                        <!--  <td><button class=" status" data-toggle="modal" data-target="#editdescription" onclick="editdesc('<?php echo e($req->id); ?>','<?php echo e($req->description); ?>')">Edit</button></td> -->
                       </tr>
                       
-                      @endforeach
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     
                     </tbody>
                   </table>
@@ -270,10 +284,13 @@
         </button>
       </div>
       <div class="modal-body">
-         {!!Form::open(['action' => 'artist@editDescription', 'method' => 'post'])!!}
-          {{Form::token()}}
-          {{Form::label('Your Description', 'Your Description')}} 
-                {{Form::textarea('Description',null,['class'=>'form-control description','rows' => 4, 'cols' => 40])}}
+         <?php echo Form::open(['action' => 'artist@editDescription', 'method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?>
+
+          <?php echo e(Form::label('Your Description', 'Your Description')); ?> 
+                <?php echo e(Form::textarea('Description',null,['class'=>'form-control description','rows' => 4, 'cols' => 40])); ?>
+
 
        <input type="hidden" name="reqId" value="" id="offerid">
 
@@ -281,9 +298,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
+          <?php echo e(Form::submit('Update!',['class'=>'btn btn-primary'])); ?>
+
       </div>
-         {{ Form::close() }}
+         <?php echo e(Form::close()); ?>
+
     </div>
   </div>
 </div>
@@ -291,9 +310,10 @@
 </div>
 
 
-    @include('layouts.footer')
+    <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
   </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/all_requests.blade.php ENDPATH**/ ?>
