@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
 
 
-         <!-- --------------Popup on login success ----------------------------------->
+  <!------------ --------------------------Popup on login success ----------------------------------------->
 
 
  <?php if(session('success')): ?>

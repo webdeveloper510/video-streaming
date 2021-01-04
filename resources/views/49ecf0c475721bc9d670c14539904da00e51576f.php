@@ -173,7 +173,7 @@ button#dropdownMenuButton {
              
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
+  <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="material-icons">notifications</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -183,7 +183,7 @@ button#dropdownMenuButton {
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='artist'): ?>
     
-      <a href="<?php echo e(url('artist/readNotification/'.$val->id)); ?>"><?php echo e($val->message); ?></a>
+      <a href="<?php echo e(url('notification/artist')); ?>"><?php echo e($val->message); ?></a>
     
   
     <hr>
@@ -209,7 +209,27 @@ button#dropdownMenuButton {
           </div>
         </div>
       </nav>
-      
+      <style>
+.noti-icon {
+  color: white;
+  border-radius: 50%;
+  height: 19px;
+  z-index:999;
+  background: #cb0000;
+  border: 1px solid #cb0000;
+  width: 19px;
+  padding-left: 5px;
+  position: absolute;
+  right: 13px;
+  top: 0px;
+}
+.noti-icon h6 {
+    color: white;
+    font-weight: bold;
+    margin-top: -1px;
+}
+
+</style>
       <!-- End Navbar -->
 
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
