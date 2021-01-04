@@ -18,8 +18,7 @@
       	<h5 class="select_list">{{$val->listname}} </h5><br>
         @endforeach
       
-      	
-      	
+
       </div>
 
       <a href="#" class="show_list">Create New Playlist +</a>

@@ -120,6 +120,7 @@
 <?php endif; ?>
  </div>
                     <!--------------------------------- On login show data ------------------------------------->
+
 <div class="outer_slider">
   <div class="coner my-4">
     

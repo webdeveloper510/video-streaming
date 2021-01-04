@@ -7,6 +7,7 @@
 
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
+
   <div class="header_bottom">
 
 		<div class="container">	
@@ -24,7 +25,7 @@
 
 
 					<div class="search_meu">
-					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
+				
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
@@ -296,13 +297,7 @@
                                     <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
                                     <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
                                   </div>
-                                  <!--div class="col-md-4 mb-4">
-                                   <label>Age</label><br>
-                                    <?php echo e(Form::checkbox('age[]','18-24')); ?>18-24 <br>
-                                    <?php echo e(Form::checkbox('age[]','25-34')); ?>25-34<br>
-                                    <?php echo e(Form::checkbox('age[]','35-44')); ?>35-44<br>
-                                    <?php echo e(Form::checkbox('age[]','45 +')); ?>45 +
-                                </div-->
+                                  
                               </div>
                         </div>
                              </div>
@@ -484,7 +479,7 @@
                             </label><br>
                             <label class="">
                                <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
-                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                        
                             
                           </label><br>
                       
@@ -552,7 +547,7 @@
             <?php if($login): ?>
            <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">
              <?php if($userProfile[0]->profilepicture): ?>
-             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Post a Project</button></a>
+             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
     
@@ -644,8 +639,9 @@
 }
 button.btn.btn-warning.text-white {
     margin-bottom: auto;
-    margin-top: auto;
+    margin-top: 8px;
     height: 36px !important;
+    background-color: #ffbb11 !important;
     margin-right: 10px;
     border-bottom-right-radius: 6px !important;
     border-top-right-radius: 6px !important;
