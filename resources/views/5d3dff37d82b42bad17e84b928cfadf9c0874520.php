@@ -552,7 +552,7 @@
             <?php if($login): ?>
            <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">
              <?php if($userProfile[0]->profilepicture): ?>
-             <button type="button" class="btn btn-warning text-white">Post a Project</button>
+             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Post a Project</button></a>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
     
