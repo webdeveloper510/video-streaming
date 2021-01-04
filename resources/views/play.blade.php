@@ -37,8 +37,6 @@
 
         <div class="row pb-row">
           @if($videos)
-        
-
 
 @forelse ($videos as $vid)
       @if($vid->type=='video')
@@ -53,10 +51,6 @@
       @endif
       @empty
        @endforelse
-
-
-
-
 
             @endif
 			

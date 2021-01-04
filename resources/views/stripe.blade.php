@@ -1,4 +1,5 @@
 
+@include('layouts.header')
  <style>
  .submit-button {
  margin-top: 10px;
@@ -48,4 +49,4 @@ Total:
 <div class="col"></div>
 </div>
 </div>
-</body>
+@include('layouts.footer')
