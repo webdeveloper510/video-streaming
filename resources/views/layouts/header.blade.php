@@ -7,6 +7,7 @@
 
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
+
   <div class="header_bottom">
 
 		<div class="container">	
@@ -24,7 +25,7 @@
 
 
 					<div class="search_meu">
-					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
+				
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="{{asset('images/logos/filter.png')}}"></a></li>
@@ -285,13 +286,7 @@
                                     {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
                                     {{Form::checkbox('weight[]','Chubby')}}Chubby 
                                   </div>
-                                  <!--div class="col-md-4 mb-4">
-                                   <label>Age</label><br>
-                                    {{Form::checkbox('age[]','18-24')}}18-24 <br>
-                                    {{Form::checkbox('age[]','25-34')}}25-34<br>
-                                    {{Form::checkbox('age[]','35-44')}}35-44<br>
-                                    {{Form::checkbox('age[]','45 +')}}45 +
-                                </div-->
+                                  
                               </div>
                         </div>
                              </div>
@@ -462,7 +457,7 @@
                             </label><br>
                             <label class="">
                                {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
-                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                        
                             
                           </label><br>
                       
@@ -528,7 +523,7 @@
             @if($login)
            <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">
              @if($userProfile[0]->profilepicture)
-             <a href="{{url('/my-requests')}}"><button type="button" class="btn btn-warning text-white">Post a Project</button></a>
+             <a href="{{url('/my-requests')}}"><button type="button" class="btn btn-warning text-white">Upload Project</button></a>
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
             
     
