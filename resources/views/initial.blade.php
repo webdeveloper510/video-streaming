@@ -29,36 +29,7 @@
  <!--1st slider start-->
  <div class="container">
    <div class="slider_tittle">
-  <!--   <div class="row">
-    	<div class="col"></div>
-    	<div class="col-md-8">
-  
-       </div>
-       <div class="col"></div>
-   </div> -->
 
- <!--  <div class="container my-4">
-    <div class="row">
-    <div class="slider_tittle">
-    <h3 class="tittle">Get to know our Artists</h3>
-    </div>
-    
-      <div id="owl-example4" class="owl-carousel">
-      @foreach ($artists as $artist)
-    <div class="artist_image">
-
-
-  <a href="{{is_object($login) ? url('/artistDetail/'.$artist->id) : url('/register')}}">
-  <img width="100%" height="200px"  src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-</a>
-
-    </div>
-     @endforeach
-
-  
-</div>
-  </div>
-  </div> --> 
   @if(!$login) 
 <div class="row mt-5">
   <div class="col-md-6">
