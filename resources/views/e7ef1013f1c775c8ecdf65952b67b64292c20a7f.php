@@ -53,8 +53,8 @@
 
 <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Add Project</a>
-    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Project</a>
+    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Upload Project</a>
+    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Projects</a>
     
   </div>
 </nav>
@@ -82,10 +82,12 @@
 
                             <?php echo e(Form::token()); ?>
 
+
                       <div class="row">
                         <div class="col">
+                        <label >Media</label>
                           <div class="dropdown1">
-                           <h4 >Media</h4>
+                         
                             <label class=""> 
 
                                <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
@@ -183,7 +185,7 @@
                       </div>
                       <div class="col">
                         <div class="dropdown12 " id="video1">
-                           <h4>Categories </h4>
+                           <h4 style="color:black !important;">Video </h4>
                                       <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($cat->type=='video'): ?>
                              <label class=""> 
@@ -196,7 +198,7 @@
                           
                       </div>
                         <div class="dropdown12 " id="audio1">
-                           <h4>Categories </h4>
+                           <h4 style="color:black !important;">Audio </h4>
                                       <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <?php if($cat->type=='audio'): ?>
                              <label class=""> 

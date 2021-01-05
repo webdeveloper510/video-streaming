@@ -82,11 +82,13 @@
 
                             <?php echo e(Form::token()); ?>
 
+
                       <div class="row">
                         <div class="col">
+                        <label >Media</label>
                           <div class="dropdown1">
-                           <h4 style="color:black !important;" >Media</h4>
-                            <label class=""> 
+                         
+                            <label> 
 
                                <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
                            

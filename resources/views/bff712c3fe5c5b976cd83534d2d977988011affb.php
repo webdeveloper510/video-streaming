@@ -1,5 +1,5 @@
 
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
  <style>
  .submit-button {
  margin-top: 10px;
@@ -50,5 +50,5 @@ Total:
 <div class="col"></div>
 </div>
 </div>
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/stripe.blade.php ENDPATH**/ ?>

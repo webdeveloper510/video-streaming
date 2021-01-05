@@ -1,5 +1,5 @@
 @include('artists.dashboard')
-      <section class="background1">
+<section class="background1">
         <div class="row">
           <div class="col"></div>
           <div class="col-lg-10">
