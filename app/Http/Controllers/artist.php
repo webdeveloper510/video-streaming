@@ -54,11 +54,13 @@ class artist extends Controller
 
      Session::forget('SessionmultipleIds');
          
-         $allArtistsVideo=     $this->model->getArtistDetail($artistid,'video');
+         $allArtistsVideo =     $this->model->getArtistDetail($artistid,'video');
          
          $allArtistsAudio=     $this->model->getArtistDetail($artistid,'audio');
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
+
+         $onlyArtistDetail =      $this->model->onlyArtistDetail($artistid);
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
@@ -70,7 +72,7 @@ class artist extends Controller
 
        
 
-   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo: [],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
     }
 
     public function cartSbmit(Request $req){

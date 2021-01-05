@@ -415,14 +415,22 @@ public function getArtists($flag){
 }
 
 public function getArtistDetail($artid,$type){
+
       $artistsDetail = DB::table('contentprovider')
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->select('contentprovider.*', 'media.*')
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
        ->get()->toArray();
+       
        if($artistsDetail){
            return $artistsDetail;
        }
+
+  }
+
+  public function onlyArtistDetail($id){
+    $details = DB::table('contentprovider')->where('id',$id)->get()->toArray();
+    return $details;
   }
 
   public function getArtistOffer($artistId){

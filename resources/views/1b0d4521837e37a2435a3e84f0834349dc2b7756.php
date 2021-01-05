@@ -1,15 +1,15 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy')); ?>" width="100%" height="300px">
+          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
         </div>
         <div class="profileimg">
-        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy.png')); ?>" width="200px" height="200px">
+        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: ''); ?>   <i class="fa fa-star" style="color:red;"></i></h3>
+            <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>   <i class="fa fa-star" style="color:red;"></i></h3>
          
           
           </div>
@@ -99,8 +99,9 @@
              
   <h2>Videos</h2>  
           <div class="row mb-5">
-        <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-             <?php if($detail->type=='video'): ?> 
+        <?php if($details): ?>
+              <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                   <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
                <div class="checkall" style="display:none">
                <form> 
@@ -117,6 +118,9 @@
             </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          <?php else: ?>
+          jjj
+          <?php endif; ?>
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
      <h2>Audios</h2>
@@ -218,7 +222,7 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <hr>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                <p></p>
               </div>
   
       </div>
@@ -244,75 +248,6 @@ Your browser does not support the audio tag.
 
 </div>
 </div>
-<style>
-ul.nav.nav-tabs li {
-    width: 20% !important;
-}
-ul.nav.nav-tabs li a {
-    font-size: 15px !important;
-    color: white;
-}
-.nav-link.tabss {
-    width:33.33%;
-    text-align: center;
-    color: white;
-}
-.col-md-4.mb-3 img {
-    height: 165px;
-    padding-left: 7px;
-    margin-bottom: -23px;
-}
-.choose1 {
-    border: 2px solid;
-    position: fixed;
-    bottom: 10px;
-    z-index: 9999999;
-    background: white;
-    width: 95%;
-}
-.col-md-4.mb-3.play1:hover .overlayplay1 {
-  opacity: 1;
-}
-
-.showoffer {
-    cursor: pointer;
-}
-.overlayplay1 h2 {
-    padding-top: 48px;
-}
-.overlayplay1 {
-    position: absolute;
-    top: 0;
-
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-.col-md-4.text-right .btn.btn-primary {
-    margin-top: -244px;
-    border-radius: 50%;
-}
-.checkall input {
-    height: 20px;
-    width: 20px;
-}
-.checkall {
-   position: absolute;
-    top: 1px;
-    z-index: 999;
-    right: 10px;
-
-}
-
-</style>
 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

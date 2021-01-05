@@ -282,9 +282,13 @@
    <div class="row">
          @foreach($artists as $artist)
                  @if($artist->profilepicture)
+              
               <div class="col-md-4">
+              <a href="{{url('artistDetail/'.$artist->id)}}"> 
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="100%" height="200px">
+                </a>
               </div>
+
               @endif
              @endforeach
         
