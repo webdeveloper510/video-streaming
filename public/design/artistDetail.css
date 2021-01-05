@@ -26,6 +26,11 @@ ul.nav.nav-tabs li a {
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
+.artistdetail11.mb-5 button {
+    float: none !important;
+    margin-top: 0px !important;
+    margin-right: 0px !important;
+}
 
 .showoffer {
     cursor: pointer;
