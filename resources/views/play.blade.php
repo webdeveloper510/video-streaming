@@ -73,8 +73,12 @@
              </video>
             </div>
             @endforeach
-            @endif
-		
+            @else
+		             <div class="playwish">
+                     <h4>Wishlist Empty</h4>
+
+                   </div>
+                   @endif
 	</div>
 	<br/>
 
@@ -97,8 +101,12 @@
              </video>
             </div>
             @endforeach
-            @endif
-			
+            @else
+            <div class="playhistory">
+                     <h4>History Empty</h4>
+
+                   </div>
+                   @endif
 	</div>	
   </div>
 </div>
@@ -123,6 +131,19 @@ rewindNav:false
  .owl-carousel {
     display: block !important;
   }
+  .playhistory {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 11px;
+}
+.playwish {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 11px;
+}
+
 </style>
 <!--body end-->
 
