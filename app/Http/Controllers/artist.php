@@ -90,6 +90,7 @@ class artist extends Controller
 
             }
             else{
+              
                 $arr = array();
                 $arr[]=$data['id'];
                  Session::put('ids',$arr);

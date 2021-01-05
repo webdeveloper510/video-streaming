@@ -31,7 +31,7 @@ class notifyEmail extends Mailable
      */
     public function build()
     {
-         return $this->from('sender@example.com')
+         return $this->from('info@pornartistzone')
                      ->subject('Notify Me')
                     ->view('notify')
                     ->with(
