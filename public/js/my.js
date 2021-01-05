@@ -10,6 +10,7 @@ $('.rad_But').click(function(){
 	}
 })
 
+
 $(document).on('click', '.user', function () {
 
     if($(this).hasClass("imChecked")){
@@ -79,15 +80,17 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 
 
+
 $(document).ready(function(){
-	//alert('hel');return false;
+
   var firstName = $('.firstName').text();
-  //console.log(firstName);return false;
    var intials = $('.firstName').text().charAt(0);
    var profileImage = $('.profileImage').text(intials);
+   
 });
 $(document).ready(function() {
 
+       //console.log('hello');
 
         $('.rad_But').each(function() {
             if ($(this).is(':checked') == true) {
@@ -96,13 +99,13 @@ $(document).ready(function() {
         });
 
 
-     //var id= $(".media:checked").attr('class').split(' ');
+	var id1= $(".media1:checked").attr('class').split(' ');
 
-     //alert(id);
 
-  	var notId= $(".media:not(:checked)").attr('class').split(' ');
-  	//$('#'+id[1]).show();
-  	//$('#'+notId[1]).hide();
+	  var notId= $(".media1:not(:checked)").attr('class').split(' ');
+	  
+			$('#'+id1[1]).show();
+			$('#'+notId[1]).hide();
 
   	   //var id1= $(".media1:checked").attr('class').split(' ');
 
@@ -248,9 +251,7 @@ $(document).on('click', '#checkPrice', function () {
 });
 
 $(document).on('click', '.create_list', function () {
-	//alert('hello');return false;
 	var listname= $('.list').val();
-	//console.log(listname);return false;
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/createList",
@@ -286,11 +287,8 @@ $(document).on('click', '.create_list', function () {
 });
 
 $(document).on('click', '.addNow', function () {
-	//alert('hello');return false;
 	var token= $('.token').val();
 	var videoid= $('#vidid').val();
-	//console.log(token);
-	//console.log(videoid);return false;
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/addToLibrary",
@@ -347,11 +345,6 @@ $(document).on('click', '.multipleAdd', function () {
 					}
 
 					
-				
-
-
-						
-					
 				}
 		});
 
@@ -359,7 +352,6 @@ $(document).on('click', '.multipleAdd', function () {
 
 $(document).on('click', '.library', function () {
 
-		//console.log('hh');return false;
 		addMultiple('true',id='');
 
 	
@@ -370,11 +362,6 @@ $(document).on('click', '.removeSession', function () {
 
 	var id = $(this).attr('id');
 
-
-
-	
-
-		//console.log('hhhss');return false;
 		addMultiple('false',id);
 
 	
@@ -449,10 +436,9 @@ else{
 
   $(document).on('click', '.media', function () {
 
+  	var clas = $(this).attr('class').split(' ');
 
-  	    	var clas = $(this).attr('class').split(' ');
-
-  	    var notId= $(".media:not(:checked)").attr('class').split(' ');
+  	var notId= $(".media:not(:checked)").attr('class').split(' ');
   	 
     $('#'+clas[1]).show();
   	$('#'+notId[1]).hide();
