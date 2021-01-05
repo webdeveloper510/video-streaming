@@ -3,13 +3,13 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy') }}" width="100%" height="300px">
+          <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg') }}" width="100%" height="300px">
         </div>
         <div class="profileimg">
-        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : url('storage/app/public/uploads/dummy.png') }}" width="200px" height="200px">
+        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: ''}}   <i class="fa fa-star" style="color:red;"></i></h3>
+            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}   <i class="fa fa-star" style="color:red;"></i></h3>
          
           
           </div>
@@ -95,10 +95,11 @@
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
-  <h2>Videos</h2>  
+  <h3>Videos</h3>  
           <div class="row mb-5">
-        @foreach ($details as $detail)
-             @if($detail->type=='video') 
+        @if($details)
+              @foreach ($details as $detail)
+                   @if($detail->type=='video') 
             <div class="col-md-4 mb-3">
                <div class="checkall" style="display:none">
                <form> 
@@ -115,11 +116,17 @@
             </div>
              @endif
           @endforeach
+          @else
+          <div class="artistvideo">
+            <h4> Artist does not upload any video</h4>
+          </div>
+          @endif
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
-     <h2>Audios</h2>
+     <h3>Audios</h3>
      <div class="row mb-5">
-@foreach($audio as $aud)
+      @if($audio)
+          @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
@@ -135,10 +142,15 @@ Your browser does not support the audio tag.
 </div>
 
 @endforeach
+@else
+<div class="artistaudio">
+            <h4> Artist does not upload any Audio</h4>
+          </div>
+@endif
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <h2>Playlists</h2>
+         <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
           @foreach ($playlist as $play)
             <?php 
@@ -216,7 +228,7 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <hr>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                <p></p>
               </div>
   
       </div>

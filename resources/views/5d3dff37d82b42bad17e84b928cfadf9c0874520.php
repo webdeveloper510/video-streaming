@@ -371,6 +371,7 @@
                             </label><br>
                             <label class="">
                                <?php echo e(Form::radio('type', 'video', true ,['class'=>'media video'])); ?> Video 
+                               
                           <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           </label><br>

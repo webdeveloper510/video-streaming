@@ -134,10 +134,8 @@
 	</div>
     <!--Carousel Wrapper-->
     <?php if($login): ?>
-    <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="recently_search" class="row">
 
-
-      <div id="owl-example" class="owl-carousel">
       <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
             <div class="col-md-4">
@@ -284,9 +282,13 @@
    <div class="row">
          <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                  <?php if($artist->profilepicture): ?>
+              
               <div class="col-md-4">
+              <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"> 
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="100%" height="200px">
+                </a>
               </div>
+
               <?php endif; ?>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
