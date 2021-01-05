@@ -1657,6 +1657,79 @@ public function updatePassword($email,$password){
 }
 
 
+public function subscribe($data){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  //print_r($userid);die;
+
+     $return = DB::table('subscriber')
+     //->whereRaw('FIND_IN_SET(?,userid)',[$userid])
+     ->Where('artistid',$data['id'])
+     ->get();
+
+     $returnData = count($return) > 0 ? $this->updateSubscriberCount($userid,$data,$return): $this->insertSubscriber($userid,$data); 
+
+     return $returnData;
+
+}
+
+public function updateSubscriberCount($uid,$data,$tableData){
+
+  $userIds = $tableData[0]->userid;
+
+    $ids = explode(',',$userIds);
+
+  if (!in_array($uid, $ids))
+  {
+        $count = 1;
+        $update = DB::table('subscriber')->where(array('artistid'=>$data['id']))
+       ->update([
+          'userid' => DB::raw("CONCAT(userid,',".$uid."')"),
+          'count' =>  DB::raw('count +'.$count),
+           ]);
+  
+        return $update;
+  }
+
+
+}
+
+public function isSubscribe($artistId){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  $isSubscribe = DB::table('subscriber')
+  ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
+  ->Where('artistid',$artistId)
+  ->get();
+
+  return count($isSubscribe) > 0 ? true : false;
+
+}
+
+public function insertSubscriber($uid,$data){
+
+  //print_r($data);die;
+
+        $subscriber = array(
+          'created_at'=>now(),
+          'updated_at'=>now(),
+          'artistid'=>$data['id'],
+          'userid'=>$uid,
+        );
+
+        $insert = DB::table('subscriber')->insert($subscriber);
+
+        return $insert;
+
+}
+
+
 
     // public function addToLibrary1(){
 

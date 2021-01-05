@@ -87,6 +87,8 @@ Route::get('notification/{text}','AuthController@seeNotification');
 
 Route::post('ajax-request', 'artist@cartSbmit');
 
+Route::post('subscribe','artist@subscribe');
+
 Route::post('resetPassword','AuthController@resetPassword');
 
 Route::post('selectListname', 'AuthController@selectListname');

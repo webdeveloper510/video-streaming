@@ -748,6 +748,28 @@ function updateRead(){
 
 }
 
+/*-------------------------------Subscribe To Artist----------------------------------------------------*/
+
+function subscribe(id){
+
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/subscribe",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'id':id},
+
+		success: function(data){
+
+			console.log(data);
+	
+			
+		}
+});
+}
+
 /*--------------------------------------------Order Video-------------------------------------------------*/
 
 $(document).on('click','.off',function(){
