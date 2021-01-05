@@ -64,3 +64,15 @@ ul.nav.nav-tabs li a {
     right: 10px;
 
 }
+.artistvideo {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistaudio {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}

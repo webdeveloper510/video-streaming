@@ -95,7 +95,7 @@
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
-  <h2>Videos</h2>  
+  <h3>Videos</h3>  
           <div class="row mb-5">
         @if($details)
               @foreach ($details as $detail)
@@ -117,11 +117,13 @@
              @endif
           @endforeach
           @else
-          jjj
+          <div class="artistvideo">
+            <h4> Artist does not upload any video</h4>
+          </div>
           @endif
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
-     <h2>Audios</h2>
+     <h3>Audios</h3>
      <div class="row mb-5">
       @if($audio)
           @foreach($audio as $aud)
@@ -141,12 +143,14 @@ Your browser does not support the audio tag.
 
 @endforeach
 @else
-hh
+<div class="artistaudio">
+            <h4> Artist does not upload any Audio</h4>
+          </div>
 @endif
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <h2>Playlists</h2>
+         <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
           @foreach ($playlist as $play)
             <?php 
