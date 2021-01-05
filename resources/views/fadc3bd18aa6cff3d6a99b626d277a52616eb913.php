@@ -18,8 +18,7 @@
       	<h5 class="select_list"><?php echo e($val->listname); ?> </h5><br>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       
-      	
-      	
+
       </div>
 
       <a href="#" class="show_list">Create New Playlist +</a>

@@ -7,9 +7,6 @@
   <!-- -------------------------- Play List  Start--------------------------->
 
 
-
-
-
 <div class="inner-page">
   <div class="container">
       <div class="col-md-12 uploa_outer">

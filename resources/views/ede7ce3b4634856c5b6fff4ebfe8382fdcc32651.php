@@ -65,7 +65,7 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
-          <div class="artistoffer">
+          <div class="artistoffer1">
             <h4> Artist does not Create any Offer</h4>
           </div>
           <?php endif; ?>
