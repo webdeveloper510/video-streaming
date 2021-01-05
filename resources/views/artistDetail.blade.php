@@ -63,7 +63,7 @@
     </div>
     @endforeach
     @else
-          <div class="artistoffer">
+          <div class="artistoffer1">
             <h4> Artist does not Create any Offer</h4>
           </div>
           @endif
