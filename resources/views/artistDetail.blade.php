@@ -129,7 +129,8 @@
           @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
+   <div class="checkall" style="display:none"><form> 
+   <input type="checkbox" class="slct_video"></form></div>
      <a href="{{url('artist-video/'.$aud->id)}}">
     <img src="{{asset('images/logos/voice.jpg')}}">
 

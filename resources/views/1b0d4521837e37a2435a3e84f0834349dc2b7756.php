@@ -97,7 +97,7 @@
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
-  <h2>Videos</h2>  
+  <h3>Videos</h3>  
           <div class="row mb-5">
         <?php if($details): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -119,13 +119,16 @@
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
-          jjj
+          <div class="artistvideo">
+            <h4> Artist does not upload any video</h4>
+          </div>
           <?php endif; ?>
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
-     <h2>Audios</h2>
+     <h3>Audios</h3>
      <div class="row mb-5">
-<?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <?php if($audio): ?>
+          <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
@@ -141,10 +144,15 @@ Your browser does not support the audio tag.
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php else: ?>
+<div class="artistaudio">
+            <h4> Artist does not upload any Audio</h4>
+          </div>
+<?php endif; ?>
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <h2>Playlists</h2>
+         <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
