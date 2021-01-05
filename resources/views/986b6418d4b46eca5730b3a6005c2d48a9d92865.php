@@ -25,19 +25,27 @@ $GLOBALS['price'] = $offerdata->price;
 <p><?php echo e($offerdata->description); ?></p>
 
 <div class="row">
-	<div class="col-md-3">
+	<div class="col">
       <h3>Duration</h3>
       <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
 	</div>
-  <div class="col-md-3">
+  <div class="col">
+      <h3>Price</h3>
+      <p><?php echo e($offerdata->price); ?>/PAZ</p>
+  </div>
+  <div class="col">
+      <h3>Price</h3>
+      <p><?php echo e($offerdata->price); ?>/PAZ</p>
+  </div>
+  <div class="col">
       <h3>Price</h3>
       <p><?php echo e($offerdata->price); ?>/PAZ</p>
 	</div>
-  <div class="col-md-3">
+  <div class="col">
       <h3>Category</h3>
       <p><?php echo e($offerdata->category); ?></p>
 	</div>
-  <div class="col-md-3">
+  <div class="col">
       <h3>Delievery Speed</h3>
       <p><?php echo e($offerdata->delieveryspeed); ?> Days</p>
 	</div>

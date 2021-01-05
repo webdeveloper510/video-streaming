@@ -25,19 +25,27 @@ $GLOBALS['price'] = $offerdata->price;
 <p>{{$offerdata->description}}</p>
 
 <div class="row">
-	<div class="col-md-3">
+	<div class="col">
       <h3>Duration</h3>
       <p>{{$offerdata->min}}Min -{{$offerdata->max}} Min</p>
 	</div>
-  <div class="col-md-3">
+  <div class="col">
+      <h3>Media</h3>
+      <p>video</p>
+  </div>
+  <div class="col">
       <h3>Price</h3>
       <p>{{$offerdata->price}}/PAZ</p>
+  </div>
+  <div class="col">
+      <h3>Quality</h3>
+      <p>1080p</p>
 	</div>
-  <div class="col-md-3">
+  <div class="col">
       <h3>Category</h3>
       <p>{{$offerdata->category}}</p>
 	</div>
-  <div class="col-md-3">
+  <div class="col">
       <h3>Delievery Speed</h3>
       <p>{{$offerdata->delieveryspeed}} Days</p>
 	</div>

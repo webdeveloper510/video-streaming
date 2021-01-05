@@ -38,6 +38,8 @@
               
           <div class="container">
    <div class="row mb-5">
+    @if($offerData)
+
    @foreach($offerData as $offer)
       <div class="col-md-12">
       <div class="artistoffer row">
@@ -67,6 +69,11 @@
       </div>
     </div>
     @endforeach
+    @else
+          <div class="artistoffer1">
+            <h4> Artist does not Create any Offer</h4>
+          </div>
+          @endif
    </div>
 
     </div>
