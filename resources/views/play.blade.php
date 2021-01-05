@@ -7,9 +7,6 @@
   <!-- -------------------------- Play List  Start--------------------------->
 
 
-
-
-
 <div class="inner-page">
   <div class="container">
       <div class="col-md-12 uploa_outer">
@@ -37,8 +34,6 @@
 
         <div class="row pb-row">
           @if($videos)
-        
-
 
 @forelse ($videos as $vid)
       @if($vid->type=='video')
@@ -53,10 +48,6 @@
       @endif
       @empty
        @endforelse
-
-
-
-
 
             @endif
 			

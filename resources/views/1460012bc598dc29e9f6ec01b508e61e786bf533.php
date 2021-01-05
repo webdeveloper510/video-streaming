@@ -7,6 +7,7 @@
 
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
+
   <div class="header_bottom">
 
 		<div class="container">	
@@ -24,7 +25,7 @@
 
 
 					<div class="search_meu">
-					<!--div class="menu_icon_custome"><i class="fa fa-bars" aria-hidden="true"></i></div-->
+				
 					<ul class="nav custom search">
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
@@ -296,13 +297,7 @@
                                     <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
                                     <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
                                   </div>
-                                  <!--div class="col-md-4 mb-4">
-                                   <label>Age</label><br>
-                                    <?php echo e(Form::checkbox('age[]','18-24')); ?>18-24 <br>
-                                    <?php echo e(Form::checkbox('age[]','25-34')); ?>25-34<br>
-                                    <?php echo e(Form::checkbox('age[]','35-44')); ?>35-44<br>
-                                    <?php echo e(Form::checkbox('age[]','45 +')); ?>45 +
-                                </div-->
+                                  
                               </div>
                         </div>
                              </div>
@@ -484,7 +479,7 @@
                             </label><br>
                             <label class="">
                                <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
-                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                        
                             
                           </label><br>
                       
@@ -525,15 +520,11 @@
               </li>
             </ul>
 					
-					<!--div class="search-box" style="font-size: 16px;">
-						<input class="search-box__input" type="text" oninput="this.setAttribute('value',this.value)">
-					<i class="fa fa-search" aria-hidden="true"></i>
-					</div-->
+					
 					</div>
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
-							<!-- <a href="1-page.html" class="nav-item nav-link"><i class="fa fa-phone" aria-hidden="true"></i>LIVE</a> -->
-							<!--a href="upload.html" class="nav-item nav-link"><i class="fa fa-upload" aria-hidden="true"></i></a-->	
+					
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
     
 							<a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
@@ -550,12 +541,13 @@
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
 					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Register</a>
-              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link">  Login</a>  
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
            <?php endif; ?>             
 
             <?php if($login): ?>
            <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">
              <?php if($userProfile[0]->profilepicture): ?>
+             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
             
     
@@ -564,7 +556,7 @@
 		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile[0]->nickname); ?></span>
 	           	<div class="profileImage"></div>
 	  </div>
-   <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
+   
    <?php endif; ?>
    <span class="profile-img text-white">
    <?php echo e($login->nickname); ?> <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
@@ -579,7 +571,7 @@
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
          <button class="dropdown-item" type="button">
-        <a href="<?php echo e(url('/my-requests')); ?>">Requests</a></button>
+        <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
   </div>
    <hr/ style="color:white;background: white;">
   <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
@@ -594,11 +586,14 @@
 
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
+  <?php if($login): ?>
+               
+               <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
                 </a>
+                <?php endif; ?>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                 <br>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -618,9 +613,6 @@
                 </div>
               </li>
 
-
-
-
 						</div>
 					</div>
 				</nav>
@@ -631,7 +623,37 @@
 
 
 </header>
+<style>
 
+.noti-icon {
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    background: #ffa0ae;
+    border: 1px solid silver;
+    width: 20px;
+    padding-left: 5px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
+}
+button.btn.btn-warning.text-white {
+    margin-bottom: auto;
+    margin-top: 8px;
+    height: 36px !important;
+    background-color: #ffbb11 !important;
+    margin-right: 10px;
+    border-bottom-right-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-radius: 6px;
+}
+.noti-icon p {
+    color: white;
+    font-weight: bold;
+    margin-top: -1px;
+}
+
+</style>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
       //alert('rrr');

@@ -231,6 +231,3 @@
 </div> 
  </div>  
 
-<style>
-
-</style>
