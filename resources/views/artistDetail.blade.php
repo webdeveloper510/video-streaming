@@ -9,7 +9,7 @@
         <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}   <i class="fa fa-star" style="color:red;"></i>  <button class="btn btn-danger text-left">Subscribe </button></h3>
+            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}   <i class="fa fa-star" style="color:red;"></i>  <button class="btn btn-danger text-left">Subscribe </button> <button class="btn btn-warning text-left">Subscribed </button></h3>
         
           
           </div>
@@ -31,6 +31,8 @@
               
           <div class="container">
    <div class="row mb-5">
+    @if($offerData)
+
    @foreach($offerData as $offer)
       <div class="col-md-12">
       <div class="artistoffer row">
@@ -60,6 +62,11 @@
       </div>
     </div>
     @endforeach
+    @else
+          <div class="artistoffer">
+            <h4> Artist does not Create any Offer</h4>
+          </div>
+          @endif
    </div>
 
     </div>

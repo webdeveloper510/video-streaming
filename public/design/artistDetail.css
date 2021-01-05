@@ -23,6 +23,9 @@ ul.nav.nav-tabs li a {
     background: white;
     width: 95%;
 }
+.artistdetail11.mb-5 button.btn.btn-warning.text-left {
+    background: #8080804f;
+}
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
@@ -76,6 +79,12 @@ ul.nav.nav-tabs li a {
     padding-bottom: 10px;
 }
 .artistaudio {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistoffer {
     border: 2px dashed red;
     width: 100%;
     text-align: center;
