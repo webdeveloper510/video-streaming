@@ -134,10 +134,8 @@
 	</div>
     <!--Carousel Wrapper-->
     @if($login)
-    <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="recently_search" class="row">
 
-
-      <div id="owl-example" class="owl-carousel">
       @forelse ($recently as $recnt)
             @if($recnt->type=='video')
             <div class="col-md-4">
