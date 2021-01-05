@@ -134,7 +134,7 @@
 	</div>
     <!--Carousel Wrapper-->
     @if($login)
-    <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="recently_search" class="row">
 
       @forelse ($recently as $recnt)
             @if($recnt->type=='video')
@@ -145,7 +145,7 @@
             Your browser does not support the video tag.
           </video>
           
-      
+            </div>
             @endif
             @empty
              @endforelse

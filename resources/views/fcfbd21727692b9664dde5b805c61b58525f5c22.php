@@ -134,7 +134,7 @@
 	</div>
     <!--Carousel Wrapper-->
     <?php if($login): ?>
-    <div id="recently_search" class="carousel slide carousel-multi-item" data-ride="carousel">
+    <div id="recently_search" class="row">
 
       <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
@@ -145,7 +145,7 @@
             Your browser does not support the video tag.
           </video>
           
-      
+            </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
