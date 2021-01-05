@@ -504,7 +504,8 @@
 					
 		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
     
-							<a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
+              <a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
+              <a href="#" class="nav-item nav-link"><i class="fa fa-address-card-o"></i></a>  
 
 
 						</div>
