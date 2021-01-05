@@ -31,6 +31,8 @@
               
           <div class="container">
    <div class="row mb-5">
+    <?php if($offerData): ?>
+
    <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
       <div class="col-md-12">
       <div class="artistoffer row">
@@ -62,6 +64,11 @@
       </div>
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php else: ?>
+          <div class="artistoffer">
+            <h4> Artist does not Create any Offer</h4>
+          </div>
+          <?php endif; ?>
    </div>
 
     </div>
