@@ -9,7 +9,14 @@
         <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}   <i class="fa fa-star" style="color:red;"></i>  <button class="btn btn-danger text-left">Subscribe </button> <button class="btn btn-warning text-left">Subscribed </button></h3>
+            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
+             <i class="fa fa-star" style="color:red;"></i>761
+             @if(!$isSubscribed)  
+             <button class="btn btn-danger text-left" onclick="subscribe({{isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id}} )">Subscribe </button>
+             @else
+             <button class="btn btn-warning text-left">Subscribed </button>
+             @endif
+             </h3>
         
           
           </div>
@@ -136,7 +143,8 @@
           @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
+   <div class="checkall" style="display:none"><form> 
+   <input type="checkbox" class="slct_video"></form></div>
      <a href="{{url('artist-video/'.$aud->id)}}">
     <img src="{{asset('images/logos/voice.jpg')}}">
 

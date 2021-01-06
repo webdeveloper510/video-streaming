@@ -9,8 +9,15 @@
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>   <i class="fa fa-star" style="color:red;"></i></h3>
-         
+            <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
+             <i class="fa fa-star" style="color:red;"></i>
+             <?php if(!$isSubscribed): ?>  
+             <button class="btn btn-danger text-left" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?> )">Subscribe </button>
+             <?php else: ?>
+             <button class="btn btn-warning text-left">Subscribed </button>
+             <?php endif; ?>
+             </h3>
+        
           
           </div>
           <nav>
@@ -97,7 +104,7 @@
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
-  <h2>Videos</h2>  
+  <h3>Videos</h3>  
           <div class="row mb-5">
         <?php if($details): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -119,16 +126,20 @@
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
-          jjj
+          <div class="artistvideo">
+            <h4> Artist does not upload any video</h4>
+          </div>
           <?php endif; ?>
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
-     <h2>Audios</h2>
+     <h3>Audios</h3>
      <div class="row mb-5">
-<?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <?php if($audio): ?>
+          <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none"><form> <input type="checkbox" class="slct_video"></form></div>
+   <div class="checkall" style="display:none"><form> 
+   <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
     <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
@@ -141,10 +152,15 @@ Your browser does not support the audio tag.
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php else: ?>
+<div class="artistaudio">
+            <h4> Artist does not upload any Audio</h4>
+          </div>
+<?php endif; ?>
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <h2>Playlists</h2>
+         <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 

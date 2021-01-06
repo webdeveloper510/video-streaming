@@ -30,16 +30,16 @@ $GLOBALS['price'] = $offerdata->price;
       <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
 	</div>
   <div class="col">
-      <h3>Price</h3>
-      <p><?php echo e($offerdata->price); ?>/PAZ</p>
+      <h3>Media</h3>
+      <p>video</p>
   </div>
   <div class="col">
       <h3>Price</h3>
       <p><?php echo e($offerdata->price); ?>/PAZ</p>
   </div>
   <div class="col">
-      <h3>Price</h3>
-      <p><?php echo e($offerdata->price); ?>/PAZ</p>
+      <h3>Quality</h3>
+      <p>1080p</p>
 	</div>
   <div class="col">
       <h3>Category</h3>

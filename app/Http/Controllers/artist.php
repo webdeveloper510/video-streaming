@@ -60,19 +60,21 @@ class artist extends Controller
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
 
+          $isSubscribe =   $this->model->isSubscribe($artistid);
+
          $onlyArtistDetail =      $this->model->onlyArtistDetail($artistid);
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
-        //  echo "<pre>";
+          // echo "<pre>";
 
-        //  print_r($allArtistsVideo);die;
+          // print_r($allArtistsVideo);die;
 
          $category_data = $this->model->getCategory();
 
        
 
-   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
     }
 
     public function cartSbmit(Request $req){
@@ -298,6 +300,13 @@ class artist extends Controller
         else{
            return redirect('/showOffers')->with('error','Some Error!');
         }
+  }
+
+  public function subscribe(Request $req){
+
+          $subscriber = $this->model->subscribe($req->all());
+
+        print_r($subscriber);
   }
 
   }
