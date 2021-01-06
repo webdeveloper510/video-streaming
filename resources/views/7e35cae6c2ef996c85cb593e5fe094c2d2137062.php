@@ -36,7 +36,9 @@
     padding: 12px;
     overflow-x: auto;
 }
-
+nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
+    background: #7b0000 !important;
+}
 .notif.text-center ol li {
     list-style: none;
     text-align: center;

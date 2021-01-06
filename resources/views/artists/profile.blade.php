@@ -225,7 +225,7 @@ Your browser does not support the audio tag.
   <!----------------------------------------------- Profile veiw --------------------------------------------->
   
   <div class="container">
-      <h2 >Profile</h2>
+     
       <h1>Overview</h1>
       <div class="row">
         <div class="col-md-2 col-sm-2 col-lg-2">
@@ -241,12 +241,18 @@ Your browser does not support the audio tag.
             </div>
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
+                <div class="text-right">
+   <button type="button" class="btn btn-light">Edit</button>
+              </div>
                 <hr>
                 <p>{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
+                <hr>
               </div>
   
       </div>
+      
       <div class="row text-center text-black">
+     
         @if(isset($details[0]))
       @foreach($details[0] as $key=>$profile)
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
