@@ -73,8 +73,12 @@
              </video>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            <?php endif; ?>
-		
+            <?php else: ?>
+		             <div class="playwish">
+                     <h4>Wishlist Empty</h4>
+
+                   </div>
+                   <?php endif; ?>
 	</div>
 	<br/>
 
@@ -97,8 +101,12 @@
              </video>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            <?php endif; ?>
-			
+            <?php else: ?>
+            <div class="playhistory">
+                     <h4>History Empty</h4>
+
+                   </div>
+                   <?php endif; ?>
 	</div>	
   </div>
 </div>
@@ -123,6 +131,19 @@ rewindNav:false
  .owl-carousel {
     display: block !important;
   }
+  .playhistory {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 11px;
+}
+.playwish {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 11px;
+}
+
 </style>
 <!--body end-->
 
