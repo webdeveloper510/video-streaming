@@ -60,15 +60,15 @@
 <p>
   
 </p>
-   <!--div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdmFu0ZAAAAAHLtJz0WN-gTc9bstIUt6lhNo2aq'; ?>"></div>
+   <div class="g-recaptcha mb-3" data-sitekey="<?php echo '6LdmFu0ZAAAAAHLtJz0WN-gTc9bstIUt6lhNo2aq'; ?>"></div>
      <?php if(session('captcha')): ?>
                 <div class="alert alert-danger">
                 <?php echo e(session('captcha')); ?>
 
-            <?php endif; ?> 
+            
              
-      </div-->
-         
+      </div>
+          <?php endif; ?>
 
             <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
             <?php echo e(Form::close()); ?>
