@@ -72,6 +72,12 @@ ul.nav.nav-tabs li a {
     right: 10px;
 
 }
+.hide{
+    display: none;
+}
+.block{
+    display: block;
+}
 .artistvideo {
     border: 2px dashed red;
     width: 100%;
