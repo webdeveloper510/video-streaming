@@ -46,6 +46,10 @@ class AppServiceProvider extends ServiceProvider
 
             $tokens = $model->getUserData($userId);
 
+            print_r($tokens);die;
+
+            
+
             //echo $tokens ? 'yes' : 'No';
 
             //print_r($tokens);die;
