@@ -123,6 +123,10 @@ class artist extends Controller
     }
 
     public function artistProfile(){
+
+    
+
+        //$$cartData= $this->model->getArtistData($userid);
     
         return view('artistProfile');
     }
@@ -184,10 +188,22 @@ class artist extends Controller
 
     public function profile(){
 
+      $session_data =   Session::get('User');
+
+      $userid=  $session_data->id;
+
+      $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
+         
+      $allArtistsAudio=     $this->model->getArtistDetail($userid,'audio');
+
+       $allArtistOffer =      $this->model->getArtistOffer($userid);
+
+
+        $allPlaylist =      $this->model->getAllPlaylist();
 
          $contentLogin =   Session::get('User');
       
-      return view('artists.profile',['contentUser'=>$contentLogin]);
+      return view('artists.profile',['contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
 
