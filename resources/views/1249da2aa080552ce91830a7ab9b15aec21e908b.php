@@ -32,7 +32,9 @@
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
-              
+   <div class="text-right">
+   <button type="button" class="btn btn-light">Edit</button>
+              </div>
           <div class="container">
    <div class="row mb-5">
     <?php if($offerData): ?>
@@ -304,11 +306,10 @@ div#nav-tab {
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
-.col-md-4.mb-3.play2:hover .overlayplay2 {
-  opacity: 1;
-}
-.col-md-4.mb-3.play3:hover .overlayplay3 {
-  opacity: 1;
+
+button.btn.btn-light {
+    margin-top: -82px;
+    margin-right: 17px;
 }
 .overlayplay1 {
     position: absolute;
@@ -328,43 +329,11 @@ div#nav-tab {
 .col-md-4.text-right .btn.btn-primary {
     margin-top: -244px;
 }
-.overlayplay2 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-
-.overlayplay3 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
 
 
 </style>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/profile.blade.php ENDPATH**/ ?>

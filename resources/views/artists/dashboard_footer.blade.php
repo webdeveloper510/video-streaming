@@ -1,13 +1,14 @@
  <script src="{{asset('artistdashboard/js/core/jquery.min.js')}}"></script>
  
    <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
-  <script src="{{asset('artistdashboard/js/core/popper.min.js')}}"></script>
+
   <script src="{{asset('artistdashboard/js/core/bootstrap-material-design.min.js')}}"></script>
   <script src="{{asset('artistdashboard/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
   <!-- Plugin for the momentJs  -->
   <script src="{{asset('artistdashboard/js/plugins/moment.min.js')}}"></script>
 
-
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <!--  Plugin for Sweet Alert -->
   <script src="{{asset('artistdashboard/js/plugins/sweetalert2.js')}}"></script>
   <!-- Forms Validations Plugin -->
@@ -23,7 +24,7 @@
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="{{asset('artistdashboard/js/plugins/bootstrap-tagsinput.js')}}"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="{{asset('artistdashboard/js/plugins/jasny-bootstrap.min.js')}}"></script>
+
   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
   <script src="{{asset('artistdashboard/js/plugins/fullcalendar.min.js')}}"></script>
   <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->

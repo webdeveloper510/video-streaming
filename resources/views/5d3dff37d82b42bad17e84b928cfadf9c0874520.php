@@ -536,7 +536,7 @@
 
 
 
-                   <!-- -------------------------- Registration & login Section  Start--------------------------->
+<!-- ------------------------------------------ Registration & login Section  Start------------------------------------------->
 
 
 
@@ -547,7 +547,7 @@
            <?php endif; ?>             
 
             <?php if($login): ?>
-           <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">    
+           <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
              <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
            
             <?php if($userProfile): ?>
