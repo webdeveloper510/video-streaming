@@ -420,8 +420,8 @@ public function getArtistDetail($artid,$type){
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->select('contentprovider.*', 'media.*')
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
+       ->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
-       
        if($artistsDetail){
            return $artistsDetail;
        }
