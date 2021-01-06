@@ -512,7 +512,7 @@
 
 
 
-                   <!-- -------------------------- Registration & login Section  Start--------------------------->
+<!-- ------------------------------------------ Registration & login Section  Start------------------------------------------->
 
 
 
@@ -523,7 +523,7 @@
            @endif             
 
             @if($login)
-           <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">    
+           <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
              <a href="{{url('/my-requests')}}"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
            
             @if($userProfile)
