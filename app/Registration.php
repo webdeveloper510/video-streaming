@@ -1663,7 +1663,7 @@ public function subscribe($data){
 
   $userid =  $session_data->id;
 
-  //print_r($userid);die;
+  //print_r($data);die;
 
      $return = DB::table('subscriber')
      //->whereRaw('FIND_IN_SET(?,userid)',[$userid])
@@ -1679,21 +1679,52 @@ public function subscribe($data){
 public function updateSubscriberCount($uid,$data,$tableData){
 
   $userIds = $tableData[0]->userid;
+  $count = 1;
+  $ids = explode(',',$userIds);
 
-    $ids = explode(',',$userIds);
+  //print_r($data);die;
 
-  if (!in_array($uid, $ids))
-  {
-        $count = 1;
-        $update = DB::table('subscriber')->where(array('artistid'=>$data['id']))
-       ->update([
-          'userid' => DB::raw("CONCAT(userid,',".$uid."')"),
-          'count' =>  DB::raw('count +'.$count),
-           ]);
-  
-        return $update;
-  }
+    if($data['bool']=='false'){
 
+      //echo "yes";die;
+
+          $update = $this->unsubscribe($ids,$uid,$data,$count);
+
+          return $update;
+    }
+
+    else{
+
+            if (!in_array($uid, $ids))
+            {
+              
+                  $update = DB::table('subscriber')->where(array('artistid'=>$data['id']))
+                ->update([
+                    'userid' => DB::raw("CONCAT(userid,',".$uid."')"),
+                    'count' =>  DB::raw('count +'.$count),
+                    ]);
+            
+                  return $update;
+            }
+        }
+
+}
+
+public function unsubscribe($allIds,$userid,$postData,$count){
+
+      $index = array_search($userid, $allIds);
+
+      unset($allIds[$index]);
+
+     // print_r($allIds);die;
+
+  $update = DB::table('subscriber')->where(array('artistid'=>$postData['id']))
+  ->update([
+      'userid' =>implode(',',$allIds),
+      'count' =>  DB::raw('count -'.$count),
+      ]);
+
+    return $update;
 
 }
 

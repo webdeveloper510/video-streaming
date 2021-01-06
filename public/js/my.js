@@ -695,7 +695,7 @@ $(document).on('keyup', '.checknameExist', function () {
 
 			//console.log(data);
 			if(data==1){
-				console.log('ys');
+				//console.log('ys');
 				$('#'+id).show();
 				$('#'+id).addClass('alert alert-danger').removeClass('alert-success');
 				$('#'+id).html(id=='email'?'Email Already Exist':'User Already Exist!');
@@ -750,7 +750,9 @@ function updateRead(){
 
 /*-------------------------------Subscribe To Artist----------------------------------------------------*/
 
-function subscribe(id){
+function subscribe(id,setValue){
+
+	//console.log(setValue);return false;
 
 	$.ajax({
 		type: 'POST',
@@ -759,11 +761,16 @@ function subscribe(id){
 		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 	   },
 
-		data: {'id':id},
+		data: {'id':id, 'bool':setValue},
 
 		success: function(data){
 
-			console.log(data);
+			//console.log(data);return false;
+
+			if(data.status==1){
+				$('#subscribe').hide();
+				$('#unsubscribe').show();
+			}
 	
 			
 		}

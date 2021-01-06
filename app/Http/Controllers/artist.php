@@ -306,7 +306,17 @@ class artist extends Controller
 
           $subscriber = $this->model->subscribe($req->all());
 
-        print_r($subscriber);
+          if($subscriber==1){
+
+            return response()->json(array('status'=>1));
+
+          }
+
+          else{
+            return response()->json(array('status'=>0));
+          }
+
+          
   }
 
   }

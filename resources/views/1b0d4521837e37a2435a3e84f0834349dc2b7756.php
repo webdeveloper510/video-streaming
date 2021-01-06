@@ -10,12 +10,12 @@
         </div>
         <div class="artistdetail11 mb-5">
             <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
-             <i class="fa fa-star" style="color:red;"></i>
-             <?php if(!$isSubscribed): ?>  
-             <button class="btn btn-danger text-left" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?> )">Subscribe </button>
-             <?php else: ?>
-             <button class="btn btn-warning text-left">Subscribed </button>
+             <i class="fa fa-star" style="color:red;"></i>  761  
+              <?php if(!$isSubscribed): ?>
+             <button class="btn btn-danger text-left" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" id="subscribe">Subscribe </button>
              <?php endif; ?>
+             <button class="btn btn-warning text-left" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)" style="display:none">Subscribed </button>
+          
              </h3>
         
           
@@ -245,7 +245,7 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <hr>
-                <p></p>
+                <p><?php echo e($details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme); ?></p>
               </div>
   
       </div>
