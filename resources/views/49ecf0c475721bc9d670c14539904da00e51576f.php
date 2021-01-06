@@ -210,18 +210,18 @@ button#dropdownMenuButton {
         </div>
       </nav>
       <style>
+
 .noti-icon {
-  color: white;
-  border-radius: 50%;
-  height: 19px;
-  z-index:999;
-  background: #cb0000;
-  border: 1px solid #cb0000;
-  width: 19px;
-  padding-left: 5px;
-  position: absolute;
-  right: 13px;
-  top: 0px;
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    background: #ffa0ae;
+    border: 1px solid silver;
+    width: 20px;
+    padding-left: 5px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
 }
 .noti-icon h6 {
     color: white;

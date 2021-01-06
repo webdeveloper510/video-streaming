@@ -1,4 +1,4 @@
-@include('artists.dashboard')
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 <div class="row">
@@ -259,7 +259,7 @@
 
 
         <div class="col-md-4 mb-3">
-            <img src="{{asset('images/logos/voice.jpg')}}">
+            <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
         <audio controls>
 
         <source src="horse.mp3" type="audio/mp3">
@@ -267,7 +267,7 @@
         </audio>
         </div>
         <div class="col-md-4 mb-3">
-            <img src="{{asset('images/logos/voice.jpg')}}">
+            <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
         <audio controls>
 
         <source src="horse.mp3" type="audio/mpeg">
@@ -275,7 +275,7 @@
         </audio>
         </div>
         <div class="col-md-4 mb-3">
-             <img src="{{asset('images/logos/voice.jpg')}}">
+             <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
         <audio controls>
 
         <source src="horse.mp3" type="audio/mpeg">
@@ -518,4 +518,5 @@ div#nav-tab {
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
- @include('artists.dashboard_footer')
+ <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/profile.blade.php ENDPATH**/ ?>
