@@ -536,7 +536,7 @@
 
 
 
-                   <!-- -------------------------- Registration & login Section  Start--------------------------->
+<!-- ------------------------------------------ Registration & login Section  Start------------------------------------------->
 
 
 
@@ -547,15 +547,15 @@
            <?php endif; ?>             
 
             <?php if($login): ?>
-           <div class="btn-group login-btn text-right"style="border-right-color: white;border-right-style: solid;">    
+           <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
              <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
            
-            <?php if($userProfile[0]->profilepicture): ?>
+            <?php if($userProfile): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
     
     <?php else: ?>
     <div class="">
-		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile[0]->nickname); ?></span>
+		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile ? $userProfile[0]->nickname : ''); ?></span>
 	           	<div class="profileImage"></div>
 	  </div>
    
