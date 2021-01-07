@@ -187,13 +187,13 @@ button#dropdownMenuButton {
            
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'}}">
     
-    @else
+ 
     <div class="">
 		    	  <span class="firstName" style="display: none;"></span>
 	           	<div class="profileImage"></div>
 	  </div>
    
-   @endif
+
    <span class="profile-img text-white">
    {{$login->nickname}}
    <hr/ style="color:white;background: white;">

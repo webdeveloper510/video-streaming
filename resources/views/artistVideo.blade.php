@@ -80,6 +80,7 @@
       <h2>Token:{{ $GLOBALS['paz'] }} PAZ</h2>
       <input type="hidden" id="vidid" name="videoid" value="{{$GLOBALS['videoid']}}">
       <input type="hidden" class="token" name="token" value="{{ $GLOBALS['paz'] }}">
+      <input type="hidden" class="art_id" name="art_id" value="{{ $GLOBALS['artistid'] }}">
       <button type="button" class="addNow">ADD NOW</button>
   </div>
       </div>

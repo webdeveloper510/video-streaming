@@ -289,6 +289,7 @@ $(document).on('click', '.create_list', function () {
 $(document).on('click', '.addNow', function () {
 	var token= $('.token').val();
 	var videoid= $('#vidid').val();
+	var artist= $('.art_id').val();
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/addToLibrary",
@@ -296,7 +297,7 @@ $(document).on('click', '.addNow', function () {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {"id": videoid,'tokens':token},
+				data: {"id": videoid, 'tokens':token, 'art_id':artist},
 
 				success: function(data){
 
