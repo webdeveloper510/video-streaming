@@ -44,7 +44,12 @@
 </section>  
        
       <!-- End Navbar -->
-      
+     <style>
+     .background1{
+        height:100vh !important;
+     }
+     
+     </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
