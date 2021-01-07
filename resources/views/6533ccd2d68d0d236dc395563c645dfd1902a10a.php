@@ -109,4 +109,4 @@ input.slct_video {
 }
 </style>
 </html>
-<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//search.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>

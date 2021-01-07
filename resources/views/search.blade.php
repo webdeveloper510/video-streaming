@@ -2,8 +2,8 @@
 @include('layouts.header')
 
 <!-- end header -->
-<div class="container">
-    <div class="row" >
+<div class="container mt-5">
+    <div class="row my-5 pt-5 " >
       
     @if($subcategory)
       @forelse($subcategory as $sub)
@@ -45,8 +45,8 @@
   @else
   <div>
      <h1>Your specific taste is not served yet</h1>
-     <a href="{{url('my-requests')}}"><button class="btn btn-primary">
-       Create Job
+     <a href="{{url('my-requests')}}"><button class="btn btn-warning text-white">
+     Create Project
      </button></a>
   </div> 
   @endif
