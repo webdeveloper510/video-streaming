@@ -1,3 +1,6 @@
+</div>
+
+
  <script src="<?php echo e(asset('artistdashboard/js/core/jquery.min.js')); ?>"></script>
  
    <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>

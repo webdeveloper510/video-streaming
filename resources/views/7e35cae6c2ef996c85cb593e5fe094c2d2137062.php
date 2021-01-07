@@ -184,12 +184,12 @@ button#dropdownMenuButton {
            <div class="btn-group login-btn text-right">    
            <a href="<?php echo e(url('/artist/offer')); ?>"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Project</button></a>
            
-            <?php if($userProfile[0]->profilepicture): ?>
-            <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
+           
+            <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'); ?>">
     
     <?php else: ?>
     <div class="">
-		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile ? $userProfile[0]->nickname : ''); ?></span>
+		    	  <span class="firstName" style="display: none;"></span>
 	           	<div class="profileImage"></div>
 	  </div>
    
@@ -198,7 +198,7 @@ button#dropdownMenuButton {
    <?php echo e($login->nickname); ?>
 
    <hr/ style="color:white;background: white;">
-  <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
  </span>
   
