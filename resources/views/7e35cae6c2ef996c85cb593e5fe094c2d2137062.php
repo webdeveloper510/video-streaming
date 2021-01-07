@@ -88,16 +88,9 @@ button#dropdownMenuButton {
 
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+     
       <div class="logo"><a href="" class="simple-text logo-normal">
-      	<?php if(isset($contentUser)): ?>
-       <?php echo e($contentUser->nickname); ?>
-
-          <?php endif; ?>
+      <img src="<?php echo e(asset('images/logos/Black-logo.png')); ?>" height="50"width="40%" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
@@ -155,7 +148,10 @@ button#dropdownMenuButton {
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper text-white ">
-            <a class="navbar-brand text-white" href="javascript:;">Dashboard</a>
+          <div class="form-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search">
+  </div>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
