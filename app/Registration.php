@@ -1187,7 +1187,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
 
      
-
+        $this->buyVideo($lists);
 
 
       if($tokens < $tokensData[0]->tokens){

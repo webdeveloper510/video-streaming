@@ -187,13 +187,13 @@ button#dropdownMenuButton {
            
             <img width="50px" height="50px" src="">
     
-    <?php else: ?>
+ 
     <div class="">
 		    	  <span class="firstName" style="display: none;"></span>
 	           	<div class="profileImage"></div>
 	  </div>
    
-   <?php endif; ?>
+
    <span class="profile-img text-white">
    <?php echo e($login->nickname); ?>
 
