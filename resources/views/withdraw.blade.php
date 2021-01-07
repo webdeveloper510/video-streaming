@@ -48,7 +48,11 @@
      .background1{
         height:100vh !important;
      }
-     
+     .overlay1 {
+   
+    margin-top: 18% !important;
+  
+}
      </style>
 
  @include('artists.dashboard_footer')
