@@ -1032,7 +1032,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function buyVideo($vid){
 
-        print_r($vid);die;
+        //print_r($vid);die;
 
         $session_data =   Session::get('User');
 
@@ -1083,10 +1083,16 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
           //
               if($update==1){
 
-             $return = DB::table('users')->where(array('id'=>$uid))
+             $return = DB::table('contentprovider')->where(array('id'=>$uid))
               ->update([
                 'tokens' =>  DB::raw('tokens -'.$video['price'])
               ]);
+
+              $return = DB::table('users')->where(array('id'=>$uid))
+              ->update([
+                'tokens' =>  DB::raw('tokens -'.$video['price'])
+              ]);
+
               return $return;
 
           }
