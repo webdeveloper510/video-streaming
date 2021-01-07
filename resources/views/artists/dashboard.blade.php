@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +53,14 @@ span.profile-img hr {
     padding: 0px 5px;
     font-size: 16px;
 }
-
+/* .tab-content {
+    position: absolute;
+    background: #7b0000;
+    left: -260px;
+    top: 71px;
+    padding: 20px;
+    width: 38%;
+} */
 .dropdown12.text-white {
     border: 1px solid;
     padding: 16px;
@@ -97,9 +103,9 @@ span.text-center.text-dark {
 }
 .navbar-wrapper.text-white img {
     background: white;
-    padding: 2px;
+    width: 49px;
+    padding: 0px 8px;
     height: 37px;
-    
 }
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
     box-shadow: none;
@@ -146,7 +152,15 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     border: 1px solid;
     margin-bottom: 28px;
 }
-
+/* .nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+    position: absolute;
+    top: 51px;
+    left: 0;
+    opacity: 0;
+} */
 .noti-icon h6 {
     color: white;
     font-weight: bold;
@@ -234,7 +248,71 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
                     <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                     </ul>
           
-                 
+                    <div class="tab-content">
+                    <div id="home" class="tab-pane fade1 in active">
+                        <h3 style="color: #fff;">Projects</h3>
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
+
+                          <!--    {{Form::checkbox('price','free')}}Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                @include('popup') 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
                         
                     <div class="col-md-12 text-right pr-5">
               
@@ -283,13 +361,13 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     
  
     <div class="">
-		    	  <span class="firstName" style="display: none;"></span>
-	           	<div class="profileImage"></div>
-	  </div>
+            <span class="firstName" style="display: none;"></span>
+              <div class="profileImage"></div>
+    </div>
    
 
    <span class="profile-img text-white">
-   {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+   {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
     </button>
@@ -356,4 +434,3 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
 
 </style>
       <!-- End Navbar -->
-
