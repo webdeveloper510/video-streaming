@@ -36,6 +36,30 @@
     padding: 12px;
     overflow-x: auto;
 }
+.btn-group.login-btn img {
+    border-radius: 50%;
+    margin-right: 13px;
+}
+span.profile-img.text-white {
+    margin-right: 14px;
+    height: 50px;
+    margin-top: -13px;
+}
+span.profile-img hr {
+    height: 2px !important;
+    width: 120px;
+    margin: 0px !important;
+}
+.navbar-nav i.fa {
+    padding: 0px 5px;
+    font-size: 16px;
+}
+
+.dropdown12.text-white {
+    border: 1px solid;
+    padding: 16px;
+    margin-bottom: 10px;
+}
 .sidebar[data-color="purple"] li.active>a {
     background-color: #7b0000 !important;
 }
@@ -71,6 +95,12 @@ span.text-center.text-dark {
     padding: 7px;
     color: blue !important;
 }
+.navbar-wrapper.text-white img {
+    background: white;
+    padding: 2px;
+    height: 37px;
+    
+}
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
     box-shadow: none;
     background-color: transparent;
@@ -81,6 +111,50 @@ button#dropdownMenuButton {
     box-shadow: none;
     border: transparent;
 }
+input#search_text {
+    background: #7b0000;
+    color: white !important;
+    border: 1px solid;
+    height: 36px;
+}
+input#search_text::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+input#search_text:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+input#search_text::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+.noti-icon {
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    background: #ffa0ae;
+    border: 1px solid silver;
+    width: 20px;
+    padding-left: 5px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
+}
+.dropdown1.text-white {
+    padding: 10px;
+    border: 1px solid;
+    margin-bottom: 28px;
+}
+
+.noti-icon h6 {
+    color: white;
+    font-weight: bold;
+    margin-top: -1px;
+}
+.sidebar .logo{
+  background:#7b0000;
+}
  </style>
 </head>
 
@@ -88,16 +162,9 @@ button#dropdownMenuButton {
 
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+     
       <div class="logo"><a href="" class="simple-text logo-normal">
-      	<?php if(isset($contentUser)): ?>
-       <?php echo e($contentUser->nickname); ?>
-
-          <?php endif; ?>
+      <img src="<?php echo e(asset('images/logos/newlogo.png')); ?>" height="50" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
@@ -155,7 +222,115 @@ button#dropdownMenuButton {
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper text-white ">
-            <a class="navbar-brand text-white" href="javascript:;">Dashboard</a>
+          
+          <ul class="nav custom search">
+          <li id="options" onclick="mufunc()">
+              <a href="#"><img width="35px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
+             
+
+
+              <ul class="subnav" style="display: none">
+                  <ul class="nav nav-tabs text-center">
+                    <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
+                    </ul>
+          
+                    <div class="tab-content">
+                    <div id="home" class="tab-pane fade1 in active">
+                        <h3 style="color: #fff;">Projects</h3>
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                  <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='video'): ?>
+                   <label class=""> 
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                     <?php echo e($cat->category); ?> 
+                   </label><br>
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+
+                          <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
+                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
+                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-12 text-right pr-5">
+              
+               
+         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+          <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
+              </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         <?php echo e(Form::close()); ?>
+
+                      
+                    
+                     </div>
+                    </div>
+                    </ul>
+              <form action="" method="get">
+             
+                  <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+
+                
+              </form>
+          
+        
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -167,21 +342,51 @@ button#dropdownMenuButton {
             
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link text-white " href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
+               
+              
+           <div class="btn-group login-btn text-right">    
+           <a href="<?php echo e(url('/artist/offer')); ?>"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button></a>
+           
+           
+            <img width="50px" height="50px" src="">
+    
+ 
+    <div class="">
+		    	  <span class="firstName" style="display: none;"></span>
+	           	<div class="profileImage"></div>
+	  </div>
+   
+
+   <span class="profile-img text-white">
+   <?php echo e($login->nickname); ?><button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+    
+   
+    </button>
+   
+     <div class="dropdown-menu dropdown-menu-right">
+         <button class="dropdown-item" type="button">
+           <a href="<?php echo e(url('/profile')); ?>">Edit Profile
+           </a></button>
+        <button class="dropdown-item" type="button">
+          <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
+           <button class="dropdown-item" type="button">
+          <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
+    </div>
+   <hr/ style="color:white;background: white;">
+  <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+
+ </span>
+  
+
+</div>
+               
               </li>
               
              
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="material-icons">notifications</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
+  <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
+                 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> <b>Notification</b></h5><br>
@@ -197,9 +402,9 @@ button#dropdownMenuButton {
      <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+                  <i class="material-icons"style="font-size:27px">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -209,7 +414,7 @@ button#dropdownMenuButton {
                   <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -217,23 +422,6 @@ button#dropdownMenuButton {
       <div class="container">
       <style>
 
-.noti-icon {
-    color: white;
-    border-radius: 50%;
-    height: 20px;
-    background: #ffa0ae;
-    border: 1px solid silver;
-    width: 20px;
-    padding-left: 5px;
-    position: absolute;
-    right: 16px;
-    top: 4px;
-}
-.noti-icon h6 {
-    color: white;
-    font-weight: bold;
-    margin-top: -1px;
-}
 
 </style>
       <!-- End Navbar -->
