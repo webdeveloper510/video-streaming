@@ -183,37 +183,37 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active ">
+          <li class="nav-item {{$tab=='dashboard' ? 'active': ''}} ">
             <a class="nav-link " href="{{url('artists/dashboard')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{$tab=='profile' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/Profile')}}">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{$tab=='upload' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
               <i class="fa fa-upload"></i>
               <p>Upload Content</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
-           <li class="nav-item ">
+           <li class="nav-item {{$tab=='requests' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
               <i class="fa fa-money"></i>
               <p>Requests</p>
             </a>
           </li>
-         <li class="nav-item dropdown">
+         <li class="nav-item dropdown {{$tab == 'offer' ? 'active': ''}}">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>

@@ -174,11 +174,12 @@ class AuthController extends Controller
       //return view('/playlist');
     }
     public function withdraw(){
+      $navbaractive = 'withdraw';
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw');
+      return view('/withdraw',['tab'=>$navbaractive]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -621,6 +622,8 @@ public function artistselling(){
   
   public function contentProv(){
 
+    $navbaractive = 'upload';
+
     $contenttype =   Session::get('userType');
     if($contenttype=='User'){
       return redirect('/');
@@ -632,7 +635,7 @@ public function artistselling(){
 
     $subcategory=$this->model->getSubcategory($id='');
 
-    return view('artists.provider',['subcategory'=>$subcategory]) ;
+    return view('artists.provider',['tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
 
   }
 

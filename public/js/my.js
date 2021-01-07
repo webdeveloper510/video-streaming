@@ -816,6 +816,16 @@ $(document).on('submit', '#form_sub', function (event) {
 	});
 
 });
+
+/*------------------------------------------Add Active Class-----------------------------------------------*/
+
+// $('.nav-item').click(function(){
+// 	$(this).parent('.nav').find('.nav-item').removeClass('active');
+// 	$(this).addClass('active');
+// })
+
+
+
 // $(document).on('click', '.showoffer', function () {
 
 // 	$('#nav-tab').find('.tabss').removeClass('active');
