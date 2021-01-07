@@ -4,7 +4,7 @@
   @include('layouts.header')
 
             <div class="container">
-          <div class="overlay1 ovr">
+          <div class="overlay1 ovr my-5 ">
 
             @if(session('success'))
         <div class="alert alert-success" id="success">
@@ -67,7 +67,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-4 hide" >
+            <!-- <div class="col-md-6 mt-4 hide" >
             {{Form::label('Tits Size', 'Tits Size')}} 
                 {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
                  @if($errors->first('titssize'))
@@ -139,7 +139,7 @@
                   <?php echo $errors->first('weight') ?>
                 </div>
                 @endif
-            </div>
+            </div> -->
            <div class="col-md-12 mt-4">
             {{Form::label('ABOUT ME', 'ABOUT ME')}} 
                 {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
@@ -172,3 +172,5 @@ z-index:0 !important;
   }
 
 </style>
+
+@include('layouts.footer')
