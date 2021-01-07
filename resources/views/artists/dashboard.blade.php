@@ -185,7 +185,7 @@ button#dropdownMenuButton {
            <a href="{{url('/artist/offer')}}"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Project</button></a>
            
            
-            <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'}}">
+            <img width="50px" height="50px" src="">
     
  
     <div class="">
