@@ -1047,7 +1047,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
 
-      $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
+        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
 
           return $return;
 
@@ -1080,30 +1080,46 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
                   'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid']."')"),
                 ]);
       }
+
+      return $update;
           //
-              if($update==1){
 
-             $return = DB::table('contentprovider')->where(array('id'=>$uid))
-              ->update([
-                'tokens' =>  DB::raw('tokens -'.$video['price'])
-              ]);
+          //print_r($update);die;
+          //     if($update==1){
 
-              $return = DB::table('users')->where(array('id'=>$uid))
-              ->update([
-                'tokens' =>  DB::raw('tokens -'.$video['price'])
-              ]);
+          //    $addTokenArtist = DB::table('contentprovider')->where(array('id'=>$video['art_id']))
+          //     ->update([
+          //       'token' =>  DB::raw('token +'.$video['price'])
+          //     ]);
 
-              return $return;
+                
+          //      if($addTokenArtist){   
+          //           $return = DB::table('users')->where(array('id'=>$uid))
+          //           ->update([
+          //             'tokens' =>  DB::raw('tokens -'.$video['price'])
+          //           ]);
+          //      }
 
-          }
+          //      //print_r($return);die;
 
-          else{
+          //     return $return;
 
-              return 0;
-          }
+          // }
+
+          // else{
+
+          //     return 0;
+          // }
     }
 
     public function insertUserVideo($uid,$video,$tok,$type){
+
+      //print_r($video);die;
+
+      $artistId = $video['art_id'];
+
+      $price = $video['price'];
+
 
          //print_r($video);
 
@@ -1111,46 +1127,46 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
            $ids = $video['user_id'];
            $description = $video['description'];
-           $duration = $video['duration'];
-           $price = $video['price'];
+           $duration = $video['duration'];           
            $id = explode('_',$ids);
-           unset($video['user_id']);
-           unset($video['price']);
-           unset($video['duration']);
-           unset($video['description']);
+
+           $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
+            'userdescription' =>$description,
+            'choice'=>$duration
+            ]);
+          //  unset($video['user_id']);
+          //  unset($video['price']);
+          //  unset($video['duration']);
+          //  unset($video['description']);
+          //  unset($video['art_id']);
       }
   
-      $video['created_at'] = now();
-      $video['updated_at'] = now();
-      $video['userid'] =$uid;
-      $video['videoid'] = isset($video['videoid']) ? $video['videoid'] : $id[0];
-      if($type=='offer'){
+      $video_data['created_at'] = now();
+      $video_data['updated_at'] = now();
+      $video_data['userid'] =$uid;
+      $video_data['videoid'] = isset($video['videoid']) ? $video['videoid'] : $id[0];
+      $video_data['type'] = $type;
 
-        $video['type']= $type;
+      $insert = DB::table('user_video')->insert($video_data);
 
-        $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
-          'userdescription' =>$description,
-          'choice'=>$duration
-          ]);
+      return $insert;
 
-      }
+        // if($insert==1){
 
-      else{}
-      
+        //       $return = DB::table('users')->where(array('id'=>$uid))->update([
+        //       'tokens' =>  DB::raw('tokens -'.$price)
+        //       ]);
+        //       if($return){
+        //         $return = DB::table('contentprovider')->where(array('id'=>$artistId))->update([
+        //           'token' =>  DB::raw('token +'.$price)
+        //           ]);
+        //       }
+        //       return $return;
+        // }
 
-        $insert = DB::table('user_video')->insert($video);
-
-        if($insert==1){
-
-              $return = DB::table('users')->where(array('id'=>$uid))->update([
-              'tokens' =>  DB::raw('tokens -'.$price)
-              ]);
-              return $return;
-        }
-
-        else{
-          return 0;
-        }
+        // else{
+        //   return 0;
+        // }
 
 
       
@@ -1166,36 +1182,39 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $userid =  $session_data->id;
 
-        $tokens = $lists['tokens'];
+        $tokens = $lists['price'];
 
         $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
 
        // print_r($lists);die;
-        $newData[] = array_key_exists("id",$lists) ? $lists['id'] : '';
+        $newData[] = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
+
+    
 
         $lists['userid'] = $userid;
 
-        $ids  = array_key_exists("id",$lists) ? $newData : Session::get('SessionmultipleIds');
-        //print_r($ids);die;
+        $ids  = $newData ;
+
 
         $tokensData = $this->selectDataById('id','users',$userid);
-       // print_r($tokensData);die;
-    
-
+   
+          
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
-
-     
-        $this->buyVideo($lists);
 
 
       if($tokens < $tokensData[0]->tokens){
 
+      // echo "yes";die;
+
         if(count($data)>0){
 
 
-        $newArray = explode(",",$data[0]);
+        $newArray = explode(",",$data[0]->listvideo);
+        
+      
+       
  
    $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
 
@@ -1203,15 +1222,22 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     $newListid = implode(',',$result_array);
 
+    
+
      $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
             'listvideo' =>$newListid  //DB::raw("CONCAT(listvideo,',".$videoid."')")
           ]);
 
         
 
-         if($update==1){
+         if(isset($update)){
 
-                $reduce  = $this->reduceTokens($tokensData,$userid,$tokens);
+                $buyed = $this->buyVideo($lists);
+
+                
+              $reduce  = $buyed ==1 ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
+
+               // print_r($reduce);die;
 
                 return $reduce;
 
@@ -1235,8 +1261,9 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
           $insert  =DB::table('playlist')->insert($lists);
 
-         
-               $returnData = $insert ? $this->reduceTokens($tokensData,$userid,$tokens)  : 0;
+          $buyed = $this->buyVideo($lists);
+
+          $returnData = $buyed==1 ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0;
 
                return $returnData;
         }
@@ -1248,7 +1275,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     }
   }
 
-public function reduceTokens($tokns,$userid,$tok){
+public function reduceTokens($tokns,$userid,$tok,$artid){
 
   $databasetoks = $tokns[0]->tokens;
 
@@ -1258,7 +1285,15 @@ public function reduceTokens($tokns,$userid,$tok){
             'tokens' =>  DB::raw('tokens -'.$tok)
           ]);
 
-             return $update ? 1 : 0;
+            if($update==1){
+
+              $return = DB::table('contentprovider')->where(array('id'=>$artid))->update([
+                        'token' =>  DB::raw('token +'.$tok)
+                          ]);
+
+            }
+
+             return $update==1 ? 1 : 0;
 
         }
 
@@ -1654,7 +1689,7 @@ public function updatePassword($email,$password){
 
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 
-          return  $return;
+          return  $return==1 ? $this->reduceTokens($checkTokn,$userid,$data['price'],'artistId bhejni'): 0;
     }
 
     else{
