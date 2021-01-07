@@ -12,12 +12,6 @@
 
        <style>
 
-        li.nav-item a {
-    color: black !important;
-}
-a.navbar-brand.text-white {
-    color: black !important;
-}
 </style>
    
 
