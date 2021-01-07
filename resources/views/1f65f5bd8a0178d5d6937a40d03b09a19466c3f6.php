@@ -48,7 +48,11 @@
      .background1{
         height:100vh !important;
      }
-     
+     .overlay1 {
+   
+    margin-top: 18% !important;
+  
+}
      </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
