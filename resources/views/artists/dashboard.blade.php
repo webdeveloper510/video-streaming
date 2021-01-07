@@ -184,12 +184,12 @@ button#dropdownMenuButton {
            <div class="btn-group login-btn text-right">    
             
            
-            @if($userProfile[0]->profilepicture)
-            <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
+           
+            <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'}}">
     
     @else
     <div class="">
-		    	  <span class="firstName" style="display: none;">{{$userProfile ? $userProfile[0]->nickname : ''}}</span>
+		    	  <span class="firstName" style="display: none;"></span>
 	           	<div class="profileImage"></div>
 	  </div>
    
@@ -197,7 +197,7 @@ button#dropdownMenuButton {
    <span class="profile-img text-white">
    {{$login->nickname}}
    <hr/ style="color:white;background: white;">
-  <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
  </span>
   
