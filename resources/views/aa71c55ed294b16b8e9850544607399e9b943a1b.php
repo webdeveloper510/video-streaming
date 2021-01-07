@@ -371,8 +371,20 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
    
 
    <span class="profile-img text-white">
-   <?php echo e($login->nickname); ?>
-
+   <?php echo e($login->nickname); ?><button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+    
+   
+    </button>
+   
+     <div class="dropdown-menu dropdown-menu-right">
+         <button class="dropdown-item" type="button">
+           <a href="<?php echo e(url('/profile')); ?>">Edit Profile
+           </a></button>
+        <button class="dropdown-item" type="button">
+          <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
+           <button class="dropdown-item" type="button">
+          <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
+    </div>
    <hr/ style="color:white;background: white;">
   <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
@@ -403,7 +415,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
      <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons"style="font-size:27px">person</i>
                   <p class="d-lg-none d-md-block">
@@ -415,7 +427,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
                   <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
