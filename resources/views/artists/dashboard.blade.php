@@ -52,6 +52,19 @@ span.profile-img hr {
     padding: 0px 5px;
     font-size: 16px;
 }
+.tab-content {
+    position: absolute;
+    background: #7b0000;
+    left: -260px;
+    top: 71px;
+    padding: 20px;
+    width: 38%;
+}
+.dropdown12.text-white {
+    border: 1px solid;
+    padding: 16px;
+    margin-bottom: 10px;
+}
 .sidebar[data-color="purple"] li.active>a {
     background-color: #7b0000 !important;
 }
@@ -87,6 +100,12 @@ span.text-center.text-dark {
     padding: 7px;
     color: blue !important;
 }
+.navbar-wrapper.text-white img {
+    background: white;
+    padding: 2px;
+    height: 37px;
+    
+}
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
     box-shadow: none;
     background-color: transparent;
@@ -97,6 +116,58 @@ button#dropdownMenuButton {
     box-shadow: none;
     border: transparent;
 }
+input#search_text {
+    background: #7b0000;
+    color: white !important;
+    border: 1px solid;
+    height: 36px;
+}
+input#search_text::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+input#search_text:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+input#search_text::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+.noti-icon {
+    color: white;
+    border-radius: 50%;
+    height: 20px;
+    background: #ffa0ae;
+    border: 1px solid silver;
+    width: 20px;
+    padding-left: 5px;
+    position: absolute;
+    right: 16px;
+    top: 4px;
+}
+.dropdown1.text-white {
+    padding: 10px;
+    border: 1px solid;
+    margin-bottom: 28px;
+}
+.nav-tabs {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+    position: absolute;
+    top: 51px;
+    left: 0;
+    opacity: 0;
+}
+.noti-icon h6 {
+    color: white;
+    font-weight: bold;
+    margin-top: -1px;
+}
+.sidebar .logo{
+  background:#7b0000;
+}
  </style>
 </head>
 
@@ -106,7 +177,7 @@ button#dropdownMenuButton {
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
      
       <div class="logo"><a href="" class="simple-text logo-normal">
-      <img src="{{asset('images/logos/newlogo.png')}}" height="50"width="40%" alt="CoolBrand">
+      <img src="{{asset('images/logos/newlogo.png')}}" height="50" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
@@ -145,11 +216,11 @@ button#dropdownMenuButton {
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
-              My projects
+              My Offers
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{url('/artist/offer')}}">Create Project</a>
-          <a class="dropdown-item" href="{{url('/artist/my-offer')}}">My Projects</a>
+          <a class="dropdown-item" href="{{url('/artist/offer')}}">Create Offer</a>
+          <a class="dropdown-item" href="{{url('/artist/my-offer')}}">My Offers</a>
          
         </div>
          
@@ -164,10 +235,110 @@ button#dropdownMenuButton {
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper text-white ">
-          <div class="form-group has-search">
-    <span class="fa fa-search form-control-feedback"></span>
-    <input type="text" class="form-control" placeholder="Search">
-  </div>
+          
+          <ul class="nav custom search">
+          <li id="options" onclick="mufunc()">
+              <a href="#"><img width="35px" src="{{asset('images/logos/filter.png')}}"></a></li>
+             
+
+
+              <ul class="subnav" style="display: none">
+                  <ul class="nav nav-tabs text-center">
+                    <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
+                    </ul>
+          
+                    <div class="tab-content">
+                    <div id="home" class="tab-pane fade1 in active">
+                        <h3 style="color: #fff;">Projects</h3>
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="dropdown12 text-white">
+                           <h4>Categories </h4>
+                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                  {{Form::token()}}
+                            @foreach($category as $cat)
+                            @if($cat->type=='video')
+                   <label class=""> 
+                     {{Form::checkbox('catid[]', $cat->id)}}
+                     {{$cat->category}} 
+                   </label><br>
+                             @endif
+                            @endforeach
+                          
+                      </div>
+                     </div>
+
+                          <div class="col-md-6 ">
+                            <div class="bar">
+                        <div class="dropdown1 text-white">
+                           <h4>Price</h4>
+                            
+                            <label class="">
+                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
+
+                          <!--    {{Form::checkbox('price','free')}}Free   -->
+                          
+                            </label><br>
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+
+                        <div class="dropdown1 text-white">
+                           <h4 >Duration</h4>
+                            <label class=""> 
+                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
+                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                           
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                            
+                          </label><br>
+                      
+                        </div>
+                          <div class="collapse pt-4" id="collapseExample1">
+                @include('popup') 
+              </div>
+                      </div>
+                    </div>
+                      
+                     
+                        
+                    <div class="col-md-12 text-right pr-5">
+              
+               
+         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+          {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+              </div>
+              <div class="col-md-6">
+                       
+            
+            </div>
+                     
+                       
+                         {{ Form::close() }}
+                      
+                    
+                     </div>
+                    </div>
+                    </ul>
+              <form action="" method="get">
+             
+                  <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+
+                
+              </form>
+          
+        
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -182,7 +353,7 @@ button#dropdownMenuButton {
                
               
            <div class="btn-group login-btn text-right">    
-           <a href="{{url('/artist/offer')}}"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Project</button></a>
+           <a href="{{url('/artist/offer')}}"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button></a>
            
            
             <img width="50px" height="50px" src="">
@@ -209,10 +380,8 @@ button#dropdownMenuButton {
              
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><h6>{{$count}}</h6></div> <i class="material-icons">notifications</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
+  <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><h6>{{$count}}</h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
+                 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> <b>Notification</b></h5><br>
@@ -230,7 +399,7 @@ button#dropdownMenuButton {
               </li>
               <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+                  <i class="material-icons"style="font-size:27px">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -248,26 +417,7 @@ button#dropdownMenuButton {
       <div class="container">
       <style>
 
-.noti-icon {
-    color: white;
-    border-radius: 50%;
-    height: 20px;
-    background: #ffa0ae;
-    border: 1px solid silver;
-    width: 20px;
-    padding-left: 5px;
-    position: absolute;
-    right: 16px;
-    top: 4px;
-}
-.noti-icon h6 {
-    color: white;
-    font-weight: bold;
-    margin-top: -1px;
-}
-.sidebar .logo{
-  background:#7b0000;
-}
+
 </style>
       <!-- End Navbar -->
 

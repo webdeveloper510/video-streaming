@@ -5,7 +5,7 @@
 @include('artists.dashboard');
 
 @endif
-		<div class="container mt-5">
+		<div class="container mt-5 pt-5">
 			<h2><b>Notification</b></h2>
 			<hr>
 		@foreach($notification1 as $val)
