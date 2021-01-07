@@ -1041,6 +1041,7 @@ public function addToLibrary(Request $req){
 
         $addTolibrary = $req->all();
 
+        //print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
@@ -1132,20 +1133,15 @@ public function addMultipleVideo(Request $req){
       
        if($remove=='yes'){
 
-            echo "removed";
-
-            echo $req['id'];
-
              $pos = array_search($req['id'], $multipleIds);
 
-            echo $pos;
 
             unset($multipleIds[$pos]);
 
            Session::put('SessionmultipleIds',$multipleIds);
            $multipleIds = Session::get('SessionmultipleIds');
 
-           print_r($multipleIds);
+          // print_r($multipleIds);
 
         
        }
