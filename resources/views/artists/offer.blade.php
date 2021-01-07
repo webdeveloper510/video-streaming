@@ -123,11 +123,6 @@
     color: #333333;
     background-color: #eeeeee;
   }
-        li.nav-item a {
-    color: black !important;
-}
-a.navbar-brand.text-white {
-    color: black !important;
-}
+  
 </style>
  @include('artists.dashboard_footer');
