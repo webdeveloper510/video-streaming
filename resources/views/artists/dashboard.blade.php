@@ -42,6 +42,8 @@
 }
 span.profile-img.text-white {
     margin-right: 14px;
+    height: 50px;
+    margin-top: -13px;
 }
 span.profile-img hr {
     height: 2px !important;
@@ -366,7 +368,20 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
    
 
    <span class="profile-img text-white">
-   {{$login->nickname}}
+   {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+    
+   
+    </button>
+   
+     <div class="dropdown-menu dropdown-menu-right">
+         <button class="dropdown-item" type="button">
+           <a href="{{url('/profile')}}">Edit Profile
+           </a></button>
+        <button class="dropdown-item" type="button">
+          <a href="{{url('/logout')}}">Logout</a></button>
+           <button class="dropdown-item" type="button">
+          <a href="{{url('/my-requests')}}">Projects</a></button>
+    </div>
    <hr/ style="color:white;background: white;">
   <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
@@ -397,7 +412,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
      <a href="{{url('notification/artist')}}"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons"style="font-size:27px">person</i>
                   <p class="d-lg-none d-md-block">
@@ -409,7 +424,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
                   <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{url('logout')}}">Log out</a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
