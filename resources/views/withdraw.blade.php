@@ -44,7 +44,12 @@
 </section>  
        
       <!-- End Navbar -->
-      
+     <style>
+     .background1{
+        height:100vh !important;
+     }
+     
+     </style>
 
  @include('artists.dashboard_footer')
 

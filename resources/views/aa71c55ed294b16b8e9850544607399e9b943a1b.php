@@ -36,6 +36,22 @@
     padding: 12px;
     overflow-x: auto;
 }
+.btn-group.login-btn img {
+    border-radius: 50%;
+    margin-right: 13px;
+}
+span.profile-img.text-white {
+    margin-right: 14px;
+}
+span.profile-img hr {
+    height: 2px !important;
+    width: 120px;
+    margin: 0px !important;
+}
+.navbar-nav i.fa {
+    padding: 0px 5px;
+    font-size: 16px;
+}
 .sidebar[data-color="purple"] li.active>a {
     background-color: #7b0000 !important;
 }
@@ -163,12 +179,32 @@ button#dropdownMenuButton {
             
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link text-white " href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
+               
+              
+           <div class="btn-group login-btn text-right">    
+            
+           
+            <?php if($userProfile[0]->profilepicture): ?>
+            <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
+    
+    <?php else: ?>
+    <div class="">
+		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile ? $userProfile[0]->nickname : ''); ?></span>
+	           	<div class="profileImage"></div>
+	  </div>
+   
+   <?php endif; ?>
+   <span class="profile-img text-white">
+   <?php echo e($login->nickname); ?>
+
+   <hr/ style="color:white;background: white;">
+  <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+
+ </span>
+  
+
+</div>
+               
               </li>
               
              
