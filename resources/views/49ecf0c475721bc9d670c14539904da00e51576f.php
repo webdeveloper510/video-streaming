@@ -36,6 +36,9 @@
     padding: 12px;
     overflow-x: auto;
 }
+.sidebar[data-color="purple"] li.active>a {
+    background-color: #7b0000 !important;
+}
 nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
     background: #7b0000 !important;
 }
@@ -211,6 +214,7 @@ button#dropdownMenuButton {
           </div>
         </div>
       </nav>
+      <div class="container">
       <style>
 
 .noti-icon {

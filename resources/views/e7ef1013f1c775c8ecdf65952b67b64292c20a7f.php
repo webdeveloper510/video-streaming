@@ -88,7 +88,7 @@
                         <label >Media</label>
                           <div class="dropdown1">
                          
-                            <label class=""> 
+                            <label> 
 
                                <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
                            

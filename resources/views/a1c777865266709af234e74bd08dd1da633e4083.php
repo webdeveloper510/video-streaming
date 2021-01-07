@@ -514,10 +514,12 @@
                 </ul>
             
               <li id="search">
-                <form action="" method="get">
+              <form action="" method="get">
+              
                   <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+
                   <input type="button" name="search_button" id="search_button"></a>
-                </form>
+              </form>
               </li>
             </ul>
 					
@@ -529,7 +531,7 @@
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
     
               <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>  
-              <a href="#" class="nav-item nav-link"><i class="fa fa-newspaper-o"></i></a>  
+            
 
 
 						</div>
