@@ -106,7 +106,7 @@ button#dropdownMenuButton {
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
      
       <div class="logo"><a href="" class="simple-text logo-normal">
-      <img src="<?php echo e(asset('images/logos/Black-logo.png')); ?>" height="50"width="40%" alt="CoolBrand">
+      <img src="<?php echo e(asset('images/logos/newlogo.png')); ?>" height="50"width="40%" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
@@ -145,11 +145,11 @@ button#dropdownMenuButton {
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
-              My Offers
+              My projects
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<?php echo e(url('/artist/offer')); ?>">Create Offer</a>
-          <a class="dropdown-item" href="<?php echo e(url('/artist/my-offer')); ?>">My Offers</a>
+          <a class="dropdown-item" href="<?php echo e(url('/artist/offer')); ?>">Create Project</a>
+          <a class="dropdown-item" href="<?php echo e(url('/artist/my-offer')); ?>">My Projects</a>
          
         </div>
          
@@ -182,7 +182,7 @@ button#dropdownMenuButton {
                
               
            <div class="btn-group login-btn text-right">    
-            
+           <a href="<?php echo e(url('/artist/offer')); ?>"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Project</button></a>
            
             <?php if($userProfile[0]->profilepicture): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
@@ -266,7 +266,9 @@ button#dropdownMenuButton {
     font-weight: bold;
     margin-top: -1px;
 }
-
+.sidebar .logo{
+  background:#7b0000;
+}
 </style>
       <!-- End Navbar -->
 
