@@ -1402,22 +1402,18 @@ public function updateWishlist($data,$uid){
 
 public function insertWishlist($data,$uid){
 
- // print_r($data);
- // echo $uid;die;
 
-  //echo "yes";die;
+              $array= array(
 
-        $array= array(
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'userid'=>$uid,
+                'videoid'=>$data[0]
+              );
 
-          'created_at'=>now(),
-          'updated_at'=>now(),
-          'userid'=>$uid,
-          'videoid'=>$data[0]
-        );
+              $insert = DB::table('wishlist')->insert($array);
 
-        $insert = DB::table('wishlist')->insert($array);
-
-        return $insert;
+              return $insert;
 
   
 }
@@ -1443,34 +1439,40 @@ public function getVideosbyList($id){
 
 public function addToHistory($data){
 
- // print_r($data);die;
+
+
+  //print_r($data);die;
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
   $data1 = $this->selectSingleById('userid','history',$userid);
-    
+  $popularData = $data;
+
+  unset($data['types']);
+
+  //print_r($data1);die;
   $returnadata = count($data1) > 0 ? $this->updateHistory($data,$userid,$data1) : $this->insertHistory($data,$userid);
-  //print_r($returnadata);die;
-        $this->getPopularTable($data,$userid);
+  //
+   $this->getPopularTable($popularData,$userid);
       
 }
 
 public function getPopularTable($post,$uid){
-  //print_r($post);die;
+
   $vid = $post['id'];
   $videos = DB::table("popular")->where(array('userid'=>$uid,'mediaid'=>$vid))->get()->toArray();
     $return = count($videos) > 0 ? $this->updatePopular($post,$uid) : $this->insertPopular($post,$uid);
-    print_r($return);
+    //print_r($return);
 }
 
 public function updatePopular($data,$uid){
-    //echo "yss";die;
-  $count = 1;
 
-  $update = DB::table('popular')->where(array('userid'=>$uid,'mediaid'=>$data['id']))->update([
-    'count' =>  DB::raw('count +'.$count)
-  ]);
+      $count = 1;
 
-     return $update ? 1 : 0;
+      $update = DB::table('popular')->where(array('userid'=>$uid,'mediaid'=>$data['id']))->update([
+        'count' =>  DB::raw('count +'.$count)
+      ]);
+
+        return $update ? 1 : 0;
 
 }
 
@@ -1525,7 +1527,11 @@ public function updateHistory($postdata,$uid,$tableData){
    
   $result_array = array_unique($aunion);
 
+  
+
       $updatedId = implode(",",$result_array);
+
+      //print_r($updatedId);die;
 
       $update = DB::table('history')->where(array('userid'=>$uid))
       ->update([
