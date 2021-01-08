@@ -53,6 +53,12 @@
               <p>User Profile</p>
             </a>
           </li>
+          <li class="nav-item <?php echo e($tab=='feed' ? 'active': ''); ?>">
+            <a class="nav-link" href="<?php echo e(url('artists/dashboard')); ?>">
+            <i class="fa fa-newspaper-o"> </i>
+              <p>User Feed</p>
+            </a>
+          </li>
           <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
