@@ -333,6 +333,10 @@ div#nav-tab {
 .profileimg .iconcamera i{
   display:none;
 }
+button.btn.btn-warning.text-white.mr-3.mt-2 {
+    height: 36px !important;
+    background-color: #ffbb11 !important;
+}
 .profileimg:hover .iconcamera i{
   position: absolute;
     top: 21%;

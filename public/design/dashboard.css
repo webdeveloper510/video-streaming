@@ -135,6 +135,11 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     right: 16px;
     top: 4px;
 }
+button.btn.btn-warning.text-white.mr-3.mt-2 {
+    height: 36px !important;
+    padding-top: 10px !important;
+    background-color: #ffbb11 !important;
+}
 .dropdown1.text-white {
     padding: 10px;
     border: 1px solid;
