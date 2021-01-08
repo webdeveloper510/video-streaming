@@ -57,9 +57,9 @@
             <select class="custom-select form-inline m-2">
              
                  <option selected>Filter</option>
-                 <option value="1">By Name</option>
-                 <option value="2">By Star</option>
-                 <option value="3">By Top Rated</option>
+                 <option value="1">By Popular</option>
+                 <option value="2">By Alphabetical</option>
+                 
                </select>
            </div>
        </div>
