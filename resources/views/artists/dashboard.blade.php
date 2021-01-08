@@ -221,7 +221,8 @@
    @endif
 
    <span class="profile-img text-white">
-   {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+   {{$login->nickname}}
+   <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
     </button>
@@ -236,7 +237,8 @@
           <a href="{{url('/my-requests')}}">Projects</a></button>
     </div>
    <hr/ style="color:white;background: white;">
-  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    
+  <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
  </span>
   
