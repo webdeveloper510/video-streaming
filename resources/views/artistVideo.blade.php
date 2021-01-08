@@ -363,6 +363,14 @@
 </div>  
 
 
+<script>
+	var type = "{{$GLOBALS['type']}}";
+
+     addTohistory(type);
+		
+
+</script>
+
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
     e.preventDefault();
@@ -383,27 +391,6 @@ $(".addToCart").click(function(e) {
     });
 });
 </script>
-<script>
-	$('docoment').ready(function(){
 
-		var id = "{{$GLOBALS['videoid']}}";
-
-		var type = "{{$GLOBALS['type']}}";
-
-		$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addTohistory",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
-
-				data: {'id':id, 'types':type},
-
-				success: function(data){	
-				}
-		});
-
-	})
-</script>
 
 @include('layouts.footer')

@@ -86,6 +86,8 @@ $(document).ready(function(){
   var firstName = $('.firstName').text();
    var intials = $('.firstName').text().charAt(0);
    var profileImage = $('.profileImage').text(intials);
+
+   
    
 });
 $(document).ready(function() {
@@ -395,15 +397,18 @@ function addMultiple(check,id){
 
 				success: function(data){
 
+					//console.log(data);
+
 					if(id!=''){
 						console.log('id h');
 						//$('.media_div').find('#'+id).trigger("click");
 					}
 
-					console.log(data);
+					//console.log(data);
 
 					$('#exampleModal').html(data);
 						if($('.total').text()==0){
+
 							$('.close').trigger('click');
 						}
 
@@ -602,6 +607,8 @@ $(document).on('click','.slct_video',function(){
 
 
 $(document).on('click','.off',function(){
+
+	//alert('hello');return false;
 
 		$('.media_div').find('.slct_video:checked').trigger("click");
 		 $('.media_div').find('.checkall').css("display",'none');
@@ -820,6 +827,31 @@ $(document).on('submit', '#form_sub', function (event) {
 	});
 
 });
+
+function addTohistory(type){
+
+	//console.log(type);return false;
+
+	var id = $('#vidid').val();
+
+
+		$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/addTohistory",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'id':id, 'types':type},
+
+				success: function(data){	
+					console.log(data);
+				}
+		});
+
+}
+
+
 
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 
