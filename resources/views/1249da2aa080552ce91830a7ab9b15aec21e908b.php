@@ -5,9 +5,17 @@
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
           <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
+          <div class="iconcamera">
+        <i class="fa fa-camera"></i>
+
+        </div>
         </div>
         <div class="profileimg">
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
+        <div class="iconcamera" >
+        <i class="fa fa-camera"></i>
+
+        </div>
         </div>
         <div class="artistdetail11 mb-5">
             <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
@@ -308,6 +316,40 @@ div#nav-tab {
     height: 165px;
     padding-left: 7px;
     margin-bottom: -23px;
+}
+.coverimg .iconcamera i{
+ display:none;
+}
+.coverimg:hover .iconcamera i{
+    position: absolute;
+    right: 15px;
+    display:block;
+    color: #746a6a;
+    margin-top: -30px;
+    background: #ffffff99;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    padding: 6px;
+}
+.profileimg .iconcamera i{
+  display:none;
+}
+button.btn.btn-warning.text-white.mr-3.mt-2 {
+    height: 36px !important;
+    background-color: #ffbb11 !important;
+}
+.profileimg:hover .iconcamera i{
+  position: absolute;
+    top: 21%;
+    color: #746a6a;
+    display: block;
+    background: #ffffff99;
+    left: 88px;
+    height: 23px;
+    text-align: center;
+    width: 57px;
+    padding: 4px;
 }
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
