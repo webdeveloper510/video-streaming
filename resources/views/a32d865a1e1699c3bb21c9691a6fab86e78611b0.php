@@ -18,6 +18,7 @@
 			$GLOBALS['type'] = $video->type ;
 
 			$GLOBALS['paz'] = $video->price ;
+			$GLOBALS['artistid'] = $video->contentProviderid ;
 
 			?>
 			
@@ -79,6 +80,7 @@
       <h2>Token:<?php echo e($GLOBALS['paz']); ?> PAZ</h2>
       <input type="hidden" id="vidid" name="videoid" value="<?php echo e($GLOBALS['videoid']); ?>">
       <input type="hidden" class="token" name="token" value="<?php echo e($GLOBALS['paz']); ?>">
+      <input type="hidden" class="art_id" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
       <button type="button" class="addNow">ADD NOW</button>
   </div>
       </div>

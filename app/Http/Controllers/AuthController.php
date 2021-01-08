@@ -174,11 +174,12 @@ class AuthController extends Controller
       //return view('/playlist');
     }
     public function withdraw(){
+      $navbaractive = 'withdraw';
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw');
+      return view('/withdraw',['tab'=>$navbaractive]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -621,6 +622,8 @@ public function artistselling(){
   
   public function contentProv(){
 
+    $navbaractive = 'upload';
+
     $contenttype =   Session::get('userType');
     if($contenttype=='User'){
       return redirect('/');
@@ -632,7 +635,7 @@ public function artistselling(){
 
     $subcategory=$this->model->getSubcategory($id='');
 
-    return view('artists.provider',['subcategory'=>$subcategory]) ;
+    return view('artists.provider',['tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
 
   }
 
@@ -1041,6 +1044,7 @@ public function addToLibrary(Request $req){
 
         $addTolibrary = $req->all();
 
+        //print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
@@ -1132,20 +1136,15 @@ public function addMultipleVideo(Request $req){
       
        if($remove=='yes'){
 
-            echo "removed";
-
-            echo $req['id'];
-
              $pos = array_search($req['id'], $multipleIds);
 
-            echo $pos;
 
             unset($multipleIds[$pos]);
 
            Session::put('SessionmultipleIds',$multipleIds);
            $multipleIds = Session::get('SessionmultipleIds');
 
-           print_r($multipleIds);
+          // print_r($multipleIds);
 
         
        }

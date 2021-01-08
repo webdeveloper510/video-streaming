@@ -297,11 +297,11 @@ $(document).on('click', '.addNow', function () {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {"id": videoid, 'tokens':token, 'art_id':artist},
+				data: {"videoid": videoid, 'price':token, 'art_id':artist},
 
 				success: function(data){
 
-					//console.log(data);return false;
+					console.log(data);return false;
 					
 					if(data.status==1){
 						$('.message').show();
@@ -816,6 +816,16 @@ $(document).on('submit', '#form_sub', function (event) {
 	});
 
 });
+
+/*------------------------------------------Add Active Class-----------------------------------------------*/
+
+// $('.nav-item').click(function(){
+// 	$(this).parent('.nav').find('.nav-item').removeClass('active');
+// 	$(this).addClass('active');
+// })
+
+
+
 // $(document).on('click', '.showoffer', function () {
 
 // 	$('#nav-tab').find('.tabss').removeClass('active');
