@@ -86,7 +86,6 @@ ul.subnav {
     background: #7b0000;
     color: white !important;
     left: 0;
-    width: 500px;
     padding: 22px;
 }
 .navbar-wrapper.text-white img {
@@ -171,4 +170,12 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 }
 .sidebar .logo{
   background:#7b0000;
+}
+@media only screen and (max-width: 768px) {
+li.nav-item a p {
+    color: white;
+}
+a#navbarDropdown {
+    color: white;
+}
 }
