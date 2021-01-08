@@ -37,28 +37,29 @@ class AppServiceProvider extends ServiceProvider
 
              $notification = $array['notifications'];
 
-             $count = $array['count'];
+                $count = $array['count'];
 
 
             $data=Session::get('User');
 
-            $userId = isset($data) ? $data->id : '';
+             $userId = isset($data) ? $data->id : '';
 
             $tokens = $model->getUserData($userId);
 
-            //print_r($tokens);die;
+             $artistData = $model->onlyArtistDetail($userId);
+       
 
             
 
             //echo $tokens ? 'yes' : 'No';
 
-            //print_r($tokens);die;
+           // print_r($tokens);die;
 
            // $profile = $model->getUserProfile($userId);
 
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category,  'userProfile'=>$tokens));    
+            $view->with(array('login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
 
     }

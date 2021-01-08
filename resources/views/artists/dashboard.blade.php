@@ -357,7 +357,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
            <a href="{{url('/artist/offer')}}"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button></a>
            
            
-            <img width="50px" height="50px" src="">
+            <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
     
  
     <div class="">
@@ -382,7 +382,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
           <a href="{{url('/my-requests')}}">Projects</a></button>
     </div>
    <hr/ style="color:white;background: white;">
-  <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b>{{$artistProfile[0]->token}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
  </span>
   
