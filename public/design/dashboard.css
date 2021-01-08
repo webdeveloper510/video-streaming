@@ -86,6 +86,7 @@ ul.subnav {
     background: #7b0000;
     color: white !important;
     left: 0;
+    width:550px;
     padding: 22px;
 }
 .navbar-wrapper.text-white img {
@@ -177,5 +178,8 @@ li.nav-item a p {
 }
 a#navbarDropdown {
     color: white;
+}
+ul.subnav {
+    width:100%;
 }
 }
