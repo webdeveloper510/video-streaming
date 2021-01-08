@@ -1,7 +1,7 @@
 </div>
 
 
- <script src="{{asset('artistdashboard/js/core/jquery.min.js')}}"></script>
+
  
    <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
 
