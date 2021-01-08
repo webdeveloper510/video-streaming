@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +14,7 @@
   <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
- 
+  <link rel="stylesheet" href="<?php echo e(asset('design/dashboard.css')); ?>" />
   <!-- CSS Files -->
   <link href="<?php echo e(asset('artistdashboard//css/material-dashboard.css?v=2.1.2')); ?>" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -25,159 +24,7 @@
     <!--  <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script> -->
 
 <style type="text/css">
-  .notif {
-    width: 300px;
-    background: white;
-     max-height: 300px;
-    height: auto;
-    border: 1px solid;
-    z-index: 999;
-    overflow: hidden;
-    padding: 12px;
-    overflow-x: auto;
-}
-.btn-group.login-btn img {
-    border-radius: 50%;
-    margin-right: 13px;
-}
-span.profile-img.text-white {
-    margin-right: 14px;
-    height: 50px;
-    margin-top: -13px;
-}
-span.profile-img hr {
-    height: 2px !important;
-    width: 120px;
-    margin: 0px !important;
-}
-.navbar-nav i.fa {
-    padding: 0px 5px;
-    font-size: 16px;
-}
-/* .tab-content {
-    position: absolute;
-    background: #7b0000;
-    left: -260px;
-    top: 71px;
-    padding: 20px;
-    width: 38%;
-} */
-.dropdown12.text-white {
-    border: 1px solid;
-    padding: 16px;
-    margin-bottom: 10px;
-}
-.sidebar[data-color="purple"] li.active>a {
-    background-color: #7b0000 !important;
-}
-nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
-    background: #7b0000 !important;
-}
-.notif.text-center ol li {
-    list-style: none;
-    text-align: center;
-    padding: 0 !important;
-    margin-left: -40px;
-}
-
-.notif.text-center ol li a {
-    font-weight: 900;
-}
-button.hell {
-    border: 0px;
-    background: transparent;
-}
-.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-    background-color: transparent;
-    border-color: transparent;
-    color: black;
-}
-span.text-center.text-dark {
-    position: absolute;
-    top: 259px;
-    right: 2px;
-    z-index: 999;
-    width: 295px;
-    background: white;
-    padding: 7px;
-    color: blue !important;
-}
-ul.subnav {
-    position: absolute;
-    background: #7b0000;
-    color: white !important;
-    left: 0;
-    width: 500px;
-    padding: 22px;
-}
-.navbar-wrapper.text-white img {
-    background: white;
-    width: 49px;
-    padding: 0px 8px;
-    height: 37px;
-}
-.dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
-    box-shadow: none;
-    background-color: transparent;
-    color: black;
-}
-button#dropdownMenuButton {
-    background: transparent;
-    box-shadow: none;
-    border: transparent;
-}
-input#search_text {
-    background: #7b0000;
-    color: white !important;
-    border: 1px solid;
-    height: 36px;
-}
-input#search_text::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
-  opacity: 1; /* Firefox */
-}
-
-input#search_text:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: white;
-}
-
-input#search_text::-ms-input-placeholder { /* Microsoft Edge */
-  color: white;
-}
-.noti-icon {
-    color: white;
-    border-radius: 50%;
-    height: 20px;
-    background: #ffa0ae;
-    border: 1px solid silver;
-    width: 20px;
-    padding-left: 5px;
-    position: absolute;
-    right: 16px;
-    top: 4px;
-}
-.dropdown1.text-white {
-    padding: 10px;
-    border: 1px solid;
-    margin-bottom: 28px;
-}
-/* .nav-tabs {
-    border: 0;
-    border-radius: 3px;
-    padding: 0 15px;
-    position: absolute;
-    top: 51px;
-    left: 0;
-    opacity: 0;
-} */
-.noti-icon h6 {
-    color: white;
-    font-weight: bold;
-    margin-top: -1px;
-}
-.sidebar .logo{
-  background:#7b0000;
-}
+ 
  </style>
 </head>
 
@@ -192,37 +39,37 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active ">
+          <li class="nav-item <?php echo e($tab=='dashboard' ? 'active': ''); ?> ">
             <a class="nav-link " href="<?php echo e(url('artists/dashboard')); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo e($tab=='profile' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload Content</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
-           <li class="nav-item ">
+           <li class="nav-item <?php echo e($tab=='requests' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
               <i class="fa fa-money"></i>
               <p>Requests</p>
             </a>
           </li>
-         <li class="nav-item dropdown">
+         <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
@@ -282,7 +129,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
                      </div>
 
                           <div class="col-md-6 ">
-                            <div class="bar">
+                            <div class="bar ">
                         <div class="dropdown1 text-white">
                            <h4>Reward</h4>
                          
@@ -369,9 +216,9 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     
  
     <div class="">
-		    	  <span class="firstName" style="display: none;"></span>
-	           	<div class="profileImage"></div>
-	  </div>
+            <span class="firstName" style="display: none;"></span>
+              <div class="profileImage"></div>
+    </div>
    
 
    <span class="profile-img text-white">
@@ -441,6 +288,4 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
 
 
 </style>
-      <!-- End Navbar -->
-
-<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
+      <!-- End Navbar --><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
