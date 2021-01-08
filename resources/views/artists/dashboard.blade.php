@@ -54,14 +54,14 @@ span.profile-img hr {
     padding: 0px 5px;
     font-size: 16px;
 }
-.tab-content {
+/* .tab-content {
     position: absolute;
     background: #7b0000;
     left: -260px;
     top: 71px;
     padding: 20px;
     width: 38%;
-}
+} */
 .dropdown12.text-white {
     border: 1px solid;
     padding: 16px;
@@ -102,11 +102,19 @@ span.text-center.text-dark {
     padding: 7px;
     color: blue !important;
 }
+ul.subnav {
+    position: absolute;
+    background: #7b0000;
+    color: white !important;
+    left: 0;
+    width: 500px;
+    padding: 22px;
+}
 .navbar-wrapper.text-white img {
     background: white;
-    padding: 2px;
+    width: 49px;
+    padding: 0px 8px;
     height: 37px;
-    
 }
 .dropdown-menu .dropdown-item:hover, .dropdown-menu .dropdown-item:focus, .dropdown-menu a:hover, .dropdown-menu a:focus, .dropdown-menu a:active {
     box-shadow: none;
@@ -153,7 +161,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     border: 1px solid;
     margin-bottom: 28px;
 }
-.nav-tabs {
+/* .nav-tabs {
     border: 0;
     border-radius: 3px;
     padding: 0 15px;
@@ -161,7 +169,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     top: 51px;
     left: 0;
     opacity: 0;
-}
+} */
 .noti-icon h6 {
     color: white;
     font-weight: bold;
@@ -246,7 +254,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
 
               <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs text-center">
-                    <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
+                    <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home">Video</a></li>
                     </ul>
           
                     <div class="tab-content">
@@ -273,14 +281,8 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
                           <div class="col-md-6 ">
                             <div class="bar">
                         <div class="dropdown1 text-white">
-                           <h4>Price</h4>
-                            
-                            <label class="">
-                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
-
-                          <!--    {{Form::checkbox('price','free')}}Free   -->
-                          
-                            </label><br>
+                           <h4>Reward</h4>
+                         
                             <label class="text-white">
                           {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
@@ -368,7 +370,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
    
 
    <span class="profile-img text-white">
-   {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+   {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
     </button>
