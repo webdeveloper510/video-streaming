@@ -66,15 +66,8 @@
 <script src="{{asset('revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
 <script src="{{asset('revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
 <script src="{{asset('revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
-<script type="text/javascript">
-var user_id=41;
-var base_url = "https://hemailer.com/";
-</script>
-<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js">
-</script>
-<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js">
-</script>
-<script type="text/javascript" src="https://hemailer.com/js/analytics.js?v=2">
+
+
 <script src="https://designmodo.com/demo/dropdown-menu-search/prefixfree-1.0.7.js"></script>
 <script src="{{asset('revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
     <!-- Bootstrap CSS -->

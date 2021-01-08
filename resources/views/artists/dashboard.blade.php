@@ -21,6 +21,7 @@
   <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!--  <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script> -->
 
 <style type="text/css">
@@ -207,7 +208,7 @@
            <a href="{{url('/artist/offer')}}">
 
            <button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button>
-           
+
            </a>
            
            @if($artistProfile[0]->profilepicture)
