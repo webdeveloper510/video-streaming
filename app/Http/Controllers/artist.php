@@ -41,11 +41,13 @@ class artist extends Controller
 
     public function showRequest(){
 
-        $showRequest = $this->model->showRequests();
+      $navbaractive = 'requests';
+
+      $showRequest = $this->model->showRequests();
 
     
 
-        return view('artists.request',['request'=>$showRequest]);
+        return view('artists.request',['tab'=>$navbaractive,'request'=>$showRequest]);
 
     }
 
@@ -181,12 +183,17 @@ class artist extends Controller
     public function dashboard()
     {
 
-        $contentType =   Session::get('User');
-      return view('artists.dashboard_home',['contentUser'=>$contentType]);
+      $navbaractive = 'dashboard';
 
-  }
+      $contentType =   Session::get('User');
+
+      return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive]);
+
+    }
 
     public function profile(){
+
+      $navbaractive = 'profile';
 
       $session_data =   Session::get('User');
 
@@ -203,7 +210,7 @@ class artist extends Controller
 
          $contentLogin =   Session::get('User');
       
-      return view('artists.profile',['contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+      return view('artists.profile',['tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
 
@@ -222,7 +229,10 @@ class artist extends Controller
 
   public function offer(){
 
-    return view('artists.offer');
+    $navbaractive = 'offer';
+
+    return view('artists.offer',['tab'=>$navbaractive]);
+
   }
 
   public function createOffer(Request $req){
@@ -267,11 +277,13 @@ class artist extends Controller
 
   public function myoffer(){
 
+    $navbaractive = 'offer';
+
      $offer = $this->model->getOffer();
 
     // print_r($offer);die;
 
-    return view('artists.myoffer',['offer'=>$offer]);
+    return view('artists.myoffer',['offer'=>$offer,'tab'=>$navbaractive]);
   }
 
   public function editDescription(Request $req){

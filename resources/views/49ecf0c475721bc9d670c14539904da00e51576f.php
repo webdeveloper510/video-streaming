@@ -183,37 +183,37 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active ">
+          <li class="nav-item <?php echo e($tab=='dashboard' ? 'active': ''); ?> ">
             <a class="nav-link " href="<?php echo e(url('artists/dashboard')); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo e($tab=='profile' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
               <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload Content</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
-           <li class="nav-item ">
+           <li class="nav-item <?php echo e($tab=='requests' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
               <i class="fa fa-money"></i>
               <p>Requests</p>
             </a>
           </li>
-         <li class="nav-item dropdown">
+         <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>

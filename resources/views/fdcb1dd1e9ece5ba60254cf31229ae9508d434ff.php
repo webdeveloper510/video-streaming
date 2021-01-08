@@ -39,7 +39,7 @@
       <td><?php echo e($val->price); ?></td>
       <td><?php echo e($val->description); ?></td>
       <td><?php echo e($val->userdescription); ?></td>
-   <!--    <td><button class="edit" onclick="getofferid('<?php echo e($val->id); ?>','<?php echo e($val->description); ?>','<?php echo e($val->userid); ?>')" data-toggle="modal" data-target="#editdescription">Edit Description</button></td> -->
+  
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
@@ -48,12 +48,7 @@
 </div>
  <style>
 
-        li.nav-item a {
-    color: black !important;
-}
-a.navbar-brand.text-white {
-    color: black !important;
-}
+
 </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/myoffer.blade.php ENDPATH**/ ?>
