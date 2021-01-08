@@ -20,8 +20,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    
     <!--  <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script> -->
 
 <style type="text/css">
@@ -237,7 +236,7 @@
           <a href="{{url('/my-requests')}}">Projects</a></button>
     </div>
    <hr/ style="color:white;background: white;">
-  <b>{{$artistProfile[0]->token}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
 
  </span>
   
