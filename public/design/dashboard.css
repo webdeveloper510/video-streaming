@@ -86,7 +86,7 @@ ul.subnav {
     background: #7b0000;
     color: white !important;
     left: 0;
-    width: 500px;
+    width:550px;
     padding: 22px;
 }
 .navbar-wrapper.text-white img {
@@ -135,6 +135,16 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     right: 16px;
     top: 4px;
 }
+span.nickname {
+    margin-left: 22px;
+}
+button.btn.btn-link.dropdown-toggle.text-white {
+    height: 26px;
+    width: 10px !important;
+    margin-left: -17px;
+    background-color: transparent;
+    margin-bottom: 9px;
+}
 button.btn.btn-warning.text-white.mr-3.mt-2 {
     height: 36px !important;
     padding-top: 10px !important;
@@ -161,4 +171,15 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 }
 .sidebar .logo{
   background:#7b0000;
+}
+@media only screen and (max-width: 768px) {
+li.nav-item a p {
+    color: white;
+}
+a#navbarDropdown {
+    color: white;
+}
+ul.subnav {
+    width:100%;
+}
 }
