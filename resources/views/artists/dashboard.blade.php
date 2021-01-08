@@ -204,17 +204,21 @@
                
               
            <div class="btn-group login-btn text-right">    
-           <a href="{{url('/artist/offer')}}"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button></a>
+           <a href="{{url('/artist/offer')}}">
+
+           <button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button>
            
+           </a>
            
+           @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
-    
+          @else
  
     <div class="">
-            <span class="firstName" style="display: none;"></span>
+            <span class="firstName" style="display: none;">{{$artistProfile[0]->nickname}}</span>
               <div class="profileImage"></div>
     </div>
-   
+   @endif
 
    <span class="profile-img text-white">
    {{$login->nickname}}<button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
