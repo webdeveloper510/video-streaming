@@ -1128,7 +1128,9 @@ $multipleIds = Session::get('SessionmultipleIds');
 public function addMultipleVideo(Request $req){
 
 
+
           $multipleIds = Session::get('SessionmultipleIds');
+
 
             $remove = $req['isRemove'];
         
@@ -1144,9 +1146,7 @@ public function addMultipleVideo(Request $req){
            Session::put('SessionmultipleIds',$multipleIds);
            $multipleIds = Session::get('SessionmultipleIds');
 
-          // print_r($multipleIds);
-
-        
+     
        }
 
         $cartVideo = $this->model->getVideoWhereIn($multipleIds);
@@ -1154,10 +1154,11 @@ public function addMultipleVideo(Request $req){
             $all_play_lists = $this->model->getPlaylist();
 
 
-        $total = $cartVideo['sum'];
-        $result = $cartVideo['result'];
+              $total = $cartVideo['sum'];
 
-        //print_r($multipleIds);
+              $result = $cartVideo['result'];
+
+       
 
 
  return view('playlistpop',['cartVideo'=>$result, 'total_sum'=>$total,'listname'=>$all_play_lists]);
@@ -1167,6 +1168,7 @@ public function addMultipleVideo(Request $req){
 public function buyVideo(Request $req){
 
       unset($req['_token']);
+
       $this->model->buyVideo($req);
 
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
        <style>
@@ -25,6 +25,7 @@
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
 </div>
                 <h2 class="text-center mb-5 mt-3">List Of Requests</h2>
+                <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                       <tr>
@@ -83,6 +84,7 @@
                     
                     </tbody>
                   </table>
+                  </div>
             </div>
         </div>
 
@@ -121,7 +123,11 @@
   </body>
   <style type="text/css">
     
-
+    button.btn.btn-warning.text-white.mr-3.mt-2 {
+    height: 36px !important;
+    padding-top: 3px !important;
+    background-color: #ffbb11 !important;
+}
   </style>
   <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
 </html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/request.blade.php ENDPATH**/ ?>

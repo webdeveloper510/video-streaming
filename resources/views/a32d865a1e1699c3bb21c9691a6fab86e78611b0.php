@@ -363,6 +363,14 @@
 </div>  
 
 
+<script>
+	var type = "<?php echo e($GLOBALS['type']); ?>";
+
+     addTohistory(type);
+		
+
+</script>
+
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
     e.preventDefault();
@@ -383,27 +391,6 @@ $(".addToCart").click(function(e) {
     });
 });
 </script>
-<script>
-	$('docoment').ready(function(){
 
-		var id = "<?php echo e($GLOBALS['videoid']); ?>";
-
-		var type = "<?php echo e($GLOBALS['type']); ?>";
-
-		$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addTohistory",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
-
-				data: {'id':id, 'types':type},
-
-				success: function(data){	
-				}
-		});
-
-	})
-</script>
 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistVideo.blade.php ENDPATH**/ ?>

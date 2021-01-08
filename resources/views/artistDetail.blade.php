@@ -115,10 +115,11 @@
               @foreach ($details as $detail)
                    @if($detail->type=='video') 
             <div class="col-md-4 mb-3">
+                <div class='media_div'>
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
-               </form></div>
+               </form></div></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
             <video width="100%" height="100%" controls>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
