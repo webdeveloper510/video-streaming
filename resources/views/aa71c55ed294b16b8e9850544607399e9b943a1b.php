@@ -12,6 +12,8 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo e(asset('design/dashboard.css')); ?>" />
@@ -20,7 +22,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <!--  <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script> -->
 
 <style type="text/css">
@@ -209,17 +211,21 @@
                
               
            <div class="btn-group login-btn text-right">    
-           <a href="<?php echo e(url('/artist/offer')); ?>"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button></a>
+           <a href="<?php echo e(url('/artist/offer')); ?>">
+
+           <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
+
+           </a>
            
-           
-            <img width="50px" height="50px" src="">
-    
+           <?php if($artistProfile[0]->profilepicture): ?>
+            <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
+          <?php else: ?>
  
     <div class="">
-            <span class="firstName" style="display: none;"></span>
+            <span class="firstName" style="display: none;"><?php echo e($artistProfile[0]->nickname); ?></span>
               <div class="profileImage"></div>
     </div>
-   
+   <?php endif; ?>
 
    <span class="profile-img text-white">
    <?php echo e($login->nickname); ?><button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
@@ -237,7 +243,7 @@
           <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
     </div>
    <hr/ style="color:white;background: white;">
-  <b>66 </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
  </span>
   

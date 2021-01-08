@@ -335,6 +335,10 @@ div#nav-tab {
 .profileimg .iconcamera i{
   display:none;
 }
+button.btn.btn-warning.text-white.mr-3.mt-2 {
+    height: 36px !important;
+    background-color: #ffbb11 !important;
+}
 .profileimg:hover .iconcamera i{
   position: absolute;
     top: 21%;
@@ -345,6 +349,7 @@ div#nav-tab {
     height: 23px;
     text-align: center;
     width: 57px;
+    padding: 4px;
 }
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;

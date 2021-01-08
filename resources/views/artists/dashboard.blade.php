@@ -12,6 +12,8 @@
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{asset('design/dashboard.css')}}" />
@@ -206,7 +208,7 @@
            <div class="btn-group login-btn text-right">    
            <a href="{{url('/artist/offer')}}">
 
-           <button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button>
+           <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
 
            </a>
            
@@ -237,8 +239,7 @@
           <a href="{{url('/my-requests')}}">Projects</a></button>
     </div>
    <hr/ style="color:white;background: white;">
-  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    
-  <b style="font-family: 'Alfa Slab One', cursive;font-weight: 800;">PAZ</b>
+  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
  </span>
   
