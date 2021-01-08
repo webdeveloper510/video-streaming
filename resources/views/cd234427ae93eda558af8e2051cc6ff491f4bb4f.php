@@ -12,13 +12,7 @@
   <!-- Plugin for the momentJs  -->
   <script src="<?php echo e(asset('artistdashboard/js/plugins/moment.min.js')); ?>"></script>
 
-<<<<<<< HEAD
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-   Plugin for Sweet Alert -->
-=======
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
->>>>>>> 573d769a6e8e7f39e13d9b803cc55c6637fcaa8b
   <script src="<?php echo e(asset('artistdashboard/js/plugins/sweetalert2.js')); ?>"></script>
   <!-- Forms Validations Plugin -->
   <script src="<?php echo e(asset('artistdashboard/js/plugins/jquery.validate.min.js')); ?>"></script>
