@@ -210,7 +210,7 @@
               <li class="nav-item">
                
               
-           <div class="btn-group login-btn text-right" style="border-right: 2px solid white;">    
+           <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
            <a href="<?php echo e(url('/artist/offer')); ?>">
 
            <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
