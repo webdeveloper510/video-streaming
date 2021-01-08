@@ -420,15 +420,17 @@ function addMultiple(check,id){
 
 
 $(document).on('click', '.section_advance', function () {
-	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
 
-	//$('#bar').hasClass('rightbar') ? $('.bar').removeClass('rightbar') : $('#bar').addClass('rightbar');
+	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
 	
 })
+
 $(document).on('click', '.link_click', function () {
 	 if($(this).hasClass('active')){
+
 }
 else{
+
 	$(this).parent().find('li').removeClass('active');
 	$(this).addClass('active');
 }
@@ -450,23 +452,24 @@ else{
     $(document).on('click', '.media1', function () {
 
   			
-  		var clas1 = $(this).attr('class').split(' ');
+  		   var clas1 = $(this).attr('class').split(' ');
 
-  	var notId1= $(".media1:not(:checked)").attr('class').split(' ');
-  	$('#'+clas1[1]).show();
-  	$('#'+notId1[1]).hide();
+			var notId1= $(".media1:not(:checked)").attr('class').split(' ');
+
+			$('#'+clas1[1]).show();
+
+			$('#'+notId1[1]).hide();
   })
 
  $('.action').click(function(){
 
- 	//console.log('kk');
   		var value = $(this).val();
 
   		var key = $(this).attr('data-key');
 
   		var userid = $(this).attr('user-id');
 
-  		//console.log(value);
+  
 
   		$.ajax({
 				type: 'POST',
@@ -499,14 +502,14 @@ else{
   })
 
 function getId(id){
-	//console.log(id);
+
 	$('#reqid').val(id);
+
 }
 
 
 function getofferid(id,desc,userid){
 
-	//console.log(id);
 
 	$(".description").val(desc);
 
@@ -520,6 +523,7 @@ function editdesc(id,desc){
 $(".description").val(desc);
 
 $('#offerid').val(id);
+
 }
 
 function showDiv(){

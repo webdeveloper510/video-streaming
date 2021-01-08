@@ -209,17 +209,21 @@
                
               
            <div class="btn-group login-btn text-right">    
-           <a href="<?php echo e(url('/artist/offer')); ?>"><button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button></a>
+           <a href="<?php echo e(url('/artist/offer')); ?>">
+
+           <button type="button" class="btn btn-warning text-white mr-3 mt-1">Create Offer</button>
            
+           </a>
            
+           <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
-    
+          <?php else: ?>
  
     <div class="">
-            <span class="firstName" style="display: none;"></span>
+            <span class="firstName" style="display: none;"><?php echo e($artistProfile[0]->nickname); ?></span>
               <div class="profileImage"></div>
     </div>
-   
+   <?php endif; ?>
 
    <span class="profile-img text-white">
    <?php echo e($login->nickname); ?><button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
