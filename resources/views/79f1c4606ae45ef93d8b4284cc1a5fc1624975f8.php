@@ -345,6 +345,7 @@ div#nav-tab {
     height: 23px;
     text-align: center;
     width: 57px;
+    padding: 4px;
 }
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
