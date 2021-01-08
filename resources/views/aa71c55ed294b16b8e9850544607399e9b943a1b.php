@@ -50,13 +50,19 @@
           <li class="nav-item <?php echo e($tab=='profile' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p> Profile</p>
+            </a>
+          </li>
+          <li class="nav-item <?php echo e($tab=='feed' ? 'active': ''); ?>">
+            <a class="nav-link" href="<?php echo e(url('artists/dashboard')); ?>">
+            <i class="fa fa-newspaper-o"> </i>
+              <p>User Feed</p>
             </a>
           </li>
           <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
-              <p>Upload Content</p>
+              <p>Upload</p>
             </a>
           </li>
           <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>">
@@ -68,7 +74,7 @@
            <li class="nav-item <?php echo e($tab=='requests' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
               <i class="fa fa-money"></i>
-              <p>Requests</p>
+              <p>Orders</p>
             </a>
           </li>
          <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">

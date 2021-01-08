@@ -50,13 +50,19 @@
           <li class="nav-item {{$tab=='profile' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/Profile')}}">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p> Profile</p>
+            </a>
+          </li>
+          <li class="nav-item {{$tab=='feed' ? 'active': ''}}">
+            <a class="nav-link" href="{{url('artists/dashboard')}}">
+            <i class="fa fa-newspaper-o"> </i>
+              <p>User Feed</p>
             </a>
           </li>
           <li class="nav-item {{$tab=='upload' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
               <i class="fa fa-upload"></i>
-              <p>Upload Content</p>
+              <p>Upload</p>
             </a>
           </li>
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}">
@@ -68,7 +74,7 @@
            <li class="nav-item {{$tab=='requests' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
               <i class="fa fa-money"></i>
-              <p>Requests</p>
+              <p>Orders</p>
             </a>
           </li>
          <li class="nav-item dropdown {{$tab == 'offer' ? 'active': ''}}">
