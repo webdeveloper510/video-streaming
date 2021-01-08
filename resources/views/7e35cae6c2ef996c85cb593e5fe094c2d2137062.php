@@ -210,7 +210,7 @@
               <li class="nav-item">
                
               
-           <div class="btn-group login-btn text-right">    
+           <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
            <a href="<?php echo e(url('/artist/offer')); ?>">
 
            <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
@@ -227,9 +227,8 @@
     </div>
    <?php endif; ?>
 
-   <span class="profile-img text-white">
-   <?php echo e($login->nickname); ?>
-
+   <span class="profile-img text-white text-center">
+   <span class="nickname"><?php echo e($login->nickname); ?></span>
    <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
