@@ -72,6 +72,9 @@ ul.nav.nav-tabs li a {
     right: 10px;
 
 }
+h5.select_list.active {
+    color: red;
+}
 .modal-open .modal{
     z-index: 9999999 !important;
 }
