@@ -54,7 +54,7 @@ class artist extends Controller
 
     public function artistDetail($artistid){
 
-     Session::forget('SessionmultipleIds');
+         Session::forget('SessionmultipleIds');
          
          $allArtistsVideo =     $this->model->getArtistDetail($artistid,'video');
          
@@ -68,37 +68,34 @@ class artist extends Controller
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
-          // echo "<pre>";
 
-          // print_r($allArtistsVideo);die;
+         $category_data = $this->model->getCategory();      
 
-         $category_data = $this->model->getCategory();
-
-       
-
-   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
-    }
+    return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
+    
+  }
 
     public function cartSbmit(Request $req){
         
             $data=$req->all();
 
-            //print_r($data);die;
           
             $arrayId=Session::get('ids');
+
             if($arrayId){
           
-                if(!in_array($data['id'], $arrayId)){
-                    
-                     $arrayId[] =$data['id'];
-                     Session::put('ids',$arrayId);
-                }
+                    if(!in_array($data['id'], $arrayId)){
+                        
+                        $arrayId[] =$data['id'];
+
+                        Session::put('ids',$arrayId);
+                    }
 
             }
             else{
               
-                $arr = array();
-                $arr[]=$data['id'];
+                 $arr = array();
+                 $arr[]=$data['id'];
                  Session::put('ids',$arr);
             }
             
@@ -186,6 +183,8 @@ class artist extends Controller
       $navbaractive = 'dashboard';
 
       $contentType =   Session::get('User');
+
+      $this->model->today_PAZ();
 
       return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive]);
 
