@@ -1197,6 +1197,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
        // print_r($lists);die;
         $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
 
+        print_r($newData);die;
+
         $videoIds = implode(',',$newData);
       
 
