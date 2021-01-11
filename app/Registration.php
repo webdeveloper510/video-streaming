@@ -1695,7 +1695,7 @@ public function updatePassword($email,$password){
 
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 
-          return  $return==1 ? $this->reduceTokens($checkTokn,$userid,$data['price'],'artistId bhejni'): 0;
+          return  $return==1 ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
     }
 
     else{

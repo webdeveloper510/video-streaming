@@ -37,14 +37,18 @@
         </div>     
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-4">
              <div class="card" style="width: 18rem;">
              <h5 class="card-title text-left pt-3 pl-3">New Messages:</h5>
              <hr>
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Clint Name :</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.<span class="text-right ml-5 pl-5"><a href="#">Ready</a></span></p>
+               
+                <h5 class="card-title">Clint Name :</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.<span class="text-right ml-5 pl-5"><a href="#">Ready</a></span></p>
                
               </div>
             </div>
@@ -54,13 +58,12 @@
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
-                <h5 class="card-title">Today:</h5>
+                <h3 class="card-title">Today:</h3>
                 <h5>4500 PAZ</h5>
-                <h5 class="card-title">This Month:</h5>
+                <h3 class="card-title">This Month:</h3>
                 <h5>144 250 PAZ</h5>
-                <h5 class="card-title">This Year:</h5>
+                <h3 class="card-title">This Year:</h3>
                 <h5>1 526 568 PAZ</h5>
-                
               </div>
             </div>
     </div>
@@ -69,9 +72,9 @@
              <h5 class="card-title text-left pt-3 pl-3">Additional Requests:</h5>
              <hr>
               <div class="card-body">
-                <h5>customername        <button type="button" class="btn btn-primary ml-4">Open</button></h5>
-                <h5>customername        <button type="button" class="btn btn-primary ml-4">Open</button></h5>
-                <h5>customername        <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+                <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+                <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+                <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
                 
               </div>
             </div>
