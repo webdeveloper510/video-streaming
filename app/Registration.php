@@ -1307,8 +1307,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
   public function insertPaymentStatus($uid,$artid,$vid,$paz){
 
     $payment = array(
-      'created_at'=>now(),
-      'updated_at'=>now(),
+      'created_at'=>date("Y-m-d H:i:s"),
+      'updated_at'=>date("Y-m-d H:i:s"),
       'userid'=>$uid,
       'artistid'=>$artid,
       'mediaid'=>$vid,
