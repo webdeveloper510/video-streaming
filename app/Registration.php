@@ -1190,7 +1190,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         //$lists['art_id'] = $lists['art_id'];
 
-        echo $listname = Session::get('listname');
+         $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
 
@@ -1279,7 +1279,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
             $playlist['created_at'] = now();
             $playlist['updated_at'] = now();
 
-            print_r($playlist);die;
+            //print_r($playlist);die;
 
           $insert  =DB::table('playlist')->insert($playlist);
 
