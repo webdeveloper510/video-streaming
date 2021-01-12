@@ -1062,6 +1062,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function updateUserVideo($uid,$video,$tok,$type){
 
+         // print_r($video);die;
+
       if(isset($video['user_id'])){
             $ids = $video['user_id'];
             $id = explode('_',$ids);
@@ -1303,6 +1305,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
   }
 
   public function insertPaymentStatus($uid,$artid,$vid,$paz){
+
+    //echo $uid.$artid.$vid.$paz;die;
 
     $payment = array(
       'created_at'=>date("Y-m-d H:i:s"),
@@ -1742,14 +1746,16 @@ public function updatePassword($email,$password){
 
     public function buyofferVideo($data){
 
+      //print_r($data);die;
+
       unset($data['_token']);
 
       $ids = $data['user_id'];
 
-      // $ids = $video['user_id'];
-      // $id = explode('_',$ids);
+  
 
       $session_data =   Session::get('User');
+
       $userid =  $session_data->id;
 
       $id = explode('_',$ids);
@@ -1757,13 +1763,15 @@ public function updatePassword($email,$password){
       $checkTokn = $this->selectDataById('id','users',$userid);
 
       $return  = 0;
-      //print_r($checkTokn);die;
+    
 
       $token = $checkTokn[0]->tokens;
 
       if($token > $data['price']){
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
+
+        //print_r($value);die;
 
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 

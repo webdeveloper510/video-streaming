@@ -602,11 +602,11 @@ public function artistselling(){
     return view('artistselling');
   }
   public function artistoffers($id){
-    
-    //echo $id;
+
     $data = $this->model->getofferByid($id);
         
     return view('artistoffers',['offer'=>isset($data) ? $data :[]]);
+
   }
 
   public function view1(){
@@ -1219,7 +1219,6 @@ public function addmMltiple(Request $req){
 
          $addTolibrary = $req->all();
 
-         //print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
@@ -1243,6 +1242,7 @@ public function addmMltiple(Request $req){
         }
 
         else{
+
           $response['status'] = 1;
           $response['messge'] = 'Some Error Occure!';
             

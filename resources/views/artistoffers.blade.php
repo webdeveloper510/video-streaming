@@ -55,7 +55,7 @@ $GLOBALS['price'] = $offerdata->price;
 {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
 <input type="hidden" name="user_id" value="{{$GLOBALS['id'].'_'.$GLOBALS['user_id']}}"/>
 <input type="hidden" name="price" value="{{$GLOBALS['price']}}"/>
-<input type="hidden" name="art_id" value="$GLOBALS['artistid']">
+<input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
   {{Form::number('duration', '',['class'=>'form-control','placeholder'=>'Duration'])}}

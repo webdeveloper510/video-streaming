@@ -56,7 +56,7 @@ $GLOBALS['price'] = $offerdata->price;
 
 <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
 <input type="hidden" name="price" value="<?php echo e($GLOBALS['price']); ?>"/>
-<input type="hidden" name="art_id" value="$GLOBALS['artistid']">
+<input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
   <?php echo e(Form::number('duration', '',['class'=>'form-control','placeholder'=>'Duration'])); ?>
