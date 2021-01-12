@@ -1246,9 +1246,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
          if(isset($update)){
 
-          
-
-                $buyed = $this->buyVideo($lists);
+           $buyed = $this->buyVideo($lists);
 
                // print_r($buyed);die;
 
@@ -1748,6 +1746,9 @@ public function updatePassword($email,$password){
 
       $ids = $data['user_id'];
 
+      // $ids = $video['user_id'];
+      // $id = explode('_',$ids);
+
       $session_data =   Session::get('User');
       $userid =  $session_data->id;
 
@@ -1755,6 +1756,7 @@ public function updatePassword($email,$password){
 
       $checkTokn = $this->selectDataById('id','users',$userid);
 
+      $return  = 0;
       //print_r($checkTokn);die;
 
       $token = $checkTokn[0]->tokens;
@@ -1765,13 +1767,19 @@ public function updatePassword($email,$password){
 
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 
-          return  $return==1 ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
+           $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
+
+        $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
+
+        $return = $status_succedd;
     }
 
     else{
 
-       return  0;
+      $return =  0;
     }
+
+    return $return;
 
 }
 
