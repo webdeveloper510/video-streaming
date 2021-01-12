@@ -60,9 +60,9 @@
                 <h3 class="card-title">Today:</h3>
                 <h5>4500 PAZ</h5>
                 <h3 class="card-title">This Month:</h3>
-                <h5>144 250 PAZ</h5>
+                <h5>{{$month_paz[0]->total_token}} PAZ</h5>
                 <h3 class="card-title">This Year:</h3>
-                <h5>1 526 568 PAZ</h5>
+                <h5>{{$year_PAZ[0]->total_token}} PAZ</h5>
               </div>
             </div>
     </div>

@@ -1326,6 +1326,40 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
   }
 
+  public function month_PAZ(){
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+  $value=DB::table('payment_token')
+  ->select(DB::raw('SUM(tokens) as total_token'))
+  ->where('artistid',$userid)
+  ->whereMonth('created_at',Carbon::now()->month)
+  
+         ->get()->toArray();
+
+         return $value;
+
+
+  }
+
+  public function year_PAZ(){
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+  $value=DB::table('payment_token')
+  ->select(DB::raw('SUM(tokens) as total_token'))
+  ->where('artistid',$userid)
+  ->whereYear('created_at',Carbon::now()->year)
+  
+         ->get()->toArray();
+
+          return $value;
+  }
+
 public function reduceTokens($tokns,$userid,$tok,$artid){
 
   //print_r($artid);die;
