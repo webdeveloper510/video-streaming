@@ -205,9 +205,9 @@ class artist extends Controller
        $allArtistOffer =      $this->model->getArtistOffer($userid);
 
 
-        $allPlaylist =      $this->model->getAllPlaylist();
+      $allPlaylist =      $this->model->getAllPlaylist();
 
-         $contentLogin =   Session::get('User');
+      $contentLogin =   Session::get('User');
       
       return view('artists.profile',['tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
