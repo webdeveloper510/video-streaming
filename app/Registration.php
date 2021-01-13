@@ -1372,7 +1372,7 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
             'tokens' =>  DB::raw('tokens -'.$tok)
           ]);
 
-            if($update==1){
+            if($update){
 
               $return = DB::table('contentprovider')->where(array('id'=>$artid))->update([
                         'token' =>  DB::raw('token +'.$tok)
@@ -1382,13 +1382,13 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
            // print_r($return);die;
 
-             return $update==1 ? 1 : 0;
+             return $update ? 1 : 0;
 
         }
 
         else
         {
-          //echo "jj";die;
+       
             return 'Insufficient Paz Tokens';
         }
 }
@@ -1436,19 +1436,21 @@ public function createList($create){
 }
 
 public function getAllPlaylist(){
-  $data = \DB::table("playlist")
-  ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
-  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
-  ->groupBy("playlist.id","playlist.playlistname")
-  ->get();
-  //print_r($data);die;
+
+      $data = \DB::table("playlist")
+      ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+      ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+      ->groupBy("playlist.id","playlist.playlistname")
+      ->get();
+
     return $data;
 }
 
 public function getPlayListName(){
 
     $session_data =   Session::get('User');
-        $userid =  $session_data->id;
+
+    $userid =  $session_data->id;
 
          $value=DB::table('playlist')->where('userid', $userid)->get()->toArray();
 
@@ -1457,21 +1459,35 @@ public function getPlayListName(){
 }
 
 
+public function getPlaylistById($id){
+
+  $data = \DB::table("playlist")
+  ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+  ->groupBy("playlist.id","playlist.playlistname")
+  ->where('playlist.id', $id)
+  ->get();
+
+return $data;
+
+}
+
+
 
 public function addWishlist($data1){
 
- // print_r($data1);die;
 
-  // $wishlist = implode(',', $data1);
 
   unset($data1['_token']);
 
   $session_data =   Session::get('User');
+
   $userid =  $session_data->id;
+
  $data = $this->selectSingleById('userid','wishlist',$userid);
 
 
- //print_r($data);die;
+ 
  
  if($data){
      $newArray =  explode(",",$data[0]);
@@ -1507,16 +1523,12 @@ public function updateWishlist($data,$uid){
 }
 
 public function insertWishlist($data,$uid){
-
-
-              $array= array(
-
-                'created_at'=>now(),
-                'updated_at'=>now(),
-                'userid'=>$uid,
-                'videoid'=>$data[0]
-              );
-
+        $array= array(
+          'created_at'=>now(),
+          'updated_at'=>now(),
+          'userid'=>$uid,
+          'videoid'=>$data[0]
+        );
               $insert = DB::table('wishlist')->insert($array);
 
               return $insert;
@@ -1531,23 +1543,17 @@ public function getVideosbyList($id){
 
    if($value){
 
-    $ids = explode(',',$value[0]);
+          $ids = explode(',',$value[0]);
 
-    $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
-
-
-    //print_r($videos);die;
+          $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
 
          return $videos;
+
        }
 
 }
 
 public function addToHistory($data){
-
-
-
-  //print_r($data);die;
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
   $data1 = $this->selectSingleById('userid','history',$userid);
@@ -1555,9 +1561,9 @@ public function addToHistory($data){
 
   unset($data['types']);
 
-  //print_r($data1);die;
+
   $returnadata = count($data1) > 0 ? $this->updateHistory($data,$userid,$data1) : $this->insertHistory($data,$userid);
-  //
+
    $this->getPopularTable($popularData,$userid);
       
 }
@@ -1565,9 +1571,11 @@ public function addToHistory($data){
 public function getPopularTable($post,$uid){
 
   $vid = $post['id'];
+
   $videos = DB::table("popular")->where(array('userid'=>$uid,'mediaid'=>$vid))->get()->toArray();
+
     $return = count($videos) > 0 ? $this->updatePopular($post,$uid) : $this->insertPopular($post,$uid);
-    //print_r($return);
+
 }
 
 public function updatePopular($data,$uid){
@@ -1600,8 +1608,6 @@ public function PopularVideos($flag,$type){
 
       }
 
-   
-        //print_r($videos);die;
     
 
     return $videos;
@@ -1624,8 +1630,7 @@ public function insertPopular($data,$id){
 
 public function updateHistory($postdata,$uid,$tableData){
 
-  //$postdata['id'] = 11;
- // $postdata['id'] = 12;
+
 
   $newArray =  explode(",",$tableData[0]);
  
@@ -1637,8 +1642,7 @@ public function updateHistory($postdata,$uid,$tableData){
 
       $updatedId = implode(",",$result_array);
 
-      //print_r($updatedId);die;
-
+  
       $update = DB::table('history')->where(array('userid'=>$uid))
       ->update([
             'videoid' =>  $updatedId//DB::raw("CONCAT(videoid,',".$data[0]."')"),
@@ -1778,7 +1782,10 @@ public function updatePassword($email,$password){
 
 }
 
-    public function buyofferVideo($data){
+/*----------------------------------------------------Buy Offer --------------------------------------------------------------- */
+    
+     
+public function buyofferVideo($data){
 
       //print_r($data);die;
 
@@ -1825,23 +1832,24 @@ public function updatePassword($email,$password){
 
 }
 
+/*-----------------------------------------------------------Subscribed To Artist--------------------------------------------------------- */
 
-public function subscribe($data){
 
-  $session_data =   Session::get('User');
+  public function subscribe($data){
 
-  $userid =  $session_data->id;
+          $session_data =   Session::get('User');
 
-  //print_r($data);die;
+          $userid =  $session_data->id;
 
-     $return = DB::table('subscriber')
-     //->whereRaw('FIND_IN_SET(?,userid)',[$userid])
-     ->Where('artistid',$data['id'])
-     ->get();
+            $return = DB::table('subscriber')
+      
+            ->Where('artistid',$data['id'])
 
-     $returnData = count($return) > 0 ? $this->updateSubscriberCount($userid,$data,$return): $this->insertSubscriber($userid,$data); 
+            ->get();
 
-     return $returnData;
+            $returnData = count($return) > 0 ? $this->updateSubscriberCount($userid,$data,$return): $this->insertSubscriber($userid,$data); 
+
+            return $returnData;
 
 }
 
@@ -1885,12 +1893,13 @@ public function unsubscribe($allIds,$userid,$postData,$count){
 
       unset($allIds[$index]);
 
-     // print_r($allIds);die;
+   
 
   $update = DB::table('subscriber')->where(array('artistid'=>$postData['id']))
+
   ->update([
-      'userid' =>implode(',',$allIds),
-      'count' =>  DB::raw('count -'.$count),
+        'userid' =>implode(',',$allIds),
+        'count' =>  DB::raw('count -'.$count)
       ]);
 
     return $update;
