@@ -58,22 +58,28 @@ class artist extends Controller
          
          $allArtistsVideo =     $this->model->getArtistDetail($artistid,'video');
          
-         $allArtistsAudio=     $this->model->getArtistDetail($artistid,'audio');
+         $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
 
-          $isSubscribe =   $this->model->isSubscribe($artistid);
+          $isSubscribe =         $this->model->isSubscribe($artistid);
 
          $onlyArtistDetail =      $this->model->onlyArtistDetail($artistid);
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
+        //  echo "<pre>";
+
+        //  print_r($allPlaylist);die;
+
 
          $category_data = $this->model->getCategory();      
 
-    return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
+         return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
     
   }
+
+  
 
     public function cartSbmit(Request $req){
         

@@ -1397,4 +1397,11 @@ public function readNotification(Request $request){
 
       }
 
+
+      public function playlistByid($playId){
+
+              $this->model->getPlaylistById($playId);
+
+      }
+
 }

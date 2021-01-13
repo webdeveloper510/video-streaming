@@ -73,7 +73,9 @@
              <hr>
               <div class="card-body">
                 <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+
                 <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+                
                 <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
                 
               </div>

@@ -765,9 +765,7 @@ function updateRead(){
 /*-------------------------------Subscribe To Artist----------------------------------------------------*/
 
 function subscribe(id,setValue){
-
-	//console.log(setValue);return false;
-
+	
 	$.ajax({
 		type: 'POST',
 		url:APP_URL+"/subscribe",
@@ -812,15 +810,13 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-				//console.log(data);return false;
-
 					if(data.status==1){
-						//console.log('yes');
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
 					}	
 					
 					else{
+
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
 					}
@@ -832,7 +828,6 @@ $(document).on('submit', '#form_sub', function (event) {
 
 function addTohistory(type){
 
-	//console.log(type);return false;
 
 	var id = $('#vidid').val();
 
