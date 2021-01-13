@@ -16,10 +16,11 @@
     <div class="row">
    <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
+       <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+           <audio width="350px" height="275px" controls>
             <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
             Your browser does not support the video tag.
-          </video>
+          </audio>
  </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
@@ -30,4 +31,13 @@
 
 
 
-</div><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/getAlldata.blade.php ENDPATH**/ ?>
+</div>
+<style>
+.col-md-4.mb-3 img {
+    height: 165px;
+    padding-left: 7px;
+    margin-bottom: -23px;
+}
+</style>
+
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/getAlldata.blade.php ENDPATH**/ ?>
