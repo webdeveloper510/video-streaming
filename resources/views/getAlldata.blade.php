@@ -3,7 +3,7 @@
 
 <div class="container">
     @if($videos)
-   <div class="row">
+   <div class="row pt-5 mt-5">
    @foreach($videos as $vid)
        <div class="col-md-4">
            <video width="350px" height="275px" controls allowfullscreen>
@@ -13,7 +13,7 @@
     </div>
     @endforeach
     @else
-    <div class="row">
+    <div class="row pt-5 mt-5">
    @foreach($audio as $aud)
        <div class="col-md-4">
        <img src="{{asset('images/logos/voice.jpg')}}">
@@ -32,7 +32,7 @@
 
 </div>
 <style>
-.col-md-4.mb-3 img {
+.col-md-4 img {
     height: 165px;
     padding-left: 7px;
     margin-bottom: -23px;
