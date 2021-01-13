@@ -16,10 +16,10 @@
     <div class="row">
    @foreach($audio as $aud)
        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen>
+           <audio width="350px" height="275px" controls allowfullscreen>
             <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
             Your browser does not support the video tag.
-          </video>
+          </audio>
  </div>
     @endforeach
 @endif
