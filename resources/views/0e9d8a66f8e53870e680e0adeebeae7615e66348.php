@@ -44,11 +44,17 @@
       Your browser does not support the video tag.
     </video>
     
+    
+
       </div>
       <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
        <?php endif; ?>
+       <?php else: ?>
+       <div class="playhistory">
+                     <h4>Playlist Empty</h4>
 
+                   </div>
             <?php endif; ?>
 			
 	</div>

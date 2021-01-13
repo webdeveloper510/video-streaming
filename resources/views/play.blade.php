@@ -44,11 +44,17 @@
       Your browser does not support the video tag.
     </video>
     
+    
+
       </div>
       @endif
       @empty
        @endforelse
+       @else
+       <div class="playhistory">
+                     <h4>Playlist Empty</h4>
 
+                   </div>
             @endif
 			
 	</div>
