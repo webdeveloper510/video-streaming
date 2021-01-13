@@ -3,7 +3,7 @@
 
 <div class="container">
     <?php if($videos): ?>
-   <div class="row">
+   <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4">
            <video width="350px" height="275px" controls allowfullscreen>
@@ -13,7 +13,7 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
-    <div class="row">
+    <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4">
        <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
@@ -33,7 +33,7 @@
 
 </div>
 <style>
-.col-md-4.mb-3 img {
+.col-md-4 img {
     height: 165px;
     padding-left: 7px;
     margin-bottom: -23px;
