@@ -323,6 +323,7 @@ $(document).on('click', '.addNow', function () {
 $(document).on('click', '.multipleAdd', function () {
 
 	var token= $('.total').text();
+	var artistId= $('#art_id').val();
 	
 	$.ajax({
 				type: 'POST',
@@ -331,19 +332,20 @@ $(document).on('click', '.multipleAdd', function () {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {'tokens':token},
+				data: {'price':token,'art_id':artistId},
 
 				success: function(data){
 
-				//console.log(data);return false;
+				console.log(data);
 
 					if(data.status==1){
-						$('.message').show();
+						
+							$('.message').show();
 
-						$('.message').html(data.messge);
-						setTimeout(function(){ 
-							location.reload();
-						 }, 2000);
+							$('.message').html(data.messge);
+							setTimeout(function(){ 
+								location.reload();
+							}, 2000);
 
 					}
 
@@ -397,7 +399,7 @@ function addMultiple(check,id){
 
 				success: function(data){
 
-					//console.log(data);
+					console.log(data);
 
 					if(id!=''){
 						console.log('id h');
@@ -763,9 +765,7 @@ function updateRead(){
 /*-------------------------------Subscribe To Artist----------------------------------------------------*/
 
 function subscribe(id,setValue){
-
-	//console.log(setValue);return false;
-
+	
 	$.ajax({
 		type: 'POST',
 		url:APP_URL+"/subscribe",
@@ -810,15 +810,13 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-				console.log(data);
-
 					if(data.status==1){
-						//console.log('yes');
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
 					}	
 					
 					else{
+
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
 					}
@@ -830,7 +828,6 @@ $(document).on('submit', '#form_sub', function (event) {
 
 function addTohistory(type){
 
-	//console.log(type);return false;
 
 	var id = $('#vidid').val();
 

@@ -602,11 +602,11 @@ public function artistselling(){
     return view('artistselling');
   }
   public function artistoffers($id){
-    
-    //echo $id;
+
     $data = $this->model->getofferByid($id);
         
     return view('artistoffers',['offer'=>isset($data) ? $data :[]]);
+
   }
 
   public function view1(){
@@ -1047,6 +1047,7 @@ public function addToLibrary(Request $req){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
+
         if($data=='Insufficient Paz Tokens'){
 
             return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
@@ -1133,7 +1134,7 @@ public function addMultipleVideo(Request $req){
 
             $remove = $req['isRemove'];
         
-        //print_r($req->all());
+       // print_r($req->all());
       
        if($remove=='yes'){
 
@@ -1157,7 +1158,7 @@ public function addMultipleVideo(Request $req){
 
               $result = $cartVideo['result'];
 
-       
+                //print_r($result);
 
 
  return view('playlistpop',['cartVideo'=>$result, 'total_sum'=>$total,'listname'=>$all_play_lists]);
@@ -1218,27 +1219,38 @@ public function addmMltiple(Request $req){
 
          $addTolibrary = $req->all();
 
-        // print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
-        //print_r($data);die;
+      
+        $response =array();
+        if($data ==='Insufficient Paz Tokens'){
 
         
-        if($data=='Insufficient Paz Tokens'){
-
-            return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+          $response['status'] =1;
+          $response['messge'] = 'Insufficient Paz Tokens!';
+            
         }
 
-        else if($data==1){
+        else if($data){
 
-           return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
+          $response['status'] =1;
+          $response['messge'] = 'Video Add Successfully!';
+
+          
 
         }
 
         else{
-             return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
+
+          $response['status'] = 1;
+          $response['messge'] = 'Some Error Occure!';
+            
         }
+
+        return response()->json($response);
+
+
 }
 
 public function addTohistory(Request $req){
@@ -1382,6 +1394,13 @@ public function readNotification(Request $request){
             return response()->json(array('status'=>0, 'message'=>'Insufficient PAZ Tokens!'));
           }
 
+
+      }
+
+
+      public function playlistByid($playId){
+
+              $this->model->getPlaylistById($playId);
 
       }
 

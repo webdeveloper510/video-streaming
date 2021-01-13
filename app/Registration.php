@@ -4,6 +4,8 @@ namespace App;
 use DB;
 use Session;
 
+use Carbon\Carbon;
+
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Arr;
@@ -1045,8 +1047,10 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         if($token > $vid['price']){
 
-        $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
+         // echo "yes";die;
 
+        $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
+        //print_r($value);die;
         $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
 
           return $return;
@@ -1057,6 +1061,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     }
 
     public function updateUserVideo($uid,$video,$tok,$type){
+
+         // print_r($video);die;
 
       if(isset($video['user_id'])){
             $ids = $video['user_id'];
@@ -1174,9 +1180,9 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function addToLibrary($lists){
 
-      $newData=array();
+      $newData =array();
 
-     // print_r($lists);die;
+      //print_r($lists);die;
 
         $session_data =   Session::get('User');
 
@@ -1184,19 +1190,29 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
         $tokens = $lists['price'];
 
-        $listname = Session::get('listname');
+        //$lists['art_id'] = $lists['art_id'];
+
+         $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
 
        // print_r($lists);die;
-        $newData[] = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
+        $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
 
-    
+       // print_r($newData);die;
+
+        $videoIds = implode(',',$newData);
+      
 
         $lists['userid'] = $userid;
 
         $ids  = $newData ;
 
+        $lists['videoid'] = $videoIds;
+
+        $return = 0;
+
+        //print_r($ids);die;
 
         $tokensData = $this->selectDataById('id','users',$userid);
    
@@ -1206,7 +1222,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
       if($tokens < $tokensData[0]->tokens){
 
-      // echo "yes";die;
+      //echo "yes";die;
 
         if(count($data)>0){
 
@@ -1222,60 +1238,131 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     $newListid = implode(',',$result_array);
 
-    
+    //print_r($listname);die;
 
      $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
             'listvideo' =>$newListid  //DB::raw("CONCAT(listvideo,',".$videoid."')")
           ]);
 
-        
+        //print_r($update);die;
 
          if(isset($update)){
 
-                $buyed = $this->buyVideo($lists);
+           $buyed = $this->buyVideo($lists);
 
-                
-              $reduce  = $buyed ==1 ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
+               // print_r($buyed);die;
+
+              $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
                // print_r($reduce);die;
 
-                return $reduce;
+               $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds,$tokens) : 0;
+
+                $return = $status_succedd;
 
          }
 
          else
          {
-            return  0;
+           //echo "yes";die;
+           $return =   false;
          }  
 
         }
 
         else {
-
-           $lists['listvideo'] = $lists['id'];
+           $playlist['listvideo'] = $videoIds;
+           $playlist['userid'] = $userid;
+           $playlist['playlistname'] = $listname;
 
             $tokens = $tokensData[0]->tokens;
-              unset($lists['tokens']);
-            $lists['created_at'] = now();
-            $lists['updated_at'] = now();
+            $playlist['created_at'] = now();
+            $playlist['updated_at'] = now();
 
-          $insert  =DB::table('playlist')->insert($lists);
+            //print_r($playlist);die;
+
+          $insert  =DB::table('playlist')->insert($playlist);
 
           $buyed = $this->buyVideo($lists);
 
-          $returnData = $buyed==1 ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0;
+          $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
 
-               return $returnData;
+          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds,$tokens) : 0;
+
+          //print_r($status_succedd);
+          $return = $status_succedd;
         }
+
+       
 
     }
 
     else{
-      return 'Insufficient Paz Tokens';
+
+      $return = 'Insufficient Paz Tokens';
     }
+    return $return;
+  }
+
+  public function insertPaymentStatus($uid,$artid,$vid,$paz){
+
+    //echo $uid.$artid.$vid.$paz;die;
+
+    $payment = array(
+      'created_at'=>date("Y-m-d H:i:s"),
+      'updated_at'=>date("Y-m-d H:i:s"),
+      'userid'=>$uid,
+      'artistid'=>$artid,
+      'mediaid'=>$vid,
+      'status'=>'success',
+      'tokens'=>$paz
+    );
+
+    $insert_payment  = DB::table('payment_token')->insert($payment);
+
+    //print_r($insert_payment);die;
+  
+    return $insert_payment;
+
+  }
+
+  public function month_PAZ(){
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+  $value=DB::table('payment_token')
+  ->select(DB::raw('SUM(tokens) as total_token'))
+  ->where('artistid',$userid)
+  ->whereMonth('created_at',Carbon::now()->month)
+  
+         ->get()->toArray();
+
+         return $value;
+
+
+  }
+
+  public function year_PAZ(){
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+  $value=DB::table('payment_token')
+  ->select(DB::raw('SUM(tokens) as total_token'))
+  ->where('artistid',$userid)
+  ->whereYear('created_at',Carbon::now()->year)
+  
+         ->get()->toArray();
+
+          return $value;
   }
 
 public function reduceTokens($tokns,$userid,$tok,$artid){
+
+  //print_r($artid);die;
 
   $databasetoks = $tokns[0]->tokens;
 
@@ -1285,7 +1372,7 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
             'tokens' =>  DB::raw('tokens -'.$tok)
           ]);
 
-            if($update==1){
+            if($update){
 
               $return = DB::table('contentprovider')->where(array('id'=>$artid))->update([
                         'token' =>  DB::raw('token +'.$tok)
@@ -1293,15 +1380,34 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
             }
 
-             return $update==1 ? 1 : 0;
+           // print_r($return);die;
+
+             return $update ? 1 : 0;
 
         }
 
         else
         {
-          //echo "jj";die;
+       
             return 'Insufficient Paz Tokens';
         }
+}
+
+public function today_PAZ(){
+
+  $session_data =   Session::get('User');
+
+   $userid =  $session_data->id;
+
+  $value=DB::table('payment_token')->where('artistid',$userid)
+  ->whereDate('created_at', Carbon::today())
+  
+  ->get()->toArray();
+
+  // echo "<pre>";
+
+  // print_r($value);die;
+
 }
 
 public function createList($create){
@@ -1330,19 +1436,21 @@ public function createList($create){
 }
 
 public function getAllPlaylist(){
-  $data = \DB::table("playlist")
-  ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
-  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
-  ->groupBy("playlist.id","playlist.playlistname")
-  ->get();
-  //print_r($data);die;
+
+      $data = \DB::table("playlist")
+      ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+      ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+      ->groupBy("playlist.id","playlist.playlistname")
+      ->get();
+
     return $data;
 }
 
 public function getPlayListName(){
 
     $session_data =   Session::get('User');
-        $userid =  $session_data->id;
+
+    $userid =  $session_data->id;
 
          $value=DB::table('playlist')->where('userid', $userid)->get()->toArray();
 
@@ -1351,21 +1459,35 @@ public function getPlayListName(){
 }
 
 
+public function getPlaylistById($id){
+
+  $data = \DB::table("playlist")
+  ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+  ->groupBy("playlist.id","playlist.playlistname")
+  ->where('playlist.id', $id)
+  ->get();
+
+return $data;
+
+}
+
+
 
 public function addWishlist($data1){
 
- // print_r($data1);die;
 
-  // $wishlist = implode(',', $data1);
 
   unset($data1['_token']);
 
   $session_data =   Session::get('User');
+
   $userid =  $session_data->id;
+
  $data = $this->selectSingleById('userid','wishlist',$userid);
 
 
- //print_r($data);die;
+ 
  
  if($data){
      $newArray =  explode(",",$data[0]);
@@ -1401,16 +1523,12 @@ public function updateWishlist($data,$uid){
 }
 
 public function insertWishlist($data,$uid){
-
-
-              $array= array(
-
-                'created_at'=>now(),
-                'updated_at'=>now(),
-                'userid'=>$uid,
-                'videoid'=>$data[0]
-              );
-
+        $array= array(
+          'created_at'=>now(),
+          'updated_at'=>now(),
+          'userid'=>$uid,
+          'videoid'=>$data[0]
+        );
               $insert = DB::table('wishlist')->insert($array);
 
               return $insert;
@@ -1425,23 +1543,17 @@ public function getVideosbyList($id){
 
    if($value){
 
-    $ids = explode(',',$value[0]);
+          $ids = explode(',',$value[0]);
 
-    $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
-
-
-    //print_r($videos);die;
+          $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
 
          return $videos;
+
        }
 
 }
 
 public function addToHistory($data){
-
-
-
-  //print_r($data);die;
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
   $data1 = $this->selectSingleById('userid','history',$userid);
@@ -1449,9 +1561,9 @@ public function addToHistory($data){
 
   unset($data['types']);
 
-  //print_r($data1);die;
+
   $returnadata = count($data1) > 0 ? $this->updateHistory($data,$userid,$data1) : $this->insertHistory($data,$userid);
-  //
+
    $this->getPopularTable($popularData,$userid);
       
 }
@@ -1459,9 +1571,11 @@ public function addToHistory($data){
 public function getPopularTable($post,$uid){
 
   $vid = $post['id'];
+
   $videos = DB::table("popular")->where(array('userid'=>$uid,'mediaid'=>$vid))->get()->toArray();
+
     $return = count($videos) > 0 ? $this->updatePopular($post,$uid) : $this->insertPopular($post,$uid);
-    //print_r($return);
+
 }
 
 public function updatePopular($data,$uid){
@@ -1494,8 +1608,6 @@ public function PopularVideos($flag,$type){
 
       }
 
-   
-        //print_r($videos);die;
     
 
     return $videos;
@@ -1518,8 +1630,7 @@ public function insertPopular($data,$id){
 
 public function updateHistory($postdata,$uid,$tableData){
 
-  //$postdata['id'] = 11;
- // $postdata['id'] = 12;
+
 
   $newArray =  explode(",",$tableData[0]);
  
@@ -1531,8 +1642,7 @@ public function updateHistory($postdata,$uid,$tableData){
 
       $updatedId = implode(",",$result_array);
 
-      //print_r($updatedId);die;
-
+  
       $update = DB::table('history')->where(array('userid'=>$uid))
       ->update([
             'videoid' =>  $updatedId//DB::raw("CONCAT(videoid,',".$data[0]."')"),
@@ -1672,20 +1782,29 @@ public function updatePassword($email,$password){
 
 }
 
-    public function buyofferVideo($data){
+/*----------------------------------------------------Buy Offer --------------------------------------------------------------- */
+    
+     
+public function buyofferVideo($data){
+
+      //print_r($data);die;
 
       unset($data['_token']);
 
       $ids = $data['user_id'];
 
+  
+
       $session_data =   Session::get('User');
+
       $userid =  $session_data->id;
 
       $id = explode('_',$ids);
 
       $checkTokn = $this->selectDataById('id','users',$userid);
 
-      //print_r($checkTokn);die;
+      $return  = 0;
+    
 
       $token = $checkTokn[0]->tokens;
 
@@ -1693,35 +1812,44 @@ public function updatePassword($email,$password){
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
 
+        //print_r($value);die;
+
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$data,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
 
-          return  $return==1 ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
+           $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
+
+        $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
+
+          $return = $status_succedd;
     }
 
     else{
 
-       return  0;
+      $return =  0;
     }
+
+    return $return;
 
 }
 
+/*-----------------------------------------------------------Subscribed To Artist--------------------------------------------------------- */
 
-public function subscribe($data){
 
-  $session_data =   Session::get('User');
+  public function subscribe($data){
 
-  $userid =  $session_data->id;
+          $session_data =   Session::get('User');
 
-  //print_r($data);die;
+          $userid =  $session_data->id;
 
-     $return = DB::table('subscriber')
-     //->whereRaw('FIND_IN_SET(?,userid)',[$userid])
-     ->Where('artistid',$data['id'])
-     ->get();
+            $return = DB::table('subscriber')
+      
+            ->Where('artistid',$data['id'])
 
-     $returnData = count($return) > 0 ? $this->updateSubscriberCount($userid,$data,$return): $this->insertSubscriber($userid,$data); 
+            ->get();
 
-     return $returnData;
+            $returnData = count($return) > 0 ? $this->updateSubscriberCount($userid,$data,$return): $this->insertSubscriber($userid,$data); 
+
+            return $returnData;
 
 }
 
@@ -1765,12 +1893,13 @@ public function unsubscribe($allIds,$userid,$postData,$count){
 
       unset($allIds[$index]);
 
-     // print_r($allIds);die;
+   
 
   $update = DB::table('subscriber')->where(array('artistid'=>$postData['id']))
+
   ->update([
-      'userid' =>implode(',',$allIds),
-      'count' =>  DB::raw('count -'.$count),
+        'userid' =>implode(',',$allIds),
+        'count' =>  DB::raw('count -'.$count)
       ]);
 
     return $update;

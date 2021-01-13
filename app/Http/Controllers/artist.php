@@ -54,51 +54,54 @@ class artist extends Controller
 
     public function artistDetail($artistid){
 
-     Session::forget('SessionmultipleIds');
+         Session::forget('SessionmultipleIds');
          
          $allArtistsVideo =     $this->model->getArtistDetail($artistid,'video');
          
-         $allArtistsAudio=     $this->model->getArtistDetail($artistid,'audio');
+         $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
 
-          $isSubscribe =   $this->model->isSubscribe($artistid);
+          $isSubscribe =         $this->model->isSubscribe($artistid);
 
          $onlyArtistDetail =      $this->model->onlyArtistDetail($artistid);
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
-          // echo "<pre>";
+        //  echo "<pre>";
 
-          // print_r($allArtistsVideo);die;
+        //  print_r($allPlaylist);die;
 
-         $category_data = $this->model->getCategory();
 
-       
+         $category_data = $this->model->getCategory();      
 
-   return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
-    }
+         return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
+    
+  }
+
+  
 
     public function cartSbmit(Request $req){
         
             $data=$req->all();
 
-            //print_r($data);die;
           
             $arrayId=Session::get('ids');
+
             if($arrayId){
           
-                if(!in_array($data['id'], $arrayId)){
-                    
-                     $arrayId[] =$data['id'];
-                     Session::put('ids',$arrayId);
-                }
+                    if(!in_array($data['id'], $arrayId)){
+                        
+                        $arrayId[] =$data['id'];
+
+                        Session::put('ids',$arrayId);
+                    }
 
             }
             else{
               
-                $arr = array();
-                $arr[]=$data['id'];
+                 $arr = array();
+                 $arr[]=$data['id'];
                  Session::put('ids',$arr);
             }
             
@@ -187,7 +190,15 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
-      return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive]);
+      $this->model->today_PAZ();
+
+      $monthly_PAZ = $this->model->month_PAZ();
+
+      $year_PAZ = $this->model->year_PAZ();
+
+      //print_r($monthly_PAZ);die;
+
+      return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -206,9 +217,9 @@ class artist extends Controller
        $allArtistOffer =      $this->model->getArtistOffer($userid);
 
 
-        $allPlaylist =      $this->model->getAllPlaylist();
+      $allPlaylist =      $this->model->getAllPlaylist();
 
-         $contentLogin =   Session::get('User');
+      $contentLogin =   Session::get('User');
       
       return view('artists.profile',['tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 

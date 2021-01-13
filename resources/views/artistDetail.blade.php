@@ -37,19 +37,19 @@
    <h2> Offers</h2>
               
           <div class="container">
-   <div class="row mb-5">
-    @if($offerData)
+                <div class="row mb-5">
+                    @if($offerData)
 
-   @foreach($offerData as $offer)
-      <div class="col-md-12">
-      <div class="artistoffer row">
-        <div class="col-md-2">
-        <video width="100%" height="100%" controls>
-                <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
-                
-                Your browser does not support the video tag.
-            </video>
-      </div>
+                       @foreach($offerData as $offer)
+                    <div class="col-md-12">
+                    <div class="artistoffer row">
+                      <div class="col-md-2">
+                      <video width="100%" height="100%" controls>
+                              <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
+                              
+                              Your browser does not support the video tag.
+                          </video>
+                    </div>
        
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="{{url('artistoffers/'.$offer->id)}}">
@@ -79,7 +79,7 @@
     </div>
 
     <style type="text/css">
-        .row hr {
+    .row hr {
     width: 100%;
 }
  </style>
