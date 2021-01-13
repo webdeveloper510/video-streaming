@@ -5,7 +5,7 @@
     <?php if($videos): ?>
    <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-       <div class="col-md-4">
+       <div class="col-md-4 my-3">
            <video width="350px" height="275px" controls allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
@@ -15,7 +15,7 @@
     <?php else: ?>
     <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-       <div class="col-md-4">
+       <div class="col-md-4 my-3">
        <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
            <audio width="350px" height="275px" controls>
             <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
