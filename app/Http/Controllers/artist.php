@@ -186,7 +186,13 @@ class artist extends Controller
 
       $this->model->today_PAZ();
 
-      return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive]);
+      $monthly_PAZ = $this->model->month_PAZ();
+
+      $year_PAZ = $this->model->year_PAZ();
+
+      //print_r($monthly_PAZ);die;
+
+      return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
