@@ -37,19 +37,19 @@
    <h2> Offers</h2>
               
           <div class="container">
-   <div class="row mb-5">
-    <?php if($offerData): ?>
+                <div class="row mb-5">
+                    <?php if($offerData): ?>
 
-   <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <div class="col-md-12">
-      <div class="artistoffer row">
-        <div class="col-md-2">
-        <video width="100%" height="100%" controls>
-                <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
-                
-                Your browser does not support the video tag.
-            </video>
-      </div>
+                       <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-12">
+                    <div class="artistoffer row">
+                      <div class="col-md-2">
+                      <video width="100%" height="100%" controls>
+                              <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
+                              
+                              Your browser does not support the video tag.
+                          </video>
+                    </div>
        
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
@@ -81,7 +81,7 @@
     </div>
 
     <style type="text/css">
-        .row hr {
+    .row hr {
     width: 100%;
 }
  </style>
@@ -117,10 +117,11 @@
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
+                <div class='media_div'>
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
-               </form></div>
+               </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">

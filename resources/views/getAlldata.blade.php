@@ -16,7 +16,8 @@
     <div class="row">
    @foreach($audio as $aud)
        <div class="col-md-4">
-           <audio width="350px" height="275px" controls allowfullscreen>
+       <img src="{{asset('images/logos/voice.jpg')}}">
+           <audio width="350px" height="275px" controls>
             <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
             Your browser does not support the video tag.
           </audio>
@@ -30,3 +31,12 @@
 
 
 </div>
+<style>
+.col-md-4.mb-3 img {
+    height: 165px;
+    padding-left: 7px;
+    margin-bottom: -23px;
+}
+</style>
+
+@include('layouts.footer')
