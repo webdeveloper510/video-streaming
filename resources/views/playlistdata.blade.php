@@ -4,9 +4,10 @@
   
        <div class="col-md-4">
            <video width="350px" height="275px" controls allowfullscreen>
-            <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+                <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+           </video>
+
     </div>
 
 </div>
