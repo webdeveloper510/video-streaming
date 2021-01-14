@@ -23,8 +23,16 @@
         <div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
-</div>
-                <h2 class="text-center mb-5 mt-3">List Of Requests</h2>
+              </div>
+                <h2 class="text-center my-5 pt-5">List Of Requests</h2>
+                <div class="dropreq">
+                <select class="custom-select">
+                    <option selected>All</option>
+                    <option value="1">New</option>
+                    <option value="2">In Process</option>
+                    <option value="3">Due</option>
+                  </select>
+                </div>
                 <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
