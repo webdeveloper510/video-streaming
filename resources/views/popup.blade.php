@@ -1,11 +1,11 @@
  <div class="row text-left text-white mt-3 red">
-                                  <div class="col-md-12 mb-4 logy">
+                                  <div class="col-md-12 mb-4 logy das">
                                     <label>Sexology</label><br>
                                     {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                     {{Form::checkbox('sexology[]','Homo')}}Homo <br>
                                     {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
                                   </div>
-                                  <div class="col-md-12 mb-4">
+                                  <div class="col-md-12 mb-4 das">
                                       <label>Tits size</label><br>
                                     {{Form::checkbox('titssize[]','Small')}}Small <br>
                                     {{Form::checkbox('titssize[]','Normal')}}Normal <br>
