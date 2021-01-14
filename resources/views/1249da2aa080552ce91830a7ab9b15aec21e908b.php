@@ -294,7 +294,13 @@ ul.nav.nav-tabs li a {
     font-size: 15px !important;
     color: white;
 }
-
+.nav-tabs .nav-link.active {
+    color: #333333;
+    border-color: #fafafa !important;
+}
+.nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
+    border-color: #fafafa !important;
+}
 .nav-link.tabss {
     width: 33.33%;
     text-align: center;
