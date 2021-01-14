@@ -109,12 +109,12 @@
 
               <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs text-center">
-                    <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home">Video</a></li>
+                    <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home"> <h3 style="color: #fff;">Projects</h3></a></li>
                     </ul>
           
                     <div class="tab-content">
                     <div id="home" class="tab-pane fade1 in active">
-                        <h3 style="color: #fff;">Projects</h3>
+                       
                     <div class="row">
                     <div class="col-md-6">
                       <div class="dropdown12 text-white">

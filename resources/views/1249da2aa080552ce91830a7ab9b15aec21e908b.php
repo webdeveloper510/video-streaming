@@ -295,7 +295,7 @@ ul.nav.nav-tabs li a {
     color: white;
 }
 div#nav-tab {
-    background: pink;
+    background: #7b0000;
 }
 .nav-link.tabss {
     width: 33.33%;
