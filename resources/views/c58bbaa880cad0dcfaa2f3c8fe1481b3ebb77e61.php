@@ -19,7 +19,7 @@
           
           </div>
           <nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist" style="background-color:pink;">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist" >
     <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
@@ -177,11 +177,12 @@ Your browser does not support the audio tag.
               //print_r($videos);
             ?>
             <div class="col-md-4 mb-3 play1">
+            <a href="<?php echo e(url('playlist/'.$play->id)); ?>">
                 <div class="overlayplay1">
-            <h2 class="text-white"><?php echo e($count); ?></h2>
-                <i class="fa fa-play"></i>
-           </div>
-    
+                    <h2 class="text-white"><?php echo e($count); ?></h2>
+                     <i class="fa fa-play"></i>
+                </div>
+                </a>
             <video width="100%" height="250" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                 

@@ -84,9 +84,9 @@
     display: inline-flex;
   }
   .nav-tabs {
-    border-bottom: 1px solid #7b0000;
+    border-bottom: 1px solid #fff;
     background: #7b0000;
-    border-top: 1px solid #7b0000;
+    border-top: 1px solid #fff;
 }
 .rightbar {
     height: 300px;
@@ -120,8 +120,3 @@ span.profile-img hr {
     color: blue !important;
     right: 1px;
 } 
-.nav-tabs {
-  border-bottom: 1px solid #7b0000;
-  background: #7b0000;
-  border-top: 1px solid #7b0000;
-}
