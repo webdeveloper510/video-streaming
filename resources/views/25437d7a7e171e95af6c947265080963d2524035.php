@@ -27,7 +27,7 @@
     <div class="col-md-3">
     <div class="columesdashboard2">
            <h1>345</h1>
-           <h4>Offer<br> Online</h4>
+           <h4>New<br> Order/Project</h4>
         </div>     
     </div>
     <div class="col-md-3">

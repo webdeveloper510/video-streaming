@@ -931,13 +931,10 @@ public function notifyEmail(Request $req){
         $add = $this->model->addRequest($req);
 
         if($add == 1){
-
-          echo "yes";
-
             return redirect('/my-requests')->with('success','Thank You Your Request Sent Successfully!');
         }
         else{
-          echo "no";
+    
           return redirect('/')->with('success','Some Error Occure!');
         }
 
@@ -945,20 +942,18 @@ public function notifyEmail(Request $req){
 
     public function updateStatus(Request $request){
 
-        //print_r($request->all());
         $updateStatus =  $this->model->updateStatus($request->all());
 
- $returnData= $updateStatus==1 ? response()->json(array('status'=>1, 'messge'=>'Updated Successfully!')) : response()->json(array('status'=>1, 'messge'=>'Already Exist'));
+     $returnData= $updateStatus ? response()->json(array('status'=>1, 'messge'=>'Updated Successfully!')) : response()->json(array('status'=>1, 'messge'=>'Already Exist'));
 
       return $returnData;
+
     }
 
 
     public function myRequests(){
 
-     
-
-        $data = $this->model->showUserRequests();
+      $data = $this->model->showUserRequests();
 
         return view('all_requests',['requests'=>$data]);
 
@@ -1000,15 +995,13 @@ public function notifyEmail(Request $req){
 
     $ids = Session::get('listid');
 
-     //$wishlistids=Session::get('ids');
-
-    //print_r($ids);
+   
 
     $playName = $this->model->getPlayListName();
 
       $wishList = $this->model->getWishlist();
 
-            //print_r($wishList);die;
+         
 
     $videos = $this->model->getVideosbyList($ids);
 
@@ -1023,7 +1016,6 @@ public function notifyEmail(Request $req){
 
 public function selectListname(Request $request){
 
-  //print_r($request->listname);die;
 
       Session::put('listname',$request->listname);
 
@@ -1037,7 +1029,10 @@ public function selectListname(Request $request){
       return view('listname',['listname'=>$playName]);
 
   }
-public function addToLibrary(Request $req){
+
+  /**-------------------------------------------------------------  Add To Library------------------------------------------------------------ */
+      
+    public function addToLibrary(Request $req){
 
         unset($req['_token']);
 
@@ -1197,23 +1192,23 @@ public function showLists(Request $request){
     //print_r($request->all());
 }
 
+/*-------------------------------------------------------------------Add To Wishlist------------------------------------------------------ */
+
    public function addToWish(Request $req){
 
     $multipleIds = Session::get('SessionmultipleIds');
 
-    //print_r($multipleIds);
 
       $return = $this->model->addWishlist($multipleIds);
 
-     // print_r($return);die;
 
       $returnData = $return==1 ? response()->json(array('status'=>1,'message'=>'Video Added Successfully!')) :response()->json(array('status'=>1, 'message'=>'Some Error Occure'));
 
       return $returnData;
 
-      //
-
 }
+
+/*-------------------------------------------------------Add Multiple Media and Buy------------------------------------------- */
 
 public function addmMltiple(Request $req){
 
@@ -1252,6 +1247,8 @@ public function addmMltiple(Request $req){
 
 
 }
+
+/*------------------------------------------------------------ Add To History--------------------------------------------------------- */
 
 public function addTohistory(Request $req){
 

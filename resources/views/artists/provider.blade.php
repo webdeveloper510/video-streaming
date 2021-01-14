@@ -31,25 +31,14 @@
                 {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
             </div>
             <div class="col-md-6 mt-2 ">
-           {{Form::label('Duration', 'Duration')}} 
-    <div class="row text-white">
-      <div class="col-md-4">
-        <div class="form-group">
-                {{Form::text('hour',null,['class'=>'form-control','placeholder'=>'Hour'])}}
-          </div>
-    </div>
-       <div class="col-md-4">
-           <div class="form-group">
-              {{Form::text('minutes','',['class'=>'form-control'])}}
+           {{Form::label('Convert to:', 'Convert to:')}} 
+           <select name="Convert"  class='form-control'>
+                    <option value="">Choose ...</option>
+                    <option value="1">480p  </option>
+                    <option value="2">HD 720p </option>
+                    <option value="3">Full HD 1080p  </option>
+            </select>
             </div>
-        </div>
-           <div class="col-md-4">
-             <div class="form-group">
-                {{Form::text('seconds','',['class'=>'form-control'])}}
-            </div>
-        </div>
-            </div>
-          </div>
             <div class="col-md-6 mt-2 ">
             {{Form::label('Add Price', 'Price')}} 
             {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
