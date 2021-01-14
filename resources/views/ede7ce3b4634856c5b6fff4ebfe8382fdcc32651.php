@@ -177,11 +177,12 @@ Your browser does not support the audio tag.
               //print_r($videos);
             ?>
             <div class="col-md-4 mb-3 play1">
+            <a href="<?php echo e(url('playlist/'.$play->id)); ?>">
                 <div class="overlayplay1">
-            <h2 class="text-white"><?php echo e($count); ?></h2>
-                <i class="fa fa-play"></i>
-           </div>
-    
+                    <h2 class="text-white"><?php echo e($count); ?></h2>
+                     <i class="fa fa-play"></i>
+                </div>
+                </a>
             <video width="100%" height="250" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                 
