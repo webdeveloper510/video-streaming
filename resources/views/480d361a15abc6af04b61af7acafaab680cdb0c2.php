@@ -1,11 +1,11 @@
  <div class="row text-left text-white mt-3 red">
-                                  <div class="col-md-12 mb-4 logy">
+                                  <div class="col-md-12 mb-4 logy das">
                                     <label>Sexology</label><br>
                                     <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero <br>
                                     <?php echo e(Form::checkbox('sexology[]','Homo')); ?>Homo <br>
                                     <?php echo e(Form::checkbox('sexology[]','Bisexual')); ?>Bisexual 
                                   </div>
-                                  <div class="col-md-12 mb-4">
+                                  <div class="col-md-12 mb-4 das">
                                       <label>Tits size</label><br>
                                     <?php echo e(Form::checkbox('titssize[]','Small')); ?>Small <br>
                                     <?php echo e(Form::checkbox('titssize[]','Normal')); ?>Normal <br>
