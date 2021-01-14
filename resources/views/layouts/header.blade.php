@@ -528,7 +528,7 @@
            <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
              <a href="{{url('/my-requests')}}"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
            
-            @if($userProfile[0]->profilepicture)
+            @if($userProfile)
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
     
     @else

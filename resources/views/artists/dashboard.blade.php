@@ -74,7 +74,7 @@
            <li class="nav-item {{$tab=='requests' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
               <i class="fa fa-money"></i>
-              <p>Orders</p>
+              <p>Orders/Projects</p>
             </a>
           </li>
          <li class="nav-item dropdown {{$tab == 'offer' ? 'active': ''}}">
@@ -109,7 +109,7 @@
 
               <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs text-center">
-                    <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home"> <h3 style="color: #fff;">Projects</h3></a></li>
+                    <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home"> <h4 style="color: #fff;">Projects</h4></a></li>
                     </ul>
           
                     <div class="tab-content">
@@ -118,7 +118,7 @@
                     <div class="row">
                     <div class="col-md-6">
                       <div class="dropdown12 text-white">
-                           <h4>Categories </h4>
+                           <h5>Categories </h5>
                 {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
                   {{Form::token()}}
                             @foreach($category as $cat)
@@ -135,8 +135,22 @@
 
                           <div class="col-md-6 ">
                             <div class="bar ">
+                            <div class="dropdown1 text-white">
+                           <h5>Media : </h5>
+                         
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Video
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Audio
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
                         <div class="dropdown1 text-white">
-                           <h4>Reward</h4>
+                           <h5>Reward</h5>
                          
                             <label class="text-white">
                           {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
@@ -149,9 +163,10 @@
                             </label>
                        
                         </div>
+                       
 
                         <div class="dropdown1 text-white">
-                           <h4 >Duration</h4>
+                           <h5 >Duration</h5>
                             <label class=""> 
                                {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -164,9 +179,7 @@
                           </label><br>
                       
                         </div>
-                          <div class="collapse pt-4" id="collapseExample1">
-                @include('popup') 
-              </div>
+                         
                       </div>
                     </div>
                       

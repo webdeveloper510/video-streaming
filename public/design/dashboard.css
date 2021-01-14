@@ -47,7 +47,7 @@ span.profile-img hr {
     margin-bottom: 10px;
 }
 .sidebar[data-color="purple"] li.active>a {
-    background-color: #7b0000 !important;
+    background-color: #bf0000!important;
 }
 nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
     background: #7b0000 !important;
