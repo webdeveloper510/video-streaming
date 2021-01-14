@@ -61,7 +61,7 @@
 }
 .alert.alert-success {
     width: 50%;
-    margin-top: 6%;
+    margin-top: 10%;
     z-index: 99999;
     top: -12px;
     position: absolute;
