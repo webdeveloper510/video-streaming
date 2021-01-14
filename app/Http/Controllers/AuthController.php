@@ -1290,8 +1290,6 @@ public function seeall($flag){
 /*----------------------------------------------------Check Already Nickname Exist-------------------------------------------------*/
 public function checknameExist(Request $req){
 
-  //print_r($req->all());die;
-
   $flag = $this->model->checkNameExist($req->all());
 
   return $flag;
@@ -1400,7 +1398,9 @@ public function readNotification(Request $request){
 
       public function playlistByid($playId){
 
-              $this->model->getPlaylistById($playId);
+              $data = $this->model->getPlaylistById($playId);
+
+              return view('playlistdata',['playlist'=>$data]);
 
       }
 

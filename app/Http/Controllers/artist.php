@@ -120,6 +120,7 @@ class artist extends Controller
         $arrayId=Session::get('ids');
                 
         $cartData= $this->model->getCart($arrayId);
+
         $totalPrice= $this->model->getTotalPrice($arrayId);
 
           //print_r($cartData);die;
@@ -129,9 +130,6 @@ class artist extends Controller
 
     public function artistProfile(){
 
-    
-
-        //$$cartData= $this->model->getArtistData($userid);
     
         return view('artistProfile');
     }

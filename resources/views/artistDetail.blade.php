@@ -175,11 +175,12 @@ Your browser does not support the audio tag.
               //print_r($videos);
             ?>
             <div class="col-md-4 mb-3 play1">
+            <a href="{{url('playlist/'.$play->id)}}">
                 <div class="overlayplay1">
-            <h2 class="text-white">{{$count}}</h2>
-                <i class="fa fa-play"></i>
-           </div>
-    
+                    <h2 class="text-white">{{$count}}</h2>
+                     <i class="fa fa-play"></i>
+                </div>
+                </a>
             <video width="100%" height="250" controls>
                 <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
                 

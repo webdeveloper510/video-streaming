@@ -19,19 +19,19 @@
         </div>
     </div>
     <div class="col-md-3">
-    <div class="columesdashboard">
+    <div class="columesdashboard1">
            <h1>345</h1>
            <h4>Order/Project <br>In Process</h4>
         </div>    
     </div>
     <div class="col-md-3">
-    <div class="columesdashboard">
+    <div class="columesdashboard2">
            <h1>345</h1>
            <h4>Offer<br> Online</h4>
         </div>     
     </div>
     <div class="col-md-3">
-    <div class="columesdashboard">
+    <div class="columesdashboard3">
            <h1>345</h1>
            <h4>Collection Items <br>Online</h4>
         </div>     
@@ -84,6 +84,31 @@
 </div>
 </div>
 </section>
-
+<style>
+.columesdashboard {
+    border: 3px solid lightblue;
+    padding: 30px 18px;
+    background: lightblue;
+    color: white;
+}
+.columesdashboard1 {
+    border: 3px solid #be7f5a;
+    padding: 30px 18px;
+    background: #be7f5a;
+    color: white;
+}
+.columesdashboard2 {
+    border: 3px solid #e84c3d;
+    padding: 30px 18px;
+    background: #e84c3d;
+    color: white;
+}
+.columesdashboard3 {
+    border: 3px solid #1abc9c;
+    padding: 30px 18px;
+    background: #1abc9c;
+    color: white;
+}
+</style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>
