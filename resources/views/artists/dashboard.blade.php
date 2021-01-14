@@ -179,9 +179,7 @@
                           </label><br>
                       
                         </div>
-                          <div class="collapse pt-4" id="collapseExample1">
-                @include('popup') 
-              </div>
+                         
                       </div>
                     </div>
                       

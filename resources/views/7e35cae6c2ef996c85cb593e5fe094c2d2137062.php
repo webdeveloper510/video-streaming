@@ -182,9 +182,7 @@
                           </label><br>
                       
                         </div>
-                          <div class="collapse pt-4" id="collapseExample1">
-                <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
-              </div>
+                         
                       </div>
                     </div>
                       
