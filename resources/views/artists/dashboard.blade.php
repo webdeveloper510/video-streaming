@@ -74,7 +74,7 @@
            <li class="nav-item {{$tab=='requests' ? 'active': ''}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
               <i class="fa fa-money"></i>
-              <p>Orders</p>
+              <p>Orders/Projects</p>
             </a>
           </li>
          <li class="nav-item dropdown {{$tab == 'offer' ? 'active': ''}}">
@@ -144,6 +144,20 @@
                             </label><br>
                             <label class="">
                                {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                         <!--      orm::checkbox('price','desc')}}Higest   -->
+                            
+                            </label>
+                       
+                        </div>
+                        <div class="dropdown1 text-white">
+                           <h4>Media : </h4>
+                         
+                            <label class="text-white">
+                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Video
+                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                            </label><br>
+                            <label class="">
+                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Audio
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             </label>
