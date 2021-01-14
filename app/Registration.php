@@ -1461,14 +1461,14 @@ public function getPlayListName(){
 
 public function getPlaylistById($id){
 
-  $data = \DB::table("playlist")
-  ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
-  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
-  ->groupBy("playlist.id","playlist.playlistname")
-  ->where('playlist.id', $id)
-  ->get();
+      $data = \DB::table("playlist")
+      ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+      ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+      ->groupBy("playlist.id","playlist.playlistname")
+      ->where('playlist.id', $id)
+      ->get();
 
-return $data;
+    return $data;
 
 }
 
