@@ -38,6 +38,7 @@
                     <option value="2">HD720p </option>
                     <option value="3">FullHD1080p  </option>
             </select>
+            </div>
             <div class="col-md-6 mt-2 ">
             {{Form::label('Add Price', 'Price')}} 
             {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
