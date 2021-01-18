@@ -2,26 +2,19 @@
 
 <section class="background1">
 <div class="container">
-<div>
-           @if(session('success'))
-        <div class="alert alert-success">
-        {{session('success')}}
-        </div>
-        @endif
-      </div>
 
 <div class="row mt-5 pt-5">
     <div class="col-md-3">
-        <div class="columesdashboard">
-           <h1>345</h1>
-           <h4>Order/Project <br>Due</h4>
-        </div>
+          <div class="columesdashboard">
+            <h1>345</h1>
+            <h4>Order/Project <br>Due</h4>
+          </div>
     </div>
     <div class="col-md-3">
-    <div class="columesdashboard1">
-           <h1>345</h1>
-           <h4>Order/Project <br>In Process</h4>
-        </div>    
+            <div class="columesdashboard1">
+                  <h1>345</h1>
+                  <h4>Order/Project <br>In Process</h4>
+            </div>    
     </div>
     <div class="col-md-3">
     <div class="columesdashboard2">
