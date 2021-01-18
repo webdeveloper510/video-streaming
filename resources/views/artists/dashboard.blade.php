@@ -189,7 +189,7 @@
                     <div class="col-md-12 text-right pr-5">
               
                
-         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+       
           {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
               </div>
               <div class="col-md-6">

@@ -33,7 +33,7 @@
             <div class="col-md-6 mt-2 ">
            {{Form::label('Convert to:', 'Convert to:')}} 
            <select name="Convert"  class='form-control'>
-                    <option value="">Choose Convert</option>
+                    <option value="">Choose ...</option>
                     <option value="1">480p  </option>
                     <option value="2">HD 720p </option>
                     <option value="3">Full HD 1080p  </option>
