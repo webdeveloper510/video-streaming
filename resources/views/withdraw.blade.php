@@ -28,7 +28,11 @@
            <div class="row">
             <div class="col-md-8">
        
+<<<<<<< HEAD
          <div class="text_one"><p>Refer <a href="#">pornartistzone.com </a> and earn 5% on purchases of every invited person!</p></div>
+=======
+         <div class="text_one"><p>Refer <a href="pornartistzone.com">pornartistzone.com </a> and earn 5% on purchases of every invited person!</p></div>
+>>>>>>> 2348454e12ec114261020666276e983874bd7607
        </div>
        <div class="col-md-4 mt-4 text-center">
           <div class="money"><button class="btn btn-primary" onclick="myFunction()" id="myBtn">Copy Link</button></div>

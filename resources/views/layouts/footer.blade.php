@@ -18,12 +18,13 @@
                   border-left-width: 1px;">
               <a href="https://www.websitepolicies.com/policies/view/iV2Lze7O"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
                <li><a href="https://www.websitepolicies.com/policies/view/u5oiPx3i"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
-              <li><a href="https://www.websitepolicies.com/policies/view/GBVn25Ot"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-                <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
+               <li><a href="https://www.websitepolicies.com/policies/view/GBVn25Ot"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+               <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
              
-                 <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
+              <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/uU8Tfpe9"><i class="fa fa-angle-right"></i> Refund Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/UkyQfdIh"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
+              <li><a href="{{url('/userWithdraw')}}"><i class="fa fa-angle-right"></i>   <i class="fa fa-money" aria-hidden="true"></i></a></li> 
             </ul>
           </div>
        
