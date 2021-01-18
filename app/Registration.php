@@ -1332,14 +1332,13 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     $userid =  $session_data->id;
 
-  $value=DB::table('payment_token')
-  ->select(DB::raw('SUM(tokens) as total_token'))
-  ->where('artistid',$userid)
-  ->whereMonth('created_at',Carbon::now()->month)
-  
-         ->get()->toArray();
+      $value=DB::table('payment_token')
+      ->select(DB::raw('SUM(tokens) as total_token'))
+      ->where('artistid',$userid)
+      ->whereMonth('created_at',Carbon::now()->month)
+      ->get()->toArray();
 
-         return $value;
+            return $value;
 
 
   }
@@ -1350,10 +1349,10 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     $userid =  $session_data->id;
 
-  $value=DB::table('payment_token')
-  ->select(DB::raw('SUM(tokens) as total_token'))
-  ->where('artistid',$userid)
-  ->whereYear('created_at',Carbon::now()->year)
+      $value=DB::table('payment_token')
+      ->select(DB::raw('SUM(tokens) as total_token'))
+      ->where('artistid',$userid)
+      ->whereYear('created_at',Carbon::now()->year)
   
          ->get()->toArray();
 
@@ -1395,18 +1394,16 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
 public function today_PAZ(){
 
-  $session_data =   Session::get('User');
+      $session_data =   Session::get('User');
 
-   $userid =  $session_data->id;
+      $userid =  $session_data->id;
 
-  $value=DB::table('payment_token')->where('artistid',$userid)
-  ->whereDate('created_at', Carbon::today())
-  
-  ->get()->toArray();
+      $value=DB::table('payment_token')->where('artistid',$userid)
+      ->whereDate('created_at', Carbon::now()->format('Y/m/d'))
+      
+      ->get()->toArray();
 
-  // echo "<pre>";
-
-  // print_r($value);die;
+          return $value;
 
 }
 

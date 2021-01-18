@@ -59,7 +59,7 @@
              <hr>
               <div class="card-body text-center">
                 <h3 class="card-title">Today:</h3>
-                <h5>4500 PAZ</h5>
+                <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
                 <h3 class="card-title">This Month:</h3>
                 <h5><?php echo e($month_paz[0]->total_token); ?> PAZ</h5>
                 <h3 class="card-title">This Year:</h3>

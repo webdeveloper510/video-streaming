@@ -557,7 +557,9 @@
     <?php else: ?>
     <div class="">
 		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile ? $userProfile[0]->nickname : ''); ?></span>
-	           	<div class="profileImage"></div>
+	           	<div class="profileImage">
+               
+               </div>
 	  </div>
    
    <?php endif; ?>

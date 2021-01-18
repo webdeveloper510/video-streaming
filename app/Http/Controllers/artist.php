@@ -174,7 +174,7 @@ class artist extends Controller
      
         $subCategory = $this->model->getRespectedSub($req);
 
-        $returnData= $subCategory ? response()->json($subCategory) :response()->json(array('status'=>0, 'messege'=>'No Data Found'));
+        $returnData= $subCategory ? response()->json($subCategory) : response()->json(array('status'=>0, 'messege'=>'No Data Found'));
 
         return $returnData;
         
@@ -188,7 +188,9 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
-      $this->model->today_PAZ();
+      $today_PAZ = $this->model->today_PAZ();
+
+     // print_r($today_PAZ);die;
 
       $monthly_PAZ = $this->model->month_PAZ();
 
@@ -196,7 +198,7 @@ class artist extends Controller
 
       //print_r($monthly_PAZ);die;
 
-      return view('artists.dashboard_home',['contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -212,7 +214,7 @@ class artist extends Controller
          
       $allArtistsAudio=     $this->model->getArtistDetail($userid,'audio');
 
-       $allArtistOffer =      $this->model->getArtistOffer($userid);
+      $allArtistOffer =      $this->model->getArtistOffer($userid);
 
 
       $allPlaylist =      $this->model->getAllPlaylist();

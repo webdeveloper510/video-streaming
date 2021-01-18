@@ -247,7 +247,7 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <hr>
-                <p>{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
+                <p>{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme ? $artist[0]->aboutme : 'Not Any Description'}}</p>
               </div>
   
       </div>

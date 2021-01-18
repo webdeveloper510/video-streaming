@@ -39,11 +39,12 @@
             <div class="col-md-6 mt-2 ">
            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
            <select name="Convert"  class='form-control'>
-                    <option value="">Choose Subcategory</option>
+                    <option value="">Choose Convert</option>
                     <option value="1">480p  </option>
-                    <option value="2">HD720p </option>
-                    <option value="3">FullHD1080p  </option>
+                    <option value="2">HD 720p </option>
+                    <option value="3">Full HD 1080p  </option>
             </select>
+            </div>
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price')); ?> 
             <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
