@@ -2,7 +2,29 @@
 <link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
 
+<div class="row pb-row">
+<div class="col-md-12 uploa_outer">
+		  <div class="slider_tittle">
+		  <h3 class="tittle">Collection list</h3>		  
+		</div>
+        <div class="row pb-row">
+              @if($wishList)
+              @foreach($wishList as $indx=> $val)
+            <div class="col-md-3 pb-video">
+             <video width="100%" height="100%" controls>
+    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+				
+             </video>
+            </div>
+            @endforeach
+            @else
+		             <div class="playwish">
+                     <h4>Collection Empty</h4>
 
+                   </div>
+                   @endif
+	</div>
+  </div>
 
   <!-- -------------------------- Play List  Start--------------------------->
 
