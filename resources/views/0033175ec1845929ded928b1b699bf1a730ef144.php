@@ -294,8 +294,12 @@ ul.nav.nav-tabs li a {
     font-size: 15px !important;
     color: white;
 }
-div#nav-tab {
-    background: #7b0000;
+.nav-tabs .nav-link.active {
+    color: #333333;
+    border-color: #fafafa !important;
+}
+.nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
+    border-color: #fafafa !important;
 }
 .nav-link.tabss {
     width: 33.33%;
@@ -319,6 +323,11 @@ div#nav-tab {
 }
 .coverimg .iconcamera i{
  display:none;
+}
+.nav-tabs {
+    border-bottom: 1px solid #fff;
+    background: #7b0000;
+    border-top: 1px solid #fff;
 }
 .coverimg:hover .iconcamera i{
     position: absolute;

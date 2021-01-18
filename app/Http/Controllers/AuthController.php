@@ -1024,8 +1024,6 @@ public function selectListname(Request $request){
 
     $playName = $this->model->getPlayListName();
 
-    // play
-
       return view('listname',['listname'=>$playName]);
 
   }
