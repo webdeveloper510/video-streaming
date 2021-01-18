@@ -24,9 +24,7 @@
                  <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/uU8Tfpe9"><i class="fa fa-angle-right"></i> Refund Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/UkyQfdIh"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
-              <li><a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a> </li> 
-            
-
+              <li><a href="{{url('/userWithdraw')}}"><i class="fa fa-angle-right"></i>   <i class="fa fa-money" aria-hidden="true"></i></a></li> 
             </ul>
           </div>
        
