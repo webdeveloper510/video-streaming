@@ -40,15 +40,17 @@
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
-   <div class="text-right">
-   <button type="button" class="btn btn-light">Edit</button>
-              </div>
+  
           <div class="container">
    <div class="row mb-5">
     <?php if($offerData): ?>
 
    <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  
       <div class="col-md-12">
+      <div class="text-right">
+         <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
+     </div>
       <div class="artistoffer row">
         <div class="col-md-2">
         <video width="100%" height="100%" controls>
@@ -71,6 +73,7 @@
         </div>
        
         <div class="col-md-2">
+        <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
         </div>
         <hr>
@@ -90,7 +93,7 @@
     <style type="text/css">
         .row hr {
     width: 100%;
-}
+  }
  </style>
 </div>
 
@@ -284,7 +287,66 @@ Your browser does not support the audio tag.
 
 </div>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Offer</h4>
+                <div class="alert alert-success" role="alert" style="display:none">
+                           This is a success alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert" style="display:none">
+                    This is a danger alert—check it out!
+                </div>
+            </div>
+            <div class="modal-body">
+            <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
 
+                   <?php echo e(Form::token()); ?>
+
+            <?php echo e(Form::label('Title', 'Title')); ?> 
+              <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
+
+
+            <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
+
+
+                <?php echo e(Form::label('Description', 'Description')); ?> 
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
+
+                <input type="hidden" name="offerid" id="offerid" value="">
+                <video width="100" id="video" height="100" controls>
+                  <source src="" type="video/mp4">
+                </video>
+                  <input type="file" name="file" value=""/>
+                  <input type="hidden" id="file_url" name="file_url" value=""/>
+
+                <label>Offer Status</label>
+            <select name="offer_status"  class='form-control' id="select_status">
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
+            <label>Choose Category</label>
+            <select name="category" id="selectCategory" class='form-control'>
+                    <option value="">Choose category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            <?php echo e(Form::close()); ?>
+
+        </div>
+    </div>
+</div>
 
 <style>
 ul.nav.nav-tabs li {

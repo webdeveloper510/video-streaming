@@ -49,7 +49,7 @@
   
       <div class="col-md-12">
       <div class="text-right">
-         <button type="button" class="btn btn-light" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
+         <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
      </div>
       <div class="artistoffer row">
         <div class="col-md-2">
@@ -93,7 +93,7 @@
     <style type="text/css">
         .row hr {
     width: 100%;
-}
+  }
  </style>
 </div>
 
@@ -291,8 +291,14 @@ Your browser does not support the audio tag.
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Offer</h4>
+                <div class="alert alert-success" role="alert" style="display:none">
+                           This is a success alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert" style="display:none">
+                    This is a danger alert—check it out!
+                </div>
             </div>
             <div class="modal-body">
             <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
@@ -315,6 +321,7 @@ Your browser does not support the audio tag.
                   <source src="" type="video/mp4">
                 </video>
                   <input type="file" name="file" value=""/>
+                  <input type="hidden" id="file_url" name="file_url" value=""/>
 
                 <label>Offer Status</label>
             <select name="offer_status"  class='form-control' id="select_status">

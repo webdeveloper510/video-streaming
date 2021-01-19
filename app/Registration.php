@@ -704,7 +704,21 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
     }
 
     public function editOfferDetail($data){
-          print_r($data);
+
+          //print_r($data->all());die;
+           $update = array(
+              'title'=>$data['title'],
+              'price'=>$data['price'],
+              'description'=>$data['description'],
+              'categoryid'=>$data['category'],
+              'offer_status'=>$data['offer_status'],
+              'media'=>$data['media'],
+           );
+           $update = DB::table('offer')->where('id',$data['offerid'])->update($update);
+
+          // print_r($update);die;
+
+           return $update ? 1 : 0;
     }
 
     public function selectDataById($key,$table,$where){

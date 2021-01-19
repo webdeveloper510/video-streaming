@@ -360,28 +360,21 @@ class artist extends Controller
   }
 
   public function edit_offer(Request $req){
-   // print_r($req->all());
+    //print_r($req->all());die;
     if($req->file){
     
        $fileName = time().'_'.$req->file->getClientOriginalName();
 
-       //print_r($fileName);die;
       $filePath = $req->file->storeAs('video', $fileName, 'public');
 
-      unset($req['file']);
-      unset($req['_token']);
-      $req['profilepicture']=$fileName;
-      print_r($req);die;
-        if($filePath){
-          //echo "yes";die;
-          
-          $update_data = $this->model->editOfferDetail($req);
-          //  if($update_data==1){
-          //    return redirect('/profile')->with('success','Data Updated Successfully!');
-          //  }
-          //  else{
-          //    return redirect('/profile')->with('error','Some Error Occure!');
-          //  }
+      $req['media'] = $fileName ? $fileName : $req['file_url'];
+
+        if($filePath){ 
+
+           $update_data = $this->model->editOfferDetail($req);
+
+           return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
+
         }
    }
   }

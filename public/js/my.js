@@ -844,7 +844,17 @@ $(document).on('submit', '#edit_form', function (event) {
 
 			success: function(data){
 
-				console.log(data);
+				if(data.status==1){
+					$('.alert-success').show();
+					$('.alert-success').html(data.message);
+				}
+
+				else{
+
+					$('.alert-danger').show();
+					$('.alert-danger').html(data.message);
+					
+				}
 
 
 			}
@@ -868,7 +878,8 @@ function addTohistory(type){
 				data: {'id':id, 'types':type},
 
 				success: function(data){	
-					console.log(data);
+					//console.log(data);
+
 				}
 		});
 
@@ -882,12 +893,13 @@ function edit_offer(data){
 		$('#title').val(json_info.title);
 		$('#offerid').val(json_info.id);
 		$('#video').attr('src',src);
+		$('#file_url').val(src);
 		$('#price').val(json_info.price);
 		$('#description').val(json_info.description);
 		$('#select_status').val(json_info.offer_status).attr("selected","selected");;
 		$('#selectCategory').val(json_info.categoryid).attr("selected","selected");;
 	//alert('helo');
-	$('#myModal').modal('show');
+	//$('#myModal').modal('show');
 }
 
 
