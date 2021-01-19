@@ -831,6 +831,7 @@ $(document).on('submit', '#form_sub', function (event) {
 $(document).on('submit', '#edit_form', function (event) {
 	event.preventDefault();
 	var formData = new FormData($(this)[0]);
+	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
 			url:APP_URL+"/edit_offer",
@@ -838,7 +839,7 @@ $(document).on('submit', '#edit_form', function (event) {
 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   },
 
-			data: formData,
+			data: formData ? formData : $(this).serialize(),
 			processData: false,
 			contentType: false,
 
