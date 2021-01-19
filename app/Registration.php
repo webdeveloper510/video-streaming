@@ -705,7 +705,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     public function editOfferDetail($data){
 
-          print_r($data->all());die;
+         
            $update = array(
               'title'=>$data['title'],
               'price'=>$data['price'],
@@ -714,6 +714,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
               'offer_status'=>$data['offer_status'],
               'media'=>$data['media'],
            );
+           print_r($update);die;
            $update = DB::table('offer')->where('id',$data['offerid'])->update($update);
 
           // print_r($update);die;
