@@ -20,27 +20,27 @@
       <div class="container profile ">
         <h1 class="text-center">Create Offer</h1>
           <div class="row align-items-center text-white">
-            <div class="col-md-6 mt-5 ">
-            <?php echo e(Form::label('Title', 'Title')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])); ?>
+                <div class="col-md-6 mt-5 ">
+                <?php echo e(Form::label('Title', 'Title')); ?> 
+                    <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])); ?>
 
-                 <?php if($errors->first('title')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('title') ?>
+                    <?php if($errors->first('title')): ?>
+                    <div class="alert alert-danger">
+                      <?php echo $errors->first('title') ?>
+                    </div>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
-            </div>
            
-             <div class="col-md-6 mt-5 ">
-            <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])); ?>
+                    <div class="col-md-6 mt-5 ">
+                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                        <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])); ?>
 
-                 <?php if($errors->first('price')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('price') ?>
-                </div>
-                <?php endif; ?>
-            </div>
+                        <?php if($errors->first('price')): ?>
+                        <div class="alert alert-danger">
+                          <?php echo $errors->first('price') ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
               <div class="col-md-6 mt-5 ">
             <?php echo e(Form::label('Keyword', 'Keywords')); ?> 
            <?php echo e(Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Keywords'])); ?>
@@ -88,7 +88,7 @@
          
              
            
-            <div class="col-md-12 mt-5">
+            <div class="col-md-6 mt-5">
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])); ?> 
@@ -100,6 +100,16 @@
                 </div>
                 <?php endif; ?>
                 </div>
+
+                <div class="col-md-6 mt-2 pt-4">
+                <label>Offer Status</label>
+            <select name="offer_status"  class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
+            </div>
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 

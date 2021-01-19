@@ -825,6 +825,32 @@ $(document).on('submit', '#form_sub', function (event) {
 	});
 
 });
+/**-------------------------------------------------------Edit Offer Data-------------------------------------------------------------------- */
+
+
+$(document).on('submit', '#edit_form', function (event) {
+	event.preventDefault();
+	var formData = new FormData($(this)[0]);
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/edit_offer",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: formData,
+			processData: false,
+			contentType: false,
+
+			success: function(data){
+
+				console.log(data);
+
+
+			}
+	});
+
+});
 
 function addTohistory(type){
 
@@ -846,6 +872,22 @@ function addTohistory(type){
 				}
 		});
 
+}
+
+function edit_offer(data){
+		var json_info = JSON.parse(data);
+		var url = 'http://localhost/laravel/video-streaming/storage/app/public/video/';
+		var src= url+json_info.media;
+		//console.log(json_info);return false;
+		$('#title').val(json_info.title);
+		$('#offerid').val(json_info.id);
+		$('#video').attr('src',src);
+		$('#price').val(json_info.price);
+		$('#description').val(json_info.description);
+		$('#select_status').val(json_info.offer_status).attr("selected","selected");;
+		$('#selectCategory').val(json_info.categoryid).attr("selected","selected");;
+	//alert('helo');
+	$('#myModal').modal('show');
 }
 
 

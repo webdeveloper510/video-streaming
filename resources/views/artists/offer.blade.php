@@ -16,25 +16,25 @@
       <div class="container profile ">
         <h1 class="text-center">Create Offer</h1>
           <div class="row align-items-center text-white">
-            <div class="col-md-6 mt-5 ">
-            {{Form::label('Title', 'Title')}} 
-                {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])}}
-                 @if($errors->first('title'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('title') ?>
+                <div class="col-md-6 mt-5 ">
+                {{Form::label('Title', 'Title')}} 
+                    {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])}}
+                    @if($errors->first('title'))
+                    <div class="alert alert-danger">
+                      <?php echo $errors->first('title') ?>
+                    </div>
+                    @endif
                 </div>
-                @endif
-            </div>
            
-             <div class="col-md-6 mt-5 ">
-            {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
-                {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
-                 @if($errors->first('price'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('price') ?>
-                </div>
-                @endif
-            </div>
+                    <div class="col-md-6 mt-5 ">
+                    {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
+                        {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
+                        @if($errors->first('price'))
+                        <div class="alert alert-danger">
+                          <?php echo $errors->first('price') ?>
+                        </div>
+                        @endif
+                    </div>
               <div class="col-md-6 mt-5 ">
             {{Form::label('Keyword', 'Keywords')}} 
            {{Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Keywords'])}}
@@ -78,7 +78,7 @@
          
              
            
-            <div class="col-md-12 mt-5">
+            <div class="col-md-6 mt-5">
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  {{Form::label('Audio/Video', 'Audio/Video')}} <br>
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
@@ -89,6 +89,16 @@
                 </div>
                 @endif
                 </div>
+
+                <div class="col-md-6 mt-2 pt-4">
+                <label>Offer Status</label>
+            <select name="offer_status"  class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
+            </div>
               
             <div class="col-md-6 mt-5">
              {{Form::label('Description', 'Description')}} 
