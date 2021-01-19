@@ -369,7 +369,7 @@ class artist extends Controller
 
       $req['media'] = $fileName ? $fileName : $req['file_url'];
 
-        if($filePath){ 
+        if($filePath || $filePath==''){ 
 
            $update_data = $this->model->editOfferDetail($req);
 
