@@ -207,6 +207,8 @@ Route::post('createList', 'AuthController@createList');
 
     Route::post('postDescription','artist@addUserDescription');
 
+    Route::post('edit_offer','artist@edit_offer');
+
     Route::post('editDescription','artist@editDescription');
 
 /*---------------------------------------End Artist---------------------*/

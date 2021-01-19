@@ -251,6 +251,7 @@ class artist extends Controller
       $this->validate($req,[
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'title'=>'required',
+          'offer_status'=>'required',
           'keyword'=>'required',
           'delieveryspeed'=>'required',
           'description'=>'required',
@@ -356,6 +357,33 @@ class artist extends Controller
           }
 
           
+  }
+
+  public function edit_offer(Request $req){
+   // print_r($req->all());
+    if($req->file){
+    
+       $fileName = time().'_'.$req->file->getClientOriginalName();
+
+       //print_r($fileName);die;
+      $filePath = $req->file->storeAs('video', $fileName, 'public');
+
+      unset($req['file']);
+      unset($req['_token']);
+      $req['profilepicture']=$fileName;
+      print_r($req);die;
+        if($filePath){
+          //echo "yes";die;
+          
+          $update_data = $this->model->editOfferDetail($req);
+          //  if($update_data==1){
+          //    return redirect('/profile')->with('success','Data Updated Successfully!');
+          //  }
+          //  else{
+          //    return redirect('/profile')->with('error','Some Error Occure!');
+          //  }
+        }
+   }
   }
 
   }

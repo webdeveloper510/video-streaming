@@ -703,6 +703,10 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     }
 
+    public function editOfferDetail($data){
+          print_r($data);
+    }
+
     public function selectDataById($key,$table,$where){
 
         $value=DB::table($table)->where($key, $where)->get()->toArray();
@@ -740,6 +744,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
         $userid=  $session_data->id;
 
       $data['status'] = 'pending';
+      $data['offer_status'] = $data['offer_status'];
       $data['created_at'] = now();
       $data['updated_at'] = now();
 
@@ -753,7 +758,6 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
 
         return $insert ? 1 :0;
-        //print_r($data);die;
 
     }
 
