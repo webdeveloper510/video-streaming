@@ -359,13 +359,11 @@ class artist extends Controller
           
   }
 
-  public function edit_offer(Request $req){
-    print_r($req->all());die;
-    if($req->file){
+  public function edit_offer(Request $req){    
     
-       $fileName = time().'_'.$req->file->getClientOriginalName();
+       $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
 
-      $filePath = $req->file->storeAs('video', $fileName, 'public');
+      $filePath = $req->file ? $req->file->storeAs('video', $fileName, 'public') : '';
 
       $req['media'] = $fileName ? $fileName : $req['file_url'];
 
@@ -374,8 +372,6 @@ class artist extends Controller
            $update_data = $this->model->editOfferDetail($req);
 
            return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
-
-        }
    }
   }
 

@@ -839,7 +839,7 @@ $(document).on('submit', '#edit_form', function (event) {
 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   },
 
-			data: formData ? formData : $(this).serialize(),
+			data: formData,
 			processData: false,
 			contentType: false,
 
@@ -896,7 +896,7 @@ function edit_offer(data){
 		$('#title').val(json_info.title);
 		$('#offerid').val(json_info.id);
 		$('#video').attr('src',src);
-		$('#file_url').val(src);
+		$('#file_url').val(json_info.media);
 		$('#price').val(json_info.price);
 		$('#description').val(json_info.description);
 		$('#select_status').val(json_info.offer_status).attr("selected","selected");;
