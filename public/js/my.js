@@ -87,6 +87,7 @@ $(document).ready(function(){
    var intials = $('.firstName').text().charAt(0);
    var profileImage = $('.profileImage').text(intials);
 
+
    
    
 });
