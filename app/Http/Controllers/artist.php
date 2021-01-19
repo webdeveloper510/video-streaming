@@ -360,7 +360,7 @@ class artist extends Controller
   }
 
   public function edit_offer(Request $req){
-    //print_r($req->all());die;
+    print_r($req->all());die;
     if($req->file){
     
        $fileName = time().'_'.$req->file->getClientOriginalName();
