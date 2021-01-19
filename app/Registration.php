@@ -714,7 +714,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
               'offer_status'=>$data['offer_status'],
               'media'=>$data['media'],
            );
-           print_r($update);die;
+           //print_r($update);die;
            $update = DB::table('offer')->where('id',$data['offerid'])->update($update);
 
           // print_r($update);die;
