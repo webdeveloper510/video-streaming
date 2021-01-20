@@ -3,7 +3,7 @@
 
 <!-- end header -->
 <div class="container mt-5">
-    <div class="row my-5 pt-5 " >
+    <!-- <div class="row my-5 pt-5 " >
       
     <?php if($subcategory): ?>
       <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -21,7 +21,7 @@
 
 
 
-    </div>
+    </div> -->
     <div class="alert alert-success message" id="message" style="display:none" role="alert">
   A simple success alert—check it out!
 </div>

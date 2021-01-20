@@ -92,7 +92,7 @@
 
    <div class="container">
     <div class="row mb-5">
-        <div class="col"></div>
+        <div class="col"><h3 class="mt-3">Videos</h3> </div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-primary bardot">Choose</button>
@@ -109,7 +109,7 @@
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
-  <h3>Videos</h3>  
+   
           <div class="row mb-5">
         @if($details)
               @foreach ($details as $detail)
@@ -277,6 +277,15 @@ Your browser does not support the audio tag.
 .fa-lock{
   font-size:30px;
 }
-
+div#nav-contact {
+    background: #000;
+    color: #fff !important;
+}
+div#nav-contact *{
+    color: #fff;
+}
+select.form-select.form-control, select.form-select.form-control * {
+    color: #000 !important;
+}
 </style>
 @include('layouts.footer')
