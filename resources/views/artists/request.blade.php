@@ -40,8 +40,10 @@
                         <th scope="col">Title</th>
                         <th scope="col">Media</th>
                         <th scope="col">Duration</th>
-                        <th scope="col">Username</th>
+                        <th>P/O</th>
+                        <th scope="col">Customer Name</th>
                         <th scope="col"> Status</th>              
+                        <th scope="col"> Delievery Time</th>              
                       </tr>
                     </thead>
                     <tbody>
@@ -51,9 +53,10 @@
                         <td>{{$req->title}}</td>
                         <td>{{$req->media}}</td>
                         <td>{{$req->duration}}</td>
+                        <td>Projects</td>
                         <td>{{$req->user_name}}</td>
                          <td>{{$req->status}}</td>
-                      
+                         <td>5</td>
                       </tr>
                       @endforeach
                     

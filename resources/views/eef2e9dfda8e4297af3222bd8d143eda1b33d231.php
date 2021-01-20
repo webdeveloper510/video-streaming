@@ -63,7 +63,7 @@ $GLOBALS['price'] = $offerdata->price;
 
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<h4>Additional Description<small>(not guaranteed)</small></h4>
+<h4>Additional Request <small>(Price: 500PAZ)</small></h4>
 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
 
 <div class="text-right mt-5">
