@@ -765,6 +765,7 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
 
       $data['artistid'] = $userid;
+      $data['userdescription'] = '';
 
       $data['userid'] =0;
 
