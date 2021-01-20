@@ -262,7 +262,7 @@
            <button class="dropdown-item" type="button">
           <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
     </div>
-   <hr/ style="color:white;background: white;">
+   <hr style="color:white;background: white;">
   <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
  </span>

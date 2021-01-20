@@ -99,9 +99,16 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
-				   <video width="320" height="240" controls>
+				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
 				   	<source src="{{url('storage/app/public/video/'.$video->media)}}" type="video/mp4">
 				   </video>
+				   <div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li>Report</li>
+						 <li>You can not download this video.</li>
+						</ul>
+				   </div>
 				</div>
 			 </div>
 		  </div>
@@ -370,7 +377,23 @@
 		
 
 </script>
-
+<style>
+.report-op {
+    position: absolute;
+    width: 100%;
+    top: 6px;
+    padding-left: 267px;
+}
+ul.reporting {
+    background: #efefef;
+    width: 241px;
+    margin-left: 50%;
+    box-shadow: 0 3px 6px #00000026;
+    padding: 8px 6px 8px;
+    text-align: left;
+    font-size: 13px;
+}
+</style>
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
     e.preventDefault();
@@ -390,6 +413,10 @@ $(".addToCart").click(function(e) {
         }
     });
 });
+function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
 </script>
 
 

@@ -287,6 +287,19 @@ class artist extends Controller
 
   }
 
+  public function offerpage($id){
+
+    $navbaractive = 'withdraw';
+
+
+    $offerData = $this->model->getOfferById($id);
+
+    //print_r($offerData);die;
+
+    return view('artists/offerpage',['offer'=>$offerData,'tab'=>$navbaractive]);
+
+  }
+
   public function myoffer(){
 
     $navbaractive = 'offer';

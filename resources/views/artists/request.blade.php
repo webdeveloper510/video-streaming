@@ -37,55 +37,22 @@
                 <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">User Description</th>
-                        <th scope="col">Price</th>
                         <th scope="col">Title</th>
                         <th scope="col">Media</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Categories</th>
-                        <th scope="col"> Status</th>
-                        <th scope="col">Add Description</th>
-                        <th scope="col">Artist Description</th>
-                         <th>Action</th>
-                      
+                        <th scope="col"> Status</th>              
                       </tr>
                     </thead>
                     <tbody>
                         @foreach($request as $index=>$req)
                        
-                      <tr>
-                        <th scope="row">{{$index+1}}</th>
-                        <td>{{$req->description}}</td>
-                        <td>{{$req->price}}</td>
-                       
+                      <tr>                       
                         <td>{{$req->title}}</td>
                         <td>{{$req->media}}</td>
                         <td>{{$req->duration}}</td>
                         <td>{{$req->user_name}}</td>
-                         <td>{{$req->category_name}}</td>
                          <td>{{$req->status}}</td>
-                 <td>
-                    @if($req->artist_description)
-                        <button class="btn"  onclick="getId('{{$req->id}}')" data-toggle="modal" data-target="#descri">Edit Description
-                        </button>
-                    @else
-                         <button class="btn"  onclick="getId('{{$req->id}}')" data-toggle="modal" data-target="#descri">Add Description
-                        </button>
-                    @endif
-                </td>
-
-
-                        <td>
-                           {{$req->artist_description}} 
-                        </td>
-
-
-                         <td>
-        <input type="radio" name ="r1" class="action" user-id="{{$req->userid}}" data-key="{{$req->id}}" value="Accepted" >Accepted
-         <input type="radio" name ="r1" user-id="{{$req->userid}}" class="action" data-key="{{$req->id}}" value="Rejected">Rejected
-                         </td>
                       
                       </tr>
                       @endforeach

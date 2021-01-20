@@ -41,7 +41,7 @@
               </tr>
 	      </table>
 	    
-	      <!-- <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
+	      <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a>
      </div>
    </div>
  </div>
@@ -112,4 +112,4 @@ table.table.table-borderless tr td, th {
     margin-top: 97px;
 }
 	</style>
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/showoffer.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/showoffer.blade.php ENDPATH**/ ?>

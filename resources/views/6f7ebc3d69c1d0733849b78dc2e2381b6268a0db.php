@@ -37,55 +37,22 @@
                 <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">User Description</th>
-                        <th scope="col">Price</th>
                         <th scope="col">Title</th>
                         <th scope="col">Media</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Categories</th>
-                        <th scope="col"> Status</th>
-                        <th scope="col">Add Description</th>
-                        <th scope="col">Artist Description</th>
-                         <th>Action</th>
-                      
+                        <th scope="col"> Status</th>              
                       </tr>
                     </thead>
                     <tbody>
                         <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                        
-                      <tr>
-                        <th scope="row"><?php echo e($index+1); ?></th>
-                        <td><?php echo e($req->description); ?></td>
-                        <td><?php echo e($req->price); ?></td>
-                       
+                      <tr>                       
                         <td><?php echo e($req->title); ?></td>
                         <td><?php echo e($req->media); ?></td>
                         <td><?php echo e($req->duration); ?></td>
                         <td><?php echo e($req->user_name); ?></td>
-                         <td><?php echo e($req->category_name); ?></td>
                          <td><?php echo e($req->status); ?></td>
-                 <td>
-                    <?php if($req->artist_description): ?>
-                        <button class="btn"  onclick="getId('<?php echo e($req->id); ?>')" data-toggle="modal" data-target="#descri">Edit Description
-                        </button>
-                    <?php else: ?>
-                         <button class="btn"  onclick="getId('<?php echo e($req->id); ?>')" data-toggle="modal" data-target="#descri">Add Description
-                        </button>
-                    <?php endif; ?>
-                </td>
-
-
-                        <td>
-                           <?php echo e($req->artist_description); ?> 
-                        </td>
-
-
-                         <td>
-        <input type="radio" name ="r1" class="action" user-id="<?php echo e($req->userid); ?>" data-key="<?php echo e($req->id); ?>" value="Accepted" >Accepted
-         <input type="radio" name ="r1" user-id="<?php echo e($req->userid); ?>" class="action" data-key="<?php echo e($req->id); ?>" value="Rejected">Rejected
-                         </td>
                       
                       </tr>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

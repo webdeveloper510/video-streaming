@@ -15,7 +15,7 @@
     
              <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
              </h3>
-        
+            <button class="btn btn-light text-right msg" type="button"> Send Message</button>
           
           </div>
           <nav>
@@ -223,7 +223,7 @@ Your browser does not support the audio tag.
     </div>
     </div>
     <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
-    <p>hello</p>
+    <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
     </div>
   
 
@@ -275,6 +275,11 @@ Your browser does not support the audio tag.
 
 </div>
 </div>
+<style>
+.fa-lock{
+  font-size:30px;
+}
 
+</style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
