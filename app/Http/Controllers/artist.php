@@ -294,6 +294,8 @@ class artist extends Controller
 
     $offerData = $this->model->getOfferById($id);
 
+    //print_r($offerData);die;
+
     return view('artists/offerpage',['offer'=>$offerData,'tab'=>$navbaractive]);
 
   }

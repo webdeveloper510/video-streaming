@@ -19,7 +19,7 @@
         </div>
         <div class="artistdetail11 mb-5">
             <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
-             <i class="fa fa-star" style="color:red;"></i>  761  
+             <i class="fa fa-star" style="color:red;"></i>  {{isset($offerData[0]->count) ? $offerData[0]->count:0}}    
             
              </h3>
         

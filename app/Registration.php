@@ -438,8 +438,9 @@ public function getArtistDetail($artid,$type){
   public function getArtistOffer($artistId){
 
     $offer=DB::table('offer')
-    ->leftjoin('category', 'category.id', '=','offer.categoryid')
-     ->select('offer.*', 'category.category')
+    ->join('category', 'category.id', '=','offer.categoryid')
+    ->join('subscriber','subscriber.artistid','=','offer.artistid')
+     ->select('offer.*', 'category.category','subscriber.count')
      ->where('offer.artistid',$artistId)
      ->get()->toArray();
       if($offer){
@@ -881,7 +882,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
       $offer=DB::table('offer')
     ->join('category', 'category.id', '=', 'offer.categoryid')
     ->join('contentprovider', 'contentprovider.id', '=', 'offer.artistid')
-     ->select('offer.*', 'category.category','contentprovider.nickname')
+    ->join('subscriber','subscriber.artistid','=','offer.artistid')
+     ->select('offer.*', 'category.category','subscriber.count','contentprovider.nickname')
      ->where('offer.id',$id)
      ->get()->toArray();
      if($offer){

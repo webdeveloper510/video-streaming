@@ -5,7 +5,7 @@
 <div class="offer ">
 <h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
-<p><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </p>
+<p><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  <?php echo e($offer[0]->count); ?> </p>
 </div>
 <p>Sample</p>
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
