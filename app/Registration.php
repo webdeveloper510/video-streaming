@@ -852,6 +852,8 @@ $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description
 
     }
 
+    
+
     public function readNotification($id){
 
         $data=array('read'=>1);

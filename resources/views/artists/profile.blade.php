@@ -61,7 +61,7 @@
       </div>
        
         <div class="col-md-8 pl-5 showoffer">
-        <a target="_blank" href="{{url('artistoffers/'.$offer->id)}}">
+        <a target="_blank" href="{{url('artist/offers/'.$offer->id)}}">
            <h2>{{$offer->title}}</h2>
                <p>{{$offer->description}}</p>
                  {{$details[0]->nickname}}

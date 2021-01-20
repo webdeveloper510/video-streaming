@@ -61,7 +61,7 @@
       </div>
        
         <div class="col-md-8 pl-5 showoffer">
-        <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
+        <a target="_blank" href="<?php echo e(url('artist/offers/'.$offer->id)); ?>">
            <h2><?php echo e($offer->title); ?></h2>
                <p><?php echo e($offer->description); ?></p>
                  <?php echo e($details[0]->nickname); ?>

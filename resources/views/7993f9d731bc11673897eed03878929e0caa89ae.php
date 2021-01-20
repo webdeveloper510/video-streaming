@@ -2,7 +2,29 @@
 <link rel="stylesheet" href="<?php echo e(asset('design/play.css')); ?>" />
 <!-- end header -->
 
+<div class="row pb-row">
+<div class="col-md-12 uploa_outer">
+		  <div class="slider_tittle">
+		  <h3 class="tittle">Collection list</h3>		  
+		</div>
+        <div class="row pb-row">
+              <?php if($wishList): ?>
+              <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-md-3 pb-video">
+             <video width="100%" height="100%" controls>
+    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+				
+             </video>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
+		             <div class="playwish">
+                     <h4>Collection Empty</h4>
 
+                   </div>
+                   <?php endif; ?>
+	</div>
+  </div>
 
   <!-- -------------------------- Play List  Start--------------------------->
 
@@ -44,11 +66,17 @@
       Your browser does not support the video tag.
     </video>
     
+    
+
       </div>
       <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
        <?php endif; ?>
+       <?php else: ?>
+       <div class="playhistory">
+                     <h4>Playlist Empty</h4>
 
+                   </div>
             <?php endif; ?>
 			
 	</div>
