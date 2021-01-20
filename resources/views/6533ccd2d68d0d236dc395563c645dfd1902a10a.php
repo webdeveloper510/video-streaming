@@ -102,11 +102,32 @@ button.btn.btn-primary.bardot {
 }
 input.slct_video {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    appearance: unset;
+    z-index: 99999;
 }
+input.slct_video.selected:after {
+    content: "\f14a" !important;
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 20px;
+    color: #007bff;
+}
+input.slct_video:after {
+    content: "\f0c8";
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    font-size: 20px;
+    color: #007bff;
+}
+
 </style>
 </html>
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//search.blade.php ENDPATH**/ ?>

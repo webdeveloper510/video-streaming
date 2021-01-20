@@ -138,13 +138,13 @@
 
       @forelse ($recently as $recnt)
             @if($recnt->type=='video')
-            <div class="col-md-4">
+            <div class="col-md-4 hover" >
             
-          <video width="350px" height="275px" controls allowfullscreen>
+          <video width="350px" height="275px" controls="false" allowfullscreen>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          
+          <h5>{{ $recnt->title }}</h5>
             </div>
             @endif
             @empty
@@ -180,11 +180,12 @@
           <div class="row">
           @forelse ($popular as $pop)
             @if($pop->type=='video')
-            <div class="col-md-4">
-                <video width="100%" height="100%" controls allowfullscreen>
+            <div class="col-md-4 hover">
+                <video width="100%" height="100%" controls="false" allowfullscreen>
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <h5>{{ $pop->title }}</h5>
             </div> 
 
                @endif
@@ -216,14 +217,14 @@
    <div class="row">
          @forelse ($offers as $offer)
             @if($offer->type=='video')
-              <div class="col-md-4">
+              <div class="col-md-4 hover">
                 
-                  <video width="100%" height="100%" controls allowfullscreen>
+                  <video width="100%" height="100%" controls="false" allowfullscreen>
 
                   <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
-               
+                  <h5>{{ $offer->title }}</h5>
               </div>
               @endif
               @empty
@@ -325,6 +326,11 @@
    h3.tittle a {
     color: white;
    }
+   video::-webkit-media-controls {
+  display:none !important;
+}
+.hover:hover video{ border: 2px solid yellow; }
+h5{ color :#fff;}
   </style>
  
 

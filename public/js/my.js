@@ -544,11 +544,11 @@ $(document).on('click', '.bardot', function () {
 	});
 
 $(document).on('click','.slct_video',function(){
-
+	console.log("asas");
 	 var price = $(this).attr('data-id');
 
 	 	var id = $(this).attr('id');
-
+		 $("#"+id).toggleClass("selected");
 	   var count = $('.count').text();
 
 	   var tokens = $('.paz').text();
