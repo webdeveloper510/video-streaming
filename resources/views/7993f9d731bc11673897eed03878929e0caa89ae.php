@@ -3,6 +3,7 @@
 <!-- end header -->
 
 <div class="row pb-row">
+<div class="container">
 <div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">Collection list</h3>		  
@@ -25,7 +26,7 @@
                    <?php endif; ?>
 	</div>
   </div>
-
+</div>
   <!-- -------------------------- Play List  Start--------------------------->
 
 
@@ -33,7 +34,7 @@
   <div class="container">
       <div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">Play list</h3>	
+		  <h3 class="tittle">Playlist</h3>	
       <form>	
        <div class="form-group">
     <label for="exampleFormControlSelect1"> Select Playlist</label>
@@ -73,8 +74,8 @@
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
        <?php endif; ?>
        <?php else: ?>
-       <div class="playhistory">
-                     <h4>Playlist Empty</h4>
+       <div class="playhistory col-md-12">
+                     <h4>No play list created yet. <span id="playlistCreate">Create play List +</span></h4>
 
                    </div>
             <?php endif; ?>
@@ -89,7 +90,7 @@
 
 	<div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">Wish list</h3>		  
+		  <h3 class="tittle">Wishlist</h3>		  
 		</div>
         <div class="row pb-row">
               <?php if($wishList): ?>
@@ -102,7 +103,7 @@
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
-		             <div class="playwish">
+		             <div class="playwish playhistory col-md-12">
                      <h4>Wishlist Empty</h4>
 
                    </div>
@@ -130,7 +131,7 @@
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
-            <div class="playhistory">
+            <div class="playhistory col-md-12">
                      <h4>History Empty</h4>
 
                    </div>
@@ -160,10 +161,10 @@ rewindNav:false
     display: block !important;
   }
   .playhistory {
-    border: 2px dashed red;
+    border: none;
     width: 100%;
-    text-align: center;
-    padding-bottom: 11px;
+    text-align: left;
+    padding-bottom: 0;
 }
 .playwish {
     border: 2px dashed red;
@@ -171,7 +172,19 @@ rewindNav:false
     text-align: center;
     padding-bottom: 11px;
 }
-
+.playhistory h4 {
+    margin: 0;
+    font-size: 12px;
+}
+.inner-page {
+    display: inline-block;
+    width: 100%;
+}
+span#playlistCreate {
+    font-size: 15px;
+    font-weight: 700;
+    cursor:pointer;
+}
 </style>
 <!--body end-->
 
