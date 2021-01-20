@@ -72,11 +72,11 @@
           </li>
            <li class="nav-item <?php echo e($tab=='requests' ? 'active': ''); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
-              <i class="fa fa-money"></i>
+              <i class="fa fa-message"></i>
               <p>Orders/Projects</p>
             </a>
           </li>
-         <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">
+         <!-- <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
@@ -90,7 +90,7 @@
         </div>
          
 
-          </li>
+          </li> -->
           
         </ul>
       </div>
@@ -273,7 +273,7 @@
               </li>
               
              
-              <li class="nav-item dropdown">
+              <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
                  
@@ -291,7 +291,8 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
-              </li>
+              </li> -->
+              <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li>
               <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons"style="font-size:27px">person</i>

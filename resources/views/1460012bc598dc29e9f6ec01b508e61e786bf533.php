@@ -558,7 +558,9 @@
     <?php else: ?>
     <div class="">
 		    	  <span class="firstName" style="display: none;"><?php echo e($userProfile ? $userProfile[0]->nickname : ''); ?></span>
-	           	<div class="profileImage"></div>
+	           	<div class="profileImage">
+               
+               </div>
 	  </div>
    
    <?php endif; ?>
@@ -616,7 +618,7 @@
      <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
                 </div>
               </li>
-
+              <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li>
 						</div>
 					</div>
 				</nav>

@@ -2,32 +2,24 @@
 
 <section class="background1">
 <div class="container">
-<div>
-           <?php if(session('success')): ?>
-        <div class="alert alert-success">
-        <?php echo e(session('success')); ?>
-
-        </div>
-        <?php endif; ?>
-      </div>
 
 <div class="row mt-5 pt-5">
     <div class="col-md-3">
-        <div class="columesdashboard">
-           <h1>345</h1>
-           <h4>Order/Project <br>Due</h4>
-        </div>
+          <div class="columesdashboard">
+            <h1>345</h1>
+            <h4>Order/Project <br>Due</h4>
+          </div>
     </div>
     <div class="col-md-3">
-    <div class="columesdashboard1">
-           <h1>345</h1>
-           <h4>Order/Project <br>In Process</h4>
-        </div>    
+            <div class="columesdashboard1">
+                  <h1>345</h1>
+                  <h4>Order/Project <br>In Process</h4>
+            </div>    
     </div>
     <div class="col-md-3">
     <div class="columesdashboard2">
            <h1>345</h1>
-           <h4>Offer<br> Online</h4>
+           <h4>New<br> Order/Project</h4>
         </div>     
     </div>
     <div class="col-md-3">
@@ -59,11 +51,11 @@
              <hr>
               <div class="card-body text-center">
                 <h3 class="card-title">Today:</h3>
-                <h5>4500 PAZ</h5>
+                <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
                 <h3 class="card-title">This Month:</h3>
-                <h5>144 250 PAZ</h5>
+                <h5><?php echo e($month_paz[0]->total_token); ?> PAZ</h5>
                 <h3 class="card-title">This Year:</h3>
-                <h5>1 526 568 PAZ</h5>
+                <h5><?php echo e($year_PAZ[0]->total_token); ?> PAZ</h5>
               </div>
             </div>
     </div>
@@ -73,7 +65,9 @@
              <hr>
               <div class="card-body">
                 <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+
                 <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
+                
                 <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
                 
               </div>
