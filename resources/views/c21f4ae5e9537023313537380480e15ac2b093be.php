@@ -138,13 +138,13 @@
 
       <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
-            <div class="col-md-4">
+            <div class="col-md-4 hover" >
             
-          <video width="350px" height="275px" controls allowfullscreen>
+          <video width="350px" height="275px" controls="false" allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
-          
+          <h5><?php echo e($recnt->title); ?></h5>
             </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -180,11 +180,12 @@
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($pop->type=='video'): ?>
-            <div class="col-md-4">
-                <video width="100%" height="100%" controls allowfullscreen>
+            <div class="col-md-4 hover">
+                <video width="100%" height="100%" controls="false" allowfullscreen>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <h5><?php echo e($pop->title); ?></h5>
             </div> 
 
                <?php endif; ?>
@@ -216,14 +217,14 @@
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($offer->type=='video'): ?>
-              <div class="col-md-4">
+              <div class="col-md-4 hover">
                 
-                  <video width="100%" height="100%" controls allowfullscreen>
+                  <video width="100%" height="100%" controls="false" allowfullscreen>
 
                   <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                     Your browser does not support the video tag.
                   </video>
-               
+                  <h5><?php echo e($offer->title); ?></h5>
               </div>
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -325,6 +326,11 @@
    h3.tittle a {
     color: white;
    }
+   video::-webkit-media-controls {
+  display:none !important;
+}
+.hover:hover video{ border: 2px solid yellow; }
+h5{ color :#fff;}
   </style>
  
 

@@ -13,6 +13,8 @@
 <?php 
 $GLOBALS['id'] = $offerdata->id;
 $GLOBALS['user_id'] = $offerdata->userid;
+$GLOBALS['artistid'] = $offerdata->artistid;
+
 $GLOBALS['price'] = $offerdata->price;
 ?>
 <div class="container">
@@ -54,13 +56,14 @@ $GLOBALS['price'] = $offerdata->price;
 
 <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
 <input type="hidden" name="price" value="<?php echo e($GLOBALS['price']); ?>"/>
+<input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
   <?php echo e(Form::number('duration', '',['class'=>'form-control','placeholder'=>'Duration'])); ?>
 
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<h4>Additional Description<small>(not guaranteed)</small></h4>
+<h4>Additional Request <small>(Price: 500PAZ)</small></h4>
 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
 
 <div class="text-right mt-5">
