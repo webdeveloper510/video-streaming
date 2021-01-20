@@ -223,7 +223,7 @@ Your browser does not support the audio tag.
     </div>
     </div>
     <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
-    <p>hello</p>
+    <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
     </div>
   
 
@@ -275,6 +275,11 @@ Your browser does not support the audio tag.
 
 </div>
 </div>
+<style>
+.fa-lock{
+  font-size:30px;
+}
 
+</style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
