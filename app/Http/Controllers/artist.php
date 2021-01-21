@@ -200,13 +200,15 @@ class artist extends Controller
 
       $count_due_project = $this->model->count_due_offer('add_request');
 
+      $count_result = array_merge($count_due_offer,$count_due_project);
+       
+
       $monthly_PAZ = $this->model->month_PAZ();
 
       $year_PAZ = $this->model->year_PAZ();
+      
 
-      //print_r($monthly_PAZ);die;
-
-      return view('artists.dashboard_home',['count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
