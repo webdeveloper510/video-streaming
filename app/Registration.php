@@ -599,10 +599,29 @@ public function getRespectedSub($data){
 
     public function showRequests(){
 
-$data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.artist_description , i.status,i.description,i.media,i.userid");
+     $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.artist_description , i.delieveryspeed,i.status,i.description,i.media,i.userid");
         // echo "<pre>";
         // print_r($data);die;
-  return $data;
+         return $data;
+    }
+
+
+    public function count_orders($table){
+
+      $value=DB::table($table)->where('status','new')->count();
+
+      return $value;
+
+
+    }
+
+    public function count_due_offer($table){
+        $data = DB::table($table)
+        ->select(DB::raw('created_at as create_time', DB::raw('sum(amount) as total')))
+        //->groupBy(DB::raw('YEAR(date)') )
+        ->get();
+        echo "<pre>";
+        print_r($data);die;
     }
 
 

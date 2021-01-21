@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-3">
     <div class="columesdashboard2">
-           <h1>345</h1>
+           <h1>{{$count_new_projects}}</h1>
            <h4>New<br> Order/Project</h4>
         </div>     
     </div>

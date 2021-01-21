@@ -55,8 +55,8 @@
                         <td>{{$req->duration}}</td>
                         <td>Projects</td>
                         <td>{{$req->user_name}}</td>
-                         <td>{{$req->status}}</td>
-                         <td>5</td>
+                         <td>{{strtoupper($req->status)}}</td>
+                         <td>{{$req->delieveryspeed}}</td>
                       </tr>
                       @endforeach
                     

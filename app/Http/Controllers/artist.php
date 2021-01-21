@@ -190,7 +190,15 @@ class artist extends Controller
 
       $today_PAZ = $this->model->today_PAZ();
 
-     // print_r($today_PAZ);die;
+      $count_new_offer = $this->model->count_orders('offer');
+
+      $count_new_projects = $this->model->count_orders('add_request');
+
+      $total_count = $count_new_projects + $count_new_offer;
+
+      $count_due_offer = $this->model->count_due_offer('offer');
+
+      $count_due_project = $this->model->count_due_offer('add_request');
 
       $monthly_PAZ = $this->model->month_PAZ();
 
@@ -198,7 +206,7 @@ class artist extends Controller
 
       //print_r($monthly_PAZ);die;
 
-      return view('artists.dashboard_home',['today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
