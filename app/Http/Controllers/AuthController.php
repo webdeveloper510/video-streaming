@@ -918,6 +918,7 @@ public function notifyEmail(Request $req){
          // 'price'=>'required_without_all:total',
         // 'total'=>'required_without_all|price',
           'title'=>'required',
+          'delieveryspeed'=>'required',
           'min'=>'required|numeric|lt:max',
           'max'=>'required|numeric|gt:min',
           'categories'=>'required'

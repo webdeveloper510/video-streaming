@@ -127,6 +127,7 @@
                               <?php echo $errors->first('total') ?>
                             </div>
                             <?php endif; ?>
+                            
                           </div>
                         </div>
 
@@ -152,6 +153,16 @@
                                <?php if($errors->first('max')): ?>
                             <div class="alert alert-danger">
                               <?php echo $errors->first('max'); ?>
+                            </div>
+                            <?php endif; ?>
+                            <div class="col">
+                            <label >Delievery Days :</label>
+                            <?php echo Form::number('delieveryspeed', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Delievery Speed']); ?>
+
+                            </div>
+                            <?php if($errors->first('delieveryspeed')): ?>
+                            <div class="alert alert-danger">
+                              <?php echo $errors->first('delieveryspeed'); ?>
                             </div>
                             <?php endif; ?>
                             </div>
