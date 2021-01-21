@@ -615,6 +615,15 @@ public function getRespectedSub($data){
 
     }
 
+    public function count_due_offer($table){
+        $data = DB::table($table)
+        ->select(DB::raw('created_at as create_time', DB::raw('sum(amount) as total')))
+        //->groupBy(DB::raw('YEAR(date)') )
+        ->get();
+        echo "<pre>";
+        print_r($data);die;
+    }
+
 
     public function addRequest($data){
 

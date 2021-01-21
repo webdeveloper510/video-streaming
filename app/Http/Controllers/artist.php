@@ -196,6 +196,10 @@ class artist extends Controller
 
       $total_count = $count_new_projects + $count_new_offer;
 
+      $count_due_offer = $this->model->count_due_offer('offer');
+
+      $count_due_project = $this->model->count_due_offer('add_request');
+
       $monthly_PAZ = $this->model->month_PAZ();
 
       $year_PAZ = $this->model->year_PAZ();
