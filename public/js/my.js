@@ -883,6 +883,8 @@ function addTohistory(type){
 }
 
 $('.image').click(function(){
+	var image_type = $(this).attr('data-id');
+	$('#image_type').val(image_type);
 	$('.image_change').trigger('click');
 })
 

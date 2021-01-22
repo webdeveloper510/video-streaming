@@ -6,7 +6,19 @@
         <div class="coverimg">
           <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
           <div class="iconcamera">
-        <i class="fa fa-camera"></i>
+        <i class="fa fa-camera image"></i>
+
+        </div>
+        <div style="display:none">
+        <?php echo Form::open(['id'=>'filechange','method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?>
+
+        <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
+        <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>
+
+
+        <?php echo e(Form::close()); ?>
 
         </div>
         </div>

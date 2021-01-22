@@ -406,9 +406,9 @@ class artist extends Controller
     //print_r($filename);die;
     $filepath = $req->image->storeAs('uploads', $filename, 'public');
 
-    $req['profilepicture'] = $filename ;
+    //$req['profilepicture'] = $filename ;
 
-    $update = $this->model->update_cover($req);
+    $update = $this->model->update_cover($filename,$req);
 
     return $update ? response()->json(array('status'=>1)) :  response()->json(array('status'=>0));
 
