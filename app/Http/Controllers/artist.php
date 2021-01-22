@@ -190,6 +190,14 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
+      $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
+
+     // print_r($info);die;
+
+      if(count($info)==0){
+        return redirect('artist/edit');
+      }
+
       $today_PAZ = $this->model->today_PAZ();
 
       $count_new_offer = $this->model->count_orders('offer');

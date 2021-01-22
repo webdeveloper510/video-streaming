@@ -40,37 +40,37 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item {{$tab=='dashboard' ? 'active': ''}} ">
+          <li class="nav-item {{$tab=='dashboard' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link " href="{{url('artists/dashboard')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='profile' ? 'active': ''}}">
+          <li class="nav-item {{$tab=='profile'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/Profile')}}">
               <i class="material-icons">person</i>
               <p> Profile</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='feed' ? 'active': ''}}">
+          <li class="nav-item {{$tab=='feed'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artists/dashboard')}}">
             <i class="fa fa-newspaper-o"> </i>
               <p>User Feed</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='upload' ? 'active': ''}}">
+          <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
               <i class="fa fa-upload"></i>
               <p>Upload</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}">
+          <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
-           <li class="nav-item {{$tab=='requests' ? 'active': ''}}">
+           <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
               <i class="fa fa-message"></i>
               <p>Orders/Projects</p>
