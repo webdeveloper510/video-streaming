@@ -3,8 +3,9 @@
     text-align: center;
 }
 
-span.carousel-control-prev-icon {
-   
+.navbar-nav i.fa {
+    padding: 0px 5px;
+    font-size: 25px;
 }
 
 .carousel-control-prev {
