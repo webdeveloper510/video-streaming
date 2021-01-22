@@ -26,11 +26,11 @@
               </div>
               <h2 class="text-center mt-5 pt-5">List Of Requests</h2>
                 <div class="dropreq text-right">
-                <select class="custom-select col-md-4">
+                <select class="custom-select col-md-4" onc>
                     <option selected="">All</option>
-                    <option value="1">New</option>
-                    <option value="2">In Process</option>
-                    <option value="3">Due</option>
+                    <option value="New">New</option>
+                    <option value="In Process">In Process</option>
+                    <option value="Due">Due</option>
                   </select>
                 </div>
                 <div class="table-responsive">
