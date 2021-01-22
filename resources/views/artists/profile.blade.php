@@ -6,8 +6,16 @@
         <div class="coverimg">
           <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg') }}" width="100%" height="300px">
           <div class="iconcamera">
-        <i class="fa fa-camera"></i>
+        <i class="fa fa-camera image"></i>
 
+        </div>
+        <div style="display:none">
+        {!!Form::open(['id'=>'filechange','method' => 'post', 'files'=>true])!!}
+          {{Form::token()}}
+        <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
+        {{ Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange']) }}
+
+        {{ Form::close() }}
         </div>
         </div>
         <div class="profileimg">

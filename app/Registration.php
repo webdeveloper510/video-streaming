@@ -362,7 +362,7 @@ public function uploadContentProvider($contentdata){
    
     $contentdata['contentProviderid']=$contentid;
      $contentdata['catid']=$contentdata['category'];
-     $contentdata['subid']=$contentdata['subcategory'];
+     $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
     $duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
@@ -616,12 +616,12 @@ public function getRespectedSub($data){
     }
 
     public function count_due_offer($table){
+        $current = date('Y-m-d');
         $data = DB::table($table)
-        ->select(DB::raw('created_at as create_time', DB::raw('sum(amount) as total')))
-        //->groupBy(DB::raw('YEAR(date)') )
-        ->get();
-        echo "<pre>";
-        print_r($data);die;
+        ->select(DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
+       ->get()->toArray();
+
+        return $data;
     }
 
 
@@ -636,15 +636,14 @@ public function getRespectedSub($data){
 
          $reqData['userid'] =  $session_data->id ;
 
-        $reqData['duration'] = $reqData['min'].' Minutes - '.$reqData['max'].'Minutes';
+        $reqData['duration'] = $reqData['duration'];
 
-        $reqData['total_price'] = $reqData['total'] ? $reqData['total'] : 0;
+        $reqData['total_price'] = $reqData['total'];
 
          $reqData['artist_description']= '';
 
-        unset($reqData['min']);
         unset($reqData['total']);
-        unset($reqData['max']);
+      
         
 
        $category = implode(',', $reqData['categories']);
@@ -1977,6 +1976,26 @@ public function insertSubscriber($uid,$data){
         $insert = DB::table('subscriber')->insert($subscriber);
 
         return $insert;
+
+}
+
+public function update_cover($data){
+
+ // print_r($data->all());die;
+
+    $session_data =   Session::get('User');
+
+      $userid =  $session_data->id;
+
+   
+
+     $update = DB::table('contentprovider')->where(array('id'=> $userid))
+
+     ->update([
+           'profilepicture' =>$data['profilepicture']
+         ]);
+   
+       return $update;
 
 }
 
