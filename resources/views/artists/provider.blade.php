@@ -13,9 +13,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/offer">Create Offer</a>
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/my-offer">My Offers</a>
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/contentUpload">Content Upload</a>
+            <a class="dropdown-item" href="{{url('artist/offer')}}">Create Offer</a>
+            <a class="dropdown-item" href="{{url('artist/contentUpload')}}">Content Upload</a>
         </div>
          
 
@@ -62,23 +61,12 @@
             {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
               
             </div>
-            <div class="col-md-6 mt-2 ">
-            {{Form::label('Keyword', 'Keyword')}} 
-                {{Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Enter Keyword'])}}
-            </div>
-            
             <div class="col-md-6 mt-4 pt-2">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
                     @endforeach
-            </select>
-            </div>
-
-              <div class="col-md-6 mt-4 pt-2">
-            <select name="subcategory" id="subCategory" class='form-control'>
-                    <option value="">Choose Subcategory</option>
             </select>
             </div>
             <div class="col-md-6 mt-3 text-white">

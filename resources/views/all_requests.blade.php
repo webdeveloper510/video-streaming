@@ -97,23 +97,10 @@
                       
                         </div>
                            <div class="row">
-                          <div class="col">
-                             <div class="form-group">
-                              <label >Pay</label>
-                               {{Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])}}
-                             
-                            </div>
-                            @if($errors->first('price'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
-                            </div>
-                            @endif
-                          </div>
-                          <p style="padding-top: 33px;">or</p>
                            <div class="col">
                              <div class="form-group">
                               <label>Total Price</label>
-                               {{Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
+                               {{Form::number('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
                              
                             </div>
                             @if($errors->first('total'))
@@ -126,25 +113,15 @@
                         </div>
 
                                 <div class="form-group">
-                               <label >Duration <span style="color:grey;">(in Minutes)</span></label><hr>
                               <div class="row">
                               <div class="col">
 
-                                 <label >Min :</label>
-                  {!! Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']) !!}
+                                 <label >Duration :</label>
+                  {!! Form::number('duration', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Duration']) !!}
                               </div>
-                               @if($errors->first('min'))
+                               @if($errors->first('duration'))
                             <div class="alert alert-danger">
-                              <?php echo $errors->first('min'); ?>
-                            </div>
-                            @endif
-                              <div class="col">
-                                 <label >Max :</label>
-                          {!! Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']) !!}
-                              </div>
-                               @if($errors->first('max'))
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('max'); ?>
+                              <?php echo $errors->first('duration'); ?>
                             </div>
                             @endif
                             <div class="col">

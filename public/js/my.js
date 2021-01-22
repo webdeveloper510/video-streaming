@@ -864,11 +864,7 @@ $(document).on('submit', '#edit_form', function (event) {
 });
 
 function addTohistory(type){
-
-
 	var id = $('#vidid').val();
-
-
 		$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/addTohistory",
@@ -885,6 +881,52 @@ function addTohistory(type){
 		});
 
 }
+
+$('.image').click(function(){
+	$('.image_change').trigger('click');
+})
+
+function imageUpdate(data){
+
+
+	$('#imageChange').click();
+
+
+}
+
+$('#filechange').submit(function(e){
+	//console.log('abc');
+	e.preventDefault();
+
+var formData = new FormData($(this)[0]);
+
+//console.log(formData);return false;
+
+$.ajax({
+	type: 'POST',
+	url:APP_URL+"/change_image",
+	 headers: {
+	 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+   },
+
+	data: formData,
+	processData: false,
+	contentType: false,
+
+	success: function(data1){
+
+		console.log(data1);
+
+		if(data1.status==1){
+			location.reload();
+		}
+
+	
+
+
+	}
+});
+});
 
 function edit_offer(data){
 		var json_info = JSON.parse(data);

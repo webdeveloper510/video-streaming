@@ -548,11 +548,11 @@ class AuthController extends Controller
           'hour'=>'required',
           'minutes'=>'required',
           'seconds'=>'required',
-          'keyword'=>'required',
+          //'keyword'=>'required',
           'title'=>'required',
           'price'=>'required',
           'category'=>'required',    
-          'subcategory'=>'required'    
+          //'subcategory'=>'required'    
       ]
         );
         //print_r($request->media->getSize());die;
@@ -915,12 +915,12 @@ public function notifyEmail(Request $req){
          $this->validate($req,[
           'media' => 'required',
           'description'=>'required',
-         // 'price'=>'required_without_all:total',
-        // 'total'=>'required_without_all|price',
+          'duration'=>'required',
+           'total'=>'required',
           'title'=>'required',
           'delieveryspeed'=>'required',
-          'min'=>'required|numeric|lt:max',
-          'max'=>'required|numeric|gt:min',
+         // 'min'=>'required|numeric|lt:max',
+         // 'max'=>'required|numeric|gt:min',
           'categories'=>'required'
       ]
         );

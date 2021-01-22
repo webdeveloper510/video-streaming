@@ -25,9 +25,12 @@
     <div class="alert alert-success message" id="message" style="display:none" role="alert">
   A simple success alert—check it out!
 </div>
-    <button type="button" class="btn btn-primary bardot mt-3">Select</button>
+    
     @if(!$video->isEmpty())
  <div class="row mt-5 pt-5">
+ <div class="col-md-12">
+ <button type="button" class="btn btn-primary bardot mt-3">Select</button>
+ </div>
  	  @foreach ($video as $vid)
  	   @if($vid->type=='video')
             <div class="col-md-4 pt-3">

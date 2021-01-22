@@ -6,7 +6,18 @@
 <div class="row mt-5 pt-5">
     <div class="col-md-3">
           <div class="columesdashboard">
-            <h1>345</h1>
+          <?php 
+            $_GLOBEL['count'] =0;
+          ?>
+          @foreach($count_due_project as $data)
+              @if(date('Y-m-d')== $data->dates)
+                <?php 
+                $_GLOBEL['count']= $_GLOBEL['count']+1;
+                ?>
+              @endif
+          @endforeach
+          
+            <h1>{{$_GLOBEL['count']}}</h1>
             <h4>Order/Project <br>Due</h4>
           </div>
     </div>
@@ -18,7 +29,7 @@
     </div>
     <div class="col-md-3">
     <div class="columesdashboard2">
-           <h1>345</h1>
+           <h1>{{$count_new_projects}}</h1>
            <h4>New<br> Order/Project</h4>
         </div>     
     </div>
