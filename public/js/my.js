@@ -954,7 +954,7 @@ function filterproject(data){
 
 	var value = data.value;
 
-	var dataset = $('#filteration_table tbody').find('tr ');
+	var dataset = $('.filteration_table tbody').find('tr ');
 
 	//console.log(dataset);return false;
   
