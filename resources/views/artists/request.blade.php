@@ -148,7 +148,7 @@
                         <td>{{$req->media}}</td>
                         <td>{{$req->choice}}</td>
                         <td>Orders</td>
-                        <td>{{'AMit'}}</td>
+                        <td>{{$req->nickname}}</td>
                          <td>{{ucfirst($req->status)}}</td>
                          <td>{{$req->delieveryspeed}}</td>
                       </tr>

@@ -608,12 +608,14 @@ public function getRespectedSub($data){
     public function show_offer_Requests(){
       
       $data = \DB::table("offer")
-      ->select("offer.id","offer.title","offer.media","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"))
+      ->select("users.nickname","offer.id","offer.title","offer.media","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"))
       ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
-      ->groupBy("offer.id","offer.title","offer.media","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status")
+      ->leftjoin("users","users.id","=","offer.userid")
+      ->groupBy("offer.id","offer.title","offer.media","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
+
+
       ->get();
-        //echo "<pre>";
-      //print_r($data);die;
+      
          return $data;
     }
 

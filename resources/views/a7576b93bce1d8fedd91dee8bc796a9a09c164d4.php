@@ -148,7 +148,7 @@
                         <td><?php echo e($req->media); ?></td>
                         <td><?php echo e($req->choice); ?></td>
                         <td>Orders</td>
-                        <td><?php echo e('AMit'); ?></td>
+                        <td><?php echo e($req->nickname); ?></td>
                          <td><?php echo e(ucfirst($req->status)); ?></td>
                          <td><?php echo e($req->delieveryspeed); ?></td>
                       </tr>
