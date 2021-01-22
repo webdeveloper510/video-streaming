@@ -68,24 +68,12 @@
 
               
             </div>
-            <div class="col-md-6 mt-2 ">
-            <?php echo e(Form::label('Keyword', 'Keyword')); ?> 
-                <?php echo e(Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Enter Keyword'])); ?>
-
-            </div>
-            
             <div class="col-md-6 mt-4 pt-2">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </select>
-            </div>
-
-              <div class="col-md-6 mt-4 pt-2">
-            <select name="subcategory" id="subCategory" class='form-control'>
-                    <option value="">Choose Subcategory</option>
             </select>
             </div>
             <div class="col-md-6 mt-3 text-white">

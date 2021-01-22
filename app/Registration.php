@@ -149,7 +149,7 @@ public function uploadContentData($userdata){
            }
 
   }
-
+  $array['cover_photo'] ='';
   
 
       $update=DB::table('contentprovider')->where('id',$contentId)->update($array);
@@ -752,6 +752,8 @@ public function getRespectedSub($data){
               'description'=>$data['description'],
               'categoryid'=>$data['category'],
               'offer_status'=>$data['offer_status'],
+              'delieveryspeed'=>$data['delieveryspeed'],
+              'quality'=>$data['quality'],
               'media'=>$data['media'],
            );
            //print_r($update);die;

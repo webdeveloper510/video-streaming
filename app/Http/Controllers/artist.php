@@ -194,7 +194,7 @@ class artist extends Controller
 
      // print_r($info);die;
 
-      if(count($info)==0){
+      if($info[0]->gender==''){
         return redirect('artist/edit');
       }
 
@@ -273,6 +273,8 @@ class artist extends Controller
           'title'=>'required',
           'offer_status'=>'required',
           'keyword'=>'required',
+          'delieveryspeed'=>'required',
+          'quality'=>'required',
           'delieveryspeed'=>'required',
           'description'=>'required',
           'category'=>'required',
