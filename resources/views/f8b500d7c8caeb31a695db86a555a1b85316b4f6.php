@@ -6,7 +6,18 @@
 <div class="row mt-5 pt-5">
     <div class="col-md-3">
           <div class="columesdashboard">
-            <h1>345</h1>
+          <?php 
+            $_GLOBEL['count'] =0;
+          ?>
+          <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if(date('Y-m-d')== $data->dates): ?>
+                <?php 
+                $_GLOBEL['count']= $_GLOBEL['count']+1;
+                ?>
+              <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          
+            <h1><?php echo e($_GLOBEL['count']); ?></h1>
             <h4>Order/Project <br>Due</h4>
           </div>
     </div>
@@ -18,7 +29,7 @@
     </div>
     <div class="col-md-3">
     <div class="columesdashboard2">
-           <h1>345</h1>
+           <h1><?php echo e($count_new_projects); ?></h1>
            <h4>New<br> Order/Project</h4>
         </div>     
     </div>
@@ -59,7 +70,7 @@
               </div>
             </div>
     </div>
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
          <div class="card" style="width: 18rem;">
              <h5 class="card-title text-left pt-3 pl-3">Additional Requests:</h5>
              <hr>
@@ -72,7 +83,7 @@
                 
               </div>
             </div>
-    </div>
+    </div> -->
 </div>
 </div>
 </section>

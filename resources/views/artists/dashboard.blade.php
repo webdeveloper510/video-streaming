@@ -35,7 +35,7 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
      
       <div class="logo"><a href="" class="simple-text logo-normal">
-      <img src="{{asset('images/logos/newlogo.png')}}" height="50" alt="CoolBrand">
+      <img src="{{asset('images/logos/logo_black.png')}}" height="50" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
