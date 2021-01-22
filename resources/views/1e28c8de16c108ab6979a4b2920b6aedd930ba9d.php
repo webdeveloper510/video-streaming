@@ -11,23 +11,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <style>
-.tab {
-   
-}
+
 .tab {
     overflow: hidden;
     margin-top: 10%;
     border: 1px solid #7b0000;
     background-color: #7b0000;
-    color:white !important; 
+    
 }
 .tab button.active {
     background-color: #ffffff !important;
-    color: black;
+    color: black !important;
 }
 .tab button:hover {
     background-color: #ffffff !important;
-    color: black;
+    color: black !important;
 }
 
 /* Style the buttons inside the tab */
@@ -36,6 +34,7 @@
   float: left;
   border: none;
   outline: none;
+  color: white !important;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
