@@ -605,6 +605,20 @@ public function getRespectedSub($data){
          return $data;
     }
 
+    public function show_offer_Requests(){
+      
+      $data = \DB::table("offer")
+      ->select("users.nickname","offer.id","offer.title","offer.media","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"))
+      ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
+      ->leftjoin("users","users.id","=","offer.userid")
+      ->groupBy("offer.id","offer.title","offer.media","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
+
+
+      ->get();
+      
+         return $data;
+    }
+
 
     public function count_orders($table){
 
@@ -778,7 +792,7 @@ public function getRespectedSub($data){
          $session_data =   Session::get('User');
         $userid=  $session_data->id;
 
-      $data['status'] = 'pending';
+      $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
       $data['created_at'] = now();
       $data['updated_at'] = now();
@@ -1113,7 +1127,8 @@ public function getRespectedSub($data){
 
             $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
               'userdescription' =>$video['description'],
-              'choice'=>$video['duration']
+              'choice'=>$video['duration'],
+              'status'=>'New'
               ]);
 
             $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))

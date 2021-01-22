@@ -10,8 +10,46 @@
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-       <style>
+    <style>
 
+.tab {
+    overflow: hidden;
+    margin-top: 10%;
+    border: 1px solid #7b0000;
+    background-color: #7b0000;
+    
+}
+.tab button.active {
+    background-color: #ffffff !important;
+    color: black !important;
+}
+.tab button:hover {
+    background-color: #ffffff !important;
+    color: black !important;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  color: white !important;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
 </style>
    
 
@@ -19,12 +57,18 @@
   </head>
   <body>
     <div class="container">
-         
-        <div class="row">
+    <div class="tab">
+  <button class="tablinks active" onclick="openCity(event, 'London')">Projects</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Orders</button>
+  
+</div>
+
+<div id="London" class="tabcontent">
+<div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
-              <h2 class="text-center mt-5 pt-5">List Of Requests</h2>
+              <h2 class="text-center ">List Of Requests</h2>
                 <div class="dropreq text-right">
                 <select class="custom-select col-md-4">
                     <option selected="">All</option>
@@ -67,6 +111,61 @@
         </div>
 
     </div>
+</div>
+
+<div id="Paris" class="tabcontent">
+<div class="row">
+            <div class="col-md-12">
+                   <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
+              </div>
+              <h2 class="text-center">List Of Requests</h2>
+                <div class="dropreq text-right">
+                <select class="custom-select col-md-4">
+                    <option selected="">All</option>
+                    <option value="1">New</option>
+                    <option value="2">In Process</option>
+                    <option value="3">Due</option>
+                  </select>
+                </div>
+                <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Media</th>
+                        <th scope="col">Duration</th>
+                        <th>P/O</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col"> Status</th>              
+                        <th scope="col"> Delievery Time</th>              
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       
+                      <tr>                       
+                        <td><?php echo e($req->title); ?></td>
+                        <td><?php echo e($req->media); ?></td>
+                        <td><?php echo e($req->duration); ?></td>
+                        <td>Projects</td>
+                        <td><?php echo e($req->user_name); ?></td>
+                         <td><?php echo e(strtoupper($req->status)); ?></td>
+                         <td><?php echo e($req->delieveryspeed); ?></td>
+                      </tr>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    
+                    </tbody>
+                  </table>
+                  </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+      
 <div class="modal fade" id="descri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -107,5 +206,20 @@
     background-color: #ffbb11 !important;
 }
   </style>
+  <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
   <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
 </html><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/request.blade.php ENDPATH**/ ?>

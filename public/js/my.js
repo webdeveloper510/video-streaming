@@ -948,6 +948,25 @@ function edit_offer(data){
 }
 
 
+/**------------------------------------------------------Filter Projects ------------------------------------------------- */
+
+function filterproject(data){
+
+	var value = data.value;
+
+	var dataset = $('#filteration_table tbody').find('tr ');
+
+	//console.log(dataset);return false;
+  
+    dataset.show();
+    
+    dataset.filter(function(index, item) {
+		//console.log($(item).find('td:eq(5)').text().indexOf());return false;
+      return $(item).find('td:eq(5)').text().indexOf(value) === -1;
+    }).hide();
+
+
+}
 
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 
