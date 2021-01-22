@@ -102,10 +102,10 @@
               <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?>
 
               <label>I accept <a class="text-white" style="border-bottom-color: initial;
-    border-bottom-style: solid;
-    border-bottom-width: 1px; border-color: blue;" href="https://www.websitepolicies.com/policies/view/iV2Lze7O">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
-    border-bottom-style: solid;
-    border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
+                border-bottom-style: solid;
+                border-bottom-width: 1px; border-color: blue;" href="https://www.websitepolicies.com/policies/view/iV2Lze7O">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
+                border-bottom-style: solid;
+                border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
                <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?>
 

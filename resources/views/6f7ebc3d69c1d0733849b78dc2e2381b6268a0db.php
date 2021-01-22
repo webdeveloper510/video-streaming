@@ -55,8 +55,8 @@
                         <td><?php echo e($req->duration); ?></td>
                         <td>Projects</td>
                         <td><?php echo e($req->user_name); ?></td>
-                         <td><?php echo e($req->status); ?></td>
-                         <td>5</td>
+                         <td><?php echo e(strtoupper($req->status)); ?></td>
+                         <td><?php echo e($req->delieveryspeed); ?></td>
                       </tr>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     

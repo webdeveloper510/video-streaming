@@ -19,7 +19,29 @@
 
       <div class="container profile ">
         <h1 class="text-center">Create Offer</h1>
+        
           <div class="row align-items-center text-white">
+          <div class="col-md-12 mt-5 ">
+          <ul class="nav">
+         
+         <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          
+              <i class="fa fa-money"></i>
+              Content Upload
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <a class="dropdown-item" href="http://localhost/video-streaming/artist/offer">Create Offer</a>
+            <a class="dropdown-item" href="http://localhost/video-streaming/artist/my-offer">My Offers</a>
+            <a class="dropdown-item" href="http://localhost/video-streaming/artist/contentUpload">Content Upload</a>
+        </div>
+         
+
+          </li>
+          
+        </ul>
+        </div>
                 <div class="col-md-6 mt-5 ">
                 <?php echo e(Form::label('Title', 'Title')); ?> 
                     <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])); ?>
@@ -147,6 +169,10 @@
     color: #333333;
     background-color: #eeeeee;
   }
-  
+
+  a#navbarDropdown23 {
+    border: 1px solid #7b0000 ;
+    color: #7b0000 ;
+}
 </style>
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/offer.blade.php ENDPATH**/ ?>
