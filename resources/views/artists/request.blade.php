@@ -21,11 +21,11 @@
 }
 .tab button.active {
     background-color: #ffffff !important;
-    color: black;
+    color: black !important;
 }
 .tab button:hover {
     background-color: #ffffff !important;
-    color: black;
+    color: black !important;
 }
 
 /* Style the buttons inside the tab */
