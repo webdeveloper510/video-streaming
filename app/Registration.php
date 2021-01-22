@@ -1979,7 +1979,7 @@ public function insertSubscriber($uid,$data){
 
 }
 
-public function update_cover($data){
+public function update_cover($data,$req){
 
  // print_r($data->all());die;
 
@@ -1992,7 +1992,7 @@ public function update_cover($data){
      $update = DB::table('contentprovider')->where(array('id'=> $userid))
 
      ->update([
-           'profilepicture' =>$data['profilepicture']
+           $req['image_type'] =>$data
          ]);
    
        return $update;

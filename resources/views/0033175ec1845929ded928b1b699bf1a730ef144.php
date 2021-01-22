@@ -4,9 +4,9 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
+          <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
           <div class="iconcamera">
-        <i class="fa fa-camera image"></i>
+        <i class="fa fa-camera image" data-id="cover_photo"></i>
 
         </div>
         <div style="display:none">
@@ -15,6 +15,7 @@
           <?php echo e(Form::token()); ?>
 
         <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
+        <input type="hidden" id="image_type" name="image_type" value=""/>
         <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>
 
 
@@ -25,7 +26,7 @@
         <div class="profileimg">
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
-        <i class="fa fa-camera"></i>
+        <i class="fa fa-camera image" data-id="profilepicture"></i>
 
         </div>
         </div>
