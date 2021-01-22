@@ -21,11 +21,11 @@
 }
 .tab button.active {
     background-color: #ffffff !important;
-    color: black;
+    color: black !important;
 }
 .tab button:hover {
     background-color: #ffffff !important;
-    color: black;
+    color: black !important;
 }
 
 /* Style the buttons inside the tab */
@@ -70,7 +70,7 @@
               </div>
               <h2 class="text-center ">List Of Requests</h2>
                 <div class="dropreq text-right">
-                <select class="custom-select col-md-4" onchange="filterproject()">
+                <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
                     <option value="New">New</option>
                     <option value="In Process">In Process</option>
@@ -78,7 +78,7 @@
                   </select>
                 </div>
                 <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" id="filteration_table">
                     <thead>
                       <tr>
                         <th scope="col">Title</th>
@@ -99,7 +99,7 @@
                         <td><?php echo e($req->duration); ?></td>
                         <td>Projects</td>
                         <td><?php echo e($req->user_name); ?></td>
-                         <td><?php echo e(strtoupper($req->status)); ?></td>
+                         <td><?php echo e(ucfirst($req->status)); ?></td>
                          <td><?php echo e($req->delieveryspeed); ?></td>
                       </tr>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -141,15 +141,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $show_offer_Request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                        
                       <tr>                       
                         <td><?php echo e($req->title); ?></td>
                         <td><?php echo e($req->media); ?></td>
-                        <td><?php echo e($req->duration); ?></td>
-                        <td>Projects</td>
-                        <td><?php echo e($req->user_name); ?></td>
-                         <td><?php echo e(strtoupper($req->status)); ?></td>
+                        <td><?php echo e($req->choice); ?></td>
+                        <td>Orders</td>
+                        <td><?php echo e('AMit'); ?></td>
+                         <td><?php echo e(ucfirst($req->status)); ?></td>
                          <td><?php echo e($req->delieveryspeed); ?></td>
                       </tr>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

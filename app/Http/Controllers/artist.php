@@ -43,11 +43,13 @@ class artist extends Controller
 
       $navbaractive = 'requests';
 
-      $showRequest = $this->model->showRequests();
+      $show_project_Request = $this->model->showRequests();
 
-    
+      $show_offer_Request = $this->model->show_offer_Requests();
 
-        return view('artists.request',['tab'=>$navbaractive,'request'=>$showRequest]);
+     // print_r($show_offer_Request);die;
+
+        return view('artists.request',['tab'=>$navbaractive,'show_offer_Request'=>$show_offer_Request,'request'=>$show_project_Request]);
 
     }
 

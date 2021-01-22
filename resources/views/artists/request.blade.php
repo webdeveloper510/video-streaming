@@ -70,7 +70,7 @@
               </div>
               <h2 class="text-center ">List Of Requests</h2>
                 <div class="dropreq text-right">
-                <select class="custom-select col-md-4" onchange="filterproject()">
+                <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
                     <option value="New">New</option>
                     <option value="In Process">In Process</option>
@@ -78,7 +78,7 @@
                   </select>
                 </div>
                 <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" id="filteration_table">
                     <thead>
                       <tr>
                         <th scope="col">Title</th>
@@ -99,7 +99,7 @@
                         <td>{{$req->duration}}</td>
                         <td>Projects</td>
                         <td>{{$req->user_name}}</td>
-                         <td>{{strtoupper($req->status)}}</td>
+                         <td>{{ucfirst($req->status)}}</td>
                          <td>{{$req->delieveryspeed}}</td>
                       </tr>
                       @endforeach
@@ -141,15 +141,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @foreach($request as $index=>$req)
+                        @foreach($show_offer_Request as $index=>$req)
                        
                       <tr>                       
                         <td>{{$req->title}}</td>
                         <td>{{$req->media}}</td>
-                        <td>{{$req->duration}}</td>
-                        <td>Projects</td>
-                        <td>{{$req->user_name}}</td>
-                         <td>{{strtoupper($req->status)}}</td>
+                        <td>{{$req->choice}}</td>
+                        <td>Orders</td>
+                        <td>{{'AMit'}}</td>
+                         <td>{{ucfirst($req->status)}}</td>
                          <td>{{$req->delieveryspeed}}</td>
                       </tr>
                       @endforeach
