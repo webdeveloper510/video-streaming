@@ -263,10 +263,10 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <div class="text-right">
-   <button type="button" class="btn btn-light">Edit</button>
+   <button type="button" class="btn btn-light" onclick="change_other()">Edit</button>
               </div>
                 <hr>
-                <p>{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
+                <p class="edittable">{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
                 <hr>
               </div>
   
@@ -279,7 +279,7 @@ Your browser does not support the audio tag.
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
             <div class="col-md-3">
               <label><b>{{ucwords($key)}}</b></label>
-              <p>{{$profile}}</p>
+              <p class="edittable">{{$profile}}</p>
             </div>
           @endif
       @endforeach
@@ -333,6 +333,15 @@ Your browser does not support the audio tag.
                     <option value="online">Online</option>
                    
             </select>
+            <label for="Convert to:">Convert to:</label> 
+           <select name="quality" class="form-control" id="quality">
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
+            </select>
+            {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
+                {{Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])}}
             <label>Choose Category</label>
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>

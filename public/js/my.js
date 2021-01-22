@@ -848,6 +848,10 @@ $(document).on('submit', '#edit_form', function (event) {
 				if(data.status==1){
 					$('.alert-success').show();
 					$('.alert-success').html(data.message);
+
+					setTimeout(function(){ 
+						location.reload();
+					 }, 3000);
 				}
 
 				else{
@@ -880,6 +884,18 @@ function addTohistory(type){
 				}
 		});
 
+}
+
+function change_other(){
+			//var x =[];
+		$('.edittable').each(function(index, obj)
+		{
+			var text = $(this).text();
+			$(this).replaceWith("<input type='text' value='"+text+">'");
+		    //x.push($(this).text());
+		});
+
+		//console.log(x);
 }
 
 $('.image').click(function(){
@@ -940,8 +956,10 @@ function edit_offer(data){
 		$('#video').attr('src',src);
 		$('#file_url').val(json_info.media);
 		$('#price').val(json_info.price);
+		$('#speed').val(json_info.delieveryspeed);
 		$('#description').val(json_info.description);
-		$('#select_status').val(json_info.offer_status).attr("selected","selected");;
+		$('#select_status').val(json_info.offer_status).attr("selected","selected");
+		$('#quality').val(json_info.quality).attr("selected","selected");
 		$('#selectCategory').val(json_info.categoryid).attr("selected","selected");;
 	//alert('helo');
 	//$('#myModal').modal('show');
