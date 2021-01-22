@@ -40,37 +40,37 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item <?php echo e($tab=='dashboard' ? 'active': ''); ?> ">
+          <li class="nav-item <?php echo e($tab=='dashboard' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link " href="<?php echo e(url('artists/dashboard')); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='profile' ? 'active': ''); ?>">
+          <li class="nav-item <?php echo e($tab=='profile'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
               <p> Profile</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='feed' ? 'active': ''); ?>">
+          <li class="nav-item <?php echo e($tab=='feed'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artists/dashboard')); ?>">
             <i class="fa fa-newspaper-o"> </i>
               <p>User Feed</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>">
+          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>">
+          <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
-           <li class="nav-item <?php echo e($tab=='requests' ? 'active': ''); ?>">
+           <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
               <i class="fa fa-message"></i>
               <p>Orders/Projects</p>

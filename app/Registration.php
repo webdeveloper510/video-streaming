@@ -123,6 +123,9 @@ public function getTotalPrice($cartid){
 
 public function uploadContentData($userdata){
 
+
+ 
+
      $array = array();
 
        $contentData=Session::get('User');
@@ -147,8 +150,11 @@ public function uploadContentData($userdata){
 
   }
 
+  
 
       $update=DB::table('contentprovider')->where('id',$contentId)->update($array);
+
+      //print_r($update);die;
 
       return $update ? 1 : 0;
       

@@ -488,6 +488,8 @@ class AuthController extends Controller
 
     public function contentForm(){
 
+       $tab='artist_info';
+
         $type=Session::get('userType');
 
         if($type=='User'){
@@ -496,7 +498,7 @@ class AuthController extends Controller
         }
       $data = $this->model->getCategory();
       //print_r($data);die;
-      return view('content',['category'=>$data]);
+      return view('content',['category'=>$data,'tab'=>$tab]);
     }
     public function contentProvider1(Request $request){
 
@@ -531,7 +533,7 @@ class AuthController extends Controller
               $data['profilepicture']=$fileName;
          if($filePath){          
               $update_data = $this->model->uploadContentData($data);
-                if($update_data==1){
+                if($update_data){
                     return redirect('artists/dashboard');
                   }
               else
