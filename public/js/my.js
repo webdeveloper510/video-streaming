@@ -886,22 +886,39 @@ function addTohistory(type){
 
 }
 
-function change_other(){
-			//var x =[];
-		$('.edittable').each(function(index, obj)
-		{
-			var text = $(this).text();
-			$(this).replaceWith("<input type='text' value='"+text+">'");
-		    //x.push($(this).text());
-		});
+// function change_other(){
+// 			//var x =[];
+// 		$('.edittable').each(function(index, obj)
+// 		{
+// 			var text = $(this).text();
+// 			$(this).html("<input type='text' value='"+text+">'");
+// 		    //x.push($(this).text());
+// 		});
 
-		//console.log(x);
-}
+// 		//console.log(x);
+// }
 
 $('.image').click(function(){
 	var image_type = $(this).attr('data-id');
 	$('#image_type').val(image_type);
 	$('.image_change').trigger('click');
+})
+
+$(document).on('change','#change_section',function(){
+
+	var value = $(this).val();
+		console.log(value);
+	//$('.container').find('.'+value).hide()
+	$('.container .filter_div').each(function(i, obj) {
+		var hide_div = $(this).attr('id');
+		
+		$('.container').find('#'+hide_div).hide()
+		$('.container').find('#'+value).show();
+		//console.log($(this).attr('id'));
+		//test
+	});
+	
+
 })
 
 function imageUpdate(data){

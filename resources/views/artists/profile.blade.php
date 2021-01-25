@@ -115,11 +115,11 @@
         <div class="col"></div>
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-primary bardot">Choose</button>
-      <select class="form-select form-control" aria-label="Default select example">
-  <option selected>Video</option>
-  <option value="1">Audio</option>
+      <select class="form-select form-control" id="change_section" aria-label="Default select example">
+  <option selected value="video">Video</option>
+  <option value="audio">Audio</option>
 
-  <option value="2">Playlists</option>
+  <option value="playlist">Playlists</option>
   
 </select>
 </div>
@@ -129,7 +129,7 @@
 
              
   <h3>Videos</h3>  
-          <div class="row mb-5">
+          <div class="row mb-5 filter_div" id="video">
         @if($details)
               @foreach ($details as $detail)
                    @if($detail->type=='video') 
@@ -142,7 +142,7 @@
             <video width="100%" height="100%" controls>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
-                Your browser does not support the video tag.
+                Your browser does not support the    tag.
             </video>
                 </a>
 
@@ -157,7 +157,7 @@
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
      <h3>Audios</h3>
-     <div class="row mb-5">
+     <div class="row mb-5 filter_div" id="audio">
       @if($audio)
           @foreach($audio as $aud)
 
@@ -185,7 +185,7 @@ Your browser does not support the audio tag.
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
          <h3>Playlists</h3>
-          <div class="row mb-5 pb-5">
+          <div class="row mb-5 pb-5 filter_div" id="playlist">
           @foreach ($playlist as $play)
             <?php 
               $videos = explode(',',$play->videos);
@@ -211,7 +211,7 @@ Your browser does not support the audio tag.
           </div>
 
 
-            <!-- --------------Long videos -------------------->
+<!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>
 
