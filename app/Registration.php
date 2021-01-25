@@ -76,6 +76,7 @@ class Registration extends Model
             unset($userdata['confirm']);
             $userdata['created_at']= now();
             $userdata['updated_at']= now();
+            $userdata['cover_photo']= '';
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
 
             return $insertedid ? $insertedid : '0';
@@ -149,7 +150,7 @@ public function uploadContentData($userdata){
            }
 
   }
-  $array['cover_photo'] ='';
+  
   
 
       $update=DB::table('contentprovider')->where('id',$contentId)->update($array);

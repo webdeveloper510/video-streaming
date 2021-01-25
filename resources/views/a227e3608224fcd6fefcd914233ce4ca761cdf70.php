@@ -23,8 +23,10 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span><?php echo e($data['nickname']); ?></span>, you're almost ready to start enjoying website simply click the big
-                        blue button bellow to verify your email address.</p>
+                     <p>Hey <span><?php echo e($data['nickname']); ?></span>, Thank you for visiting our website. We are currently in development process.
+                We will notify you as soon as we are ready.
+               If you have any questions, concerns or other inquiries please reach out to us using:
+                                 <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
                 </td>
              </tr>
              <tr>

@@ -73,6 +73,7 @@
                 </div>
                 <?php endif; ?>
             </div>
+            
             <div class="col-md-6 mt-5 ">
             <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
                 <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])); ?>
@@ -80,6 +81,20 @@
                  <?php if($errors->first('delieveryspeed')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('delieveryspeed') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 mt-5 ">
+            <label>Convert To:</label>
+            <select name="quality" class="form-control" id="quality">
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
+            </select>
+            <?php if($errors->first('quality')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('quality') ?>
                 </div>
                 <?php endif; ?>
             </div>
