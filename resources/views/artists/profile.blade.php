@@ -127,7 +127,7 @@
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
-             
+       <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
         @if($details)
@@ -142,7 +142,7 @@
             <video width="100%" height="100%" controls>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
-                Your browser does not support the    tag.
+                Your browser does not support the tag.
             </video>
                 </a>
 
@@ -155,9 +155,11 @@
           </div>
           @endif
           </div>
+      </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
+    <div class="filter_div" id="audio">
      <h3>Audios</h3>
-     <div class="row mb-5 filter_div" id="audio">
+     <div class="row mb-5">
       @if($audio)
           @foreach($audio as $aud)
 
@@ -182,8 +184,10 @@ Your browser does not support the audio tag.
           </div>
 @endif
 </div>
+</div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
+         <div class="filter_div" id="playlist">
          <h3>Playlists</h3>
           <div class="row mb-5 pb-5 filter_div" id="playlist">
           @foreach ($playlist as $play)
@@ -210,7 +214,7 @@ Your browser does not support the audio tag.
            @endforeach
           </div>
 
-
+</div>
 <!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>

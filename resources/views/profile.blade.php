@@ -41,6 +41,7 @@
             <br>
                  {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male
                 {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
+                {{Form::radio('gender', 'trans',false,['class'=>'rad_But'])}}Trans
                  @if($errors->first('gender'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('gender') ?>

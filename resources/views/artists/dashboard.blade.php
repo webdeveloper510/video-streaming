@@ -222,7 +222,12 @@
             
             <ul class="navbar-nav">
               <li class="nav-item">
-               
+              <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                    aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          <span class="sr-only">70% Complete</span>
+                    </div>
+                </div>
               
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
            <a href="{{url('/artist/offer')}}">

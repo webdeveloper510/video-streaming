@@ -596,6 +596,7 @@ class AuthController extends Controller
   public function addtoken(){
 
     return view('addToken');
+    
   }
 
 public function artistselling(){

@@ -1,6 +1,6 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<div class="show-offer">
 <div class="container">
 
 	 <?php if(session('success')): ?>
@@ -82,7 +82,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <style>
  .card {
     margin-top: 15%;

@@ -57,15 +57,9 @@
                         </div>
                         @endif
                     </div>
-              <div class="col-md-6 mt-5 ">
-            {{Form::label('Keyword', 'Keywords')}} 
-           {{Form::text('keyword', '',['class'=>'form-control','placeholder'=>'Keywords'])}}
-                 @if($errors->first('keyword'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('keyword') ?>
-                </div>
-                @endif
-            </div>
+
+        
+           
             
             <div class="col-md-6 mt-5 ">
             {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
@@ -77,7 +71,7 @@
                 @endif
             </div>
             <div class="col-md-6 mt-5 ">
-            <label>Convert To:</label>
+            <label>Quality:</label>
             <select name="quality" class="form-control" id="quality">
                     <option value="">Choose ...</option>
                     <option value="480">480p  </option>
@@ -91,9 +85,11 @@
                 @endif
             </div>
             <div class="col-md-6 mt-5 ">
+            <label>Duration(In Minutes)</label>
             <div class="row">
-               <div class="col">
 
+               <div class="col">
+                  
                <label>Min :</label>
                {{Form::number('min', '',['class'=>'form-control','placeholder'=>'Min'])}}
                  </div>
@@ -143,6 +139,15 @@
                  @if($errors->first('description'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('description') ?>
+                </div>
+                @endif
+            </div>
+            <div class="col-md-6 mt-5">
+             {{Form::label('Additional Request', 'Additional Request')}} 
+                {{Form::textarea('additional',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])}}
+                 @if($errors->first('additional'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('additional') ?>
                 </div>
                 @endif
             </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CoverPhotoColumnContent extends Migration
+class DropColumnKeyword extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CoverPhotoColumnContent extends Migration
      */
     public function up()
     {
-        Schema::table('contentprovider', function (Blueprint $table) {
+        Schema::table('offer', function (Blueprint $table) {
             //
-            //$table->string('cover_photo');
+            $table->dropColumn('keyword');
         });
     }
 
@@ -26,7 +26,7 @@ class CoverPhotoColumnContent extends Migration
      */
     public function down()
     {
-        Schema::table('contentprovider', function (Blueprint $table) {
+        Schema::table('offer', function (Blueprint $table) {
             //
         });
     }

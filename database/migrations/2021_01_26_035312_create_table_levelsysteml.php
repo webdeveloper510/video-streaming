@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CoverPhotoColumnContent extends Migration
+class CreateTableLevelsysteml extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CoverPhotoColumnContent extends Migration
      */
     public function up()
     {
-        Schema::table('contentprovider', function (Blueprint $table) {
-            //
-            //$table->string('cover_photo');
+        Schema::create('levelsystem', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->integer('min');
+            $table->integer('max');
+            $table->integer('fees');
         });
     }
 
@@ -26,8 +29,6 @@ class CoverPhotoColumnContent extends Migration
      */
     public function down()
     {
-        Schema::table('contentprovider', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('levelsystem');
     }
 }

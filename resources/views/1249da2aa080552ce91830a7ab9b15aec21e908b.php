@@ -133,7 +133,7 @@
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
-             
+       <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
         <?php if($details): ?>
@@ -148,7 +148,7 @@
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
-                Your browser does not support the    tag.
+                Your browser does not support the tag.
             </video>
                 </a>
 
@@ -161,9 +161,11 @@
           </div>
           <?php endif; ?>
           </div>
+      </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
+    <div class="filter_div" id="audio">
      <h3>Audios</h3>
-     <div class="row mb-5 filter_div" id="audio">
+     <div class="row mb-5">
       <?php if($audio): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -188,8 +190,10 @@ Your browser does not support the audio tag.
           </div>
 <?php endif; ?>
 </div>
+</div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
+         <div class="filter_div" id="playlist">
          <h3>Playlists</h3>
           <div class="row mb-5 pb-5 filter_div" id="playlist">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -216,7 +220,7 @@ Your browser does not support the audio tag.
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
 
-
+</div>
 <!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>
