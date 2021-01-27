@@ -15,6 +15,9 @@
     color: green;
     float: left;
 }
+.col-md-4.artistprofilehome:hover {
+    border: 2px solid goldenrod;
+}
 h1.text-center.text-uppercase.comimg1 {
     margin-top: -24px;
 }
