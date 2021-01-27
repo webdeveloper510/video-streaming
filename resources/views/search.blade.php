@@ -34,12 +34,14 @@
  	  @foreach ($video as $vid)
  	   @if($vid->type=='video')
             <div class="col-md-4 pt-3 searchvideo1">
+            <a href="{{url('artist-video/'.$vid->id)}}">
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240" controls>
               <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
        Your browser does not support the video tag.
             </video>
 				</div>
+        </a>
          <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
 			</div>
 			@endif

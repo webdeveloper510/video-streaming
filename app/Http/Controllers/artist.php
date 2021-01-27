@@ -208,6 +208,8 @@ class artist extends Controller
 
       $count_due_offer = $this->model->count_due_offer('offer');
 
+      $getLevel= $this->model->getlevel();
+
       $count_due_project = $this->model->count_due_offer('add_request');
 
       $count_result = array_merge($count_due_offer,$count_due_project);

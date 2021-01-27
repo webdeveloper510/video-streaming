@@ -217,6 +217,7 @@
    <div class="row">
          @forelse ($offers as $offer)
             @if($offer->type=='video')
+            <a href="{{url('artistoffers/'.$offer->id)}}">
               <div class="col-md-4 hover">
                 
                   <video width="100%" height="100%" controls="false" allowfullscreen>
@@ -226,6 +227,7 @@
                   </video>
                   <h5>{{ $offer->title }}</h5>
               </div>
+              </a>
               @endif
               @empty
              @endforelse
