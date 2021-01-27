@@ -69,7 +69,9 @@
     margin-right: 14px;
     margin-top: 4px;
 }
-
+.searchvideo1:hover {
+    border:2px solid goldenrod;
+}
 .dropdown1 {
     background: #fff0;
     padding: 19px;
