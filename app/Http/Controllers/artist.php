@@ -272,7 +272,6 @@ class artist extends Controller
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           'title'=>'required',
           'offer_status'=>'required',
-          'keyword'=>'required',
           'delieveryspeed'=>'required',
           'quality'=>'required',
           'delieveryspeed'=>'required',
