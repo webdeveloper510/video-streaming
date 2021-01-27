@@ -94,7 +94,7 @@
 
    <div class="container">
     <div class="row mb-5">
-        <div class="col"></div>
+        <div class="col"><h3 class="mt-3">Videos</h3> </div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-primary bardot">Choose</button>
@@ -111,12 +111,12 @@
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
              
-  <h3>Videos</h3>  
+   
           <div class="row mb-5">
         <?php if($details): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 hover">
                 <div class='media_div'>
                <div class="checkall" style="display:none">
                <form> 
@@ -205,16 +205,21 @@ Your browser does not support the audio tag.
           <span aria-hidden="true">&times;</span>
         </button>
    <div class="row ">
-      <div class="col-md-3">
+      <div class="col-md-12">
            <h4><span class="count">0</span>Item  Selected</h4>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-12">
+           <ul class="selected">
+            <li>Name of the item <span class="delete"><i class="fa fa-trash"></i></span> </li>
+           </ul>
+      </div>
+      <div class="col-md-12 price">
            <h4>Price : <span class="paz">0</span>PAZ</h4>
       </div>
-    <div class="col-md-3 pt-3 text-center">
+    <div class="col-md-12 pt-3 text-center">
              <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
     </div>
-    <div class="col-md-3 pt-3 text-center">
+    <div class="col-md-12 pt-3 text-center">
            <button type="button" class="btn btn-primary addTowishlist" >Add To Wishlist </button>
     </div>
    </div>
@@ -279,7 +284,52 @@ Your browser does not support the audio tag.
 .fa-lock{
   font-size:30px;
 }
+div#nav-contact {
+    background: #000;
+    color: #fff !important;
+}
+div#nav-contact *{
+    color: #fff;
+}
+select.form-select.form-control, select.form-select.form-control * {
+    color: #000 !important;
+}
+.choose1 .row {
+    flex-direction: column;
+    color: #000 !important;
+}
+.hover:hover video {
+    border: 2px solid yellow;
+}
+.price {
+    border-top: 1px solid #0000003d;
+    border-bottom: 1px solid #0000003d;
+    padding: 24px 18px;
+}
+ul.selected {
+    margin-bottom: 30px;
+}
 
+.price h4 {
+    margin: 0;
+}
+.choose1 * {
+    color: #000 !important;
+}
+.choose1 {
+    border: 2px solid;
+    position: fixed;
+    bottom: 10px;
+    z-index: 9999999;
+    background: white;
+    width: 25% !important;
+    right: 13px !important;
+    height: 100% !important;
+    box-shadow: 0 6px 12px #00000042;
+}
+.close {
+     margin-top: 7px;
+}
 </style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

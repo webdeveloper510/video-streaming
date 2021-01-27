@@ -28,9 +28,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/offer">Create Offer</a>
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/my-offer">My Offers</a>
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/contentUpload">Content Upload</a>
+            <a class="dropdown-item" href="{{url('artist/offer')}}">Create Offer</a>
+            <a class="dropdown-item" href="{{url('artist/contentUpload')}}">Content Upload</a>
         </div>
          
 

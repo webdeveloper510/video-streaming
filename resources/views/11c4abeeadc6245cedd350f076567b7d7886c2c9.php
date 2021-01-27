@@ -32,9 +32,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/offer">Create Offer</a>
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/my-offer">My Offers</a>
-            <a class="dropdown-item" href="http://localhost/video-streaming/artist/contentUpload">Content Upload</a>
+            <a class="dropdown-item" href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
+            <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Content Upload</a>
         </div>
          
 
@@ -63,6 +62,8 @@
                         </div>
                         <?php endif; ?>
                     </div>
+
+        
            
             
             <div class="col-md-6 mt-5 ">

@@ -46,6 +46,7 @@
             <br>
                  <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male
                 <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female
+                <?php echo e(Form::radio('gender', 'trans',false,['class'=>'rad_But'])); ?>Trans
                  <?php if($errors->first('gender')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('gender') ?>
