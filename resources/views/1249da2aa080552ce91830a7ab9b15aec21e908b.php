@@ -121,11 +121,11 @@
         <div class="col"></div>
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-primary bardot">Choose</button>
-      <select class="form-select form-control" aria-label="Default select example">
-  <option selected>Video</option>
-  <option value="1">Audio</option>
+      <select class="form-select form-control" id="change_section" aria-label="Default select example">
+  <option selected value="video">Video</option>
+  <option value="audio">Audio</option>
 
-  <option value="2">Playlists</option>
+  <option value="playlist">Playlists</option>
   
 </select>
 </div>
@@ -135,7 +135,7 @@
 
              
   <h3>Videos</h3>  
-          <div class="row mb-5">
+          <div class="row mb-5 filter_div" id="video">
         <?php if($details): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
@@ -148,7 +148,7 @@
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
-                Your browser does not support the video tag.
+                Your browser does not support the    tag.
             </video>
                 </a>
 
@@ -163,7 +163,7 @@
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
      <h3>Audios</h3>
-     <div class="row mb-5">
+     <div class="row mb-5 filter_div" id="audio">
       <?php if($audio): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -191,7 +191,7 @@ Your browser does not support the audio tag.
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
          <h3>Playlists</h3>
-          <div class="row mb-5 pb-5">
+          <div class="row mb-5 pb-5 filter_div" id="playlist">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
               $videos = explode(',',$play->videos);
@@ -217,7 +217,7 @@ Your browser does not support the audio tag.
           </div>
 
 
-            <!-- --------------Long videos -------------------->
+<!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>
 
