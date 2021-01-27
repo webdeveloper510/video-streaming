@@ -41,7 +41,7 @@
               </tr>
 	      </table>
 	    
-	      <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a>
+	      <!-- <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
      </div>
    </div>
  </div>
