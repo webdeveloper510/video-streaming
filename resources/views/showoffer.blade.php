@@ -1,6 +1,6 @@
 
 @include('layouts.header')
-
+<div class="show-offer">
 <div class="container">
 
 	 @if(session('success'))
@@ -75,7 +75,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <style>
  .card {
     margin-top: 15%;
