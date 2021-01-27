@@ -252,7 +252,7 @@
    <div class="row">
          @forelse ($popularAudios as $audio)
                  @if($audio->type=='audio')
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-3 audiohome">
               <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
               <audio controls>
                  <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
@@ -284,7 +284,7 @@
          @foreach($artists as $artist)
                  @if($artist->profilepicture)
               
-              <div class="col-md-4">
+              <div class="col-md-4 artistprofilehome">
               <a href="{{url('artistDetail/'.$artist->id)}}"> 
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="100%" height="200px">
                 </a>

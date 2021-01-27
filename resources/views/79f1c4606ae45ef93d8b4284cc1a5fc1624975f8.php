@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
+  <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -121,11 +121,11 @@
         <div class="col"></div>
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-primary bardot">Choose</button>
-      <select class="form-select form-control" aria-label="Default select example">
-  <option selected>Video</option>
-  <option value="1">Audio</option>
+      <select class="form-select form-control" id="change_section" aria-label="Default select example">
+  <option selected value="video">Video</option>
+  <option value="audio">Audio</option>
 
-  <option value="2">Playlists</option>
+  <option value="playlist">Playlists</option>
   
 </select>
 </div>
@@ -135,7 +135,7 @@
 
              
   <h3>Videos</h3>  
-          <div class="row mb-5">
+          <div class="row mb-5 filter_div" id="video">
         <?php if($details): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
@@ -148,7 +148,7 @@
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
-                Your browser does not support the video tag.
+                Your browser does not support the    tag.
             </video>
                 </a>
 
@@ -163,7 +163,7 @@
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
      <h3>Audios</h3>
-     <div class="row mb-5">
+     <div class="row mb-5 filter_div" id="audio">
       <?php if($audio): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -191,7 +191,7 @@ Your browser does not support the audio tag.
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
          <h3>Playlists</h3>
-          <div class="row mb-5 pb-5">
+          <div class="row mb-5 pb-5 filter_div" id="playlist">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
               $videos = explode(',',$play->videos);
@@ -217,7 +217,7 @@ Your browser does not support the audio tag.
           </div>
 
 
-            <!-- --------------Long videos -------------------->
+<!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>
 
@@ -269,10 +269,10 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <div class="text-right">
-   <button type="button" class="btn btn-light">Edit</button>
+   <button type="button" class="btn btn-light" onclick="change_other()">Edit</button>
               </div>
                 <hr>
-                <p><?php echo e($details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme); ?></p>
+                <p class="edittable"><?php echo e($details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme); ?></p>
                 <hr>
               </div>
   
@@ -285,7 +285,7 @@ Your browser does not support the audio tag.
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
             <div class="col-md-3">
               <label><b><?php echo e(ucwords($key)); ?></b></label>
-              <p><?php echo e($profile); ?></p>
+              <p class="edittable"><?php echo e($profile); ?></p>
             </div>
           <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -344,6 +344,16 @@ Your browser does not support the audio tag.
                     <option value="online">Online</option>
                    
             </select>
+            <label for="Convert to:">Convert to:</label> 
+           <select name="quality" class="form-control" id="quality">
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
+            </select>
+            <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
+                <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])); ?>
+
             <label>Choose Category</label>
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>

@@ -1,6 +1,6 @@
 
 @include('layouts.header')
-
+<div class="show-offer">
 <div class="container">
 
 	 @if(session('success'))
@@ -17,7 +17,7 @@
 <div class="row ">
   @if($offer)
 	@foreach($offer as $val)
-	<div class="col-md-4">
+	<div class="col-md-4 showoffer1">
       <div class="card">
 	   <video width="100%" height="240" controls>
   <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
@@ -75,7 +75,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <style>
  .card {
     margin-top: 15%;
@@ -103,6 +103,9 @@ table.table.table-borderless tr td, th {
     background-color: #d4edda;
     border-color: #c3e6cb;
     margin-top: 97px;
+}
+.showoffer1:hover {
+  border:2px solid yellow;
 }
 	</style>
 @include('layouts.footer')

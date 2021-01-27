@@ -252,7 +252,7 @@
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                  <?php if($audio->type=='audio'): ?>
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-3 audiohome">
               <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
               <audio controls>
                  <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
@@ -284,7 +284,7 @@
          <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                  <?php if($artist->profilepicture): ?>
               
-              <div class="col-md-4">
+              <div class="col-md-4 artistprofilehome">
               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"> 
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="100%" height="200px">
                 </a>

@@ -101,24 +101,10 @@
                       
                         </div>
                            <div class="row">
-                          <div class="col">
-                             <div class="form-group">
-                              <label >Pay</label>
-                               <?php echo e(Form::text('price','',['class'=>'form-control price', 'placeholder'=>'PAZ/Min'])); ?>
-
-                             
-                            </div>
-                            <?php if($errors->first('price')): ?>
-                            <div class="alert alert-danger">
-                              <?php echo $errors->first('price') ?>
-                            </div>
-                            <?php endif; ?>
-                          </div>
-                          <p style="padding-top: 33px;">or</p>
                            <div class="col">
                              <div class="form-group">
                               <label>Total Price</label>
-                               <?php echo e(Form::text('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])); ?>
+                               <?php echo e(Form::number('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])); ?>
 
                              
                             </div>
@@ -127,31 +113,31 @@
                               <?php echo $errors->first('total') ?>
                             </div>
                             <?php endif; ?>
+                            
                           </div>
                         </div>
 
                                 <div class="form-group">
-                               <label >Duration <span style="color:grey;">(in Minutes)</span></label><hr>
                               <div class="row">
                               <div class="col">
 
-                                 <label >Min :</label>
-                  <?php echo Form::number('min', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Min']); ?>
+                                 <label >Duration :</label>
+                  <?php echo Form::number('duration', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Duration']); ?>
 
                               </div>
-                               <?php if($errors->first('min')): ?>
+                               <?php if($errors->first('duration')): ?>
                             <div class="alert alert-danger">
-                              <?php echo $errors->first('min'); ?>
+                              <?php echo $errors->first('duration'); ?>
                             </div>
                             <?php endif; ?>
-                              <div class="col">
-                                 <label >Max :</label>
-                          <?php echo Form::number('max', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Max']); ?>
+                            <div class="col">
+                            <label >Delievery Days :</label>
+                            <?php echo Form::number('delieveryspeed', '' , ['class' => 'form-control', 'min'=>0, 'placeholder'=>'Delievery Speed']); ?>
 
-                              </div>
-                               <?php if($errors->first('max')): ?>
+                            </div>
+                            <?php if($errors->first('delieveryspeed')): ?>
                             <div class="alert alert-danger">
-                              <?php echo $errors->first('max'); ?>
+                              <?php echo $errors->first('delieveryspeed'); ?>
                             </div>
                             <?php endif; ?>
                             </div>
