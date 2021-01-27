@@ -2026,31 +2026,15 @@ public function update_cover($data,$req){
 
 public function getlevel(){
 
-  // $session_data =   Session::get('User');
+  $session_data =   Session::get('User');
 
-  //  $userid =  $session_data->id;
+    $userid =  $session_data->id;
 
-  //  $data = DB::table('subscriber')
-  //           ->whereExists(function($query)
-  //           {
-  //               $query->select(DB::raw('min'))
-  //                     ->from('levelsystem')
-  //                     ->whereBetween('subscriber.count', ['levelsystem.min', 'levelsystem.max']);
-  //           })
-  //           ->get();
-  // // $level = \DB::table('levelsystem')
-  // // ->select(
-  // //     'levelsystem.level_name'
-  // // )
-  // // ->whereExists( function ($query) use($userid) {
-  // //     $query->select('subscriber.count')
-  // //     ->from('subscriber')
-  // //     ->whereBetween('subscriber.count', ['levelsystem.min', 'levelsystem.max']);
-  // //     //->where('subscriber.artistid', $userid);
-  // // })
-  // // ->get();
+  $data = DB::select("SELECT level_name, id, max,(SELECT count  FROM subscriber WHERE artistid=$userid) as countsubscriber FROM levelsystem as ls WHERE (SELECT count FROM subscriber WHERE artistid=$userid) BETWEEN ls.min AND ls.max");
+    //print_r($data);die;
+return $data;
 
-  //         print_r($data);die;
+
   
 }
 
