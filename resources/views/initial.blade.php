@@ -252,7 +252,7 @@
    <div class="row">
          @forelse ($popularAudios as $audio)
                  @if($audio->type=='audio')
-              <div class="col-md-4 mb-3">
+              <div class="col-md-4 mb-3 audiohome">
               <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
               <audio controls>
                  <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
