@@ -268,7 +268,7 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <div class="text-right">
-   <button type="button" class="btn btn-light" onclick="change_other()">Edit</button>
+   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('{{json_encode($details[0])}}')">Edit</button>
               </div>
                 <hr>
                 <p class="edittable">{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
@@ -358,6 +358,120 @@ Your browser does not support the audio tag.
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal1" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+            </div>
+            <div class="modal-body">
+            {!!Form::open([ 'id'=>'edit_profile_info', 'method' => 'post', 'files'=>true])!!}
+          {{Form::token()}}
+      <div class="container profile">
+        <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
+          <div class="row align-items-center text-white">       
+                <div class="col-md-6 pt-3">
+            {{Form::label('Eye Color', 'Eye Color')}} 
+                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])}}
+                  @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('eyecolor') ?>
+                </div>
+                @endif
+            </div>
+             <div class="col-md-6 pt-3">
+            {{Form::label('Gender', 'Gender')}} <br>
+                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
+                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
+                 @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('gender') ?>
+                </div>
+                @endif
+
+            </div>
+            <div class="col-md-6 pt-3">
+            {{Form::label('Privy part', 'Privy part')}} 
+                {{Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])}}
+                  @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('privy') ?>
+                </div>
+                @endif
+            </div>
+            <div class="col-md-6 pt-3">
+            {{Form::label('Hair length', 'Hair length')}} 
+                {{Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','id'=>'hairlength','placeholder' => 'Choose Hair Length'])}}
+                 @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('hairlength') ?>
+                </div>
+                @endif
+            </div>
+            <div class="col-md-6 pt-3">
+            {{Form::label('Hair Color', 'Hair Color')}} 
+                {{Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','id'=>'haircolor','placeholder' => 'Choose Hair Color'])}}
+                   @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('haircolor') ?>
+                </div>
+                @endif
+            </div>
+
+               <div class="col-md-6 pt-3">
+            {{Form::label('Sexology', 'Sexology')}} 
+                {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])}}
+                 @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('sexology') ?>
+                </div>
+                @endif
+            </div>
+            <div class="col-md-6 pt-3">
+            {{Form::label('Height', 'Height')}} 
+                {{Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','id'=>'height','placeholder' => 'Choose Height'])}}
+                 @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('height') ?>
+                </div>
+                @endif
+            </div>
+            <div class="col-md-6 pt-3">
+            {{Form::label('Weight', 'Weight')}} 
+                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])}}
+                 @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('weight') ?>
+                </div>
+                @endif
+            </div>
+            
+             <div class="col-md-12 pt-3">
+            {{Form::label('ABOUT ME', 'ABOUT ME')}} 
+                {{Form::textarea('aboutme',null,['id'=>'aboutme','class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])}}
+                  @if(session('errors'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('aboutme') ?>
+                </div>
+                @endif
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                <div class="alert alert-success" role="alert" style="display:none">
+                           This is a success alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert" style="display:none">
+                    This is a danger alert—check it out!
+                </div>
             </div>
             {{ Form::close() }}
         </div>

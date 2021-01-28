@@ -437,6 +437,20 @@ public function getArtistDetail($artid,$type){
 
   }
 
+  public function edit_other($profile){
+
+    $session_data =   Session::get('User');
+
+    $contentid=$session_data->id;
+
+  
+
+    $update = DB::table('contentprovider')->where('id',$contentid)->update($profile->all());
+
+    return $update; 
+
+  }
+
   public function onlyArtistDetail($id){
     $details = DB::table('contentprovider')->where('id',$id)->get()->toArray();
     return $details;

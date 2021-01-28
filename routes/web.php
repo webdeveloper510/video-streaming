@@ -211,6 +211,7 @@ Route::post('createList', 'AuthController@createList');
     Route::post('postDescription','artist@addUserDescription');
 
     Route::post('edit_offer','artist@edit_offer');
+    Route::post('edit_info','artist@edit_info');
 
     Route::post('editDescription','artist@editDescription');
 
