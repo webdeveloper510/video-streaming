@@ -1023,6 +1023,14 @@ function filterproject(data){
 
 }
 
+$(document).on('keyup', '#calculate_tokens', function () {
+	var amount = parseInt($(this).val())/20;
+	var fees = (parseFloat(amount)*$("#fees").val())/100;
+	$('#real_amount').val(parseFloat(amount)-parseFloat(fees));
+	$('.show_fees').text("After Calculate Service Fees" +" "+$("#fees").val())
+
+})
+
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 
 // $('.nav-item').click(function(){
