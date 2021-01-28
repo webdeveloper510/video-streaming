@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
              $artistData = $model->onlyArtistDetail($userId);
        
              $getLevel= isset($data) ? $model->getlevel(): '';
-             // print_r($getLevel);die;
+              //print_r($getLevel);die;
              
               $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];
             

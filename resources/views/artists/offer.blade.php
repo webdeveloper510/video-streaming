@@ -28,7 +28,6 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{url('artist/offer')}}">Create Offer</a>
             <a class="dropdown-item" href="{{url('artist/contentUpload')}}">Content Upload</a>
         </div>
          
@@ -120,6 +119,15 @@
                   <?php echo $errors->first('media') ?>
                 </div>
                 @endif
+                <span id="filename" style="color:red;"></span>
+                <div class="col-md-6 mt-5">
+              <video width="200" id="video_choose" controls style="display:none;">
+             <source src="mov_bbb.mp4" id="video">
+             Your browser does not support HTML5 video.
+             </video>
+
+             <img id="image" src="#" width="50px;" style="display:none;" height="50px;" alt="your image" />
+            </div>
                 </div>
 
                 <div class="col-md-6 mt-2 pt-4">
@@ -150,12 +158,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-5">
-                <video width="400" controls>
-             <source src="mov_bbb.mp4" id="blah">
-             Your browser does not support HTML5 video.
-             </video>
-            </div>
+           
            
           
             

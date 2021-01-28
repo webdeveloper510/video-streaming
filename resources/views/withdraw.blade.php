@@ -14,12 +14,14 @@
           <div class="col-md-4">
     
            <div class="amount">Enter PAZ Amount <br>
-         <input type="email" class="form-control" id="Amount" placeholder="PAZ Amount">
+              <input type="text" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
+         <input type="hidden" id="fees" value="{{$levelData[0]->fees}}"/>
+         <strong class="show_fees" style="color:black"></strong>
         </div>
         <div class="col-md-4">
-           <div>Amount <br>
-         <input type="text" class="form-control" id="Amount2" placeholder="Amount">
+           <div>Amount 
+         <span>($)</span><input type="text" class="form-control" id="real_amount" placeholder="Amount">
          </div> 
         </div>
         <div class="col-md-4 mt-3 text-center">
