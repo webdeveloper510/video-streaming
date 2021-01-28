@@ -1032,6 +1032,8 @@ function edit_offer(data){
 		//console.log(json_info);return false;
 		$('#title').val(json_info.title);
 		$('#offerid').val(json_info.id);
+		$('#min').val(json_info.min);
+		$('#max').val(json_info.max);
 		$('#video').attr('src',src);
 		$('#file_url').val(json_info.media);
 		$('#price').val(json_info.price);

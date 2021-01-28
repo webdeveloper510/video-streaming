@@ -322,6 +322,12 @@ Your browser does not support the audio tag.
             {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
                 {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])}}
 
+                {{Form::label('Min', 'Min')}} 
+                {{Form::number('min', '',['class'=>'form-control','name'=>'price','id'=>'min','placeholder'=>'Min'])}}
+
+                {{Form::label('Max', 'Max')}} 
+                {{Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])}}
+
                 {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
                 <input type="hidden" name="offerid" id="offerid" value="">
