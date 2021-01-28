@@ -332,6 +332,14 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
 
 
+                <?php echo e(Form::label('Min', 'Min')); ?> 
+                <?php echo e(Form::number('min', '',['class'=>'form-control','name'=>'price','id'=>'min','placeholder'=>'Min'])); ?>
+
+
+                <?php echo e(Form::label('Max', 'Max')); ?> 
+                <?php echo e(Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])); ?>
+
+
                 <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
