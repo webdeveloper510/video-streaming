@@ -393,7 +393,7 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
           <div class="row align-items-center text-white">       
                 <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Eye Color', 'Eye Color')); ?> 
+            <?php echo e(Form::label('EEye/Lens Color', 'Eye/Lens Color')); ?> 
                 <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
 
                   <?php if(session('errors')): ?>
