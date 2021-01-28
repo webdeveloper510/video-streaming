@@ -209,7 +209,7 @@ class artist extends Controller
       $count_due_offer = $this->model->count_due_offer('offer');
 
       $getLevel= $this->model->getlevel();
-      print_r($getLevel);die;
+      //print_r($getLevel);die;
 
       $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max :[];
 

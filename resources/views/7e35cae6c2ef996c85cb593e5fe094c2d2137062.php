@@ -235,7 +235,7 @@
                     
                 </div>
 </div>
-               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1 : ''); ?></div>
+               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
               
             </div>
             <ul class="navbar-nav">
