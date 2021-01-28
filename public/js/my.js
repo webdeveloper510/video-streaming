@@ -197,7 +197,7 @@ $(document).on('keyup change', '#change_duration', function () {
 	var pay_price = $(this).attr('data-id') * $(this).val(); 
 	
 	$('#offer_pay').val(pay_price);
-	$('#change_text').html("You will Pay:$" + pay_price);
+	$('#change_text').html("You will Pay:" + pay_price + " "+"PAZ");
 
 	console.log(pay_price);     
 });
