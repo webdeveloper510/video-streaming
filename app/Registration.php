@@ -768,6 +768,7 @@ public function getRespectedSub($data){
               'categoryid'=>$data['category'],
               'min'=>$data['min'],
               'max'=>$data['max'],
+              'type'=>$data['type'],
               'offer_status'=>$data['offer_status'],
               'delieveryspeed'=>$data['delieveryspeed'],
               'quality'=>$data['quality'],

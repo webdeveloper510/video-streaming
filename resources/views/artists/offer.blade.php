@@ -36,7 +36,15 @@
           
         </ul>
         </div>
-                <div class="col-md-6 mt-5 ">
+                    <div class="col-md-4 mt-5 ">
+
+            {{Form::label('Media Offering', 'Media Offering')}} <br>
+               <input type="checkbox" name="type" value="video"/>Video
+               <input type="checkbox" name="type" value="audio"/>Audio
+      
+            </div>
+                <div class="col-md-4 mt-5 ">
+
                 {{Form::label('Title', 'Title')}} 
                     {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])}}
                     @if($errors->first('title'))
@@ -46,7 +54,7 @@
                     @endif
                 </div>
            
-                    <div class="col-md-6 mt-5 ">
+                    <div class="col-md-4 mt-5 ">
                     {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
                         {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
                         @if($errors->first('price'))

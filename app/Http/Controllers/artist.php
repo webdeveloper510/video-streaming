@@ -300,7 +300,7 @@ class artist extends Controller
               unset($data['_token']);
               $data['media']=$fileName;
               $data['categoryid']=$req->category;
-              $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+              $data['type']=  $data['type'];
                 if($filePath){
 
                 $createOffer = $this->model->createOffer($data);
