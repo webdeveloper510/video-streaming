@@ -220,7 +220,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <div class="levlv">
-              <div>{{$levelData ? {$levelData[0]->level_name:''}} </div>
+              <div>{{$levelData ? $levelData[0]->level_name: ''}} </div>
               <div class="wid"><div class="progress">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
