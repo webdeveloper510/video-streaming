@@ -68,7 +68,7 @@
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
-              <h2 class="text-center ">List Of Requests</h2>
+              <h2 class="text-center "></h2>
                 <div class="dropreq text-right">
                 <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
@@ -118,7 +118,7 @@
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
-              <h2 class="text-center">List Of Requests</h2>
+              <h2 class="text-center"></h2>
                 <div class="dropreq text-right">
                 <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
