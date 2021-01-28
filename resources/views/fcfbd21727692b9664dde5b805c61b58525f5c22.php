@@ -227,7 +227,7 @@
             <?php if($offer->type=='video'): ?>
             
               <div class="col-md-4 hover">
-                  <a hre="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
+                  <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
                   <video width="100%" height="100%" controls="false" allowfullscreen>
 
                   <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">

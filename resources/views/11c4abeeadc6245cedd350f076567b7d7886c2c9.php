@@ -169,12 +169,12 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5">
-             <?php echo e(Form::label('Additional Request', 'Additional Request')); ?> 
-                <?php echo e(Form::textarea('additional',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])); ?>
+             <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
+                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
 
-                 <?php if($errors->first('additional')): ?>
+                 <?php if($errors->first('additional_price')): ?>
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('additional') ?>
+                  <?php echo $errors->first('additional_price') ?>
                 </div>
                 <?php endif; ?>
             </div>

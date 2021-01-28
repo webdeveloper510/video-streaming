@@ -158,11 +158,11 @@
                 @endif
             </div>
             <div class="col-md-6 mt-5">
-             {{Form::label('Additional Request', 'Additional Request')}} 
-                {{Form::textarea('additional',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])}}
-                 @if($errors->first('additional'))
+             {{Form::label('Additional Request', 'Additional Request Price(PAZ)')}} 
+                {{Form::number('additional_price',null,['class'=>'form-control'])}}
+                 @if($errors->first('additional_price'))
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('additional') ?>
+                  <?php echo $errors->first('additional_price') ?>
                 </div>
                 @endif
             </div>
