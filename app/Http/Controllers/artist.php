@@ -282,6 +282,7 @@ class artist extends Controller
           'title'=>'required',
           'offer_status'=>'required',
           'delieveryspeed'=>'required',
+          'additional_price'=>'required',
           'quality'=>'required',
           'delieveryspeed'=>'required',
           'description'=>'required',
