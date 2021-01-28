@@ -2028,7 +2028,7 @@ public function getlevel(){
 
   $session_data =   Session::get('User');
 
-    $userid =  $session_data->id;
+    $userid =  $session_data ? $session_data->id : '';
 
   $data = DB::select("SELECT level_name, id, max,(SELECT count  FROM subscriber WHERE artistid=$userid) as countsubscriber FROM levelsystem as ls WHERE (SELECT count FROM subscriber WHERE artistid=$userid) BETWEEN ls.min AND ls.max");
     //print_r($data);die;
