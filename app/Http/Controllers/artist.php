@@ -246,6 +246,8 @@ class artist extends Controller
 
       $allPlaylist =      $this->model->getAllPlaylist();
 
+     // print_r($allArtistsVideo);die;
+
       $contentLogin =   Session::get('User');
       
       return view('artists.profile',['tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
@@ -430,6 +432,15 @@ class artist extends Controller
 
     return $update ? response()->json(array('status'=>1)) :  response()->json(array('status'=>0));
 
+  }
+
+
+  public function edit_info(Request $req){
+        unset($req['_token']);
+
+        $update = $this->model->edit_other($req);
+
+        return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
   }
 
   }

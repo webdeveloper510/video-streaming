@@ -887,6 +887,48 @@ $(document).on('submit', '#edit_form', function (event) {
 
 });
 
+
+$(document).on('submit', '#edit_profile_info', function (event) {
+	event.preventDefault();
+	var formData = new FormData($(this)[0]);
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/edit_info",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: formData,
+			processData: false,
+			contentType: false,
+
+			success: function(data){
+
+				//console.log(data);return false;
+
+				if(data.status==1){
+					$('.alert-success').show();
+					$('.alert-success').html(data.message);
+
+					setTimeout(function(){ 
+						location.reload();
+					 }, 3000);
+				}
+
+				else{
+
+					$('.alert-danger').show();
+					$('.alert-danger').html(data.message);
+					
+				}
+
+
+			}
+	});
+
+});
+
 function addTohistory(type){
 	var id = $('#vidid').val();
 		$.ajax({
@@ -1000,6 +1042,21 @@ function edit_offer(data){
 		$('#selectCategory').val(json_info.categoryid).attr("selected","selected");;
 	//alert('helo');
 	//$('#myModal').modal('show');
+}
+
+
+function change_other_info(data){
+
+	var json_info = JSON.parse(data);
+
+	$('#aboutme').val(json_info.aboutme);
+	$('#weight').val(json_info.weight).attr("selected","selected");
+	$('#height').val(json_info.height).attr("selected","selected");
+	$('#sexology').val(json_info.sexology).attr("selected","selected");
+	$('#haircolor').val(json_info.haircolor).attr("selected","selected");
+	$('#eyecolor').val(json_info.eyecolor).attr("selected","selected");
+	$('#privy').val(json_info.privy).attr("selected","selected");
+	$('#hairlength').val(json_info.hairlength).attr("selected","selected");
 }
 
 
