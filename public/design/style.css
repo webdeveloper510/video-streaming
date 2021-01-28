@@ -964,6 +964,12 @@ header .right_bt .btn {
 .header_bottom {
 	min-height: auto;
 }
+.hide{
+	display:none;
+  }
+  .block{
+	display:block;
+  }
 
 .header_top ul {
 	list-style: none;

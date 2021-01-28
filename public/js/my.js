@@ -807,9 +807,13 @@ function subscribe(id,setValue){
 
 			//console.log(data);return false;
 
-			if(data.status==1){
+			if(setValue && data.status==1){
 				$('#subscribe').hide();
 				$('#unsubscribe').show();
+			}
+			else if(!setValue && data.status==1){
+				$('#subscribe').show();
+				$('#unsubscribe').hide();
 			}
 	
 			

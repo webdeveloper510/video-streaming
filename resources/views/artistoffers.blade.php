@@ -6,7 +6,10 @@
 <h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
 <p>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </p>
-<div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
+<div class="text-right">
+<button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" onclick="subscribe({{$offer[0]->artistid}},true)" id="subscribe">Subscribe </button>
+    
+ <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" id="unsubscribe" onclick="subscribe({{$offer[0]->artistid}},false)">Un Subscribed </button>
 </div>
 <p>Sample</p>
 @foreach($offer as $offerdata)
@@ -76,5 +79,7 @@ $GLOBALS['price'] = $offerdata->price;
   A simple success alert—check it out!
 </div>
 </div>
+
+
 	
 @include('layouts.footer')

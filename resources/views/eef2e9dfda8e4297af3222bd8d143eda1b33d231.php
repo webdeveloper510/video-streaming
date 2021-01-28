@@ -6,7 +6,10 @@
 <h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
 <p><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </p>
-<div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
+<div class="text-right">
+<button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe">Subscribe </button>
+    
+ <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Subscribed </button>
 </div>
 <p>Sample</p>
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -81,5 +84,7 @@ $GLOBALS['price'] = $offerdata->price;
   A simple success alert—check it out!
 </div>
 </div>
+
+
 	
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>
