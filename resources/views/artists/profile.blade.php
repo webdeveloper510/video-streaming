@@ -386,17 +386,6 @@ Your browser does not support the audio tag.
                 </div>
                 @endif
             </div>
-             <div class="col-md-6 pt-3">
-            {{Form::label('Gender', 'Gender')}} <br>
-                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
-                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
-                 @if(session('errors'))
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('gender') ?>
-                </div>
-                @endif
-
-            </div>
             <div class="col-md-6 pt-3">
             {{Form::label('Privy part', 'Privy part')}} 
                 {{Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])}}
