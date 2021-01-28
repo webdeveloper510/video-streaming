@@ -75,7 +75,11 @@
        @endforelse
        @else
        <div class="playhistory col-md-12">
-                     <h4>No play list created yet. <span id="playlistCreate">Create play List +</span></h4>
+                     <h4>No play list created yet. <span id="playlistCreate" class="show_list">Create play List +</span></h4>
+                     <span class="create_playlistt" style="display: none">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+      		<button class="create_list btn btn-primary" type="button">Create</button>
+      	</span>
 
                    </div>
             @endif

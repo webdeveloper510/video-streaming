@@ -16,10 +16,11 @@
 
         </div>
         <?php endif; ?>
-<div class="row ">
+<div class="row">
   <?php if($offer): ?>
 	<?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<div class="col-md-4 showoffer1">
+    <a href="<?php echo e(url('artistoffers/'.$val->id)); ?>">
       <div class="card">
 	   <video width="100%" height="240" controls>
   <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
@@ -44,6 +45,7 @@
 	      <!-- <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
      </div>
    </div>
+   </a>
  </div>
  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  <?php endif; ?>

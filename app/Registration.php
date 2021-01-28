@@ -2024,6 +2024,37 @@ public function update_cover($data,$req){
 }
 
 
+public function getlevel(){
+
+  // $session_data =   Session::get('User');
+
+  //  $userid =  $session_data->id;
+
+  //  $data = DB::table('subscriber')
+  //           ->whereExists(function($query)
+  //           {
+  //               $query->select(DB::raw('min'))
+  //                     ->from('levelsystem')
+  //                     ->whereBetween('subscriber.count', ['levelsystem.min', 'levelsystem.max']);
+  //           })
+  //           ->get();
+  // // $level = \DB::table('levelsystem')
+  // // ->select(
+  // //     'levelsystem.level_name'
+  // // )
+  // // ->whereExists( function ($query) use($userid) {
+  // //     $query->select('subscriber.count')
+  // //     ->from('subscriber')
+  // //     ->whereBetween('subscriber.count', ['levelsystem.min', 'levelsystem.max']);
+  // //     //->where('subscriber.artistid', $userid);
+  // // })
+  // // ->get();
+
+  //         print_r($data);die;
+  
+}
+
+
 
     // public function addToLibrary1(){
 

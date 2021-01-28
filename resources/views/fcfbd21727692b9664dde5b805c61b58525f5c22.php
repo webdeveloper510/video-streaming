@@ -217,6 +217,7 @@
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($offer->type=='video'): ?>
+            <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
               <div class="col-md-4 hover">
                 
                   <video width="100%" height="100%" controls="false" allowfullscreen>
@@ -226,6 +227,7 @@
                   </video>
                   <h5><?php echo e($offer->title); ?></h5>
               </div>
+              </a>
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>

@@ -14,10 +14,11 @@
         {{session('error')}}
         </div>
         @endif
-<div class="row ">
+<div class="row">
   @if($offer)
 	@foreach($offer as $val)
 	<div class="col-md-4 showoffer1">
+    <a href="{{url('artistoffers/'.$val->id)}}">
       <div class="card">
 	   <video width="100%" height="240" controls>
   <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
@@ -42,6 +43,7 @@
 	      <!-- <a href="#" data-toggle="modal" onclick="getId('{{$val->id}}')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
      </div>
    </div>
+   </a>
  </div>
  @endforeach
  @endif
