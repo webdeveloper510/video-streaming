@@ -321,11 +321,11 @@ Your browser does not support the audio tag.
 
             {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
                 {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])}}
-
-                {{Form::label('Min', 'Min')}} 
+                <label>Duration:</label>
+                {{Form::label('Min', 'Min(Minutes)')}} 
                 {{Form::number('min', '',['class'=>'form-control','name'=>'price','id'=>'min','placeholder'=>'Min'])}}
 
-                {{Form::label('Max', 'Max')}} 
+                {{Form::label('Max', 'Max(Minutes)')}} 
                 {{Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])}}
 
                 {{Form::label('Description', 'Description')}} 
