@@ -191,6 +191,16 @@ $(document).on('change', '#file_input', function () {
 	readURL(this);
 })
 
+$(document).on('keyup change', '#change_duration', function () {
+//$("#change_duration").bind('keyup mouseup', function () {
+	//console.log('yes');return false;
+	var pay_price = $(this).attr('data-id') * $(this).val(); 
+	
+	$('#offer_pay').val(pay_price);
+	$('#change_text').html("You will Pay:$" + pay_price);
+
+	console.log(pay_price);     
+});
 function readURL(input) {
 
 	document.getElementById('filename').textContent=input.files[0].name;

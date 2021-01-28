@@ -36,7 +36,7 @@ $GLOBALS['price'] = $offerdata->price;
       <p>video</p>
   </div>
   <div class="col">
-      <h3>Price</h3>
+      <h3>Price/Min</h3>
       <p>{{$offerdata->price}}/PAZ</p>
   </div>
   <div class="col">
@@ -54,17 +54,19 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
 <input type="hidden" name="user_id" value="{{$GLOBALS['id'].'_'.$GLOBALS['user_id']}}"/>
-<input type="hidden" name="price" value="{{$GLOBALS['price']}}"/>
+<input type="hidden" name="price" id="offer_pay" value="{{$GLOBALS['price']}}"/>
 <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
-  {{Form::number('duration', '',['class'=>'form-control','placeholder'=>'Duration'])}}
+  {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','placeholder'=>'Duration'])}}
 </div>
 @endforeach
 <h4>Additional Request <small>(Price: 500PAZ)</small></h4>
 {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])}}
+<br>
+<strong id="change_text"></strong>
 <div class="text-right mt-5">
-{{ Form::submit('Order Now!',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit']) }}
+{{ Form::submit('Pay !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit']) }}
 </div>
 {{ Form::close() }}
 </div>
