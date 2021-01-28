@@ -316,25 +316,37 @@ Your browser does not support the audio tag.
             <div class="modal-body">
             {!!Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true])!!}
                    {{Form::token()}}
+                   <label>Media Offering</label>
+                   <div class="row">
+                   
+                  <div class="col-md-6">
+                       <input type="checkbox" name="type" value="video"/>Video
+                  </div>
+                  <div class="col-md-6">
+                       <input type="checkbox" name="type" value="audio"/>Audio
+                  </div>
+                  </div>
             {{Form::label('Title', 'Title')}} 
               {{Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])}}
 
             {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
                 {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])}}
-
+                <label>Duration(Minutes):</label>
+                <div class="row">
+                  <div class="col-md-6">
                 {{Form::label('Min', 'Min')}} 
                 {{Form::number('min', '',['class'=>'form-control','name'=>'price','id'=>'min','placeholder'=>'Min'])}}
-
+                   </div>
+                   <div class="col-md-6">
                 {{Form::label('Max', 'Max')}} 
                 {{Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])}}
-
+                </div>
+                </div>
                 {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
                 <input type="hidden" name="offerid" id="offerid" value="">
-                <video width="100" id="video" height="100" controls>
-                  <source src="" type="video/mp4">
-                </video>
-                  <input type="file" name="file" value=""/>
+                  <input type="file" name="file" id="file_input" value=""/>
+                  
                   <input type="hidden" id="file_url" name="file_url" value=""/>
 
                 <label>Offer Status</label>

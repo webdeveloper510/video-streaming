@@ -40,7 +40,15 @@
           
         </ul>
         </div>
-                <div class="col-md-6 mt-5 ">
+                    <div class="col-md-4 mt-5 ">
+
+            <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
+               <input type="checkbox" name="type" value="video"/>Video
+               <input type="checkbox" name="type" value="audio"/>Audio
+      
+            </div>
+                <div class="col-md-4 mt-5 ">
+
                 <?php echo e(Form::label('Title', 'Title')); ?> 
                     <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])); ?>
 
@@ -51,7 +59,7 @@
                     <?php endif; ?>
                 </div>
            
-                    <div class="col-md-6 mt-5 ">
+                    <div class="col-md-4 mt-5 ">
                     <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
                         <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])); ?>
 
