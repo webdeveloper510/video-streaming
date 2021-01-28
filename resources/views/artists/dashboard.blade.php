@@ -220,17 +220,17 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             <div class="levlv">
-              <div>{{$levelData[0]->level_name}} </div>
+              <div>{$levelData ? {$levelData[0]->level_name:''}} </div>
               <div class="wid"><div class="progress">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage}}%">
+                    aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage ? $percentage : 0}}%">
                           <span class="sr-only">70% Complete</span>
                     </div>
                     
                 </div>
 </div>
-               <div> Lvl{{$levelData[0]->id+1}}</div>
+               <div> Lvl{{$levelData ? $levelData[0]->id+1 : ''}}</div>
               
             </div>
             <ul class="navbar-nav">
