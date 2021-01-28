@@ -138,6 +138,7 @@
 
       <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
+              <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
             <div class="col-md-4 hover" >
             
           <video width="350px" height="275px" controls="false" allowfullscreen>
@@ -146,6 +147,7 @@
           </video>
           <h5><?php echo e($recnt->title); ?></h5>
             </div>
+            </a>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
@@ -180,6 +182,7 @@
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($pop->type=='video'): ?>
+            <a href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
             <div class="col-md-4 hover">
                 <video width="100%" height="100%" controls="false" allowfullscreen>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
@@ -187,6 +190,7 @@
                 </video>
                 <h5><?php echo e($pop->title); ?></h5>
             </div> 
+            </a>
 
                <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
