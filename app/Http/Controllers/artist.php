@@ -210,8 +210,8 @@ class artist extends Controller
 
       $getLevel= $this->model->getlevel();
      // print_r($getLevel);die;
-     
-      $percentage = ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max;
+
+      $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max :[];
 
       //print_r($percentage);die;
 
