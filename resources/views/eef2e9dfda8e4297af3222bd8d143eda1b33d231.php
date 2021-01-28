@@ -14,6 +14,7 @@
 $GLOBALS['id'] = $offerdata->id;
 $GLOBALS['user_id'] = $offerdata->userid;
 $GLOBALS['artistid'] = $offerdata->artistid;
+$GLOBALS['add_price'] = $offerdata->additional_price;
 
 $GLOBALS['price'] = $offerdata->price;
 ?>
@@ -57,13 +58,14 @@ $GLOBALS['price'] = $offerdata->price;
 <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
 <input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
 <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
+<input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
   <?php echo e(Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','placeholder'=>'Duration'])); ?>
 
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<h4>Additional Request <small>(Price: 500PAZ)</small></h4>
+<h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small></h4>
 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
 
 <br>

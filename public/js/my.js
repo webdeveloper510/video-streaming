@@ -194,10 +194,10 @@ $(document).on('change', '#file_input', function () {
 $(document).on('keyup change', '#change_duration', function () {
 //$("#change_duration").bind('keyup mouseup', function () {
 	//console.log('yes');return false;
-	var pay_price = $(this).attr('data-id') * $(this).val(); 
+	var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val()); 
 	
 	$('#offer_pay').val(pay_price);
-	$('#change_text').html("You will Pay:" + pay_price + " "+"PAZ");
+	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ" + "+ "+ "Addtioanl Price"+" "+$('#additional').val()+" = "+ " "+pay_price+ " "+"PAZ");
 
 	console.log(pay_price);     
 });
