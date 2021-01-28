@@ -402,17 +402,6 @@ Your browser does not support the audio tag.
                 </div>
                 <?php endif; ?>
             </div>
-             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Gender', 'Gender')); ?> <br>
-                 <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male&nbsp;&nbsp;
-                <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female
-                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('gender') ?>
-                </div>
-                <?php endif; ?>
-
-            </div>
             <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
                 <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])); ?>

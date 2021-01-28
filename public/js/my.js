@@ -199,22 +199,22 @@ function readURL(input) {
 
 	//console.log(input.files[0])
  
-var filepath = input.value;
-var extension = filepath.split('.')[1];
-if(extension=='mp4'){
-	document.getElementById('image').style.display='none'
-	document.getElementById('video_choose').style.display='block'
-   var $source =  $('#video') ;
-	$source[0].src = URL.createObjectURL(input.files[0]);
-   $source.parent()[0].load();
-}
-else{
-	document.getElementById('video_choose').style.display='none'
-	document.getElementById('image').style.display='block'
-	var $source = $("#image");
-	$source[0].src = URL.createObjectURL(input.files[0]);
-   $source.parent()[0].load();
-}
+// var filepath = input.value;
+// var extension = filepath.split('.')[1];
+// if(extension=='mp4'){
+// 	document.getElementById('image').style.display='none'
+// 	document.getElementById('video_choose').style.display='block'
+//    var $source =  $('#video') ;
+// 	$source[0].src = URL.createObjectURL(input.files[0]);
+//    $source.parent()[0].load();
+// }
+// else{
+// 	document.getElementById('video_choose').style.display='none'
+// 	document.getElementById('image').style.display='block'
+// 	var $source = $("#image");
+// 	$source[0].src = URL.createObjectURL(input.files[0]);
+//    $source.parent()[0].load();
+// }
 
   // console.log(input.value);return false;
 //   if (input.files && input.files[0]) {

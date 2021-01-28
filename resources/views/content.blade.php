@@ -27,7 +27,7 @@
         <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
           <div class="row align-items-center text-white">       
                 <div class="col-md-6 pt-3">
-            {{Form::label('Eye Color', 'Eye Color')}} 
+            {{Form::label('Eye Color/Lens', 'Eye Color/Lens')}} 
                 {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
@@ -38,7 +38,8 @@
              <div class="col-md-6 pt-3">
             {{Form::label('Gender', 'Gender')}} <br>
                  {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
-                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
+                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female&nbsp;&nbsp;
+                {{Form::radio('gender', 'trans',false,['class'=>'rad_But'])}}Trans
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('gender') ?>
