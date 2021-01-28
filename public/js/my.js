@@ -193,19 +193,39 @@ $(document).on('change', '#file_input', function () {
 
 function readURL(input) {
 
+	document.getElementById('filename').textContent=input.files[0].name;
 
-  var $source = $('#blah');
-   $source[0].src = URL.createObjectURL(input.files[0]);
-  $source.parent()[0].load();
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+	//$('.filename').val();
+
+	//console.log(input.files[0])
+ 
+var filepath = input.value;
+var extension = filepath.split('.')[1];
+if(extension=='mp4'){
+	document.getElementById('image').style.display='none'
+	document.getElementById('video_choose').style.display='block'
+   var $source =  $('#video') ;
+	$source[0].src = URL.createObjectURL(input.files[0]);
+   $source.parent()[0].load();
+}
+else{
+	document.getElementById('video_choose').style.display='none'
+	document.getElementById('image').style.display='block'
+	var $source = $("#image");
+	$source[0].src = URL.createObjectURL(input.files[0]);
+   $source.parent()[0].load();
+}
+
+  // console.log(input.value);return false;
+//   if (input.files && input.files[0]) {
+//     var reader = new FileReader();
     
-    reader.onload = function(e) {
-      $('#blah').attr('src', e.target.result);
-    }
+//     reader.onload = function(e) {
+//       $('#blah').attr('src', e.target.result);
+//     }
     
-    reader.readAsDataURL(input.files[0]); // convert to base64 string
-  }
+//     reader.readAsDataURL(input.files[0]); // convert to base64 string
+//   }
 }
 
 
