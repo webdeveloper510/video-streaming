@@ -51,7 +51,7 @@ class AppServiceProvider extends ServiceProvider
              $getLevel= isset($data) ? $model->getlevel(): '';
              // print_r($getLevel);die;
              
-              $percentage = ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max;
+              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];
             
 
             //echo $tokens ? 'yes' : 'No';
