@@ -219,18 +219,23 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            
-            <ul class="navbar-nav">
-              <li class="nav-item">
-              {{$levelData[0]->level_name}}
-              <div class="progress">
+            <div class="levlv">
+              <div>{{$levelData[0]->level_name}} </div>
+              <div class="wid"><div class="progress">
+             
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
                     aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage}}%">
                           <span class="sr-only">70% Complete</span>
                     </div>
+                    
                 </div>
-                Lvl{{$levelData[0]->id+1}}
+</div>
+               <div> Lvl{{$levelData[0]->id+1}}</div>
               
+            </div>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+             
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
            <a href="{{url('/artist/offer')}}">
 

@@ -48,7 +48,10 @@ class AppServiceProvider extends ServiceProvider
 
              $artistData = $model->onlyArtistDetail($userId);
        
-
+             $getLevel= $model->getlevel();
+             // print_r($getLevel);die;
+             
+              $percentage = ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max;
             
 
             //echo $tokens ? 'yes' : 'No';
@@ -59,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
 
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
+            $view->with(array('levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
 
     }
