@@ -28,11 +28,10 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
-              Content Upload
+              Create Offer
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
             <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Content Upload</a>
         </div>
          
