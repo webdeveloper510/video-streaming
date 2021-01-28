@@ -209,6 +209,11 @@ class artist extends Controller
       $count_due_offer = $this->model->count_due_offer('offer');
 
       $getLevel= $this->model->getlevel();
+     // print_r($getLevel);die;
+     
+      $percentage = ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max;
+
+      //print_r($percentage);die;
 
       $count_due_project = $this->model->count_due_offer('add_request');
 
@@ -220,7 +225,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 

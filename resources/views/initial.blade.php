@@ -138,6 +138,7 @@
 
       @forelse ($recently as $recnt)
             @if($recnt->type=='video')
+              <a href="{{url('artist-video/'.$recnt->id)}}">
             <div class="col-md-4 hover" >
             
           <video width="350px" height="275px" controls="false" allowfullscreen>
@@ -146,6 +147,7 @@
           </video>
           <h5>{{ $recnt->title }}</h5>
             </div>
+            </a>
             @endif
             @empty
              @endforelse
@@ -180,6 +182,7 @@
           <div class="row">
           @forelse ($popular as $pop)
             @if($pop->type=='video')
+            <a href="{{url('artist-video/'.$pop->id)}}">
             <div class="col-md-4 hover">
                 <video width="100%" height="100%" controls="false" allowfullscreen>
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
@@ -187,6 +190,7 @@
                 </video>
                 <h5>{{ $pop->title }}</h5>
             </div> 
+            </a>
 
                @endif
               @empty
