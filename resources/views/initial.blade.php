@@ -227,7 +227,7 @@
             @if($offer->type=='video')
             
               <div class="col-md-4 hover">
-                  <a hre="{{url('artistoffers/'.$offer->id)}}">
+                  <a href="{{url('artistoffers/'.$offer->id)}}">
                   <video width="100%" height="100%" controls="false" allowfullscreen>
 
                   <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
