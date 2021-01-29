@@ -315,7 +315,7 @@
                @if($artist->profilepicture)
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
                 <div class="overlay">
-                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
+                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}
                </div>
                @else
                <a href="{{url('artistDetail/'.$artist->id)}}">
