@@ -226,17 +226,32 @@
          @forelse ($offers as $offer)
             @if($offer->type=='video')
             
-              <div class="col-md-4 hover">
-                  <a href="{{url('artistoffers/'.$offer->id)}}">
-                  <video width="100%" height="100%" controls="false" allowfullscreen>
+            <div class="col-md-4 showoffer1">
+    <a href="{{url('artistoffers/'.$offer->id)}}">
+      <div class="card">
+	   <video width="100%" height="240" controls>
+  <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
 
-                  <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
+  Your browser does not support the video tag.
+</video>
 
-                  <h5>{{ $offer->title }}</h5>
-                  </a>
-              </div>
+	  <div class="carad-body">
+	      <h4 class="card-title text-center">{{$offer->title}}</h4>
+	      <hr>
+	      <h5 class="text-center">offer Description</h5>
+	    
+	      <p class="card-text p-3">{{$offer->description}}</p>
+	      <hr>
+	      <table class="table table-borderless text-center">
+            <tr>
+            	<th>Price</th>
+            	<td> {{$offer->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
+              </tr>
+	      </table>
+	         </div>
+   </div>
+   </a>
+ </div>
            
               @endif
               @empty
@@ -292,21 +307,29 @@
               <h3 class="tittle"><a href="{{url('seeall/artists')}}">Artists</a></h3>
               <a href="{{url('seeall/artists')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
-   <div class="row">
-         @foreach($artists as $artist)
-                 @if($artist->profilepicture)
-              
-              <div class="col-md-4 artistprofilehome">
-              <a href="{{url('artistDetail/'.$artist->id)}}"> 
-                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}" width="100%" height="200px">
-                </a>
-              </div>
+           <div class="row mb-5">
+    @foreach ($artists as $artist)
+           <div class="col-md-2">
+             
+               <div class="artist text-center">
+               @if($artist->profilepicture)
+                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+                <div class="overlay">
+                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
+               </div>
+               @else
+               <a href="{{url('artistDetail/'.$artist->id)}}">
+		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
+	           	<div class="profileImage"></div>
 
-              @endif
+               </a>
+             
+             @endif
+               </div>
+           </div>
              @endforeach
-        
-  
-            </div>
+
+       </div>
 
   
             </div>
@@ -335,6 +358,38 @@
     margin-top: -43px;
     right: 100px;
   }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 19%;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+}
+
+.artist .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    margin-top: 4px;
+}
+
+.artist img {
+    height: 125px;
+    width: 125px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
    h3.tittle a {
     color: white;
    }
