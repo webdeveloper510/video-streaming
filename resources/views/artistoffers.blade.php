@@ -6,7 +6,10 @@
 <h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
 <p>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </p>
-<div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
+<div class="text-right">
+<button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" onclick="subscribe({{$offer[0]->artistid}},true)" id="subscribe">Subscribe </button>
+    
+ <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" id="unsubscribe" onclick="subscribe({{$offer[0]->artistid}},false)">Un Subscribed </button>
 </div>
 <p>Sample</p>
 @foreach($offer as $offerdata)
@@ -14,6 +17,7 @@
 $GLOBALS['id'] = $offerdata->id;
 $GLOBALS['user_id'] = $offerdata->userid;
 $GLOBALS['artistid'] = $offerdata->artistid;
+$GLOBALS['add_price'] = $offerdata->additional_price;
 
 $GLOBALS['price'] = $offerdata->price;
 ?>
@@ -56,12 +60,13 @@ $GLOBALS['price'] = $offerdata->price;
 <input type="hidden" name="user_id" value="{{$GLOBALS['id'].'_'.$GLOBALS['user_id']}}"/>
 <input type="hidden" name="price" id="offer_pay" value="{{$GLOBALS['price']}}"/>
 <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
+<input type="hidden" name="add_price" id="additional" value="{{$GLOBALS['add_price']}}">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
   {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','placeholder'=>'Duration'])}}
 </div>
 @endforeach
-<h4>Additional Request <small>(Price: 500PAZ)</small></h4>
+<h4>Additional Request <small>(Price: {{$GLOBALS['add_price']}}PAZ)</small></h4>
 {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])}}
 <br>
 <strong id="change_text"></strong>
@@ -74,5 +79,7 @@ $GLOBALS['price'] = $offerdata->price;
   A simple success alert—check it out!
 </div>
 </div>
+
+
 	
 @include('layouts.footer')

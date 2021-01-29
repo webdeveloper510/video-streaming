@@ -607,8 +607,14 @@ public function artistselling(){
   public function artistoffers($id){
 
     $data = $this->model->getofferByid($id);
+
+     $artId = $data[0]->artistid;
+
+    $isSubscribe =$this->model->isSubscribe($artId);
+
+    //print_r($isSubscribe);die;
         
-    return view('artistoffers',['offer'=>isset($data) ? $data :[]]);
+    return view('artistoffers',['offer'=>isset($data) ? $data :[],'isSubscribed'=>$isSubscribe]);
 
   }
 
