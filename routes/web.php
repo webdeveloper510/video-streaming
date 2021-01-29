@@ -188,6 +188,9 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artist/requests', 'artist@showRequest')->middleware('contentAuth');
 
+    Route::get('artist/getRequests/{text}', 'artist@getRequests')->middleware('contentAuth');
+   // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
+
     Route::get('artist/notification','artist@ShowArtistNotification');
 
     Route::get('artistLogin', 'AuthController@getLogin');

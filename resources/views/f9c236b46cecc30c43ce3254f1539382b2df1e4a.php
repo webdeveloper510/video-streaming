@@ -3,8 +3,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
  <!-- <script src="<?php echo e(asset('artistdashboard/js/core/jquery.min.js')); ?>"></script> -->
+
+ <script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
  
    <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
+
 
   <script src="<?php echo e(asset('artistdashboard/js/core/bootstrap-material-design.min.js')); ?>"></script>
 
@@ -28,7 +31,7 @@
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
   <script src="<?php echo e(asset('artistdashboard/js/plugins/bootstrap-datetimepicker.min.js')); ?>"></script>
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="<?php echo e(asset('artistdashboard/js/plugins/jquery.dataTables.min.js')); ?>"></script>
+  <!-- <script src="<?php echo e(asset('artistdashboard/js/plugins/jquery.dataTables.min.js')); ?>"></script> -->
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="<?php echo e(asset('artistdashboard/js/plugins/bootstrap-tagsinput.js')); ?>"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->

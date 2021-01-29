@@ -37,19 +37,23 @@ class artist extends Controller
 
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
+    public function getRequests($type){
+      $data = array();
+    $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests();
 
+    $data['data'] = $show_requests;
+  
+      echo json_encode($data);
+
+    }
 
     public function showRequest(){
 
       $navbaractive = 'requests';
 
-      $show_project_Request = $this->model->showRequests();
+      
 
-      $show_offer_Request = $this->model->show_offer_Requests();
-
-     // print_r($show_offer_Request);die;
-
-        return view('artists.request',['tab'=>$navbaractive,'show_offer_Request'=>$show_offer_Request,'request'=>$show_project_Request]);
+        return view('artists.request',['tab'=>$navbaractive]);
 
     }
 

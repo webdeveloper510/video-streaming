@@ -91,31 +91,33 @@
   <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
+  <div class=" col-md-4" style="float:right"><select class="form-select form-control" id="change_section" aria-label="Default select example">
+      <option selected value="all">All</option>
+  <option  value="video">Video</option>
+  <option value="audio">Audio</option>
 
-   <div class="container">
-    <div class="row mb-5">
-        <div class="col"><h3 class="mt-3">Videos</h3> </div>
-        <div class="col"></div>
-        <div class="col-md-4 text-right">
-            <button type="button" class="btn btn-primary bardot">Choose</button>
-      <select class="form-select form-control" aria-label="Default select example">
-  <option selected>Video</option>
-  <option value="1">Audio</option>
-
-  <option value="2">Playlists</option>
+  <option value="playlist">Playlists</option>
   
 </select>
 </div>
+   <div class="container">
+    <div class="row mb-5">
+          <div class="col"><h3 class="mt-3">Videos</h3> </div>
+             <div class="col"></div>
+           <div class="col-md-4 text-right">
+            <button type="button" class="btn btn-primary bardot">Choose</button>
+    
+          </div>
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
-             
+  <div class="filter_div" id="video">   
    
           <div class="row mb-5">
-        <?php if($details): ?>
-              <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                   <?php if($detail->type=='video'): ?> 
+               <?php if($details): ?>
+                   <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3 hover">
                 <div class='media_div'>
                <div class="checkall" style="display:none">
@@ -131,15 +133,18 @@
                 </a>
 
             </div>
-             <?php endif; ?>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-          <?php else: ?>
-          <div class="artistvideo">
-            <h4> Artist does not upload any video</h4>
+                    <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <?php else: ?>
+              <div class="artistvideo">
+                <h4> Artist does not upload any video</h4>
+              </div>
+               <?php endif; ?>
           </div>
-          <?php endif; ?>
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
+     <div class="filter_div" id="audio">
+  
      <h3>Audios</h3>
      <div class="row mb-5">
       <?php if($audio): ?>
@@ -166,8 +171,11 @@ Your browser does not support the audio tag.
           </div>
 <?php endif; ?>
 </div>
+</div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
+  <div class="filter_div" id="playlist">
+
          <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -194,7 +202,7 @@ Your browser does not support the audio tag.
             </div>
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
-
+</div>
 
             <!-- --------------Long videos -------------------->
       
