@@ -1199,7 +1199,7 @@ $(document).ready(function() {
 
 
 	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
-	var table = $('#example1').DataTable({
+	var table1 = $('#example1').DataTable({
 		'ajax': APP_URL+'/artist/getRequests/orders',
 		'columns': [
 			 {
@@ -1227,7 +1227,7 @@ $(document).ready(function() {
 		 // Add event listener for opening and closing details
 	 $('#example1 tbody').on('click', 'td.details-control', function(){
 		 var tr = $(this).closest('tr');
-		 var row = table.row( tr );
+		 var row = table1.row( tr );
  
 		 if(row.child.isShown()){
 			 // This row is already open - close it
@@ -1243,7 +1243,7 @@ $(document).ready(function() {
 	 // Handle click on "Expand All" button
 	 $('#btn-show-all-children1').on('click', function(){
 		 // Enumerate all rows
-		 table.rows().every(function(){
+		 table1.rows().every(function(){
 			 // If row has details collapsed
 			 if(!this.child.isShown()){
 				 // Open this row
@@ -1256,7 +1256,7 @@ $(document).ready(function() {
 	 // Handle click on "Collapse All" button
 	 $('#btn-hide-all-children1').on('click', function(){
 		 // Enumerate all rows
-		 table.rows().every(function(){
+		 table1.rows().every(function(){
 			 // If row has details expanded
 			 if(this.child.isShown()){
 				 // Collapse row details
