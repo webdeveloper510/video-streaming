@@ -57,7 +57,7 @@
           <li class="nav-item {{$tab=='feed'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artists/dashboard')}}">
             <i class="fa fa-newspaper-o"> </i>
-              <p>User Feed</p>
+              <p>Feed</p>
             </a>
           </li>
           <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">

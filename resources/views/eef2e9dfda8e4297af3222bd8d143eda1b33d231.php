@@ -9,7 +9,7 @@
 <div class="text-right">
 <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe">Subscribe </button>
     
- <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Subscribed </button>
+ <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Un Subscribed </button>
 </div>
 <p>Sample</p>
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

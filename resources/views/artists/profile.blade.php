@@ -57,9 +57,7 @@
    @foreach($offerData as $offer)
   
       <div class="col-md-12">
-      <div class="text-right">
-         <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('{{json_encode($offer)}}')">Edit</button>
-     </div>
+   
       <div class="artistoffer row">
         <div class="col-md-2">
         <video width="100%" height="100%" controls>
@@ -82,6 +80,9 @@
         <div class="col-md-2">
         <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
          <h4>{{$offer->price}}/min PAZ</h4>
+         <div class="text-right" style="margin-top: 76px;">
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('{{json_encode($offer)}}')">Edit</button>
+           </div>
         </div>
         <hr>
       
@@ -189,7 +190,7 @@ Your browser does not support the audio tag.
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
          <div class="filter_div" id="playlist">
-         <h3>Playlists</h3>
+         <h3>Bundles</h3>
           <div class="row mb-5 pb-5 filter_div" id="playlist">
           @foreach ($playlist as $play)
             <?php 
