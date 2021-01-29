@@ -7,11 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-   
+
+    <link rel="stylesheet" href="{{asset('design/datatables.min.css')}}" />   
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
 
-    <style>
-
+  <style>
+   
 .tab {
     overflow: hidden;
     margin-top: 10%;
@@ -50,6 +53,17 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+
+
+/** --------------------------------------------------------- Data Table Css---------------------------------------------- */
+td.details-control {
+    background: url('https://cdn.rawgit.com/DataTables/DataTables/6c7ada53ebc228ea9bc28b1b216e793b1825d188/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('https://cdn.rawgit.com/DataTables/DataTables/6c7ada53ebc228ea9bc28b1b216e793b1825d188/examples/resources/details_close.png') no-repeat center center;
+}
+
 </style>
    
 
@@ -69,44 +83,45 @@
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
               <h2 class="text-center "></h2>
-                <div class="dropreq text-right">
+                <!-- <div class="dropreq text-right">
                 <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
                     <option value="New">New</option>
                     <option value="In Process">In Process</option>
                     <option value="Due">Due</option>
                   </select>
-                </div>
-                <div class="table-responsive">
-                <table class="table table-striped filteration_table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Media</th>
-                        <th scope="col">Duration</th>
+                </div> -->
+                <button id="btn-show-all-children" type="button">Expand All</button>
+<button id="btn-hide-all-children" type="button">Collapse All</button>
+<hr>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+                       <th></th>
+                       <th>Title</th>
+                        <th >Media</th>
+                        <th>Duration</th>
                         <th>P/O</th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col"> Status</th>              
-                        <th scope="col"> Delievery Time</th>              
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($request as $index=>$req)
-                       
-                      <tr>                       
-                        <td>{{$req->title}}</td>
-                        <td>{{$req->media}}</td>
-                        <td>{{$req->duration}}</td>
-                        <td>Projects</td>
-                        <td>{{$req->user_name}}</td>
-                         <td>{{ucfirst($req->status)}}</td>
-                         <td>{{$req->delieveryspeed}}</td>
-                      </tr>
-                      @endforeach
-                    
-                    </tbody>
-                  </table>
-                  </div>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </thead>
+  
+    <tfoot>
+        <tr>
+              <th></th>
+                       <th>Title</th>
+               
+                        <th >Media</th>
+                        <th>Duration</th>
+                        <th>P/O</th>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </tfoot>
+</table>
             </div>
         </div>
 
@@ -119,43 +134,46 @@
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
               <h2 class="text-center"></h2>
-                <div class="dropreq text-right">
+                <!-- <div class="dropreq text-right">
                 <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
                     <option value="New">New</option>
                     <option value="In Process">In Process</option>
                     <option value="Due">Due</option>
                   </select>
-                </div>
+                </div> -->
                 <div class="table-responsive">
-                <table class="table table-striped filteration_table"> 
-                    <thead>
-                      <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Media</th>
-                        <th scope="col">Duration</th>
+                <button id="btn-show-all-children1" type="button">Expand All</button>
+<button id="btn-hide-all-children1" type="button">Collapse All</button>
+<hr>
+<table id="example1" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+                       <th></th>
+                       <th>Title</th>
+                        <th >Media</th>
+                        <th>Duration</th>
                         <th>P/O</th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col"> Status</th>              
-                        <th scope="col"> Delievery Time</th>              
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($show_offer_Request as $index=>$req)
-                       
-                      <tr>                       
-                        <td>{{$req->title}}</td>
-                        <td>{{$req->type}}</td>
-                        <td>{{$req->choice}} Min</td>
-                        <td>Orders</td>
-                        <td>{{$req->nickname}}</td>
-                         <td>{{ucfirst($req->status)}}</td>
-                         <td>{{$req->delieveryspeed}} Days</td>
-                      </tr>
-                      @endforeach
-                    
-                    </tbody>
-                  </table>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </thead>
+  
+    <tfoot>
+        <tr>
+              <th></th>
+                       <th>Title</th>
+               
+                        <th >Media</th>
+                        <th>Duration</th>
+                        <th>P/O</th>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </tfoot>
+</table>
                   </div>
             </div>
         </div>

@@ -72,6 +72,12 @@ ul.nav.nav-tabs li a {
     right: 10px;
 
 }
+.tab-content {
+
+    padding-top: 25px;
+    padding-left: 17px;
+ 
+}
 h5.select_list.active {
     color: red;
 }
