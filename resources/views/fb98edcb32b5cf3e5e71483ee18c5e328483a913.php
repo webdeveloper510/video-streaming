@@ -1,6 +1,6 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<div class="show-offer">
 <div class="container">
 
 	 <?php if(session('success')): ?>
@@ -16,10 +16,11 @@
 
         </div>
         <?php endif; ?>
-<div class="row ">
+<div class="row">
   <?php if($offer): ?>
 	<?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-	<div class="col-md-4">
+	<div class="col-md-4 showoffer1">
+    <a href="<?php echo e(url('artistoffers/'.$val->id)); ?>">
       <div class="card">
 	   <video width="100%" height="240" controls>
   <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
@@ -44,6 +45,7 @@
 	      <!-- <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
      </div>
    </div>
+   </a>
  </div>
  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  <?php endif; ?>
@@ -82,7 +84,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <style>
  .card {
     margin-top: 15%;
@@ -110,6 +112,9 @@ table.table.table-borderless tr td, th {
     background-color: #d4edda;
     border-color: #c3e6cb;
     margin-top: 97px;
+}
+.showoffer1:hover {
+  border:2px solid yellow;
 }
 	</style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/showoffer.blade.php ENDPATH**/ ?>

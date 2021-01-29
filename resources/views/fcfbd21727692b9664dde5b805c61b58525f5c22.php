@@ -315,7 +315,8 @@
                <?php if($artist->profilepicture): ?>
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
                 <div class="overlay">
-                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
+                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?>
+
                </div>
                <?php else: ?>
                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">

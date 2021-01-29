@@ -1108,23 +1108,44 @@ $(document).on('keyup', '#calculate_tokens', function () {
 /**--------------------------------------------------Data Table Js---------------------------------------------------------- */
 
 /* Formatting function for row details - modify as you need */
-function format ( d ) {
-	//console.log(d);return false;
-    // `d` is the original data object for the row
+function format ( d , type) {
+	// `d` is the original data object for the row
+	if(type=='offer')
+	{
     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
         '<tr>'+
-            '<td>Full name:</td>'+
-            '<td>'+d.name+'</td>'+
-        '</tr>'+
+            '<td>Description:</td>'+
+            '<td>'+d.description+'</td>'+
+		'</tr>'+
+		'<tr>'+
+		'<td>Additional Request:</td>'+
+		'<td>'+d.userdescription+'</td>'+
+	'</tr>'+
         '<tr>'+
-            '<td>Extension number:</td>'+
-            '<td>'+d.extn+'</td>'+
+            '<td>Category:</td>'+
+            '<td>'+d.catgories+'</td>'+
+		'</tr>'+
+		'<tr>'+
+            '<td>Quality:</td>'+
+            '<td>'+d.quality+'</td>'+
         '</tr>'+
-        '<tr>'+
-            '<td>Extra info:</td>'+
-            '<td>And any further details here (images etc)...</td>'+
-        '</tr>'+
-    '</table>';
+	'</table>';
+   }
+
+   else{
+	return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+	'<tr>'+
+		'<td>Description:</td>'+
+		'<td>'+d.description+'</td>'+
+	'</tr>'+
+	
+	'<tr>'+
+		'<td>Category:</td>'+
+		'<td>'+d.category_name+'</td>'+
+	'</tr>'+
+
+'</table>';
+   }
 }
 
 $(document).ready(function() {
@@ -1139,7 +1160,12 @@ $(document).ready(function() {
             },
             { 'data': 'title' },
             { 'data': 'media' },
-			{ 'data': 'duration' },
+			{ 
+				'data': 'duration' ,
+				// render: function ( data, type, row ) {
+				// 	return  data+'Minutes';
+				// }
+			},
 			{
 		
             "data": null,
@@ -1147,7 +1173,12 @@ $(document).ready(function() {
 			},
             { 'data': 'user_name' },
             { 'data': 'status' },
-            { 'data': 'delieveryspeed' }
+            { 
+				'data': 'delieveryspeed' ,
+				render: function ( data, type, row ) {
+					return  data+' Days';
+				}
+			}
         ],
       //  'order': [[1, 'asc']]
 	} );
@@ -1164,7 +1195,7 @@ $(document).ready(function() {
             tr.removeClass('shown');
         } else {
             // Open this row
-            row.child(format(row.data())).show();
+            row.child(format(row.data(),'request')).show();
             tr.addClass('shown');
         }
     });
@@ -1176,7 +1207,7 @@ $(document).ready(function() {
             // If row has details collapsed
             if(!this.child.isShown()){
                 // Open this row
-                this.child(format(this.data())).show();
+                this.child(format(this.data(),'request')).show();
                 $(this.node()).addClass('shown');
             }
         });
@@ -1218,7 +1249,12 @@ $(document).ready(function() {
 			 },
 			 { 'data': 'nickname' },
 			 { 'data': 'status' },
-			 { 'data': 'delieveryspeed' }
+			 { 
+				 'data': 'delieveryspeed',
+				 render: function ( data, type, row ) {
+					return  data+' Days';
+				}
+				 }
 		 ],
 	   //  'order': [[1, 'asc']]
 	 } );
@@ -1235,7 +1271,7 @@ $(document).ready(function() {
 			 tr.removeClass('shown');
 		 } else {
 			 // Open this row
-			 row.child(format(row.data())).show();
+			 row.child(format(row.data(),'offer')).show();
 			 tr.addClass('shown');
 		 }
 	 });
@@ -1247,7 +1283,7 @@ $(document).ready(function() {
 			 // If row has details collapsed
 			 if(!this.child.isShown()){
 				 // Open this row
-				 this.child(format(this.data())).show();
+				 this.child(format(this.data(),'offer')).show();
 				 $(this.node()).addClass('shown');
 			 }
 		 });

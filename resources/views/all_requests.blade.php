@@ -99,7 +99,7 @@
                            <div class="row">
                            <div class="col">
                              <div class="form-group">
-                              <label>Total Price</label>
+                              <label>Artist Reward</label>
                                {{Form::number('total','',['class'=>'form-control price', 'placeholder'=>'PAZ'])}}
                              
                             </div>
