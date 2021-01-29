@@ -343,6 +343,8 @@ Your browser does not support the audio tag.
                 {{Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])}}
                 </div>
                 </div>
+                {{Form::label('Additional Request Price', 'Additional Request Price')}} 
+                {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])}}
                 {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
                 <input type="hidden" name="offerid" id="offerid" value="">

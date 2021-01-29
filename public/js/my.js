@@ -1048,6 +1048,7 @@ function edit_offer(data){
 		$('#offerid').val(json_info.id);
 		$('#min').val(json_info.min);
 		$('#max').val(json_info.max);
+		$('#additional_price').val(json_info.additional_price);
 		$('#video').attr('src',src);
 		$('#file_url').val(json_info.media);
 		$('#price').val(json_info.price);
@@ -1142,6 +1143,16 @@ function format ( d , type) {
 	'<tr>'+
 		'<td>Category:</td>'+
 		'<td>'+d.category_name+'</td>'+
+	'</tr>'+
+
+	'<tr>'+
+		'<td>Quality:</td>'+
+		'<td>'+d.category_name+'</td>'+
+	'</tr>'+
+
+	'<tr>'+
+		'<td>Reward:</td>'+
+		'<td>'+d.price+'PAZ</td>'+
 	'</tr>'+
 
 '</table>';
