@@ -115,6 +115,18 @@
                             <?php endif; ?>
                             
                           </div>
+                          <div class="col">
+                             <div class="form-group">
+                             <label for="Convert to:">Quality:</label> 
+                        <select name="quality" class="form-control" id="quality">
+                                  <option value="">Choose ...</option>
+                                  <option value="480">480p  </option>
+                                  <option value="720">HD 720p </option>
+                                  <option value="1080">Full HD 1080p  </option>
+                          </select>
+                            
+                          </div>
+                          </div>
                         </div>
 
                                 <div class="form-group">

@@ -885,6 +885,7 @@ $(document).on('submit', '#edit_form', function (event) {
 					$('#close').trigger('click'); 
 					 setTimeout(function(){ 
 						$('#close').trigger('click'); 
+						loadingmessage();
 						location.reload();
 					  }, 3000);
 				}
@@ -901,6 +902,11 @@ $(document).on('submit', '#edit_form', function (event) {
 	});
 
 });
+
+
+function loadingmessage(){
+	alert('Offer Update Successfully!');
+}
 
 
 $(document).on('submit', '#edit_profile_info', function (event) {
