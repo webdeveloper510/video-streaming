@@ -336,11 +336,11 @@ Your browser does not support the audio tag.
                 <div class="row">
                   <div class="col-md-6">
                 {{Form::label('Min', 'Min')}} 
-                {{Form::number('min', '',['class'=>'form-control','name'=>'price','id'=>'min','placeholder'=>'Min'])}}
+                {{Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])}}
                    </div>
                    <div class="col-md-6">
                 {{Form::label('Max', 'Max')}} 
-                {{Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])}}
+                {{Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])}}
                 </div>
                 </div>
                 {{Form::label('Additional Request Price', 'Additional Request Price')}} 
