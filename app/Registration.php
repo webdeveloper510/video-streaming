@@ -674,6 +674,7 @@ public function getRespectedSub($data){
         $reqData['duration'] = $reqData['duration'];
 
         $reqData['total_price'] = $reqData['total'];
+        $reqData['quality'] = $reqData['quality'];
 
          $reqData['artist_description']= '';
 
