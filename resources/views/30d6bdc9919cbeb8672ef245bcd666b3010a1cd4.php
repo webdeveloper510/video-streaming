@@ -1,4 +1,4 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="feed">
 
 <div class="tab">
@@ -106,15 +106,4 @@ function openCity(evt, cityName) {
 }
 </script>
 
-<style>
-
-.sidebarfeed {
-    border: 1px solid;
-    padding: 13px;
-}
-.card {
-    border: none !important;
-}
-
-</style>
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/feed.blade.php ENDPATH**/ ?>

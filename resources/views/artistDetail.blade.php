@@ -101,7 +101,7 @@
   <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
-  <div class=" col-md-4" style="float:right"><select class="form-select form-control" id="change_section" aria-label="Default select example">
+  <div class=" col-md-4" style="float:right;z-index: 9999999 !important;"><select class="form-select form-control" id="change_section" aria-label="Default select example">
       <option selected value="all">All</option>
   <option  value="video">Video</option>
   <option value="audio">Audio</option>
