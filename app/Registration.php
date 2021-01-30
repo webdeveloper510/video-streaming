@@ -650,6 +650,25 @@ public function getRespectedSub($data){
 
     }
 
+    public function sendTip($data){
+
+      //print_r($data);die;
+
+      $session_data =   Session::get('User');
+
+      $userid=  $session_data->id;
+
+      $checkTokn = $this->selectDataById('id','users',$userid);
+
+      $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
+
+      return $getData;
+
+
+
+
+    }
+
     public function count_due_offer($table){
         $current = date('Y-m-d');
         $data = DB::table($table)
@@ -704,7 +723,7 @@ public function getRespectedSub($data){
     public function showUserRequests(){
 
 
-             $session_data =   Session::get('User');
+          $session_data =   Session::get('User');
         $userid=  $session_data->id;
 
 

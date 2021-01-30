@@ -450,4 +450,15 @@ class artist extends Controller
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
   }
 
+  public function sendTip(Request $req ){
+
+    //print_r($req->all());die;
+
+    $update = $this->model->sendTip($req->all());
+
+    return $update ? response()->json(array('status'=>1,'message'=>'Tip !')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
+
+
+  }
+
   }

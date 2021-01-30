@@ -951,6 +951,12 @@ public function notifyEmail(Request $req){
 
     }
 
+    public function feedPage(){
+
+        return view('feed');
+        
+    }
+
     public function updateStatus(Request $request){
 
         $updateStatus =  $this->model->updateStatus($request->all());

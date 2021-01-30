@@ -679,6 +679,32 @@ $(document).on('click', '.addTowishlist', function () {
 
 });
 
+
+/**-----------------------------------------------Add Tip To Artist------------------------------------------- */
+$(document).on('click', '#addTip', function () {
+
+	var paz = $("#paz_amount").val();
+	var total_paz = $("#total_paz").text();
+	var artistId = $(this).attr('data-id');
+
+	//console.log(artistId);return false;
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/sendToTip",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'price':paz, 'artistid':artistId, 'total_paz':total_paz},
+
+		success: function(data){
+
+			console.log(data);return false;					
+			
+		}
+});
+
+})
 /*-------------------------------------------------Forget Password Link----------------------------------------------------*/
 $(document).on('click', '#forgetLink', function () {
 
