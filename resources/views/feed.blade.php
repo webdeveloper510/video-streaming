@@ -10,10 +10,10 @@
 <div id="London" class="tabcontent ">
 <div class="row">
 <div class="col">
- <div class="text-left">
+ <div class="text-left feedname">
  <h3>Artistname  <i class="fa fa-star" style="color:red;"></i>  761 </h3>
  </div>
- <div class="text-right">
+ <div class="text-right feedmin">
        <p> 5 min ago.</p>
  </div>
  <div class="feedimg text-center">
@@ -31,7 +31,7 @@
         and more recently with desktop publishing software like Aldus PageMaker including
          versions of Lorem Ipsum.</p>
 
-
+     <button class="btn btn-primery form-control">See All</button>
  </div>
  <div class="text-right">
  <button type="button" class="btn btn-primary" >Tip PAZ</button>
@@ -120,6 +120,9 @@ button.tablinks.active {
     background: #ffffff;
     padding: 8px;
     border: 1px solid #ffffff;
+}
+.text-right.feedmin {
+    margin-top: -35px;
 }
 .tab {
     background: #ffffff;

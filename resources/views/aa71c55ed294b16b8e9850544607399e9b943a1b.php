@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo e(asset('design/dashboard.css')); ?>" />
 
+
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- CSS Files -->
@@ -55,7 +57,7 @@
           <li class="nav-item <?php echo e($tab=='feed'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artists/dashboard')); ?>">
             <i class="fa fa-newspaper-o"> </i>
-              <p>User Feed</p>
+              <p>Feed</p>
             </a>
           </li>
           <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
@@ -224,11 +226,23 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            
+            <div class="levlv">
+              <div><?php echo e($levelData ? $levelData[0]->level_name: ''); ?> </div>
+              <div class="wid"><div class="progress">
+             
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                    aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
+                          <span class="sr-only">70% Complete</span>
+                    </div>
+                    
+                </div>
+</div>
+               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
+              
+            </div>
             <ul class="navbar-nav">
               <li class="nav-item">
-               
-              
+             
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
            <a href="<?php echo e(url('/artist/offer')); ?>">
 
