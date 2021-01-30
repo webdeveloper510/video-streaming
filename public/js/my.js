@@ -883,9 +883,10 @@ $(document).on('submit', '#edit_form', function (event) {
 					$('.alert-success').show();
 					$('.alert-success').html(data.message);
 					$('#close').trigger('click'); 
-					// setTimeout(function(){ 
-					// 	location.reload();
-					//  }, 3000);
+					 setTimeout(function(){ 
+						$('#close').trigger('click'); 
+						location.reload();
+					  }, 3000);
 				}
 
 				else{
