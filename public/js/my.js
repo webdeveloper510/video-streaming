@@ -1045,6 +1045,7 @@ function edit_offer(data){
 		var src= url+json_info.media;
 		//console.log(json_info);return false;
 		$('#title').val(json_info.title);
+		$("input[value='" + json_info.type + "']").prop('checked', true);
 		$('#offerid').val(json_info.id);
 		$('#min').val(json_info.min);
 		$('#max').val(json_info.max);

@@ -346,12 +346,12 @@ Your browser does not support the audio tag.
                 <div class="row">
                   <div class="col-md-6">
                 <?php echo e(Form::label('Min', 'Min')); ?> 
-                <?php echo e(Form::number('min', '',['class'=>'form-control','name'=>'price','id'=>'min','placeholder'=>'Min'])); ?>
+                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])); ?>
 
                    </div>
                    <div class="col-md-6">
                 <?php echo e(Form::label('Max', 'Max')); ?> 
-                <?php echo e(Form::number('max', '',['class'=>'form-control','name'=>'price','id'=>'max','placeholder'=>'Max'])); ?>
+                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])); ?>
 
                 </div>
                 </div>
