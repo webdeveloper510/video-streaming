@@ -111,7 +111,7 @@
                             
                           </div>
                           <div class="col">
-                             <div class="form-group">
+                             <div class="form-group quality">
                              <label for="Convert to:">Quality:</label> 
                         <select name="quality" class="form-control" id="quality">
                                   <option value="">Choose ...</option>

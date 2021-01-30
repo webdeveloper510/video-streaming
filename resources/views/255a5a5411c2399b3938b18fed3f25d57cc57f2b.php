@@ -116,8 +116,8 @@
                             
                           </div>
                           <div class="col">
-                             <div class="form-group">
-                             <label for="Convert to:">Convert to:</label> 
+                             <div class="form-group quality">
+                             <label for="Convert to:">Quality:</label> 
                         <select name="quality" class="form-control" id="quality">
                                   <option value="">Choose ...</option>
                                   <option value="480">480p  </option>
