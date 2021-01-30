@@ -103,7 +103,7 @@
   <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
-  <div class=" col-md-4" style="float:right"><select class="form-select form-control" id="change_section" aria-label="Default select example">
+  <div class=" col-md-4" style="float:right;z-index: 9999999 !important;"><select class="form-select form-control" id="change_section" aria-label="Default select example">
       <option selected value="all">All</option>
   <option  value="video">Video</option>
   <option value="audio">Audio</option>
@@ -243,7 +243,7 @@ Your browser does not support the audio tag.
   </div>
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
-    </div>
+    
     <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
     <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
     </div>
