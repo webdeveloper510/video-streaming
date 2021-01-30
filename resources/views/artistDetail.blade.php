@@ -241,7 +241,7 @@ Your browser does not support the audio tag.
   </div>
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
-    </div>
+    
     <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
     <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
     </div>

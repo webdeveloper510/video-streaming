@@ -34,7 +34,7 @@
 
  </div>
  <div class="text-right">
- <button type="button" >Tip PAZ</button>
+ <button type="button" class="btn btn-primary" >Tip PAZ</button>
 </div>
 </div>
 
@@ -106,4 +106,15 @@ function openCity(evt, cityName) {
 }
 </script>
 
+<style>
+
+.sidebarfeed {
+    border: 1px solid;
+    padding: 13px;
+}
+.card {
+    border: none !important;
+}
+
+</style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/feed.blade.php ENDPATH**/ ?>
