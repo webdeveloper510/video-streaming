@@ -1148,7 +1148,7 @@ function format ( d , type) {
 
 	'<tr>'+
 		'<td>Quality:</td>'+
-		'<td>'+d.category_name+'</td>'+
+		'<td>'+d.quality+'</td>'+
 	'</tr>'+
 
 	'<tr>'+
