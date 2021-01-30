@@ -7,11 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-   
+
+    <link rel="stylesheet" href="<?php echo e(asset('design/datatables.min.css')); ?>" />   
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
 
-    <style>
-
+  <style>
+   
 .tab {
     overflow: hidden;
     margin-top: 10%;
@@ -50,6 +53,17 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+
+
+/** --------------------------------------------------------- Data Table Css---------------------------------------------- */
+td.details-control {
+    background: url('https://cdn.rawgit.com/DataTables/DataTables/6c7ada53ebc228ea9bc28b1b216e793b1825d188/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('https://cdn.rawgit.com/DataTables/DataTables/6c7ada53ebc228ea9bc28b1b216e793b1825d188/examples/resources/details_close.png') no-repeat center center;
+}
+
 </style>
    
 
@@ -63,50 +77,51 @@
   
 </div>
 
-<div id="London" class="tabcontent">
+<div id="London" class="tabcontent" style="display:block">
 <div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
-              <h2 class="text-center ">List Of Requests</h2>
-                <div class="dropreq text-right">
-                <select class="custom-select col-md-4">
+              <h2 class="text-center "></h2>
+                <!-- <div class="dropreq text-right">
+                <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
-                    <option value="1">New</option>
-                    <option value="2">In Process</option>
-                    <option value="3">Due</option>
+                    <option value="New">New</option>
+                    <option value="In Process">In Process</option>
+                    <option value="Due">Due</option>
                   </select>
-                </div>
-                <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Media</th>
-                        <th scope="col">Duration</th>
+                </div> -->
+                <button id="btn-show-all-children" type="button">Expand All</button>
+<button id="btn-hide-all-children" type="button">Collapse All</button>
+<hr>
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+                       <th></th>
+                       <th>Title</th>
+                        <th >Media</th>
+                        <th>Duration</th>
                         <th>P/O</th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col"> Status</th>              
-                        <th scope="col"> Delievery Time</th>              
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                       
-                      <tr>                       
-                        <td><?php echo e($req->title); ?></td>
-                        <td><?php echo e($req->media); ?></td>
-                        <td><?php echo e($req->duration); ?></td>
-                        <td>Projects</td>
-                        <td><?php echo e($req->user_name); ?></td>
-                         <td><?php echo e(strtoupper($req->status)); ?></td>
-                         <td><?php echo e($req->delieveryspeed); ?></td>
-                      </tr>
-                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
-                    </tbody>
-                  </table>
-                  </div>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </thead>
+  
+    <tfoot>
+        <tr>
+              <th></th>
+                       <th>Title</th>
+               
+                        <th >Media</th>
+                        <th>Duration</th>
+                        <th>P/O</th>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </tfoot>
+</table>
             </div>
         </div>
 
@@ -118,44 +133,47 @@
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
-              <h2 class="text-center">List Of Requests</h2>
-                <div class="dropreq text-right">
-                <select class="custom-select col-md-4">
+              <h2 class="text-center"></h2>
+                <!-- <div class="dropreq text-right">
+                <select class="custom-select col-md-4" onchange="filterproject(this)">
                     <option selected="">All</option>
-                    <option value="1">New</option>
-                    <option value="2">In Process</option>
-                    <option value="3">Due</option>
+                    <option value="New">New</option>
+                    <option value="In Process">In Process</option>
+                    <option value="Due">Due</option>
                   </select>
-                </div>
+                </div> -->
                 <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Media</th>
-                        <th scope="col">Duration</th>
+                <button id="btn-show-all-children1" type="button">Expand All</button>
+<button id="btn-hide-all-children1" type="button">Collapse All</button>
+<hr>
+<table id="example1" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+                       <th></th>
+                       <th>Title</th>
+                        <th >Media</th>
+                        <th>Duration</th>
                         <th>P/O</th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col"> Status</th>              
-                        <th scope="col"> Delievery Time</th>              
-                      </tr>
-                    </thead>
-                    <tbody>
-                        <?php $__currentLoopData = $request; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$req): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                       
-                      <tr>                       
-                        <td><?php echo e($req->title); ?></td>
-                        <td><?php echo e($req->media); ?></td>
-                        <td><?php echo e($req->duration); ?></td>
-                        <td>Projects</td>
-                        <td><?php echo e($req->user_name); ?></td>
-                         <td><?php echo e(strtoupper($req->status)); ?></td>
-                         <td><?php echo e($req->delieveryspeed); ?></td>
-                      </tr>
-                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    
-                    </tbody>
-                  </table>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </thead>
+  
+    <tfoot>
+        <tr>
+              <th></th>
+                       <th>Title</th>
+               
+                        <th >Media</th>
+                        <th>Duration</th>
+                        <th>P/O</th>
+                        <th >Customer Name</th>
+                        <th > Status</th>              
+                        <th> Delievery Time</th>   
+        </tr>
+    </tfoot>
+</table>
                   </div>
             </div>
         </div>
@@ -196,6 +214,73 @@
 
     </div>
   </div>
+</div>
+<div class="">
+<div class="row">
+<div class="col">
+ <div class="descriptions">
+<h3>Description :</h3>
+<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+</div> 
+</div>
+<div class="col">
+<h3>Look :</h3>
+<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+</div>
+<div class="col">
+<table>
+<tr>
+<td> <p>Categories :</p>
+<p>Body Fetish</p>
+</td>
+<td> <p>Quality :</p>
+<p>1080p</p>
+</td>
+</tr>
+<tr><td>Reward:</td><td>300PAZ</td></tr>
+<tr>
+</table>
+<div class="">
+<button type="button"class="btn btn-primary">Upload Content</button>
+</div>
+</div>
+</div>
+
+
+
+<div class="">
+<div class="row">
+<div class="col">
+ <div class="descriptions">
+<h3>Description :</h3>
+<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+</div> 
+</div>
+<div class="col">
+<h3>Additional Request :</h3>
+<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+</div>
+<div class="col">
+<table>
+<tr>
+<td> <p>Categories :</p>
+<p>Body Fetish</p>
+</td>
+<td> <p>Quality :</p>
+<p>1080p</p>
+</td>
+</tr>
+<tr><td>Reward:</td><td>300PAZ</td></tr>
+<tr>
+</table>
+<div class="">
+<button type="button"class="btn btn-primary">Upload Content</button>
+</div>
+</div>
 </div>
   </body>
   <style type="text/css">

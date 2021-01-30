@@ -1159,7 +1159,8 @@ function format ( d , type) {
 	{
     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
         '<tr>'+
-            '<td>Description:</td>'+
+			'<td>Description:</td>'+
+			
             '<td>'+d.description+'</td>'+
 		'</tr>'+
 		'<tr>'+
