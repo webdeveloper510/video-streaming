@@ -827,7 +827,6 @@ public function getRespectedSub($data){
 
       $data['artistid'] = $userid;
       $data['userdescription'] = '';
-      $data['additional_request'] = '';
 
       $data['userid'] =0;
 
