@@ -450,4 +450,15 @@ class artist extends Controller
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
   }
 
+  public function sendTip(Request $req ){
+
+    //print_r($req->all());die;
+
+    $update = $this->model->sendTip($req->all());
+
+    return $update==1 ? response()->json(array('status'=>1,'message'=>'You Tipped!')) :  response()->json(array('status'=>0,'message'=>'InEfficient PAZ Tokens'));
+
+
+  }
+
   }

@@ -15,8 +15,13 @@
     
              <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
              </h3>
-            <button class="btn btn-light text-right msg" type="button"> Send Message</button>
-          
+            <button class="btn btn-light text-right msg mb-3" type="button"> Send Message</button>
+            <br>
+               <div class="text-left buttons">
+                     <input type="text" id="paz_amount"  placeholder="PAZ Amount" class="form-control ">
+                     <button class="btn btn-info" data-id="<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>" id="addTip" type="button">Send Tip</button>
+                     <strong id="total_paz" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
+               </div>
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
@@ -84,6 +89,13 @@
     .row hr {
     width: 100%;
 }
+.text-left.buttons{
+    display: inline-flex;
+}
+.text-left.buttons input {
+    width: 300px;
+    margin-right: 18px;
+}
  </style>
 </div>
 
@@ -100,14 +112,11 @@
   
 </select>
 </div>
-   <div class="container">
-    <div class="row mb-5">
-          <div class="col"><h3 class="mt-3">Videos</h3> </div>
-             <div class="col"></div>
-           <div class="col-md-4 text-right">
-            <button type="button" class="btn btn-primary bardot">Choose</button>
-    
-          </div>
+  
+   <h3 class="mt-3">Videos</h3>
+
+<div class="choosebutton text-right">
+<button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
@@ -316,6 +325,10 @@ select.form-select.form-control, select.form-select.form-control * {
 }
 ul.selected {
     margin-bottom: 30px;
+}
+.choosebutton.text-right button {
+    margin-top: -30%;
+    margin-right: 17px;
 }
 
 .price h4 {

@@ -650,6 +650,27 @@ public function getRespectedSub($data){
 
     }
 
+    public function sendTip($data){
+
+      //print_r($data);die;
+
+      $session_data =   Session::get('User');
+
+      $userid=  $session_data->id;
+
+      $checkTokn = $this->selectDataById('id','users',$userid);
+
+      $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
+
+      //print_r($getData);die;
+
+      return $getData;
+
+
+
+
+    }
+
     public function count_due_offer($table){
         $current = date('Y-m-d');
         $data = DB::table($table)
@@ -704,7 +725,7 @@ public function getRespectedSub($data){
     public function showUserRequests(){
 
 
-             $session_data =   Session::get('User');
+          $session_data =   Session::get('User');
         $userid=  $session_data->id;
 
 
@@ -1451,6 +1472,8 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
   $databasetoks = $tokns[0]->tokens;
 
+  //print_r($databasetoks);die;
+
         if($tok < $databasetoks){
          // echo "yes";die;
              $update = DB::table('users')->where(array('id'=>$userid))->update([
@@ -1459,7 +1482,7 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
             if($update){
 
-              $return = DB::table('contentprovider')->where(array('id'=>$artid))->update([
+              $update = DB::table('contentprovider')->where(array('id'=>$artid))->update([
                         'token' =>  DB::raw('token +'.$tok)
                           ]);
 

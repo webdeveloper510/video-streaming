@@ -194,6 +194,7 @@ Route::post('createList', 'AuthController@createList');
     Route::get('artist/notification','artist@ShowArtistNotification');
 
     Route::get('artistLogin', 'AuthController@getLogin');
+    Route::get('feed', 'AuthController@feedPage');
 
     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
@@ -202,6 +203,8 @@ Route::post('createList', 'AuthController@createList');
     Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
 
     Route::post('addDescription','artist@addDescription');
+
+    Route::post('sendToTip','artist@sendTip');
     
     Route::post('createOffer','artist@createOffer');
 
