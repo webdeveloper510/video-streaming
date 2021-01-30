@@ -2,12 +2,12 @@
 <section class="feed">
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Feed</button>
+  <button class="tablinks active" onclick="openCity(event, 'London')">Feed</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Bookmarks</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Gifts</button>
+  <button class="tablinks " onclick="openCity(event, 'Tokyo')">Gifts</button>
 </div>
 
-<div id="London" class="tabcontent">
+<div id="London" class="tabcontent ">
 <div class="row">
 <div class="col">
  <div class="text-left">
@@ -16,9 +16,9 @@
  <div class="text-right">
        <p> 5 min ago.</p>
  </div>
- <div class="feedimg">
+ <div class="feedimg text-center">
  
- <img src="" class="img-fluid">
+ <img src="http://localhost/video-streaming/storage/app/public/uploads/1609193394_Hobbies- Fishing (1).jpg" class="img-fluid">
  
  </div>
  <div class="feed text">
@@ -59,7 +59,7 @@
   </div>
   <hr> 
   <div class="card">
-             <h5 class="card-title text-left pt-3 pl-3">Additional Requests:</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Your Subscriptions:</h5>
              <hr>
               <div class="card-body text-center">
                 <h5>Aritist <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
@@ -94,6 +94,15 @@
 
 <style>
 
+div#Tokyo {
+    padding: 40px;
+}
+div#Paris {
+    padding: 40px;
+}
+div#London {
+    padding: 40px;
+}
 .sidebarfeed {
     border: 1px solid;
     padding: 13px;
@@ -101,6 +110,43 @@
 .card {
     border: none !important;
 }
+button.tablinks.active {
+    color: #111111;
+    width: 33%;
+    background: #ffffff;
+    padding: 8px;
+    border: 1px solid #ffffff;
+}
+.tab {
+    background: #ffffff;
+    color: white !important;
+    padding: 2px;
+}
+.feedimg.text-center {
+    margin-bottom: 20px;
+}
+button.tablinks {
+    color: white;
+    width: 33%;
+    background: #7b0000;
+    padding: 8px;
+    border: 1px solid #7b0000;
+}
 
 </style>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 @include('layouts.footer')
