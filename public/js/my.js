@@ -487,7 +487,9 @@ else{
     $(document).on('click', '.media1', function () {
 
   			
-  		   var clas1 = $(this).attr('class').split(' ');
+			 var clas1 = $(this).attr('class').split(' ');
+			 
+			 clas1[1]=='audio1' ? $('.quality').hide():$('.quality').show();
 
 			var notId1= $(".media1:not(:checked)").attr('class').split(' ');
 

@@ -138,14 +138,18 @@
 
       <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($recnt->type=='video'): ?>
+              
             <div class="col-md-4 hover" >
+            <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
             
           <video width="350px" height="275px" controls="false" allowfullscreen>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
           <h5><?php echo e($recnt->title); ?></h5>
+          </a>
             </div>
+         
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
@@ -180,13 +184,17 @@
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($pop->type=='video'): ?>
+           
             <div class="col-md-4 hover">
+                <a href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
                 <video width="100%" height="100%" controls="false" allowfullscreen>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                 <h5><?php echo e($pop->title); ?></h5>
+                </a>
             </div> 
+         
 
                <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -217,15 +225,34 @@
    <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($offer->type=='video'): ?>
-              <div class="col-md-4 hover">
-                
-                  <video width="100%" height="100%" controls="false" allowfullscreen>
+            
+            <div class="col-md-4 showoffer1">
+    <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
+      <div class="card">
+	   <video width="100%" height="240" controls>
+  <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
 
-                  <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video>
-                  <h5><?php echo e($offer->title); ?></h5>
-              </div>
+  Your browser does not support the video tag.
+</video>
+
+	  <div class="carad-body">
+	      <h4 class="card-title text-center"><?php echo e($offer->title); ?></h4>
+	      <hr>
+	      <h5 class="text-center">offer Description</h5>
+	    
+	      <p class="card-text p-3"><?php echo e($offer->description); ?></p>
+	      <hr>
+	      <table class="table table-borderless text-center">
+            <tr>
+            	<th>Price</th>
+            	<td> <?php echo e($offer->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
+              </tr>
+	      </table>
+	         </div>
+   </div>
+   </a>
+ </div>
+           
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
@@ -280,21 +307,30 @@
               <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
               <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
            </div>
-   <div class="row">
-         <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                 <?php if($artist->profilepicture): ?>
-              
-              <div class="col-md-4 artistprofilehome">
-              <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"> 
-                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" width="100%" height="200px">
-                </a>
-              </div>
+           <div class="row mb-5">
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           <div class="col-md-2">
+             
+               <div class="artist text-center">
+               <?php if($artist->profilepicture): ?>
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+                <div class="overlay">
+                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?>
 
-              <?php endif; ?>
+               </div>
+               <?php else: ?>
+               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
+	           	<div class="profileImage"></div>
+
+               </a>
+             
+             <?php endif; ?>
+               </div>
+           </div>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        
-  
-            </div>
+
+       </div>
 
   
             </div>
@@ -323,6 +359,38 @@
     margin-top: -43px;
     right: 100px;
   }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 19%;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0;
+}
+
+.artist .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    margin-top: 4px;
+}
+
+.artist img {
+    height: 125px;
+    width: 125px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
    h3.tittle a {
     color: white;
    }

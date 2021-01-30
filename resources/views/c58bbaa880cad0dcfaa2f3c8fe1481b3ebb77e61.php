@@ -15,8 +15,13 @@
     
              <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
              </h3>
-            <button class="btn btn-light text-right msg" type="button"> Send Message</button>
-          
+            <button class="btn btn-light text-right msg mb-3" type="button"> Send Message</button>
+            <br>
+               <div class="text-left buttons">
+                     <input type="text" id="paz_amount"  placeholder="PAZ Amount" class="form-control ">
+                     <button class="btn btn-info" data-id="<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>" id="addTip" type="button">Send Tip</button>
+                     <strong id="total_paz" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
+               </div>
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
@@ -84,6 +89,13 @@
     .row hr {
     width: 100%;
 }
+.text-left.buttons{
+    display: inline-flex;
+}
+.text-left.buttons input {
+    width: 300px;
+    margin-right: 18px;
+}
  </style>
 </div>
 
@@ -91,31 +103,30 @@
   <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
+  <div class=" col-md-4" style="float:right;z-index: 9999999 !important;"><select class="form-select form-control" id="change_section" aria-label="Default select example">
+      <option selected value="all">All</option>
+  <option  value="video">Video</option>
+  <option value="audio">Audio</option>
 
-   <div class="container">
-    <div class="row mb-5">
-        <div class="col"><h3 class="mt-3">Videos</h3> </div>
-        <div class="col"></div>
-        <div class="col-md-4 text-right">
-            <button type="button" class="btn btn-primary bardot">Choose</button>
-      <select class="form-select form-control" aria-label="Default select example">
-  <option selected>Video</option>
-  <option value="1">Audio</option>
-
-  <option value="2">Playlists</option>
+  <option value="playlist">Playlists</option>
   
 </select>
 </div>
+  
+   <h3 class="mt-3">Videos</h3>
+
+<div class="choosebutton text-right">
+<button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
-             
+  <div class="filter_div" id="video">   
    
           <div class="row mb-5">
-        <?php if($details): ?>
-              <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                   <?php if($detail->type=='video'): ?> 
+               <?php if($details): ?>
+                   <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3 hover">
                 <div class='media_div'>
                <div class="checkall" style="display:none">
@@ -131,15 +142,18 @@
                 </a>
 
             </div>
-             <?php endif; ?>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-          <?php else: ?>
-          <div class="artistvideo">
-            <h4> Artist does not upload any video</h4>
+                    <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <?php else: ?>
+              <div class="artistvideo">
+                <h4> Artist does not upload any video</h4>
+              </div>
+               <?php endif; ?>
           </div>
-          <?php endif; ?>
           </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
+     <div class="filter_div" id="audio">
+  
      <h3>Audios</h3>
      <div class="row mb-5">
       <?php if($audio): ?>
@@ -166,8 +180,11 @@ Your browser does not support the audio tag.
           </div>
 <?php endif; ?>
 </div>
+</div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
+  <div class="filter_div" id="playlist">
+
          <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -194,7 +211,7 @@ Your browser does not support the audio tag.
             </div>
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
-
+</div>
 
             <!-- --------------Long videos -------------------->
       
@@ -226,7 +243,7 @@ Your browser does not support the audio tag.
   </div>
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
-    </div>
+    
     <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
     <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
     </div>
@@ -308,6 +325,10 @@ select.form-select.form-control, select.form-select.form-control * {
 }
 ul.selected {
     margin-bottom: 30px;
+}
+.choosebutton.text-right button {
+    margin-top: -30%;
+    margin-right: 17px;
 }
 
 .price h4 {
