@@ -882,10 +882,10 @@ $(document).on('submit', '#edit_form', function (event) {
 				if(data.status==1){
 					$('.alert-success').show();
 					$('.alert-success').html(data.message);
-
-					setTimeout(function(){ 
-						location.reload();
-					 }, 3000);
+					$('#close').trigger('click'); 
+					// setTimeout(function(){ 
+					// 	location.reload();
+					//  }, 3000);
 				}
 
 				else{
