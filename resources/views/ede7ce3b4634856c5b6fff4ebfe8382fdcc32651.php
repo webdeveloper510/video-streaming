@@ -20,7 +20,7 @@
                <div class="text-left buttons">
                      <input type="text" id="paz_amount"  placeholder="PAZ Amount" class="form-control ">
                      <button class="btn btn-info" data-id="<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>" id="addTip" type="button">Send Tip</button>
-                     <strong id="total_paz" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
+                     <strong id="total_paz" placeholder="PAZ" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
                </div>
           </div>
           <nav>
@@ -318,6 +318,7 @@ select.form-select.form-control, select.form-select.form-control * {
 .hover:hover video {
     border: 2px solid yellow;
 }
+
 .price {
     border-top: 1px solid #0000003d;
     border-bottom: 1px solid #0000003d;
