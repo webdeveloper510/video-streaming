@@ -953,8 +953,10 @@ public function notifyEmail(Request $req){
 
     public function feedPage(){
 
-        return view('feed');
-        
+      $data = $this->model->getSubscribeArtist();
+
+        return view('feed',['artist'=>$data]);
+
     }
 
     public function updateStatus(Request $request){
