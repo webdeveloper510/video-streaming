@@ -86,11 +86,11 @@
                          
                             <label> 
 
-                               {{Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])}} Audio
+                               {{Form::radio('media', 'audio', false ,['class'=>'media1 audio1'])}} Audio
                            
                             </label><br>
                             <label>
-                               {{Form::radio('media', 'video', false ,['class'=>'media1 video1'])}} Video 
+                               {{Form::radio('media', 'video', true ,['class'=>'media1 video1'])}} Video 
 
                             
                           </label><br>
