@@ -1129,7 +1129,7 @@ function format ( d , type) {
 		'</tr>'+
 		'<tr>'+
             '<td>Quality:</td>'+
-            '<td>'+d.quality+'</td>'+
+            '<td>'+d.quality+'px</td>'+
         '</tr>'+
 	'</table>';
    }
