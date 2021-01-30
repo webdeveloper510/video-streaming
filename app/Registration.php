@@ -662,6 +662,8 @@ public function getRespectedSub($data){
 
       $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
 
+      //print_r($getData);die;
+
       return $getData;
 
 
@@ -1470,6 +1472,8 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
   $databasetoks = $tokns[0]->tokens;
 
+  //print_r($databasetoks);die;
+
         if($tok < $databasetoks){
          // echo "yes";die;
              $update = DB::table('users')->where(array('id'=>$userid))->update([
@@ -1478,7 +1482,7 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
 
             if($update){
 
-              $return = DB::table('contentprovider')->where(array('id'=>$artid))->update([
+              $update = DB::table('contentprovider')->where(array('id'=>$artid))->update([
                         'token' =>  DB::raw('token +'.$tok)
                           ]);
 

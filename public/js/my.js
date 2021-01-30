@@ -699,7 +699,15 @@ $(document).on('click', '#addTip', function () {
 
 		success: function(data){
 
-			console.log(data);return false;					
+			//console.log(data);return false;
+
+			if(data.status){
+
+				alert(data.message);
+
+				location.reload();
+				
+			}			
 			
 		}
 });
