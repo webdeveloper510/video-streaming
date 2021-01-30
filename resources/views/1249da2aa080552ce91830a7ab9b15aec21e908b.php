@@ -355,6 +355,9 @@ Your browser does not support the audio tag.
 
                 </div>
                 </div>
+                <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])); ?>
+
                 <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
