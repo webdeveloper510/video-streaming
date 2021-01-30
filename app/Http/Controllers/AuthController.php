@@ -928,6 +928,7 @@ public function notifyEmail(Request $req){
            'total'=>'required',
           'title'=>'required',
           'delieveryspeed'=>'required',
+          'quality'=>'required',
          // 'min'=>'required|numeric|lt:max',
          // 'max'=>'required|numeric|gt:min',
           'categories'=>'required'

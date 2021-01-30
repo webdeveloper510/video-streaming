@@ -882,10 +882,12 @@ $(document).on('submit', '#edit_form', function (event) {
 				if(data.status==1){
 					$('.alert-success').show();
 					$('.alert-success').html(data.message);
-
-					setTimeout(function(){ 
+					$('#close').trigger('click'); 
+					 setTimeout(function(){ 
+						$('#close').trigger('click'); 
+						loadingmessage();
 						location.reload();
-					 }, 3000);
+					  }, 3000);
 				}
 
 				else{
@@ -900,6 +902,11 @@ $(document).on('submit', '#edit_form', function (event) {
 	});
 
 });
+
+
+function loadingmessage(){
+	alert('Offer Update Successfully!');
+}
 
 
 $(document).on('submit', '#edit_profile_info', function (event) {
@@ -1045,6 +1052,7 @@ function edit_offer(data){
 		var src= url+json_info.media;
 		//console.log(json_info);return false;
 		$('#title').val(json_info.title);
+		$("input[value='" + json_info.type + "']").prop('checked', true);
 		$('#offerid').val(json_info.id);
 		$('#min').val(json_info.min);
 		$('#max').val(json_info.max);
@@ -1128,7 +1136,7 @@ function format ( d , type) {
 		'</tr>'+
 		'<tr>'+
             '<td>Quality:</td>'+
-            '<td>'+d.quality+'</td>'+
+            '<td>'+d.quality+'px</td>'+
         '</tr>'+
 	'</table>';
    }
@@ -1147,7 +1155,7 @@ function format ( d , type) {
 
 	'<tr>'+
 		'<td>Quality:</td>'+
-		'<td>'+d.category_name+'</td>'+
+		'<td>'+d.quality+'</td>'+
 	'</tr>'+
 
 	'<tr>'+

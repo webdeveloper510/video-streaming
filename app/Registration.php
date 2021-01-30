@@ -620,7 +620,7 @@ public function getRespectedSub($data){
 
     public function showProjectsRequests(){
 
-     $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.artist_description , i.delieveryspeed,i.status,i.description,i.media,i.userid");
+     $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.quality,i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.artist_description ,i.quality, i.delieveryspeed,i.status,i.description,i.media,i.userid");
         // echo "<pre>";
         // print_r($data);die;
          return $data;
@@ -674,6 +674,7 @@ public function getRespectedSub($data){
         $reqData['duration'] = $reqData['duration'];
 
         $reqData['total_price'] = $reqData['total'];
+        $reqData['quality'] = $reqData['quality'];
 
          $reqData['artist_description']= '';
 
@@ -827,7 +828,6 @@ public function getRespectedSub($data){
 
       $data['artistid'] = $userid;
       $data['userdescription'] = '';
-      $data['additional_request'] = '';
 
       $data['userid'] =0;
 
