@@ -662,6 +662,7 @@ public function getRespectedSub($data){
 
       $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
 
+
       //print_r($getData);die;
 
       return $getData;

@@ -210,31 +210,31 @@ tr.shown td.details-control {
     </div>
   </div>
 </div>
-<div class="">
+<!-- <div class="projects">
 <div class="row">
-<div class="col">
- <div class="descriptions">
-<h3>Description :</h3>
-<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div> 
-</div>
-<div class="col">
-<h3>Look :</h3>
-<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div>
+  <div class="col">
+        <div class="descriptions">
+        <h3 class="description">Description :</h3>
+        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+        </div> 
+  </div>
+    <div class="col">
+    <h3 class="look">Look :</h3>
+    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+    </div>
 <div class="col">
 <table>
 <tr>
 <td> <p>Categories :</p>
-<p>Body Fetish</p>
+<p class="category">Body Fetish</p>
 </td>
-<td> <p>Quality :</p>
+<td> <p class="quality">Quality :</p>
 <p>1080p</p>
 </td>
 </tr>
-<tr><td>Reward:</td><td>300PAZ</td></tr>
+<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
 <tr>
 </table>
 <div class="">
@@ -242,41 +242,42 @@ tr.shown td.details-control {
 </div>
 </div>
 </div>
+</div>
 
 
 
-<div class="">
+<div class="order">
 <div class="row">
 <div class="col">
  <div class="descriptions">
-<h3>Description :</h3>
+<h3 class="description">Description :</h3>
 <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
 </div> 
 </div>
 <div class="col">
 <h3>Additional Request :</h3>
-<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+<p class="userdescription"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
 </div>
 <div class="col">
 <table>
 <tr>
 <td> <p>Categories :</p>
-<p>Body Fetish</p>
+<p class="category">Body Fetish</p>
 </td>
 <td> <p>Quality :</p>
-<p>1080p</p>
+<p class="quality">1080p</p>
 </td>
 </tr>
-<tr><td>Reward:</td><td>300PAZ</td></tr>
+<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
 <tr>
 </table>
 <div class="">
 <button type="button"class="btn btn-primary">Upload Content</button>
 </div>
 </div>
-</div>
+</div> -->
   </body>
   <style type="text/css">
     

@@ -4,10 +4,12 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
    
+<link rel="stylesheet" href="{{asset('design/datatables.min.css')}}" />   
 
   <style type="text/css">
       .io {
@@ -145,6 +147,7 @@
                               <?php echo $errors->first('delieveryspeed'); ?>
                             </div>
                             @endif
+                            
                             </div>
                             </div>
                 
@@ -198,10 +201,15 @@
                           
                       </div>
 
+                      <div class="collapse pt-4" id="collapseAdvance" style="background-color:black">
+                @include('popup') 
+              </div>
+
                     </div>
 
                     </div>
                      {{ Form::submit('Upload Now!',['class'=>'btn btn-primary mb-4']) }}
+  <input type="button" class="btn btn-primary mb-4 mr-3" data-toggle="collapse" href="#collapseAdvance" role="button" aria-expanded="false"  aria-controls="collapseAdvance" value=" Advance Filter option  &#8594;" >
                      {{ Form::close() }}
                   </div>
               </div>
@@ -261,7 +269,7 @@
         </div>
   
 
-<div class="modal fade" id="editdescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="editdescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -287,7 +295,7 @@
          {{ Form::close() }}
     </div>
   </div>
-</div>
+</div> -->
 
 </div>
 
