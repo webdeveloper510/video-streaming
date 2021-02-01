@@ -1265,9 +1265,9 @@ $(document).ready(function() {
             { 'data': 'user_name' },
             { 'data': 'status' },
             { 
-				'data': 'delieveryspeed' ,
+				'data': 'remaining_days' ,
 				render: function ( data, type, row ) {
-					return  data+' Days';
+					return  data < 0 ? 'Expired' : data +' Days';
 				}
 			}
         ],
@@ -1341,9 +1341,9 @@ $(document).ready(function() {
 			 { 'data': 'nickname' },
 			 { 'data': 'status' },
 			 { 
-				 'data': 'delieveryspeed',
+				 'data': 'remaining_days',
 				 render: function ( data, type, row ) {
-					return  data+' Days';
+					return  data < 0 ? 'Expired': data+' Days';
 				}
 				 }
 		 ],
