@@ -1155,10 +1155,16 @@ $(document).on('keyup', '#calculate_tokens', function () {
 /* Formatting function for row details - modify as you need */
 function format ( d , type) {
 
+	// var hair = d.haircolor.split(',');
+	// var privy = d.privy.split(',');
+	// var lense = d.eyecolor.split(',');
+
+   //console.log(type);
+
 	// `d` is the original data object for the row
 	if(type=='offer')
 	{
-
+		updateStatus(d.id,type);
     return '<div class="offer">'+
 	'<div class="row">'+
 	  '<div class="col">'+
@@ -1193,6 +1199,7 @@ function format ( d , type) {
    }
 
    else{
+	updateStatus(d.id,type);
 	return '<div class="project">'+
 	'<div class="row">'+
 	  '<div class="col">'+
@@ -1203,10 +1210,12 @@ function format ( d , type) {
 	  '</div>'+
 		'<div class="col">'+
 		'<h3>Look :</h3>'+
-		'<p>'+
-		  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'+
-		  'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,'+ 
-		  '</p>'+
+		'<p style="color:red;">Hair Color'+'</p>'+
+		'<span>'+d.haircolor+'</span>'+
+		'<p style="color:red;">Eye Color'+'</p>'+
+		 '<span>'+d.eyecolor+'</span>'+
+		'<p style="color:red;">Privy'+'</p>'+
+		'<span>'+d.privy+'</span>'+
 		'</div>'+
 	'<div class="col">'+
 	'<table>'+
@@ -1385,6 +1394,24 @@ $(document).ready(function() {
 	 });
 
 });
+
+
+function updateStatus(id,type){
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/update_Status",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'id':id, 'type':type},
+
+		success: function(data){	
+			console.log(data);
+
+		}
+});
+}
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 
 // $('.nav-item').click(function(){
