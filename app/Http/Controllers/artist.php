@@ -52,6 +52,7 @@ class artist extends Controller
       $navbaractive = 'requests';
 
       
+      
 
         return view('artists.request',['tab'=>$navbaractive]);
 

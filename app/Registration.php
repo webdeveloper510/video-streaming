@@ -620,22 +620,24 @@ public function getRespectedSub($data){
 
     public function showProjectsRequests(){
 
-     $data = DB::select("SELECT i.id,i.title,i.price,i.total_price,i.sexology,i.titssize,i.ass,i.privy,i.height,i.eyecolor,i.haircolor,i.hairlength,i.weight,i.duration, i.quality,i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.total_price,i.artist_description ,i.quality, i.delieveryspeed,i.status,i.description,i.sexology,i.titssize,i.ass,i.privy,i.height,i.eyecolor,i.haircolor,i.hairlength,i.weight,i.media,i.userid");
-      //echo "<pre>";
-       // print_r($data);die;
+     $data = DB::select("SELECT i.id,i.title,i.price,i.total_price,i.sexology,i.titssize,i.ass,i.privy,i.height,i.eyecolor,i.haircolor,i.hairlength,i.weight,i.duration, i.quality,i.delieveryspeed,i.artist_description, DATEDIFF(DATE(DATE_ADD(i.created_at, INTERVAL i.delieveryspeed DAY)),now()) as remaining_days ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.total_price,i.artist_description ,i.quality, i.delieveryspeed,i.created_at,i.status,i.description,i.sexology,i.titssize,i.ass,i.privy,i.height,i.eyecolor,i.haircolor,i.hairlength,i.weight,i.media,i.userid");
+     
          return $data;
     }
 
     public function show_offer_Requests(){
       
       $data = \DB::table("offer")
-      ->select("users.nickname","offer.id","offer.title","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"))
+      ->select("users.nickname","offer.id","offer.title","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->leftjoin("users","users.id","=","offer.userid")
-      ->groupBy("offer.id","offer.title","offer.description","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
+      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
 
 
       ->get();
+
+      //print_r($data);die;
+
       
          return $data;
     }
