@@ -1418,4 +1418,11 @@ public function readNotification(Request $request){
 
       }
 
+      public function update_due_Status(Request $req){
+
+       // print_r($req->all());die;
+
+               $update = $this->model->update_due_to_process($req->all());
+      }
+
 }

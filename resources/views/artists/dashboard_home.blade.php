@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-3">
             <div class="columesdashboard1">
-                  <h1>345</h1>
+                  <h1>{{$process_total}}</h1>
                   <h4>Order/Project <br>In Process</h4>
             </div>    
     </div>

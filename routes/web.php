@@ -101,6 +101,9 @@ Route::post('notifyEmail', 'AuthController@notifyEmail');
 
 Route::post('request', 'AuthController@addRequest');
 
+Route::post('update_Status', 'AuthController@update_due_Status');
+
+
 Route::post('passwordReset', 'AuthController@passwordReset');
 
 Route::post('addToLibrary', 'AuthController@addToLibrary');
@@ -171,6 +174,7 @@ Route::post('createList', 'AuthController@createList');
 
    Route::post('admin/addSub', 'admin@addSubCategory');
 
+   
 /*---------------------------End Admin-----------------------------*/
 
 /*-----------------------------------------------Artist Route ----------------------------------*/

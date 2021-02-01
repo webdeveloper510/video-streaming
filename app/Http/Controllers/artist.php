@@ -206,9 +206,15 @@ class artist extends Controller
 
       $count_new_offer = $this->model->count_orders('offer');
 
+      $count_process_project = $this->model->count_process_orders('offer');
+
       $count_new_projects = $this->model->count_orders('add_request');
 
+      $count_process_offer = $this->model->count_process_orders('add_request');
+
       $total_count = $count_new_projects + $count_new_offer;
+
+      $total_process_offer = $count_process_offer + $count_process_project;
 
       $count_due_offer = $this->model->count_due_offer('offer');
 
@@ -229,7 +235,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 

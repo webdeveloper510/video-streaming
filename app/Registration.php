@@ -620,7 +620,7 @@ public function getRespectedSub($data){
 
     public function showProjectsRequests(){
 
-     $data = DB::select("SELECT i.id,i.title,i.price,i.total_price,i.duration, i.quality,i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.total_price,i.artist_description ,i.quality, i.delieveryspeed,i.status,i.description,i.media,i.userid");
+     $data = DB::select("SELECT i.id,i.title,i.price,i.total_price,i.sexology,i.titssize,i.ass,i.privy,i.height,i.eyecolor,i.haircolor,i.hairlength,i.weight,i.duration, i.quality,i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.total_price,i.artist_description ,i.quality, i.delieveryspeed,i.status,i.description,i.sexology,i.titssize,i.ass,i.privy,i.height,i.eyecolor,i.haircolor,i.hairlength,i.weight,i.media,i.userid");
       //echo "<pre>";
        // print_r($data);die;
          return $data;
@@ -648,6 +648,16 @@ public function getRespectedSub($data){
       return $value;
 
 
+
+    }
+
+    public function count_process_orders($table){
+
+      $value=DB::table($table)->where('status','In Process')->count();
+
+      return $value;
+
+
     }
 
     public function sendTip($data){
@@ -662,10 +672,10 @@ public function getRespectedSub($data){
 
       $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
 
-
+      $insert_in_payment = $getData==1 ? $this->insertPaymentStatus($userid,$data['artistid'],'',$data['price']):'';
       //print_r($getData);die;
 
-      return $getData;
+      return $insert_in_payment;
 
 
 
@@ -2130,6 +2140,21 @@ public function getSubscribeArtist(){
 
 }
 
+
+public function update_due_to_process($data){
+
+  //print_r($data);die;
+
+     $table = $data['type']=='request' ? 'add_request' : 'offer';
+
+  $update = DB::table($table)->where('id',$data['id'])->update([
+
+    'status' => 'In Process'
+  ]);
+
+  return $update;
+
+}
 
 
     // public function addToLibrary1(){
