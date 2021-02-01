@@ -620,9 +620,9 @@ public function getRespectedSub($data){
 
     public function showProjectsRequests(){
 
-     $data = DB::select("SELECT i.id,i.title,i.price,i.duration, i.quality,i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.artist_description ,i.quality, i.delieveryspeed,i.status,i.description,i.media,i.userid");
-        // echo "<pre>";
-        // print_r($data);die;
+     $data = DB::select("SELECT i.id,i.title,i.price,i.total_price,i.duration, i.quality,i.delieveryspeed,i.artist_description ,i.status,i.description,i.media,i.userid,GROUP_CONCAT(c.category) as category_name,(SELECT nickname from users WHERE i.userid=users.id) as user_name FROM add_request i, category c, offer o WHERE FIND_IN_SET(c.id, i.cat) GROUP BY i.id,i.title,i.price,i.duration, i.total_price,i.artist_description ,i.quality, i.delieveryspeed,i.status,i.description,i.media,i.userid");
+      //echo "<pre>";
+       // print_r($data);die;
          return $data;
     }
 
@@ -662,6 +662,7 @@ public function getRespectedSub($data){
 
       $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
 
+
       //print_r($getData);die;
 
       return $getData;
@@ -683,11 +684,16 @@ public function getRespectedSub($data){
 
     public function addRequest($data){
 
+
+
         $session_data =   Session::get('User');
 
         $reqData = $data->all();
 
-          $reqData['created_at']=now();
+        //print_r($reqData);die;
+
+        $reqData['created_at']=now();
+
         $reqData['updated_at']=now();
 
          $reqData['userid'] =  $session_data->id ;
@@ -695,13 +701,25 @@ public function getRespectedSub($data){
         $reqData['duration'] = $reqData['duration'];
 
         $reqData['total_price'] = $reqData['total'];
+        $reqData['price'] = 0;
+
+        $reqData['sexology'] = $reqData['sexology'] ? implode(',', $reqData['sexology']) : '';
+        $reqData['titssize'] = $reqData['titssize'] ? implode(',', $reqData['titssize']) : '';
+        $reqData['ass'] = $reqData['ass'] ? implode(',', $reqData['ass']) : '';
+        $reqData['privy'] = $reqData['privy'] ? implode(',', $reqData['privy']) : '';
+        $reqData['height'] = $reqData['height'] ? implode(',', $reqData['height']) : '';
+        $reqData['eyecolor'] = $reqData['eyecolor'] ? implode(',', $reqData['eyecolor']) : '';
+        $reqData['haircolor'] = $reqData['haircolor'] ? implode(',', $reqData['haircolor']) : '';
+        $reqData['hairlength'] = $reqData['hairlength'] ? implode(',', $reqData['hairlength']) : '';
+        $reqData['weight'] = $reqData['weight'] ? implode(',', $reqData['weight']) : '';
+     
+
         $reqData['quality'] = $reqData['media']=='audio' ? '' : $reqData['quality'];
 
          $reqData['artist_description']= '';
 
         unset($reqData['total']);
-      
-        
+    
 
        $category = implode(',', $reqData['categories']);
 

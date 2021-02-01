@@ -1154,53 +1154,79 @@ $(document).on('keyup', '#calculate_tokens', function () {
 
 /* Formatting function for row details - modify as you need */
 function format ( d , type) {
+
 	// `d` is the original data object for the row
 	if(type=='offer')
 	{
-    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
-        '<tr>'+
-			'<td>Description:</td>'+
-			
-            '<td>'+d.description+'</td>'+
-		'</tr>'+
-		'<tr>'+
-		'<td>Additional Request:</td>'+
-		'<td>'+d.userdescription+'</td>'+
+
+    return '<div class="offer">'+
+	'<div class="row">'+
+	  '<div class="col">'+
+			'<div class="descriptions">'+
+			'<h3 class="description">Description :</h3>'+
+			'<p>'+ d.description +'</p>'+
+			'</div>'+
+	  '</div>'+
+		'<div class="col">'+
+		'<h3 class="look">Additional Request :</h3>'+
+		'<p>'+d.userdescription+'</p>'+
+		'</div>'+
+	'<div class="col">'+
+	'<table>'+
+	'<tr>'+
+	'<td> <p>Categories :</p>'+
+	'<p class="category">'+d.catgories+'</p>'+
+	'</td>'+
+	'<td> <p class="quality">Quality :</p>'+
+	'<p>'+d.quality+'px</p>'+
+	'</td>'+
 	'</tr>'+
-        '<tr>'+
-            '<td>Category:</td>'+
-            '<td>'+d.catgories+'</td>'+
-		'</tr>'+
-		'<tr>'+
-            '<td>Quality:</td>'+
-            '<td>'+d.quality+'px</td>'+
-        '</tr>'+
-	'</table>';
+	'<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>'+
+	'<tr>'+
+	'</table>'+
+	'<div class="">'+
+	'<button type="button"class="btn btn-primary">Upload Content</button>'+
+	'</div>'+
+	'</div>'+
+	'</div>'+
+	'</div>';
    }
 
    else{
-	return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+	return '<div class="project">'+
+	'<div class="row">'+
+	  '<div class="col">'+
+			'<div class="descriptions">'+
+			'<h3 class="description">Description :</h3>'+
+			'<p>'+d.description+'</p>'+
+			'</div>'+
+	  '</div>'+
+		'<div class="col">'+
+		'<h3>Look :</h3>'+
+		'<p>'+
+		  'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'+
+		  'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,'+ 
+		  '</p>'+
+		'</div>'+
+	'<div class="col">'+
+	'<table>'+
 	'<tr>'+
-		'<td>Description:</td>'+
-		'<td>'+d.description+'</td>'+
+	'<td> <p>Categories :</p>'+
+	'<p class="category">'+d.category_name+'</p>'+
+	'</td>'+
+	'<td> <p class="quality">Quality :</p>'+
+	'<p>'+d.quality+'px</p>'+
+	'</td>'+
 	'</tr>'+
-	
+	'<tr><td>Reward:</td><td class="Reward">'+d.total_price+'PAZ</td></tr>'+
 	'<tr>'+
-		'<td>Category:</td>'+
-		'<td>'+d.category_name+'</td>'+
-	'</tr>'+
-
-	'<tr>'+
-		'<td>Quality:</td>'+
-		'<td>'+d.quality+'</td>'+
-	'</tr>'+
-
-	'<tr>'+
-		'<td>Reward:</td>'+
-		'<td>'+d.price+'PAZ</td>'+
-	'</tr>'+
-
-'</table>';
+	'</table>'+
+	'<div class="">'+
+	'<button type="button"class="btn btn-primary">Upload Content</button>'+
+	'</div>'+
+	'</div>'+
+	'</div>'+
+	'</div>';
    }
 }
 
