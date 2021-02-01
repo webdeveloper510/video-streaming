@@ -1,4 +1,4 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="feed">
 
 <div class="tab">
@@ -10,10 +10,10 @@
 <div id="London" class="tabcontent ">
 <div class="row">
 <div class="col">
- <div class="text-left feedname">
+ <div class="text-left">
  <h3>Artistname  <i class="fa fa-star" style="color:red;"></i>  761 </h3>
  </div>
- <div class="text-right feedmin">
+ <div class="text-right">
        <p> 5 min ago.</p>
  </div>
  <div class="feedimg text-center">
@@ -31,7 +31,7 @@
         and more recently with desktop publishing software like Aldus PageMaker including
          versions of Lorem Ipsum.</p>
 
-     <button class="btn btn-primery form-control">See All</button>
+
  </div>
  <div class="text-right">
  <button type="button" class="btn btn-primary" >Tip PAZ</button>
@@ -62,15 +62,15 @@
              <h5 class="card-title text-left pt-3 pl-3">Your Subscriptions:</h5>
              <hr>
               <div class="card-body text-center">
-              @foreach($artist as $val)
-                <h5>{{$val->nickname}} 
+              <?php $__currentLoopData = $artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <h5><?php echo e($val->nickname); ?> 
                 <button type="button" class="btn btn-primary ml-4">
                 Send Message
                 </button>
                 </h5>
 
                     <br>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
               </div>
             </div>
@@ -121,9 +121,6 @@ button.tablinks.active {
     padding: 8px;
     border: 1px solid #ffffff;
 }
-.text-right.feedmin {
-    margin-top: -35px;
-}
 .tab {
     background: #ffffff;
     color: white !important;
@@ -156,4 +153,4 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/feed.blade.php ENDPATH**/ ?>

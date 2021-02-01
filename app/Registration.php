@@ -2081,6 +2081,38 @@ return $data;
 }
 
 
+public function getSubscribeArtist(){
+
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  $data = \DB::table("subscriber")
+  ->select("subscriber.*")
+  ->whereRaw("find_in_set('".$userid."',subscriber.userid)")
+  ->pluck('artistid');
+
+  $value=DB::table('contentprovider')
+       
+  ->select('nickname')
+
+  ->whereIn('id',$data)->get();
+  return $value;
+ // ->get();
+
+  //print_r($value);die;
+  // $data = \DB::table("contentprovider")
+  // ->select("contentprovider.id","contentprovider.nickname",\DB::raw("media.media as videos"))
+  // ->leftjoin("subscriber",\DB::raw("FIND_IN_SET(media.id,subscriber.userid)"),">",\DB::raw("'0'"))
+  // ->groupBy("playlist.id","playlist.playlistname","media.media")
+  // ->where('playlist.id', $id)
+  // ->get();
+
+
+}
+
+
 
     // public function addToLibrary1(){
 

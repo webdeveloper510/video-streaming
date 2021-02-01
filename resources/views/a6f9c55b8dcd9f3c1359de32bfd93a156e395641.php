@@ -10,10 +10,10 @@
 <div id="London" class="tabcontent ">
 <div class="row">
 <div class="col">
- <div class="text-left">
+ <div class="text-left feedname">
  <h3>Artistname  <i class="fa fa-star" style="color:red;"></i>  761 </h3>
  </div>
- <div class="text-right">
+ <div class="text-right feedmin">
        <p> 5 min ago.</p>
  </div>
  <div class="feedimg text-center">
@@ -31,7 +31,7 @@
         and more recently with desktop publishing software like Aldus PageMaker including
          versions of Lorem Ipsum.</p>
 
-
+     <button class="btn btn-primery form-control">See All</button>
  </div>
  <div class="text-right">
  <button type="button" class="btn btn-primary" >Tip PAZ</button>
@@ -62,11 +62,15 @@
              <h5 class="card-title text-left pt-3 pl-3">Your Subscriptions:</h5>
              <hr>
               <div class="card-body text-center">
-                <h5>Aritist <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
+              <?php $__currentLoopData = $artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <h5><?php echo e($val->nickname); ?> 
+                <button type="button" class="btn btn-primary ml-4">
+                Send Message
+                </button>
+                </h5>
+
                     <br>
-                <h5>Aritist  <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
-                <br>
-                <h5>Aritist  <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
               </div>
             </div>
@@ -75,12 +79,12 @@
 
 </div>
 </div>
-<div id="Paris" class="tabcontent">
+<div id="Paris" class="tabcontent" style="display:none">
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
 
-<div id="Tokyo" class="tabcontent">
+<div id="Tokyo" class="tabcontent" style="display:none">
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
@@ -116,6 +120,9 @@ button.tablinks.active {
     background: #ffffff;
     padding: 8px;
     border: 1px solid #ffffff;
+}
+.text-right.feedmin {
+    margin-top: -35px;
 }
 .tab {
     background: #ffffff;

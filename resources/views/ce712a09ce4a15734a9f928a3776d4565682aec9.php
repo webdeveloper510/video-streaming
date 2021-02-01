@@ -90,11 +90,11 @@
                          
                             <label> 
 
-                               <?php echo e(Form::radio('media', 'audio', true ,['class'=>'media1 audio1'])); ?> Audio
+                               <?php echo e(Form::radio('media', 'audio', false ,['class'=>'media1 audio1'])); ?> Audio
                            
                             </label><br>
                             <label>
-                               <?php echo e(Form::radio('media', 'video', false ,['class'=>'media1 video1'])); ?> Video 
+                               <?php echo e(Form::radio('media', 'video', true ,['class'=>'media1 video1'])); ?> Video 
 
                             
                           </label><br>
