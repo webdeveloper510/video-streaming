@@ -1159,7 +1159,7 @@ function format ( d , type) {
 	if(type=='offer')
 	{
 
-    return '<div class="projects">'+
+    return '<div class="offer">'+
 	'<div class="row">'+
 	  '<div class="col">'+
 			'<div class="descriptions">'+
@@ -1193,7 +1193,7 @@ function format ( d , type) {
    }
 
    else{
-	return '<div class="order">'+
+	return '<div class="project">'+
 	'<div class="row">'+
 	  '<div class="col">'+
 			'<div class="descriptions">'+
@@ -1218,7 +1218,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'px</p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward">'+d.price+'</td></tr>'+
+	'<tr><td>Reward:</td><td class="Reward">'+d.total_price+'PAZ</td></tr>'+
 	'<tr>'+
 	'</table>'+
 	'<div class="">'+
