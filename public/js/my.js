@@ -1030,6 +1030,8 @@ $(document).on('change','#change_section',function(){
 	//$('.container').find('.'+value).hide()
 	$('.container .filter_div').each(function(i, obj) {
 		var hide_div = $(this).attr('id');
+
+		console.log(hide_div);
 		
 		$('.container').find('#'+hide_div).hide()
 		$('.container').find('#'+value).show();
@@ -1411,6 +1413,11 @@ function updateStatus(id,type){
 
 		}
 });
+}
+
+function getPaz(a){
+	$('.set_paz').val(a);
+	//console.log(a);
 }
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 

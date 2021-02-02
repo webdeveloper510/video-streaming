@@ -35,7 +35,7 @@
 
 <div class="tab-content" id="nav-tabContent">
 
-     <!-- ------------------------------------------Offer videos -------------------------------------------------->
+     <!-- ------------------------------------------Offers videos -------------------------------------------------->
 
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
@@ -111,15 +111,17 @@
 </select>
 </div>
   
-   <h3 class="mt-3">Videos</h3>
+   
 
 <div class="choosebutton text-right">
 <button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
+<div class="container">
+  <div class="filter_div" id="video">
 
-  <div class="filter_div" id="video">   
+  <h3 class="mt-3">Videos</h3>   
    
           <div class="row mb-5">
                @if($details)
@@ -210,7 +212,7 @@ Your browser does not support the audio tag.
            @endforeach
           </div>
 </div>
-
+</div>
             <!-- --------------Long videos -------------------->
       
     </div>
