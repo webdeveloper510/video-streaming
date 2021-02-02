@@ -74,7 +74,7 @@
           </li>
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
-              <i class="fa fa-message"></i>
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
               <p>Orders/Projects</p>
             </a>
           </li>

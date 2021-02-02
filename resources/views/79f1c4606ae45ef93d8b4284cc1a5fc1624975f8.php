@@ -61,9 +61,7 @@
    <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   
       <div class="col-md-12">
-      <div class="text-right">
-         <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
-     </div>
+   
       <div class="artistoffer row">
         <div class="col-md-2">
         <video width="100%" height="100%" controls>
@@ -88,6 +86,9 @@
         <div class="col-md-2">
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         <div class="text-right" style="margin-top: 76px;">
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
+           </div>
         </div>
         <hr>
       
@@ -122,7 +123,8 @@
         <div class="col-md-4 text-right">
             <button type="button" class="btn btn-primary bardot">Choose</button>
       <select class="form-select form-control" id="change_section" aria-label="Default select example">
-  <option selected value="video">Video</option>
+      <option selected value="all">All</option>
+  <option  value="video">Video</option>
   <option value="audio">Audio</option>
 
   <option value="playlist">Playlists</option>
@@ -133,7 +135,7 @@
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
 
-             
+       <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
         <?php if($details): ?>
@@ -148,7 +150,7 @@
             <video width="100%" height="100%" controls>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
-                Your browser does not support the    tag.
+                Your browser does not support the tag.
             </video>
                 </a>
 
@@ -161,9 +163,11 @@
           </div>
           <?php endif; ?>
           </div>
+      </div>
      <!----------------------------------------------Audio Section------------------------------------------------------------>      
+    <div class="filter_div" id="audio">
      <h3>Audios</h3>
-     <div class="row mb-5 filter_div" id="audio">
+     <div class="row mb-5">
       <?php if($audio): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -188,9 +192,11 @@ Your browser does not support the audio tag.
           </div>
 <?php endif; ?>
 </div>
+</div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <h3>Playlists</h3>
+         <div class="filter_div" id="playlist">
+         <h3>Bundles</h3>
           <div class="row mb-5 pb-5 filter_div" id="playlist">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
@@ -216,7 +222,7 @@ Your browser does not support the audio tag.
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
 
-
+</div>
 <!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>
@@ -269,7 +275,7 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <div class="text-right">
-   <button type="button" class="btn btn-light" onclick="change_other()">Edit</button>
+   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('<?php echo e(json_encode($details[0])); ?>')">Edit</button>
               </div>
                 <hr>
                 <p class="edittable"><?php echo e($details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme); ?></p>
@@ -319,6 +325,16 @@ Your browser does not support the audio tag.
 
                    <?php echo e(Form::token()); ?>
 
+                   <label>Media Offering</label>
+                   <div class="row">
+                   
+                  <div class="col-md-6">
+                       <input type="checkbox" name="type" value="video"/>Video
+                  </div>
+                  <div class="col-md-6">
+                       <input type="checkbox" name="type" value="audio"/>Audio
+                  </div>
+                  </div>
             <?php echo e(Form::label('Title', 'Title')); ?> 
               <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
 
@@ -326,15 +342,28 @@ Your browser does not support the audio tag.
             <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
                 <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
 
+                <label>Duration(Minutes):</label>
+                <div class="row">
+                  <div class="col-md-6">
+                <?php echo e(Form::label('Min', 'Min')); ?> 
+                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])); ?>
+
+                   </div>
+                   <div class="col-md-6">
+                <?php echo e(Form::label('Max', 'Max')); ?> 
+                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])); ?>
+
+                </div>
+                </div>
+                <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])); ?>
 
                 <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
                 <input type="hidden" name="offerid" id="offerid" value="">
-                <video width="100" id="video" height="100" controls>
-                  <source src="" type="video/mp4">
-                </video>
-                  <input type="file" name="file" value=""/>
+                  <input type="file" name="file" id="file_input" value=""/>
+                  
                   <input type="hidden" id="file_url" name="file_url" value=""/>
 
                 <label>Offer Status</label>
@@ -363,8 +392,122 @@ Your browser does not support the audio tag.
             </select>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            <?php echo e(Form::close()); ?>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal1" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+            </div>
+            <div class="modal-body">
+            <?php echo Form::open([ 'id'=>'edit_profile_info', 'method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?>
+
+      <div class="container profile">
+        <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
+          <div class="row align-items-center text-white">       
+                <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('EEye/Lens Color', 'Eye/Lens Color')); ?> 
+                <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
+
+                  <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('eyecolor') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
+                <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])); ?>
+
+                  <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('privy') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Hair length', 'Hair length')); ?> 
+                <?php echo e(Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','id'=>'hairlength','placeholder' => 'Choose Hair Length'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('hairlength') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Hair Color', 'Hair Color')); ?> 
+                <?php echo e(Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','id'=>'haircolor','placeholder' => 'Choose Hair Color'])); ?>
+
+                   <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('haircolor') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+
+               <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
+                <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('sexology') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Height', 'Height')); ?> 
+                <?php echo e(Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','id'=>'height','placeholder' => 'Choose Height'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('height') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 pt-3">
+            <?php echo e(Form::label('Weight', 'Weight')); ?> 
+                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('weight') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            
+             <div class="col-md-12 pt-3">
+            <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
+                <?php echo e(Form::textarea('aboutme',null,['id'=>'aboutme','class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])); ?>
+
+                  <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('aboutme') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            </div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
+                <div class="alert alert-success" role="alert" style="display:none">
+                           This is a success alert—check it out!
+                </div>
+                <div class="alert alert-danger" role="alert" style="display:none">
+                    This is a danger alert—check it out!
+                </div>
             </div>
             <?php echo e(Form::close()); ?>
 

@@ -141,6 +141,11 @@ class artist extends Controller
         return view('artistProfile');
     }
 
+    public function feed(){
+      $tab='feed';
+        return view('artists/feedartists',['tab'=>$tab]);
+    }
+
     public function artistVideo($vedioid){
       
           $allVedios = $this->model->getVideo($vedioid);
