@@ -384,7 +384,12 @@
     margin-right: 14px;
     margin-top: 4px;
 }
-
+.col-md-4.showoffer1:hover {
+    border: 1px solid gold;
+}
+.col-md-4.showoffer1 h5{
+  color:black !important;
+}
 .artist img {
     height: 125px;
     width: 125px;
