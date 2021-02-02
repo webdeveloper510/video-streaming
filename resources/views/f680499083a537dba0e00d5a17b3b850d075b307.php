@@ -41,16 +41,16 @@
 <div class="col-md-3">
   <div class="sidebarfeed">
   <div class="">
-      <h4> Set Tip: <input type="text" class="form-control"placeholder="Enter tip"></h3>
+      <h4> Set Tip: <input type="text" value="" class="form-control set_paz" placeholder="Enter tip"></h3>
       <div class="row">
        <div class="col">
-         <button type="button" class="btn btn-info">1 PAZ</button>
+         <button type="button" class="btn btn-info" onclick="getPaz(1)">1 PAZ</button>
        </div>
        <div class="col">
-         <button type="button" class="btn btn-info">3 PAZ</button>
+         <button type="button" class="btn btn-info" onclick="getPaz(3)">3 PAZ</button>
        </div>
        <div class="col">
-         <button type="button" class="btn btn-info">5 PAZ</button>
+         <button type="button" class="btn btn-info" onclick="getPaz(5)">5 PAZ</button>
        </div>
       </div>
       <div class="text-center my-4">

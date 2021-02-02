@@ -628,13 +628,13 @@ public function getRespectedSub($data){
     public function show_offer_Requests(){
       
       $data = \DB::table("offer")
-      ->select("users.nickname","offer.id","offer.title","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->select("users.nickname","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->leftjoin("users","users.id","=","offer.userid")
-      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
+      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
 
 
-      ->get();
+      ->get()->toArray();
 
       //print_r($data);die;
 
@@ -2118,38 +2118,15 @@ public function getSubscribeArtist(){
 
   $userid =  $session_data->id;
 
-  // $data = \DB::table("subscriber")
-  // ->select("subscriber.*")
-  // ->whereRaw("find_in_set('".$userid."',subscriber.userid)")
-  // ->pluck('artistid');
-
-  // $value=DB::table('contentprovider')
-       
-  // ->select('nickname')
-
-  // ->whereIn('id',$data)->get();
   $subscriber_artist = DB::table('contentprovider')
        ->leftjoin('subscriber', 'subscriber.artistid', '=','contentprovider.id')
        ->select('contentprovider.nickname')
        ->whereRaw("find_in_set('".$userid."',subscriber.userid)")
        ->get()->toArray();
 
-      // print_r($subscriber_artist);die;
-
        if($subscriber_artist){
            return $subscriber_artist;
        }
-  
- // ->get();
-
-  //print_r($value);die;
-  // $data = \DB::table("contentprovider")
-  // ->select("contentprovider.id","contentprovider.nickname",\DB::raw("media.media as videos"))
-  // ->leftjoin("subscriber",\DB::raw("FIND_IN_SET(media.id,subscriber.userid)"),">",\DB::raw("'0'"))
-  // ->groupBy("playlist.id","playlist.playlistname","media.media")
-  // ->where('playlist.id', $id)
-  // ->get();
-
 
 }
 
