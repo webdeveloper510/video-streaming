@@ -389,6 +389,12 @@
 .col-md-4.showoffer1 h5{
   color:black !important;
 }
+.overlay a {
+    text-align: center;
+    position: absolute;
+    top: 41%;
+    left: 44px;
+}
 .artist img {
     height: 125px;
     width: 125px;
