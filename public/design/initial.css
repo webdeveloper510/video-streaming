@@ -21,6 +21,7 @@
 
 .audiohome:hover {
     border: 2px solid yellow;
+    padding-left: 46px;
 }
 h1.text-center.text-uppercase.comimg1 {
     margin-top: -24px;
