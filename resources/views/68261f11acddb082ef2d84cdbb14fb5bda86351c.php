@@ -6,7 +6,7 @@
 <div class="container">
 <div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">Collection list</h3>		  
+		  <h3 class="tittle">My Collection</h3>		  
 		</div>
         <div class="row pb-row">
               <?php if($wishList): ?>
@@ -183,6 +183,20 @@ rewindNav:false
 .inner-page {
     display: inline-block;
     width: 100%;
+}
+h3.tittle {
+    color: #ffffff;
+}
+.row.pb-row {
+    background: black;
+    color: white !important;
+}
+.playhistory.col-md-12 h4 {
+    color: white !important;
+}
+.pb-video:hover {
+    border: 1px solid gold;
+    padding: 5px;
 }
 span#playlistCreate {
     font-size: 15px;

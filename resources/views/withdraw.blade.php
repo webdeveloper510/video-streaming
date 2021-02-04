@@ -5,7 +5,7 @@
           <div class="col-lg-10">
     <div class="overlay1 text-white">
    <div class="slider_tittle pb-4">
-      <h3 class="tittle text-center">Withdraw Money</h3>      
+      <h3 class="tittle text-center">Withdraw Money <span class="">! </span></h3>      
    </div> 
      <div class="row">
           <div class="col-md-12">

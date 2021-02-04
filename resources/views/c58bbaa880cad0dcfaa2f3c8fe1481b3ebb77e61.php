@@ -20,7 +20,7 @@
                <div class="text-left buttons">
                      <input type="text" id="paz_amount"  placeholder="PAZ Amount" class="form-control ">
                      <button class="btn btn-info" data-id="<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>" id="addTip" type="button">Send Tip</button>
-                     <strong id="total_paz" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
+                     <strong id="total_paz" placeholder="PAZ" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
                </div>
           </div>
           <nav>
@@ -35,7 +35,7 @@
 
 <div class="tab-content" id="nav-tabContent">
 
-     <!-- ------------------------------------------Offer videos -------------------------------------------------->
+     <!-- ------------------------------------------Offers videos -------------------------------------------------->
 
   <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
@@ -113,15 +113,17 @@
 </select>
 </div>
   
-   <h3 class="mt-3">Videos</h3>
+   
 
 <div class="choosebutton text-right">
 <button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
+<div class="container">
+  <div class="filter_div" id="video">
 
-  <div class="filter_div" id="video">   
+  <h3 class="mt-3">Videos</h3>   
    
           <div class="row mb-5">
                <?php if($details): ?>
@@ -212,7 +214,7 @@ Your browser does not support the audio tag.
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
 </div>
-
+</div>
             <!-- --------------Long videos -------------------->
       
     </div>
@@ -318,6 +320,7 @@ select.form-select.form-control, select.form-select.form-control * {
 .hover:hover video {
     border: 2px solid yellow;
 }
+
 .price {
     border-top: 1px solid #0000003d;
     border-bottom: 1px solid #0000003d;
@@ -326,10 +329,7 @@ select.form-select.form-control, select.form-select.form-control * {
 ul.selected {
     margin-bottom: 30px;
 }
-.choosebutton.text-right button {
-    margin-top: -30%;
-    margin-right: 17px;
-}
+
 
 .price h4 {
     margin: 0;

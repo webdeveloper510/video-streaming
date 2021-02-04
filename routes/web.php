@@ -187,6 +187,7 @@ Route::post('createList', 'AuthController@createList');
     Route::get('artist/offers/{id}', 'artist@offerpage');
 
     Route::get('artist/offer', 'artist@offer');
+    Route::get('artist/feed', 'artist@feed');
 
     Route::get('artist/my-offer', 'artist@myoffer');
 

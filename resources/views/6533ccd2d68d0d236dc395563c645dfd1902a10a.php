@@ -34,12 +34,14 @@
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   <?php if($vid->type=='video'): ?>
             <div class="col-md-4 pt-3 searchvideo1">
+            <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240" controls>
               <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
        Your browser does not support the video tag.
             </video>
 				</div>
+        </a>
          <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
 			</div>
 			<?php endif; ?>

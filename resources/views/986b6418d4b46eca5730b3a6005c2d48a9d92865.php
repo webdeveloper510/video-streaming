@@ -6,7 +6,10 @@
 <h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
 <h5>Audio/Video</h5>
 <p><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </p>
-<div class="text-right"><button class="btn btn-primary">SUBSCRIBE</button>
+<div class="text-right">
+<button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe">Subscribe </button>
+    
+ <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Un Subscribed </button>
 </div>
 <p>Sample</p>
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -14,6 +17,7 @@
 $GLOBALS['id'] = $offerdata->id;
 $GLOBALS['user_id'] = $offerdata->userid;
 $GLOBALS['artistid'] = $offerdata->artistid;
+$GLOBALS['add_price'] = $offerdata->additional_price;
 
 $GLOBALS['price'] = $offerdata->price;
 ?>
@@ -36,7 +40,7 @@ $GLOBALS['price'] = $offerdata->price;
       <p>video</p>
   </div>
   <div class="col">
-      <h3>Price</h3>
+      <h3>Price/Min</h3>
       <p><?php echo e($offerdata->price); ?>/PAZ</p>
   </div>
   <div class="col">
@@ -55,19 +59,22 @@ $GLOBALS['price'] = $offerdata->price;
 <?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
 
 <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
-<input type="hidden" name="price" value="<?php echo e($GLOBALS['price']); ?>"/>
+<input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
 <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
+<input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
 <div class="col-md-4">
 	<h3>Set Duration</h3>
-  <?php echo e(Form::number('duration', '',['class'=>'form-control','placeholder'=>'Duration'])); ?>
+  <?php echo e(Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','placeholder'=>'Duration'])); ?>
 
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<h4>Additional Request <small>(Price: 500PAZ)</small></h4>
+<h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small></h4>
 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
 
+<br>
+<strong id="change_text"></strong>
 <div class="text-right mt-5">
-<?php echo e(Form::submit('Order Now!',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
+<?php echo e(Form::submit('Pay !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
 
 </div>
 <?php echo e(Form::close()); ?>
@@ -77,5 +84,7 @@ $GLOBALS['price'] = $offerdata->price;
   A simple success alert—check it out!
 </div>
 </div>
+
+
 	
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>
