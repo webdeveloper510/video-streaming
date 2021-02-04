@@ -6,7 +6,7 @@
 <div class="container">
 <div class="col-md-12 uploa_outer">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">Collection list</h3>		  
+		  <h3 class="tittle">My Collection</h3>		  
 		</div>
         <div class="row pb-row">
               @if($wishList)

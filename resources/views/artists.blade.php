@@ -18,6 +18,10 @@
       button.btn.btn-primary.my-2.my-sm-0 {
           margin-left: -11px;
       }
+      .artistpage{
+        background:black;
+        color:white;
+      }
 
       .artist .profileImage {
     width: 125px;
@@ -31,11 +35,19 @@
     margin-right: 14px;
     margin-top: 4px;
 }
+hr{
+  background:white;
+}
+.artistnoimage a{
+  margin: 0px 24px;
+    display: block;
 
+}
     </style>
   </head>
   <body>
     @include('layouts.header')
+    <div class="artistpage">
    <div class="container">
        <div class="row">
            <div class="col-md-4">
@@ -75,11 +87,13 @@
                   <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
                </div>
                @else
+               <div class="artistnoimage">
                <a href="{{url('artistDetail/'.$artist->id)}}">
 		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
 	           	<div class="profileImage"></div>
 
                </a>
+              </div>
              
              @endif
                </div>
@@ -91,6 +105,6 @@
     <div class="pagination">{{$artists->links()}}</div>
 
    </div>
-
+</div>
   </body>
   @include('layouts.footer')
