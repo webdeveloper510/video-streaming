@@ -184,6 +184,20 @@ rewindNav:false
     display: inline-block;
     width: 100%;
 }
+h3.tittle {
+    color: #ffffff;
+}
+.row.pb-row {
+    background: black;
+    color: white !important;
+}
+.playhistory.col-md-12 h4 {
+    color: white !important;
+}
+.pb-video:hover {
+    border: 1px solid gold;
+    padding: 5px;
+}
 span#playlistCreate {
     font-size: 15px;
     font-weight: 700;
