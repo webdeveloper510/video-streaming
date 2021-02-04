@@ -2118,17 +2118,28 @@ public function getSubscribeArtist(){
 
   $userid =  $session_data->id;
 
-  $data = \DB::table("subscriber")
-  ->select("subscriber.*")
-  ->whereRaw("find_in_set('".$userid."',subscriber.userid)")
-  ->pluck('artistid');
+  // $data = \DB::table("subscriber")
+  // ->select("subscriber.*")
+  // ->whereRaw("find_in_set('".$userid."',subscriber.userid)")
+  // ->pluck('artistid');
 
-  $value=DB::table('contentprovider')
+  // $value=DB::table('contentprovider')
        
-  ->select('nickname')
+  // ->select('nickname')
 
-  ->whereIn('id',$data)->get();
-  return $value;
+  // ->whereIn('id',$data)->get();
+  $subscriber_artist = DB::table('contentprovider')
+       ->leftjoin('subscriber', 'subscriber.artistid', '=','contentprovider.id')
+       ->select('contentprovider.nickname')
+       ->whereRaw("find_in_set('".$userid."',subscriber.userid)")
+       ->get()->toArray();
+
+      // print_r($subscriber_artist);die;
+
+       if($subscriber_artist){
+           return $subscriber_artist;
+       }
+  
  // ->get();
 
   //print_r($value);die;
