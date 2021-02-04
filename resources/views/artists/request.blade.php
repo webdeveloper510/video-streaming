@@ -164,12 +164,12 @@ tr.shown td.details-control {
         <tr>
                         <th></th>
                         <th>Title</th>
-                        <th >Media</th>
+                        <th>Media</th>
                         <th>Duration</th>
-                           <th>P/O</th>
-                        <th >Customer Name</th>
-                        <th > Status</th>              
-                        <th> Delievery Time</th>   
+                        <th>P/O</th>
+                        <th>Customer Name</th>
+                        <th> Status</th>              
+                        <th>Delievery Time</th>   
         </tr>
     </tfoot>
 </table>
