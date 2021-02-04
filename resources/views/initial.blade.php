@@ -238,7 +238,7 @@
 	  <div class="carad-body">
 	      <h4 class="card-title text-center">{{$offer->title}}</h4>
 	     
-	      <hr>
+	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">
             <tr>
             	<th>Price</th>
@@ -367,7 +367,9 @@
     background: white;
     opacity: 0;
 }
-
+.cardhr{
+  background:white;
+}
 .artist .profileImage {
     width: 125px;
     height: 125px;
