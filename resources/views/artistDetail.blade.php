@@ -328,10 +328,7 @@ select.form-select.form-control, select.form-select.form-control * {
 ul.selected {
     margin-bottom: 30px;
 }
-.choosebutton.text-right button {
-    margin-top: -30%;
-    margin-right: 17px;
-}
+
 
 .price h4 {
     margin: 0;
