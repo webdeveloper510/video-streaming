@@ -104,11 +104,12 @@
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 				   </video>
 				   <?php else: ?>
-				  
+				   <div class="artistaudiopage">
 				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
 				   <audio controls>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="audio/mp3">
 				   </audio>
+					</div>
 				   <?php endif; ?>
 				   <div class="report-op">
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
