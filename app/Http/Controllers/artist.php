@@ -77,10 +77,7 @@ class artist extends Controller
 
          $allPlaylist =      $this->model->getAllPlaylist();
 
-        //  echo "<pre>";
-
-        //  print_r($allPlaylist);die;
-
+       
 
          $category_data = $this->model->getCategory();      
 
