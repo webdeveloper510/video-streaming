@@ -417,10 +417,7 @@ h4.card-title.text-center {
    video::-webkit-media-controls {
   display:none !important;
 }
-.borderhover:hover {
-    border: 2px solid yellow;
-    padding-left: 32px;
-}
+
 .hover:hover video{ border: 2px solid yellow; }
 h5{ color :#fff;}
 @media  only screen and (max-width: 768px) {

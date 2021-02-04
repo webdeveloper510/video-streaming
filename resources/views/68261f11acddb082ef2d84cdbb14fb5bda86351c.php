@@ -114,14 +114,15 @@
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
-            </div>
-            <div class="report-op">
+             <div class="report-op">
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
 						<ul style="display:none;" class="reporting">
 						 <li>Report</li>
 						 <li>You can not download this video.</li>
 						</ul>
 				   </div>
+            </div>
+           
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
 		             <div class="playwish playhistory col-md-12">
@@ -182,7 +183,7 @@ body{
   background: black;
 }
 .report-op {
-  position: relative;
+    position: absolute;
     top: 10px;
     color: white;
     right: 14px;
