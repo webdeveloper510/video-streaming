@@ -3,8 +3,18 @@
 <!-- end header -->
 
 <div class="row pb-row">
+ 
 <div class="container">
-<div class="col-md-12 uploa_outer">
+<div class="text-right">
+      <select class="form-select form-control col-md-4" aria-label="Default select example">
+        <option selected>All</option>
+        <option value="1">Collection</option>
+        <option value="2">Playlists</option>
+        <option value="3">Wishlist</option>
+        <option value="4">History</option>
+      </select>
+  </div>
+<div class="col-md-12 uploa_outer " id="collection">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">My Collection</h3>		  
 		</div>
@@ -32,7 +42,7 @@
 
 <div class="inner-page">
   <div class="container">
-      <div class="col-md-12 uploa_outer">
+      <div class="col-md-12 uploa_outer" id="playlist">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">Playlist</h3>	
       <form>	
@@ -86,14 +96,14 @@
 			
 	</div>
 	<br/>
-
+</div>
 
   <!-- -------------------------- Wish list Start--------------------------->
 
 
 
-	<div class="col-md-12 uploa_outer">
-		  <div class="slider_tittle">
+	<div class="col-md-12 uploa_outer" id="wishlist">
+		  <div class="slider_tittle" >
 		  <h3 class="tittle">Wishlist</h3>		  
 		</div>
         <div class="row pb-row">
@@ -114,11 +124,11 @@
                    @endif
 	</div>
 	<br/>
-
+</div>
   <!-- -------------------------- History Section  Start--------------------------->
 
 
-	<div class="col-md-12 uploa_outer">
+	<div class="col-md-12 uploa_outer" id="history">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">History</h3>		  
 		</div>
@@ -161,9 +171,16 @@ rewindNav:false
  </script>
 
 <style>
+body{
+  background: black;
+}
  .owl-carousel {
     display: block !important;
   }
+  select.form-select.form-control.col-md-4 {
+    float: right;
+    margin-top: 22px;
+}
   .playhistory {
     border: none;
     width: 100%;
