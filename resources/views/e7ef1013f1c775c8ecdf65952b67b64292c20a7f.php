@@ -316,7 +316,18 @@
 </div> -->
 
 </div>
-
+<style>
+.collapse.show {
+    display: block;
+    background: white !important;
+    height: 500px;
+    color: black !important;
+    overflow-y: scroll;
+}
+.row.text-left.text-white.mt-3.red {
+    color: black !important;
+}
+</style>
 
     <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

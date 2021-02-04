@@ -302,7 +302,7 @@
 .collapse.show {
     display: block;
     background: white !important;
-    height: 500px;
+    height: 350px;
     color: black !important;
     overflow-y: scroll;
 }
