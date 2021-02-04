@@ -151,7 +151,7 @@
                @endif
           </div>
           </div>
-     <!----------------------------------------------Audio Section------------------------------------------------------------>      
+  <!------------------------------------------------------------Audio Section---------------------------------------------------------------------->      
      <div class="filter_div" id="audio">
   
      <h3>Audios</h3>
@@ -160,7 +160,8 @@
           @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none"><form> 
+   <div class="checkall" style="display:none">
+   <form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="{{url('artist-video/'.$aud->id)}}">
     <img src="{{asset('images/logos/voice.jpg')}}">

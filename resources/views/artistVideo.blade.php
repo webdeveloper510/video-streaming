@@ -28,7 +28,7 @@
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3>{{$video->title}}</h3>
-					  <p>{{$video->nickname}}</p>
+					  <a href="{{url('artistDetail/'.$video->contentProviderid)}}"><p>{{$video->nickname}}</p></a>
 				   </div>
 				</div>
 				<div class="col-md-2">
@@ -46,12 +46,12 @@
                       <span class="itemCount">{{$count}}</span>
 
                    </div>
- <button type="button" id="{{$video->id}}" class="addToCart">
+ <button type="button" style="cursor:pointer;" id="{{$video->id}}" class="addToCart">
  	 	
  	Add to Wishlist
  </button>
 
-<button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<button  type="button" style="cursor:pointer;" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
 <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
