@@ -629,6 +629,10 @@ button.btn.btn-warning.text-white {
     border-top-right-radius: 6px !important;
     border-radius: 6px;
 }
+.borderhover:hover {
+    border: 2px solid yellow;
+    padding-left: 32px;
+}
 .noti-icon p {
     color: white;
     font-weight: bold;

@@ -3,8 +3,18 @@
 <!-- end header -->
 
 <div class="row pb-row">
+ 
 <div class="container">
-<div class="col-md-12 uploa_outer">
+<div class="text-right">
+      <select class="form-select form-control col-md-4" aria-label="Default select example">
+        <option selected>All</option>
+        <option value="1">Collection</option>
+        <option value="2">Playlists</option>
+        <option value="3">Wishlist</option>
+        <option value="4">History</option>
+      </select>
+  </div>
+<div class="col-md-12 uploa_outer " id="collection">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">My Collection</h3>		  
 		</div>
@@ -12,7 +22,7 @@
               @if($wishList)
               @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
              </video>
@@ -32,7 +42,7 @@
 
 <div class="inner-page">
   <div class="container">
-      <div class="col-md-12 uploa_outer">
+      <div class="col-md-12 uploa_outer" id="playlist">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">Playlist</h3>	
       <form>	
@@ -62,7 +72,7 @@
       @if($vid->type=='video')
       <div class="col-md-4">
       
-    <video width="370" height="245" controls allowfullscreen>
+    <video width="370" height="245" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
       <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -86,25 +96,32 @@
 			
 	</div>
 	<br/>
-
+</div>
 
   <!-- -------------------------- Wish list Start--------------------------->
 
 
 
-	<div class="col-md-12 uploa_outer">
-		  <div class="slider_tittle">
+	<div class="col-md-12 uploa_outer" id="wishlist">
+		  <div class="slider_tittle" >
 		  <h3 class="tittle">Wishlist</h3>		  
 		</div>
         <div class="row pb-row">
               @if($wishList)
               @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
              </video>
             </div>
+            <div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li>Report</li>
+						 <li>You can not download this video.</li>
+						</ul>
+				   </div>
             @endforeach
             @else
 		             <div class="playwish playhistory col-md-12">
@@ -114,11 +131,11 @@
                    @endif
 	</div>
 	<br/>
-
+</div>
   <!-- -------------------------- History Section  Start--------------------------->
 
 
-	<div class="col-md-12 uploa_outer">
+	<div class="col-md-12 uploa_outer" id="history">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">History</h3>		  
 		</div>
@@ -127,7 +144,7 @@
         @if($history)
               @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
 
                <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
@@ -161,9 +178,28 @@ rewindNav:false
  </script>
 
 <style>
+body{
+  background: black;
+}
+.report-op {
+  position: relative;
+    top: 10px;
+    color: white;
+    right: 14px;
+}
+ul.reporting {
+    background: white;
+    color: black;
+    padding: 13px;
+    border-radius: 7px;
+}
  .owl-carousel {
     display: block !important;
   }
+  select.form-select.form-control.col-md-4 {
+    float: right;
+    margin-top: 22px;
+}
   .playhistory {
     border: none;
     width: 100%;
@@ -205,7 +241,12 @@ span#playlistCreate {
 }
 </style>
 <!--body end-->
-
+<script>
+function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
+</script>
 <!--footer -->
 @include('layouts.footer')
 
