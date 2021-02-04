@@ -228,7 +228,7 @@ Your browser does not support the audio tag.
       </div>
       <div class="col-md-12">
            <ul class="selected">
-            <li>Name of the item <span class="delete"><i class="fa fa-trash"></i></span> </li>
+            
            </ul>
       </div>
       <div class="col-md-12 price">
@@ -281,8 +281,8 @@ Your browser does not support the audio tag.
       @foreach($details[0] as $key=>$profile)
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
             <div class="col-md-3">
-              <label><b>{{ucwords($key)}}</b></label>
-              <p>{{$profile}}</p>
+                 <label><b>{{ucwords($key)}}</b></label>
+                 <p>{{$profile}}</p>
             </div>
           @endif
       @endforeach
@@ -328,8 +328,6 @@ select.form-select.form-control, select.form-select.form-control * {
 ul.selected {
     margin-bottom: 30px;
 }
-
-
 .price h4 {
     margin: 0;
 }
@@ -342,10 +340,13 @@ ul.selected {
     bottom: 10px;
     z-index: 9999999;
     background: white;
-    width: 25% !important;
+    width: 15% !important;
     right: 13px !important;
     height: 100% !important;
     box-shadow: 0 6px 12px #00000042;
+}
+ul.selected {
+    margin-bottom: 30px;
 }
 .close {
      margin-top: 7px;

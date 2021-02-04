@@ -6,7 +6,7 @@
    <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4 my-3">
-           <video class="borderhover" width="350px" height="275px" controls allowfullscreen>
+           <video class="borderhover" width="350px" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -18,7 +18,7 @@
        <div class="col-md-4 my-3">
             <div class="borderhover">
                   <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
-           <audio width="350px" height="275px" controls>
+           <audio width="350px" height="275px" controls controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
             Your browser does not support the video tag.
           </audio>

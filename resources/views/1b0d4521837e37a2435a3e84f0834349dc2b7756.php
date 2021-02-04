@@ -230,7 +230,7 @@ Your browser does not support the audio tag.
       </div>
       <div class="col-md-12">
            <ul class="selected">
-            <li>Name of the item <span class="delete"><i class="fa fa-trash"></i></span> </li>
+            
            </ul>
       </div>
       <div class="col-md-12 price">
@@ -283,8 +283,8 @@ Your browser does not support the audio tag.
       <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
             <div class="col-md-3">
-              <label><b><?php echo e(ucwords($key)); ?></b></label>
-              <p><?php echo e($profile); ?></p>
+                 <label><b><?php echo e(ucwords($key)); ?></b></label>
+                 <p><?php echo e($profile); ?></p>
             </div>
           <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -330,8 +330,6 @@ select.form-select.form-control, select.form-select.form-control * {
 ul.selected {
     margin-bottom: 30px;
 }
-
-
 .price h4 {
     margin: 0;
 }
@@ -344,14 +342,18 @@ ul.selected {
     bottom: 10px;
     z-index: 9999999;
     background: white;
-    width: 25% !important;
+    width: 15% !important;
     right: 13px !important;
     height: 100% !important;
     box-shadow: 0 6px 12px #00000042;
 }
+ul.selected {
+    margin-bottom: 30px;
+}
 .close {
      margin-top: 7px;
 }
+
 </style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
