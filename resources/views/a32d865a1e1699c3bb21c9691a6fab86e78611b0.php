@@ -104,6 +104,8 @@
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 				   </video>
 				   <?php else: ?>
+				  
+				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
 				   <audio controls>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="audio/mp3">
 				   </audio>
@@ -186,22 +188,22 @@
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	<section>
 	   <div class="container-fluid">
-		  <div class="row">
-			 <div class="col-md-12">
-				<h3 class="top selling-content">
-				<span>$</span>Top Selling Content
-				<h3>
-			 </div>
-		  </div>
+			<div class="row">
+					<div class="col-md-12">
+						<h3 class="top selling-content">
+						<span>$</span>Top Selling Content
+						<h3>
+					</div>
+			</div>
 		  <div class="row">
 			 <div class="col-md-12">
 				<div id="demo" class="carousel slide" data-ride="carousel">
 				   <!-- Indicators -->
-				   <ul class="carousel-indicators">
-					  <li data-target="#demo" data-slide-to="0" class="active"></li>
-					  <li data-target="#demo" data-slide-to="1"></li>
-					  <li data-target="#demo" data-slide-to="2"></li>
-				   </ul>
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
 				   <!-- The slideshow -->
 				   <div class="carousel-inner">
 					  <div class="carousel-item active">
@@ -389,6 +391,10 @@
     width: 100%;
     top: 6px;
     padding-left: 267px;
+}
+.content-cart .addToCart:hover {
+    background: #0062cc !important;
+    border: 1px solid #0062cc !important;
 }
 ul.reporting {
     background: #efefef;

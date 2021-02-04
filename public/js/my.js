@@ -393,11 +393,17 @@ $(document).on('click', '.library', function () {
 
 $(document).on('click', '.removeSession', function () {
 
+	
+
+	//alert('helo');return false;
+
 	var id = $(this).attr('id');
+
+
 
 		addMultiple('false',id);
 
-	
+		$(this).parent().remove();
 
 });
 
@@ -437,7 +443,10 @@ function addMultiple(check,id){
 					//console.log(data);
 
 					$('#exampleModal').html(data);
+					
 						if($('.total').text()==0){
+
+							console.log('yes');
 
 							$('.close').trigger('click');
 						}
@@ -576,7 +585,7 @@ $(document).on('click', '.bardot', function () {
 	});
 
 $(document).on('click','.slct_video',function(){
-	console.log("asas");
+	//console.log("asas");
 	 var price = $(this).attr('data-id');
 
 	 	var id = $(this).attr('id');
@@ -629,7 +638,9 @@ $(document).on('click','.slct_video',function(){
 
 				success: function(data){
 
-				     console.log(data);return false;
+					 //console.log(data);
+					 
+					 $('.choose1 .selected').append("<li>"+data.result[0].title+"<span class='price'>"+data.result[0].price+"PAZ</span><button id="+data.result[0].id+" class='removeSession btn btn-info'>X</button> </li>")
 					
 					
 				}

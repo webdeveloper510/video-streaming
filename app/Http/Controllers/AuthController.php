@@ -1090,13 +1090,11 @@ public function selectMultiple(Request $req){
   
     if($idsData['isCheck']=='false'){
 
-      echo "false";
+      
 
-        echo $idsData['id'];
 
         $pos = array_search($idsData['id'], $multipleIds);
 
-       echo $pos;
 
            unset($multipleIds[$pos]);
           
@@ -1133,7 +1131,10 @@ public function selectMultiple(Request $req){
 }  
 
 $multipleIds = Session::get('SessionmultipleIds');
-    //print_r($multipleIds);
+
+$cartVideo = $this->model->getVideoWhereIn($multipleIds);
+
+       return response()->json($cartVideo);
 
 }
 
@@ -1146,7 +1147,7 @@ public function addMultipleVideo(Request $req){
 
             $remove = $req['isRemove'];
         
-       // print_r($req->all());
+         
       
        if($remove=='yes'){
 
@@ -1161,6 +1162,8 @@ public function addMultipleVideo(Request $req){
      
        }
 
+       //print_r($multipleIds);
+
         $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 
             $all_play_lists = $this->model->getPlaylist();
@@ -1170,7 +1173,7 @@ public function addMultipleVideo(Request $req){
 
               $result = $cartVideo['result'];
 
-                //print_r($result);
+                //print_r($result);die;
 
 
  return view('playlistpop',['cartVideo'=>$result, 'total_sum'=>$total,'listname'=>$all_play_lists]);
