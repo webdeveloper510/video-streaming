@@ -306,7 +306,7 @@
            </div>
            <div class="row mb-5">
     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-           <div class="col-md-2">
+           <div class="col-md-2 col-6">
              
                <div class="artist text-center">
                <?php if($artist->profilepicture): ?>
@@ -419,6 +419,20 @@ h4.card-title.text-center {
 }
 .hover:hover video{ border: 2px solid yellow; }
 h5{ color :#fff;}
+@media  only screen and (max-width: 768px) {
+
+.col-md-4.hover {
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.col-md-4.showoffer1 {
+    margin: 10px auto;
+}
+.artist.text-center {
+    margin: 10px auto;
+}
+}
   </style>
  
 
