@@ -1,4 +1,5 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <link rel="stylesheet" href="<?php echo e(asset('design/play.css')); ?>" />
 <!-- end header -->
 
@@ -115,11 +116,10 @@
 				
              </video>
              <div class="report-op">
-				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
-						<ul style="display:none;" class="reporting">
-						 <li>Report</li>
-						 <li>You can not download this video.</li>
-						</ul>
+				   	
+               <button type="button" class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="You can not download this video.">
+               <i class="fa fa-ellipsis-v" onclick="showop()"></i>
+                 </button>
 				   </div>
             </div>
            
@@ -220,6 +220,11 @@ ul.reporting {
 .inner-page {
     display: inline-block;
     width: 100%;
+}
+.pb-video {
+    border: 1px solid #e6e6e6;
+    padding: 5px;
+    margin-top: 16px;
 }
 h3.tittle {
     color: #ffffff;

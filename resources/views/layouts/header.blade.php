@@ -2,7 +2,7 @@
 
 
 <link rel="stylesheet" href="{{asset('design/header.css')}}" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <header id="default_header" class="header_style_1">
@@ -595,6 +595,7 @@
                 </div>
               </li>
               <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li>
+              <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li>
 						</div>
 					</div>
 				</nav>

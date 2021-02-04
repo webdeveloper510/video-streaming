@@ -60,7 +60,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2">
-        <video width="100%" height="100%" controls>
+        <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -141,7 +141,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
-            <video width="100%" height="100%" controls>
+            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -171,7 +171,7 @@
      <a href="{{url('artist-video/'.$aud->id)}}">
     <img src="{{asset('images/logos/voice.jpg')}}">
 
-<audio controls>
+<audio controls controlsList="nodownload" disablePictureInPicture>
 
 <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
 Your browser does not support the audio tag.
@@ -204,7 +204,7 @@ Your browser does not support the audio tag.
                 <i class="fa fa-play"></i>
            </div>
     
-            <video width="100%" height="250" controls>
+            <video width="100%" height="250" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -257,7 +257,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" height="100%" id="get_duration" controls>
+            <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                       <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
           </video>

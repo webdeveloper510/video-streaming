@@ -31,7 +31,7 @@
         and more recently with desktop publishing software like Aldus PageMaker including
          versions of Lorem Ipsum.</p>
 
-
+     <button class="btn btn-primery form-control">See All</button>
  </div>
  <div class="text-right">
  <button type="button" class="btn btn-primary" >Tip PAZ</button>
@@ -41,16 +41,16 @@
 <div class="col-md-3">
   <div class="sidebarfeed">
   <div class="">
-      <h4> Set Tip: <input type="text" class="form-control"placeholder="Enter tip"></h3>
+      <h4> Set Tip: <input type="text" value="" class="form-control set_paz" placeholder="Enter tip"></h3>
       <div class="row">
        <div class="col">
-         <button type="button" class="btn btn-info">1 PAZ</button>
+         <button type="button" class="btn btn-info" onclick="getPaz(1)">1 PAZ</button>
        </div>
        <div class="col">
-         <button type="button" class="btn btn-info">3 PAZ</button>
+         <button type="button" class="btn btn-info" onclick="getPaz(3)">3 PAZ</button>
        </div>
        <div class="col">
-         <button type="button" class="btn btn-info">5 PAZ</button>
+         <button type="button" class="btn btn-info" onclick="getPaz(5)">5 PAZ</button>
        </div>
       </div>
       <div class="text-center my-4">
@@ -62,11 +62,15 @@
              <h5 class="card-title text-left pt-3 pl-3">Your Subscriptions:</h5>
              <hr>
               <div class="card-body text-center">
-                <h5>Aritist <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
+              <?php $__currentLoopData = $artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <h5><?php echo e($val->nickname); ?> 
+                <button type="button" class="btn btn-primary ml-4">
+                Send Message
+                </button>
+                </h5>
+
                     <br>
-                <h5>Aritist  <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
-                <br>
-                <h5>Aritist  <button type="button" class="btn btn-primary ml-4">Send Message</button></h5>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 
               </div>
             </div>
@@ -75,12 +79,12 @@
 
 </div>
 </div>
-<div id="Paris" class="tabcontent">
+<div id="Paris" class="tabcontent" style="display:none">
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
 
-<div id="Tokyo" class="tabcontent">
+<div id="Tokyo" class="tabcontent" style="display:none">
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
