@@ -104,6 +104,8 @@
 				   	<source src="{{url('storage/app/public/video/'.$video->media)}}" type="video/mp4">
 				   </video>
 				   @else
+				  
+				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
 				   <audio controls>
 				   	<source src="{{url('storage/app/public/video/'.$video->media)}}" type="audio/mp3">
 				   </audio>
