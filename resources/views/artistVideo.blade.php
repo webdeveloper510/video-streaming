@@ -28,7 +28,7 @@
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3>{{$video->title}}</h3>
-					  <a href="{{url('artistDetail/'.$video->id)}}"><p>{{$video->nickname}}</p></a>
+					  <a href="{{url('artistDetail/'.$video->contentProviderid)}}"><p>{{$video->nickname}}</p></a>
 				   </div>
 				</div>
 				<div class="col-md-2">

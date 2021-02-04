@@ -237,15 +237,12 @@
 
 	  <div class="carad-body">
 	      <h4 class="card-title text-center"><?php echo e($offer->title); ?></h4>
-	      <hr>
-	      <h5 class="text-center">offer Description</h5>
-	    
-	      <p class="card-text p-3"><?php echo e($offer->description); ?></p>
-	      <hr>
+	     
+	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">
             <tr>
             	<th>Price</th>
-            	<td> <?php echo e($offer->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
+            	<td> <?php echo e($offer->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/minutes </td>
               </tr>
 	      </table>
 	         </div>
@@ -371,7 +368,9 @@
     background: white;
     opacity: 0;
 }
-
+.cardhr{
+  background:white;
+}
 .artist .profileImage {
     width: 125px;
     height: 125px;
@@ -384,8 +383,8 @@
     margin-right: 14px;
     margin-top: 4px;
 }
-.col-md-4.showoffer1:hover {
-    border: 1px solid gold;
+.card:hover {
+    border: 1px solid gold !important;
 }
 .col-md-4.showoffer1 h5{
   color:black !important;
@@ -395,6 +394,16 @@
     position: absolute;
     top: 41%;
     left: 44px;
+}
+.card {
+    background: black;
+    color: white;
+    padding: 13px;
+    border: 1px solid white;
+}
+
+h4.card-title.text-center {
+    color: white;
 }
 .artist img {
     height: 125px;

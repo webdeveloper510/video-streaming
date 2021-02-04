@@ -28,7 +28,7 @@
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3><?php echo e($video->title); ?></h3>
-					  <a href="<?php echo e(url('artistDetail/'.$video->id)); ?>"><p><?php echo e($video->nickname); ?></p></a>
+					  <a href="<?php echo e(url('artistDetail/'.$video->contentProviderid)); ?>"><p><?php echo e($video->nickname); ?></p></a>
 				   </div>
 				</div>
 				<div class="col-md-2">
