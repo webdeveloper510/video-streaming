@@ -36,12 +36,19 @@
             <div class="col-md-4 pt-3 searchvideo1">
             <a href="{{url('artist-video/'.$vid->id)}}">
 			  <div class="embed-responsive embed-responsive-16by9">
-				<video width="320" height="240" controls>
+				<video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
               <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
        Your browser does not support the video tag.
             </video>
 				</div>
         </a>
+        <div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li>Report</li>
+						 <li>You can not download this video.</li>
+						</ul>
+				   </div>
          <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
 			</div>
 			@endif
@@ -84,11 +91,27 @@
      
 <!--body start>
 <body end-->
-
+<script>
+function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
+</script>
 <!--footer -->
 @include('layouts.footer')
 <style>
-
+.report-op {
+    position: relative;
+    top: 45px;
+    color: white;
+    right: 56px;
+}
+ul.reporting {
+    background: white;
+    color: black;
+    padding: 13px;
+    border-radius: 7px;
+}
 .inner-page {
     float: left;
     width: 100%;
