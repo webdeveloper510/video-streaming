@@ -74,7 +74,7 @@
           </li>
            <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
-              <i class="fa fa-message"></i>
+            <i class="fa fa-list-alt" aria-hidden="true"></i>
               <p>Orders/Projects</p>
             </a>
           </li>
@@ -226,20 +226,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <div class="levlv">
-              <div><?php echo e($levelData ? $levelData[0]->level_name: ''); ?> </div>
-              <div class="wid"><div class="progress">
-             
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
-                          <span class="sr-only">70% Complete</span>
-                    </div>
-                    
-                </div>
-</div>
-               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
-              
-            </div>
+            
             <ul class="navbar-nav">
               <li class="nav-item">
              
@@ -249,7 +236,20 @@
            <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
 
            </a>
-           
+           <div class="levlv">
+              <div><?php echo e($levelData ? $levelData[0]->level_name: ''); ?> </div>
+              <div class="wid"><div class="progress">
+             
+                    <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                    aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
+                          <span class="sr-only">70% Complete</span>
+                    </div>
+                    
+                </div>
+                  </div>
+               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
+              
+            </div>
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
           <?php else: ?>
@@ -327,6 +327,12 @@
       <div class="container">
       <style>
 
-
+.levlv {
+    width: 178px;
+    color: #fff;
+    display: flex;
+    padding-top: 13px;
+    padding-left: 20px;
+}
 </style>
       <!-- End Navbar --><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>

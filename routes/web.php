@@ -179,14 +179,16 @@ Route::post('createList', 'AuthController@createList');
 
 /*-----------------------------------------------Artist Route ----------------------------------*/
 
-     Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
+    Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
     Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
 
     Route::get('artistRegister', 'AuthController@artistRegister');
+    
     Route::get('artist/offers/{id}', 'artist@offerpage');
 
     Route::get('artist/offer', 'artist@offer');
+
     Route::get('artist/feed', 'artist@feed');
 
     Route::get('artist/my-offer', 'artist@myoffer');

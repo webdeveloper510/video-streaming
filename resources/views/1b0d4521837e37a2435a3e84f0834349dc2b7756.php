@@ -153,7 +153,7 @@
                <?php endif; ?>
           </div>
           </div>
-     <!----------------------------------------------Audio Section------------------------------------------------------------>      
+  <!------------------------------------------------------------Audio Section---------------------------------------------------------------------->      
      <div class="filter_div" id="audio">
   
      <h3>Audios</h3>
@@ -162,7 +162,8 @@
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none"><form> 
+   <div class="checkall" style="display:none">
+   <form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
     <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
@@ -329,10 +330,7 @@ select.form-select.form-control, select.form-select.form-control * {
 ul.selected {
     margin-bottom: 30px;
 }
-.choosebutton.text-right button {
-    margin-top: -30%;
-    margin-right: 17px;
-}
+
 
 .price h4 {
     margin: 0;
