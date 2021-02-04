@@ -18,6 +18,10 @@
       button.btn.btn-primary.my-2.my-sm-0 {
           margin-left: -11px;
       }
+      .artistpage{
+        background:black;
+        color:white;
+      }
 
       .artist .profileImage {
     width: 125px;
@@ -31,11 +35,14 @@
     margin-right: 14px;
     margin-top: 4px;
 }
-
+hr{
+  background:white;
+}
     </style>
   </head>
   <body>
     <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <div class="artistpage">
    <div class="container">
        <div class="row">
            <div class="col-md-4">
@@ -91,6 +98,6 @@
     <div class="pagination"><?php echo e($artists->links()); ?></div>
 
    </div>
-
+</div>
   </body>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists.blade.php ENDPATH**/ ?>
