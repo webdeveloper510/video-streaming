@@ -22,7 +22,7 @@
               <?php if($wishList): ?>
               <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
@@ -72,7 +72,7 @@
       <?php if($vid->type=='video'): ?>
       <div class="col-md-4">
       
-    <video width="370" height="245" controls allowfullscreen>
+    <video width="370" height="245" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
       <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -110,11 +110,18 @@
               <?php if($wishList): ?>
               <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
             </div>
+            <div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li>Report</li>
+						 <li>You can not download this video.</li>
+						</ul>
+				   </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
 		             <div class="playwish playhistory col-md-12">
@@ -137,7 +144,7 @@
         <?php if($history): ?>
               <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
 
                <source src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>" type="video/mp4">
 				
@@ -173,6 +180,18 @@ rewindNav:false
 <style>
 body{
   background: black;
+}
+.report-op {
+  position: relative;
+    top: 10px;
+    color: white;
+    right: 14px;
+}
+ul.reporting {
+    background: white;
+    color: black;
+    padding: 13px;
+    border-radius: 7px;
 }
  .owl-carousel {
     display: block !important;
@@ -222,7 +241,12 @@ span#playlistCreate {
 }
 </style>
 <!--body end-->
-
+<script>
+function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
+</script>
 <!--footer -->
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
