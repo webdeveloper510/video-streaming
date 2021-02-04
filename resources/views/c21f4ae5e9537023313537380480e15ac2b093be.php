@@ -142,7 +142,7 @@
             <div class="col-md-4 hover" >
             <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
             
-          <video width="350px" height="275px" controls="false" allowfullscreen>
+          <video width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -187,7 +187,7 @@
            
             <div class="col-md-4 hover">
                 <a href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
-                <video width="100%" height="100%" controls="false" allowfullscreen>
+                <video width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -229,7 +229,7 @@
             <div class="col-md-4 showoffer1">
     <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
       <div class="card">
-	   <video width="100%" height="240" controls>
+	   <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
   <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
 
   Your browser does not support the video tag.
@@ -242,7 +242,7 @@
 	      <table class="table table-borderless text-center">
             <tr>
             	<th>Price</th>
-            	<td> <?php echo e($offer->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/minutes </td>
+            	<td> <?php echo e($offer->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>
               </tr>
 	      </table>
 	         </div>
@@ -278,7 +278,7 @@
                  <?php if($audio->type=='audio'): ?>
               <div class="col-md-4 mb-3 audiohome">
               <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
-              <audio controls>
+              <audio controls controlsList="nodownload" disablePictureInPicture>
                  <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
             </audio>
 
@@ -417,6 +417,7 @@ h4.card-title.text-center {
    video::-webkit-media-controls {
   display:none !important;
 }
+
 .hover:hover video{ border: 2px solid yellow; }
 h5{ color :#fff;}
 @media  only screen and (max-width: 768px) {

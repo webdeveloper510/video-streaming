@@ -1,10 +1,10 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="container">
 <div class="row">
-      @foreach($playlist as $lists)
+      <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $lists): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <div class="col-md-4">
            <video width="350px" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
-                <source src="{{url('storage/app/public/video/'.$lists->videos) }}" type="video/mp4">
+                <source src="<?php echo e(url('storage/app/public/video/'.$lists->videos)); ?>" type="video/mp4">
                     Your browser does not support the video tag.
            </video>
    
@@ -16,7 +16,7 @@
 						 <li>You can not download this video.</li>
 						</ul>
 				   </div>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 </div>
 
@@ -43,4 +43,4 @@ function showop(){
 }
 </script>
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/playlistdata.blade.php ENDPATH**/ ?>

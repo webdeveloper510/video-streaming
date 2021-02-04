@@ -298,7 +298,18 @@
 </div> -->
 
 </div>
-
+<style>
+.collapse.show {
+    display: block;
+    background: white !important;
+    height: 350px;
+    color: black !important;
+    overflow-y: scroll;
+}
+.row.text-left.text-white.mt-3.red {
+    color: black !important;
+}
+</style>
 
     @include('layouts.footer')
 

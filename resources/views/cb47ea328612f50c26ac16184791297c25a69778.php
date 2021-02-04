@@ -104,11 +104,12 @@
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 				   </video>
 				   <?php else: ?>
-				  
-				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
+				   <div class="artistaudiopage col-md-4">
+				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
 				   <audio controls>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="audio/mp3">
 				   </audio>
+					</div>
 				   <?php endif; ?>
 				   <div class="report-op">
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
@@ -404,6 +405,14 @@ ul.reporting {
     padding: 8px 6px 8px;
     text-align: left;
     font-size: 13px;
+}
+.artistaudiopage {
+    margin: 1px auto;
+    padding: 4px;
+}
+
+.artistaudiopage img {
+    height: 184px;
 }
 </style>
 <script type="text/javascript">

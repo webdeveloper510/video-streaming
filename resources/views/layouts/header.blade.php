@@ -2,7 +2,7 @@
 
 
 <link rel="stylesheet" href="{{asset('design/header.css')}}" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <header id="default_header" class="header_style_1">
@@ -595,6 +595,7 @@
                 </div>
               </li>
               <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li>
+              <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li>
 						</div>
 					</div>
 				</nav>
@@ -628,6 +629,10 @@ button.btn.btn-warning.text-white {
     border-bottom-right-radius: 6px !important;
     border-top-right-radius: 6px !important;
     border-radius: 6px;
+}
+.borderhover:hover {
+    border: 2px solid yellow;
+    padding-left: 32px;
 }
 .noti-icon p {
     color: white;
