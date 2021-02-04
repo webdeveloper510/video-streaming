@@ -23,7 +23,7 @@
 			?>
 			
 			
-				<?php if($video->type=='video'): ?>
+				<?php if($video->type=='video' || $video->type=='audio'): ?>
 			
 				<div class="col-md-5">
 				   <div class="content-area">
@@ -99,9 +99,15 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
+						<?php if($video->type=='video'): ?>
 				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 				   </video>
+				   <?php else: ?>
+				   <audio controls>
+				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="audio/mp3">
+				   </audio>
+				   <?php endif; ?>
 				   <div class="report-op">
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
 						<ul style="display:none;" class="reporting">
@@ -136,7 +142,7 @@
 							   <p>Media Type</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>mp4</p>
+							   <p><?php echo e($video->type=='video' ? mp4:'mp3'); ?></p>
 							</div>
 						 </div>
 					  </div>
