@@ -38,6 +38,11 @@
 hr{
   background:white;
 }
+.artistnoimage a{
+  margin: 0px 24px;
+    display: block;
+
+}
     </style>
   </head>
   <body>
@@ -82,11 +87,13 @@ hr{
                   <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
                </div>
                <?php else: ?>
+               <div class="artistnoimage">
                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
 		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
 	           	<div class="profileImage"></div>
 
                </a>
+              </div>
              
              <?php endif; ?>
                </div>

@@ -242,7 +242,7 @@
 	      <table class="table table-borderless text-center">
             <tr>
             	<th>Price</th>
-            	<td> {{$offer->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/minutes </td>
+            	<td> {{$offer->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>
               </tr>
 	      </table>
 	         </div>

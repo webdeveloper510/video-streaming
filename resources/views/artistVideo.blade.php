@@ -384,6 +384,10 @@
     top: 6px;
     padding-left: 267px;
 }
+.content-cart .addToCart:hover {
+    background: #0062cc !important;
+    border: 1px solid #0062cc !important;
+}
 ul.reporting {
     background: #efefef;
     width: 241px;
