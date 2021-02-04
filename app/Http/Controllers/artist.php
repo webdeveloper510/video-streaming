@@ -67,6 +67,8 @@ class artist extends Controller
          
          $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
 
+        // print_r($allArtistsAudio);die;
+
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
 
           $isSubscribe =         $this->model->isSubscribe($artistid);
@@ -154,9 +156,9 @@ class artist extends Controller
 
          $all_play_lists = $this->model->getPlaylist();
 
-         //echo "<pre>";
+        //  echo "<pre>";
 
-         //print_r($allVedios);die;
+        //  print_r($allVedios);die;
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';

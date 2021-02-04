@@ -350,5 +350,6 @@ ul.selected {
 .close {
      margin-top: 7px;
 }
+
 </style>
 @include('layouts.footer')

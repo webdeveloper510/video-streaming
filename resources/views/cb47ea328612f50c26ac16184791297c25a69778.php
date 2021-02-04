@@ -23,12 +23,12 @@
 			?>
 			
 			
-				<?php if($video->type=='video'): ?>
+				<?php if($video->type=='video' || $video->type=='audio'): ?>
 			
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3><?php echo e($video->title); ?></h3>
-					  <p><?php echo e($video->nickname); ?></p>
+					  <a href="<?php echo e(url('artistDetail/'.$video->contentProviderid)); ?>"><p><?php echo e($video->nickname); ?></p></a>
 				   </div>
 				</div>
 				<div class="col-md-2">
@@ -46,12 +46,12 @@
                       <span class="itemCount"><?php echo e($count); ?></span>
 
                    </div>
- <button type="button" id="<?php echo e($video->id); ?>" class="addToCart">
+ <button type="button" style="cursor:pointer;" id="<?php echo e($video->id); ?>" class="addToCart">
  	 	
  	Add to Wishlist
  </button>
 
-<button  type="button" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<button  type="button" style="cursor:pointer;" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
 <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -99,9 +99,17 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
+						<?php if($video->type=='video'): ?>
 				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 				   </video>
+				   <?php else: ?>
+				  
+				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg">
+				   <audio controls>
+				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="audio/mp3">
+				   </audio>
+				   <?php endif; ?>
 				   <div class="report-op">
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
 						<ul style="display:none;" class="reporting">
@@ -136,7 +144,7 @@
 							   <p>Media Type</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>mp4</p>
+							   <p><?php echo e($video->type=='video' ? mp4:'mp3'); ?></p>
 							</div>
 						 </div>
 					  </div>
@@ -383,6 +391,10 @@
     width: 100%;
     top: 6px;
     padding-left: 267px;
+}
+.content-cart .addToCart:hover {
+    background: #0062cc !important;
+    border: 1px solid #0062cc !important;
 }
 ul.reporting {
     background: #efefef;
