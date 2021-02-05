@@ -147,7 +147,7 @@
 							   <p>Media Type</p>
 							</div>
 							<div class="Media-Type1">
-							   <p><?php echo e($video->type=='video' ? mp4:'mp3'); ?></p>
+							   <p><?php echo e($video->type=='video' ? 'mp4':'mp3'); ?></p>
 							</div>
 						 </div>
 					  </div>
