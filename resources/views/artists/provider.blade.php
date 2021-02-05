@@ -39,15 +39,19 @@
         @endforeach
   {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
-          <input type="radio" class="select_media_pic" name="radio" value="audio"/>Audio
-          <input type="radio" class="select_media_pic" name="radio" value="video"/>Video
+          
       <div class="container profile">
         <h2 class="text-center">Content Upload</h2>
+        <div class="mt-5">
+          <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
+          <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+          </div>
           <div class="row align-items-center text-white">
              <div class="col-md-6 mt-2 ">
             {{Form::label('Title', 'Title')}} 
                 {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
             </div>
+         
             <div class="col-md-6 mt-2 convert">
            {{Form::label('Convert to:', 'Convert to:')}} 
            <select name="Convert"  class='form-control'>
@@ -99,7 +103,18 @@
   label {
     color: white;
 }
+.mt-5 p {
+    font-size: 22px !important;
+    padding-right: 18px;
+}
 
+.mt-5 {
+    display: inline-flex;
+}
+
+input.select_media_pic {
+    height: 21px;
+}
 
 .overlay1 {
 

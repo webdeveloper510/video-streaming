@@ -44,16 +44,20 @@
 
           <?php echo e(Form::token()); ?>
 
-          <input type="radio" class="select_media_pic" name="radio" value="audio"/>Audio
-          <input type="radio" class="select_media_pic" name="radio" value="video"/>Video
+          
       <div class="container profile">
         <h2 class="text-center">Content Upload</h2>
+        <div class="mt-5">
+          <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
+          <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+          </div>
           <div class="row align-items-center text-white">
              <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
 
             </div>
+         
             <div class="col-md-6 mt-2 convert">
            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
            <select name="Convert"  class='form-control'>
@@ -84,7 +88,7 @@
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
 
             </div>
             <div class="col-md-6 mt-3">
@@ -111,7 +115,18 @@
   label {
     color: white;
 }
+.mt-5 p {
+    font-size: 22px !important;
+    padding-right: 18px;
+}
 
+.mt-5 {
+    display: inline-flex;
+}
+
+input.select_media_pic {
+    height: 21px;
+}
 
 .overlay1 {
 
