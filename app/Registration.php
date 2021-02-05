@@ -372,6 +372,7 @@ public function uploadContentProvider($contentdata){
      $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
+      unset($contentdata['radio']);
     //$duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
    // $timeArr = explode(':', $duration);
     // $contentdata['duration']= ($timeArr[0]*3600 ) + ($timeArr[1]*60) + ($timeArr[2]);
