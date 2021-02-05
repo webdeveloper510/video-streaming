@@ -1476,6 +1476,27 @@ function getPaz(a){
 }
 
 
+$(document).on('click','.select_media_pic',function(){
+		
+			var value = $(this).val();
+
+			if(value=='audio'){
+
+					$('.media_label').text('Choose Audio');
+					$('.audio_picture').show();
+					$('.convert').hide();
+
+			}
+			else{
+
+				$('.audio_picture').hide();
+
+				$('.media_label').text('Choose Video');
+
+				$('.convert').show();
+			}
+})
+
     
 
 /*------------------------------------------Add Active Class-----------------------------------------------*/

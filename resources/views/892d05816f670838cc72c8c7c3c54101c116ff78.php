@@ -138,4 +138,4 @@ section.background1 {
        
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/provider.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>

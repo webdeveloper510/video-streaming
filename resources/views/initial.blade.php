@@ -236,7 +236,7 @@
 </video>
 
 	  <div class="carad-body">
-	      <h4 class="card-title text-center">Offer Tittle: {{$offer->title}}</h4>
+	      <h4 class="card-title text-center"> {{$offer->title}}</h4>
 	     
 	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">

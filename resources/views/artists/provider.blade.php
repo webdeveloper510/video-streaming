@@ -39,6 +39,8 @@
         @endforeach
   {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
+          <input type="radio" class="select_media_pic" name="radio" value="audio"/>Audio
+          <input type="radio" class="select_media_pic" name="radio" value="video"/>Video
       <div class="container profile">
         <h2 class="text-center">Content Upload</h2>
           <div class="row align-items-center text-white">
@@ -46,7 +48,7 @@
             {{Form::label('Title', 'Title')}} 
                 {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
             </div>
-            <div class="col-md-6 mt-2 ">
+            <div class="col-md-6 mt-2 convert">
            {{Form::label('Convert to:', 'Convert to:')}} 
            <select name="Convert"  class='form-control'>
                     <option value="">Choose ...</option>
@@ -69,7 +71,11 @@
             </select>
             </div>
             <div class="col-md-6 mt-3 text-white">
-            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label'])}} 
+            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
+                {{Form::file('media',['class'=>'custom-file-input'])}}
+            </div>
+            <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
+            {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-3">
