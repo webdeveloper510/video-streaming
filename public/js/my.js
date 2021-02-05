@@ -86,8 +86,50 @@ $(document).ready(function(){
   var firstName = $('.firstName').text();
    var intials = $('.firstName').text().charAt(0);
    var profileImage = $('.profileImage').text(intials);
+
+	$(".hoverVideo").hover(function(){
+
+		//alert('hhh');
+
+		playVideo();
+				
+		}, function(){
+			var video = document.getElementsByClassName('hoverVideo');
+			video[0].pause();
+	});
   
 });
+
+function playVideo(){
+
+	var starttime = 5;  // start at 7 seconds
+    var endtime = 10;    // stop at 17 seconds
+
+    var video = document.getElementsByClassName('hoverVideo');
+
+
+	//console.log(video[0].duration);return false;
+
+	video[0].autoplay = true;
+	video[0].muted = true; 
+
+	//console.log(video);return false;
+
+    video[0].addEventListener("timeupdate", function() {
+       if (this.currentTime >= endtime) {
+		     playVideo();
+        }
+    }, false);
+
+			//suppose that video src has been already set properly
+			video[0].load();
+			video[0].play();    //must call this otherwise can't seek on some browsers, e.g. Firefox 4
+			try {
+				video[0].currentTime = starttime;
+			} catch (ex) {
+				//handle exceptions here
+			}
+}
 $(document).ready(function() {
 
        //console.log('hello');
@@ -112,6 +154,8 @@ $(document).ready(function() {
   	//var notId2= $(".media1:not(:checked)").attr('class').split(' ');
   	//$('#'+id1[1]).show();
   	//$('#'+notId2[1]).hide();
+
+
 
         
     });
@@ -1430,6 +1474,10 @@ function getPaz(a){
 	$('.set_paz').val(a);
 	//console.log(a);
 }
+
+
+    
+
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 
 // $('.nav-item').click(function(){

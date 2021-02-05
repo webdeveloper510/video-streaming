@@ -3,7 +3,7 @@
 <div class="container">
 
 <div class="offer ">
-<h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
+<h4 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h4> 
 <h5>Audio/Video</h5>
 <p><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </p>
 <div class="text-right">
