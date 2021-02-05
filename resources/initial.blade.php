@@ -1,3 +1,4 @@
+@@ -1,482 +0,0 @@
 @include('layouts.header')
 <link rel="stylesheet" href="{{asset('design/initial.css')}}" />
 

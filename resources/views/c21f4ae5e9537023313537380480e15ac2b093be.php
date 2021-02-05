@@ -226,7 +226,7 @@
          <?php $__empty_1 = true; $__currentLoopData = $offers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($offer->type=='video'): ?>
             
-            <div class="col-md-4 showoffer1">
+            <div class="col-md-4 showoffer1 mb-3">
     <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
       <div class="card">
 	   <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
@@ -240,6 +240,14 @@
 	     
 	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">
+        <tr>
+          <th>Category</th>
+          <td><?php echo e($offer->category); ?></td>
+        </tr>
+        <tr>
+          <th>Media</th>
+          <td><?php echo e($offer->type=='video'? 'Video/mp4' :'Audio/mp3'); ?></td>
+        </tr>
             <tr>
             	<th>Price</th>
             	<td> <?php echo e($offer->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>

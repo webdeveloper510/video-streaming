@@ -327,6 +327,12 @@
       <div class="container">
       <style>
 
-
+.levlv {
+    width: 178px;
+    color: #fff;
+    display: flex;
+    padding-top: 13px;
+    padding-left: 20px;
+}
 </style>
       <!-- End Navbar --><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
