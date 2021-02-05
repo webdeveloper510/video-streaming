@@ -570,7 +570,11 @@ class AuthController extends Controller
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
               $data['media']=$fileName;
+              
+              $data['audio_pic'] = $audio_pics ? $audio_pics : '';
+
               $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+
                 if($filePath){
 
                 $update_data = $this->model->uploadContentProvider($data);
