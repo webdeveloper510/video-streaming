@@ -414,7 +414,7 @@ public function getRecentlySearch(){
 public function getArtists($flag){
     if($flag=='No'){
 
-      $artists=DB::table('contentprovider')->take(3)->get()->toArray();
+      $artists=DB::table('contentprovider')->take(5)->get()->toArray();
     }
     else{
 
