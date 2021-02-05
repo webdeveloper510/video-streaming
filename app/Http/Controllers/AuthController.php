@@ -546,6 +546,7 @@ class AuthController extends Controller
   public function providerContent(Request $request){
         $this->validate($request,[
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
+          'audio_pic'=>'required',
           'description'=>'required',
           //'hour'=>'required',
           //'minutes'=>'required',
@@ -561,6 +562,8 @@ class AuthController extends Controller
       if($request->media){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
+              $audio_pics = time().'_'.$request->audio_pic->getClientOriginalName();
+              $request->audio_pic->storeAs('uploads',$audio_pics,'public');
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
                  $size=$request->media->getSize();

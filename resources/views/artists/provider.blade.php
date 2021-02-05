@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
-                {{Form::file('media',['class'=>'custom-file-input'])}}
+                {{Form::file('audio_pic',['class'=>'custom-file-input'])}}
             </div>
             <div class="col-md-6 mt-3">
             {{Form::label('Description', 'Description')}} 
