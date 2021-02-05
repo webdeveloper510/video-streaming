@@ -1826,7 +1826,7 @@ public function getallOffer($flag){
           return  DB::table('offer')
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
-          ->get()
+          ->take(3)
           ->toArray();
         }
   else{
