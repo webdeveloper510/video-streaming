@@ -1,18 +1,22 @@
-@include('artists.dashboard')
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
- @if(session('success'))
+ <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
-        {{session('success')}}
+        <?php echo e(session('success')); ?>
+
         </div>
-        @endif
+        <?php endif; ?>
            
-          @if(session('error'))
+          <?php if(session('error')): ?>
         <div class="alert alert-danger" id="error">
-        {{session('error')}}
+        <?php echo e(session('error')); ?>
+
         </div>
-        @endif
-{!!Form::open(['action' => 'artist@createOffer', 'method' => 'post', 'files'=>true])!!}
-          {{Form::token()}}
+        <?php endif; ?>
+<?php echo Form::open(['action' => 'artist@createOffer', 'method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?>
+
       <div class="container profile ">
         <h1 class="text-center">Create Offer</h1>
         
@@ -29,7 +33,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{url('artist/contentUpload')}}">Content Upload</a>
+            <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Content Upload</a>
         </div>
          
 
@@ -39,7 +43,7 @@
         </div>
                     <div class="col-md-4 mt-5 ">
 
-            {{Form::label('Media Offering', 'Media Offering')}} <br>
+            <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
         <div class="radiobtn">
           <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
           <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
@@ -48,36 +52,39 @@
             </div>
                 <div class="col-md-4 mt-5 ">
 
-                {{Form::label('Title', 'Title')}} 
-                    {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])}}
-                    @if($errors->first('title'))
+                <?php echo e(Form::label('Title', 'Title')); ?> 
+                    <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])); ?>
+
+                    <?php if($errors->first('title')): ?>
                     <div class="alert alert-danger">
                       <?php echo $errors->first('title') ?>
                     </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
            
                     <div class="col-md-4 mt-5 ">
-                    {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
-                        {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
-                        @if($errors->first('price'))
+                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                        <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])); ?>
+
+                        <?php if($errors->first('price')): ?>
                         <div class="alert alert-danger">
                           <?php echo $errors->first('price') ?>
                         </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
 
         
            
             
             <div class="col-md-6 mt-5 ">
-            {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
-                {{Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])}}
-                 @if($errors->first('delieveryspeed'))
+            <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
+                <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])); ?>
+
+                 <?php if($errors->first('delieveryspeed')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('delieveryspeed') ?>
                 </div>
-                @endif
+                <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5 ">
             <label>Quality:</label>
@@ -87,11 +94,11 @@
                     <option value="720">HD 720p </option>
                     <option value="1080">Full HD 1080p  </option>
             </select>
-            @if($errors->first('quality'))
+            <?php if($errors->first('quality')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('quality') ?>
                 </div>
-                @endif
+                <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5 ">
             <label>Duration(In Minutes)</label>
@@ -100,20 +107,22 @@
                <div class="col">
                   
                <label>Min :</label>
-               {{Form::number('min', '',['class'=>'form-control','placeholder'=>'Min'])}}
+               <?php echo e(Form::number('min', '',['class'=>'form-control','placeholder'=>'Min'])); ?>
+
                  </div>
                      <div class="col">
                    <label>Max :</label>
-                   {{Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])}}
+                   <?php echo e(Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])); ?>
+
                          </div>
                      </div>
             </div>
                <div class="col-md-6 mt-5 pt-4">
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
-                    @foreach($category as $cat)
-                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-                    @endforeach
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div>
 
@@ -122,14 +131,15 @@
            
             <div class="col-md-6 mt-5">
             <label>Sample Audio/Video/Image(Max 30s)</label>
-                 {{Form::label('Audio/Video', 'Audio/Video')}} <br>
-            {{Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])}} 
-                {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
-                 @if($errors->first('media'))
+                 <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
+            <?php echo e(Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])); ?> 
+                <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+
+                 <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
                 </div>
-                @endif
+                <?php endif; ?>
                 <span id="filename" style="color:red;"></span>
                 <div class="col-md-6 mt-5">
               <video width="200" id="video_choose" controls style="display:none;">
@@ -152,22 +162,24 @@
             </div>
               
             <div class="col-md-6 mt-5">
-             {{Form::label('Description', 'Description')}} 
-                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])}}
-                 @if($errors->first('description'))
+             <?php echo e(Form::label('Description', 'Description')); ?> 
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])); ?>
+
+                 <?php if($errors->first('description')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('description') ?>
                 </div>
-                @endif
+                <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5">
-             {{Form::label('Additional Request', 'Additional Request Price(PAZ)')}} 
-                {{Form::number('additional_price',null,['class'=>'form-control'])}}
-                 @if($errors->first('additional_price'))
+             <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
+                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
+
+                 <?php if($errors->first('additional_price')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('additional_price') ?>
                 </div>
-                @endif
+                <?php endif; ?>
             </div>
            
            
@@ -175,11 +187,13 @@
             
 
               <div class="col-md-12 text-center pt-3">
-            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+
           </div>
     
      </div>
-  {{ Form::close() }}
+  <?php echo e(Form::close()); ?>
+
 
 
 
@@ -206,4 +220,4 @@ input.select_media_pic {
     color: #7b0000 ;
 }
 </style>
- @include('artists.dashboard_footer');
+ <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/offer.blade.php ENDPATH**/ ?>
