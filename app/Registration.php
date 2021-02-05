@@ -432,17 +432,19 @@ public function getArtistDetail($artid,$type){
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
+
        if($artistsDetail){
+
            $data =  $artistsDetail;
        }
 
        else{
 
-        $artistsDetail = DB::table('contentprovider')
-        ->where('id',$artid)
-        ->get()
-        ->toArray();
-        $data =  $artistsDetail;
+          $artistsDetail = DB::table('contentprovider')
+          ->where('id',$artid)
+          ->get()
+          ->toArray();
+          $data =  $artistsDetail;
 
        }
 
@@ -1821,7 +1823,11 @@ public function getHistoryVideo(){
 public function getallOffer($flag){
         if($flag=='No'){
 
-          return DB::table('offer')->take(3)->get()->toArray();
+          return  DB::table('offer')
+          ->leftjoin('category','offer.categoryid','=','category.id')
+          ->select('offer.*','category.category')
+          ->get()
+          ->toArray();
         }
   else{
 

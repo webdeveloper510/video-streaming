@@ -338,8 +338,8 @@ class AuthController extends Controller
 
            $popularVideos = $this->model->PopularVideos($paginate='No','video');
            $popularaudios = $this->model->PopularVideos($paginate='No','audio');
-
-          //print_r($Recentlydata);die;
+          //    echo "<pre>";
+          //  print_r($offersVideos);die;
 
           $newComes=$this->model->getNewComes();
 

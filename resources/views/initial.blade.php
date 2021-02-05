@@ -226,7 +226,7 @@
          @forelse ($offers as $offer)
             @if($offer->type=='video')
             
-            <div class="col-md-4 showoffer1">
+            <div class="col-md-4 showoffer1 mb-3">
     <a href="{{url('artistoffers/'.$offer->id)}}">
       <div class="card">
 	   <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
@@ -240,6 +240,14 @@
 	     
 	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">
+        <tr>
+          <th>Category</th>
+          <td>{{$offer->category}}</td>
+        </tr>
+        <tr>
+          <th>Media</th>
+          <td>{{$offer->type=='video'? 'Video/mp4' :'Audio/mp3' }}</td>
+        </tr>
             <tr>
             	<th>Price</th>
             	<td> {{$offer->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>
