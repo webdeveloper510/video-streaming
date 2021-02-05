@@ -134,7 +134,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
-            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -201,7 +201,7 @@ Your browser does not support the audio tag.
                      <i class="fa fa-play"></i>
                 </div>
                 </a>
-            <video width="100%" height="250" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="250" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.

@@ -3,10 +3,13 @@
 <section class="background1">
 <div class="container">
 
-<div class="row mt-5 pt-5">
+<div class="row mt-5 pt-5 text-center">
     <div class="col-md-3">
-          <div class="columesdashboard">
-          <?php 
+    <h3 class="text-center">Due</h3>
+    <div class="columesdashboard">
+    <div class="row">
+      <div class="col-6">
+      <?php 
             $_GLOBEL['count'] =0;
           ?>
           @foreach($count_due_project as $data)
@@ -18,25 +21,76 @@
           @endforeach
           
             <h1>{{$_GLOBEL['count']}}</h1>
-            <h4>Order/Project <br>Due</h4>
-          </div>
+                  <h4>Order </h4>
+            </div> 
+   
+      <div class="col-6">
+      <?php 
+            $_GLOBEL['count'] =0;
+          ?>
+          @foreach($count_due_project as $data)
+              @if(date('Y-m-d')== $data->dates)
+                <?php 
+                $_GLOBEL['count']= $_GLOBEL['count']+1;
+                ?>
+              @endif
+          @endforeach
+          
+            <h1>{{$_GLOBEL['count']}}</h1>
+                  <h4>Project </h4>
+            </div> 
+
     </div>
+
+            </div>   
+    </div>
+         
     <div class="col-md-3">
-            <div class="columesdashboard1">
+    <h3 class="text-center">In Process</h3>
+    <div class="columesdashboard1">
+    <div class="row">
+      <div class="col-6">
+     
                   <h1>{{$process_total}}</h1>
-                  <h4>Order/Project <br>In Process</h4>
-            </div>    
+                  <h4>Order </h4>
+            </div> 
+   
+      <div class="col-6">
+     
+                  <h1>{{$process_total}}</h1>
+                  <h4>Project </h4>
+            </div> 
+
+    </div>
+
+            </div>   
     </div>
     <div class="col-md-3">
+    <h3 class="text-center">Project</h3>
     <div class="columesdashboard2">
-           <h1>{{$count_new_projects}}</h1>
-           <h4>New<br> Order/Project</h4>
-        </div>     
+    <div class="row">
+      <div class="col-6">
+     
+          <h1>{{$count_new_projects}}</h1>
+                  <h4>New </h4>
+            </div> 
+   
+      <div class="col-6">
+     
+            <h1>{{$count_new_projects}}</h1>
+                  <h4>Order </h4>
+            </div> 
+
     </div>
+
+            </div>   
+    </div>
+   
     <div class="col-md-3">
+    <h3 class="text-center">Collection Items Online</h3>
     <div class="columesdashboard3">
            <h1>345</h1>
-           <h4>Collection Items <br>Online</h4>
+           
         </div>     
     </div>
 </div>
