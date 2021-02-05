@@ -145,7 +145,7 @@
 							   <p>Media Type</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>{{$video->type=='video' ? mp4:'mp3'}}</p>
+							   <p>{{$video->type=='video' ? 'mp4':'mp3'}}</p>
 							</div>
 						 </div>
 					  </div>
