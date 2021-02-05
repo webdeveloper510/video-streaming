@@ -191,22 +191,22 @@
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 	<section>
 	   <div class="container-fluid">
-		  <div class="row">
-			 <div class="col-md-12">
-				<h3 class="top selling-content">
-				<span>$</span>Top Selling Content
-				<h3>
-			 </div>
-		  </div>
+			<div class="row">
+					<div class="col-md-12">
+						<h3 class="top selling-content">
+						<span>$</span>Top Selling Content
+						<h3>
+					</div>
+			</div>
 		  <div class="row">
 			 <div class="col-md-12">
 				<div id="demo" class="carousel slide" data-ride="carousel">
 				   <!-- Indicators -->
-				   <ul class="carousel-indicators">
-					  <li data-target="#demo" data-slide-to="0" class="active"></li>
-					  <li data-target="#demo" data-slide-to="1"></li>
-					  <li data-target="#demo" data-slide-to="2"></li>
-				   </ul>
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
 				   <!-- The slideshow -->
 				   <div class="carousel-inner">
 					  <div class="carousel-item active">

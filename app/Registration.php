@@ -414,7 +414,7 @@ public function getRecentlySearch(){
 public function getArtists($flag){
     if($flag=='No'){
 
-      $artists=DB::table('contentprovider')->take(3)->get()->toArray();
+      $artists=DB::table('contentprovider')->take(5)->get()->toArray();
     }
     else{
 
@@ -1826,6 +1826,7 @@ public function getallOffer($flag){
           return  DB::table('offer')
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
+          ->take(3)
           ->get()
           ->toArray();
         }
