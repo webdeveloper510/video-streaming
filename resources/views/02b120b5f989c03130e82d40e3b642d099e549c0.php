@@ -22,6 +22,7 @@
         
           <div class="row align-items-center text-white">
           <div class="col-md-12 mt-5 ">
+          
           <ul class="nav">
          
          <li class="nav-item dropdown ">
@@ -43,9 +44,11 @@
                     <div class="col-md-4 mt-5 ">
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
-               <input type="checkbox" name="type" value="video"/>Video
-               <input type="checkbox" name="type" value="audio"/>Audio
-      
+        <div class="radiobtn">
+          <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
+          <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+   
+            </div>
             </div>
                 <div class="col-md-4 mt-5 ">
 
@@ -199,7 +202,19 @@
     color: #333333;
     background-color: #eeeeee;
   }
+  .mt-5 p {
+    font-size: 22px !important;
+    padding-right: 18px;
+    color: #333333;
+}
+.radiobtn{
+  display:inline-flex;
+}
 
+
+input.select_media_pic {
+    height: 21px;
+}
   a#navbarDropdown23 {
     border: 1px solid #7b0000 ;
     color: #7b0000 ;
