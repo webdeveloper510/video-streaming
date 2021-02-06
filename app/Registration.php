@@ -369,7 +369,7 @@ public function uploadContentProvider($contentdata){
    
     $contentdata['contentProviderid']=$contentid;
      $contentdata['catid']=$contentdata['category'];
-     $contentdata['subid']=1;
+    // $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
       unset($contentdata['radio']);
