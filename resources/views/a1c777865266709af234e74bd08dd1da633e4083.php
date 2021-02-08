@@ -618,7 +618,6 @@
      <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
                 </div>
               </li>
-              <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li>
 						</div>
 					</div>
 				</nav>
