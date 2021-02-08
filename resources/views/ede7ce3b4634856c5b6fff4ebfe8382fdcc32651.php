@@ -15,21 +15,21 @@
     
              <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
              </h3>
-            <button class="btn btn-light text-right msg mb-3" type="button"> Send Message</button>
+            <!-- <button class="btn btn-light text-right msg mb-3" type="button"> Send Message</button>
             <br>
                <div class="text-left buttons">
                      <input type="text" id="paz_amount"  placeholder="PAZ Amount" class="form-control ">
                      <button class="btn btn-info" data-id="<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>" id="addTip" type="button">Send Tip</button>
                      <strong id="total_paz" placeholder="PAZ" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
-               </div>
+               </div> -->
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
     <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
-    <a class="nav-link tabss " id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="false"><i class="fa fa-newspaper-o"> </i> feed</a>
-    
+    <!-- <a class="nav-link tabss " id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="false"><i class="fa fa-newspaper-o"> </i> feed</a>
+     -->
   </div>
 </nav>
 
@@ -108,7 +108,7 @@
   <option  value="video">Video</option>
   <option value="audio">Audio</option>
 
-  <option value="playlist">Playlists</option>
+  <!-- <option value="playlist">Playlists</option> -->
   
 </select>
 </div>
@@ -154,11 +154,11 @@
           </div>
           </div>
   <!------------------------------------------------------------Audio Section---------------------------------------------------------------------->      
-     <div class="filter_div" id="audio">
+     <div class="filter_div pb-5" id="audio">
   
      <h3>Audios</h3>
      <div class="row mb-5">
-      <?php if($audio): ?>
+      <?php if(isset($audio->type)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
@@ -186,7 +186,7 @@ Your browser does not support the audio tag.
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-  <div class="filter_div" id="playlist">
+  <!-- <div class="filter_div" id="playlist">
 
          <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
@@ -214,7 +214,7 @@ Your browser does not support the audio tag.
             </div>
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
-</div>
+</div> -->
 </div>
             <!-- --------------Long videos -------------------->
       
@@ -247,9 +247,9 @@ Your browser does not support the audio tag.
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
     
-    <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
+    <!-- <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
     <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
-    </div>
+    </div> -->
   
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -321,7 +321,9 @@ select.form-select.form-control, select.form-select.form-control * {
 .hover:hover video {
     border: 2px solid yellow;
 }
-
+.coverimg img {
+    object-fit: cover;
+}
 .price {
     border-top: 1px solid #0000003d;
     border-bottom: 1px solid #0000003d;

@@ -5,13 +5,13 @@
           <div class="col-lg-10">
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ! </span>
-      <div class="data">
+      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> !   <div class="data">
          <h3> PAZ Service Fee :20%</h3>
          <h3> Level 3 <small>(you save)</small>: 6%</h3>
          <hr>
          <h3>Current Fee : <span> 14%</span></h3>
-      </div>  </h3>
+      </div> </span>
+      </h3>
          
    </div> 
      <div class="row">
@@ -93,7 +93,7 @@ span.iconss:hover .data {
     padding: 0px;
     margin: 0px;
 }
-     </style>
+ </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

@@ -93,7 +93,7 @@ span.iconss:hover .data {
     padding: 0px;
     margin: 0px;
 }
-     </style>
+ </style>
 
  @include('artists.dashboard_footer')
 

@@ -4,12 +4,12 @@
 
 <div class="offer ">
 <h4 style=" margin-top: 10% !important;">{{$offer[0]->title}}</h4> 
-<h5>Audio/Video</h5>
-<p>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </p>
+<!-- <h5>Audio/Video</h5> -->
+<h3>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </h3>
 <div class="text-right">
 <button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" onclick="subscribe({{$offer[0]->artistid}},true)" id="subscribe">Subscribe </button>
     
- <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" id="unsubscribe" onclick="subscribe({{$offer[0]->artistid}},false)">Un Subscribed </button>
+ <button class="btn btn-secondary text-left {{$isSubscribed ? 'block' : 'hide'}}" id="unsubscribe" onclick="subscribe({{$offer[0]->artistid}},false)">Un Subscribed </button>
 </div>
 <p>Sample</p>
 @foreach($offer as $offerdata)
@@ -40,8 +40,8 @@ $GLOBALS['price'] = $offerdata->price;
       <p>video</p>
   </div>
   <div class="col">
-      <h3>Price/Min</h3>
-      <p>{{$offerdata->price}} PAZ/Min</p>
+      <h3>Price</h3>
+      <p>{{$offerdata->price}} PAZ/Minute</p>
   </div>
   <div class="col">
       <h3>Quality</h3>

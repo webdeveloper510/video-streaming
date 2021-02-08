@@ -4,8 +4,8 @@
 
 <div class="offer ">
 <h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
-<h5>Audio/Video</h5>
-<p>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  {{$offer[0]->count}} </p>
+<!-- <h5>Audio/Video</h5> -->
+<h3>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  {{$offer[0]->count}} </h3>
 </div>
 <p>Sample</p>
 @foreach($offer as $offerdata)
@@ -36,7 +36,7 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Price</h3>
-      <p>{{$offerdata->price}}/PAZ</p>
+      <p>{{$offerdata->price}}PAZ/minute</p>
   </div>
   <div class="col">
       <h3>Quality</h3>
