@@ -38,7 +38,8 @@
 				</div>
 				<div class="col-md-3">
 				   <div class="content-cart">
-				
+				   
+              
  <button type="button" style="cursor:pointer;" id="<?php echo e($video->id); ?>" class="addToCart">
  	 	
  	Add to Wishlist
