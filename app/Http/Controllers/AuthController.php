@@ -1079,6 +1079,12 @@ public function selectListname(Request $request){
 
         }
 
+        else if($data=='Already'){
+
+          return response()->json(array('status'=>1, 'messge'=>'You have already buyed this video!'));
+
+       }
+
         else{
              return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
         }
