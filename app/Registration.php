@@ -1187,23 +1187,21 @@ public function getRespectedSub($data){
 
     public function buyVideo($vid){
 
-        //print_r($vid);die;
-
         $session_data =   Session::get('User');
 
         $userid=  $session_data->id;
 
-        //$vid['']
 
         $checkTokn = $this->selectDataById('id','users',$userid);
+
         $token = $checkTokn[0]->tokens;
 
         if($token > $vid['price']){
 
-         // echo "yes";die;
 
-        $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
-        //print_r($value);die;
+       
+         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
+
         $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
 
           return $return;
@@ -1215,7 +1213,7 @@ public function getRespectedSub($data){
 
     public function updateUserVideo($uid,$video,$tok,$type){
 
-         // print_r($video);die;
+         
 
       if(isset($video['user_id'])){
             $ids = $video['user_id'];
@@ -1235,6 +1233,8 @@ public function getRespectedSub($data){
 
       else{
 
+      ///  print_r($video);die;
+        
              $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
             ->update([
                   'videoid' => DB::raw("CONCAT(videoid,',".$video['videoid']."')"),
@@ -1353,16 +1353,18 @@ public function getRespectedSub($data){
        // print_r($lists);die;
         $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
 
-       // print_r($newData);die;
+        
 
-        $videoIds = implode(',',$newData);
+        $videoIds = (is_array($newData)) ? implode(',',$newData):'';
       
 
         $lists['userid'] = $userid;
 
-        $ids  = $newData ;
+        $ids[]  = $newData ;
 
-        $lists['videoid'] = $videoIds;
+        //$lists['videoid'] = $videoIds;
+
+        
 
         $return = 0;
 
@@ -1392,27 +1394,36 @@ public function getRespectedSub($data){
 
     $newListid = implode(',',$result_array);
 
-    //print_r($listname);die;
+    //print_r($lists);die;
 
      $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
             'listvideo' =>$newListid  //DB::raw("CONCAT(listvideo,',".$videoid."')")
           ]);
 
-        //print_r($update);die;
+      //print_r($update);die;
 
-         if(isset($update)){
+         if(isset($update)){         
 
-           $buyed = $this->buyVideo($lists);
+              $data = \DB::table("user_video")
+              ->select("user_video.*")
+              ->whereRaw("find_in_set('".$lists['videoid']."',user_video.videoid)")
+              ->get();
+                  if(count($data)<1){
 
-               // print_r($buyed);die;
+                 $buyed = $this->buyVideo($lists);
 
-              $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
-               // print_r($reduce);die;
+                $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
-               $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds,$tokens) : 0;
+                              
+                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids,$tokens) : 0;
 
                 $return = $status_succedd;
+
+            }
+            else{
+              $return = 'Already';
+            }
 
          }
 
@@ -1522,7 +1533,7 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
   //print_r($databasetoks);die;
 
         if($tok < $databasetoks){
-         // echo "yes";die;
+         //echo "yes";die;
              $update = DB::table('users')->where(array('id'=>$userid))->update([
             'tokens' =>  DB::raw('tokens -'.$tok)
           ]);

@@ -62,9 +62,7 @@
         </button>
       </div>
       <div class="modal-body text-left">
-      	<div class="alert alert-success message" role="alert" style="display: none">
-        A simple success alert—check it out!
-   </div>
+    
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
       	<?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -82,6 +80,9 @@
       <input type="hidden" class="token" name="token" value="<?php echo e($GLOBALS['paz']); ?>">
       <input type="hidden" class="art_id" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
       <button type="button" class="addNow">ADD NOW</button>
+	  <div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
   </div>
       </div>
     

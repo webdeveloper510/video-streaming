@@ -62,9 +62,7 @@
         </button>
       </div>
       <div class="modal-body text-left">
-      	<div class="alert alert-success message" role="alert" style="display: none">
-        A simple success alert—check it out!
-   </div>
+    
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
       	@foreach($listname as $index=>$val)
@@ -82,6 +80,9 @@
       <input type="hidden" class="token" name="token" value="{{ $GLOBALS['paz'] }}">
       <input type="hidden" class="art_id" name="art_id" value="{{ $GLOBALS['artistid'] }}">
       <button type="button" class="addNow">ADD NOW</button>
+	  <div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
   </div>
       </div>
     
