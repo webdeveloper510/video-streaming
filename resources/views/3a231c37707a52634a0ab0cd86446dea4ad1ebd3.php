@@ -13,7 +13,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
         <thead>
             <tr>
-                <th><img src="{{asset('images/email.jpg')}}"  alt="email-image" width="590px"></th>
+                <th><img src="https://www.pure360.com/wp-content/uploads/2015/04/shutterstock_701522602.jpg"  alt="email-image" width="590px"></th>
             </tr>
         </thead>
          <tbody>
@@ -29,7 +29,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                  <td> 
-                    <a href="{{url('/reset')}}">Click Here</a>
+                    <a href="<?php echo e(url('/reset')); ?>">Click Here</a>
                   
                 </td>
              </tr>
@@ -40,4 +40,4 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
 
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/forgot.blade.php ENDPATH**/ ?>
