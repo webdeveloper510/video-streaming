@@ -6,10 +6,12 @@
    <div class="row pt-5 mt-5">
    @foreach($videos as $vid)
        <div class="col-md-4 my-3">
+       <a href="{{url('artist-video/'.$vid->id)}}">
            <video class="borderhover" width="350px" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+        </a>
     </div>
     @endforeach
     @else
@@ -17,11 +19,13 @@
    @foreach($audio as $aud)
        <div class="col-md-4 my-3">
             <div class="borderhover">
-                  <img src="{{asset('images/logos/voice.jpg')}}">
+            <a href="{{url('artist-video/'.$aud->id)}}">
+               <img src="{{$aud->audio_pic ? url('storage/app/public/uploads/'.$aud->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'}}">
            <audio width="350px" height="275px" controls controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
             Your browser does not support the video tag.
           </audio>
+          </a>
           </div>
  </div>
     @endforeach
