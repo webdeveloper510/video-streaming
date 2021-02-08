@@ -321,7 +321,9 @@ select.form-select.form-control, select.form-select.form-control * {
 .hover:hover video {
     border: 2px solid yellow;
 }
-
+.coverimg img {
+    object-fit: cover;
+}
 .price {
     border-top: 1px solid #0000003d;
     border-bottom: 1px solid #0000003d;
