@@ -13,7 +13,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
         <thead>
             <tr>
-                <th><img src="<?php echo e(asset('images/email.jpg')); ?>"  alt="email-image" width="590px"></th>
+                <th><img src="https://www.pure360.com/wp-content/uploads/2015/04/shutterstock_701522602.jpg"  alt="email-image" width="590px"></th>
             </tr>
         </thead>
          <tbody>
@@ -40,4 +40,4 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
 
 </body>
-</html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/forgot.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/forgot.blade.php ENDPATH**/ ?>

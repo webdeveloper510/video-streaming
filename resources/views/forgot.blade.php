@@ -13,7 +13,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
         <thead>
             <tr>
-                <th><img src="https://www.pure360.com/wp-content/uploads/2015/04/shutterstock_701522602.jpg"  alt="email-image" width="590px"></th>
+                <th><img src="{{asset('images/email.jpg')}}"  alt="email-image" width="590px"></th>
             </tr>
         </thead>
          <tbody>
