@@ -54,12 +54,6 @@
               <p> Profile</p>
             </a>
           </li>
-          <!-- <li class="nav-item {{$tab=='feed'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artists/dashboard')}}">
-            <i class="fa fa-newspaper-o"> </i>
-              <p>Feed</p>
-            </a>
-          </li> -->
           <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
               <i class="fa fa-upload"></i>
@@ -79,13 +73,13 @@
             </a>
           </li>
           <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+            <a class="nav-link" href="{{url('/#')}}">
             <i class="fa fa-ticket" aria-hidden="true"></i>
               <p>Support</p>
             </a>
           </li>
           <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+            <a class="nav-link" href="{{url('/logout')}}">
             <i class="fa fa-power-off" aria-hidden="true"></i>
               <p>Logout</p>
             </a>
