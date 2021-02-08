@@ -121,8 +121,8 @@
   <option  value="video">Video</option>
   <option value="audio">Audio</option>
 
-  <option value="playlist">Playlists</option>
-  
+  <!-- <option value="playlist">Playlists</option>
+   -->
 </select>
 </div>
 </div>
@@ -189,7 +189,7 @@ Your browser does not support the audio tag.
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <div class="filter_div" id="playlist">
+         <!-- <div class="filter_div" id="playlist">
          <h3>Bundles</h3>
           <div class="row mb-5 pb-5 filter_div" id="playlist">
           @foreach ($playlist as $play)
@@ -216,7 +216,7 @@ Your browser does not support the audio tag.
            @endforeach
           </div>
 
-</div>
+</div> -->
 <!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>
