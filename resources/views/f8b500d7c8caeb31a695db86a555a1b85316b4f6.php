@@ -1,4 +1,4 @@
-@include('artists.dashboard')
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="background1">
 <div class="container">
@@ -10,30 +10,30 @@
     <?php 
             $_GLOBEL['count'] =0;
           ?>
-          @foreach($count_due_project as $data)
-              @if(date('Y-m-d')== $data->dates)
+          <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if(date('Y-m-d')== $data->dates): ?>
                 <?php 
                 $_GLOBEL['count']= $_GLOBEL['count']+1;
                 ?>
-              @endif
-          @endforeach
+              <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           
-            <h1>{{$_GLOBEL['count']}}</h1>
+            <h1><?php echo e($_GLOBEL['count']); ?></h1>
                   <h4>Order/Project <br> Due</h4>
     <!-- <div class="row">
       <div class="col-6">
       <?php 
             $_GLOBEL['count'] =0;
           ?>
-          @foreach($count_due_project as $data)
-              @if(date('Y-m-d')== $data->dates)
+          <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if(date('Y-m-d')== $data->dates): ?>
                 <?php 
                 $_GLOBEL['count']= $_GLOBEL['count']+1;
                 ?>
-              @endif
-          @endforeach
+              <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           
-            <h1>{{$_GLOBEL['count']}}</h1>
+            <h1><?php echo e($_GLOBEL['count']); ?></h1>
                   <h4>Order </h4>
             </div> 
    
@@ -41,15 +41,15 @@
       <?php 
             $_GLOBEL['count'] =0;
           ?>
-          @foreach($count_due_project as $data)
-              @if(date('Y-m-d')== $data->dates)
+          <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if(date('Y-m-d')== $data->dates): ?>
                 <?php 
                 $_GLOBEL['count']= $_GLOBEL['count']+1;
                 ?>
-              @endif
-          @endforeach
+              <?php endif; ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           
-            <h1>{{$_GLOBEL['count']}}</h1>
+            <h1><?php echo e($_GLOBEL['count']); ?></h1>
                   <h4>Project </h4>
             </div> 
 
@@ -61,18 +61,18 @@
     <div class="col-md-3">
     <!-- <h3 class="text-center">In Process</h3> -->
     <div class="columesdashboard1">
-    <h1>{{$process_total}}</h1>
+    <h1><?php echo e($process_total); ?></h1>
                   <h4>Order/Project <br> In Process </h4>
     <!-- <div class="row">
       <div class="col-6">
      
-                  <h1>{{$process_total}}</h1>
+                  <h1><?php echo e($process_total); ?></h1>
                   <h4>Order </h4>
             </div> 
    
       <div class="col-6">
      
-                  <h1>{{$process_total}}</h1>
+                  <h1><?php echo e($process_total); ?></h1>
                   <h4>Project </h4>
             </div> 
 
@@ -83,18 +83,18 @@
     <div class="col-md-3">
     <!-- <h3 class="text-center">Project</h3> -->
     <div class="columesdashboard2">
-    <h1>{{$count_new_projects}}</h1>
+    <h1><?php echo e($count_new_projects); ?></h1>
     <h4 class="text-center">New/Order <br> Project</h4>
     <!-- <div class="row">
       <div class="col-6">
      
-          <h1>{{$count_new_projects}}</h1>
+          <h1><?php echo e($count_new_projects); ?></h1>
                   <h4>New </h4>
             </div> 
    
       <div class="col-6">
      
-            <h1>{{$count_new_projects}}</h1>
+            <h1><?php echo e($count_new_projects); ?></h1>
                   <h4>Order </h4>
             </div> 
 
@@ -145,11 +145,11 @@
              <hr>
               <div class="card-body text-center">
                 <h4 class="card-title">Today:</h4>
-                <h5>{{$today_paz ? $today_paz[0]->tokens:0}} PAZ</h5>
+                <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
                 <h4 class="card-title">This Month:</h4>
-                <h5>{{$month_paz[0]->total_token}} PAZ</h5>
+                <h5><?php echo e($month_paz[0]->total_token); ?> PAZ</h5>
                 <h4 class="card-title">This Year:</h4>
-                <h5>{{$year_PAZ[0]->total_token}} PAZ</h5>
+                <h5><?php echo e($year_PAZ[0]->total_token); ?> PAZ</h5>
               </div>
             </div>
     </div>
@@ -159,11 +159,11 @@
              <hr>
               <div class="card-body text-center">
                 <h4 class="card-title">Today:</h4>
-                <h5>{{$today_paz ? $today_paz[0]->tokens:0}} PAZ</h5>
+                <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
                 <h4 class="card-title">This Month:</h4>
-                <h5>{{$month_paz[0]->total_token}} PAZ</h5>
+                <h5><?php echo e($month_paz[0]->total_token); ?> PAZ</h5>
                 <h4 class="card-title">This Year:</h4>
-                <h5>{{$year_PAZ[0]->total_token}} PAZ</h5>
+                <h5><?php echo e($year_PAZ[0]->total_token); ?> PAZ</h5>
               </div>
             </div>
     </div>
@@ -211,4 +211,4 @@
 }
 </style>
 
-@include('artists.dashboard_footer')
+<?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>

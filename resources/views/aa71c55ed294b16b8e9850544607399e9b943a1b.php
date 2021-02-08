@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta name="csrf-token" content="{{ csrf_token() }}" />
+   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
   <title>
    Dashboard
   </title>
@@ -16,16 +16,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{asset('design/dashboard.css')}}" />
+  <link rel="stylesheet" href="<?php echo e(asset('design/dashboard.css')); ?>" />
 
 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- CSS Files -->
-  <link href="{{asset('artistdashboard//css/material-dashboard.css?v=2.1.2')}}" rel="stylesheet" />
+  <link href="<?php echo e(asset('artistdashboard//css/material-dashboard.css?v=2.1.2')); ?>" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
+  <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -37,60 +37,60 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
      
       <div class="logo"><a href="" class="simple-text logo-normal">
-      <img src="{{asset('images/logos/logo_black.png')}}" height="50" alt="CoolBrand">
+      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item {{$tab=='dashboard' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link " href="{{url('artists/dashboard')}}">
+          <li class="nav-item <?php echo e($tab=='dashboard' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link " href="<?php echo e(url('artists/dashboard')); ?>">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='profile'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/Profile')}}">
+          <li class="nav-item <?php echo e($tab=='profile'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               <i class="material-icons">person</i>
               <p> Profile</p>
             </a>
           </li>
-          <!-- <li class="nav-item {{$tab=='feed'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artists/dashboard')}}">
+          <!-- <li class="nav-item <?php echo e($tab=='feed'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('artists/dashboard')); ?>">
             <i class="fa fa-newspaper-o"> </i>
               <p>Feed</p>
             </a>
           </li> -->
-          <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/contentUpload')}}">
+          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('/withdraw')}}">
+          <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               <i class="fa fa-money"></i>
               <p>Withdraw</p>
             </a>
           </li>
-           <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+           <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
             <i class="fa fa-list-alt" aria-hidden="true"></i>
               <p>Orders/Projects</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+          <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
             <i class="fa fa-ticket" aria-hidden="true"></i>
               <p>Support</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artist/requests')}}">
+          <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
             <i class="fa fa-power-off" aria-hidden="true"></i>
               <p>Logout</p>
             </a>
           </li>
-         <!-- <li class="nav-item dropdown {{$tab == 'offer' ? 'active': ''}}">
+         <!-- <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
@@ -98,8 +98,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{url('/artist/offer')}}">Create Offer</a>
-            <a class="dropdown-item" href="{{url('/artist/my-offer')}}">My Offers</a>
+            <a class="dropdown-item" href="<?php echo e(url('/artist/offer')); ?>">Create Offer</a>
+            <a class="dropdown-item" href="<?php echo e(url('/artist/my-offer')); ?>">My Offers</a>
          
         </div>
          
@@ -117,7 +117,7 @@
           
           <ul class="nav custom search">
           <li id="options" onclick="mufunc()">
-              <a href="#"><img width="35px" src="{{asset('images/logos/filter.png')}}"></a></li>
+              <a href="#"><img width="35px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
              
 
 
@@ -133,16 +133,19 @@
                     <div class="col-md-6">
                       <div class="dropdown12 text-white">
                            <h5>Categories </h5>
-                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                  {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='video')
+                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                  <?php echo e(Form::token()); ?>
+
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($cat->type=='video'): ?>
                    <label class=""> 
-                     {{Form::checkbox('catid[]', $cat->id)}}
-                     {{$cat->category}} 
+                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                     <?php echo e($cat->category); ?> 
                    </label><br>
-                             @endif
-                            @endforeach
+                             <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
                      </div>
@@ -153,11 +156,11 @@
                            <h5>Media : </h5>
                          
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Video
-                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Video
+                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             <!---/label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Audio
+                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Audio
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             <!--/label>
@@ -167,11 +170,11 @@
                            <h5>Reward</h5>
                          
                             <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
-                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
+                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             <!--/label><br>
                             <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
                             <!--/label>
@@ -182,13 +185,13 @@
                         <div class="dropdown1 text-white">
                            <h5 >Duration</h5>
                             <label class=""> 
-                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
-                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
+                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             <!--/label><br>
                             <label class="">
-                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
-                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           <!--/label><br>
                       
@@ -203,7 +206,8 @@
               
                
        
-          {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+          <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
               </div>
               <div class="col-md-6">
                        
@@ -211,7 +215,8 @@
             </div>
                      
                        
-                         {{ Form::close() }}
+                         <?php echo e(Form::close()); ?>
+
                       
                     
                      </div>
@@ -238,37 +243,37 @@
               <li class="nav-item">
              
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
-           <a href="{{url('/artist/offer')}}">
+           <a href="<?php echo e(url('/artist/offer')); ?>">
 
            <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
 
            </a>
            <div class="levlv">
-              <div>{{$levelData ? $levelData[0]->level_name: ''}} </div>
+              <div><?php echo e($levelData ? $levelData[0]->level_name: ''); ?> </div>
               <div class="wid"><div class="progress">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                    aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage ? $percentage : 0}}%">
+                    aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
                           <span class="sr-only">70% Complete</span>
                     </div>
                     
                 </div>
                   </div>
-               <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : ''}}</div>
+               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
               
             </div>
-           @if($artistProfile[0]->profilepicture)
-            <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
-          @else
+           <?php if($artistProfile[0]->profilepicture): ?>
+            <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
+          <?php else: ?>
  
     <div class="">
-            <span class="firstName" style="display: none;">{{$artistProfile[0]->nickname}}</span>
+            <span class="firstName" style="display: none;"><?php echo e($artistProfile[0]->nickname); ?></span>
               <div class="profileImage"></div>
     </div>
-   @endif
+   <?php endif; ?>
 
    <span class="profile-img text-white text-center">
-   <span class="nickname">{{$login->nickname}}</span>
+   <span class="nickname"><?php echo e($login->nickname); ?></span>
    <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
@@ -276,15 +281,15 @@
    
      <div class="dropdown-menu dropdown-menu-right">
          <button class="dropdown-item" type="button">
-           <a href="{{url('/profile')}}">Edit Profile
+           <a href="<?php echo e(url('/profile')); ?>">Edit Profile
            </a></button>
         <button class="dropdown-item" type="button">
-          <a href="{{url('/logout')}}">Logout</a></button>
+          <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
            <button class="dropdown-item" type="button">
-          <a href="{{url('/my-requests')}}">Projects</a></button>
+          <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
     </div>
    <hr style="color:white;background: white;">
-  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
  </span>
   
@@ -296,21 +301,21 @@
              
               <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><h6>{{$count}}</h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
+  <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
                  
                 </a>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                  <h5 class="text-center"> <b>Notification</b></h5><br>
-      @foreach($notification as $val)
-    @if($val->notificationfor=='artist')
+      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($val->notificationfor=='artist'): ?>
     
-      <a href="{{url('notification/artist')}}">{{$val->message}}</a>
+      <a href="<?php echo e(url('notification/artist')); ?>"><?php echo e($val->message); ?></a>
     
   
     <hr>
-    @endif
-    @endforeach
-     <a href="{{url('notification/artist')}}"><span class="text-center text-dark">See More -></span></a>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li> -->
               <!-- <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li> -->
@@ -322,9 +327,9 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="{{url('artist/edit')}}">Edit Profile</a>
+                  <a class="dropdown-item" href="<?php echo e(url('artist/edit')); ?>">Edit Profile</a>
                   <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{url('logout')}}">Log out</a>
+            <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
                 </div>
               </li> -->
             </ul>
@@ -342,4 +347,4 @@
     padding-left: 20px;
 }
 </style>
-      <!-- End Navbar -->
+      <!-- End Navbar --><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
