@@ -4,8 +4,15 @@
           <div class="col"></div>
           <div class="col-lg-10">
     <div class="overlay1 text-white">
-   <div class="slider_tittle pb-4">
-      <h3 class="tittle text-center">Withdraw Money <span class="">! </span></h3>      
+   <div class="slider_tittle text-center pb-4">
+      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ! </span>
+      <div class="data">
+         <h3> PAZ Service Fee :20%</h3>
+         <h3> Level 3 <small>(you save)</small>: 6%</h3>
+         <hr>
+         <h3>Current Fee : <span> 14%</span></h3>
+      </div>  </h3>
+         
    </div> 
      <div class="row">
           <div class="col-md-12">
@@ -16,7 +23,7 @@
            <div class="amount">Enter PAZ Amount <br>
               <input type="text" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
-         <input type="hidden" id="fees" value="<?php echo e($levelData[0]->fees); ?>"/>
+         <input type="hidden" id="fees" value="<?php echo e($levelData ? $levelData[0]->fees : 0); ?>"/>
          <strong class="show_fees" style="color:black"></strong>
         </div>
         <div class="col-md-4">
@@ -55,6 +62,36 @@
    
     margin-top: 18% !important;
   
+}
+span.iconss {
+    vertical-align: super;
+    font-size: 14px;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 0px 4px;
+    cursor: pointer;
+}
+.data {
+    background: white;
+    color: black;
+    width: 200px;
+    position: absolute;
+    padding: 10px;
+    right: 151px;
+    margin-top: -40px;
+    z-index: 99999999999 !important;
+    display: none;
+}
+span.iconss:hover .data {
+    display: block !important;
+}
+.data hr {
+    margin: 5px;
+}
+.data h3 {
+    font-size: 12px;
+    padding: 0px;
+    margin: 0px;
 }
      </style>
 
