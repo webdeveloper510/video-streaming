@@ -39,13 +39,7 @@
 				<div class="col-md-3">
 				   <div class="content-cart">
 				   
-                   <div class="cart1">  
-                   	<a href="<?php echo e(url('play')); ?>">
-                   	 <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
-                   	</a>
-                      <span class="itemCount"><?php echo e($count); ?></span>
-
-                   </div>
+              
  <button type="button" style="cursor:pointer;" id="<?php echo e($video->id); ?>" class="addToCart">
  	 	
  	Add to Wishlist
