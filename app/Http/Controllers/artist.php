@@ -112,7 +112,7 @@ class artist extends Controller
             }
             
               $arrayId=Session::get('ids');
-              $insert = $this->model->addWishlist($arrayId);
+               $insert = $this->model->addWishlist($arrayId);
 
               if($insert==1){
                 return count($arrayId);

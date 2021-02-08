@@ -419,6 +419,7 @@ ul.reporting {
 </style>
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
+	
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -428,7 +429,7 @@ $(".addToCart").click(function(e) {
              "_token": "{{ csrf_token() }}", 
         },
         success: function(result) {
-        	console.log(result);return false;
+        	$('.addToCart').text('Added');
            // $('.itemCount').text(result);
         },
         error: function(result) {

@@ -127,8 +127,8 @@
   <option  value="video">Video</option>
   <option value="audio">Audio</option>
 
-  <option value="playlist">Playlists</option>
-  
+  <!-- <option value="playlist">Playlists</option>
+   -->
 </select>
 </div>
 </div>
@@ -138,7 +138,7 @@
        <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
-        <?php if($details): ?>
+        <?php if(isset($detail->type)): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
@@ -168,7 +168,7 @@
     <div class="filter_div" id="audio">
      <h3>Audios</h3>
      <div class="row mb-5">
-      <?php if($audio): ?>
+      <?php if(isset($audio->type)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
@@ -195,7 +195,7 @@ Your browser does not support the audio tag.
 </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-         <div class="filter_div" id="playlist">
+         <!-- <div class="filter_div" id="playlist">
          <h3>Bundles</h3>
           <div class="row mb-5 pb-5 filter_div" id="playlist">
           <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -222,7 +222,7 @@ Your browser does not support the audio tag.
            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
 
-</div>
+</div> -->
 <!-- --------------------------------------------------------Long videos ----------------------------------------------------------->
       
     </div>

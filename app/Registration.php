@@ -1630,7 +1630,7 @@ public function getPlaylistById($id){
 
 public function addWishlist($data1){
 
-
+    //print_r($data1);die;
 
   unset($data1['_token']);
 
