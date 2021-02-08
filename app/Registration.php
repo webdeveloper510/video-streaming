@@ -1760,7 +1760,7 @@ public function PopularVideos($flag,$type){
 
   $videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
 
-
+   // print_r($videoId1);
       if($flag=='No'){
 
 
