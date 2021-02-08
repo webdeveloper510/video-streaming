@@ -441,7 +441,7 @@ public function getArtistDetail($artid,$type){
        }
 
        else{
-
+          //echo "yes";die;
           $artistsDetail = DB::table('contentprovider')
           ->where('id',$artid)
           ->get()

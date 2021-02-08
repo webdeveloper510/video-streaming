@@ -261,7 +261,7 @@ class artist extends Controller
 
       $allPlaylist =      $this->model->getAllPlaylist();
 
-     // print_r($allArtistsVideo);die;
+      // print_r($allArtistsVideo);die;
 
       $contentLogin =   Session::get('User');
       
