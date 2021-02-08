@@ -54,12 +54,6 @@
               <p> Profile</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='feed'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('artists/dashboard')}}">
-            <i class="fa fa-newspaper-o"> </i>
-              <p>Feed</p>
-            </a>
-          </li>
           <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
               <i class="fa fa-upload"></i>
@@ -76,6 +70,18 @@
             <a class="nav-link" href="{{url('artist/requests')}}">
             <i class="fa fa-list-alt" aria-hidden="true"></i>
               <p>Orders/Projects</p>
+            </a>
+          </li>
+          <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+            <a class="nav-link" href="{{url('/#')}}">
+            <i class="fa fa-ticket" aria-hidden="true"></i>
+              <p>Support</p>
+            </a>
+          </li>
+          <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+            <a class="nav-link" href="{{url('/logout')}}">
+            <i class="fa fa-power-off" aria-hidden="true"></i>
+              <p>Logout</p>
             </a>
           </li>
          <!-- <li class="nav-item dropdown {{$tab == 'offer' ? 'active': ''}}">
@@ -101,7 +107,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
-          <div class="navbar-wrapper text-white ">
+          <!--div class="navbar-wrapper text-white ">
           
           <ul class="nav custom search">
           <li id="options" onclick="mufunc()">
@@ -143,12 +149,12 @@
                             <label class="text-white">
                           {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Video
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
-                            </label><br>
+                            <!---/label><br>
                             <label class="">
                                {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Audio
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
-                            </label>
+                            <!--/label>
                        
                         </div>
                         <div class="dropdown1 text-white">
@@ -157,12 +163,12 @@
                             <label class="text-white">
                           {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
                               <!--  {{Form::checkbox('price','asc')}}lowest   -->
-                            </label><br>
+                            <!--/label><br>
                             <label class="">
                                {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
                          <!--      orm::checkbox('price','desc')}}Higest   -->
                             
-                            </label>
+                            <!--/label>
                        
                         </div>
                        
@@ -173,12 +179,12 @@
                                {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                          <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
                            
-                            </label><br>
+                            <!--/label><br>
                             <label class="">
                                {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
                           <!--  {{Form::checkbox('duration','desc')}}Longest  -->
                             
-                          </label><br>
+                          <!--/label><br>
                       
                         </div>
                          
@@ -213,7 +219,7 @@
               </form>
           
         
-          </div>
+          </div--->
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -301,7 +307,7 @@
      <a href="{{url('notification/artist')}}"><span class="text-center text-dark">See More -></span></a>
                 </div>
               </li> -->
-              <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li>
+              <!-- <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li> -->
               <!-- <li class="nav-item dropdown">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons"style="font-size:27px">person</i>
