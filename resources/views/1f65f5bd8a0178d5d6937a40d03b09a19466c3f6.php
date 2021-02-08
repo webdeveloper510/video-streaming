@@ -38,7 +38,8 @@
             <div class="col-md-8">
        
 
-         <div class="text_one"><p>Refer <a href="pornartistzone.com">pornartistzone.com </a> and earn 5% on purchases of every invited person!</p></div>
+         <div class="text_one"><p>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD!!</p>
+         <p>Get 10% of our revenue on every new customer you have invited as passive income !</p></div>
        </div>
        <div class="col-md-4 mt-4 text-center">
           <div class="money"><button class="btn btn-primary" onclick="myFunction()" id="myBtn">Copy Link</button></div>

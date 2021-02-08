@@ -535,6 +535,9 @@ ul.nav.nav-tabs li a {
     text-align: center;
     color: white;
 }
+.coverimg img {
+    object-fit: cover;
+}
 .profileimg img {
     position: absolute;
     top: 133px;

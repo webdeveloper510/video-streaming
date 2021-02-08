@@ -69,7 +69,7 @@
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/requests')}}">
             <i class="fa fa-list-alt" aria-hidden="true"></i>
-              <p>Orders/Projects</p>
+              <p>Orders</p>
             </a>
           </li>
           <li class="nav-item {{$tab=='support'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
@@ -263,7 +263,7 @@
 
    <span class="profile-img text-white text-center">
    <span class="nickname">{{$login->nickname}}</span>
-   <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+   <!-- <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
     </button>
@@ -276,7 +276,7 @@
           <a href="{{url('/logout')}}">Logout</a></button>
            <button class="dropdown-item" type="button">
           <a href="{{url('/my-requests')}}">Projects</a></button>
-    </div>
+    </div> -->
    <hr style="color:white;background: white;">
   <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 

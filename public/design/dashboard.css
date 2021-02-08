@@ -20,7 +20,7 @@
 span.profile-img.text-white {
     margin-right: 14px;
     height: 50px;
-    margin-top: -13px;
+ 
 }
 span.profile-img hr {
     height: 2px !important;
@@ -135,9 +135,7 @@ input#search_text::-ms-input-placeholder { /* Microsoft Edge */
     right: 16px;
     top: 4px;
 }
-span.nickname {
-    margin-left: 22px;
-}
+
 button.btn.btn-link.dropdown-toggle.text-white {
     height: 26px;
     width: 10px !important;
