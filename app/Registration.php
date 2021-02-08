@@ -1357,10 +1357,12 @@ public function getRespectedSub($data){
 
         $videoIds = (is_array($newData)) ? implode(',',$newData):'';
       
-
+        
         $lists['userid'] = $userid;
 
         $ids[]  = $newData ;
+
+       // print_r($ids);die;
 
         //$lists['videoid'] = $videoIds;
 
@@ -1410,13 +1412,15 @@ public function getRespectedSub($data){
               ->get();
                   if(count($data)<1){
 
+                    //echo "yes";die;
+
                  $buyed = $this->buyVideo($lists);
 
 
                 $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
                               
-                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids,$tokens) : 0;
+                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens) : 0;
 
                 $return = $status_succedd;
 
@@ -1452,7 +1456,7 @@ public function getRespectedSub($data){
 
           $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
 
-          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds,$tokens) : 0;
+          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens) : 0;
 
           //print_r($status_succedd);
           $return = $status_succedd;
@@ -1466,6 +1470,8 @@ public function getRespectedSub($data){
 
       $return = 'Insufficient Paz Tokens';
     }
+
+    //print_r($return);die;
     return $return;
   }
 
