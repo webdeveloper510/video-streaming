@@ -148,14 +148,10 @@ class artist extends Controller
     public function artistVideo($vedioid){
       
           $allVedios = $this->model->getVideo($vedioid);
-
-          //print_r($allVedios);die;
+          // echo "<pre>";
+          // print_r($allVedios);die;
 
          $all_play_lists = $this->model->getPlaylist();
-
-        //  echo "<pre>";
-
-        //  print_r($allVedios);die;
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';

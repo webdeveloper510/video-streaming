@@ -72,13 +72,13 @@
               <p>Orders/Projects</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+          <li class="nav-item <?php echo e($tab=='support'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/#')); ?>">
             <i class="fa fa-ticket" aria-hidden="true"></i>
               <p>Support</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+          <li class="nav-item <?php echo e($tab=='logout'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/logout')); ?>">
             <i class="fa fa-power-off" aria-hidden="true"></i>
               <p>Logout</p>

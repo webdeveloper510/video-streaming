@@ -109,7 +109,7 @@
 				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
 
 				   <audio controls>
-				   	<source src="{{url('storage/app/public/video/'.$video->media)}}" type="audio/mp3">
+				   	<source src="{{url('storage/app/public/audio/'.$video->media)}}" type="audio/mp3">
 				   </audio>
 					</div>
 				   @endif

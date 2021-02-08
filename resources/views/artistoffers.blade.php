@@ -41,11 +41,11 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Price/Min</h3>
-      <p>{{$offerdata->price}}/PAZ</p>
+      <p>{{$offerdata->price}} PAZ/Min</p>
   </div>
   <div class="col">
       <h3>Quality</h3>
-      <p>1080p</p>
+      <p>{{$offerdata->quality}} px</p>
 	</div>
   <div class="col">
       <h3>Category</h3>

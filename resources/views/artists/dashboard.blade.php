@@ -72,13 +72,13 @@
               <p>Orders/Projects</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+          <li class="nav-item {{$tab=='support'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/#')}}">
             <i class="fa fa-ticket" aria-hidden="true"></i>
               <p>Support</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+          <li class="nav-item {{$tab=='logout'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/logout')}}">
             <i class="fa fa-power-off" aria-hidden="true"></i>
               <p>Logout</p>
