@@ -531,7 +531,7 @@
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
-              <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>  
+              <!-- <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
             
 
 
@@ -551,7 +551,7 @@
 
             <?php if($login): ?>
            <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
-             <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a>
+             <!-- <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a> -->
             <?php if($userProfile[0]->profilepicture!=null): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
     
@@ -618,6 +618,7 @@
      <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
                 </div>
               </li>
+              <!-- <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li> -->
 						</div>
 					</div>
 				</nav>
