@@ -1,4 +1,4 @@
-@include('artists.dashboard')
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="background1">
         <div class="row">
           <div class="col"></div>
@@ -23,7 +23,7 @@
            <div class="amount">Enter PAZ Amount <br>
               <input type="text" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
-         <input type="hidden" id="fees" value="{{$levelData ? $levelData[0]->fees : 0}}"/>
+         <input type="hidden" id="fees" value="<?php echo e($levelData ? $levelData[0]->fees : 0); ?>"/>
          <strong class="show_fees" style="color:black"></strong>
         </div>
         <div class="col-md-4">
@@ -95,6 +95,7 @@ span.iconss:hover .data {
 }
      </style>
 
- @include('artists.dashboard_footer')
+ <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//withdraw.blade.php ENDPATH**/ ?>
