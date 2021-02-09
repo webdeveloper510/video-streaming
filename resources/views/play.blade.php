@@ -27,6 +27,9 @@
     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
              </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
             @endforeach
             @else
@@ -78,7 +81,9 @@
       Your browser does not support the video tag.
     </video>
     
-    
+    <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
 
       </div>
       @endif
@@ -150,6 +155,9 @@
                <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
              </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
             @endforeach
             @else
