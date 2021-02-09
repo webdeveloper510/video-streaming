@@ -117,28 +117,33 @@
     <div class="card" style="width: 18rem;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
+             @if($personal_info[0]->firstname=='')
              <div class="card-body pb-1">
+  {!!Form::open(['action' => 'AuthController@personal_info', 'method' => 'post'])!!}
+          {{Form::token()}}
              {{Form::label('First Name', 'First Name')}} 
-                {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter name'])}}
+                {{Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name'])}}
                 {{Form::label('Country', 'Country')}} 
-                {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Country'])}}
+                {{Form::text('country', '',['class'=>'form-control','placeholder'=>'Enter Country'])}}
                 {{Form::label('Date of Birth', 'Date of Birth')}} 
-                <input type="date" class="form-control" />
+                <input type="date" name="dob" class="form-control" />
                 <h5 class="card-title">Email : example@gmail.com</h5>
                 <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
+                {{ Form::submit('Update!',['class'=>'btn btn-light btn-sm']) }}
               </div>
               </div>
-              <div class="card-body pb-1 " style="display:none;">
-                <h5 class="card-title">First Name : artist Name </h5><br>
-                <h5 class="card-title">Country : USA </h5><br>
-                <h5 class="card-title"> Date of Birth : 05.02.1994 </h5><br>
+              @else
+              <div class="card-body pb-1 ">
+                <h5 class="card-title">First Name : {{$personal_info[0]->firstname}}</h5><br>
+                <h5 class="card-title">Country : {{$personal_info[0]->country}} </h5><br>
+                <h5 class="card-title"> Date of Birth : {{$personal_info[0]->dob}} </h5><br>
                
-                <h5 class="card-title">Email : example@gmail.com</h5>
+                <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
                 <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
+               
               </div>
             </div>
+            @endif
 
             </div>
              <!-- <div class="card" style="width: 18rem;">

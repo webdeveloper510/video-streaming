@@ -91,6 +91,8 @@ Route::post('ajax-request', 'artist@cartSbmit');
 
 Route::post('subscribe','artist@subscribe');
 
+Route::post('personal_info','AuthController@personal_info');
+
 Route::post('resetPassword','AuthController@resetPassword');
 
 Route::post('selectListname', 'AuthController@selectListname');
