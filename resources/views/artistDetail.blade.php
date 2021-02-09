@@ -48,6 +48,7 @@
                               
                               Your browser does not support the video tag.
                           </video>
+               
                     </div>
        
         <div class="col-md-8 pl-5 showoffer">
@@ -134,6 +135,9 @@
                 Your browser does not support the video tag.
             </video>
                 </a>
+                <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
 
             </div>
                     @endif
@@ -165,7 +169,11 @@
 <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
 Your browser does not support the audio tag.
 </audio>
+
 </a>
+<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
 </div>
 
 @endforeach
@@ -212,7 +220,7 @@ Your browser does not support the audio tag.
       
     </div>
 
-    <div class="choose1" style="display:none;">
+    <!-- <div class="choose1" style="display:none;">
   <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -233,6 +241,30 @@ Your browser does not support the audio tag.
     </div>
     <div class="col-md-12 pt-3 text-center">
            <button type="button" class="btn btn-primary addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div> -->
+  <div class="choose1" style="display:none;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+   <div class="row ">
+      <div class="col-md-2">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-2">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+      <div class="col-md-2">
+      <ul class="selected">
+            
+           </ul>
+      </div>
+    <div class="col-md-3 pt-3">
+             <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3">
+           <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
     </div>
    </div>
   </div>
@@ -259,7 +291,9 @@ Your browser does not support the audio tag.
                       <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
-                  
+                  <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
             </div>
@@ -307,7 +341,7 @@ select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
 }
 .choose1 .row {
-    flex-direction: column;
+   
     color: #000 !important;
 }
 .hover:hover video {
@@ -317,33 +351,54 @@ select.form-select.form-control, select.form-select.form-control * {
     object-fit: cover;
 }
 .price {
-    border-top: 1px solid #0000003d;
-    border-bottom: 1px solid #0000003d;
+ 
     padding: 24px 18px;
 }
-ul.selected {
-    margin-bottom: 30px;
+
+.tooltip {
+ opacity:1 !important;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  right: 39px;
 }
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 203px;
+    background-color: white;
+    color: #000 !important;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+ul.selected li {
+    margin: 10px 0px;
+}
+
 .price h4 {
     margin: 0;
 }
-.choose1 * {
-    color: #000 !important;
-}
+
 .choose1 {
     border: 2px solid;
     position: fixed;
     bottom: 10px;
     z-index: 9999999;
     background: white;
-    width: 15% !important;
+    width: 96% !important;
     right: 13px !important;
-    height: 100% !important;
+   
     box-shadow: 0 6px 12px #00000042;
 }
-ul.selected {
-    margin-bottom: 30px;
-}
+
 .close {
      margin-top: 7px;
 }

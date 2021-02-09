@@ -1,6 +1,6 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<link rel="stylesheet" href="{{asset('design/play.css')}}" />
+<link rel="stylesheet" href="<?php echo e(asset('design/play.css')); ?>" />
 <!-- end header -->
 
 <div class="row pb-row">
@@ -20,24 +20,21 @@
 		  <h3 class="tittle">My Collection</h3>		  
 		</div>
         <div class="row pb-row">
-              @if($wishList)
-              @foreach($wishList as $indx=> $val)
+              <?php if($wishList): ?>
+              <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
-             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
             </div>
-            @endforeach
-            @else
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
 		             <div class="playwish">
                      <h4>Collection Empty</h4>
 
                    </div>
-                   @endif
+                   <?php endif; ?>
 	</div>
   </div>
 </div>
@@ -54,9 +51,9 @@
     <label for="exampleFormControlSelect1"> Select Playlist</label>
     <select class="form-control" name="playlist" id="exampleFormControlSelect1">
       <option value="">Choose..</option>
-       @foreach($listname as $val)
-<option value="{{$val->id}}">{{$val->playlistname}}</option>
-@endforeach
+       <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<option value="<?php echo e($val->id); ?>"><?php echo e($val->playlistname); ?></option>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </select>
 
   </div>
@@ -70,26 +67,24 @@
 
 
         <div class="row pb-row">
-          @if($videos)
+          <?php if($videos): ?>
 
-@forelse ($videos as $vid)
-      @if($vid->type=='video')
+<?php $__empty_1 = true; $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+      <?php if($vid->type=='video'): ?>
       <div class="col-md-4">
       
     <video width="370" height="245" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
-      <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+      <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     
-    <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
+    
 
       </div>
-      @endif
-      @empty
-       @endforelse
-       @else
+      <?php endif; ?>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+       <?php endif; ?>
+       <?php else: ?>
        <div class="playhistory col-md-12">
                      <h4>No play list created yet. <span id="playlistCreate" class="show_list">Create play List +</span></h4>
                      <span class="create_playlistt" style="display: block">
@@ -101,7 +96,7 @@
       	</span>
 
                    </div>
-            @endif
+            <?php endif; ?>
 			
 	</div>
 	<br/>
@@ -116,11 +111,11 @@
 		  <h3 class="tittle">Wishlist</h3>		  
 		</div>
         <div class="row pb-row">
-              @if($wishList)
-              @foreach($wishList as $indx=> $val)
+              <?php if($wishList): ?>
+              <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
              
@@ -131,13 +126,13 @@
 				  
             </div>
            
-            @endforeach
-            @else
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
 		             <div class="playwish playhistory col-md-12">
                      <h4>Wishlist Empty</h4>
 
                    </div>
-                   @endif
+                   <?php endif; ?>
 	</div>
 	<br/>
 </div>
@@ -150,25 +145,22 @@
 		</div>
         <div class="row pb-row">
 
-        @if($history)
-              @foreach($history as $indx => $histories)
+        <?php if($history): ?>
+              <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
 
-               <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
+               <source src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>" type="video/mp4">
 				
              </video>
-             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
             </div>
-            @endforeach
-            @else
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
             <div class="playhistory col-md-12">
                      <h4>History Empty</h4>
 
                    </div>
-                   @endif
+                   <?php endif; ?>
 	</div>	
   </div>
 </div>
@@ -284,5 +276,6 @@ function showop(){
 }
 </script>
 <!--footer -->
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>
