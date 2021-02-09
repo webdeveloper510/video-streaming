@@ -32,7 +32,7 @@
          </div> 
         </div>
         <div class="col-md-4 mt-3 text-center">
-           <div class="money"><button class="btn btn-success" onclick="myFunction()" id="myBtn">Withdraw</button></div> </div></div>
+           <div class="money"><button class="btn btn-success" onclick="myFunction()" id="myBtn1">Withdraw</button></div> </div></div>
            <hr>
            <div class="row">
             <div class="col-md-8">
@@ -42,7 +42,7 @@
          <p>Get 10% of our revenue on every new customer you have invited as passive income !</p></div>
        </div>
        <div class="col-md-4 mt-4 text-center">
-          <div class="money"><button class="btn btn-primary" onclick="myFunction()" id="myBtn">Copy Link</button></div>
+          <div class="money"><button class="btn btn-primary" onclick="copy('{{url('register/'.$artistid)}}')" id="myBtn">Copy Link</button></div>
         </div>
        </div>
       </div>

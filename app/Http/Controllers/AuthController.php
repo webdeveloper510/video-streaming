@@ -61,9 +61,13 @@ class AuthController extends Controller
 
 
 
-    public function register(){
-        
-        $session_data =   Session::get('userType');
+    public function register($id=null){
+
+       Session::put('reffer_by',$id);
+
+       
+      $session_data =   Session::get('userType');
+
 
         $userRadio =   Session::get('existRadio');
 
@@ -175,11 +179,16 @@ class AuthController extends Controller
     }
     public function withdraw(){
       $navbaractive = 'withdraw';
+
+      $user =   Session::get('User');
+
+      $artistId = $user->id;
+
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw',['tab'=>$navbaractive]);
+      return view('/withdraw',['tab'=>$navbaractive,'artistid'=>$artistId]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');

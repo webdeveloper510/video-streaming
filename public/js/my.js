@@ -689,6 +689,7 @@ $(document).on('click','.slct_video',function(){
 				success: function(data){
 
 					 //console.log(data);
+					 $('.choose1 .selected').html('');
 					 
 					 $('.choose1 .selected').append("<li>"+data.result[0].title+"<span class='price'>"+data.result[0].price+"PAZ</span><button id="+data.result[0].id+" class='removeSession btn btn-info'>X</button> </li>")
 					
@@ -779,6 +780,8 @@ $(document).on('click', '#addTip', function () {
 /*-------------------------------------------------Forget Password Link----------------------------------------------------*/
 $(document).on('click', '#forgetLink', function () {
 
+	$('.close_popup').trigger('click');
+
 	var email = $('#email').val();
 
 	$.ajax({
@@ -793,7 +796,9 @@ $(document).on('click', '#forgetLink', function () {
 				success: function(data){
 
 					if(data==1){
-						$('.close_popup').trigger('click');
+
+						
+						
 						//$('.show_message').html('Please Check your Email');
 					}
 
@@ -808,6 +813,22 @@ $(document).on('click', '#forgetLink', function () {
 		});
 
 });
+
+
+
+function copy(url){
+	
+	var tempInput = document.createElement("input");
+	tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+	tempInput.value = url;
+	document.body.appendChild(tempInput);
+	tempInput.select();
+	document.execCommand("copy");
+	console.log("Copied the text:", tempInput.value);
+	document.body.removeChild(tempInput);
+	document.getElementById('myBtn').innerHTML = 'Copied';
+
+}
 
 /*--------------------------------------------check Name Exist-------------------------------------------------*/
 
