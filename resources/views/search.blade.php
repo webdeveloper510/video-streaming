@@ -44,13 +44,9 @@
 				</div>
         <h3 class="text-center text-white"> xyz</h3>
         </a>
-        <div class="report-op">
-				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
-						<ul style="display:none;" class="reporting">
-						 <li>Report</li>
-						 <li>You can not download this video.</li>
-						</ul>
-				   </div>
+        <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
          <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
 			</div>
 			@endif
@@ -72,11 +68,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
    <div class="row ">
-      <div class="col-md-3">
+   <div class="col-md-2">
            <h4><span class="count">0</span>Item  Selected</h4>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
            <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+      <div class="col-md-2">
+      <ul class="selected">
+            
+           </ul>
       </div>
     <div class="col-md-3 pt-3">
              <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
@@ -93,26 +94,34 @@
      
 <!--body start>
 <body end-->
-<script>
-function showop(){
-	//alert("asas");
-	$(".reporting").toggle();
-}
-</script>
+
 <!--footer -->
 @include('layouts.footer')
 <style>
-.report-op {
-    position: absolute;
-    top: 16px;
-    color: white;
-    right: 56px;
+
+.tooltip {
+ opacity:1 !important;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  right: 12px;
 }
-ul.reporting {
-    background: white;
-    color: black;
-    padding: 13px;
-    border-radius: 7px;
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 203px;
+    background-color: white;
+    color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 .alert {
     position: relative;
@@ -122,6 +131,16 @@ ul.reporting {
     z-index: 99;
     border-radius: .25rem;
     top: 42px;
+}
+ul.selected li {
+    margin: 10px 0px;
+}
+.price {
+ 
+ padding: 24px 18px;
+}
+.price h4 {
+    margin: 0;
 }
 .inner-page {
     float: left;
