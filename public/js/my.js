@@ -794,7 +794,7 @@ $(document).on('click', '#forgetLink', function () {
 
 					if(data==1){
 						$('.close_popup').trigger('click');
-						$('.show_message').html('Please Check your Email');
+						//$('.show_message').html('Please Check your Email');
 					}
 
 
