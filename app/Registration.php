@@ -1497,6 +1497,20 @@ public function getRespectedSub($data){
 
   }
 
+  public function personal_info($data){
+
+    //print_r($data->all());die;
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+    $update = DB::table('contentprovider')->where(array('id'=>$userid))->update($data->all());
+
+    return $update ? 1 : 0;
+
+  }
+
   public function month_PAZ(){
 
     $session_data =   Session::get('User');

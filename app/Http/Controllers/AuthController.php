@@ -1371,6 +1371,21 @@ public function readNotification(Request $request){
 
     }
 
+    public function personal_info(Request $req){
+
+             // print_r($req->all());
+
+              unset($req['_token']);
+
+              $done = $this->model->personal_info($req);
+
+              if($done){
+
+                return redirect('/artists/dashboard');
+
+              }
+    }
+
     public function reset(){
       
           return view('resetPass');

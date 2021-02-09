@@ -69,7 +69,7 @@
            <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/requests')); ?>">
             <i class="fa fa-list-alt" aria-hidden="true"></i>
-              <p>Orders/Projects</p>
+              <p>Orders</p>
             </a>
           </li>
           <li class="nav-item <?php echo e($tab=='support'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
@@ -268,7 +268,7 @@
 
    <span class="profile-img text-white text-center">
    <span class="nickname"><?php echo e($login->nickname); ?></span>
-   <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
+   <!-- <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
    
     </button>
@@ -281,7 +281,7 @@
           <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
            <button class="dropdown-item" type="button">
           <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
-    </div>
+    </div> -->
    <hr style="color:white;background: white;">
   <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
