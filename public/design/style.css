@@ -5508,8 +5508,8 @@ ul.token1 li {
     margin-bottom: 2px;
 }
 span.profile-img.text-white {
-    margin-right: 14px;
-}
+		margin-right: 14px;
+	}
 i.fa.fa-shopping-cart {
     color: white;
 }
@@ -5524,11 +5524,11 @@ i.fa.fa-shopping-cart {
 
 /*--------------------- Responsive css --------------------------*/
 @media only screen and (max-width: 768px) {
-ul.nav.custom.search ul.subnav {
-    width: 100%;
-    left: -34px;
-    background: #7b0000;
-}
+	ul.nav.custom.search ul.subnav {
+		width: 100%;
+		left: -34px;
+		background: #7b0000;
+	}
 .col-md-4.mb-4.logy {
     padding-left: 16px !important;
 }

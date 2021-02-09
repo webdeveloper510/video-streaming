@@ -11,17 +11,11 @@
         <div class="artistdetail11 mb-5">
             <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
              <i class="fa fa-star" style="color:red;"></i>  761  
-             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" id="subscribe">Subscribe </button>
+             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" id="subscribe">Subscribe </button>
     
-             <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
+             <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
              </h3>
-            <!-- <button class="btn btn-light text-right msg mb-3" type="button"> Send Message</button>
-            <br>
-               <div class="text-left buttons">
-                     <input type="text" id="paz_amount"  placeholder="PAZ Amount" class="form-control ">
-                     <button class="btn btn-info" data-id="<?php echo e(isset($details[0]->id) ? $details[0]->contentProviderid: $artist[0]->id); ?>" id="addTip" type="button">Send Tip</button>
-                     <strong id="total_paz" placeholder="PAZ" style="display:none"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></strong>
-               </div> -->
+           
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
@@ -126,7 +120,7 @@
   <h3 class="mt-3">Videos</h3>   
    
           <div class="row mb-5">
-               <?php if($details): ?>
+               <?php if(isset($details[0]->type)): ?>
                    <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                        <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3 hover">
@@ -220,7 +214,7 @@ Your browser does not support the audio tag.
       
     </div>
 
-    <div class="choose1" style="display:none;">
+    <!-- <div class="choose1" style="display:none;">
   <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -241,6 +235,25 @@ Your browser does not support the audio tag.
     </div>
     <div class="col-md-12 pt-3 text-center">
            <button type="button" class="btn btn-primary addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div> -->
+  <div class="choose1" style="display:none;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+   <div class="row ">
+      <div class="col-md-3">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-3">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+    <div class="col-md-3 pt-3">
+             <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3">
+           <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
     </div>
    </div>
   </div>
@@ -315,7 +328,7 @@ select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
 }
 .choose1 .row {
-    flex-direction: column;
+   
     color: #000 !important;
 }
 .hover:hover video {
@@ -335,18 +348,16 @@ ul.selected {
 .price h4 {
     margin: 0;
 }
-.choose1 * {
-    color: #000 !important;
-}
+
 .choose1 {
     border: 2px solid;
     position: fixed;
     bottom: 10px;
     z-index: 9999999;
     background: white;
-    width: 15% !important;
+    width: 96% !important;
     right: 13px !important;
-    height: 100% !important;
+   
     box-shadow: 0 6px 12px #00000042;
 }
 ul.selected {
