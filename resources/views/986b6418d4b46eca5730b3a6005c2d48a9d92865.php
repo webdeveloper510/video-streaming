@@ -5,11 +5,11 @@
 <div class="offer ">
 <h4 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h4> 
 <!-- <h5>Audio/Video</h5> -->
-<h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3>
+<a href="<?php echo e($offer[0]->artistid); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
 <div class="text-right">
 <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe">Subscribe </button>
     
- <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Un Subscribed </button>
+ <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Un Subscribed </button>
 </div>
 <p>Sample</p>
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

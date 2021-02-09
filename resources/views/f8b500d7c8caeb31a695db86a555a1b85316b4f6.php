@@ -117,30 +117,38 @@
     <div class="card" style="width: 18rem;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
+             <?php if($personal_info[0]->firstname==''): ?>
              <div class="card-body pb-1">
+  <?php echo Form::open(['action' => 'AuthController@personal_info', 'method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?>
+
              <?php echo e(Form::label('First Name', 'First Name')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter name'])); ?>
+                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name'])); ?>
 
                 <?php echo e(Form::label('Country', 'Country')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Country'])); ?>
+                <?php echo e(Form::text('country', '',['class'=>'form-control','placeholder'=>'Enter Country'])); ?>
 
                 <?php echo e(Form::label('Date of Birth', 'Date of Birth')); ?> 
-                <input type="date" class="form-control" />
+                <input type="date" name="dob" class="form-control" />
                 <h5 class="card-title">Email : example@gmail.com</h5>
                 <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
+                <?php echo e(Form::submit('Update!',['class'=>'btn btn-light btn-sm'])); ?>
+
               </div>
               </div>
-              <div class="card-body pb-1 " style="display:none;">
-                <h5 class="card-title">First Name : artist Name </h5><br>
-                <h5 class="card-title">Country : USA </h5><br>
-                <h5 class="card-title"> Date of Birth : 05.02.1994 </h5><br>
+              <?php else: ?>
+              <div class="card-body pb-1 ">
+                <h5 class="card-title">First Name : <?php echo e($personal_info[0]->firstname); ?></h5><br>
+                <h5 class="card-title">Country : <?php echo e($personal_info[0]->country); ?> </h5><br>
+                <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
                
-                <h5 class="card-title">Email : example@gmail.com</h5>
+                <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
                 <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
+               
               </div>
             </div>
+            <?php endif; ?>
 
             </div>
              <!-- <div class="card" style="width: 18rem;">
