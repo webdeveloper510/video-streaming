@@ -1067,6 +1067,7 @@ public function selectListname(Request $request){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
+       // print_r($data);die;
 
         if($data=='Insufficient Paz Tokens'){
 
@@ -1081,7 +1082,7 @@ public function selectListname(Request $request){
 
         else if($data=='Already'){
 
-          return response()->json(array('status'=>1, 'messge'=>'You have already buyed this video!'));
+          return response()->json(array('status'=>1, 'messge'=>'Already Add in your library!'));
 
        }
 
