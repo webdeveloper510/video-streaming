@@ -1596,9 +1596,11 @@ public function today_PAZ(){
 
 public function createList($create){
 
-        $data['listname'] = $create->listname;
+    $data['listname'] = $create->listname;
 
      $session_data =   Session::get('User');
+
+    // print_r($create->all());die;
 
         $userid =  $session_data->id;
 

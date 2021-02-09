@@ -94,7 +94,7 @@
         <input type="email" class="form-control" placeholder="Enter Register Email" id="email"/> 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary close_popup" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="forgetLink">Send Reset Link</button>
       </div>
     </div>
