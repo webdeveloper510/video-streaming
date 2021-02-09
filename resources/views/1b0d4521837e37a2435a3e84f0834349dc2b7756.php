@@ -214,7 +214,7 @@ Your browser does not support the audio tag.
       
     </div>
 
-    <div class="choose1" style="display:none;">
+    <!-- <div class="choose1" style="display:none;">
   <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -235,6 +235,25 @@ Your browser does not support the audio tag.
     </div>
     <div class="col-md-12 pt-3 text-center">
            <button type="button" class="btn btn-primary addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div> -->
+  <div class="choose1" style="display:none;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+   <div class="row ">
+      <div class="col-md-3">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-3">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+    <div class="col-md-3 pt-3">
+             <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3">
+           <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
     </div>
    </div>
   </div>
@@ -309,7 +328,7 @@ select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
 }
 .choose1 .row {
-    flex-direction: column;
+   
     color: #000 !important;
 }
 .hover:hover video {
@@ -329,18 +348,16 @@ ul.selected {
 .price h4 {
     margin: 0;
 }
-.choose1 * {
-    color: #000 !important;
-}
+
 .choose1 {
     border: 2px solid;
     position: fixed;
     bottom: 10px;
     z-index: 9999999;
     background: white;
-    width: 15% !important;
+    width: 96% !important;
     right: 13px !important;
-    height: 100% !important;
+   
     box-shadow: 0 6px 12px #00000042;
 }
 ul.selected {

@@ -326,6 +326,8 @@ $(document).on('click', '#checkPrice', function () {
 
 $(document).on('click', '.create_list', function () {
 	var listname= $('.list').val();
+
+	//console.log(listname);return false;
 	$.ajax({
 				type: 'POST',
 			    url:APP_URL+"/createList",
@@ -340,10 +342,14 @@ $(document).on('click', '.create_list', function () {
 					//console.log(data);return false;
 					
 					if(data.status==1){
-						$('.message').show();
-						$('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
-						$('.message').html(data.message);
-						$('.list').val('');
+
+						alert('List Created Successfully!');
+
+						location.reload();
+						// $('.message').show();
+						// // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
+						//  $('.message').html(data.message);
+						 //$('.list').val('');
 
 					}
 
@@ -787,6 +793,7 @@ $(document).on('click', '#forgetLink', function () {
 				success: function(data){
 
 					if(data==1){
+						$('.close_popup').trigger('click');
 						$('.show_message').html('Please Check your Email');
 					}
 
