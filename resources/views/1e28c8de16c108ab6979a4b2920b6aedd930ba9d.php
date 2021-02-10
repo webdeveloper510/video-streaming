@@ -72,12 +72,12 @@ tr.shown td.details-control {
   <body>
     <div class="container">
     <div class="tab">
-  <button class="tablinks active" onclick="openCity(event, 'London')">Projects</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Orders</button>
+  <button class="tablinks "disabled onclick="openCity(event, 'London')">Projects</button>
+  <button class="tablinks active" onclick="openCity(event, 'Paris')">Orders</button>
   
 </div>
 
-<div id="London" class="tabcontent" style="display:block">
+<div id="London" class="tabcontent" >
 <div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
@@ -128,7 +128,7 @@ tr.shown td.details-control {
     </div>
 </div>
 
-<div id="Paris" class="tabcontent">
+<div id="Paris" class="tabcontent" style="display:block">
 <div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
