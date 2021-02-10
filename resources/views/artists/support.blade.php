@@ -13,35 +13,7 @@
 <div class="tab-content" id="pills-tabContent">
     <!--------- Open  ticket tab------------------------------------------>
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  <div class="row">
-          <div class="col"></div>
-          <div class="col-md-8">
-   <div class="opentickettext">
-       <div class="row">
-            <div class="col-9">
-               <h3>#34567893 - Technical Issue</h3>
-               <p>Last Updated: Monday,21.march,2021(15:03)</p>
-
-            </div>
-            <div class="col-3 mt-4">
-                
-               <button type="button" class="btn btn-primary">Open</button>
-               <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
-            </div>
-        </div>   
-        <hr>   
-
-    </div>
-</div>
-<div class="col"></div>
-</div>
-
-
-  </div>
-
-  <!--------- tickets tab------------------------------------------>
-
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+       
       <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
@@ -83,6 +55,35 @@
 </div>
 <div class="col"></div>
 </div>
+  </div>
+
+  <!--------- tickets tab------------------------------------------>
+
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+  <div class="row">
+          <div class="col"></div>
+          <div class="col-md-8">
+   <div class="opentickettext">
+       <div class="row">
+            <div class="col-9">
+               <h3>#34567893 - Technical Issue</h3>
+               <p>Last Updated: Monday,21.march,2021(15:03)</p>
+
+            </div>
+            <div class="col-3 mt-4">
+                
+               <button type="button" class="btn btn-primary">Open</button>
+               <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
+            </div>
+        </div>   
+        <hr>   
+
+    </div>
+</div>
+<div class="col"></div>
+</div>
+
+
 </div>
 
 
