@@ -1,6 +1,7 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
+<link rel="stylesheet" href="<?php echo e(asset('design/profile.css')); ?>" />
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
@@ -84,6 +85,9 @@
         </div>
        
         <div class="col-md-2">
+        <div class="text-right">
+        <button class="btn btn-sm btn-info "><i class="fa fa-trash-o"></i></button>
+        </div>
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
          <div class="text-right" style="margin-top: 76px;">
@@ -254,7 +258,7 @@ Your browser does not support the audio tag.
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
   
-  <!----------------------------------------------- Profile veiw --------------------------------------------->
+  <!----------------------------------------------- Profile View --------------------------------------------->
   
   <div class="container">
      
@@ -338,10 +342,11 @@ Your browser does not support the audio tag.
             <?php echo e(Form::label('Title', 'Title')); ?> 
               <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
 
-
+            <br>
             <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
                 <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
 
+                <br>
                 <label>Duration(Minutes):</label>
                 <div class="row">
                   <div class="col-md-6">
@@ -355,17 +360,21 @@ Your browser does not support the audio tag.
 
                 </div>
                 </div>
+                <br>
                 <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
                 <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])); ?>
 
-                <?php echo e(Form::label('Description', 'Description')); ?> 
+                <br>
+                  <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
+                <br>
                 <input type="hidden" name="offerid" id="offerid" value="">
                   <input type="file" name="file" id="file_input" value=""/>
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
-
+                  <br>
+                  <br>
                 <label>Offer Status</label>
             <select name="offer_status"  class='form-control' id="select_status">
                     <option value="">Choose...</option>
@@ -373,6 +382,7 @@ Your browser does not support the audio tag.
                     <option value="online">Online</option>
                    
             </select>
+            <br>
             <label for="Convert to:">Convert to:</label> 
            <select name="quality" class="form-control" id="quality">
                     <option value="">Choose ...</option>
@@ -380,9 +390,11 @@ Your browser does not support the audio tag.
                     <option value="720">HD 720p </option>
                     <option value="1080">Full HD 1080p  </option>
             </select>
+            <br>
             <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
                 <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])); ?>
 
+                <br>
             <label>Choose Category</label>
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
@@ -414,10 +426,35 @@ Your browser does not support the audio tag.
           <?php echo e(Form::token()); ?>
 
       <div class="container profile">
-        <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
-          <div class="row align-items-center text-white">       
+        <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
+
+          <div class="row align-items-center text-white">   
+
+           <div class="col-md-12" style="display: flex;">
+            <input type="radio" class="select_media_pic" name="radio" value="audio" /><p class="text-dark">Audio</p>
+            <input type="radio" class="select_media_pic" name="radio" value="video"/><p class="text-dark">Video</p>
+          </div>    
+          <div class="col-md-6 mt-3 text-white">
+            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
+                <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
+            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
+
+            </div>
+          <div class="col-md-6 mt-2 convert">
+           <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+           <select name="convert"  class='form-control'>
+                    <option value="">Choose ...</option>
+                    <option value="1">480p  </option>
+                    <option value="2">HD 720p </option>
+                    <option value="3">Full HD 1080p  </option>
+            </select>
+            </div>
                 <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('EEye/Lens Color', 'Eye/Lens Color')); ?> 
+            <?php echo e(Form::label('Eye/Lens Color', 'Eye/Lens Color')); ?> 
                 <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
 
                   <?php if(session('errors')): ?>
@@ -500,7 +537,7 @@ Your browser does not support the audio tag.
             </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default popup_close" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
                 <div class="alert alert-success" role="alert" style="display:none">
                            This is a success alert—check it out!
@@ -516,109 +553,6 @@ Your browser does not support the audio tag.
 </div>
 
 <style>
-ul.nav.nav-tabs li {
-    width: 20% !important;
-}
-ul.nav.nav-tabs li a {
-    font-size: 15px !important;
-    color: white;
-}
-.nav-tabs .nav-link.active {
-    color: #333333;
-    border-color: #fafafa !important;
-}
-.nav-tabs .nav-link.active:hover, .nav-tabs .nav-link.active:focus {
-    border-color: #fafafa !important;
-}
-.nav-link.tabss {
-    width: 33.33%;
-    text-align: center;
-    color: white;
-}
-.coverimg img {
-    object-fit: cover;
-}
-.profileimg img {
-    position: absolute;
-    top: 133px;
-    border: 3px solid white;
-    border-radius: 50%;
-}
-.artistdetail11.mb-5 {
-    margin-left: 14%;
-    padding-top: 11px;
-}
-.col-md-4.mb-3 img {
-    height: 165px;
-    padding-left: 7px;
-    margin-bottom: -23px;
-}
-.coverimg .iconcamera i{
- display:none;
-}
-.nav-tabs {
-    border-bottom: 1px solid #fff;
-    background: #7b0000;
-    border-top: 1px solid #fff;
-}
-.coverimg:hover .iconcamera i{
-    position: absolute;
-    right: 15px;
-    display:block;
-    color: #746a6a;
-    margin-top: -30px;
-    background: #ffffff99;
-    height: 30px;
-    width: 80px;
-    text-align: center;
-    padding: 6px;
-}
-.profileimg .iconcamera i{
-  display:none;
-}
-button.btn.btn-warning.text-white.mr-3.mt-2 {
-    height: 36px !important;
-    background-color: #ffbb11 !important;
-}
-.profileimg:hover .iconcamera i{
-  position: absolute;
-    top: 21%;
-    color: #746a6a;
-    display: block;
-    background: #ffffff99;
-    left: 88px;
-    height: 23px;
-    text-align: center;
-    width: 57px;
-    padding: 4px;
-}
-.col-md-4.mb-3.play1:hover .overlayplay1 {
-  opacity: 1;
-}
-
-button.btn.btn-light {
-    margin-top: -82px;
-    margin-right: 17px;
-}
-.overlayplay1 {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    height: 100%;
-    background: rgb(245 243 243 / 51%) !important;
-    color: #f1f1f1;
-    width: 41%;
-    opacity: 0;
-    z-index: 999999999;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-    text-align: center;
-}
-.col-md-4.text-right .btn.btn-primary {
-    margin-top: -244px;
-}
-
 
 </style>
 
