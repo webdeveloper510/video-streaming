@@ -1,4 +1,5 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<link rel="stylesheet" href="<?php echo e(asset('design/withdraw.css')); ?>" />
 <section class="background1">
         <div class="row">
           <div class="col"></div>
@@ -32,28 +33,27 @@
          </div> 
         </div>
         <div class="col-md-4 mt-3 text-center">
-           <div class="money"><button class="btn btn-success" onclick="myFunction()" id="myBtn1">Withdraw</button></div> </div></div>
+           <div class="money"><button class="btn btn-success" id="withdrawmoney">Withdraw</button></div> </div></div>
            <hr>
            <div class="row">
             <div class="col-md-8">
        
 
-         <div class="text_one"><p>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD! <span class="firsttext">!  
+         <div class="text_one">
+         <h6>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD! <span class="firsttext">!  
            <div class="firsttextbody">
             <p>The pay-out occurs when the invited Artist achieves Level 3 (400Subscribers) and a total income of +20 000 PAZ</p>
-
-
-           </div>
-         </span></p>
-         <p>Get 10% of our revenue on every new customer you have invited as passive income ! 
-         <span class="secondtext">!  
-           <div class="secondtextbody">
-            <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
-
-
            </div>
          </span>
-         </p>
+         </h6>
+
+         <h6>Get 10% of our revenue on every new customer you have invited as passive income ! 
+         <span class="secondtext">!  <div class="secondtextbody">
+            <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
+           </div> 
+          
+         </span>
+         </h6>
          </div>
        </div>
        <div class="col-md-4 mt-4 text-center">
@@ -63,7 +63,39 @@
       </div>
      </div> 
      </div>
-    </div>      
+    </div> 
+    <div class=" invitedbox">
+    <div class="card" >
+        <div class="text-center">
+       <h3>Total Bonus Payout : $184 USD</h3>
+            </div>
+  <div class="card-body">
+    <h5 class="card-title text-center">Customer Invitations
+                <br>
+        passive revebue Stream:  $34 USD</h5>
+        <table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th scope="col">Artists invited</th>
+      <th scope="col">lvl3</th>
+      <th scope="col">20k PAZ earned </th>
+      <th scope="col">Payout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Artistname</th>
+      <td>not yet</td>
+      <td>not yet</td>
+      <td>-</td>
+    </tr>
+   
+  </tbody>
+</table>
+  </div>
+</div>
+    
+        </div>
   </div>
   <div class="col"></div>
    </div>
@@ -71,44 +103,7 @@
        
       <!-- End Navbar -->
      <style>
-     .background1{
-        height:100vh !important;
-     }
-     .overlay1 {
-   
-    margin-top: 18% !important;
   
-}
-span.iconss {
-    vertical-align: super;
-    font-size: 14px;
-    border: 1px solid;
-    border-radius: 50%;
-    padding: 0px 4px;
-    cursor: pointer;
-}
-.data {
-    background: white;
-    color: black;
-    width: 200px;
-    position: absolute;
-    padding: 10px;
-    right: 151px;
-    margin-top: -40px;
-    z-index: 99999999999 !important;
-    display: none;
-}
-span.iconss:hover .data {
-    display: block !important;
-}
-.data hr {
-    margin: 5px;
-}
-.data h3 {
-    font-size: 12px;
-    padding: 0px;
-    margin: 0px;
-}
  </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

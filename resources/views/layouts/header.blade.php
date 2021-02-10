@@ -578,6 +578,7 @@
                 @endif
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                 <br>
+                @if($notification)
       @foreach($notification as $val)
     @if($val->notificationfor=='user')
 <?php 
@@ -585,13 +586,19 @@
 ?>
     
       <a href="{{url('notification/user')}}" id="bold" class="bold">{{$val->message}}</a>
+
+     
     
   
     <hr>
     @endif
     @endforeach
-    <input type="hidden" value="<?php echo  implode(",",$GLOBALS['ids']); ?>" id="notids"/>
-     <a href="{{url('notification/user')}}"><span class="text-center text-dark">Notification History -></span></a>
+   
+    <input type="hidden" value="<?php echo implode(",",$GLOBALS['ids']); ?>" id="notids"/>
+    @endif
+
+    <a href="{{url('notification/user')}}"><span class="text-center text-dark">Notification History -></span></a>
+     
                 </div>
               </li>
               <!-- <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li> -->

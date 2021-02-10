@@ -254,7 +254,7 @@ Your browser does not support the audio tag.
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
   
-  <!----------------------------------------------- Profile veiw --------------------------------------------->
+  <!----------------------------------------------- Profile View --------------------------------------------->
   
   <div class="container">
      
@@ -414,10 +414,35 @@ Your browser does not support the audio tag.
           <?php echo e(Form::token()); ?>
 
       <div class="container profile">
-        <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
-          <div class="row align-items-center text-white">       
+        <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
+
+          <div class="row align-items-center text-white">   
+
+           <div class="col-md-12">
+            <input type="radio" class="select_media_pic" name="radio" value="audio" /><p class="text-dark">Audio</p>
+            <input type="radio" class="select_media_pic" name="radio" value="video"/><p class="text-dark">Video</p>
+          </div>    
+          <div class="col-md-6 mt-3 text-white">
+            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
+                <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
+
+            </div>
+            <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
+            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
+
+            </div>
+          <div class="col-md-6 mt-2 convert">
+           <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+           <select name="convert"  class='form-control'>
+                    <option value="">Choose ...</option>
+                    <option value="1">480p  </option>
+                    <option value="2">HD 720p </option>
+                    <option value="3">Full HD 1080p  </option>
+            </select>
+            </div>
                 <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('EEye/Lens Color', 'Eye/Lens Color')); ?> 
+            <?php echo e(Form::label('Eye/Lens Color', 'Eye/Lens Color')); ?> 
                 <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
 
                   <?php if(session('errors')): ?>
@@ -500,7 +525,7 @@ Your browser does not support the audio tag.
             </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default popup_close" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save changes</button>
                 <div class="alert alert-success" role="alert" style="display:none">
                            This is a success alert—check it out!

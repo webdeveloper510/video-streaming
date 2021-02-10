@@ -602,6 +602,7 @@
                 <?php endif; ?>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                 <br>
+                <?php if($notification): ?>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
 <?php 
@@ -609,13 +610,19 @@
 ?>
     
       <a href="<?php echo e(url('notification/user')); ?>" id="bold" class="bold"><?php echo e($val->message); ?></a>
+
+     
     
   
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    <input type="hidden" value="<?php echo  implode(",",$GLOBALS['ids']); ?>" id="notids"/>
-     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
+   
+    <input type="hidden" value="<?php echo implode(",",$GLOBALS['ids']); ?>" id="notids"/>
+    <?php endif; ?>
+
+    <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
+     
                 </div>
               </li>
               <!-- <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li> -->

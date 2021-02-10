@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Registration;
 use Session;
 use App\File;
+use Stripe\Error\Card;
+
+use Stripe;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
@@ -465,6 +468,87 @@ class artist extends Controller
 
     return $update==1 ? response()->json(array('status'=>1,'message'=>'You Tipped!')) :  response()->json(array('status'=>0,'message'=>'InEfficient PAZ Tokens'));
 
+
+  }
+
+  public function draw_money(Request $req){
+
+    $stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+   // $account =  retrieve('acct_1IJ5HIQbT7sMbLKU');
+    //print_r($account);die;
+
+  //   $account = \Stripe\Account::updateCapability(
+  //     'acct_1IJ5HIQbT7sMbLKU',
+  // 'card_payments',
+  // ['requested' => true,]
+  //   );
+
+  //  print_r($account);die;
+
+    $account = \Stripe\Account::create([
+      'type' => 'custom',
+      'country' => 'US',
+      'email' => 'amit@codenomad.net',
+      'capabilities' => [
+        'card_payments' => ['requested' => true],
+        'transfers' => ['requested' => true],
+      //  'legacy_payments'=>['requested' => true]
+       
+      ],
+      'business_type' => "individual",
+      'individual'=>[
+        'address' => [
+          'city' => 'New york',
+          'country' =>'US' ,
+          'state'=>'Florida'
+        ],
+        'first_name'=>'Amit',
+        'last_name'=>'tondon',
+        'email'=>'amit@codenomad.net',
+        'phone'=>'8295013844',
+        'dob'=>[
+          'day'=>12,
+          'month'=>11,
+          'year'=>1998
+        ]
+        ],
+        'business_profile'=>[
+          'url'=>'http://localhost/laravel/video-streaming/withdraw',
+        ],
+      'external_account'=>[
+        'object'=>'bank_account',
+         'country'=>'US',
+         'currency'=>'USD',
+         'account_number'=>'000123456789',
+         'routing_number'=>'110000000'
+      ]
+      ]);
+
+     print_r($account);die;
+
+          if((array)$account){
+
+           $transfer =  \Stripe\Transfer::create([
+              'amount' => 4,
+              'currency' => 'usd',
+              'destination' => $account->id,
+              'transfer_group' => 'ORDER_95',
+            ]);
+
+            // $payment_intent = \Stripe\PaymentIntent::create([
+            //   'payment_method_types' => ['card'],
+            //   'amount' => 1000,
+            //   'currency' => 'usd',
+            //   'application_fee_amount' => 4,
+            //   'transfer_data' => [
+            //     'destination' => $account->id,
+            //   ],
+            // ]);
+
+            print_r ($transfer);
+           
+        }
 
   }
 

@@ -28,10 +28,8 @@ class Registration extends Model
             $userdata['created_at']= now();
             $userdata['reffered_by']= $reffer_id ? $reffer_id : 0;
             $userdata['updated_at']= now();
-           // print_r($userdata);die;
-                //$inserted_data =  DB::table('users')->insert($userdata);
                 $insertedid=DB::table('users')->insertGetId($userdata);
-             //echo $insertedid;die;
+           
             if($insertedid){
                 $session_data =   Session::get('User');
                 $userid= $session_data ? $session_data->id : $insertedid;
@@ -1077,7 +1075,7 @@ public function getRespectedSub($data){
          $count = $this->getCountofNotification(array('read'=>0,'notificationfor'=>$session_data=='User' ? 'user' : 'artist'));
 
 
-           $data = DB::table('notification')->orderBy('id','desc')->take(4)->get()->toArray();
+           $data = DB::table('notification')->where('read',0)->orderBy('id','desc')->take(4)->get()->toArray();
 
            return array('count'=>$count,'notifications'=>$data);
     }
