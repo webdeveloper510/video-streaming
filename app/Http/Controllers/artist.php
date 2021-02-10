@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 use App\Registration;
 use Session;
 use App\File;
-use Stripe\Error\Card;
+//  use Stripe\Error\Card;
 
-use Stripe;
+//use Stripe;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Redirect;
+  $path = base_path() . '/vendor';
+require_once($path.'/stripe/stripe-php/init.php');
 
 class artist extends Controller
 {
@@ -453,7 +455,28 @@ class artist extends Controller
 
 
   public function edit_info(Request $req){
+
+
         unset($req['_token']);
+
+        print_r($req->all());die;
+
+        if($req->media || $req->audio_pic){
+
+          $fileName = time().'_'.$request->media->getClientOriginalName();
+          $audio_pics = time().'_'.$request->audio_pic->getClientOriginalName();
+          $request->audio_pic->storeAs('uploads',$audio_pics,'public');
+          $ext =$request->media->getClientOriginalExtension();
+          $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
+          $size=$request->media->getSize();
+          $data['size'] = number_format($size / 1048576,2);
+          $data['media']=$fileName;
+          $data['audio_pic'] = $audio_pics ? $audio_pics : '';
+          $data['convert'] = $data['convert'] ? $data['convert'] : '';
+
+          $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+
+        }
 
         $update = $this->model->edit_other($req);
 
@@ -473,7 +496,9 @@ class artist extends Controller
 
   public function draw_money(Request $req){
 
-    $stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    $stripe = new \Stripe\StripeClient([
+      'api_key'=>'sk_test_ChfSSXaILXyDtixAjzFD4sYx',
+      "stripe_version" => "2020-08-27"]);
 
    // $account =  retrieve('acct_1IJ5HIQbT7sMbLKU');
     //print_r($account);die;
@@ -486,24 +511,31 @@ class artist extends Controller
 
   //  print_r($account);die;
 
-    $account = \Stripe\Account::create([
+    $account = $stripe->accounts->create([
       'type' => 'custom',
       'country' => 'US',
-      'email' => 'amit@codenomad.net',
+      'email' => 'navdeep@codenomad.net',
       'capabilities' => [
         'card_payments' => ['requested' => true],
         'transfers' => ['requested' => true],
       //  'legacy_payments'=>['requested' => true]
        
       ],
-      'business_type' => "individual",
+      //'legal_entity' => "individual",
+     'business_type'=>'individual',
       'individual'=>[
         'address' => [
-          'city' => 'New york',
+          'city' => 'Athens',
           'country' =>'US' ,
-          'state'=>'Florida'
+          'state'=>'OH',
+          'line1'=>'3096  Robinson Lane',
+          'line2'=>'US',
+          //'zip'=>45701
         ],
-        'first_name'=>'Amit',
+        'first_name'=>'Navdeep',
+
+        'ssn_last_4'=>2212,
+        'id_number'=>111122212,
         'last_name'=>'tondon',
         'email'=>'amit@codenomad.net',
         'phone'=>'8295013844',
@@ -513,9 +545,9 @@ class artist extends Controller
           'year'=>1998
         ]
         ],
-        'business_profile'=>[
-          'url'=>'http://localhost/laravel/video-streaming/withdraw',
-        ],
+       'business_profile'=>[
+         'url'=>'http://pornartistzone.com/developing-streaming'
+       ],
       'external_account'=>[
         'object'=>'bank_account',
          'country'=>'US',
@@ -550,6 +582,10 @@ class artist extends Controller
            
         }
 
+  }
+
+  public function support(){
+    return view('support');
   }
 
   }
