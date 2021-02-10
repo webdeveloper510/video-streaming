@@ -585,7 +585,7 @@ class artist extends Controller
   }
 
   public function support(){
-    return view('support');
+    return view('artists/support');
   }
 
   }
