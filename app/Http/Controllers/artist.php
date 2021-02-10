@@ -575,7 +575,7 @@ class artist extends Controller
   }
 
   public function support(){
-    return view('artists/support');
+    return view('artists/support',['tab'=>'dashboard']);
   }
 
   }

@@ -73,7 +73,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+                       
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -163,7 +163,7 @@
                             <label class="">
             
 
-                         <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+                       
                             
                             </label><br>
                             <label class="">  
@@ -454,7 +454,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+                         
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -529,6 +529,7 @@
 						<div class="navbar-nav">
 					
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
+    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i></a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
@@ -602,6 +603,7 @@
                 <?php endif; ?>
                 <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
                 <br>
+                <?php if($notification): ?>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
 <?php 
@@ -609,13 +611,19 @@
 ?>
     
       <a href="<?php echo e(url('notification/user')); ?>" id="bold" class="bold"><?php echo e($val->message); ?></a>
+
+     
     
   
     <hr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    <input type="hidden" value="<?php echo  implode(",",$GLOBALS['ids']); ?>" id="notids"/>
-     <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
+   
+    <input type="hidden" value="<?php echo implode(",",$GLOBALS['ids']); ?>" id="notids"/>
+    <?php endif; ?>
+
+    <a href="<?php echo e(url('notification/user')); ?>"><span class="text-center text-dark">Notification History -></span></a>
+     
                 </div>
               </li>
               <!-- <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li> -->

@@ -46,7 +46,8 @@
            </div>
          </span>
          </h6>
-
+       <br>
+       
          <h6>Get 10% of our revenue on every new customer you have invited as passive income ! 
          <span class="secondtext">!  <div class="secondtextbody">
             <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
@@ -71,8 +72,8 @@
             </div>
   <div class="card-body">
     <h5 class="card-title text-center">Customer Invitations
-                <br>
-        passive revebue Stream:  $34 USD</h5>
+                <br> 
+        passive revenue Stream:  $34 USD</h5>
         <table class="table table-bordered text-center">
   <thead>
     <tr>
