@@ -32,7 +32,7 @@
          </div> 
         </div>
         <div class="col-md-4 mt-3 text-center">
-           <div class="money"><button class="btn btn-success" onclick="myFunction()" id="myBtn1">Withdraw</button></div> </div></div>
+           <div class="money"><button class="btn btn-success" id="withdrawmoney">Withdraw</button></div> </div></div>
            <hr>
            <div class="row">
             <div class="col-md-8">

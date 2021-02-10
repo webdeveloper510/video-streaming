@@ -221,6 +221,8 @@ Route::post('createList', 'AuthController@createList');
 
     Route::post('editOffer','artist@editOffer');
 
+    Route::post('draw_money','artist@draw_money');
+
     Route::post('change_image','artist@change_image');
 
     Route::post('postDescription','artist@addUserDescription');

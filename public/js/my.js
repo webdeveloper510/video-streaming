@@ -816,6 +816,33 @@ $(document).on('click', '#forgetLink', function () {
 
 
 
+$(document).on('click', '#withdrawmoney', function () {
+
+	var amount = $('#real_amount').val();
+
+	
+
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/draw_money",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {'amount':amount},
+
+				success: function(data){
+
+					console.log(data);
+						
+					
+				}
+		});
+
+});
+
+
+
 function copy(url){
 	
 	var tempInput = document.createElement("input");
@@ -883,7 +910,11 @@ $(document).on('keyup', '.checknameExist', function () {
 
 function updateRead(){
 
+	//alert('dd');
+
 	var ids = $('#notids').val();
+
+	//console.log(ids);return false;
 	
 
 	$.ajax({
@@ -897,7 +928,7 @@ function updateRead(){
 
 		success: function(data){
 
-			//console.log(data);
+			console.log(data);
 			if(data==1){
 			  $('#bold').removeClass("bold");
 			}
@@ -1048,12 +1079,10 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 				//console.log(data);return false;
 
 				if(data.status==1){
-					$('.alert-success').show();
-					$('.alert-success').html(data.message);
-
-					setTimeout(function(){ 
+					// $('.alert-success').show();
+					// $('.alert-success').html(data.message);
+					$('.popup_close').trigger('click');
 						location.reload();
-					 }, 3000);
 				}
 
 				else{

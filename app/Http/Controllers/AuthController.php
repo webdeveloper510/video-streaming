@@ -744,14 +744,6 @@ public function artistselling(){
               ],
          ]);
 
-  //         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET'));
-  //       $customer = $stripe->customers->createBalanceTransaction(
-  //       'cus_IHUegG2m98Pw2L',
-  //       ['amount' => -500, 'currency' => 'usd']
-  // );
-
-     // print_r($token);die;
-
       $input = $request->all();
 
       $userData = $this->model->getUserData($userId);
@@ -760,15 +752,12 @@ public function artistselling(){
 
        if($customerId){
 
-
             $charge = $this->createCharge($input,$customerId);/*---------------Call Create Charge Function-----------*/
 
+              if((array)$charge){
 
-
-                     if((array)$charge){
-
-        Session::flash('test', array('test1', 'test2', 'test3'));
-        return redirect('/paymentSuccess');
+              Session::flash('test', array('test1', 'test2', 'test3'));
+              return redirect('/paymentSuccess');
 
 
         }
