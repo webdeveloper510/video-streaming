@@ -27,6 +27,9 @@
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
@@ -78,7 +81,9 @@
       Your browser does not support the video tag.
     </video>
     
-    
+    <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
 
       </div>
       <?php endif; ?>
@@ -153,6 +158,9 @@
                <source src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>" type="video/mp4">
 				
              </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>

@@ -3,6 +3,7 @@
 
 <!-- end header -->
 <div class="container mt-5">
+
     <!-- <div class="row my-5 pt-5 " >
       
     <?php if($subcategory): ?>
@@ -11,44 +12,38 @@
 
         <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
 
-
       </div>
        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
        <?php endif; ?>
         <?php endif; ?>
       
-
-
-
-
     </div> -->
+
     <div class="alert alert-success message" id="message" style="display:none" role="alert">
   A simple success alert—check it out!
 </div>
     
     <?php if(!$video->isEmpty()): ?>
  <div class="row mt-5 pt-5">
- <div class="col-md-12">
- <button type="button" class="btn btn-primary bardot mt-3">Select</button>
+ <div class="col-md-12  text-right my-3">
+ <button type="button" class="btn btn-primary bardot my-3">Select</button>
  </div>
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   <?php if($vid->type=='video'): ?>
             <div class="col-md-4 pt-3 searchvideo1">
             <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
 			  <div class="embed-responsive embed-responsive-16by9">
-				<video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
+				<video width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
               <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
        Your browser does not support the video tag.
             </video>
+          
 				</div>
+        <h3 class="text-center text-white"> xyz</h3>
         </a>
-        <div class="report-op">
-				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
-						<ul style="display:none;" class="reporting">
-						 <li>Report</li>
-						 <li>You can not download this video.</li>
-						</ul>
-				   </div>
+        <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
          <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
 			</div>
 			<?php endif; ?>
@@ -70,11 +65,16 @@
           <span aria-hidden="true">&times;</span>
         </button>
    <div class="row ">
-      <div class="col-md-3">
+   <div class="col-md-2">
            <h4><span class="count">0</span>Item  Selected</h4>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
            <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+      <div class="col-md-2">
+      <ul class="selected">
+            
+           </ul>
       </div>
     <div class="col-md-3 pt-3">
              <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
@@ -91,26 +91,53 @@
      
 <!--body start>
 <body end-->
-<script>
-function showop(){
-	//alert("asas");
-	$(".reporting").toggle();
-}
-</script>
+
 <!--footer -->
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <style>
-.report-op {
-    position: relative;
-    top: 45px;
-    color: white;
-    right: 56px;
+
+.tooltip {
+ opacity:1 !important;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  right: 12px;
 }
-ul.reporting {
-    background: white;
-    color: black;
-    padding: 13px;
-    border-radius: 7px;
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 203px;
+    background-color: white;
+    color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    z-index: 99;
+    border-radius: .25rem;
+    top: 42px;
+}
+ul.selected li {
+    margin: 10px 0px;
+}
+.price {
+ 
+ padding: 24px 18px;
+}
+.price h4 {
+    margin: 0;
 }
 .inner-page {
     float: left;
@@ -125,8 +152,12 @@ ul.reporting {
 .pagination>li>a, .pagination>li>span {
     width: fit-content;
 }
-button.btn.btn-primary.bardot {
-    float: right;
+.choose1 {
+    background: white;
+}
+body {
+    background: black;
+    color: white;
 }
 input.slct_video {
     position: absolute;

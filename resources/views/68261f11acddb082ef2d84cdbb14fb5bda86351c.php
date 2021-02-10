@@ -27,6 +27,9 @@
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
@@ -78,7 +81,9 @@
       Your browser does not support the video tag.
     </video>
     
-    
+    <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
 
       </div>
       <?php endif; ?>
@@ -87,8 +92,11 @@
        <?php else: ?>
        <div class="playhistory col-md-12">
                      <h4>No play list created yet. <span id="playlistCreate" class="show_list">Create play List +</span></h4>
-                     <span class="create_playlistt" style="display: none">
+                     <span class="create_playlistt" style="display: block">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+          <div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
 
@@ -115,12 +123,12 @@
     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
-             <div class="report-op">
-				   	
-               <button type="button" class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="You can not download this video.">
-               <i class="fa fa-ellipsis-v" onclick="showop()"></i>
-                 </button>
-				   </div>
+             
+				   	<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
+              
+				  
             </div>
            
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -150,6 +158,9 @@
                <source src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>" type="video/mp4">
 				
              </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
@@ -182,11 +193,30 @@ rewindNav:false
 body{
   background: black;
 }
-.report-op {
-    position: absolute;
-    top: 10px;
-    color: white;
-    right: 14px;
+
+.tooltip {
+ opacity:1 !important;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  right: 12px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 203px;
+    background-color: white;
+    color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 ul.reporting {
     background: white;

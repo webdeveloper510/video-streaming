@@ -16,7 +16,8 @@ class Registration extends Model
     {
 
         $value = $this->selectDataById('email','users',$data['email1']);
-       // print_r($value);die;
+
+         $reffer_id = Session::get('reffer_by');
         if(!$value){
             $userdata=$data->all();
             $userdata['email']=$data['email1'];
@@ -25,6 +26,7 @@ class Registration extends Model
             $userdata['password']= md5($data['confirm']);
 
             $userdata['created_at']= now();
+            $userdata['reffered_by']= $reffer_id ? $reffer_id : 0;
             $userdata['updated_at']= now();
            // print_r($userdata);die;
                 //$inserted_data =  DB::table('users')->insert($userdata);
@@ -67,16 +69,28 @@ class Registration extends Model
  public function postArtist($data)
     {
         $value = $this->selectDataById('email','contentprovider',$data['email1']);
+
+        $reffer_id = Session::get('reffer_by');
         if(!$value){
 
             $userdata = $data->all();
+
             $userdata['password']= md5($data['confirm']);
+
             $userdata['email']= $data['email1'];
+
             unset($userdata['email1']);
+
             unset($userdata['confirm']);
+
             $userdata['created_at']= now();
+
             $userdata['updated_at']= now();
+
+            $userdata['reffered_by']= $reffer_id ? $reffer_id : 0;
+           
             $userdata['cover_photo']= '';
+            
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
 
             return $insertedid ? $insertedid : '0';
