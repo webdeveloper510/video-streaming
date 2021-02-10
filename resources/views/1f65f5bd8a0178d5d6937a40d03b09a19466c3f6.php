@@ -63,7 +63,39 @@
       </div>
      </div> 
      </div>
-    </div>      
+    </div> 
+    <div class=" invitedbox">
+    <div class="card" >
+        <div class="text-center">
+       <h3>Total Bonus Payout : $184 USD</h3>
+            </div>
+  <div class="card-body">
+    <h5 class="card-title text-center">Customer Invitations
+                <br>
+        passive revebue Stream:  $34 USD</h5>
+        <table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      <th scope="col">Artists invited</th>
+      <th scope="col">lvl3</th>
+      <th scope="col">20k PAZ earned </th>
+      <th scope="col">Payout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Artistname</th>
+      <td>not yet</td>
+      <td>not yet</td>
+      <td>-</td>
+    </tr>
+   
+  </tbody>
+</table>
+  </div>
+</div>
+    
+        </div>
   </div>
   <div class="col"></div>
    </div>
