@@ -70,7 +70,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
+                       
 
                           <!--    {{Form::checkbox('price','free')}}Free   -->
                           
@@ -156,7 +156,7 @@
                             <label class="">
             
 
-                         {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
+                       
                             
                             </label><br>
                             <label class="">  
@@ -432,7 +432,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          {{Form::radio('price', 'free', false ,['class'=>'user'])}} Free
+                         
 
                           <!--    {{Form::checkbox('price','free')}}Free   -->
                           
@@ -505,6 +505,7 @@
 						<div class="navbar-nav">
 					
 		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
+    <a href="{{url('/seeall/offer')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i></a>
     
               <!-- <a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="{{url('/feed')}}" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
