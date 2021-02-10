@@ -33,6 +33,8 @@
     <label>Description</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+  <br>
+  <input type="file" class="form-control" placeholder="add file">
     <div class="mt-3">
         <div class="row">
             <div class="col-md-3">
