@@ -68,10 +68,10 @@
             </video>
       </div>
        
-        <div class="col-md-8 pl-5 showoffer">
+        <div class="col-md-8 pl-5 showoffer pt-5">
         <a target="_blank" href="{{url('artist/offers/'.$offer->id)}}">
            <h2>{{$offer->title}}</h2>
-               <p>{{$offer->description}}</p>
+               
                  {{$details[0]->nickname}}
            <br>
          Categories :{{$offer->category}}
@@ -84,8 +84,8 @@
         </div>
         <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
          <h4>{{$offer->price}}/min PAZ</h4>
-         <div class="text-right" style="margin-top: 76px;">
-          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('{{json_encode($offer)}}')">Edit</button>
+         <div class="text-right">
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light btn-sm" onclick="edit_offer('{{json_encode($offer)}}')">Edit</button>
            </div>
         </div>
         <hr>

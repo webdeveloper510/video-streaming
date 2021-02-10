@@ -72,10 +72,10 @@
             </video>
       </div>
        
-        <div class="col-md-8 pl-5 showoffer">
+        <div class="col-md-8 pl-5 showoffer pt-5">
         <a target="_blank" href="<?php echo e(url('artist/offers/'.$offer->id)); ?>">
            <h2><?php echo e($offer->title); ?></h2>
-               <p><?php echo e($offer->description); ?></p>
+               
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
@@ -90,8 +90,8 @@
         </div>
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
-         <div class="text-right" style="margin-top: 76px;">
-          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
+         <div class="text-right">
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
            </div>
         </div>
         <hr>
