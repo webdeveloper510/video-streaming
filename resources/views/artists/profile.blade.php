@@ -79,12 +79,12 @@
         </div>
        
         <div class="col-md-2">
-        <div class="text-right">
-        <button class="btn btn-sm btn-info "><i class="fa fa-trash-o"></i></button>
-        </div>
+        
         <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
          <h4>{{$offer->price}}/min PAZ</h4>
+         
          <div class="text-right">
+         <button class="btn btn-sm btn-info "><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light btn-sm" onclick="edit_offer('{{json_encode($offer)}}')">Edit</button>
            </div>
         </div>
