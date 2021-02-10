@@ -186,6 +186,8 @@ Route::post('createList', 'AuthController@createList');
     Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
 
     Route::get('artistRegister', 'AuthController@artistRegister');
+
+    Route::get('artist/support', 'artist@support');
     
     Route::get('artist/offers/{id}', 'artist@offerpage');
 
