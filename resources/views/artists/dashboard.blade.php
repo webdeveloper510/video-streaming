@@ -73,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item {{$tab=='support'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('/#')}}">
+            <a class="nav-link" href="{{url('/artist/support')}}">
             <i class="fa fa-ticket" aria-hidden="true"></i>
               <p>Support</p>
             </a>
