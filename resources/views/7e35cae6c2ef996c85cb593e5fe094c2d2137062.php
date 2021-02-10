@@ -332,13 +332,13 @@
       </nav>
       <div class="container">
       <style>
-
 .levlv {
-    width: 178px;
+    width: 210px;
     color: #fff;
     display: flex;
     padding-top: 13px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 </style>
       <!-- End Navbar --><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/dashboard.blade.php ENDPATH**/ ?>
