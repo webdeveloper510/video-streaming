@@ -73,7 +73,7 @@
             </a>
           </li>
           <li class="nav-item <?php echo e($tab=='support'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
-            <a class="nav-link" href="<?php echo e(url('/#')); ?>">
+            <a class="nav-link" href="<?php echo e(url('/artist/support')); ?>">
             <i class="fa fa-ticket" aria-hidden="true"></i>
               <p>Support</p>
             </a>

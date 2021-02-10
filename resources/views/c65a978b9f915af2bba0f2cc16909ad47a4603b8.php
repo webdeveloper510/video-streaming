@@ -71,7 +71,7 @@
             </div>
   <div class="card-body">
     <h5 class="card-title text-center">Customer Invitations
-                <br>
+                <br> 
         passive revenue Stream:  $34 USD</h5>
         <table class="table table-bordered text-center">
   <thead>

@@ -85,12 +85,12 @@
         </div>
        
         <div class="col-md-2">
-        <div class="text-right">
-        <button class="btn btn-sm btn-info "><i class="fa fa-trash-o"></i></button>
-        </div>
+        
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         
          <div class="text-right">
+         <button class="btn btn-sm btn-info "><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-light btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
            </div>
         </div>
