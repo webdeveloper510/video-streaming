@@ -38,8 +38,21 @@
             <div class="col-md-8">
        
 
-         <div class="text_one"><p>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD!!</p>
-         <p>Get 10% of our revenue on every new customer you have invited as passive income !</p></div>
+         <div class="text_one"><p>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD! <span class="firsttext">!  
+           <div class="firsttextbody">
+            <p>The pay-out occurs when the invited Artist achieves Level 3 (400Subscribers) and a total income of +20 000 PAZ</p>
+           </div>
+         </span>
+         </p>
+
+         <p>Get 10% of our revenue on every new customer you have invited as passive income ! 
+         <span class="secondtext">!  
+           <div class="secondtextbody">
+            <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
+           </div>
+         </span>
+         </p>
+         </div>
        </div>
        <div class="col-md-4 mt-4 text-center">
           <div class="money"><button class="btn btn-primary" onclick="myFunction()" id="myBtn">Copy Link</button></div>
@@ -91,6 +104,52 @@ span.iconss:hover .data {
 }
 .data h3 {
     font-size: 12px;
+    padding: 0px;
+    margin: 0px;
+}
+span.firsttext {
+    font-size: 14px;
+    width: 50px;
+    border: 1px solid white;
+    padding: 0px 6px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+span.secondtext {
+    font-size: 14px;
+    width: 50px;
+    cursor: pointer;
+    border: 1px solid white;
+    padding: 0px 6px;
+    border-radius: 50%;
+}
+span.secondtext:hover .secondtextbody{
+   display:block !important;
+} 
+span.firsttext:hover .firsttextbody{
+   display:block !important;
+} 
+.firsttextbody {
+    display: none;
+    background: white;
+    color: black;
+    padding: 7px;
+    font-size: 12px;
+    margin-top: -18px;
+}
+.secondtextbody {
+    display: none;
+    background: white;
+    color: black;
+    padding: 7px;
+    font-size: 12px;
+    margin-top: -18px;
+}
+.firsttextbody p {
+    padding: 0px;
+    margin: 0px;
+}
+.secondtextbody p {
     padding: 0px;
     margin: 0px;
 }
