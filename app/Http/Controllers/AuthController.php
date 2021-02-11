@@ -182,13 +182,22 @@ class AuthController extends Controller
 
       $user =   Session::get('User');
 
+      $level_system = array();
+      $b = [0,2,4,6,8,10,12,14,16,18,20];
+      for($i=0;$i<11;$i++){
+      $level_system[$i]['level'] = 'Lvl'.$i;
+      $level_system[$i]['fee'] = $b[$i];
+      }
+    //  echo "<pre>";
+    //   print_r($level_system);die;
+
       $artistId = $user->id;
 
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw',['tab'=>$navbaractive,'artistid'=>$artistId]);
+      return view('/withdraw',['tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');

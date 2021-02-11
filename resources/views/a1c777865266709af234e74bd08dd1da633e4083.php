@@ -1,6 +1,7 @@
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
+
 <link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -73,7 +74,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+                       
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -163,7 +164,7 @@
                             <label class="">
             
 
-                         <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+                       
                             
                             </label><br>
                             <label class="">  
@@ -454,7 +455,7 @@
                            <h4>Price</h4>
                             
                             <label class="">
-                          <?php echo e(Form::radio('price', 'free', false ,['class'=>'user'])); ?> Free
+                         
 
                           <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
                           
@@ -529,6 +530,7 @@
 						<div class="navbar-nav">
 					
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
+    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i></a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->

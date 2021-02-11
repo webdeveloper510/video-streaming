@@ -47,11 +47,14 @@
           
       <div class="container profile">
         <h2 class="text-center">Content Upload</h2>
-        <div class="mt-5">
-          <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
-          <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
-          </div>
+       
           <div class="row align-items-center text-white">
+            <div class="col-md-12">
+            <div class="mt-5">
+              <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
+              <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+              </div>
+            </div>
              <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
