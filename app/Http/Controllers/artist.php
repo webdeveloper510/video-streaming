@@ -323,11 +323,11 @@ class artist extends Controller
 
                 $createOffer = $this->model->createOffer($data);
                   if($createOffer==1){
-                      return redirect('artist/offer#success')->with('success','Offer Created Successfully!');
+                    return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
                     }
                     else
                     {
-                        return redirect('artist/offer#error')->with('error','Some Error Occure!');
+                      return response()->json(array('status'=>0, 'messge'=>'Some Error Ocure!'));
                     }
               }
       }

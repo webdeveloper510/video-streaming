@@ -21,23 +21,22 @@
           
         </ul>
 
-  @if(session('success'))
-        <div class="alert alert-success" id="success">
-        {{session('success')}}
+        <div class="alert alert-success" id="success" style="display:none">
+    
         </div>
-        @endif 
-          @if(session('error'))
-        <div class="alert alert-danger" id="error">
-        {{session('error')}}
+ 
+      
+        <div class="alert alert-danger" id="error" style="display:none">
+   
         </div>
-        @endif
+  
         @foreach($errors->all() as $error)
           <div class="alert alert-danger">
         {{$error}}
         </div>
       
         @endforeach
-  {!!Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true])!!}
+  {!!Form::open(['id'=>'myForm','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
           
       <div class="container profile">
@@ -79,7 +78,8 @@
             </div>
             <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
-                {{Form::file('media',['class'=>'custom-file-input'])}}
+                {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
+                <span id="filename" style="color:red;"></span>
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
@@ -90,6 +90,16 @@
                 {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
             </div>
             <div class="col-md-12 text-center pt-3">
+            <div class="modal show_modal" tabindex="991">
+  <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-body">
+          <img src="{{asset('images/loader.gif')}}"/>
+          </div>
+    </div>
+  </div>
+</div>
+            
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
    </div>
@@ -109,6 +119,31 @@
 .mt-5 p {
     font-size: 22px !important;
     padding-right: 18px;
+}
+
+.modal-dialog {
+    background: transparent !important;
+}
+
+.modal-content {
+    background: transparent;
+    box-shadow: none;
+}
+
+.modal-body img {
+    width: 26rem;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
 }
 
 .mt-5 {
