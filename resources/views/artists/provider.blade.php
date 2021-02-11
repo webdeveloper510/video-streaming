@@ -90,7 +90,7 @@
                 {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
             </div>
             <div class="loader col-md-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading:...</span><img src="{{asset('images/loading.gif')}}" width="80px" height="80px"/>
+                <span style="color:green; font-weight: bold;">Uploading:...</span><img src="{{asset('images/loading2.gif')}}" width="80px" height="80px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
             <div class="col-md-6 text-center pt-3">
