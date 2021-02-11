@@ -1076,7 +1076,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 			success: function(data){
 
-				console.log(data);return false;
+			//	console.log(data);return false;
 
 				if(data.status==1){
 					// $('.alert-success').show();
