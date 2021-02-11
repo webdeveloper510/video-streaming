@@ -1076,7 +1076,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 			success: function(data){
 
-				console.log(data);return false;
+			//	console.log(data);return false;
 
 				if(data.status==1){
 					// $('.alert-success').show();
@@ -1553,6 +1553,93 @@ $(document).on('click','.select_media_pic',function(){
 				$('.convert').show();
 			}
 })
+
+$(document).on('submit', '#myForm', function (event) {
+	event.preventDefault();
+	var formData = new FormData($(this)[0]);
+	$('.show_modal').show();
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/postContent",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: formData,
+			processData: false,
+			contentType: false,
+
+			success: function(data){
+
+				$('.show_modal').hide();
+				//console.log(data);return false;
+
+				if(data.status==1){
+					 $('#success').show();
+					 $('#success').html(data.messge);
+
+					 location.reload();
+					//$('.popup_close').trigger('click');
+						
+				}
+
+				else{
+
+					$('#error').show();
+					$('#error').html(data.messge);
+					
+				}
+
+
+			}
+	});
+
+});
+
+
+$(document).on('submit', '#create_offer', function (event) {
+	event.preventDefault();
+	var formData = new FormData($(this)[0]);
+	$('.show_modal').show();
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/createOffer",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: formData,
+			processData: false,
+			contentType: false,
+
+			success: function(data){
+
+				$('.show_modal').hide();
+				//console.log(data);return false;
+
+				if(data.status==1){
+					 $('#success').show();
+					 $('#success').html(data.messge);
+
+					 location.reload();
+					//$('.popup_close').trigger('click');
+						
+				}
+
+				else{
+
+					$('#error').show();
+					$('#error').html(data.messge);
+					
+				}
+
+
+			}
+	});
+
+});
 
     
 
