@@ -1557,29 +1557,46 @@ $(document).on('click','.select_media_pic',function(){
 $(document).on('submit', '#myForm', function (event) {
 	event.preventDefault();
 	var formData = new FormData($(this)[0]);
-	$('.show_modal').show();
+	$('.loader').show();
+	$('.percentage').html('0');
 	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
 			url:APP_URL+"/postContent",
 			 headers: {
 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-
+		   },				
 			data: formData,
 			processData: false,
 			contentType: false,
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				if (xhr.upload) {
+					xhr.upload.addEventListener('progress', function(event) {
+						var percent = 0;
+						var position = event.loaded || event.position;
+						var total = event.total;
+						if (event.lengthComputable) {
+							percent = Math.ceil(position / total * 100);
+						}
+						//update progressbar
+						$('.percentage').html(percent+'%');
+					//	$(progress_bar_id + " .status").text(percent +"%");
+					}, true);
+				}
+				return xhr;
+		},
 
 			success: function(data){
-
-				$('.show_modal').hide();
+				//console.log(data);return false;
+				$('.loader').hide();
 				//console.log(data);return false;
 
 				if(data.status==1){
 					 $('#success').show();
 					 $('#success').html(data.messge);
 
-					 location.reload();
+					// location.reload();
 					//$('.popup_close').trigger('click');
 						
 				}
@@ -1601,7 +1618,8 @@ $(document).on('submit', '#myForm', function (event) {
 $(document).on('submit', '#create_offer', function (event) {
 	event.preventDefault();
 	var formData = new FormData($(this)[0]);
-	$('.show_modal').show();
+	$('.loader').show();
+	$('.percentage').html('0');
 	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
@@ -1613,6 +1631,23 @@ $(document).on('submit', '#create_offer', function (event) {
 			data: formData,
 			processData: false,
 			contentType: false,
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				if (xhr.upload) {
+					xhr.upload.addEventListener('progress', function(event) {
+						var percent = 0;
+						var position = event.loaded || event.position;
+						var total = event.total;
+						if (event.lengthComputable) {
+							percent = Math.ceil(position / total * 100);
+						}
+						//update progressbar
+						$('.percentage').html(percent+'%');
+					//	$(progress_bar_id + " .status").text(percent +"%");
+					}, true);
+				}
+				return xhr;
+		},
 
 			success: function(data){
 
@@ -1623,7 +1658,7 @@ $(document).on('submit', '#create_offer', function (event) {
 					 $('#success').show();
 					 $('#success').html(data.messge);
 
-					 location.reload();
+					 //location.reload();
 					//$('.popup_close').trigger('click');
 						
 				}
