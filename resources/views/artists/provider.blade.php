@@ -89,17 +89,11 @@
             {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
             </div>
-            <div class="col-md-12 text-center pt-3">
-            <div class="modal show_modal" tabindex="991">
-  <div class="modal-dialog">
-    <div class="modal-content">
-          <div class="modal-body">
-          <img src="{{asset('images/loader.gif')}}"/>
-          </div>
-    </div>
-  </div>
-</div>
-            
+            <div class="loader col-md-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading:...</span><img src="{{asset('images/loading.gif')}}" width="80px" height="80px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+            <div class="col-md-6 text-center pt-3">
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
      </div>
    </div>
