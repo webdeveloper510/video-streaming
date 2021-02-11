@@ -170,17 +170,17 @@
             </div>
            
            
-          
+            <div class="row">
             
-            <div class="loader col-md-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading:...</span><img src="{{asset('images/loading2.gif')}}" width="80px" height="80px"/>
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
-              <div class="col-md-6 text-center pt-3">
+              <div class="col text-center pt-3">
 
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
           </div>
-    
+          </div>
      </div>
   {{ Form::close() }}
 
@@ -224,6 +224,11 @@
     display: none;
     overflow: hidden;
     outline: 0;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
 }
 
 
