@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" Content-Type="video/mp4">
 
-<link rel="icon" href="<?php echo e(asset('images/fevicon/fevicon.png')); ?>" type="image/gif" />
+<link rel="icon" href="<?php echo e(asset('images/logos/logo_black.png')); ?>" type="image/png" sizes="16x16">
 <!-- bootstrap css -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
