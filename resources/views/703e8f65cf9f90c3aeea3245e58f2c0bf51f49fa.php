@@ -117,7 +117,7 @@
          <div class="card">
              <div class="week">
              <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
-              on the landingpage and also on the customer homepage for free</h5>
+              on the landingpage and on the customer homepage for free</h5>
               <hr>
           <div class="row">
              <div class="col-4">

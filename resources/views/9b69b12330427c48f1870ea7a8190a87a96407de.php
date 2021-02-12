@@ -35,26 +35,29 @@
 			  <div class="embed-responsive embed-responsive-16by9">
 				<video width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
               <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
-       Your browser does not support the video tag.
+                  Your browser does not support the video tag.
             </video>
           
 				</div>
-        <h3 class="text-center text-white"> xyz</h3>
+        <h3 class="text-center text-white"> <?php echo e($vid->title); ?></h3>
         </a>
         <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
   <span class="tooltiptext">You can not download this video</span>
 </div>
-         <div class="checkall" style="display: none"><form> <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
+         <div class="checkall" style="display: none">
+         <form>
+          <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>">
+          </form></div>
 			</div>
 			<?php endif; ?>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
   <?php else: ?>
   <div>
-     <h1>Your specific taste is not served yet</h1>
+     <!-- <h1>Your specific taste is not served yet</h1>
      <a href="<?php echo e(url('my-requests')); ?>"><button class="btn btn-warning text-white">
      Create Project
-     </button></a>
+     </button></a> -->
   </div> 
   <?php endif; ?>
   <br/>
