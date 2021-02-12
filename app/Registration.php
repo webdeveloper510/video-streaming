@@ -1794,7 +1794,7 @@ public function PopularVideos($flag,$type){
 
   $videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
 
-   // print_r($videoId1);
+
       if($flag=='No'){
 
 
@@ -1806,8 +1806,8 @@ public function PopularVideos($flag,$type){
         $videos = DB::table("media")->whereIn('id', $videoId1)->paginate(30);
 
       }
-
-    
+// echo "<pre>";
+//       print_r($videos);die;
 
     return $videos;
 }

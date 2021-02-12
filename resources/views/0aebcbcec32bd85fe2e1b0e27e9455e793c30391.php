@@ -11,6 +11,7 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <h3 class="text-white"><?php echo e($vid->title); ?></h3>
         </a>
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -25,6 +26,7 @@
             <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
             Your browser does not support the video tag.
           </audio>
+          <h3 class="text-white"><?php echo e($aud->title); ?></h3>
           </a>
           </div>
  </div>

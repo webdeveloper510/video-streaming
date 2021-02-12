@@ -1,17 +1,16 @@
 @include('artists.dashboard')
 
- @if(session('success'))
-        <div class="alert alert-success" id="success">
-        {{session('success')}}
+
+        <div class="alert alert-success" id="success" style="display:none">
         </div>
-        @endif
+ 
            
-          @if(session('error'))
-        <div class="alert alert-danger" id="error">
-        {{session('error')}}
+         
+        <div class="alert alert-danger" id="error" style="display:none">
+      
         </div>
-        @endif
-{!!Form::open(['action' => 'artist@createOffer', 'method' => 'post', 'files'=>true])!!}
+    
+{!!Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile ">
         <h1 class="text-center">Create Offer</h1>
@@ -41,8 +40,8 @@
 
             {{Form::label('Media Offering', 'Media Offering')}} <br>
         <div class="radiobtn">
-          <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
-          <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+          <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+          <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
    
             </div>
             </div>
@@ -171,13 +170,17 @@
             </div>
            
            
-          
+            <div class="row">
             
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+              <div class="col text-center pt-3">
 
-              <div class="col-md-12 text-center pt-3">
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
           </div>
-    
+          </div>
      </div>
   {{ Form::close() }}
 
@@ -195,6 +198,37 @@
 }
 .radiobtn{
   display:inline-flex;
+}
+
+
+.modal-dialog {
+    background: transparent !important;
+}
+
+.modal-content {
+    background: transparent;
+    box-shadow: none;
+}
+
+.modal-body img {
+    width: 26rem;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
 }
 
 

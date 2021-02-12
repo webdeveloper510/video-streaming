@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Redirect;
   $path = base_path() . '/vendor';
+require_once($path.'/autoload.php');
 require_once($path.'/stripe/stripe-php/init.php');
 
 class artist extends Controller
@@ -322,11 +323,11 @@ class artist extends Controller
 
                 $createOffer = $this->model->createOffer($data);
                   if($createOffer==1){
-                      return redirect('artist/offer#success')->with('success','Offer Created Successfully!');
+                    return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
                     }
                     else
                     {
-                        return redirect('artist/offer#error')->with('error','Some Error Occure!');
+                      return response()->json(array('status'=>0, 'messge'=>'Some Error Ocure!'));
                     }
               }
       }
@@ -500,18 +501,7 @@ class artist extends Controller
       'api_key'=>'sk_test_ChfSSXaILXyDtixAjzFD4sYx',
       "stripe_version" => "2020-08-27"]);
 
-   // $account =  retrieve('acct_1IJ5HIQbT7sMbLKU');
-    //print_r($account);die;
-
-  //   $account = \Stripe\Account::updateCapability(
-  //     'acct_1IJ5HIQbT7sMbLKU',
-  // 'card_payments',
-  // ['requested' => true,]
-  //   );
-
-  //  print_r($account);die;
-
-    $account = $stripe->accounts->create([
+   $account = $stripe->accounts->create([
       'type' => 'custom',
       'country' => 'US',
       'email' => 'navdeep@codenomad.net',

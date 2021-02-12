@@ -6,12 +6,20 @@
           <div class="col-lg-10">
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> !   <div class="data">
+      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ! 
+    
+      <div class="data">
+      @foreach($level_system as $key=>$val) 
+          @if($val['level']==$levelData[0]->level_name)
          <h3> PAZ Service Fee :20%</h3>
-         <h3> Level 3 <small>(you save)</small>: 6%</h3>
+         <h3> {{$levelData ? $levelData[0]->level_name: ''}} <small>(you save)</small>: {{$val['fee']}}%</h3>
          <hr>
-         <h3>Current Fee : <span> 14%</span></h3>
-      </div> </span>
+         <h3>Current Fee : <span>{{20-$val['fee']}}%</span></h3>
+         @endif
+         @endforeach
+      </div>
+  
+       </span>
       </h3>
          
    </div> 

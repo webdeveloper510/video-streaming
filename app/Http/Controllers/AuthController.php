@@ -182,13 +182,22 @@ class AuthController extends Controller
 
       $user =   Session::get('User');
 
+      $level_system = array();
+      $b = [0,2,4,6,8,10,12,14,16,18,20];
+      for($i=0;$i<11;$i++){
+      $level_system[$i]['level'] = 'Lvl'.$i;
+      $level_system[$i]['fee'] = $b[$i];
+      }
+    //  echo "<pre>";
+    //   print_r($level_system);die;
+
       $artistId = $user->id;
 
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw',['tab'=>$navbaractive,'artistid'=>$artistId]);
+      return view('/withdraw',['tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -555,7 +564,7 @@ class AuthController extends Controller
   public function providerContent(Request $request){
         $this->validate($request,[
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
-          'audio_pic'=>'required',
+          //'audio_pic'=>'required',
           'description'=>'required',
           //'hour'=>'required',
           //'minutes'=>'required',
@@ -567,12 +576,12 @@ class AuthController extends Controller
           //'subcategory'=>'required'    
       ]
         );
-        //print_r($request->media->getSize());die;
+       // print_r($request->all());die;
       if($request->media){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
-              $audio_pics = time().'_'.$request->audio_pic->getClientOriginalName();
-              $request->audio_pic->storeAs('uploads',$audio_pics,'public');
+              $audio_pics = $request->audio_pic ? time().'_'.$request->audio_pic->getClientOriginalName():'';
+              $request->audio_pic ? $request->audio_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
                  $size=$request->media->getSize();
@@ -589,11 +598,11 @@ class AuthController extends Controller
 
                 $update_data = $this->model->uploadContentProvider($data);
                   if($update_data){
-                      return redirect('artist/contentUpload#success')->with('success','Data Created Successfully!');
+                      return response()->json(array('status'=>1, 'messge'=>'Content Uploaded!'));
                     }
                     else
                     {
-                        return redirect('artist/contentUpload#error')->with('error','Some Error Occure!');
+                        return response()->json(array('status'=>0, 'messge'=>'Some Eror!'));
                     }
               }
       }
