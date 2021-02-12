@@ -1588,10 +1588,7 @@ $(document).on('submit', '#myForm', function (event) {
 		},
 
 			success: function(data){
-				//console.log(data);return false;
 				$('.loader').hide();
-				//console.log(data);return false;
-
 				if(data.status==1){
 					 $('#success').show();
 					 $('#success').html(data.messge);
