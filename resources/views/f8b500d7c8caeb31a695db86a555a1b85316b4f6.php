@@ -141,7 +141,7 @@
               <button class="btn btn-info" type="button">Week 23+24</button>
              </div>
           </div>
-          <h5 class="card-title text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
+          <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
           <div class="text-right">
           <button class="btn btn-primary" type="button">Submit</button>
 
