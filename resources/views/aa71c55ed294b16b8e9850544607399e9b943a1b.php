@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" href="<?php echo e(asset('images/logos/logo_black.png')); ?>" type="image/png" sizes="16x16">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
@@ -332,13 +332,13 @@
       </nav>
       <div class="container">
       <style>
-
 .levlv {
-    width: 178px;
+    width: 210px;
     color: #fff;
     display: flex;
     padding-top: 13px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 </style>
       <!-- End Navbar --><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>
