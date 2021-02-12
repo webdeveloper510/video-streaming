@@ -1,6 +1,7 @@
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
+
 <link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -577,8 +578,8 @@
          </a></button>
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
-         <button class="dropdown-item" type="button">
-        <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
+         <!-- <button class="dropdown-item" type="button">
+        <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button> -->
   </div>
    <hr/ style="color:white;background: white;">
   <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>

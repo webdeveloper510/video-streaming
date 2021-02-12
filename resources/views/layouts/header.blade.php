@@ -554,8 +554,8 @@
          </a></button>
       <button class="dropdown-item" type="button">
         <a href="{{url('/logout')}}">Logout</a></button>
-         <button class="dropdown-item" type="button">
-        <a href="{{url('/my-requests')}}">Projects</a></button>
+         <!-- <button class="dropdown-item" type="button">
+        <a href="{{url('/my-requests')}}">Projects</a></button> -->
   </div>
    <hr/ style="color:white;background: white;">
   <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>

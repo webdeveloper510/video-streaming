@@ -95,7 +95,8 @@
     @endforeach
     @else
           <div class="artistoffer1">
-            <h4> Artist does not Create any Offer</h4>
+            <h4> No Offer Create yet </h4>
+            <a href="">Create Offer</a>
           </div>
           @endif
    </div>
@@ -157,7 +158,8 @@
           @endforeach
           @else
           <div class="artistvideo">
-            <h4> Artist does not upload any video</h4>
+          <h4> No video uploaded yet </h4>
+            <a href="">Uploaded video</a>
           </div>
           @endif
           </div>
@@ -186,7 +188,8 @@ Your browser does not support the audio tag.
 @endforeach
 @else
 <div class="artistaudio">
-            <h4> Artist does not upload any Audio</h4>
+<h4> No video uploaded yet </h4>
+            <a href="">Uploaded video</a>
           </div>
 @endif
 </div>
