@@ -1,19 +1,16 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
- <?php if(session('success')): ?>
-        <div class="alert alert-success" id="success">
-        <?php echo e(session('success')); ?>
 
+        <div class="alert alert-success" id="success" style="display:none">
         </div>
-        <?php endif; ?>
+ 
            
-          <?php if(session('error')): ?>
-        <div class="alert alert-danger" id="error">
-        <?php echo e(session('error')); ?>
-
+         
+        <div class="alert alert-danger" id="error" style="display:none">
+      
         </div>
-        <?php endif; ?>
-<?php echo Form::open(['action' => 'artist@createOffer', 'method' => 'post', 'files'=>true]); ?>
+    
+<?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
@@ -45,8 +42,8 @@
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
         <div class="radiobtn">
-          <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
-          <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+          <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+          <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
    
             </div>
             </div>
@@ -183,14 +180,18 @@
             </div>
            
            
-          
+            <div class="row">
             
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+              <div class="col text-center pt-3">
 
-              <div class="col-md-12 text-center pt-3">
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
           </div>
-    
+          </div>
      </div>
   <?php echo e(Form::close()); ?>
 
@@ -209,6 +210,37 @@
 }
 .radiobtn{
   display:inline-flex;
+}
+
+
+.modal-dialog {
+    background: transparent !important;
+}
+
+.modal-content {
+    background: transparent;
+    box-shadow: none;
+}
+
+.modal-body img {
+    width: 26rem;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
 }
 
 

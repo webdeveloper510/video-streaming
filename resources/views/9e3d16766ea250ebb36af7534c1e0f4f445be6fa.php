@@ -97,13 +97,15 @@
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
 
             </div>
-            <div class="loader col-md-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading:...</span><img src="<?php echo e(asset('images/loading.gif')); ?>" width="80px" height="80px"/>
+            <div class="row">
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
-            <div class="col-md-6 text-center pt-3">
+            <div class="col text-center pt-3">
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
+     </div>
      </div>
    </div>
   <?php echo e(Form::close()); ?>
@@ -127,6 +129,11 @@
 
 .modal-dialog {
     background: transparent !important;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
 }
 
 .modal-content {

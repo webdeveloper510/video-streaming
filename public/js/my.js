@@ -1651,7 +1651,7 @@ $(document).on('submit', '#create_offer', function (event) {
 
 			success: function(data){
 
-				$('.show_modal').hide();
+				$('.loader').hide();
 				//console.log(data);return false;
 
 				if(data.status==1){
