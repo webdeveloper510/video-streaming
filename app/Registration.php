@@ -466,18 +466,38 @@ public function getArtistDetail($artid,$type){
 
   }
 
-  public function edit_other($profile){
+  public function edit_other($profile,$data){
 
     $session_data =   Session::get('User');
 
     $contentid=$session_data->id;
 
+   // print_r($profile);die;
   
 
-    $update = DB::table('contentprovider')->where('id',$contentid)->update($profile->all());
+    $update = DB::table('contentprovider')->where('id',$contentid)->update($profile);
 
-    return $update; 
 
+       $id=$data['hid'];
+      unset($data['hid']);
+      //print_r($data);die;
+      $update1 = DB::table('media')->where('id',$id)->update($data);
+
+      return $update1; 
+
+
+   // print_r($update);die;
+
+    
+
+    
+
+  }
+
+
+  public function getQuality(){
+
+    return DB::table('quality')->get()->toArray();
   }
 
   public function onlyArtistDetail($id){
