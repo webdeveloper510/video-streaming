@@ -259,6 +259,8 @@ class artist extends Controller
          
       $allArtistsAudio=     $this->model->getArtistDetail($userid,'audio');
 
+       $random =            $this->model->getRandomData();
+
       $allArtistOffer =      $this->model->getArtistOffer($userid);
 
       $quality = $this->model->getQuality();
@@ -268,11 +270,11 @@ class artist extends Controller
 
       //  echo "<pre>";
 
-      // print_r($allArtistsVideo);die;
+      // print_r($random);die;
 
       $contentLogin =   Session::get('User');
       
-      return view('artists.profile',['qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+      return view('artists.profile',['random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
 

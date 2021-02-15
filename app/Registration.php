@@ -468,6 +468,9 @@ public function getArtistDetail($artid,$type){
 
   public function edit_other($profile,$data){
 
+//     print_r($profile);
+//     print_r($data);
+// die;
     $session_data =   Session::get('User');
 
     $contentid=$session_data->id;
@@ -2238,6 +2241,23 @@ public function update_due_to_process($data){
 
      return DB::table('offer')->where('id', $data['id'])->delete();
 
+
+    }
+
+    public function getRandomData(){
+
+      $session_data =   Session::get('User');
+
+      $userid =  $session_data->id;
+
+      $random  = DB::table('media')
+      ->where('contentProviderid',$userid)
+      // ->inRandomOrder()
+      ->limit(1)
+      ->get()
+      ->toArray();
+
+      return $random;
 
     }
 
