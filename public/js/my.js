@@ -1115,12 +1115,12 @@ $(document).ready(function(){
 
 	confirm: {
 		 label: 'delete',
-		  className: 'btn-success' 
+		  className: 'btn btn-danger' 
 
 	}, 
 	  cancel: { 
 		label: 'cancel',
-		 className: 'btn-danger'
+		 className: 'btn btn-light'
 		 }
 },
 	callback: function (result) {
@@ -1203,17 +1203,23 @@ $(document).on('change','#change_section',function(){
 
 	var value = $(this).val();
 		console.log(value);
-	//$('.container').find('.'+value).hide()
-	$('.container .filter_div').each(function(i, obj) {
-		var hide_div = $(this).attr('id');
+		if(value=='all'){
 
-		console.log(hide_div);
-		
-		$('.container').find('#'+hide_div).hide()
-		$('.container').find('#'+value).show();
-		//console.log($(this).attr('id'));
-		//test
-	});
+			$('.filter_div').show();
+
+		}
+		else{
+			$('.container .filter_div').each(function(i, obj) {
+				var hide_div = $(this).attr('id');
+
+				console.log(hide_div);
+				
+				$('.container').find('#'+hide_div).hide()
+				$('.container').find('#'+value).show();
+				//console.log($(this).attr('id'));
+				//test
+			});
+}
 	
 
 })
