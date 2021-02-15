@@ -90,7 +90,7 @@
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
          
          <div class="text-right mr-3">
-         <button class="btn btn-sm btn-light "><i class="fa fa-trash-o"></i></button>
+      <button class="btn btn-sm btn-light delete" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
            </div>
         </div>
@@ -102,7 +102,7 @@
     <?php else: ?>
           <div class="artistoffer1">
             <h4> No Offer Create yet </h4>
-            <a href="">Create Offer</a>
+            <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
           </div>
           <?php endif; ?>
    </div>
@@ -143,7 +143,7 @@
        <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
-        <?php if(isset($details)): ?>
+        <?php if(isset($details[0]->type)): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
@@ -174,7 +174,7 @@
     <div class="filter_div" id="audio">
      <h3>Audios</h3>
      <div class="row mb-5">
-      <?php if(isset($audio)): ?>
+      <?php if(isset($audio[0]->type)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
@@ -270,7 +270,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-          <?php if($details[0]->type=='video'): ?>
+          <?php if(isset($details[0]->type)&&$details[0]->type=='video'): ?>
             <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
@@ -449,7 +449,7 @@ Your browser does not support the audio tag.
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
-                <span style="color:red;"><?php echo e($details[0]->media ? $details[0]->media : ''); ?></span>
+                <span style="color:red;"><?php echo e(isset($details[0]->media) ? $details[0]->media : ''); ?></span>
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
