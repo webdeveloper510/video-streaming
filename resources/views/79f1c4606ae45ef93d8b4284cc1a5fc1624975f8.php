@@ -143,7 +143,7 @@
        <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
-        <?php if(isset($detail->type)): ?>
+        <?php if(isset($details)): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3">
@@ -174,7 +174,7 @@
     <div class="filter_div" id="audio">
      <h3>Audios</h3>
      <div class="row mb-5">
-      <?php if(isset($audio->type)): ?>
+      <?php if(isset($audio)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
@@ -270,10 +270,18 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
+          <?php if($details[0]->type=='video'): ?>
             <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
+          <?php else: ?>
+          <img src="http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg" width="167px;">
+          <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+               <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/audio/'.$details[0]->media) :''); ?>" type="video/mp3">
+                     
+          </audio>
+          <?php endif; ?>
            <h4>Duration:</h4>
                   
           </div>
@@ -434,26 +442,29 @@ Your browser does not support the audio tag.
           <div class="row align-items-center text-white">   
 
            <div class="col-md-12" style="display: flex;">
-            <input type="radio" class="select_media_pic" name="radio" value="audio" /><p class="text-dark">Audio</p>
-            <input type="radio" class="select_media_pic" name="radio" value="video"/><p class="text-dark">Video</p>
+            <input type="radio" class="select_media_pic" name="radio" value="audio"  /><p class="text-dark">Audio</p>
+            <input type="radio" class="select_media_pic" name="radio" value="video" checked/><p class="text-dark">Video</p>
           </div>    
           <div class="col-md-6 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
+                <span style="color:red;"><?php echo e($details[0]->media ? $details[0]->media : ''); ?></span>
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
 
             </div>
+            <input type="hidden" value="<?php echo e($details[0]->id); ?>" name="hid"/>
+           
           <div class="col-md-6 mt-2 convert">
            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
            <select name="convert"  class='form-control'>
-                    <option value="">Choose ...</option>
-                    <option value="1">480p  </option>
-                    <option value="2">HD 720p </option>
-                    <option value="3">Full HD 1080p  </option>
+                <option value="">Choose ...</option>
+               <?php $__currentLoopData = $qualities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $q): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+               <option  value="<?php echo e($q->quality); ?>" <?php echo e(($details[0]->convert)==$q->quality ? 'selected' : ''); ?>><?php echo e($q->quality); ?>px </option>
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div>
                 <div class="col-md-6 pt-3">
