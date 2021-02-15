@@ -102,7 +102,7 @@
     <?php else: ?>
           <div class="artistoffer1">
             <h4> No Offer Create yet </h4>
-            <a href="">Create Offer</a>
+            <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
           </div>
           <?php endif; ?>
    </div>
