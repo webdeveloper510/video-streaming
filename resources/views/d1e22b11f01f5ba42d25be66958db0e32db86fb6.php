@@ -149,6 +149,12 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
           <h5><?php echo e($recnt->title); ?></h5>
           </a>
             </div>
@@ -194,6 +200,12 @@
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <div class="text-left">
+          <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
                 <h5><?php echo e($pop->title); ?></h5>
                 </a>
             </div> 
