@@ -29,19 +29,13 @@
 </video>
 
 	  <div class="carad-body">
-	      <h4 class="card-title text-center text-white"><?php echo e($val->title); ?></h4>
+	      <h4 class="card-title text-center"><?php echo e($val->title); ?></h4>
 	      <hr>
-	     
-	      
+	      <h5 class="text-center">Artists Description</h5>
+	    
+	      <p class="card-text p-3"><?php echo e($val->description); ?></p>
+	      <hr>
 	      <table class="table table-borderless text-center">
-        <tr>
-          <th>Category</th>
-          <td><?php echo e($offer->category); ?></td>
-        </tr>
-        <tr>
-          <th>Media</th>
-          <td><?php echo e($offer->type=='video'? 'Video/mp4' :'Audio/mp3'); ?></td>
-        </tr>
             <tr>
             	<th>Price</th>
             	<td> <?php echo e($val->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
@@ -112,24 +106,15 @@ table.table.table-borderless tr td, th {
     margin-bottom: 30px;
     display: flex;
 }
-.show-offer {
-    background: black;
-    color: white;
-}
 
-.card {
-    background: black;
-    border: 1px solid white;
-    color: white;
-}
 .alert-success {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
     margin-top: 97px;
 }
-.showoffer1:hover  .card{
+.showoffer1:hover {
   border:2px solid yellow;
 }
 	</style>
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/showoffer.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/showoffer.blade.php ENDPATH**/ ?>

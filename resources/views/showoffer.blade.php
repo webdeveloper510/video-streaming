@@ -27,13 +27,19 @@
 </video>
 
 	  <div class="carad-body">
-	      <h4 class="card-title text-center">{{$val->title}}</h4>
+	      <h4 class="card-title text-center text-white">{{$val->title}}</h4>
 	      <hr>
-	      <h5 class="text-center">Artists Description</h5>
-	    
-	      <p class="card-text p-3">{{$val->description}}</p>
-	      <hr>
+	     
+	      
 	      <table class="table table-borderless text-center">
+        <tr>
+          <th>Category</th>
+          <td>{{$offer->category}}</td>
+        </tr>
+        <tr>
+          <th>Media</th>
+          <td>{{$offer->type=='video'? 'Video/mp4' :'Audio/mp3' }}</td>
+        </tr>
             <tr>
             	<th>Price</th>
             	<td> {{$val->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
@@ -99,14 +105,23 @@ table.table.table-borderless tr td, th {
     margin-bottom: 30px;
     display: flex;
 }
+.show-offer {
+    background: black;
+    color: white;
+}
 
+.card {
+    background: black;
+    border: 1px solid white;
+    color: white;
+}
 .alert-success {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
     margin-top: 97px;
 }
-.showoffer1:hover {
+.showoffer1:hover  .card{
   border:2px solid yellow;
 }
 	</style>

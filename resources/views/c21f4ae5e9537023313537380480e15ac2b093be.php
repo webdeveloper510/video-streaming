@@ -57,8 +57,8 @@
          <p>   <i class="fa fa-check" style="font-size:24px"></i>  Fee free account at level 10
 
           </p>
-          <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
-          </p>
+          <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
+          </p> -->
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
           </p> -->
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
@@ -101,7 +101,7 @@
           </p>
           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
           </p>
-          <div class="col-md-12 text-center mt-5">
+          <div class="col-md-12 text-center mt-5 ">
 
  <button type="button" class="btn btn-primary btn-lg px-3"><a href="<?php echo e(url('/checkUser/user')); ?>">Join Now </a></button>
 
@@ -149,6 +149,14 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+          </div>
           <h5><?php echo e($recnt->title); ?></h5>
           </a>
             </div>
@@ -194,6 +202,14 @@
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <div class="pricetime">
+                <div class="text-left">
+          <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+</div>
                 <h5><?php echo e($pop->title); ?></h5>
                 </a>
             </div> 
