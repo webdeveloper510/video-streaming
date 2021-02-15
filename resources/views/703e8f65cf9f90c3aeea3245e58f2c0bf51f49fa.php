@@ -166,7 +166,9 @@
                 <?php echo e(Form::text('country', '',['class'=>'form-control','placeholder'=>'Enter Country'])); ?>
 
                 <?php echo e(Form::label('Date of Birth', 'Date of Birth')); ?> 
+                
                 <input type="date" name="dob" class="form-control" />
+                <br>
                 <h5 class="card-title">Email : example@gmail.com</h5>
                 <div class="text-right">
                 <?php echo e(Form::submit('Update!',['class'=>'btn btn-light btn-sm'])); ?>
@@ -237,27 +239,27 @@
 </section>
 <style>
 .columesdashboard {
-    border: 3px solid lightblue;
+    border: 3px solid #ed1c24;
     padding: 30px 18px;
-    background: lightblue;
+    background: #ed1c24;
     color: white;
 }
 .columesdashboard1 {
-    border: 3px solid #be7f5a;
+    border: 3px solid #ff7f27;
     padding: 30px 18px;
-    background: #be7f5a;
+    background: #ff7f27;
     color: white;
 }
 .columesdashboard2 {
-    border: 3px solid #e84c3d;
+    border: 3px solid #22b14c;
     padding: 30px 18px;
-    background: #e84c3d;
+    background: #22b14c;
     color: white;
 }
 .columesdashboard3 {
-    border: 3px solid #1abc9c;
+    border: 3px solid #b97a57;
     padding: 30px 18px;
-    background: #1abc9c;
+    background: #b97a57;
     color: white;
 }
 h5.customer1.text-center.pt-3.pl-3 {
