@@ -96,6 +96,14 @@ $(document).ready(function(){
 		}, function(){
 			pause(this);
 	});
+
+	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+        localStorage.setItem('activeTab', $(e.target).attr('href'));
+    });
+    var activeTab = localStorage.getItem('activeTab');
+    if(activeTab){
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+    }
   
 });
 function pause(a){
@@ -1038,7 +1046,7 @@ $(document).on('submit', '#edit_form', function (event) {
 						$('#close').trigger('click'); 
 						loadingmessage();
 						location.reload();
-					  }, 3000);
+					  }, 1000);
 				}
 
 				else{
