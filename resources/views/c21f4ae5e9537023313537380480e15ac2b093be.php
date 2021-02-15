@@ -57,11 +57,10 @@
          <p>   <i class="fa fa-check" style="font-size:24px"></i>  Fee free account at level 10
 
           </p>
-         <p>  <i class="fa fa-check" style="font-size:24px"></i> Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD</p>
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
           </p>
-          <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
-          </p>
+          <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
+          </p> -->
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p>
          <div class="col-md-12 text-center mt-2">
@@ -84,21 +83,21 @@
    
       <p><i class="fa fa-check" style="font-size:24px"></i>  Free Registration </p>
          
-        <p> <i class="fa fa-check" style="font-size:24px"></i> Zero monthly fees </p>
+        <p> <i class="fa fa-check" style="font-size:24px"></i>  Zero monthly fees </p>
          
         <p><i class="fa fa-check" style="font-size:24px"></i>  Order exclusive Custom Content</p>
          
-         <p><i class="fa fa-check" style="font-size:24px"></i> Make Additional Requests</p>
+         <p><i class="fa fa-check" style="font-size:24px"></i>  Make Additional Requests</p>
          
         
       
-         <p><i class="fa fa-check" style="font-size:24px"></i> Directly Download your Orders
+         <p><i class="fa fa-check" style="font-size:24px"></i>  Directly Download your Orders
           </p>
          <p><i class="fa fa-check" style="font-size:24px"></i>  Unlimited Streaming 24/7
           </p>
           <p><i class="fa fa-check" style="font-size:24px"></i>  Build your own Playlists
           </p>
-           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy our Advanced Filter Options
+           <p><i class="fa fa-check" style="font-size:24px"></i>  Explore our Advanced Filter Options
           </p>
           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
           </p>
