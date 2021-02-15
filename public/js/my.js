@@ -91,41 +91,44 @@ $(document).ready(function(){
 
 		//alert('hhh');
 
-		playVideo();
+		playVideo(this);
 				
 		}, function(){
-			var video = document.getElementsByClassName('hoverVideo');
-			video[0].pause();
+			pause(this);
 	});
   
 });
-
-function playVideo(){
+function pause(a){
+	var video = a;
+	video.currentTime=0;
+	video.pause();
+}
+function playVideo(a){
 
 	var starttime = 5;  // start at 7 seconds
     var endtime = 10;    // stop at 17 seconds
 
-    var video = document.getElementsByClassName('hoverVideo');
+    var video = a;
 
-
+		//console.log(a);return false;
 	//console.log(video[0].duration);return false;
 
-	video[0].autoplay = true;
-	video[0].muted = true; 
+	a.autoplay = true;
+	a.muted = true; 
 
 	//console.log(video);return false;
 
-    video[0].addEventListener("timeupdate", function() {
+    a.addEventListener("timeupdate", function() {
        if (this.currentTime >= endtime) {
 		     playVideo();
         }
     }, false);
 
 			//suppose that video src has been already set properly
-			video[0].load();
-			video[0].play();    //must call this otherwise can't seek on some browsers, e.g. Firefox 4
+			a.load();
+			a.play();    //must call this otherwise can't seek on some browsers, e.g. Firefox 4
 			try {
-				video[0].currentTime = starttime;
+				a.currentTime = starttime;
 			} catch (ex) {
 				//handle exceptions here
 			}
@@ -955,8 +958,6 @@ function subscribe(id,setValue){
 
 		success: function(data){
 
-			//console.log(data);return false;
-
 			if(setValue && data.status==1){
 				$('#subscribe').hide();
 				$('#unsubscribe').show();
@@ -1076,7 +1077,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 			success: function(data){
 
-			//	console.log(data);return false;
+				//console.log(data);return false;
 
 				if(data.status==1){
 					// $('.alert-success').show();
