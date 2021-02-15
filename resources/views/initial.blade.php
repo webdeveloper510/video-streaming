@@ -57,8 +57,8 @@
          <p>   <i class="fa fa-check" style="font-size:24px"></i>  Fee free account at level 10
 
           </p>
-          <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
-          </p>
+          <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
+          </p> -->
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
           </p> -->
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
@@ -101,7 +101,7 @@
           </p>
           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
           </p>
-          <div class="col-md-12 text-center mt-5 mb-2">
+          <div class="col-md-12 text-center mt-5 ">
 
  <button type="button" class="btn btn-primary btn-lg px-3"><a href="{{url('/checkUser/user')}}">Join Now </a></button>
 
