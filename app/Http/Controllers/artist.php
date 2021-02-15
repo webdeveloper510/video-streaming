@@ -13,6 +13,7 @@ use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Arr;
   $path = base_path() . '/vendor';
 require_once($path.'/autoload.php');
 require_once($path.'/stripe/stripe-php/init.php');
@@ -260,14 +261,18 @@ class artist extends Controller
 
       $allArtistOffer =      $this->model->getArtistOffer($userid);
 
+      $quality = $this->model->getQuality();
+
 
       $allPlaylist =      $this->model->getAllPlaylist();
+
+      //  echo "<pre>";
 
       // print_r($allArtistsVideo);die;
 
       $contentLogin =   Session::get('User');
       
-      return view('artists.profile',['tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+      return view('artists.profile',['qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
 
@@ -460,26 +465,33 @@ class artist extends Controller
 
         unset($req['_token']);
 
-        print_r($req->all());die;
+      // print_r($req->all());die;
 
         if($req->media || $req->audio_pic){
 
-          $fileName = time().'_'.$request->media->getClientOriginalName();
-          $audio_pics = time().'_'.$request->audio_pic->getClientOriginalName();
-          $request->audio_pic->storeAs('uploads',$audio_pics,'public');
-          $ext =$request->media->getClientOriginalExtension();
-          $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
-          $size=$request->media->getSize();
+          $fileName = time().'_'.$req->media->getClientOriginalName();
+          $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():'';
+          $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
+          $ext =$req->media->getClientOriginalExtension();
+          $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
+          $size=$req->media->getSize();
           $data['size'] = number_format($size / 1048576,2);
           $data['media']=$fileName;
-          $data['audio_pic'] = $audio_pics ? $audio_pics : '';
-          $data['convert'] = $data['convert'] ? $data['convert'] : '';
+          $data['hid']=$req['hid'];
+          $data['audio_pic'] = $audio_pics;
+          $data['convert'] = $req['convert'] ? $req['convert'] : '';
+
+          $inputData = Arr::except($req->all(),['media', 'hid','audio_pic','convert','radio']);
+
+         // print_r($inputData);die;
 
           $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
 
         }
+         
 
-        $update = $this->model->edit_other($req);
+          //print_r($input);die;
+        $update = $this->model->edit_other($inputData,$data);
 
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
   }

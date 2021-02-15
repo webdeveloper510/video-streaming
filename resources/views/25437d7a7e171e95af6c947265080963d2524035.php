@@ -107,14 +107,50 @@
    
     <div class="columesdashboard3">
            <h1>345</h1>
-           <h4 class="text-center">Collection Items  Online</h4>
+           <h4 class="text-center">Collection Items  </h4>
         </div>     
     </div>
 </div>
 
 <div class="row">
+<div class="col-md-12">
+         <div class="card">
+             <div class="week">
+             <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
+              on the landingpage and also on the customer homepage for free</h5>
+              <hr>
+          <div class="row">
+             <div class="col-4">
+              <button class="btn btn-info" type="button">Week 1+2</button>
+              <button class="btn btn-info" type="button">Week 3+4</button>
+              <button class="btn btn-info" type="button">Week 5+6</button>
+              <button class="btn btn-info" type="button">Week 7+8</button>
+            
+             </div>
+             <div class="col-4">
+             <button class="btn btn-info" type="button">Week 9+10</button>
+              <button class="btn btn-info" type="button">Week 11+12</button>
+              <button class="btn btn-info" type="button">Week 13+14</button>
+              <button class="btn btn-info" type="button">Week 15+16</button>
+             </div>
+             <div class="col-4">
+             
+              <button class="btn btn-info" type="button">Week 17+18</button>
+              <button class="btn btn-info" type="button">Week 19+20</button>
+              <button class="btn btn-info" type="button">Week 21+22</button>
+              <button class="btn btn-info" type="button">Week 23+24</button>
+             </div>
+          </div>
+          <h5 class="card-title text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
+          <div class="text-right">
+          <button class="btn btn-primary" type="button">Submit</button>
+
+          </div>
+            </div>
+    </div>
+    </div>
     <div class="col-md-4">
-    <div class="card" style="width: 18rem;">
+    <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
              <?php if($personal_info[0]->firstname==''): ?>
@@ -151,7 +187,7 @@
             <?php endif; ?>
 
             </div>
-             <!-- <div class="card" style="width: 18rem;">
+             <!-- <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">New Messages:</h5>
              <hr>
               <div class="card-body">
@@ -165,7 +201,7 @@
             </div> -->
     </div>
     <div class="col-md-4">
-         <div class="card" style="width: 18rem;">
+         <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -179,7 +215,7 @@
             </div>
     </div>
     <div class="col-md-4">
-         <div class="card" style="width: 18rem;">
+         <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">Social Media:</h5>
              <hr>
               <div class="card-body text-center">
@@ -195,20 +231,7 @@
               </div>
             </div>
     </div>
-    <!-- <div class="col-md-4">
-         <div class="card" style="width: 18rem;">
-             <h5 class="card-title text-left pt-3 pl-3">Additional Requests:</h5>
-             <hr>
-              <div class="card-body">
-                <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
-
-                <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
-                
-                <h5>customername  <button type="button" class="btn btn-primary ml-4">Open</button></h5>
-                
-              </div>
-            </div>
-    </div> -->
+   
 </div>
 </div>
 </section>
@@ -236,6 +259,10 @@
     padding: 30px 18px;
     background: #1abc9c;
     color: white;
+}
+.week {
+    padding: 18px;
+    text-align: center !important;
 }
 </style>
 
