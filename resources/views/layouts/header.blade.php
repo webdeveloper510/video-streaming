@@ -530,7 +530,7 @@
             @if($login)
            <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
              <!-- <a href="{{url('/my-requests')}}"><button type="button" class="btn btn-warning text-white">Create Project</button></a> -->
-            @if($userProfile[0]->profilepicture!=null)
+            <!-- @if($userProfile[0]->profilepicture!=null)
             <img width="50px;" height="50px;" src="{{url('storage/app/public/uploads/'.$userProfile[0]->profilepicture) }}">
     
     @else
@@ -541,7 +541,7 @@
                </div>
 	  </div>
    
-   @endif
+   @endif -->
    <span class="profile-img text-white">
    {{$login->nickname}} <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
@@ -549,9 +549,9 @@
   </button>
  
    <div class="dropdown-menu dropdown-menu-right">
-       <button class="dropdown-item" type="button">
+       <!-- <button class="dropdown-item" type="button">
          <a href="{{url('/profile')}}">Edit Profile
-         </a></button>
+         </a></button> -->
       <button class="dropdown-item" type="button">
         <a href="{{url('/logout')}}">Logout</a></button>
          <!-- <button class="dropdown-item" type="button">
