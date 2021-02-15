@@ -1099,6 +1099,67 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 });
 
+
+$(document).ready(function(){
+
+	// Delete 
+	$('.delete').click(function(){
+	  var el = this;
+	
+	  // Delete id
+	  var deleteid = $(this).data('id');
+   
+	  // Confirm box
+	  bootbox.confirm("Do you really want to delete record?", function(result) {
+   
+		 if(result){
+		   // AJAX Request
+		   $.ajax({
+			type: 'POST',
+			url:APP_URL+"/delete_offer",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+			 data: { id:deleteid },
+			 success: function(response){
+
+
+				console.log(response);
+
+				if(response==1){
+
+					$(this).parent().parent().parent().remove();
+
+						setTimeout(function(){ 
+							location.reload();
+						 }, 3000);
+
+				}
+
+				else{
+					
+					location.reload();
+				}
+  
+			   // Removing row from HTML Table
+		// 	   if(response == 1){
+		//   $(el).closest('tr').css('background','tomato');
+		// 		  $(el).closest('tr').fadeOut(800,function(){
+		// 	 $(this).remove();
+		//   });
+		//    }else{
+		//   bootbox.alert('Record not deleted.');
+		//    }
+  
+			 }
+		   });
+		 }
+   
+	  });
+   
+	});
+  });
+
 function addTohistory(type){
 	var id = $('#vidid').val();
 		$.ajax({

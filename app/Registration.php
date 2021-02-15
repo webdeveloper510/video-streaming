@@ -2234,37 +2234,12 @@ public function update_due_to_process($data){
 }
 
 
-    // public function addToLibrary1(){
+    public function deleteoffer($data){
 
-    //  $data = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))->get()->toArray();
-
-    //      // print_r($data);die;
-
-    //       if(count($data)> 0){
-
-    //         //echo "yes";die;
-
-    //            $video = 'Xyz.mp4';
-    //  $update = DB::table('playlist')->where(array('userid'=>22,'playlistname'=>'hello'))
-    //  ->update([
-    //         'listvideo' => DB::raw("CONCAT(listvideo,',".$video."')")
-    //          ]);
-
-    //        if($update==1){
-
-    //           $tokens = 111;
-
-    //             $reduce  = $this->reduceTokens($tokens,22,100);
-
-    //             print_r($reduce);
-
-    //      }
-
-    // }
+     return DB::table('offer')->where('id', $data['id'])->delete();
 
 
-
-    // }
+    }
 
 
 }

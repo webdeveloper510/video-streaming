@@ -180,24 +180,19 @@
             </div>
            
            
-          
+            <div class="row">
             
-
-              <div class="col-md-12 text-center pt-3">
-                    <div class="modal show_modal" tabindex="991">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                    <div class="modal-body">
-                                    <img src="<?php echo e(asset('images/loader.gif')); ?>"/>
-                                    </div>
-                            </div>
-                        </div>
-                  </div>
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span>
+                <img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+              <div class="col text-center pt-3">
 
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
           </div>
-    
+          </div>
      </div>
   <?php echo e(Form::close()); ?>
 
@@ -242,6 +237,11 @@
     display: none;
     overflow: hidden;
     outline: 0;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
 }
 
 
