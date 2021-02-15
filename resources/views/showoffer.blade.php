@@ -34,11 +34,11 @@
 	      <table class="table table-borderless text-center">
         <tr>
           <th>Category</th>
-          <td>{{$offer->category}}</td>
+          <td>{{$val->category}}</td>
         </tr>
         <tr>
           <th>Media</th>
-          <td>{{$offer->type=='video'? 'Video/mp4' :'Audio/mp3' }}</td>
+          <td>{{$val->type=='video'? 'Video/mp4' :'Audio/mp3' }}</td>
         </tr>
             <tr>
             	<th>Price</th>
