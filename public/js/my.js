@@ -1099,6 +1099,69 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 });
 
+
+$(document).ready(function(){
+
+	// Delete 
+	$('.delete').click(function(){
+	
+	  // Delete id
+	  var deleteid = $(this).data('id');
+  
+	  // Confirm box
+	  bootbox.confirm({
+	message:"Do you really want to delete this Offer?", 
+	buttons: { 
+
+	confirm: {
+		 label: 'delete',
+		  className: 'btn-success' 
+
+	}, 
+	  cancel: { 
+		label: 'cancel',
+		 className: 'btn-danger'
+		 }
+},
+	callback: function (result) {
+   
+		 if(result){
+		   // AJAX Request
+		   $.ajax({
+			type: 'POST',
+			url:APP_URL+"/delete_offer",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+			 data: { id:deleteid },
+			 success: function(response){
+
+
+				console.log(response);
+
+				if(response==1){
+
+					$(this).parent().parent().parent().remove();
+
+						setTimeout(function(){ 
+							location.reload();
+						 }, 1000);
+
+				}
+
+				else{
+
+					location.reload();
+				}
+  
+			 }
+		   });
+		 }
+		}
+	  });
+	});
+	});
+
 function addTohistory(type){
 	var id = $('#vidid').val();
 		$.ajax({

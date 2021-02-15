@@ -28,6 +28,9 @@
   <link href="{{asset('artistdashboard/css/demo/demo.css')}}" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-confirmation/1.0.5/bootstrap-confirmation.min.js"></script> -->
+
+
 
 </head>
 

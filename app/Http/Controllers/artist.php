@@ -590,4 +590,22 @@ class artist extends Controller
     return view('artists/support',['tab'=>'dashboard']);
   }
 
+
+  public function deleteOfer(Request $req){
+
+    //print_r($req->all());die;
+
+    $delete = $this->model->deleteoffer($req->all());
+
+    if($delete){
+
+          return 1;
+    }
+
+    else{
+      return 0;
+    }
+
+  }
+
   }
