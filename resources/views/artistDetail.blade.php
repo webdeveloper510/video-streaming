@@ -288,7 +288,7 @@ Your browser does not support the audio tag.
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
             <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-                      <source src="{{$details[0]->media && $details[0]->type=='video' ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
+                      <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>

@@ -90,7 +90,7 @@
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
          
          <div class="text-right mr-3">
-         <button class="btn btn-sm btn-light "><i class="fa fa-trash-o"></i></button>
+      <button class="btn btn-sm btn-light delete" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
            </div>
         </div>
