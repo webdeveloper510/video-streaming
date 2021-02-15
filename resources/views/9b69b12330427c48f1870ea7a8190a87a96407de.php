@@ -41,9 +41,9 @@
 				</div>
         <h3 class="text-center text-white"> <?php echo e($vid->title); ?></h3>
         </a>
-        <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+        <!-- <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
   <span class="tooltiptext">You can not download this video</span>
-</div>
+</div> -->
          <div class="checkall" style="display: none">
          <form>
           <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>">
