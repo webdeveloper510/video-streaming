@@ -137,7 +137,7 @@
        <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
-        @if(isset($details))
+        @if(isset($details[0]->type))
               @foreach ($details as $detail)
                    @if($detail->type=='video') 
             <div class="col-md-4 mb-3">
@@ -152,7 +152,7 @@
                 Your browser does not support the tag.
             </video>
                 </a>
-
+                <button class="btn btn-sm btn-light delete trans" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
             </div>
              @endif
           @endforeach
@@ -168,7 +168,7 @@
     <div class="filter_div" id="audio">
      <h3>Audios</h3>
      <div class="row mb-5">
-      @if(isset($audio))
+      @if(isset($audio[0]->type))
           @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
@@ -183,6 +183,7 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
+<button class="btn btn-sm btn-light delete trans1" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 
 @endforeach
@@ -264,7 +265,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-          @if($details[0]->type=='video')
+          @if(isset($details[0]->type)&&$details[0]->type=='video')
             <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                       <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
@@ -430,7 +431,7 @@ Your browser does not support the audio tag.
           <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}
-                <span style="color:red;">{{$details[0]->media ? $details[0]->media : ''}}</span>
+                <span style="color:red;">{{isset($details[0]->media) ? $details[0]->media : ''}}</span>
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
@@ -538,7 +539,20 @@ Your browser does not support the audio tag.
 </div>
 
 <style>
+.trans{
+  position: absolute;
+    z-index: 999;
+    right: 16px;
+    top: 10px;
+}
+.trans1{
+  position: absolute;
+    z-index: 999;
+    right: 43px;
+    top: -3px;
 
+
+}
 </style>
 
 
