@@ -183,7 +183,7 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
-<button class="btn btn-sm btn-light delete trans" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
+<button class="btn btn-sm btn-light delete trans1" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 
 @endforeach
@@ -545,6 +545,13 @@ Your browser does not support the audio tag.
     right: 16px;
     top: 10px;
 }
+.trans1{
+  position: absolute;
+    z-index: 999;
+    right: 43px;
+    top: -3px;
+
+
 }
 </style>
 
