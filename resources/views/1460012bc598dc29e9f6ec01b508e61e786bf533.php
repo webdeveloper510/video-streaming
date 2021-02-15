@@ -554,7 +554,7 @@
             <?php if($login): ?>
            <div class="btn-group login-btn text-right" style="border-right-color: white;border-right-style: solid;">    
              <!-- <a href="<?php echo e(url('/my-requests')); ?>"><button type="button" class="btn btn-warning text-white">Create Project</button></a> -->
-            <?php if($userProfile[0]->profilepicture!=null): ?>
+            <!-- <?php if($userProfile[0]->profilepicture!=null): ?>
             <img width="50px;" height="50px;" src="<?php echo e(url('storage/app/public/uploads/'.$userProfile[0]->profilepicture)); ?>">
     
     <?php else: ?>
@@ -565,7 +565,7 @@
                </div>
 	  </div>
    
-   <?php endif; ?>
+   <?php endif; ?> -->
    <span class="profile-img text-white">
    <?php echo e($login->nickname); ?> <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
     
@@ -573,9 +573,9 @@
   </button>
  
    <div class="dropdown-menu dropdown-menu-right">
-       <button class="dropdown-item" type="button">
+       <!-- <button class="dropdown-item" type="button">
          <a href="<?php echo e(url('/profile')); ?>">Edit Profile
-         </a></button>
+         </a></button> -->
       <button class="dropdown-item" type="button">
         <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
          <!-- <button class="dropdown-item" type="button">
