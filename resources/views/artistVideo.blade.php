@@ -184,7 +184,7 @@
 	</section>
 		@endif
 	@endforeach
-	<section>
+	<!-- <section>
 	   <div class="container-fluid">
 			<div class="row">
 					<div class="col-md-12">
@@ -196,13 +196,13 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div id="demo" class="carousel slide" data-ride="carousel">
-				   <!-- Indicators -->
+				   <!-- Indicators 
 						<ul class="carousel-indicators">
 							<li data-target="#demo" data-slide-to="0" class="active"></li>
 							<li data-target="#demo" data-slide-to="1"></li>
 							<li data-target="#demo" data-slide-to="2"></li>
 						</ul>
-				   <!-- The slideshow -->
+				   <!-- The slideshow 
 				   <div class="carousel-inner">
 					  <div class="carousel-item active">
 						 <div class="main-video-search content">
@@ -361,7 +361,7 @@
 						 </div>
 					  </div>
 				   </div>
-				   <!-- Left and right controls -->
+				   <!-- Left and right controls 
 				   <a class="carousel-control-prev" href="#demo" data-slide="prev">
 				   <span class="carousel-control-prev-icon"></span>
 				   </a>
@@ -372,7 +372,7 @@
 			 </div>
 		  </div>
 	   </div>
-	</section>
+	</section> -->
 </div>  
 
 
