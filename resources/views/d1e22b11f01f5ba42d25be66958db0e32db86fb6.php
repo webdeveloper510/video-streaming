@@ -145,7 +145,7 @@
             <div class="col-md-4 hover" >
             <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
             
-          <video width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video id="recently_<?php echo e($recnt->id); ?>" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -153,7 +153,16 @@
           <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>">2:00</h6>
+          <script>
+      
+      setTimeout(() => {
+      video = $("#recently_"+"<?php echo e($recnt->id); ?>");
+      //id = $("#video_"+"<?php echo e($recnt->id); ?>");
+       seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($recnt->id); ?>");
+
+    }, 2000);
+    </script>
           </div>
           <h5><?php echo e($recnt->title); ?></h5>
           </a>
@@ -190,21 +199,39 @@
 	  <h3 class="tittle"><a href="<?php echo e(url('seeall/video')); ?>">Videos</a></h3>
       <button class="btn btn-primary seemore" type="button"><a href="<?php echo e(url('seeall/video')); ?>">See All</a></button>
 	</div>
+  
+  <script>
+
+  var video;
+  var id;
+  </script>
+
           <div class="row">
           <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <?php if($pop->type=='video'): ?>
            
             <div class="col-md-4 hover">
-                <a href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
-                <video width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <a  id="anchor_<?php echo e($pop->id); ?>" href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
+                <video id="video_<?php echo e($pop->id); ?>" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+               
                 <div class="text-left">
           <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>">2:00</h6>
+            
+          <script>
+      
+      setTimeout(() => {
+      video = $("#video_"+"<?php echo e($pop->id); ?>");
+      id = $("#video_"+"<?php echo e($pop->id); ?>");
+       seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>");
+
+    }, 2000);
+    </script>
           </div>
                 <h5><?php echo e($pop->title); ?></h5>
                 </a>
@@ -217,7 +244,15 @@
 
              </div>
             </div>
-    
+<script>
+            function seconds_to_min_sec(seconds,id) {
+              var minutes = Math.floor(seconds / 60);
+              var seconds = seconds - minutes * 60;
+              var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+              $(id).html(duration);
+
+            }
+    </script>
 
   
       <!--/.Slides-->
