@@ -145,7 +145,7 @@
             <div class="col-md-4 hover" >
             <a href="{{url('artist-video/'.$recnt->id)}}">
             
-          <video width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video id="recently_{{$recnt->id}}" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -154,7 +154,16 @@
           <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="duration_{{$recnt->id}}">2:00</h6>
+          <script>
+      
+      setTimeout(() => {
+      video = $("#recently_"+"{{$recnt->id}}");
+      //id = $("#video_"+"{{$recnt->id}}");
+       seconds_to_min_sec(video[0].duration,"#duration_"+"{{$recnt->id}}");
+
+    }, 2000);
+    </script>
           </div>
           </div>
           <h5>{{ $recnt->title }}</h5>
@@ -192,22 +201,43 @@
 	  <h3 class="tittle"><a href="{{url('seeall/video')}}">Videos</a></h3>
       <button class="btn btn-primary seemore" type="button"><a href="{{url('seeall/video')}}">See All</a></button>
 	</div>
+  
+  <script>
+
+  var video;
+  var id;
+  </script>
+
           <div class="row">
           @forelse ($popular as $pop)
             @if($pop->type=='video')
            
             <div class="col-md-4 hover">
-                <a href="{{url('artist-video/'.$pop->id)}}">
-                <video width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <a  id="anchor_{{$pop->id}}" href="{{url('artist-video/'.$pop->id)}}">
+                <video id="video_{{$pop->id}}" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+<<<<<<< HEAD
+               
+=======
                 <div class="pricetime">
+>>>>>>> d92a2420ddb867edef8380e82b46d86d22b2a948
                 <div class="text-left">
           <h6 class="text-white">{{ $pop->price }}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="duration_{{$pop->id}}">2:00</h6>
+            
+          <script>
+      
+      setTimeout(() => {
+      video = $("#video_"+"{{$pop->id}}");
+      id = $("#video_"+"{{$pop->id}}");
+       seconds_to_min_sec(video[0].duration,"#duration_"+"{{$pop->id}}","{{$pop->id}}");
+
+    }, 2000);
+    </script>
           </div>
 </div>
                 <h5>{{ $pop->title }}</h5>
@@ -221,7 +251,15 @@
 
              </div>
             </div>
-    
+<script>
+            function seconds_to_min_sec(seconds,id) {
+              var minutes = Math.floor(seconds / 60);
+              var seconds = seconds - minutes * 60;
+              var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+              $(id).html(duration);
+
+            }
+    </script>
 
   
       <!--/.Slides-->
