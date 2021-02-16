@@ -120,7 +120,7 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
-           
+            <!-- <button type="button" class="btn btn-primary bardot">Choose</button> -->
       <select class="form-select form-control" id="change_section" aria-label="Default select example">
       <option selected value="all">All</option>
   <option  value="video">Video</option>
