@@ -149,6 +149,7 @@
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+          <div class="pricetime">
           <div class="text-left">
           <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
           </div>
@@ -163,6 +164,7 @@
 
     }, 2000);
     </script>
+          </div>
           </div>
           <h5>{{ $recnt->title }}</h5>
           </a>
@@ -216,7 +218,11 @@
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+<<<<<<< HEAD
                
+=======
+                <div class="pricetime">
+>>>>>>> d92a2420ddb867edef8380e82b46d86d22b2a948
                 <div class="text-left">
           <h6 class="text-white">{{ $pop->price }}/PAZ</h6>
           </div>
@@ -233,6 +239,7 @@
     }, 2000);
     </script>
           </div>
+</div>
                 <h5>{{ $pop->title }}</h5>
                 </a>
             </div> 

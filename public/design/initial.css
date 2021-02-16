@@ -60,6 +60,23 @@ a.btn, button.btn {
     padding-top: 12px;
 
 }
+.pricetime .text-left h6 {
+    font-weight: bold;
+    color:yellow !important
+}
+
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right h6{
+    font-weight: bold !important;
+}
+.pricetime .text-right {
+    margin-top: -31px;
+    margin-right: 29px;
+   
+}
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;
     border: 2px solid #bf0000 !important;
