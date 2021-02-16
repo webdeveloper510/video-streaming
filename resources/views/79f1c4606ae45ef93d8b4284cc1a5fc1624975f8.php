@@ -41,9 +41,9 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
+    <a class="nav-link tabss " id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
    
   </div>
 </nav>
@@ -51,7 +51,7 @@
 
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
-  <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
   
@@ -119,7 +119,7 @@
 
   <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
-  <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
 
    <div class="container">
     <div class="row mb-5">
@@ -158,7 +158,7 @@
                 Your browser does not support the tag.
             </video>
                 </a>
-
+                <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
             </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -181,7 +181,7 @@
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
-    <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+    <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>">
 
 <audio controls controlsList="nodownload" disablePictureInPicture>
 
@@ -189,6 +189,7 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
+<button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -270,15 +271,15 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-          <?php if(isset($details[0]->type)&&$details[0]->type=='video'): ?>
+          <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
             <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-                      <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
+                      <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
-          <img src="http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg" width="167px;">
+          <img src="<?php echo e($random[0]->audio_pic ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg'); ?>" width="167px;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-               <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/audio/'.$details[0]->media) :''); ?>" type="video/mp3">
+               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">
                      
           </audio>
           <?php endif; ?>
@@ -442,28 +443,28 @@ Your browser does not support the audio tag.
           <div class="row align-items-center text-white">   
 
            <div class="col-md-12" style="display: flex;">
-            <input type="radio" class="select_media_pic" name="radio" value="audio"  /><p class="text-dark">Audio</p>
-            <input type="radio" class="select_media_pic" name="radio" value="video" checked/><p class="text-dark">Video</p>
+            <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
+            <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>    
           <div class="col-md-6 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
-                <span style="color:red;"><?php echo e(isset($details[0]->media) ? $details[0]->media : ''); ?></span>
+                <span style="color:red;"><?php echo e(isset($random[0]->media) ? $random[0]->media : ''); ?></span>
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
 
             </div>
-            <input type="hidden" value="<?php echo e($details[0]->id); ?>" name="hid"/>
+            <input type="hidden" value="<?php echo e($random[0]->id); ?>" name="hid"/>
            
           <div class="col-md-6 mt-2 convert">
            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
            <select name="convert"  class='form-control'>
                 <option value="">Choose ...</option>
                <?php $__currentLoopData = $qualities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $q): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-               <option  value="<?php echo e($q->quality); ?>" <?php echo e(($details[0]->convert)==$q->quality ? 'selected' : ''); ?>><?php echo e($q->quality); ?>px </option>
+               <option  value="<?php echo e($q->quality); ?>" <?php echo e(($random[0]->convert)==$q->quality ? 'selected' : ''); ?>><?php echo e($q->quality); ?>px </option>
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div>
@@ -567,7 +568,20 @@ Your browser does not support the audio tag.
 </div>
 
 <style>
+.trans{
+  position: absolute;
+    z-index: 999;
+    right: 16px;
+    top: 10px;
+}
+.trans1{
+  position: absolute;
+    z-index: 999;
+    right: 43px;
+    top: -3px;
 
+
+}
 </style>
 
 
