@@ -36,11 +36,11 @@
 	      <table class="table table-borderless text-center">
         <tr>
           <th>Category</th>
-          <td><?php echo e($val->category); ?></td>
+          <td>xyz</td>
         </tr>
         <tr>
           <th>Media</th>
-          <td><?php echo e($val->type=='video'? 'Video/mp4' :'Audio/mp3'); ?></td>
+          <td>mp3</td>
         </tr>
             <tr>
             	<th>Price</th>
