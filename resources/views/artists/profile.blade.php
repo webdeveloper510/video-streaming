@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-  <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg') }}" width="100%" height="300px">
+  <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -120,7 +120,7 @@
         <div class="col"></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
-            <button type="button" class="btn btn-primary bardot">Choose</button>
+           
       <select class="form-select form-control" id="change_section" aria-label="Default select example">
       <option selected value="all">All</option>
   <option  value="video">Video</option>
