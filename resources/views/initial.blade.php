@@ -59,8 +59,8 @@
           </p>
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
           </p> -->
-          <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
-          </p> -->
+          <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
+          </p>
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p>
          <div class="col-md-12 text-center mt-2">
@@ -122,7 +122,7 @@
 </div>
 @endif
  </div>
-                    <!--------------------------------- On login show data ------------------------------------->
+          <!--------------------------------- On login show data ------------------------------------->
 
 <div class="outer_slider">
   <div class="coner my-4">
@@ -349,6 +349,14 @@
                  <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
             </audio>
             </a>
+            <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+          </div>
               </div>
               @endif
               @empty
