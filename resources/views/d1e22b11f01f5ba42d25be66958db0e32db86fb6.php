@@ -282,11 +282,11 @@
             <div class="col-md-4 showoffer1 mb-3">
     <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
       <div class="card">
-	   <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
-  <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
+      <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+            <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
 
-  Your browser does not support the video tag.
-</video>
+             Your browser does not support the video tag.
+      </video>
 
 	  <div class="carad-body">
 	      <h4 class="card-title text-center"> <?php echo e($offer->title); ?></h4>
