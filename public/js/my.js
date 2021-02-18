@@ -877,6 +877,8 @@ $(document).on('keyup', '.checknameExist', function () {
 
 	var redioChecked = $('.user:checked').val();
 
+	console.log(redioChecked);
+
 	var id = $(this).attr('data-id');
 
 	//console.log(redioChecked);return false;
