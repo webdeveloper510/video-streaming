@@ -1432,89 +1432,93 @@ function format ( d , type) {
 }
 
 $(document).ready(function() {
-    var table = $('#example').DataTable({
-       'ajax': APP_URL+'/artist/getRequests/projects',
-       'columns': [
-            {
-                'className':      'details-control',
-                'orderable':      false,
-                'data':           null,
-                'defaultContent': ''
-            },
-            { 'data': 'title' },
-            { 'data': 'media' },
-			{ 
-				'data': 'duration' ,
-				// render: function ( data, type, row ) {
-				// 	return  data+'Minutes';
-				// }
-			},
-			{
+
+	
+    // var table = $('#example').DataTable({
+    //    'ajax': APP_URL+'/artist/getRequests/projects/',
+    //    'columns': [
+    //         {
+    //             'className':      'details-control',
+    //             'orderable':      false,
+    //             'data':           null,
+    //             'defaultContent': ''
+    //         },
+    //         { 'data': 'title' },
+    //         { 'data': 'media' },
+	// 		{ 
+	// 			'data': 'duration' ,
+	// 			// render: function ( data, type, row ) {
+	// 			// 	return  data+'Minutes';
+	// 			// }
+	// 		},
+	// 		{
 		
-            "data": null,
-			"defaultContent": 'Projects'
-			},
-            { 'data': 'user_name' },
-            { 'data': 'status' },
-            { 
-				'data': 'remaining_days' ,
-				render: function ( data, type, row ) {
-					return  data < 0 ? 'Expired' : data +' Days';
-				}
-			}
-        ],
-      //  'order': [[1, 'asc']]
-	} );
+    //         "data": null,
+	// 		"defaultContent": 'Projects'
+	// 		},
+    //         { 'data': 'user_name' },
+    //         { 'data': 'status' },
+    //         { 
+	// 			'data': 'remaining_days' ,
+	// 			render: function ( data, type, row ) {
+	// 				return  data < 0 ? 'Expired' : data +' Days';
+	// 			}
+	// 		}
+    //     ],
+    //   //  'order': [[1, 'asc']]
+	// } );
 	
 
-	    // Add event listener for opening and closing details
-    $('#example tbody').on('click', 'td.details-control', function(){
-        var tr = $(this).closest('tr');
-        var row = table.row( tr );
+	//     // Add event listener for opening and closing details
+    // $('#example tbody').on('click', 'td.details-control', function(){
+    //     var tr = $(this).closest('tr');
+    //     var row = table.row( tr );
 
-        if(row.child.isShown()){
-            // This row is already open - close it
-            row.child.hide();
-            tr.removeClass('shown');
-        } else {
-            // Open this row
-            row.child(format(row.data(),'request')).show();
-            tr.addClass('shown');
-        }
-    });
+    //     if(row.child.isShown()){
+    //         // This row is already open - close it
+    //         row.child.hide();
+    //         tr.removeClass('shown');
+    //     } else {
+    //         // Open this row
+    //         row.child(format(row.data(),'request')).show();
+    //         tr.addClass('shown');
+    //     }
+    // });
 
-    // Handle click on "Expand All" button
-    $('#btn-show-all-children').on('click', function(){
-        // Enumerate all rows
-        table.rows().every(function(){
-            // If row has details collapsed
-            if(!this.child.isShown()){
-                // Open this row
-                this.child(format(this.data(),'request')).show();
-                $(this.node()).addClass('shown');
-            }
-        });
-    });
+    // // Handle click on "Expand All" button
+    // $('#btn-show-all-children').on('click', function(){
+    //     // Enumerate all rows
+    //     table.rows().every(function(){
+    //         // If row has details collapsed
+    //         if(!this.child.isShown()){
+    //             // Open this row
+    //             this.child(format(this.data(),'request')).show();
+    //             $(this.node()).addClass('shown');
+    //         }
+    //     });
+    // });
 
-    // Handle click on "Collapse All" button
-    $('#btn-hide-all-children').on('click', function(){
-        // Enumerate all rows
-        table.rows().every(function(){
-            // If row has details expanded
-            if(this.child.isShown()){
-                // Collapse row details
-                this.child.hide();
-                $(this.node()).removeClass('shown');
-            }
-        });
-	});
+    // // Handle click on "Collapse All" button
+    // $('#btn-hide-all-children').on('click', function(){
+    //     // Enumerate all rows
+    //     table.rows().every(function(){
+    //         // If row has details expanded
+    //         if(this.child.isShown()){
+    //             // Collapse row details
+    //             this.child.hide();
+    //             $(this.node()).removeClass('shown');
+    //         }
+    //     });
+	// });
 
 
 
 
 	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
+	var name = $('#select_option').find(":selected").val();
+		
 	var table1 = $('#example1').DataTable({
-		'ajax': APP_URL+'/artist/getRequests/orders',
+		'ajax': APP_URL+'/artist/getRequests/orders/'+name,
 		'columns': [
 			 {
 				 'className':      'details-control',

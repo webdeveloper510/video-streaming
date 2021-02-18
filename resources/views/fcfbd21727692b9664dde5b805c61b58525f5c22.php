@@ -59,8 +59,8 @@
           </p>
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10 Artists to achieve level 10 and receive a trophy
           </p> -->
-          <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
-          </p> -->
+          <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
+          </p>
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p>
          <div class="col-md-12 text-center mt-2">
@@ -122,7 +122,7 @@
 </div>
 <?php endif; ?>
  </div>
-                    <!--------------------------------- On login show data ------------------------------------->
+          <!--------------------------------- On login show data ------------------------------------->
 
 <div class="outer_slider">
   <div class="coner my-4">
@@ -218,11 +218,7 @@
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-<<<<<<< HEAD
-               
-=======
                 <div class="pricetime">
->>>>>>> d92a2420ddb867edef8380e82b46d86d22b2a948
                 <div class="text-left">
           <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
           </div>
@@ -345,10 +341,18 @@
               <a href="<?php echo e(url('artist-video/'.$audio->id)); ?>">
               
               <img src="<?php echo e($audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'); ?>">
-              <audio controls controlsList="nodownload" disablePictureInPicture>
+              <audio  controlsList="nodownload" disablePictureInPicture>
                  <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
             </audio>
             </a>
+            <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+          </div>
               </div>
               <?php endif; ?>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
