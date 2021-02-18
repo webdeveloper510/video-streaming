@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
+          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
         </div>
         <div class="profileimg">
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
@@ -43,7 +43,7 @@
                     <div class="col-md-12">
                     <div class="artistoffer row">
                       <div class="col-md-2">
-                      <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                      <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                               <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                               
                               Your browser does not support the video tag.
@@ -289,7 +289,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
@@ -400,7 +400,12 @@ ul.selected li {
    
     box-shadow: 0 6px 12px #00000042;
 }
-
+.profileimg img {
+    position: absolute;
+    border: 3px solid white;
+    margin-top: -149px;
+    border-radius: 50%;
+}
 .close {
      margin-top: 7px;
 }
