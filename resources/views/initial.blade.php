@@ -341,7 +341,7 @@
               <a href="{{url('artist-video/'.$audio->id)}}">
               
               <img src="{{$audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'}}">
-              <audio controls controlsList="nodownload" disablePictureInPicture>
+              <audio  controlsList="nodownload" disablePictureInPicture>
                  <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
             </audio>
             </a>

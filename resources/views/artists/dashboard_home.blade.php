@@ -6,6 +6,7 @@
 <div class="row mt-5 pt-5 text-center">
     <div class="col-md-3">
     <!-- <h3 class="text-center">Due</h3> -->
+    <a href="{{url('artist/requests/due')}}">
     <div class="columesdashboard">
     <?php 
             $_GLOBEL['count'] =0;
@@ -55,11 +56,13 @@
 
     </div> -->
 
-            </div>   
+            </div> 
+            </a>  
     </div>
          
     <div class="col-md-3">
     <!-- <h3 class="text-center">In Process</h3> -->
+    <a href="{{url('artist/requests/process')}}">
     <div class="columesdashboard1">
     <h1>{{$process_total}}</h1>
                   <h4>Order In Process </h4>
@@ -78,10 +81,12 @@
 
     </div> -->
 
-            </div>   
+            </div>  
+            </a> 
     </div>
     <div class="col-md-3">
     <!-- <h3 class="text-center">Project</h3> -->
+    <a href="{{url('artist/requests/new')}}">
     <div class="columesdashboard2">
     <h1>{{$count_new_projects}}</h1>
     <h4 class="text-center">New Order  </h4>
@@ -101,6 +106,7 @@
     </div> -->
 
             </div>   
+            </a>
     </div>
    
     <div class="col-md-3">
