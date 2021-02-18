@@ -7,6 +7,10 @@
           <div class="overlay1">
       <div class="container profile ">
         <h1 class="text-center">Add PAZ Token</h1>
+        <div class="Coupon text-center">
+          <h2>Get 10% OFF Coupon active</h2>
+
+          </div>
           <div class="row align-items-center text-white">
             <div class="col-md-6 mt-2 ">
             {{Form::label('ADD', 'Token')}} 
@@ -57,6 +61,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.Coupon.text-center h2 {
+    background: #7b0000;
+    color: white;
+    padding: 13px 0px;
+    clip-path: polygon(100% 0%, 97% 50%, 100% 100%, 0 100%, 3% 50%, 0 0);
 }
 
 </style>
