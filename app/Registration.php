@@ -1971,12 +1971,34 @@ public function checkNameExist($data){
    $name = $data['nickname'];
    $feildname = $data['name'];
 
-  $dataExist = $this->selectDataById($feildname=='nickname' ? 'nickname':'email',$tablename,$name);
+   $feildname=='nickname' ? 'nickname':'email';
+
+   $dataExist = $this->checkInTable($feildname,$name);
+
+  //$dataExist = $this->selectDataById($feildname=='nickname' ? 'nickname':'email',$tablename,$name);
 
     return  count($dataExist) > 0 ? 1 : 0; 
 
    
 
+}
+
+public function checkInTable($field,$val){
+
+      $table =  array('users','contentProvider');
+
+      for($i=0; $i<count($table); $i++){
+
+        $value=DB::table($table[$i])->where($field, $val)->get()->toArray();
+
+          if($value){
+
+            return $value;
+
+              break;
+          }
+
+      }
 }
 
 public function updatePassword($email,$password){
