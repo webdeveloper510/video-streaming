@@ -25,15 +25,49 @@
               <li><a href="https://www.websitepolicies.com/policies/view/uU8Tfpe9"><i class="fa fa-angle-right"></i> Refund Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/UkyQfdIh"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
               <li><a href="<?php echo e(url('/userWithdraw')); ?>"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
+              <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
+                <!-- Modal -->
+                <div class="modal modal2" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header text-center">
+                        <div class="text-center">
+                      <select class="form-select form-control " aria-label="Default select example">
+                        <option selected> Select Menu</option>
+                        <option value="1">Feature Request</option>
+                        <option value="2">Functionality Question</option>
+                        <option value="3">Techincal Issue</option>
+                        <option value="4">General</option>
+                        <option value="5">Website Fees</option>
+                        <option value="6">Delete Account</option>
+                        <option value="7">Other</option>
+                      </select>
+                </div>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                      </div>
+                      <div class="modal-body">
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                      </div>
+                    
+                    </div>
+                  </div>
+                </div>
             </ul>
           </div>
-       
+
+
        
       <div class="cprt">
-        <p>PAZ © Copyrights 2020 Design by PAZ</p>
+        <p>PAZ © Copyrights 2021 Design by PAZ</p>
       </div>
     </div>
   </div>
 </footer>
+<style>
+  div#exampleModal10 {
+    background: transparent;
+}
+</style>
 
     <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
