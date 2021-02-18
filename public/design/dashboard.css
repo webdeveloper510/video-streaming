@@ -269,6 +269,9 @@ a#navbarDropdown {
     font-size: 27px;
     right: 9px;
 }
+button.btn.btn-info {
+    width: 48%;
+}
 .profileimagemobile img {
     border-radius: 50%;
     float: left;
