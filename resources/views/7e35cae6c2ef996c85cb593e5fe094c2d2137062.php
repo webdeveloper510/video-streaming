@@ -102,7 +102,7 @@
           <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               
-              <p> <i class="fa fa-money"></i>Withdraw</p>
+              <p> <i class="fa fa-money"></i>  Withdraw</p>
             </a>
           </li>
            <li class="nav-item <?php echo e($tab=='requests'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
@@ -149,7 +149,7 @@
        </div>
 
        <div class="right">
-      <a class=" text-white " href="javascript:;" ><i class="fa fa-comment"></i></a>
+      <!-- <a class=" text-white " href="javascript:;" ><i class="fa fa-comment"></i></a> -->
 
        </div>
 
@@ -379,14 +379,16 @@
                     aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
                           <span class="sr-only">70% Complete</span>
                     </div>
+                   
                     
                 </div>
+                <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
                   </div>
                <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
                
               
             </div>
-            <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
+            
             </div>
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
@@ -472,11 +474,7 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-.level {
-    padding-right: 28px !important;
-    padding-top: 10px;
-    margin: -15px !important;
-}
+
 .wid {
     width: 160px !important ;
 }

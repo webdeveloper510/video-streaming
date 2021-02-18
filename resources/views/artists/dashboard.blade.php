@@ -102,7 +102,7 @@
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               
-              <p> <i class="fa fa-money"></i>Withdraw</p>
+              <p> <i class="fa fa-money"></i>  Withdraw</p>
             </a>
           </li>
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
@@ -149,7 +149,7 @@
        </div>
 
        <div class="right">
-      <a class=" text-white " href="javascript:;" ><i class="fa fa-comment"></i></a>
+      <!-- <a class=" text-white " href="javascript:;" ><i class="fa fa-comment"></i></a> -->
 
        </div>
 
@@ -374,14 +374,16 @@
                     aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage ? $percentage : 0}}%">
                           <span class="sr-only">70% Complete</span>
                     </div>
+                   
                     
                 </div>
+                <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
                   </div>
                <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : ''}}</div>
                
               
             </div>
-            <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
+            
             </div>
            @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
@@ -467,11 +469,7 @@
     padding-left: 20px;
     padding-right: 20px;
 }
-.level {
-    padding-right: 28px !important;
-    padding-top: 10px;
-    margin: -15px !important;
-}
+
 .wid {
     width: 160px !important ;
 }
