@@ -1971,9 +1971,11 @@ public function checkNameExist($data){
    $name = $data['nickname'];
    $feildname = $data['name'];
 
-   $feildname=='nickname' ? 'nickname':'email';
+   $field = $feildname=='nickname' ? 'nickname':'email';
 
-   $dataExist = $this->checkInTable($feildname,$name);
+   $dataExist = $this->checkInTable($field,$name);
+
+   //print_r(count($dataExist));die;
 
   //$dataExist = $this->selectDataById($feildname=='nickname' ? 'nickname':'email',$tablename,$name);
 
@@ -1985,7 +1987,7 @@ public function checkNameExist($data){
 
 public function checkInTable($field,$val){
 
-      $table =  array('users','contentProvider');
+      $table =  array('users','contentprovider');
 
       for($i=0; $i<count($table); $i++){
 
