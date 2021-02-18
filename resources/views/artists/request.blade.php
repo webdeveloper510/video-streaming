@@ -74,8 +74,11 @@ tr.shown td.details-control {
     <div class="tab">
   <button class="tablinks "disabled onclick="openCity(event, 'London')">Projects</button>
   <button class="tablinks active" onclick="openCity(event, 'Paris')">Orders</button>
+
+  
   
 </div>
+
 
 <div id="London" class="tabcontent" >
 <div class="row">
@@ -94,6 +97,7 @@ tr.shown td.details-control {
                 <button id="btn-show-all-children" type="button">Expand All</button>
 <button id="btn-hide-all-children" type="button">Collapse All</button>
 <hr>
+
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
@@ -134,14 +138,14 @@ tr.shown td.details-control {
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
               <h2 class="text-center"></h2>
-                <!-- <div class="dropreq text-right">
-                <select class="custom-select col-md-4" onchange="filterproject(this)">
-                    <option selected="">All</option>
-                    <option value="New">New</option>
-                    <option value="In Process">In Process</option>
-                    <option value="Due">Due</option>
+                <div class="dropreq text-right">
+                <select class="custom-select col-md-4" id="select_option" onchange="filterproject(this)">
+                    <option >All</option>
+                    <option value="new" {{($box) == 'new' ? 'selected' : '' }}>New</option>
+                    <option value="In Process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
+                    <option value="due" {{($box) == 'due' ? 'selected' : '' }}>Due</option>
                   </select>
-                </div> -->
+                </div>
                 <div class="table-responsive">
                 <button id="btn-show-all-children1" type="button">Expand All</button>
 <button id="btn-hide-all-children1" type="button">Collapse All</button>

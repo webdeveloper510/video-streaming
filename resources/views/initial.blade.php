@@ -218,11 +218,7 @@
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
-<<<<<<< HEAD
-               
-=======
                 <div class="pricetime">
->>>>>>> d92a2420ddb867edef8380e82b46d86d22b2a948
                 <div class="text-left">
           <h6 class="text-white">{{ $pop->price }}/PAZ</h6>
           </div>
@@ -345,7 +341,7 @@
               <a href="{{url('artist-video/'.$audio->id)}}">
               
               <img src="{{$audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'}}">
-              <audio controls controlsList="nodownload" disablePictureInPicture>
+              <audio  controlsList="nodownload" disablePictureInPicture>
                  <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
             </audio>
             </a>

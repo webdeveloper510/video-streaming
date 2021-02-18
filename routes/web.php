@@ -197,9 +197,9 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artist/my-offer', 'artist@myoffer');
 
-    Route::get('artist/requests', 'artist@showRequest')->middleware('contentAuth');
+    Route::get('artist/requests/{text?}', 'artist@showRequest')->middleware('contentAuth');
 
-    Route::get('artist/getRequests/{text}', 'artist@getRequests')->middleware('contentAuth');
+    Route::get('artist/getRequests/{text}/{status?}', 'artist@getRequests')->middleware('contentAuth');
    // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
 
     Route::get('artist/notification','artist@ShowArtistNotification');
@@ -236,7 +236,7 @@ Route::post('createList', 'AuthController@createList');
 
     Route::post('editDescription','artist@editDescription');
 
-/*---------------------------------------End Artist---------------------*/
+/*---------------------------------------------------------------End Artist--------------------------------------------------*/
 
 // Api routes
 

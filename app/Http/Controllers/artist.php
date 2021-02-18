@@ -44,24 +44,28 @@ class artist extends Controller
 
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
-    public function getRequests($type){
+    public function getRequests($type,$status){
+      //echo $status;
       $data = array();
-    $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests();
+    $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests($status);
 
+   // print_r($show_requests);die;
     $data['data'] = $show_requests;
   
       echo json_encode($data);
 
     }
 
-    public function showRequest(){
+    public function showRequest($text=null){
+
+      Session::put('boxType',$text);
 
       $navbaractive = 'requests';
 
       
       
 
-        return view('artists.request',['tab'=>$navbaractive]);
+        return view('artists.request',['tab'=>$navbaractive,'box'=>$text]);
 
     }
 
