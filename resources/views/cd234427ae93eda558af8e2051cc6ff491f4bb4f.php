@@ -1,5 +1,13 @@
 </div>
+<script>
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
+}
 
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
  <!-- <script src="<?php echo e(asset('artistdashboard/js/core/jquery.min.js')); ?>"></script> -->
@@ -18,7 +26,7 @@
   <!-- Plugin for the momentJs  -->
   <script src="<?php echo e(asset('artistdashboard/js/plugins/moment.min.js')); ?>"></script>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+ 
   <script src="<?php echo e(asset('artistdashboard/js/plugins/sweetalert2.js')); ?>"></script>
 
 
@@ -55,7 +63,7 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <!-- <script src="<?php echo e(asset('artistdashboard/js/material-dashboard.js?v=2.1.2')); ?>" type="text/javascript"></script> -->
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<?php echo e(asset('artistdashboard/demo/demo.js')); ?>"></script>
+  <script src="<?php echo e(asset('artistdashboard/css/demo/demo.js')); ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
