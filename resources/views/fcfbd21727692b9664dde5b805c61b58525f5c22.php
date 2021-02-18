@@ -418,7 +418,7 @@
     display: block !important;
   }
   .col-md-4.mb-3 img {
-    height: 165px;
+   
     padding-left: 7px;
     margin-bottom: -23px;
 }

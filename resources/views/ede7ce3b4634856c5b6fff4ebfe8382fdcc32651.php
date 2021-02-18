@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="300px">
+          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
         </div>
         <div class="profileimg">
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
@@ -400,7 +400,12 @@ ul.selected li {
    
     box-shadow: 0 6px 12px #00000042;
 }
-
+.profileimg img {
+    position: absolute;
+    border: 3px solid white;
+    margin-top: -149px;
+    border-radius: 50%;
+}
 .close {
      margin-top: 7px;
 }
