@@ -398,7 +398,12 @@ ul.selected li {
    
     box-shadow: 0 6px 12px #00000042;
 }
-
+.profileimg img {
+    position: absolute;
+    border: 3px solid white;
+    margin-top: -149px;
+    border-radius: 50%;
+}
 .close {
      margin-top: 7px;
 }

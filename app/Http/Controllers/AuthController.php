@@ -1323,7 +1323,7 @@ public function seeall($flag){
 
     }
 
-    return view('getAlldata',['videos'=>isset($videos) ? $videos : '','audio'=>isset($audios) ? $audios : '']);
+    return view('getAlldata',['flag'=>$flag,'videos'=>isset($videos) ? $videos : '','audio'=>isset($audios) ? $audios : '']);
      
 }
 /*----------------------------------------------------Check Already Nickname Exist-------------------------------------------------*/
