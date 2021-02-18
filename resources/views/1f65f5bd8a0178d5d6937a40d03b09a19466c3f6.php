@@ -6,12 +6,20 @@
           <div class="col-lg-10">
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> !   <div class="data">
+      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ! 
+    
+      <div class="data">
+      <?php $__currentLoopData = $level_system; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+          <?php if($val['level']==$levelData[0]->level_name): ?>
          <h3> PAZ Service Fee :20%</h3>
-         <h3> Level 3 <small>(you save)</small>: 6%</h3>
+         <h3> <?php echo e($levelData ? $levelData[0]->level_name: ''); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
          <hr>
-         <h3>Current Fee : <span> 14%</span></h3>
-      </div> </span>
+         <h3>Current Fee : <span><?php echo e(20-$val['fee']); ?>%</span></h3>
+         <?php endif; ?>
+         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </div>
+  
+       </span>
       </h3>
          
    </div> 
