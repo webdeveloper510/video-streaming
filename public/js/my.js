@@ -894,7 +894,7 @@ $(document).on('keyup', '.checknameExist', function () {
 
 		success: function(data){
 
-			//console.log(data);
+			//console.log(data);return false;
 			if(data==1){
 				//console.log('ys');
 				$('#'+id).show();
