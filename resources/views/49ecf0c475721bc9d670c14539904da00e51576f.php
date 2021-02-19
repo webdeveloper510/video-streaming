@@ -372,7 +372,7 @@
            </a>
            <div class="level">
            <div class="levlv">
-              <div><?php echo e($levelData ? $levelData[0]->level_name: ''); ?> </div>
+              <div><?php echo e($levelData ? $levelData[0]->level_name: 'Lvl0'); ?> </div>
               <div class="wid"><div class="progress">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
@@ -382,9 +382,9 @@
                    
                     
                 </div>
-                <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
+                <div class="leveltext text-white"> <p><?php echo e(100-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
                   </div>
-               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
+               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?></div>
                
               
             </div>
