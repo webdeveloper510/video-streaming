@@ -112,7 +112,7 @@
     <div class="col-md-3">
    
     <div class="columesdashboard3">
-           <h1>345</h1>
+           <h1>{{$totalCollection}}</h1>
            <h4 class="text-center">Collection Items  </h4>
         </div>     
     </div>
