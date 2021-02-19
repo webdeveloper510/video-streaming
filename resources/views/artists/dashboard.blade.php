@@ -377,8 +377,10 @@
                    
                     
                 </div>
+                @if(isset($levelData[0])
                 <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
                   </div>
+                  @endif
                <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}}</div>
                
               
