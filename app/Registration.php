@@ -2226,6 +2226,15 @@ return $data;
   
 }
 
+public function count_collection_items(){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+        return DB::table('media')->where('contentProviderid',$userid)->get()->count();
+}
+
 
 public function getSubscribeArtist(){
 
