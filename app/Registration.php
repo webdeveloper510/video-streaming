@@ -1987,7 +1987,7 @@ public function checkNameExist($data){
 
 public function checkInTable($field,$val){
 
-      $table =  array('users','contentProvider');
+      $table =  array('users','contentprovider');
 
       for($i=0; $i<count($table); $i++){
 
