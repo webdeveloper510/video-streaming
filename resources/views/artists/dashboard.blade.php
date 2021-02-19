@@ -356,7 +356,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
               <li class="nav-item">
              
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
