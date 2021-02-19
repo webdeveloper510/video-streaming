@@ -26,10 +26,7 @@
       <div class="container profile">
         <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
 <!---------------------- First Step Form-------------------->
-        <div class="fiststep">
-        {{Form::label('First Name', 'First Name')}} 
-           
-        </div>
+       
 <!---------------------- second Step Form-------------------->
           <div class="row align-items-center text-white">       
                 <div class="col-md-6 pt-3">
