@@ -1663,6 +1663,9 @@ $(document).on('submit', '#myForm', function (event) {
 						}
 						//update progressbar
 						$('.percentage').html(percent+'%');
+						if(percent==100){
+							$('.loader').hide();
+						}
 					//	$(progress_bar_id + " .status").text(percent +"%");
 					}, true);
 				}
@@ -1671,6 +1674,7 @@ $(document).on('submit', '#myForm', function (event) {
 
 			success: function(data){
 				$('.loader').hide();
+				//$('.percentage').hide();
 				if(data.status==1){
 					 $('#success').show();
 					 $('#success').html(data.messge);

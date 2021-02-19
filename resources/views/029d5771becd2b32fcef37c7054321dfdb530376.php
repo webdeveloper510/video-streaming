@@ -158,9 +158,10 @@
             <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
   <?php echo e(Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])); ?>
 
+  <span id="filename" style="color:red;"></span>
 </div>
 <div class="col-md-6 pt-2 text-center">
-  <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
+  <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>
