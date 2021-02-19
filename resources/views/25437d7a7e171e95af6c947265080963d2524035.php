@@ -126,20 +126,20 @@
               on the landingpage and on the customer homepage for free</h5>
               <hr>
           <div class="row">
-             <div class="col-4">
+             <div class="col-md-4 col-12">
               <button class="btn btn-info" type="button">Week 1+2</button>
               <button class="btn btn-info" type="button">Week 3+4</button>
               <button class="btn btn-info" type="button">Week 5+6</button>
               <button class="btn btn-info" type="button">Week 7+8</button>
             
              </div>
-             <div class="col-4">
+             <div class="col-md-4 col-12">
              <button class="btn btn-info" type="button">Week 9+10</button>
               <button class="btn btn-info" type="button">Week 11+12</button>
               <button class="btn btn-info" type="button">Week 13+14</button>
               <button class="btn btn-info" type="button">Week 15+16</button>
              </div>
-             <div class="col-4">
+             <div class="col-md-4 col-12">
              
               <button class="btn btn-info" type="button">Week 17+18</button>
               <button class="btn btn-info" type="button">Week 19+20</button>
@@ -275,6 +275,7 @@ h5.customer1.text-center.pt-3.pl-3 {
     padding: 18px;
     text-align: center !important;
 }
+
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>

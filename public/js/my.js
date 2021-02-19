@@ -877,7 +877,7 @@ $(document).on('keyup', '.checknameExist', function () {
 
 	var redioChecked = $('.user:checked').val();
 
-	console.log(redioChecked);
+	//console.log(redioChecked);
 
 	var id = $(this).attr('data-id');
 
@@ -893,10 +893,7 @@ $(document).on('keyup', '.checknameExist', function () {
 		data: {'nickname':$(this).val(),'name':$(this).attr('name'),'table':redioChecked},
 
 		success: function(data){
-
-			//console.log(data);return false;
 			if(data==1){
-				//console.log('ys');
 				$('#'+id).show();
 				$('#'+id).addClass('alert alert-danger').removeClass('alert-success');
 				$('#'+id).html(id=='email'?'Email Already Exist':'User Already Exist!');
@@ -905,6 +902,7 @@ $(document).on('keyup', '.checknameExist', function () {
 			else{
 
 				$('#'+id).show();
+				
 				$('#'+id).addClass('alert alert-success').removeClass('alert-danger');
 
 				$('#'+id).html(id=='email' ? 'Email Available!':'User Available');
