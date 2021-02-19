@@ -145,7 +145,7 @@
   <span id="filename" style="color:red;"></span>
 </div>
 <div class="col-md-6 pt-2 text-center">
-  <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
+  <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>
