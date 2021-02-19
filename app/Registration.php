@@ -510,6 +510,8 @@ public function getArtistDetail($artid,$type){
 
   public function getArtistOffer($artistId){
 
+    //echo $artistId;die;
+
     $offer=DB::table('offer')
     ->join('category', 'category.id', '=','offer.categoryid')
     ->join('subscriber','subscriber.artistid','=','offer.artistid')

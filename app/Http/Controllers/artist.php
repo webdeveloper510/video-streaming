@@ -269,16 +269,18 @@ class artist extends Controller
 
       $quality = $this->model->getQuality();
 
+      $getLevel= $this->model->getlevel();
+
 
       $allPlaylist =      $this->model->getAllPlaylist();
 
-      //  echo "<pre>";
+      //   echo "<pre>";
 
-      // print_r($random);die;
+      // print_r($allArtistOffer);die;
 
       $contentLogin =   Session::get('User');
       
-      return view('artists.profile',['random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+      return view('artists.profile',['getLevel'=>$getLevel,'random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
 
