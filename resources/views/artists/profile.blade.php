@@ -271,7 +271,7 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           @else
-          <img src="{{$random[0]->audio_pic ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg'}}" width="167px;">
+          <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg'}}" width="167px;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">
                      
@@ -288,7 +288,7 @@ Your browser does not support the audio tag.
    <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('{{json_encode($details[0])}}')">Edit</button>
               </div>
                 <hr>
-                <p class="edittable">{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
+                <p class="edittable">{{isset($details[0]->aboutme) ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
                 <hr>
               </div>
   

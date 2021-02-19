@@ -1975,9 +1975,6 @@ public function checkNameExist($data){
 
    $dataExist = $this->checkInTable($field,$name);
 
-   //print_r(count($dataExist));die;
-
-  //$dataExist = $this->selectDataById($feildname=='nickname' ? 'nickname':'email',$tablename,$name);
 
     return  count($dataExist) > 0 ? 1 : 0; 
 

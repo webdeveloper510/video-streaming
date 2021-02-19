@@ -9,14 +9,16 @@
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ! 
     
       <div class="data">
+      <?php if($level_system): ?>
       <?php $__currentLoopData = $level_system; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-          <?php if($val['level']==$levelData[0]->level_name): ?>
+          <?php if($val['level']==isset($levelData[0]->level_name)): ?>
          <h3> PAZ Service Fee :20%</h3>
          <h3> <?php echo e($levelData ? $levelData[0]->level_name: ''); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-$val['fee']); ?>%</span></h3>
          <?php endif; ?>
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+         <?php endif; ?>
       </div>
   
        </span>

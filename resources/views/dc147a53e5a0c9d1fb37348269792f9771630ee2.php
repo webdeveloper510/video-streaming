@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- mobile metas -->
 <!-- site metas -->
-<title>PAZ HTML</title>
+<title>Pornartistzone</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" Content-Type="video/mp4">
