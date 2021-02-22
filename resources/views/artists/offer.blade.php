@@ -132,8 +132,8 @@
             <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  {{Form::label('Audio/Video', 'Audio/Video')}} <br>
-            {{Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])}} 
-                {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
+            
+                {{Form::file('media',['class'=>'form-control','id'=>'file_input'])}}
                  @if($errors->first('media'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
