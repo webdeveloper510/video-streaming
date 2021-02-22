@@ -74,9 +74,35 @@
             </div>
             <div class="col-3 mt-4">
                 
-               <button type="button" class="btn btn-primary">Open</button>
+               <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#chat">Open</button>
                <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
             </div>
+            <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="chat1">
+                         <p>hello</p>
+
+                         <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Message" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="material-icons">send</i></button>
+                    </div>
+                    </div>
+
+                        </div>
+                    </div>
+                    
+                    </div>
+                </div>
+                </div>
+
+
         </div>   
         <hr>   
 
