@@ -442,6 +442,7 @@
     display: none;
     width: 207px !important;
     position: absolute;
+    margin-left: -24px;
 }
 
 .wid {
