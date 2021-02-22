@@ -423,11 +423,12 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
 
           <div class="row align-items-center text-white">   
-
+              @if(isset($random[0]))
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" {{$random[0]->type=='audio' ? 'checked': ''}}/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
-          </div>    
+          </div>  
+          @endif  
           <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}

@@ -3,7 +3,6 @@
 <section class="background1 pb-5 ">
 <div class="container">
  <div class="overlay1">
-<!--a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a-->
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
