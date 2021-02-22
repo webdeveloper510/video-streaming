@@ -386,11 +386,12 @@
                 <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
                   </div>
                   <?php endif; ?>
-               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?></div>
+              
                
               
             </div>
-            
+            <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?></div>
+            </div>
             </div>
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
