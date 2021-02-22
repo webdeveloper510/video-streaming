@@ -1033,6 +1033,24 @@ $(document).on('submit', '#edit_form', function (event) {
 			data: formData,
 			processData: false,
 			contentType: false,
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				if (xhr.upload) {
+					xhr.upload.addEventListener('progress', function(event) {
+						var percent = 0;
+						var position = event.loaded || event.position;
+						var total = event.total;
+						if (event.lengthComputable) {
+							percent = Math.ceil(position / total * 100);
+						}
+						$('.percentage').html(percent+'%');
+						if(percent==100){
+							$('.loader').hide();
+						}
+					}, true);
+				}
+				return xhr;
+		},
 
 			success: function(data){
 
@@ -1082,6 +1100,24 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 			data: formData,
 			processData: false,
 			contentType: false,
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				if (xhr.upload) {
+					xhr.upload.addEventListener('progress', function(event) {
+						var percent = 0;
+						var position = event.loaded || event.position;
+						var total = event.total;
+						if (event.lengthComputable) {
+							percent = Math.ceil(position / total * 100);
+						}
+						$('.percentage').html(percent+'%');
+						if(percent==100){
+							$('.loader').hide();
+						}
+					}, true);
+				}
+				return xhr;
+		},
 
 			success: function(data){
 

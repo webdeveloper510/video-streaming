@@ -393,7 +393,7 @@ class AuthController extends Controller
         $this->validate($request,[
           'person'=>'required',
           'email1'=>'required',
-          'nickname'=>'required',
+          'nickname'=>'required|max:25',
           'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
           'confirm' => 'min:8',
           'terms'=>'required',
@@ -565,13 +565,13 @@ class AuthController extends Controller
         $this->validate($request,[
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           //'audio_pic'=>'required',
-          'description'=>'required',
+          'description'=>'required|2000',
           //'hour'=>'required',
           //'minutes'=>'required',
           //'seconds'=>'required',
           //'keyword'=>'required',
-          'title'=>'required',
-          'price'=>'required',
+          'title'=>'required|max:30',
+          'price'=>'required|max:50000',
           'category'=>'required',    
           //'subcategory'=>'required'    
       ]

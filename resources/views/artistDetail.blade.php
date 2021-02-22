@@ -10,7 +10,7 @@
         </div>
         <div class="artistdetail11 mb-5">
             <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
-             <i class="fa fa-star" style="color:red;"></i>  761  
+             <i class="fa fa-star" style="color:red;"></i>  {{isset($countSub[0]) ? $countSub[0] : 0}}  
              <button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},true)" id="subscribe">Subscribe </button>
     
              <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" id="unsubscribe" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Subscribed </button>
