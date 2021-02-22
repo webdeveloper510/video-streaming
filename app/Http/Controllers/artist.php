@@ -82,6 +82,13 @@ class artist extends Controller
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
 
+         $subscriber =  $this->model->count_subscriber($artistid);
+
+        //  echo "<pre>";
+        //    print_r($subscriber);die;
+
+           //$getLevel= $this->model->getlevel();
+
           $isSubscribe =         $this->model->isSubscribe($artistid);
 
          $onlyArtistDetail =      $this->model->onlyArtistDetail($artistid);
@@ -92,7 +99,7 @@ class artist extends Controller
 
          $category_data = $this->model->getCategory();      
 
-         return view('artistDetail',['cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
+         return view('artistDetail',['countSub'=>$subscriber,'cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
     
   }
 
@@ -319,9 +326,9 @@ class artist extends Controller
           'additional_price'=>'required',
           'quality'=>'required',
           'delieveryspeed'=>'required',
-          'description'=>'required',
+          'description'=>'required|2000',
           'category'=>'required',
-          'price'=>'required'
+          'price'=>'required|max:50000'
       ]
         );
 
