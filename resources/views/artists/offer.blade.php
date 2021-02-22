@@ -77,8 +77,17 @@
                   <?php echo $errors->first('delieveryspeed') ?>
                 </div>
                 @endif
+               </div>
+               <div class="col-md-6 mt-5">
+             {{Form::label('Additional Request', 'Additional Request Price(PAZ)')}} 
+                {{Form::number('additional_price',null,['class'=>'form-control'])}}
+                 @if($errors->first('additional_price'))
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('additional_price') ?>
+                </div>
+                @endif
             </div>
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mt-5">
             <label>Quality:</label>
             <select name="quality" class="form-control" id="quality">
                     <option value="">Choose ...</option>
@@ -91,8 +100,7 @@
                   <?php echo $errors->first('quality') ?>
                 </div>
                 @endif
-            </div>
-            <div class="col-md-6 mt-5 ">
+            <br>
             <label>Duration(In Minutes)</label>
             <div class="row">
 
@@ -106,20 +114,22 @@
                    {{Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])}}
                          </div>
                      </div>
-            </div>
-               <div class="col-md-6 mt-5 pt-4">
+           <br>
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
                     @endforeach
             </select>
-            </div>
-
-         
-             
-           
-            <div class="col-md-6 mt-5">
+            <br>
+            <label>Offer Status</label>
+            <select name="offer_status"  class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
+            <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  {{Form::label('Audio/Video', 'Audio/Video')}} <br>
             {{Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])}} 
@@ -130,44 +140,28 @@
                 </div>
                 @endif
                 <span id="filename" style="color:red;"></span>
-                <div class="col-md-6 mt-5">
+               <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.
              </video>
 
              <img id="image" src="#" width="50px;" style="display:none;" height="50px;" alt="your image" />
-            </div>
-                </div>
-
-                <div class="col-md-6 mt-2 pt-4">
-                <label>Offer Status</label>
-            <select name="offer_status"  class='form-control'>
-                    <option value="">Choose...</option>
-                    <option value="offline">Offline(Draft)</option>
-                    <option value="online">Online</option>
-                   
-            </select>
+            
+               <br>
+               
             </div>
               
             <div class="col-md-6 mt-5">
              {{Form::label('Description', 'Description')}} 
-                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])}}
+                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 20, 'cols' => 40])}}
                  @if($errors->first('description'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('description') ?>
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-5">
-             {{Form::label('Additional Request', 'Additional Request Price(PAZ)')}} 
-                {{Form::number('additional_price',null,['class'=>'form-control'])}}
-                 @if($errors->first('additional_price'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('additional_price') ?>
-                </div>
-                @endif
-            </div>
+            
            
            
             <div class="row">
@@ -201,7 +195,9 @@
   display:inline-flex;
 }
 
-
+.custom-file-label {
+    position: inherit;
+}
 .modal-dialog {
     background: transparent !important;
 }
@@ -210,7 +206,9 @@
     background: transparent;
     box-shadow: none;
 }
-
+li.nav-item.dropdown {
+    border: 1px solid #9c27b0;
+}
 .modal-body img {
     width: 26rem;
 }

@@ -1,19 +1,16 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
- <?php if(session('success')): ?>
-        <div class="alert alert-success" id="success">
-        <?php echo e(session('success')); ?>
 
+        <div class="alert alert-success" id="success" style="display:none">
         </div>
-        <?php endif; ?>
+ 
            
-          <?php if(session('error')): ?>
-        <div class="alert alert-danger" id="error">
-        <?php echo e(session('error')); ?>
-
+         
+        <div class="alert alert-danger" id="error" style="display:none">
+      
         </div>
-        <?php endif; ?>
-<?php echo Form::open(['action' => 'artist@createOffer', 'method' => 'post', 'files'=>true]); ?>
+    
+<?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
@@ -22,6 +19,7 @@
         
           <div class="row align-items-center text-white">
           <div class="col-md-12 mt-5 ">
+          
           <ul class="nav">
          
          <li class="nav-item dropdown ">
@@ -43,9 +41,11 @@
                     <div class="col-md-4 mt-5 ">
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
-               <input type="checkbox" name="type" value="video"/>Video
-               <input type="checkbox" name="type" value="audio"/>Audio
-      
+        <div class="radiobtn">
+          <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+          <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
+   
+            </div>
             </div>
                 <div class="col-md-4 mt-5 ">
 
@@ -82,8 +82,18 @@
                   <?php echo $errors->first('delieveryspeed') ?>
                 </div>
                 <?php endif; ?>
+               </div>
+               <div class="col-md-6 mt-5">
+             <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
+                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
+
+                 <?php if($errors->first('additional_price')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('additional_price') ?>
+                </div>
+                <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mt-5">
             <label>Quality:</label>
             <select name="quality" class="form-control" id="quality">
                     <option value="">Choose ...</option>
@@ -96,8 +106,7 @@
                   <?php echo $errors->first('quality') ?>
                 </div>
                 <?php endif; ?>
-            </div>
-            <div class="col-md-6 mt-5 ">
+            <br>
             <label>Duration(In Minutes)</label>
             <div class="row">
 
@@ -113,20 +122,22 @@
 
                          </div>
                      </div>
-            </div>
-               <div class="col-md-6 mt-5 pt-4">
+           <br>
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
-            </div>
-
-         
-             
-           
-            <div class="col-md-6 mt-5">
+            <br>
+            <label>Offer Status</label>
+            <select name="offer_status"  class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
+            <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
             <?php echo e(Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])); ?> 
@@ -138,29 +149,21 @@
                 </div>
                 <?php endif; ?>
                 <span id="filename" style="color:red;"></span>
-                <div class="col-md-6 mt-5">
+               <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.
              </video>
 
              <img id="image" src="#" width="50px;" style="display:none;" height="50px;" alt="your image" />
-            </div>
-                </div>
-
-                <div class="col-md-6 mt-2 pt-4">
-                <label>Offer Status</label>
-            <select name="offer_status"  class='form-control'>
-                    <option value="">Choose...</option>
-                    <option value="offline">Offline(Draft)</option>
-                    <option value="online">Online</option>
-                   
-            </select>
+            
+               <br>
+               
             </div>
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 20, 'cols' => 40])); ?>
 
                  <?php if($errors->first('description')): ?>
                 <div class="alert alert-danger">
@@ -168,26 +171,22 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-5">
-             <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
-                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
-
-                 <?php if($errors->first('additional_price')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('additional_price') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-           
-           
-          
             
+           
+           
+            <div class="row">
+            
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span>
+                <img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+              <div class="col text-center pt-3">
 
-              <div class="col-md-12 text-center pt-3">
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
           </div>
-    
+          </div>
      </div>
   <?php echo e(Form::close()); ?>
 
@@ -199,7 +198,54 @@
     color: #333333;
     background-color: #eeeeee;
   }
+  .mt-5 p {
+    font-size: 22px !important;
+    padding-right: 18px;
+    color: #333333;
+}
+.radiobtn{
+  display:inline-flex;
+}
 
+.custom-file-label {
+    position: inherit;
+}
+.modal-dialog {
+    background: transparent !important;
+}
+
+.modal-content {
+    background: transparent;
+    box-shadow: none;
+}
+li.nav-item.dropdown {
+    border: 1px solid #9c27b0;
+}
+.modal-body img {
+    width: 26rem;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
+}
+
+
+input.select_media_pic {
+    height: 21px;
+}
   a#navbarDropdown23 {
     border: 1px solid #7b0000 ;
     color: #7b0000 ;
