@@ -159,7 +159,7 @@
           </video>
           <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($recnt->price); ?>PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
@@ -228,7 +228,7 @@
                 </video>
                 <div class="pricetime">
                 <div class="text-left">
-          <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($pop->price); ?>PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>

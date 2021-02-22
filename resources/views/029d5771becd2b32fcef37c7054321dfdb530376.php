@@ -3,7 +3,6 @@
 <section class="background1 pb-5 ">
 <div class="container">
  <div class="overlay1">
-<!--a href="<?php echo e(URL::to('logout')); ?>" class="ffff text-white float-right"> Logout</a-->
   <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
         <?php echo e(session('success')); ?>
@@ -31,10 +30,7 @@
       <div class="container profile">
         <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
 <!---------------------- First Step Form-------------------->
-        <div class="fiststep">
-        <?php echo e(Form::label('First Name', 'First Name')); ?> 
-           
-        </div>
+       
 <!---------------------- second Step Form-------------------->
           <div class="row align-items-center text-white">       
                 <div class="col-md-6 pt-3">
