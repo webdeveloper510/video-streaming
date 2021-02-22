@@ -407,6 +407,7 @@ class AuthController extends Controller
 
       unset($request['_token']);
       unset($request['terms']);
+      unset($request['News']);
       unset($request['AgeRestriction']);
      //print_r($request->all()); die;
          $model = new Registration();
