@@ -392,7 +392,7 @@
             </div>
           
             </div>
-        
+     
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
           <?php else: ?>
