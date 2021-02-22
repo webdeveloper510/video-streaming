@@ -29,7 +29,7 @@
         </div>
         <div class="artistdetail11 mb-5">
             <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
-             <i class="fa fa-star" style="color:red;"></i>  {{isset($offerData[0]->count) ? $offerData[0]->count:0}}    
+             <i class="fa fa-star" style="color:red;"></i>  {{isset($getLevel[0]->countsubscriber) ? $getLevel[0]->countsubscriber:0}}    
             
              </h3>
         
@@ -271,7 +271,7 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           @else
-          <img src="{{$random[0]->audio_pic ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg'}}" width="167px;">
+          <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg'}}" width="167px;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">
                      
@@ -288,7 +288,7 @@ Your browser does not support the audio tag.
    <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('{{json_encode($details[0])}}')">Edit</button>
               </div>
                 <hr>
-                <p class="edittable">{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
+                <p class="edittable">{{isset($details[0]->aboutme) ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
                 <hr>
               </div>
   
@@ -423,11 +423,12 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
 
           <div class="row align-items-center text-white">   
-
+              @if(isset($random[0]))
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" {{$random[0]->type=='audio' ? 'checked': ''}}/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
-          </div>    
+          </div>  
+          @endif  
           <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}

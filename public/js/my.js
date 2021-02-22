@@ -1661,9 +1661,10 @@ $(document).on('submit', '#myForm', function (event) {
 						if (event.lengthComputable) {
 							percent = Math.ceil(position / total * 100);
 						}
-						//update progressbar
 						$('.percentage').html(percent+'%');
-					//	$(progress_bar_id + " .status").text(percent +"%");
+						if(percent==100){
+							$('.loader').hide();
+						}
 					}, true);
 				}
 				return xhr;
@@ -1671,6 +1672,7 @@ $(document).on('submit', '#myForm', function (event) {
 
 			success: function(data){
 				$('.loader').hide();
+				//$('.percentage').hide();
 				if(data.status==1){
 					 $('#success').show();
 					 $('#success').html(data.messge);

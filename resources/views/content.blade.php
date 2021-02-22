@@ -3,7 +3,6 @@
 <section class="background1 pb-5 ">
 <div class="container">
  <div class="overlay1">
-<!--a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a-->
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
@@ -26,10 +25,7 @@
       <div class="container profile">
         <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
 <!---------------------- First Step Form-------------------->
-        <div class="fiststep">
-        {{Form::label('First Name', 'First Name')}} 
-           
-        </div>
+       
 <!---------------------- second Step Form-------------------->
           <div class="row align-items-center text-white">       
                 <div class="col-md-6 pt-3">
@@ -142,9 +138,10 @@
              <div class="col-md-6 pt-4 ">
             {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
   {{Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])}}
+  <span id="filename" style="color:red;"></span>
 </div>
 <div class="col-md-6 pt-2 text-center">
-  <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
+  <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>

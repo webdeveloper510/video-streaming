@@ -230,6 +230,10 @@ class artist extends Controller
 
       $count_due_offer = $this->model->count_due_offer('offer');
 
+      $totalCollection  =  $this->model->count_collection_items();
+
+      //print_r($totalCollection);die;
+
       $getLevel= $this->model->getlevel();
       //print_r($getLevel);die;
 
@@ -247,7 +251,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -269,16 +273,18 @@ class artist extends Controller
 
       $quality = $this->model->getQuality();
 
+      $getLevel= $this->model->getlevel();
+
 
       $allPlaylist =      $this->model->getAllPlaylist();
 
-      //  echo "<pre>";
+      //   echo "<pre>";
 
-      // print_r($random);die;
+      // print_r($allArtistOffer);die;
 
       $contentLogin =   Session::get('User');
       
-      return view('artists.profile',['random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
+      return view('artists.profile',['getLevel'=>$getLevel,'random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
 

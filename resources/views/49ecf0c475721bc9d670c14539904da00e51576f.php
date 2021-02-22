@@ -361,7 +361,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
               <li class="nav-item">
              
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
@@ -372,7 +372,7 @@
            </a>
            <div class="level">
            <div class="levlv">
-              <div><?php echo e($levelData ? $levelData[0]->level_name: ''); ?> </div>
+              <div><?php echo e($levelData ? $levelData[0]->level_name: 'Lvl0'); ?> </div>
               <div class="wid"><div class="progress">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
@@ -382,9 +382,11 @@
                    
                     
                 </div>
-                <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
+                <?php if(isset($levelData[0])): ?>       
+                <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
                   </div>
-               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : ''); ?></div>
+                  <?php endif; ?>
+               <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?></div>
                
               
             </div>

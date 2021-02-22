@@ -510,6 +510,8 @@ public function getArtistDetail($artid,$type){
 
   public function getArtistOffer($artistId){
 
+    //echo $artistId;die;
+
     $offer=DB::table('offer')
     ->join('category', 'category.id', '=','offer.categoryid')
     ->join('subscriber','subscriber.artistid','=','offer.artistid')
@@ -2222,6 +2224,15 @@ return $data;
 
 
   
+}
+
+public function count_collection_items(){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+        return DB::table('media')->where('contentProviderid',$userid)->get()->count();
 }
 
 

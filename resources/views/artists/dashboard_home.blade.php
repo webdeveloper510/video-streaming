@@ -112,7 +112,7 @@
     <div class="col-md-3">
    
     <div class="columesdashboard3">
-           <h1>345</h1>
+           <h1>{{$totalCollection ? $totalCollection : 0}}</h1>
            <h4 class="text-center">Collection Items  </h4>
         </div>     
     </div>
@@ -135,7 +135,7 @@
              </div>
              <div class="col-md-4 col-12">
              <button class="btn btn-info" type="button">Week 9+10</button>
-              <button class="btn btn-info" type="button">Week 11+12</button>
+             <button class="btn btn-info" type="button">Week 11+12</button>
               <button class="btn btn-info" type="button">Week 13+14</button>
               <button class="btn btn-info" type="button">Week 15+16</button>
              </div>
