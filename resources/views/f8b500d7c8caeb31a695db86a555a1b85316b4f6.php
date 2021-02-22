@@ -175,7 +175,7 @@
                 
                 <input type="date" name="dob" class="form-control" />
                 <br>
-                <h5 class="card-title">Email : example@gmail.com</h5>
+                <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
                 <div class="text-right">
                 <?php echo e(Form::submit('Update!',['class'=>'btn btn-light btn-sm'])); ?>
 
