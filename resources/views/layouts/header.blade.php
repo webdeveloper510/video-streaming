@@ -504,8 +504,9 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
-    <a href="{{url('/seeall/offer')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i></a>
+		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
+    <div class="noti"></div></a>
+    <a href="{{url('/seeall/offer')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i><div class="noti"></div></a>
     
               <!-- <a href="{{url('/userWithdraw')}}" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="{{url('/feed')}}" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
@@ -522,7 +523,7 @@
 
 						<div class="navbar-nav ml-auto">
               @if(!$login)
-					  <a href="{{url('/register')}}" class="nav-item nav-link">Register</a>
+					  <a href="{{url('/register')}}" class="nav-item nav-link">Join Free</a>
               <a href="{{url('/login')}}" class="nav-item nav-link"> Login</a>  
            @endif             
 

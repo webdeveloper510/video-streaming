@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
           <div class="row">
             <div class="col text-center">
-              <h1 class="text-white">Register As</h1>
+              <h1 class="text-white">Join As</h1>
         <?php if(session('success')): ?>
         <div class="alert alert-success" id="sucess">
         <?php echo e(session('success')); ?>
@@ -107,7 +107,8 @@
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
-               <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?>
+               <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?><br>
+               <?php echo e(Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I Would like to receive discounts and news from PAZ')); ?>
 
                 
               </div>

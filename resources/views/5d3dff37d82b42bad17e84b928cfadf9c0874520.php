@@ -528,8 +528,9 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
-    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i></a>
+		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
+    <div class="noti"></div></a>
+    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i><div class="noti"></div></a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
@@ -546,7 +547,7 @@
 
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
-					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Register</a>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
               <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
            <?php endif; ?>             
 
