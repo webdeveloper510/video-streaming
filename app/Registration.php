@@ -466,6 +466,12 @@ public function getArtistDetail($artid,$type){
 
   }
 
+
+  public function count_subscriber($id){
+
+         return DB::table('subscriber')->where('artistid',$id)->pluck('count')->toArray();
+  }
+
   public function edit_other($profile,$data){
 
 //     print_r($profile);
