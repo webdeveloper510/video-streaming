@@ -91,7 +91,7 @@
                          <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Message" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="material-icons">send</i></button>
+                        <button class="btn btn-outline-secondary" type="button" ><i class="material-icons"id="button-addon2">send</i></button>
                     </div>
                     </div>
 
