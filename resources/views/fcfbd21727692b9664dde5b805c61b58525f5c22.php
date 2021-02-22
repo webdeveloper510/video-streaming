@@ -263,8 +263,8 @@
               $(id).html(duration);
               $.ajax({
               type: 'POST',
-            url:APP_URL+"/duration",
-            headers: {
+              url:APP_URL+"/duration",
+              headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
 		    	data: {'duration':duration, 'id':vidid},
