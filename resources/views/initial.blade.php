@@ -64,7 +64,7 @@
           </p>
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p> -->
-          <div class="reward">
+          <div class="reward mt-4">
         <h2>Get rewarded with 100 PAZ Tokens!</h2>
       </div>
          <div class="col-md-12 text-center mt-2">

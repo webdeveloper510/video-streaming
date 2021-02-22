@@ -94,6 +94,9 @@
                      <h4>No play list created yet. <span id="playlistCreate" class="show_list">Create play List +</span></h4>
                      <span class="create_playlistt" style="display: block">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+          <div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
 

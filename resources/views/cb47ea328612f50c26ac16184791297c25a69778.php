@@ -162,20 +162,11 @@
 							   <p>Resolution</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>HD 720p</p>
+							   <p><?php echo e($video->convert); ?></p>
 							</div>
 						 </div>
 					  </div>
-					  <div class="media-property">
-						 <div class="property-1">
-							<div class="Media-Type">
-							   <p>File Size</p>
-							</div>
-							<div class="Media-Type1">
-							   <p><?php echo e($video->size); ?></p>
-							</div>
-						 </div>
-					  </div>
+					 
 				   </div>
 				</div>
 			 </div>
@@ -184,7 +175,7 @@
 	</section>
 		<?php endif; ?>
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-	<section>
+	<!-- <section>
 	   <div class="container-fluid">
 			<div class="row">
 					<div class="col-md-12">
@@ -196,13 +187,13 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div id="demo" class="carousel slide" data-ride="carousel">
-				   <!-- Indicators -->
+				   <!-- Indicators 
 						<ul class="carousel-indicators">
 							<li data-target="#demo" data-slide-to="0" class="active"></li>
 							<li data-target="#demo" data-slide-to="1"></li>
 							<li data-target="#demo" data-slide-to="2"></li>
 						</ul>
-				   <!-- The slideshow -->
+				   <!-- The slideshow 
 				   <div class="carousel-inner">
 					  <div class="carousel-item active">
 						 <div class="main-video-search content">
@@ -361,7 +352,7 @@
 						 </div>
 					  </div>
 				   </div>
-				   <!-- Left and right controls -->
+				   <!-- Left and right controls 
 				   <a class="carousel-control-prev" href="#demo" data-slide="prev">
 				   <span class="carousel-control-prev-icon"></span>
 				   </a>
@@ -372,7 +363,7 @@
 			 </div>
 		  </div>
 	   </div>
-	</section>
+	</section> -->
 </div>  
 
 

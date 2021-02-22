@@ -9,7 +9,7 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
           <div class="row">
             <div class="col text-center">
-              <h1 class="text-white">Join As</h1>
+              <h1 class="text-white">Join as</h1>
         @if(session('success'))
         <div class="alert alert-success" id="sucess">
         {{session('success')}}
@@ -97,7 +97,7 @@
                 border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
                {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}<br>
-               {{Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I Would like to receive discounts and news from PAZ')}}
+               {{Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')}}
                 
               </div>
 
@@ -106,7 +106,7 @@
           </div>
           {{ Form::close() }}
      
-           <p class="mt-2 text-white">Already have an account yet ?</p>
+           <p class="mt-2 text-white">Already have an account ?</p>
           <a href="{{ URL::to('login')}}" style="color:blue; font-size: 17px;">Login</a>
          
               
@@ -122,6 +122,7 @@
   .alert-danger {
     margin-top: 10px;
 }
+
 .alert-success {
     margin-top: 10px;
 }
