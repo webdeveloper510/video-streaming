@@ -72,7 +72,7 @@ tr.shown td.details-control {
   <body>
     <div class="container">
     <div class="tab">
-  <button class="tablinks "disabled onclick="openCity(event, 'London')">Projects</button>
+  <!-- <button class="tablinks "disabled onclick="openCity(event, 'London')">Projects</button> -->
   <button class="tablinks active" onclick="openCity(event, 'Paris')">Orders</button>
 
   
