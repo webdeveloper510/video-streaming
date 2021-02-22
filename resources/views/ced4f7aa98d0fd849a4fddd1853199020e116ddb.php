@@ -21,18 +21,15 @@
           
         </ul>
 
-  <?php if(session('success')): ?>
-        <div class="alert alert-success" id="success">
-        <?php echo e(session('success')); ?>
-
+        <div class="alert alert-success" id="success" style="display:none">
+    
         </div>
-        <?php endif; ?> 
-          <?php if(session('error')): ?>
-        <div class="alert alert-danger" id="error">
-        <?php echo e(session('error')); ?>
-
+ 
+      
+        <div class="alert alert-danger" id="error" style="display:none">
+   
         </div>
-        <?php endif; ?>
+  
         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <div class="alert alert-danger">
         <?php echo e($error); ?>
@@ -40,7 +37,7 @@
         </div>
       
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-  <?php echo Form::open(['action' => 'AuthController@providerContent', 'method' => 'post', 'files'=>true]); ?>
+  <?php echo Form::open(['id'=>'myForm','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
@@ -86,8 +83,9 @@
             </div>
             <div class="col-md-6 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
+                <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
 
+                <span id="filename" style="color:red;"></span>
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
@@ -99,9 +97,15 @@
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
 
             </div>
-            <div class="col-md-12 text-center pt-3">
+            <div class="row">
+            <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+            <div class="col text-center pt-3">
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
 
+     </div>
      </div>
    </div>
   <?php echo e(Form::close()); ?>
@@ -121,6 +125,36 @@
 .mt-5 p {
     font-size: 22px !important;
     padding-right: 18px;
+}
+
+.modal-dialog {
+    background: transparent !important;
+}
+
+.loader img {
+    background: #ffffff61;
+    /* border-radius: 50%; */
+}
+
+.modal-content {
+    background: transparent;
+    box-shadow: none;
+}
+
+.modal-body img {
+    width: 26rem;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    outline: 0;
 }
 
 .mt-5 {

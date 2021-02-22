@@ -381,11 +381,12 @@
                 <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
                   </div>
                   @endif
-               <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}}</div>
+              
                
               
             </div>
-            
+            <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}}</div>
+            </div>
             </div>
            @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
@@ -419,44 +420,8 @@
  </span>
   
 
-</div>
-               
-              </li>
-              
-             
-              <!-- <li class="nav-item dropdown">
-  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><h6>{{$count}}</h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
-                 
-                </a>
-                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
-                 <h5 class="text-center"> <b>Notification</b></h5><br>
-      @foreach($notification as $val)
-    @if($val->notificationfor=='artist')
-    
-      <a href="{{url('notification/artist')}}">{{$val->message}}</a>
-    
-  
-    <hr>
-    @endif
-    @endforeach
-     <a href="{{url('notification/artist')}}"><span class="text-center text-dark">See More -></span></a>
-                </div>
-              </li> -->
-              <!-- <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li> -->
-              <!-- <li class="nav-item dropdown">
-  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons"style="font-size:27px">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="{{url('artist/edit')}}">Edit Profile</a>
-                  <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{url('logout')}}">Log out</a>
-                </div>
-              </li> -->
+    </div>
+           </li>
             </ul>
           </div>
         </div>
