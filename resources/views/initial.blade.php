@@ -231,7 +231,7 @@
           <h6 class="text-white">{{ $pop->price }}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white" id="duration_{{$pop->id}}">2:00</h6>
+          <h6 class="text-white" id="duration_{{$pop->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
             
           <script>
       
