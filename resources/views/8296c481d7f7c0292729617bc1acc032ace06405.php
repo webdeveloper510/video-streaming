@@ -162,20 +162,11 @@
 							   <p>Resolution</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>HD 720p</p>
+							   <p><?php echo e($video->convert); ?></p>
 							</div>
 						 </div>
 					  </div>
-					  <div class="media-property">
-						 <div class="property-1">
-							<div class="Media-Type">
-							   <p>File Size</p>
-							</div>
-							<div class="Media-Type1">
-							   <p><?php echo e($video->size); ?></p>
-							</div>
-						 </div>
-					  </div>
+					 
 				   </div>
 				</div>
 			 </div>
