@@ -105,6 +105,8 @@ Route::post('request', 'AuthController@addRequest');
 
 Route::post('update_Status', 'AuthController@update_due_Status');
 
+Route::post('duration', 'AuthController@duration');
+
 
 Route::post('passwordReset', 'AuthController@passwordReset');
 

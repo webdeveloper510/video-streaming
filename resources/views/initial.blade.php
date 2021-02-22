@@ -162,16 +162,16 @@
           <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white" id="duration_{{$recnt->id}}">2:00</h6>
+          <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
+          @if($recnt->duration=='')
           <script>
-      
-      setTimeout(() => {
-      video = $("#recently_"+"{{$recnt->id}}");
-      //id = $("#video_"+"{{$recnt->id}}");
-       seconds_to_min_sec(video[0].duration,"#duration_"+"{{$recnt->id}}");
-
-    }, 2000);
-    </script>
+              setTimeout(() => {
+              video = $("#recently_"+"{{$recnt->id}}");
+              //id = $("#video_"+"{{$recnt->id}}");
+              seconds_to_min_sec(video[0].duration,"#duration_"+"{{$recnt->id}}","{{$recnt->id}}");
+            }, 2000);
+          </script>
+          @endif
           </div>
           </div>
           <h5>{{ $recnt->title }}</h5>
@@ -238,7 +238,7 @@
       setTimeout(() => {
       video = $("#video_"+"{{$pop->id}}");
       id = $("#video_"+"{{$pop->id}}");
-       seconds_to_min_sec(video[0].duration,"#duration_"+"{{$pop->id}}","{{$pop->id}}");
+       seconds_to_min_sec(video[0].duration,"#duration_"+"{{$pop->id}}","{{$pop->id}}","{{$pop->id}}");
 
     }, 2000);
     </script>
@@ -256,11 +256,26 @@
              </div>
             </div>
 <script>
-            function seconds_to_min_sec(seconds,id) {
+            function seconds_to_min_sec(seconds,id,vidid) {
               var minutes = Math.floor(seconds / 60);
               var seconds = seconds - minutes * 60;
               var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
               $(id).html(duration);
+              $.ajax({
+              type: 'POST',
+            url:APP_URL+"/duration",
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+		    	data: {'duration':duration, 'id':vidid},
+
+			success: function(data){
+
+				console.log(data);return false;
+
+
+			}
+	});
 
             }
     </script>
