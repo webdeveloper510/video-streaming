@@ -10,7 +10,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
     <table style="background-color: #fff;text-align: center;">
         <thead>
             <tr>
-                <th><img src="https://www.pure360.com/wp-content/uploads/2015/04/shutterstock_701522602.jpg"  alt="email-image" width="590px"></th>
+                <th><img src="https://pornartistzone.com/developing-streaming/public/images/email.jpg"  alt="email-image" width="590px"></th>
             </tr>
         </thead>
          <tbody>
