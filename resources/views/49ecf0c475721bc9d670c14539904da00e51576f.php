@@ -361,7 +361,7 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end">
             
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
               <li class="nav-item">
              
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
@@ -382,8 +382,10 @@
                    
                     
                 </div>
+                <?php if(isset($levelData[0])): ?>       
                 <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
                   </div>
+                  <?php endif; ?>
                <div> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?></div>
                
               
