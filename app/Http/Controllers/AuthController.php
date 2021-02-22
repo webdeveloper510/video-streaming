@@ -1449,6 +1449,13 @@ public function readNotification(Request $request){
 
       }
 
+      public function duration(Request $request){
+
+          //print_r($request->all());
+
+          $this->model->updateDuration($request->all());
+      }
+
 
       public function playlistByid($playId){
 

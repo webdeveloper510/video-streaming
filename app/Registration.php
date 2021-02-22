@@ -388,7 +388,7 @@ public function uploadContentProvider($contentdata){
     //$duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
    // $timeArr = explode(':', $duration);
     // $contentdata['duration']= ($timeArr[0]*3600 ) + ($timeArr[1]*60) + ($timeArr[2]);
-       $contentdata['duration']=0;
+       $contentdata['duration']='';
     //  unset($contentdata['hour']);
     //  unset($contentdata['minutes']);
     //  unset($contentdata['seconds']);
@@ -2300,6 +2300,16 @@ public function update_due_to_process($data){
 
       return $random;
 
+    }
+
+    public function updateDuration($data){
+
+      $update = DB::table('media')->where('id',$data['id'])->update([
+
+        'duration' => $data['duration']
+      ]);
+
+      return $update;
     }
 
 
