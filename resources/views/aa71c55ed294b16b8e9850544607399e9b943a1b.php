@@ -422,44 +422,8 @@
  </span>
   
 
-</div>
-               
-              </li>
-              
-             
-              <!-- <li class="nav-item dropdown">
-  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><h6><?php echo e($count); ?></h6></div> <i class="fa fa-bell"style="font-size:27px"></i>
-                 
-                </a>
-                <div class="dropdown-menu dropdown-menu-right notif text-center" aria-labelledby="navbarDropdownProfile">
-                 <h5 class="text-center"> <b>Notification</b></h5><br>
-      <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->notificationfor=='artist'): ?>
-    
-      <a href="<?php echo e(url('notification/artist')); ?>"><?php echo e($val->message); ?></a>
-    
-  
-    <hr>
-    <?php endif; ?>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-     <a href="<?php echo e(url('notification/artist')); ?>"><span class="text-center text-dark">See More -></span></a>
-                </div>
-              </li> -->
-              <!-- <li><a class="nav-link text-white " href="javascript:;" ><i class="fa fa-comment"></i></a></li> -->
-              <!-- <li class="nav-item dropdown">
-  <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons"style="font-size:27px">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="<?php echo e(url('artist/edit')); ?>">Edit Profile</a>
-                  <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="<?php echo e(url('logout')); ?>">Log out</a>
-                </div>
-              </li> -->
+    </div>
+           </li>
             </ul>
           </div>
         </div>

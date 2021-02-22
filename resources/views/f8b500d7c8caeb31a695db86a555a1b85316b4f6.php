@@ -126,20 +126,20 @@
               on the landingpage and on the customer homepage for free</h5>
               <hr>
           <div class="row">
-             <div class="col-4">
+             <div class="col-md-4 col-12">
               <button class="btn btn-info" type="button">Week 1+2</button>
               <button class="btn btn-info" type="button">Week 3+4</button>
               <button class="btn btn-info" type="button">Week 5+6</button>
               <button class="btn btn-info" type="button">Week 7+8</button>
             
              </div>
-             <div class="col-4">
+             <div class="col-md-4 col-12">
              <button class="btn btn-info" type="button">Week 9+10</button>
               <button class="btn btn-info" type="button">Week 11+12</button>
               <button class="btn btn-info" type="button">Week 13+14</button>
               <button class="btn btn-info" type="button">Week 15+16</button>
              </div>
-             <div class="col-4">
+             <div class="col-md-4 col-12">
              
               <button class="btn btn-info" type="button">Week 17+18</button>
               <button class="btn btn-info" type="button">Week 19+20</button>
@@ -250,21 +250,44 @@
     </div>
     <div class="col-md-4">
          <div class="card">
-             <h5 class="card-title text-left pt-3 pl-3">Social Media:</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Reward:</h5>
              <hr>
               <div class="card-body text-center">
-              <h5 class="card-title">Let us promote you on our social Media Channels</h5><br>
-                <div class="linksonit">
-                </div>
-                <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5><br>
-                <div class="linksonit">
-                </div>
-                <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
-                <div class="linksonit">
+                <h4 class="card-title">Setup your Profile and get 100 PAZ tokens!</h4>
+                <p>-Upload 5 picture/videos on the social Media Box</p>
+               
+                <p>-Upload 3 videos/audios to the collection and keep them tere for a minimum of 30 days</p>
+                <div class="text-right">
+                   <button class="btn btn-primary" type="button">Get my reward!</button>
                 </div>
               </div>
             </div>
     </div>
+    <div class="col-md-4">
+         <div class="card">
+             <h5 class="card-title text-left pt-3 pl-3">Social Media:</h5>
+             <hr>
+              <div class="card-body text-center">
+              <h5 class="card-title">Let us promote you on our social Media Channels</h5>
+                <div class="linksonit mb-3">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                  <label class="custom-file-label text-left" for="inputGroupFile04">Choose file</label>
+                  <small>Upload social media friendly content here</small>
+                </div>
+                </div>
+                <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
+                <div class="linksonit mb-3">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
+                <div class="linksonit mb-3">
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+              </div>
+            </div>
+    </div>
+
    
 </div>
 </div>
@@ -281,13 +304,16 @@
     padding: 30px 18px;
     background: #ff7f27;
     color: white;
+    
 }
+
 .columesdashboard2 {
     border: 3px solid #22b14c;
     padding: 30px 18px;
     background: #22b14c;
     color: white;
 }
+
 .columesdashboard3 {
     border: 3px solid #b97a57;
     padding: 30px 18px;
@@ -301,6 +327,7 @@ h5.customer1.text-center.pt-3.pl-3 {
     padding: 18px;
     text-align: center !important;
 }
+
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>

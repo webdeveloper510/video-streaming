@@ -1,4 +1,5 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
 
 
@@ -61,8 +62,11 @@
           </p> -->
           <p>   <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future developments on the platform and let us grow together
           </p>
-          <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
-          </p>
+          <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
+          </p> -->
+          <div class="reward">
+        <h2>Get rewarded with 100 PAZ Tokens!</h2>
+      </div>
          <div class="col-md-12 text-center mt-2">
   <button type="button" class="btn btn-primary btn-lg"><a href="<?php echo e(url('/checkUser/artist')); ?>">Join Now</a></button>
 
@@ -71,6 +75,7 @@
 
 
       </div>
+     
       </div>
  
     <div class="col-md-6">
@@ -101,7 +106,10 @@
           </p>
           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
           </p>
-          <div class="col-md-12 text-center mt-5 ">
+          <div class="reward1">
+        <h2>Get rewarded with 10% OFF on the first  Purchase!</h2>
+      </div>
+          <div class="col-md-12 text-center  ">
 
  <button type="button" class="btn btn-primary btn-lg px-3"><a href="<?php echo e(url('/checkUser/user')); ?>">Join Now </a></button>
 
@@ -505,10 +513,59 @@ h5{ color :#fff;}
     margin: 10px auto;
 }
 }
+.reward h2 {
+    color: white !important;
+    width: 100%;
+    background: #00adff;
+    color: #fff;
+    padding-left: 8px;
+ 
+    text-align: center;
+
+    line-height: 33px;
+    z-index: 9999 !important;
+ 
+    clip-path: polygon(100% 0%, 97% 50%, 100% 100%, 0 100%, 3% 50%, 0 0);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate( 
+-45deg
+ );
+    transform: rotate( 
+0deg
+ );
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+}
+.reward1 h2 {
+    color: white !important;
+    width: 100%;
+    background: #00adff;
+  
+    text-align: center;
+    padding-left: 12px;
+   
+    line-height: 33px;
+    z-index: 9999 !important;
+    left: -2px;
+    clip-path: polygon(100% 0%, 97% 50%, 100% 100%, 0 100%, 3% 50%, 0 0);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate( 
+-45deg
+ );
+    transform: rotate( 
+0deg
+ );
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
   </style>
  
 
- <script>
+ <!--script>
   $(document).ready(function() {
  
   $("#owl-example").owlCarousel({
@@ -533,14 +590,17 @@ nav:true,
 rewindNav:false
   });
 });
- </script>
-<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+ </script-->
+ <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-<script type="text/javascript">
+
+<!--script type="text/javascript">
   $ (window).ready (function () {
   setTimeout (function () {
     $ ('#modal-subscribe').modal ("show")
   }, 1000)
 })
-</script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>
+</script-->
+
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>
