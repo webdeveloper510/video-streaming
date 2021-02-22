@@ -64,7 +64,7 @@
           </p>
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p> -->
-          <div class="reward">
+          <div class="reward mt-4">
         <h2>Get rewarded with 100 PAZ Tokens!</h2>
       </div>
          <div class="col-md-12 text-center mt-2">
@@ -231,7 +231,7 @@
           <h6 class="text-white">{{ $pop->price }}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white" id="duration_{{$pop->id}}">2:00</h6>
+          <h6 class="text-white" id="duration_{{$pop->id}}">{{ $pop->duration ? $pop->duration :'' }}</h6>
             
           <script>
       
