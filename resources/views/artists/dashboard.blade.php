@@ -365,7 +365,7 @@
            <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
 
            </a>
-           <div class="level">
+        
            <div class="levlv">
               <div>{{$levelData ? $levelData[0]->level_name: 'Lvl0'}} </div>
               <div class="wid"><div class="progress">
@@ -382,12 +382,12 @@
                   </div>
                   @endif
               
-               
+                
                   
             </div>
-            <div><p> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}} </p></div>
+            <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}} </p>
             </div>
-      </div>
+     
            @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
           @else
