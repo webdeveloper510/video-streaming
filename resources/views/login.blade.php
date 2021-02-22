@@ -70,7 +70,7 @@
            
     <div class="bottom mt-5">
 <p class="text-white">Don't have an account yet ?</p>
-<a href="{{ URL::to('register')}}" class="ffff ">Signup Now</a>
+<a href="{{ URL::to('register')}}" class="ffff ">Join Free</a>
 </div>
 
         </div>
