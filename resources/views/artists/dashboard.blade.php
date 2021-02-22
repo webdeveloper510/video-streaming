@@ -381,11 +381,12 @@
                 <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
                   </div>
                   @endif
-               <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}}</div>
+              
                
               
             </div>
-            
+            <div> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}}</div>
+            </div>
             </div>
            @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
