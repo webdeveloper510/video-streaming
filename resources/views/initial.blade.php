@@ -159,7 +159,7 @@
           </video>
           <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
+          <h6 class="text-white">{{ $recnt->price }}PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
@@ -228,7 +228,7 @@
                 </video>
                 <div class="pricetime">
                 <div class="text-left">
-          <h6 class="text-white">{{ $pop->price }}/PAZ</h6>
+          <h6 class="text-white">{{ $pop->price }}PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_{{$pop->id}}">{{ $pop->duration ? $pop->duration :'' }}</h6>
