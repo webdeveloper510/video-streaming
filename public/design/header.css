@@ -119,3 +119,8 @@ span.profile-img hr {
     color: blue !important;
     right: 1px;
 } 
+@media only screen and (max-width: 768px) {
+.user-body {
+  height: auto;
+}
+}

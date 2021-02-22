@@ -572,7 +572,7 @@
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   @if($login)
                
-               <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><p>{{$count}}</p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
+               <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><p>{{$count}}</p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i><div class="noti"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -628,6 +628,15 @@
     right: 16px;
     top: 4px;
 }
+.noti {
+    background: blue;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 button.btn.btn-warning.text-white {
     margin-bottom: auto;
     margin-top: 8px;
@@ -642,6 +651,7 @@ button.btn.btn-warning.text-white {
     border: 2px solid yellow;
     padding-left: 32px;
 }
+
 .noti-icon p {
     color: white;
     font-weight: bold;
