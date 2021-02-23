@@ -449,7 +449,10 @@
     position: absolute;
     margin-left: -24px;
 }
-
+.navbar.navbar-absolute {
+   
+    padding-top: 7px !important;
+}
 .wid {
     width: 160px !important ;
 }
