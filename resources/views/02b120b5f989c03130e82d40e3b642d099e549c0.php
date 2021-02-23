@@ -82,8 +82,18 @@
                   <?php echo $errors->first('delieveryspeed') ?>
                 </div>
                 <?php endif; ?>
+               </div>
+               <div class="col-md-6 mt-5">
+             <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
+                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
+
+                 <?php if($errors->first('additional_price')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('additional_price') ?>
+                </div>
+                <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mt-5">
             <label>Quality:</label>
             <select name="quality" class="form-control" id="quality">
                     <option value="">Choose ...</option>
@@ -96,8 +106,7 @@
                   <?php echo $errors->first('quality') ?>
                 </div>
                 <?php endif; ?>
-            </div>
-            <div class="col-md-6 mt-5 ">
+            <br>
             <label>Duration(In Minutes)</label>
             <div class="row">
 
@@ -113,24 +122,26 @@
 
                          </div>
                      </div>
-            </div>
-               <div class="col-md-6 mt-5 pt-4">
+           <br>
             <select name="category" id="selectCategory" class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
-            </div>
-
-         
-             
-           
-            <div class="col-md-6 mt-5">
+            <br>
+            <label>Offer Status</label>
+            <select name="offer_status"  class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
+            <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
-            <?php echo e(Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+            
+                <?php echo e(Form::file('media',['class'=>'form-control','id'=>'file_input'])); ?>
 
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
@@ -138,29 +149,21 @@
                 </div>
                 <?php endif; ?>
                 <span id="filename" style="color:red;"></span>
-                <div class="col-md-6 mt-5">
+               <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.
              </video>
 
              <img id="image" src="#" width="50px;" style="display:none;" height="50px;" alt="your image" />
-            </div>
-                </div>
-
-                <div class="col-md-6 mt-2 pt-4">
-                <label>Offer Status</label>
-            <select name="offer_status"  class='form-control'>
-                    <option value="">Choose...</option>
-                    <option value="offline">Offline(Draft)</option>
-                    <option value="online">Online</option>
-                   
-            </select>
+            
+               <br>
+               
             </div>
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 20, 'cols' => 40])); ?>
 
                  <?php if($errors->first('description')): ?>
                 <div class="alert alert-danger">
@@ -168,16 +171,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-5">
-             <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
-                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
-
-                 <?php if($errors->first('additional_price')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('additional_price') ?>
-                </div>
-                <?php endif; ?>
-            </div>
+            
            
            
             <div class="row">
@@ -213,7 +207,9 @@
   display:inline-flex;
 }
 
-
+.custom-file-label {
+    position: inherit;
+}
 .modal-dialog {
     background: transparent !important;
 }
@@ -222,7 +218,9 @@
     background: transparent;
     box-shadow: none;
 }
-
+li.nav-item.dropdown {
+    border: 1px solid #9c27b0;
+}
 .modal-body img {
     width: 26rem;
 }
