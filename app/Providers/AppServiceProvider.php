@@ -37,12 +37,20 @@ class AppServiceProvider extends ServiceProvider
 
              $notification = $array['notifications'];
 
-                $count = $array['count'];
+              $count = $array['count'];
 
 
-            $data=Session::get('User');
+               $data=Session::get('User');
+
+               $isActive = true;
 
              $userId = isset($data) ? $data->id : '';
+
+            // echo "<pre>";
+
+             $offer = $model->getallOffers();
+
+             //print_r($data);die;
 
             $tokens = $model->getUserData($userId);
 
@@ -62,7 +70,7 @@ class AppServiceProvider extends ServiceProvider
 
             //$type=Session::get('userType');
 
-            $view->with(array('levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
+            $view->with(array('latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
 
     }

@@ -1310,6 +1310,8 @@ public function seeall($flag){
 
      if($flag=='offer'){
 
+      //$isActive = false;
+
       $videos = $this->model->getallOffer($paginate='yes');
     }
 

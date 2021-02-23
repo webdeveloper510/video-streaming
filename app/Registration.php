@@ -1109,7 +1109,7 @@ public function getRespectedSub($data){
          $count = $this->getCountofNotification(array('read'=>0,'notificationfor'=>$session_data=='User' ? 'user' : 'artist'));
 
 
-           $data = DB::table('notification')->where('read',0)->orderBy('id','desc')->take(4)->get()->toArray();
+        $data = DB::table('notification')->where('read',0)->orderBy('id','desc')->take(4)->get()->toArray();
 
            return array('count'=>$count,'notifications'=>$data);
     }
@@ -1915,6 +1915,12 @@ public function getallOffer($flag){
 
         return DB::table('offer')->paginate(3);
   }
+}
+
+public function getallOffers(){
+
+  return DB::table('offer')->latest('id')->first();
+
 }
 
 public function insertHistory($postData,$uid){
