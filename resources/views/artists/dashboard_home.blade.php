@@ -234,7 +234,7 @@
     </div>
     <div class="col-md-4">
          <div class="card">
-             <h5 class="card-title text-left pt-3 pl-3">Social Media:</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted:</h5>
              <hr>
               <div class="card-body text-center">
               <h5 class="card-title">Let us promote you on our social Media Channels</h5>
