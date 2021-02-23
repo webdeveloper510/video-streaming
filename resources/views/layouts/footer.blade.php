@@ -31,6 +31,11 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header text-center">
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
                         <div class="text-center">
                       <select class="form-select form-control " aria-label="Default select example">
                         <option selected> Select Menu</option>
@@ -42,7 +47,7 @@
                         <option value="6">Delete Account</option>
                         <option value="7">Other</option>
                       </select>
-                </div>
+                     </div>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                       </div>
                       <div class="modal-body">
