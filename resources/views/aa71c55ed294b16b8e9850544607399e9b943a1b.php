@@ -372,8 +372,8 @@
            </a>
         
            <div class="levlv">
-              <div><?php echo e($levelData ? $levelData[0]->level_name: 'Lvl0'); ?> </div>
-              <div class="wid"><div class="progress">
+              <p><?php echo e($levelData ? $levelData[0]->level_name: 'Lvl0'); ?> </p>
+           <div class="progress" style="width: 160px;">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
                     aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
@@ -389,7 +389,7 @@
               
                 
                   
-            </div>
+           
             <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?> </p>
             </div>
      
