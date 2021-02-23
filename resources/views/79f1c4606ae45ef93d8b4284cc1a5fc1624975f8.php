@@ -588,8 +588,6 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
-
-
 }
 </style>
 

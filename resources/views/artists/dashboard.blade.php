@@ -368,7 +368,7 @@
         
            <div class="levlv">
               <p>{{$levelData ? $levelData[0]->level_name: 'Lvl0'}} </p>
-           <div class="progress" style="width: 160px;">
+            <div class="progress" style="width: 160px;">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
                     aria-valuemin="0" aria-valuemax="100" style="width:{{$percentage ? $percentage : 0}}%">
@@ -379,14 +379,15 @@
                 </div>
                 @if(isset($levelData[0]))       
                 <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
-                  </div>
+                 
                   @endif
-              
+                  <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}} </p>
+                  </div>
                 
                   
            
-            <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}} </p>
-            </div>
+         
+      
      
            @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
