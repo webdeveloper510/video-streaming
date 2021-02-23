@@ -528,8 +528,9 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i></a>
-    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i></a>
+		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
+    <div class="noti"></div></a>
+    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i><div class="noti"></div></a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
@@ -546,7 +547,7 @@
 
 						<div class="navbar-nav ml-auto">
               <?php if(!$login): ?>
-					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Register</a>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
               <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
            <?php endif; ?>             
 
@@ -595,7 +596,7 @@
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <?php if($login): ?>
                
-               <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
+               <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i><div class="noti"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -651,6 +652,15 @@
     right: 16px;
     top: 4px;
 }
+.noti {
+    background: blue;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 button.btn.btn-warning.text-white {
     margin-bottom: auto;
     margin-top: 8px;
@@ -665,6 +675,7 @@ button.btn.btn-warning.text-white {
     border: 2px solid yellow;
     padding-left: 32px;
 }
+
 .noti-icon p {
     color: white;
     font-weight: bold;
