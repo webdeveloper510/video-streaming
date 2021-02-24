@@ -627,7 +627,84 @@
      
                 </div>
               </li>
-              <!-- <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li> -->
+              <li class="nav-item"><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
+               
+               
+                <div class="col-md-4 subss" style="display:none;">
+                  <h3>Subscriptions</h3>
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+
+
+
+                    </div>
+                    </div>
+
+                    
+                </div>
+                
+              </li>
 						</div>
 					</div>
 				</nav>
@@ -639,7 +716,11 @@
 
 </header>
 <style>
-
+.col-md-4.subss img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
 .noti-icon {
     color: white;
     border-radius: 50%;
@@ -651,6 +732,24 @@
     position: absolute;
     right: 16px;
     top: 4px;
+}
+.online {
+    background: red;
+    height: 10px;
+    margin-left: 20px;
+    width: 10px;
+    border-radius: 50%;
+}
+.col-md-4.subss {
+    position: absolute;
+    background: white;
+    right: -82px;
+    top: 76px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 .noti {
     background: blue;

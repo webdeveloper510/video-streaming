@@ -209,7 +209,7 @@
             </div> -->
     </div>
     <div class="col-md-4">
-         <div class="card">
+         <div class="card" style="    height: 370px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -223,7 +223,7 @@
             </div>
     </div>
     <div class="col-md-4">
-         <div class="card">
+         <div class="card" style="    height: 370px;">
              <h5 class="card-title text-left pt-3 pl-3">Reward:</h5>
              <hr>
               <div class="card-body text-center">
@@ -257,6 +257,9 @@
                 <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                 <div class="linksonit mb-3">
                 <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <div class="text-right">
+                   <button class="btn btn-primary btn-sm" type="button">Post</button>
                 </div>
               </div>
             </div>

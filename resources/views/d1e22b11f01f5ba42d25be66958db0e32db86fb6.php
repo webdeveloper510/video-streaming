@@ -64,7 +64,7 @@
           </p>
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p> -->
-          <div class="reward">
+          <div class="reward mt-4">
         <h2>Get rewarded with 100 PAZ Tokens!</h2>
       </div>
          <div class="col-md-12 text-center mt-2">
@@ -159,7 +159,7 @@
           </video>
           <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($recnt->price); ?>PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
@@ -228,10 +228,10 @@
                 </video>
                 <div class="pricetime">
                 <div class="text-left">
-          <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($pop->price); ?>PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>">2:00</h6>
+          <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
             
           <script>
       
@@ -263,8 +263,8 @@
               $(id).html(duration);
               $.ajax({
               type: 'POST',
-            url:APP_URL+"/duration",
-            headers: {
+              url:APP_URL+"/duration",
+              headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
 		    	data: {'duration':duration, 'id':vidid},

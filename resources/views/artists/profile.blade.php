@@ -271,7 +271,7 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           @else
-          <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'http://localhost/laravel/video-streaming/storage/app/public/uploads/1612819644_2020-12-24.jpg'}}" width="167px;">
+          <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}" width="100%;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">
                      
@@ -442,7 +442,7 @@ Your browser does not support the audio tag.
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
                 {{Form::file('audio_pic',['class'=>'custom-file-input'])}}
             </div>
-            <input type="hidden" value="{{$random[0]->id}}" name="hid"/>
+            <input type="hidden" value="{{isset($random[0]->id)}}" name="hid"/>
            
           <div class="col-md-6 mt-2 convert">
            {{Form::label('Convert to:', 'Convert to:')}} 
@@ -559,8 +559,6 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
-
-
 }
 </style>
 

@@ -140,8 +140,8 @@
             <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
                  <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
-            <?php echo e(Form::label('Sample Media', 'Samples Media',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+            
+                <?php echo e(Form::file('media',['class'=>'form-control','id'=>'file_input'])); ?>
 
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">

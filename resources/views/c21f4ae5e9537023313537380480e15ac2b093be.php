@@ -159,19 +159,19 @@
           </video>
           <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($recnt->price); ?>PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>">2:00</h6>
+          <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
+          <?php if($recnt->duration==''): ?>
           <script>
-      
-      setTimeout(() => {
-      video = $("#recently_"+"<?php echo e($recnt->id); ?>");
-      //id = $("#video_"+"<?php echo e($recnt->id); ?>");
-       seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($recnt->id); ?>");
-
-    }, 2000);
-    </script>
+              setTimeout(() => {
+              video = $("#recently_"+"<?php echo e($recnt->id); ?>");
+              //id = $("#video_"+"<?php echo e($recnt->id); ?>");
+              seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($recnt->id); ?>","<?php echo e($recnt->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
           </div>
           </div>
           <h5><?php echo e($recnt->title); ?></h5>
@@ -228,17 +228,17 @@
                 </video>
                 <div class="pricetime">
                 <div class="text-left">
-          <h6 class="text-white"><?php echo e($pop->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($pop->price); ?>PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>">2:00</h6>
+          <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
             
           <script>
       
       setTimeout(() => {
       video = $("#video_"+"<?php echo e($pop->id); ?>");
       id = $("#video_"+"<?php echo e($pop->id); ?>");
-       seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>");
+       seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>");
 
     }, 2000);
     </script>
@@ -256,11 +256,26 @@
              </div>
             </div>
 <script>
-            function seconds_to_min_sec(seconds,id) {
+            function seconds_to_min_sec(seconds,id,vidid) {
               var minutes = Math.floor(seconds / 60);
               var seconds = seconds - minutes * 60;
               var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
               $(id).html(duration);
+              $.ajax({
+              type: 'POST',
+              url:APP_URL+"/duration",
+              headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+		    	data: {'duration':duration, 'id':vidid},
+
+			success: function(data){
+
+				console.log(data);return false;
+
+
+			}
+	});
 
             }
     </script>
