@@ -709,6 +709,9 @@
     right: 16px;
     top: 4px;
 }
+#search {
+    width: 280px;
+}
 .online {
     background: red;
     height: 10px;
