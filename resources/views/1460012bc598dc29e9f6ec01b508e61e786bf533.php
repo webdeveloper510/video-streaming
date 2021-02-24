@@ -721,6 +721,9 @@
     height: 60px;
     border-radius: 50%;
 }
+ul.nav.custom.search ul.subnav {
+    width: 523px !important;
+}
 .noti-icon {
     color: white;
     border-radius: 50%;
