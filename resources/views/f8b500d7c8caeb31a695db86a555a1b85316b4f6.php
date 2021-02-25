@@ -215,7 +215,8 @@
                
                 <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
                 <div class="text-right">
-               
+                <?php echo e(Form::submit('edit!',['class'=>'btn btn-light btn-sm'])); ?>
+
               </div>
             </div>
             <?php endif; ?>
