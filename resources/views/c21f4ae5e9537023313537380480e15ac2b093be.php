@@ -450,7 +450,9 @@
     margin-top: -43px;
     right: 100px;
   }
-
+  .artist.text-center:hover .overlay {
+    opacity: 0.7;
+}
   .overlay {
     position: absolute;
     top: 0;

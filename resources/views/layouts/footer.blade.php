@@ -60,8 +60,8 @@
                           </div>
 
                         <label>Description</label>
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                        <small id="emailHelp" class="form-text text-muted">We would like to read your description....</small>
+                        <textarea class="form-control" placeholder="We would like to read your description..." id="floatingTextarea"></textarea>
+                        
                       </div>
                       <div class="pb-3 pr-3 text-right">
                       <button class="btn btn-primary" type="button">Submit</button></div>
