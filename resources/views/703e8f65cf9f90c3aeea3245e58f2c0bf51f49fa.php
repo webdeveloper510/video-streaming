@@ -189,7 +189,7 @@
                
                 <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
                 <div class="text-right">
-                <?php echo e(Form::submit('edit!',['class'=>'btn btn-light btn-sm'])); ?>
+                <?php echo e(Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5'])); ?>
 
               </div>
             </div>
@@ -216,8 +216,10 @@
               <div class="card-body text-center">
                 <h4 class="card-title">Today:</h4>
                 <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
+                <br>
                 <h4 class="card-title">This Month:</h4>
                 <h5><?php echo e($month_paz[0]->total_token); ?> PAZ</h5>
+                <br>
                 <h4 class="card-title">This Year:</h4>
                 <h5><?php echo e($year_PAZ[0]->total_token); ?> PAZ</h5>
               </div>
@@ -233,19 +235,20 @@
                
                 <p>-Upload 3 videos/audios to the collection and keep them tere for a minimum of 30 days</p>
                 <div class="text-right">
-                   <button class="btn btn-primary" type="button">Get my reward!</button>
+                   <button class="btn btn-primary btn-sm mt-5" type="button">Get my reward!</button>
                 </div>
               </div>
             </div>
     </div>
     <div class="col-md-12">
          <div class="card">
-             <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted:</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted: 0</h5>
              <hr>
               <div class="card-body text-center">
               <div class="row">
               <div class="col-md-4">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
+                  <br>
                     <div class="linksonit mb-3">
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
@@ -257,6 +260,7 @@
 
                 <div class="col-md-4">
                       <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
+                      <br>
                       <div class="linksonit mb-3">
                       <textarea class="form-control" aria-label="With textarea"></textarea>
                       </div>
@@ -264,6 +268,7 @@
 
                <div class="col-md-4">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
+                  <br>
                   <div class="linksonit mb-3">
                   <textarea class="form-control" aria-label="With textarea"></textarea>
                 </div>
@@ -271,7 +276,7 @@
 
              </div>
                 <div class="text-right">
-                   <button class="btn btn-primary btn-sm" type="button">Post</button>
+                   <button class="btn btn-primary btn-sm" type="button">Submit</button>
                 </div>
               </div>
             </div>

@@ -75,6 +75,43 @@
      </div> 
      </div>
     </div> 
+
+    <div class=" invitedbox">
+    <div class="card" >
+        <div class="text-center">
+       <h3>You've been invited form artistname </h3>
+       <h4>Get your $150 USD with :</h4>
+            </div>
+  <div class="card-body">
+    
+        <table class="table table-bordered text-center">
+  <thead>
+    <tr>
+      
+      <th scope="col">lvl3</th>
+      <th scope="col">20k PAZ earned </th>
+      <th scope="col">Payout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    
+      <td>not yet</td>
+      <td>not yet</td>
+      <td>-</td>
+    </tr>
+   
+  </tbody>
+</table>
+  </div>
+</div>
+    
+        </div>
+
+
+
+
+
     <div class=" invitedbox">
     <div class="card" >
         <div class="text-center">

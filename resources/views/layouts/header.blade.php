@@ -509,7 +509,7 @@
     <a href="{{url('/seeall/offer')}}"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     
-    <div class="noti" style="{{ $latestOffer->userid !== isset($login->id)  ? 'display: block' : 'display: none' }}">
+    <div class="noti" style="{{ isset($latestOffer->userid) !== isset($login->id)  ? 'display: block' : 'display: none' }}">
     </div>
     </a>
     
