@@ -449,7 +449,9 @@
     margin-top: -43px;
     right: 100px;
   }
-
+  .artist.text-center:hover .overlay {
+    opacity: 0.7;
+}
   .overlay {
     position: absolute;
     top: 0;
@@ -459,7 +461,7 @@
     width: 125px;
     border-radius: 50%;
     background: white;
-    opacity: 0.5;
+    opacity: 0;
 }
 .cardhr{
   background:white;
