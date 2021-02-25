@@ -1001,6 +1001,8 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
+				console.log(data);
+
 					if(data.status==1){
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
@@ -1552,9 +1554,11 @@ $(document).ready(function() {
 
 	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
 	var name = $('#select_option').find(":selected").val();
+
+	//console.log(name);
 		
 	var table1 = $('#example1').DataTable({
-		'ajax': APP_URL+'/artist/getRequests/orders/'+name,
+		'ajax': name!='All' ? APP_URL+'/artist/getRequests/orders/'+name : APP_URL+'/artist/getRequests/orders',
 		'columns': [
 			 {
 				 'className':      'details-control',
@@ -1565,11 +1569,7 @@ $(document).ready(function() {
 			 { 'data': 'title' },
 			 { 'data': 'type' },
 			 { 'data': 'choice' },
-			 {
-		 
-			 "data": null,
-			 "defaultContent": 'Orders'
-			 },
+			
 			 { 'data': 'nickname' },
 			 { 'data': 'status' },
 			 { 

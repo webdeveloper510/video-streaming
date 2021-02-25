@@ -530,7 +530,12 @@
 					
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
     <div class="noti"></div></a>
-    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i><div class="noti"></div></a>
+    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link">
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
+    
+    <div class="noti" style="<?php echo e($latestOffer->userid !== isset($login->id)  ? 'display: block' : 'display: none'); ?>">
+    </div>
+    </a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->
               <!-- <a href="<?php echo e(url('/feed')); ?>" class="nav-item nav-link"><i class="fa fa-newspaper-o"> </i></a>   -->
@@ -596,7 +601,9 @@
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <?php if($login): ?>
                
-               <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i><div class="noti"></div>
+               <!-- <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div--> 
+               <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
+               <div class="noti" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -627,7 +634,84 @@
      
                 </div>
               </li>
-              <!-- <li><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a></li> -->
+              <li class="nav-item"><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
+               
+               
+                <div class="col-md-4 subss" style="display:none;">
+                  <h3>Subscriptions</h3>
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                    <div class="col">
+                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
+                      </div>
+                      <div class="col-6 mt-3">
+                      <p>Artistname</p>
+                      </div>
+                      <div class="col mt-3">
+                      <div class="online">
+                          </div>
+                      </div>
+                    </div>
+
+
+
+                    </div>
+                    </div>
+
+                    
+                </div>
+                
+              </li>
 						</div>
 					</div>
 				</nav>
@@ -639,7 +723,14 @@
 
 </header>
 <style>
-
+.col-md-4.subss img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+ul.nav.custom.search ul.subnav {
+    width: 523px !important;
+}
 .noti-icon {
     color: white;
     border-radius: 50%;
@@ -651,6 +742,27 @@
     position: absolute;
     right: 16px;
     top: 4px;
+}
+#search {
+    width: 280px;
+}
+.online {
+    background: red;
+    height: 10px;
+    margin-left: 20px;
+    width: 10px;
+    border-radius: 50%;
+}
+.col-md-4.subss {
+    position: absolute;
+    background: white;
+    right: -82px;
+    top: 76px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 .noti {
     background: blue;
