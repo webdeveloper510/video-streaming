@@ -44,7 +44,7 @@ class artist extends Controller
 
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
-    public function getRequests($type,$status){
+    public function getRequests($type,$status=null){
       //echo $status;
       $data = array();
     $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests($status);
@@ -58,7 +58,7 @@ class artist extends Controller
 
     public function showRequest($text=null){
 
-      Session::put('boxType',$text);
+      
 
       $navbaractive = 'requests';
 
@@ -326,7 +326,7 @@ class artist extends Controller
           'additional_price'=>'required',
           'quality'=>'required',
           'delieveryspeed'=>'required',
-          'description'=>'required|2000',
+          'description'=>'required|max:2000',
           'category'=>'required',
           'price'=>'required|max:50000'
       ]

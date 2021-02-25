@@ -378,8 +378,9 @@
                     
                 </div>
                 @if(isset($levelData[0]))       
-                <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
-                  </div>
+                <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p>
+                </div>
+                  
                   @endif
               
                 
