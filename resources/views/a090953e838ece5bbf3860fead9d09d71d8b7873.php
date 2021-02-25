@@ -34,7 +34,7 @@
                       <div class="form-group"style=" width: 80%;">
                           <label for="exampleInputEmail1">Email address</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
                         </div>
                         
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
@@ -61,6 +61,7 @@
 
                         <label>Description</label>
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                        <small id="emailHelp" class="form-text text-muted">We would like to read your description....</small>
                       </div>
                       <div class="pb-3 pr-3 text-right">
                       <button class="btn btn-primary" type="button">Submit</button></div>

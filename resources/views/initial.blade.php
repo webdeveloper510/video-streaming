@@ -459,7 +459,7 @@
     width: 125px;
     border-radius: 50%;
     background: white;
-    opacity: 0;
+    opacity: 0.5;
 }
 .cardhr{
   background:white;
