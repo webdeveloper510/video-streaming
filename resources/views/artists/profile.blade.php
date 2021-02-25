@@ -95,7 +95,7 @@
     @endforeach
     @else
           <div class="artistoffer1">
-            <h4> No Offer Create yet </h4>
+            <h4> No Offer Created yet </h4>
             <a href="{{url('artist/offer')}}">Create Offer</a>
           </div>
           @endif
@@ -158,8 +158,8 @@
           @endforeach
           @else
           <div class="artistvideo">
-          <h4> No <span class="textcolor"> video </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload video</span></a>
+          <h4> No <span class="textcolor"> Video </span> uploaded yet </h4>
+            <a href=""> <span class="textcolor">Upload Video</span></a>
           </div>
           @endif
           </div>
@@ -190,7 +190,7 @@ Your browser does not support the audio tag.
 @else
 <div class="artistaudio">
 <h4> No <span class="textcolor">Audio </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Uploaded audio</span></a>
+            <a href=""> <span class="textcolor">Upload Audio</span></a>
           </div>
 @endif
 </div>

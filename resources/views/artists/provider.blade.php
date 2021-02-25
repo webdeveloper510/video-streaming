@@ -9,7 +9,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
-       Content Upload       
+              Collection Upload       
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
@@ -40,7 +40,7 @@
           {{Form::token()}}
           
       <div class="container profile">
-        <h2 class="text-center">Content Upload</h2>
+        <h2 class="text-center">Collection Upload</h2>
        
           <div class="row align-items-center text-white">
             <div class="col-md-12">
@@ -54,8 +54,14 @@
                 {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
             </div>
          
-            <div class="col-md-6 mt-2 convert">
-           {{Form::label('Convert to:', 'Convert to:')}} 
+            <div class="col-md-6 mt-2 ">
+            {{Form::label('Add Price', 'Price')}} 
+            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
+            </div>
+            <div class="col-md-6 mt-2 ">
+           
+              <div class="convert">
+            {{Form::label('Convert to:', 'Convert to:')}} 
            <select name="convert"  class='form-control'>
                     <option value="">Choose ...</option>
                     <option value="1">480p  </option>
@@ -63,31 +69,26 @@
                     <option value="3">Full HD 1080p  </option>
             </select>
             </div>
-            <div class="col-md-6 mt-2 ">
-            {{Form::label('Add Price', 'Price')}} 
-            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
-              
-            </div>
-            <div class="col-md-6 mt-4 pt-2">
-            <select name="category" id="selectCategory" class='form-control'>
-                    <option value="">Choose category</option>
+            <select name="category" id="selectCategory" class='form-control my-5'>
+                    <option value="">Choose Category</option>
                     @foreach($category as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
                     @endforeach
             </select>
-            </div>
-            <div class="col-md-6 mt-3 text-white">
+            
+            <div class="col-md-12 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
                 <span id="filename" style="color:red;"></span>
             </div>
-            <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
+            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
                 {{Form::file('audio_pic',['class'=>'custom-file-input'])}}
             </div>
+            </div>
             <div class="col-md-6 mt-3">
             {{Form::label('Description', 'Description')}} 
-                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
+                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 8, 'cols' => 40])}}
             </div>
             <div class="row">
             <div class="loader col-6" style="display:none">
