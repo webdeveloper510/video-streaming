@@ -450,7 +450,9 @@
     margin-top: -43px;
     right: 100px;
   }
-
+  .artist.text-center:hover .overlay {
+    opacity: 0.7;
+}
   .overlay {
     position: absolute;
     top: 0;
@@ -538,7 +540,7 @@ h5{ color :#fff;}
     text-align: center;
 
     line-height: 33px;
-    z-index: 9999 !important;
+  
  
     clip-path: polygon(100% 0%, 97% 50%, 100% 100%, 0 100%, 3% 50%, 0 0);
     -ms-transform: rotate(-45deg);
@@ -561,7 +563,7 @@ h5{ color :#fff;}
     padding-left: 12px;
    
     line-height: 33px;
-    z-index: 9999 !important;
+   
     left: -2px;
     clip-path: polygon(100% 0%, 97% 50%, 100% 100%, 0 100%, 3% 50%, 0 0);
     -ms-transform: rotate(-45deg);

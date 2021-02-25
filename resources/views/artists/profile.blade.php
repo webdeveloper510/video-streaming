@@ -158,8 +158,8 @@
           @endforeach
           @else
           <div class="artistvideo">
-          <h4> No video uploaded yet </h4>
-            <a href="">Uploaded video</a>
+          <h4> No <span class="textcolor"> video </span> uploaded yet </h4>
+            <a href=""> <span class="textcolor">Upload video</span></a>
           </div>
           @endif
           </div>
@@ -189,8 +189,8 @@ Your browser does not support the audio tag.
 @endforeach
 @else
 <div class="artistaudio">
-<h4> No video uploaded yet </h4>
-            <a href="">Uploaded video</a>
+<h4> No <span class="textcolor">Audio </span> uploaded yet </h4>
+            <a href=""> <span class="textcolor">Uploaded audio</span></a>
           </div>
 @endif
 </div>
@@ -277,7 +277,7 @@ Your browser does not support the audio tag.
                      
           </audio>
           @endif
-           <h4>Duration:</h4>
+          
                   
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
@@ -559,8 +559,6 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
-
-
 }
 </style>
 

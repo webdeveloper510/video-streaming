@@ -373,7 +373,7 @@
         
            <div class="levlv">
               <p><?php echo e($levelData ? $levelData[0]->level_name: 'Lvl0'); ?> </p>
-           <div class="progress" style="width: 160px;">
+            <div class="progress" style="width: 160px;">
              
                     <div class="progress-bar" role="progressbar" aria-valuenow="70"
                     aria-valuemin="0" aria-valuemax="100" style="width:<?php echo e($percentage ? $percentage : 0); ?>%">
@@ -383,16 +383,16 @@
                     
                 </div>
                 <?php if(isset($levelData[0])): ?>       
-                <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p>
-                </div>
-                  
+                <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
+                 
                   <?php endif; ?>
-              
+                  <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?> </p>
+                  </div>
                 
                   
            
-            <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?> </p>
-            </div>
+         
+      
      
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
@@ -406,20 +406,7 @@
 
    <span class="profile-img text-white text-center">
    <span class="nickname"><?php echo e($login->nickname); ?></span>
-   <!-- <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
-    
-   
-    </button>
-   
-     <div class="dropdown-menu dropdown-menu-right">
-         <button class="dropdown-item" type="button">
-           <a href="<?php echo e(url('/profile')); ?>">Edit Profile
-           </a></button>
-        <button class="dropdown-item" type="button">
-          <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
-           <button class="dropdown-item" type="button">
-          <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
-    </div> -->
+  
    <hr style="color:white;background: white;">
   <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
