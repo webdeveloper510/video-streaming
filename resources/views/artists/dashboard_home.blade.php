@@ -184,7 +184,7 @@
                
                 <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
                 <div class="text-right">
-               
+                {{ Form::submit('edit!',['class'=>'btn btn-light btn-sm']) }}
               </div>
             </div>
             @endif

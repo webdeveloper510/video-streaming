@@ -30,27 +30,35 @@
                 <div class="modal modal2" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
-                      <div class="modal-header text-center">
-                      <div class="form-group">
+                      <div class="modal-header ">
+                      <div class="form-group"style=" width: 80%;">
                           <label for="exampleInputEmail1">Email address</label>
                           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
-                        <div class="text-center">
-                      <select class="form-select form-control " aria-label="Default select example">
-                        <option selected> Select Menu</option>
-                        <option value="1">Feature Request</option>
-                        <option value="2">Functionality Question</option>
-                        <option value="3">Techincal Issue</option>
-                        <option value="4">General</option>
-                        <option value="5">Website Fees</option>
-                        <option value="6">Delete Account</option>
-                        <option value="7">Other</option>
-                      </select>
-                     </div>
+                        
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                       </div>
                       <div class="modal-body">
+                      <div class="row">
+                        <div class="col"></div>
+                         <div class="col-md-8 my-3">
+                            <div class="text-center">
+                                <select class="form-select form-control " aria-label="Default select example">
+                                  <option selected> Select Menu</option>
+                                  <option value="1">Feature Request</option>
+                                  <option value="2">Functionality Question</option>
+                                  <option value="3">Techincal Issue</option>
+                                  <option value="4">General</option>
+                                  <option value="5">Website Fees</option>
+                                  <option value="6">Delete Account</option>
+                                  <option value="7">Other</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col"></div>
+                          </div>
+
                         <label>Description</label>
                         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                       </div>
