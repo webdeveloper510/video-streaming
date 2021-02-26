@@ -532,7 +532,7 @@
     <div class="noti"></div></a>
     <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
-    <?php if($login): ?>
+    <?php if($login && $latestOffer): ?>
     <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id  ? 'display: block' : 'display: none'); ?>">
     </div>
     <?php endif; ?>

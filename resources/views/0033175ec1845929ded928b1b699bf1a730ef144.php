@@ -101,7 +101,7 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
           <div class="artistoffer1">
-            <h4> No Offer Create yet </h4>
+            <h4> No Offer Created yet </h4>
             <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
           </div>
           <?php endif; ?>
@@ -164,8 +164,8 @@
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
           <div class="artistvideo">
-          <h4> No video uploaded yet </h4>
-            <a href="">Uploaded video</a>
+          <h4> No <span class="textcolor"> Video </span> uploaded yet </h4>
+            <a href=""> <span class="textcolor">Upload Video</span></a>
           </div>
           <?php endif; ?>
           </div>
@@ -195,8 +195,8 @@ Your browser does not support the audio tag.
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php else: ?>
 <div class="artistaudio">
-<h4> No video uploaded yet </h4>
-            <a href="">Uploaded video</a>
+<h4> No <span class="textcolor">Audio </span> uploaded yet </h4>
+            <a href=""> <span class="textcolor">Upload Audio</span></a>
           </div>
 <?php endif; ?>
 </div>
@@ -283,7 +283,7 @@ Your browser does not support the audio tag.
                      
           </audio>
           <?php endif; ?>
-           <h4>Duration:</h4>
+          
                   
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
