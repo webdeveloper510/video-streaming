@@ -226,7 +226,7 @@
             </div>
     </div>
     <div class="col-md-4">
-         <div class="card" style="    height: 370px;">
+         <div class="card" style="height: 370px;">
              <h5 class="card-title text-left pt-3 pl-3">Reward:</h5>
              <hr>
               <div class="card-body text-center">
