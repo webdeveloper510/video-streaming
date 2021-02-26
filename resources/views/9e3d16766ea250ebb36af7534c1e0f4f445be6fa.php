@@ -9,7 +9,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
               <i class="fa fa-money"></i>
-       Content Upload       
+              Collection Upload       
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
@@ -43,7 +43,7 @@
 
           
       <div class="container profile">
-        <h2 class="text-center">Content Upload</h2>
+        <h2 class="text-center">Collection Upload</h2>
        
           <div class="row align-items-center text-white">
             <div class="col-md-12">
@@ -58,8 +58,15 @@
 
             </div>
          
-            <div class="col-md-6 mt-2 convert">
-           <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+            <div class="col-md-6 mt-2 ">
+            <?php echo e(Form::label('Add Price', 'Price')); ?> 
+            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
+
+            </div>
+            <div class="col-md-6 mt-2 ">
+           
+              <div class="convert">
+            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
            <select name="convert"  class='form-control'>
                     <option value="">Choose ...</option>
                     <option value="1">480p  </option>
@@ -67,34 +74,28 @@
                     <option value="3">Full HD 1080p  </option>
             </select>
             </div>
-            <div class="col-md-6 mt-2 ">
-            <?php echo e(Form::label('Add Price', 'Price')); ?> 
-            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
-
-              
-            </div>
-            <div class="col-md-6 mt-4 pt-2">
-            <select name="category" id="selectCategory" class='form-control'>
-                    <option value="">Choose category</option>
+            <select name="category" id="selectCategory" class='form-control my-5'>
+                    <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
-            </div>
-            <div class="col-md-6 mt-3 text-white">
+            
+            <div class="col-md-12 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
-            <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
+            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
 
             </div>
+            </div>
             <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 8, 'cols' => 40])); ?>
 
             </div>
             <div class="row">
