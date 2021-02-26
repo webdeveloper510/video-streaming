@@ -153,7 +153,7 @@
             <div class="col-md-4 hover" >
             <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
             
-          <video id="recently_<?php echo e($recnt->id); ?>" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video class="hoverVideo" id="recently_<?php echo e($recnt->id); ?>" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -222,7 +222,7 @@
            
             <div class="col-md-4 hover">
                 <a  id="anchor_<?php echo e($pop->id); ?>" href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
-                <video id="video_<?php echo e($pop->id); ?>" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <video class="hoverVideo" id="video_<?php echo e($pop->id); ?>" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -370,7 +370,7 @@
             </a>
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white">2:00</h6>

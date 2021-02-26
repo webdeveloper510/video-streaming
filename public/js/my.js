@@ -113,7 +113,7 @@ function pause(a){
 }
 function playVideo(a){
 
-	var starttime = 5;  // start at 7 seconds
+	var starttime = 0;  // start at 7 seconds
     var endtime = 10;    // stop at 17 seconds
 
     var video = a;
@@ -127,8 +127,11 @@ function playVideo(a){
 	//console.log(video);return false;
 
     a.addEventListener("timeupdate", function() {
+		console.log(this.currentTime);
        if (this.currentTime >= endtime) {
-		     playVideo();
+		 
+		   a.currentTime = starttime;
+			playVideo();
         }
     }, false);
 
@@ -1001,7 +1004,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-				console.log(data);
+				//console.log(data);return false;
 
 					if(data.status==1){
 						$('.show_alert').show();

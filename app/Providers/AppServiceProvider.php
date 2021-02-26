@@ -49,8 +49,8 @@ class AppServiceProvider extends ServiceProvider
             // echo "<pre>";
 
              $offer = $model->getallOffers();
-
-             //print_r($data);die;
+            //     echo "<pre>";
+            //  print_r($offer);die;
 
             $tokens = $model->getUserData($userId);
 
