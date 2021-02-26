@@ -13,6 +13,8 @@ function closeNav() {
  <!-- <script src="{{asset('artistdashboard/js/core/jquery.min.js')}}"></script> -->
 
  <script  src="{{asset('js/datatables.min.js')}}"></script>
+ <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
  
    <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
 
@@ -25,6 +27,8 @@ function closeNav() {
 
   <!-- Plugin for the momentJs  -->
   <script src="{{asset('artistdashboard/js/plugins/moment.min.js')}}"></script>
+
+
 
  
   <script src="{{asset('artistdashboard/js/plugins/sweetalert2.js')}}"></script>
