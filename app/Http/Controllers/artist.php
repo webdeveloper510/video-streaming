@@ -8,6 +8,8 @@ use App\File;
 
 //use Stripe;
 use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
@@ -229,6 +231,8 @@ class artist extends Controller
 
       $count_new_projects = $this->model->count_orders('add_request');
 
+      $count_social_media = $this->model->getSocialMediaCount();
+
       $count_process_offer = $this->model->count_process_orders('add_request');
 
       $total_count = $count_new_projects + $count_new_offer;
@@ -258,7 +262,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -624,6 +628,44 @@ class artist extends Controller
     else{
       return 0;
     }
+
+  }
+
+  public function socialUpload(Request $req){
+
+    $this->validate($req,[
+      'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
+      'description'=>'required|max:2000',
+      'username'=>'required|max:30',   
+  ]
+    );
+
+    if($req->media){
+      $data=$req->all();
+        $fileName = time().'_'.$req->media->getClientOriginalName();
+        $ext =$req->media->getClientOriginalExtension();
+        $filePath= ($ext=='mp3') ? $req->media->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media->storeAs('video', $fileName, 'public'): $req->media->storeAs('uploads', $fileName, 'public'));
+        unset($data['_token']);
+        $data['media']=$fileName;
+        
+          if($filePath){
+
+          $insert = $this->model->uploadSocialMedia($data);
+            if($insert){
+                return response()->json(array('status'=>1, 'messge'=>'Media Uploaded!'));
+              }
+              else
+              {
+                  return response()->json(array('status'=>0, 'messge'=>'Some Eror!'));
+              }
+        }
+}
+
+    
+    print_r($req->all());die;
+
+    $this->model->uploadSocialMedia();
+
 
   }
 

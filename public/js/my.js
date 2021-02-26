@@ -1808,7 +1808,147 @@ $(function() {
     }
 });
 
-    
+/*------------------------------Social Media Uploading -----------------------------------------*/
+
+
+// $(document).on('submit', '#social_media', function (event) {
+// 	event.preventDefault();
+// 	var formData = new FormData($(this)[0]);
+// 	$('.loader').show();
+// 	$('.percentage').html('0');
+//        $.ajax({
+// 			type: 'POST',
+// 			url:APP_URL+"/uploadSocial",
+// 			 headers: {
+// 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+// 		   },
+
+// 			data: formData,
+// 			processData: false,
+// 			contentType: false,
+// 			xhr: function () {
+// 				var xhr = $.ajaxSettings.xhr();
+// 				if (xhr.upload) {
+// 					xhr.upload.addEventListener('progress', function(event) {
+// 						var percent = 0;
+// 						var position = event.loaded || event.position;
+// 						var total = event.total;
+// 						if (event.lengthComputable) {
+// 							percent = Math.ceil(position / total * 100);
+// 						}
+// 						$('.percentage').html(percent+'%');
+// 					}, true);
+// 				}
+// 				return xhr;
+// 		},
+
+// 			success: function(data){
+
+// 				console.log(data);
+
+// 				$('.loader').hide();
+
+// 				if(data.status==1){
+// 					 $('#success').show();
+// 					 $('#success').html(data.messge);
+						
+// 				}
+
+// 				else{
+
+// 					$('#success').show();
+// 					$('#success').html(data.messge);
+					
+// 				}
+
+
+// 			}
+// 	});
+
+// });
+
+
+if ($("#social_media").length > 0) {
+    $("#social_media").validate({
+      
+    rules: {
+      media: {
+        required: true,
+      },
+      description: {
+        required: true,
+        maxlength: 250
+      }
+	  ,
+	  username: {
+        required: true,
+        maxlength: 250
+      }
+    },
+    messages: {
+		media: {
+        required: "Please Enter Media",
+        maxlength: "Enter Media"
+      },
+      description: {
+        required: "Please Enter description",
+        maxlength: "Your last body maxlength should be 250 characters long."
+      },
+	  username: {
+        required: "Please Enter Username",
+        maxlength: "Your last body maxlength should be 250 characters long."
+      },
+    },
+    submitHandler: function(form) {
+		event.preventDefault();
+		var formData = new FormData($(this)[0]);
+		$('.loader').show();
+		$('.percentage').html('0');
+     $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+      $.ajax({
+		url:APP_URL+"/uploadSocial",
+        type: "POST",
+		data: formData,
+		processData: false,
+		contentType: false,
+		xhr: function () {
+			var xhr = $.ajaxSettings.xhr();
+			if (xhr.upload) {
+				xhr.upload.addEventListener('progress', function(event) {
+					var percent = 0;
+					var position = event.loaded || event.position;
+					var total = event.total;
+					if (event.lengthComputable) {
+						percent = Math.ceil(position / total * 100);
+					}
+					$('.percentage').html(percent+'%');
+				}, true);
+			}
+			return xhr;
+	},
+        success: function( response ) {
+       
+				if(data.status==1){
+					$('#success').show();
+					$('#success').html(data.messge);
+					   
+			   }
+
+			   else{
+
+				   $('#success').show();
+				   $('#success').html(data.messge);
+				   
+			   }
+        }
+      });
+    }
+  })
+}
 
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 

@@ -566,7 +566,7 @@ class AuthController extends Controller
         $this->validate($request,[
           'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
           //'audio_pic'=>'required',
-          'description'=>'required|2000',
+          'description'=>'required|max:2000',
           //'hour'=>'required',
           //'minutes'=>'required',
           //'seconds'=>'required',

@@ -236,44 +236,63 @@
     </div>
     <div class="col-md-12">
          <div class="card">
-             <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted: 0</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted: {{$social_count}}</h5>
              <hr>
-              <div class="card-body text-center">
+             {!!Form::open(['id'=>'social_media','method' => 'post', 'files'=>true])!!}
+              {{Form::token()}}
+            <div class="card-body text-center">
               <div class="row">
+                <div class="col-md-12">
+                           <div class="alert alert-success d-none" id="msg_div">
+                                   <span id="res_message"></span>
+                              </div>
+                        </div>
               <div class="col-md-4">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
                     <div class="linksonit mb-3">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                      <label class="custom-file-label text-left" for="inputGroupFile04">Choose file</label>
-                      <small>Upload social media friendly content here</small>
-                    </div>
+                        <div class="custom-file">
+                        {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
+                        <span id="filename" style="color:red;"></span>
+                          {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])}}
+                          <div class="alert alert-danger d-none">{{$errors->first('media') ?  $errors->first('media') : ''}}</div>
+                          <small>Upload social media friendly content here</small>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                       <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
                       <br>
-                      <div class="linksonit mb-3">
-                      <textarea class="form-control" aria-label="With textarea"></textarea>
-                      </div>
+                        <div class="linksonit mb-3">
+                        <!-- <textarea class="form-control" aria-label="With textarea"></textarea> -->
+                        {{Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
+                        <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
+                        </div>
                   </div>
 
                <div class="col-md-4">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
-                  <div class="linksonit mb-3">
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
+                      <div class="linksonit mb-3">
+                      {{Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
+                 <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
+                    </div>
                 </div>
 
              </div>
-                <div class="text-right">
-                   <button class="btn btn-primary btn-sm" type="button">Submit</button>
-                </div>
+             <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+            <div class="primary primary-success" id="success" style="display:none"></div>
+                  <div class="text-right">
+                  {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
+                    <!-- <button class="btn btn-primary btn-sm" type="button">Submit</button> -->
+                  </div>
               </div>
             </div>
+            {{ Form::close() }}
     </div>
 
    
@@ -286,6 +305,16 @@
     padding: 30px 18px;
     background: #ed1c24;
     color: white;
+}
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
 }
 .columesdashboard1 {
     border: 3px solid #ff7f27;

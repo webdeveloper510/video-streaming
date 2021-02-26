@@ -1975,6 +1975,34 @@ public function getVideoWhereIn($mutli){
 
 }
 
+
+public function uploadSocialMedia($data){
+
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+
+  $data['created_at']=now();
+  $data['artist_id']=$userid;
+  $data['updated_at']=now();
+
+
+   return DB::table('social_media')->insert($data);
+
+}
+
+
+public function getSocialMediaCount(){
+
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+
+   $count = DB::table('social_media')->where('artist_id',$userid)->count();
+
+   return $count;
+
+
+}
+
 public function checkNameExist($data){
 
   //print_r($data);die;
