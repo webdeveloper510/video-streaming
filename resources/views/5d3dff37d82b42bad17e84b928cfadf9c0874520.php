@@ -532,9 +532,10 @@
     <div class="noti"></div></a>
     <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
-    
-    <div class="noti" style="<?php echo e(isset($latestOffer->userid) !== isset($login->id)  ? 'display: block' : 'display: none'); ?>">
+    <?php if($login): ?>
+    <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id  ? 'display: block' : 'display: none'); ?>">
     </div>
+    <?php endif; ?>
     </a>
     
               <!-- <a href="<?php echo e(url('/userWithdraw')); ?>" class="nav-item nav-link"><i class="fa fa-money" aria-hidden="true"></i></a>   -->

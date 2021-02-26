@@ -940,6 +940,7 @@ public function getRespectedSub($data){
       $data['offer_status'] = $data['offer_status'];
       $data['created_at'] = now();
       $data['updated_at'] = now();
+       $data['by_created']=1;
 
 
       $data['artistid'] = $userid;
@@ -1268,23 +1269,18 @@ public function getRespectedSub($data){
 
           $videoId = $video['id'];
 
+          $getOffer = $this->selectDataById('id','offer',$videoId);
+
+          //print_r($getOffer);die;
+
           unset($video['id']);
           unset($video['nickname']);
           unset($video['category']);
           unset($video['count']);
 
-         // print_r($video);die;
-      
-            // $ids = $video['user_id'];
-            // $id = explode('_',$ids);
+          $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
-            // $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
-            //   'userdescription' =>$video['description'],
-            //   'choice'=>$video['duration'],
-            //   'status'=>'New'
-            //   ]);
-
-                $insert  = DB::table('offer')->insert($video);
+         // $insert  = DB::table('offer')->insert($video);
 
             $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
             ->update([
@@ -1302,69 +1298,31 @@ public function getRespectedSub($data){
       }
 
       return $update;
-          //
-
-          //print_r($update);die;
-          //     if($update==1){
-
-          //    $addTokenArtist = DB::table('contentprovider')->where(array('id'=>$video['art_id']))
-          //     ->update([
-          //       'token' =>  DB::raw('token +'.$video['price'])
-          //     ]);
-
-                
-          //      if($addTokenArtist){   
-          //           $return = DB::table('users')->where(array('id'=>$uid))
-          //           ->update([
-          //             'tokens' =>  DB::raw('tokens -'.$video['price'])
-          //           ]);
-          //      }
-
-          //      //print_r($return);die;
-
-          //     return $return;
-
-          // }
-
-          // else{
-
-          //     return 0;
-          // }
     }
 
     public function insertUserVideo($uid,$video,$tok,$type){
 
       //print_r($video);die;
+      if(isset($video['userdescription'])){
 
-      $artistId = $video['art_id'];
-
-      $price = $video['price'];
+     
 
 
-         //print_r($video);
+      $getOffer = $this->selectDataById('id','offer',$video['id']);
+        $video_id = $video['id'];
+      unset($video['id']);
+      unset($video['nickname']);
+      unset($video['category']);
+      unset($video['count']);
 
-      if(isset($video['user_id'])){
+      $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
-           $ids = $video['user_id'];
-           $description = $video['description'];
-           $duration = $video['duration'];           
-           $id = explode('_',$ids);
-
-           $return = DB::table('offer')->where(array('id'=>$id[0]))->update([
-            'userdescription' =>$description,
-            'choice'=>$duration
-            ]);
-          //  unset($video['user_id']);
-          //  unset($video['price']);
-          //  unset($video['duration']);
-          //  unset($video['description']);
-          //  unset($video['art_id']);
       }
   
       $video_data['created_at'] = now();
       $video_data['updated_at'] = now();
       $video_data['userid'] =$uid;
-      $video_data['videoid'] = isset($video['videoid']) ? $video['videoid'] : $id[0];
+      $video_data['videoid'] = isset($video['videoid']) ? $video['videoid'] : $video_id;
       $video_data['type'] = $type;
 
       $insert = DB::table('user_video')->insert($video_data);
@@ -1390,6 +1348,30 @@ public function getRespectedSub($data){
 
 
       
+    }
+
+    public function updateOffer($vidid,$data){
+
+          //print_r($data);die;
+
+      $return = DB::table('offer')->where(array('id'=>$vidid))->update([
+        'userdescription' =>$data['userdescription'],
+        'choice'=>$data['choice'],
+        'userid'=>$data['userid']
+        ]);
+
+        return $return;
+
+
+    }
+
+    public function insertOffer($data){
+
+
+
+      $insert  = DB::table('offer')->insert($data);
+
+      return $insert;
     }
 
     public function addToLibrary($lists){
@@ -1927,20 +1909,23 @@ public function getallOffer($flag){
         }
   else{
 
-        return DB::table('offer')->paginate(3);
+    $code = DB::table('offer')
+    ->where('by_created',1)
+    ->paginate(3);
+    return $code;
   }
 }
 
 public function getallOffers(){
 
-  return DB::table('offer')->latest('id')->first();
+   $batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('by_created', '=' , 1)->first();
+ 
+   return $batch_data;
+
 
 }
 
 public function insertHistory($postData,$uid){
-
-  //echo "yes";die;
-       // print_r($postData);die;
         $id = $postData['id'];
 
        $tableData = array(
@@ -1963,13 +1948,13 @@ public function getWishlist(){
 
   if($value){
 
-    $ids = explode(',',$value[0]);
+       $ids = explode(',',$value[0]);
 
-    $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
+        $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
 
 
          return $videos;
-       }
+    }
 
 }
 
@@ -2066,13 +2051,9 @@ public function updatePassword($email,$password){
      
 public function buyofferVideo($data,$offer){
 
-      //print_r($data);die;
-
       unset($data['_token']);
 
       $ids = $data['user_id'];
-
-  
 
       $session_data =   Session::get('User');
 
@@ -2095,9 +2076,9 @@ public function buyofferVideo($data,$offer){
 
         //print_r($value);die;
 
-       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$data,$token,'offer');
+       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
 
-           $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
+        $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
         $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 

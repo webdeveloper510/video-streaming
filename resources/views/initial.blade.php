@@ -153,7 +153,7 @@
             <div class="col-md-4 hover" >
             <a href="{{url('artist-video/'.$recnt->id)}}">
             
-          <video id="recently_{{$recnt->id}}" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video class="hoverVideo" id="recently_{{$recnt->id}}" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -222,7 +222,7 @@
            
             <div class="col-md-4 hover">
                 <a  id="anchor_{{$pop->id}}" href="{{url('artist-video/'.$pop->id)}}">
-                <video id="video_{{$pop->id}}" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <video class="hoverVideo" id="video_{{$pop->id}}" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -370,7 +370,7 @@
             </a>
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
+          <h6 class="text-white">{{ $audio->price}}/PAZ</h6>
           </div>
           <div class="text-right">
           <h6 class="text-white">2:00</h6>
