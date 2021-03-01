@@ -166,7 +166,7 @@
              {{Form::label('First Name', 'First Name')}} 
                 {{Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name'])}}
                 {{Form::label('Country', 'Country')}} 
-                <select id="country" name="country">
+                <select name="country">
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
                         <option value="American Samoa">American Samoa</option>
@@ -392,7 +392,218 @@
               {!!Form::open(['id'=>'updateUser', 'method' => 'post'])!!}
               {{Form::token()}}
                 <h5 class="card-title">First Name : <span class="replace" id="firstname">{{$personal_info[0]->firstname}}</span></h5><br>
-                <h5 class="card-title">Country : <span class="replace" id="country"> {{$personal_info[0]->country}}</span> </h5><br>
+                <label>Country</label>
+                <select class="form-control"  id="countries" name="country">
+                        <option value="Albania"  {{ ( 'Albania' == $personal_info[0]->country) ? 'selected' : '' }}>Albania</option>
+                        <option value="Algeria" {{ ( "Algeria" == $personal_info[0]->country) ? 'selected' : '' }}>Algeria</option>
+                        <option value="American Samoa" {{ ( "American Samoa" == $personal_info[0]->country) ? 'selected' : '' }}>American Samoa</option>
+                        <option value="Andorra" {{ ( "Andorra" == $personal_info[0]->country) ? 'selected' : '' }}>Andorra</option>
+                        <option value="Angola" {{ ( "Angola" == $personal_info[0]->country) ? 'selected' : '' }}>Angola</option>
+                        <option value="Anguilla" {{ ( "Anguilla" == $personal_info[0]->country) ? 'selected' : '' }}>Anguilla</option>
+                        <option value="Antigua & Barbuda" {{ ( "Antigua & Barbuda" == $personal_info[0]->country) ? 'selected' : '' }}>Antigua & Barbuda</option>
+                        <option value="Argentina" {{ ( "Argentina" == $personal_info[0]->country) ? 'selected' : '' }}>Argentina</option>
+                        <option value="Aruba" {{ ( "Aruba" == $personal_info[0]->country) ? 'selected' : '' }}>Aruba</option>
+                        <option value="Australia" {{ ( "Australia" == $personal_info[0]->country) ? 'selected' : '' }}>Australia</option>
+                        <option value="Austria" {{ ( "Austria" == $personal_info[0]->country) ? 'selected' : '' }}>Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Bahamas" {{ ( "Bahamas" == $personal_info[0]->country) ? 'selected' : '' }}>Bahamas</option>
+                        <option value="Barbados" {{ ( "Barbados" == $personal_info[0]->country) ? 'selected' : '' }}>Barbados</option>
+                        <option value="Belgium" {{ ( "Belgium" == $personal_info[0]->country) ? 'selected' : '' }}>Belgium</option>
+                        <option value="Belize" {{ ( "Belize" == $personal_info[0]->country) ? 'selected' : '' }}>Belize</option>
+                        <option value="Benin" {{ ( "Benin" == $personal_info[0]->country) ? 'selected' : '' }}>Benin</option>
+                        <option value="Bermuda" {{ ( "Bermuda" == $personal_info[0]->country) ? 'selected' : '' }}>Bermuda</option>
+                        <option value="Bhutan" {{ ( "Bhutan" == $personal_info[0]->country) ? 'selected' : '' }}>Bhutan</option>
+                        <option value="Bolivia" {{ ( "Bolivia" == $personal_info[0]->country) ? 'selected' : '' }}>Bolivia</option>
+                        <option value="Bonaire" {{ ( "Bonaire" == $personal_info[0]->country) ? 'selected' : '' }}>Bonaire</option>
+                        <option value="Bosnia & Herzegovina" {{ ( "Bosnia & Herzegovina" == $personal_info[0]->country) ? 'selected' : '' }}>Bosnia & Herzegovina</option>
+                        <option value="Botswana" {{ ( "Botswana" == $personal_info[0]->country) ? 'selected' : '' }}>Botswana</option>
+                        <option value="Brazil" {{ ( "Brazil" == $personal_info[0]->country) ? 'selected' : '' }}>Brazil</option>
+                        <option value="British Indian Ocean Ter" {{ ( "British Indian Ocean Ter" == $personal_info[0]->country) ? 'selected' : '' }}>British Indian Ocean Ter</option>
+                        <option value="Brunei" {{ ( "Brunei" == $personal_info[0]->country) ? 'selected' : '' }}>Brunei</option>
+                        <option value="Bulgaria" {{ ( "Bulgaria" == $personal_info[0]->country) ? 'selected' : '' }}>Bulgaria</option>
+                        <option value="Burkina Faso" {{ ( "Burkina Faso" == $personal_info[0]->country) ? 'selected' : '' }}>Burkina Faso</option>
+                        <option value="Burundi" {{ ( "Burundi" == $personal_info[0]->country) ? 'selected' : '' }}>Burundi</option>
+                        <option value="Cameroon" {{ ( "Cameroon" == $personal_info[0]->country) ? 'selected' : '' }}>Cameroon</option>
+                        <option value="Canada" {{ ( "Canada" == $personal_info[0]->country) ? 'selected' : '' }}>Canada</option>
+                        <option value="Canary Islands" {{ ( "Canary Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Canary Islands</option>
+                        <option value="Cape Verde" {{ ( "Cape Verde" == $personal_info[0]->country) ? 'selected' : '' }}>Cape Verde</option>
+                        <option value="Cayman Islands" {{ ( "Cayman Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Cayman Islands</option>
+                        <option value="Central African Republic" {{ ( "Central African Republic" == $personal_info[0]->country) ? 'selected' : '' }}>Central African Republic</option>
+                        <option value="Chad" {{ ( "Chad" == $personal_info[0]->country) ? 'selected' : '' }}>Chad</option>
+                        <option value="Channel Islands" {{ ( "Channel Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Channel Islands</option>
+                        <option value="Chile" {{ ( "Chile" == $personal_info[0]->country) ? 'selected' : '' }}>Chile</option>
+                        <option value="Christmas Island" {{ ( "Christmas Island" == $personal_info[0]->country) ? 'selected' : '' }}>Christmas Island</option>
+                        <option value="Cocos Island" {{ ( "Cocos Island" == $personal_info[0]->country) ? 'selected' : '' }}>Cocos Island</option>
+                        <option value="Colombia" {{ ( "Colombia" == $personal_info[0]->country) ? 'selected' : '' }}>Colombia</option>
+                        <option value="Comoros" {{ ( "Comoros" == $personal_info[0]->country) ? 'selected' : '' }}>Comoros</option>
+                        <option value="Congo" {{ ( "Congo" == $personal_info[0]->country) ? 'selected' : '' }}>Congo</option>
+                        <option value="Cook Islands" {{ ( "Cook Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Cook Islands</option>
+                        <option value="Costa Rica" {{ ( "Costa Rica" == $personal_info[0]->country) ? 'selected' : '' }}>Costa Rica</option>
+                        <option value="Cote DIvoire" {{ ( "Cote DIvoire" == $personal_info[0]->country) ? 'selected' : '' }}>Cote DIvoire</option>
+                        <option value="Croatia" {{ ( "Croatia" == $personal_info[0]->country) ? 'selected' : '' }}>Croatia</option>
+                        <option value="Curaco" {{ ( "Curaco" == $personal_info[0]->country) ? 'selected' : '' }}>Curacao</option>
+                        <option value="Cyprus" {{ ( "Cyprus" == $personal_info[0]->country) ? 'selected' : '' }}>Cyprus</option>
+                        <option value="Czech Republic" {{ ( "Czech Republic" == $personal_info[0]->country) ? 'selected' : '' }}>Czech Republic</option>
+                        <option value="Denmark" {{ ( "Denmark" == $personal_info[0]->country) ? 'selected' : '' }}>Denmark</option>
+                        <option value="Djibouti" {{ ( "Djibouti" == $personal_info[0]->country) ? 'selected' : '' }}>Djibouti</option>
+                        <option value="Dominica" {{ ( "Dominica" == $personal_info[0]->country) ? 'selected' : '' }}>Dominica</option>
+                        <option value="Dominican Republic" {{ ( "Dominican Republic" == $personal_info[0]->country) ? 'selected' : '' }}>Dominican Republic</option>
+                        <option value="East Timor" {{ ( "East Timor" == $personal_info[0]->country) ? 'selected' : '' }}>East Timor</option>
+                        <option value="Ecuador" {{ ( "Ecuador" == $personal_info[0]->country) ? 'selected' : '' }}>Ecuador</option>
+                        <option value="Egypt" {{ ( "Egypt" == $personal_info[0]->country) ? 'selected' : '' }}>Egypt</option>
+                        <option value="El Salvador" {{ ( "El Salvador" == $personal_info[0]->country) ? 'selected' : '' }}>El Salvador</option>
+                        <option value="Equatorial Guinea" {{ ( "Equatorial Guinea" == $personal_info[0]->country) ? 'selected' : '' }}>Equatorial Guinea</option>
+                        <option value="Estonia" {{ ( "Estonia" == $personal_info[0]->country) ? 'selected' : '' }}>Estonia</option>
+                        <option value="Ethiopia" {{ ( "Ethiopia" == $personal_info[0]->country) ? 'selected' : '' }}>Ethiopia</option>
+                        <option value="Falkland Islands" {{ ( "Falkland Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Falkland Islands</option>
+                        <option value="Faroe Islands" {{ ( "Faroe Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Faroe Islands</option>
+                        <option value="Fiji" {{ ( "Fiji" == $personal_info[0]->country) ? 'selected' : '' }}>Fiji</option>
+                        <option value="Finland" {{ ( "Finland" == $personal_info[0]->country) ? 'selected' : '' }}>Finland</option>
+                        <option value="France" {{ ( "France" == $personal_info[0]->country) ? 'selected' : '' }}>France</option>
+                        <option value="French Guiana" {{ ( "French Guiana" == $personal_info[0]->country) ? 'selected' : '' }}>French Guiana</option>
+                        <option value="French Polynesia" {{ ( "French Polynesia" == $personal_info[0]->country) ? 'selected' : '' }}>French Polynesia</option>
+                        <option value="French Southern Ter" {{ ( "French Southern Ter" == $personal_info[0]->country) ? 'selected' : '' }}>French Southern Ter</option>
+                        <option value="Gabon" {{ ( "Gabon" == $personal_info[0]->country) ? 'selected' : '' }}>Gabon</option>
+                        <option value="Gambia" {{ ( "Gambia" == $personal_info[0]->country) ? 'selected' : '' }}>Gambia</option>
+                        <option value="Georgia" {{ ( "Georgia" == $personal_info[0]->country) ? 'selected' : '' }}>Georgia</option>
+                        <option value="Germany" {{ ( "Germany" == $personal_info[0]->country) ? 'selected' : '' }}>Germany</option>
+                        <option value="Ghana" {{ ( "Ghana" == $personal_info[0]->country) ? 'selected' : '' }}>Ghana</option>
+                        <option value="Gibraltar" {{ ( "Gibraltar" == $personal_info[0]->country) ? 'selected' : '' }}>Gibraltar</option>
+                        <option value="Great Britain" {{ ( "Great Britain" == $personal_info[0]->country) ? 'selected' : '' }}>Great Britain</option>
+                        <option value="Greece" {{ ( "Greece" == $personal_info[0]->country) ? 'selected' : '' }}>Greece</option>
+                        <option value="Greenland" {{ ( "Greenland" == $personal_info[0]->country) ? 'selected' : '' }}> Greenland</option>
+                        <option value="Grenada" {{ ( "Grenada" == $personal_info[0]->country) ? 'selected' : '' }}>Grenada</option>
+                        <option value="Guadeloupe" {{ ( "Guadeloupe" == $personal_info[0]->country) ? 'selected' : '' }}>Guadeloupe</option>
+                        <option value="Guam" {{ ( "Guam" == $personal_info[0]->country) ? 'selected' : '' }}>Guam</option>
+                        <option value="Guatemala" {{ ( "Guatemala" == $personal_info[0]->country) ? 'selected' : '' }}>Guatemala</option>
+                        <option value="Guinea" {{ ( "Guinea" == $personal_info[0]->country) ? 'selected' : '' }}>Guinea</option>
+                        <option value="Haiti" {{ ( "Haiti" == $personal_info[0]->country) ? 'selected' : '' }}>Haiti</option>
+                        <option value="Hawaii" {{ ( "Hawaii" == $personal_info[0]->country) ? 'selected' : '' }}>Hawaii</option>
+                        <option value="Honduras" {{ ( "Honduras" == $personal_info[0]->country) ? 'selected' : '' }}>Honduras</option>
+                        <option value="Hong Kong" {{ ( "Hong Kong" == $personal_info[0]->country) ? 'selected' : '' }}>Hong Kong</option>
+                        <option value="Hungary" {{ ( "Hungary" == $personal_info[0]->country) ? 'selected' : '' }}>Hungary</option>
+                        <option value="Iceland" {{ ( "Iceland" == $personal_info[0]->country) ? 'selected' : '' }}>Iceland</option>
+                        <option value="India" {{ ( "India" == $personal_info[0]->country) ? 'selected' : '' }}>India</option>
+                        <option value="Iraq" {{ ( "Iraq" == $personal_info[0]->country) ? 'selected' : '' }}>Iraq</option>
+                        <option value="Ireland" {{ ( "Ireland" == $personal_info[0]->country) ? 'selected' : '' }}>Ireland</option>
+                        <option value="Isle of Man" {{ ( "Isle of Man" == $personal_info[0]->country) ? 'selected' : '' }}>Isle of Man</option>
+                        <option value="Israel" {{ ( "Israel" == $personal_info[0]->country) ? 'selected' : '' }}>Israel</option>
+                        <option value="Italy" {{ ( "Italy" == $personal_info[0]->country) ? 'selected' : '' }}>Italy</option>
+                        <option value="Jamaica" {{ ( "Jamaica" == $personal_info[0]->country) ? 'selected' : '' }}>Jamaica</option>
+                        <option value="Japan" {{ ( "Japan" == $personal_info[0]->country) ? 'selected' : '' }}>Japan</option>
+                        <option value="Jordan" {{ ( "Jordan" == $personal_info[0]->country) ? 'selected' : '' }}>Jordan</option>
+                        <option value="Kazakhstan" {{ ( "Kazakhstan" == $personal_info[0]->country) ? 'selected' : '' }}>Kazakhstan</option>
+                        <option value="Kenya" {{ ( "Kenya" == $personal_info[0]->country) ? 'selected' : '' }}>Kenya</option>
+                        <option value="Kiribati" {{ ( "Kiribati" == $personal_info[0]->country) ? 'selected' : '' }}>Kiribati</option>
+                        <option value="Kyrgyzstan" {{ ( "Kyrgyzstan" == $personal_info[0]->country) ? 'selected' : '' }}>Kyrgyzstan</option>
+                        <option value="Latvia" {{ ( "Latvia" == $personal_info[0]->country) ? 'selected' : '' }}>Latvia</option>
+                        <option value="Lebanon" {{ ( "Lebanon" == $personal_info[0]->country) ? 'selected' : '' }}>Lebanon</option>
+                        <option value="Lesotho" {{ ( "Lesotho" == $personal_info[0]->country) ? 'selected' : '' }}>Lesotho</option>
+                        <option value="Liberia" {{ ( "Liberia" == $personal_info[0]->country) ? 'selected' : '' }}>Liberia</option>
+                        <option value="Liechtenstein" {{ ( "Liechtenstein" == $personal_info[0]->country) ? 'selected' : '' }}>Liechtenstein</option>
+                        <option value="Lithuania" {{ ( "Lithuania" == $personal_info[0]->country) ? 'selected' : '' }}>Lithuania</option>
+                        <option value="Luxembourg" {{ ( "Luxembourg" == $personal_info[0]->country) ? 'selected' : '' }}>Luxembourg</option>
+                        <option value="Macau" {{ ( "Macau" == $personal_info[0]->country) ? 'selected' : '' }}>Macau</option>
+                        <option value="Macedonia" {{ ( "Macedonia" == $personal_info[0]->country) ? 'selected' : '' }}>Macedonia</option>
+                        <option value="Madagascar" {{ ( "Madagascar" == $personal_info[0]->country) ? 'selected' : '' }}>Madagascar</option>
+                        <option value="Malawi" {{ ( "Malawi" == $personal_info[0]->country) ? 'selected' : '' }}>Malawi</option>
+                        <option value="Mali" {{ ( "Mali" == $personal_info[0]->country) ? 'selected' : '' }}>Mali</option>
+                        <option value="Malta" {{ ( "Malta" == $personal_info[0]->country) ? 'selected' : '' }}>Malta</option>
+                        <option value="Marshall Islands" {{ ( "Marshall Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Marshall Islands</option>
+                        <option value="Martinique" {{ ( "Martinique" == $personal_info[0]->country) ? 'selected' : '' }}>Martinique</option>
+                        <option value="Mauritania" {{ ( "Mauritania" == $personal_info[0]->country) ? 'selected' : '' }}>Mauritania</option>
+                        <option value="Mauritius" {{ ( "Mauritius" == $personal_info[0]->country) ? 'selected' : '' }}>Mauritius</option>
+                        <option value="Mayotte" {{ ( "Mayotte" == $personal_info[0]->country) ? 'selected' : '' }}>Mayotte</option>
+                        <option value="Mexico" {{ ( "Mexico" == $personal_info[0]->country) ? 'selected' : '' }}>Mexico</option>
+                        <option value="Midway Islands" {{ ( "Midway Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Midway Islands</option>
+                        <option value="Moldova" {{ ( "Moldova" == $personal_info[0]->country) ? 'selected' : '' }}>Moldova</option>
+                        <option value="Monaco" {{ ( "Monaco" == $personal_info[0]->country) ? 'selected' : '' }}>Monaco</option>
+                        <option value="Mongolia" {{ ( "Mongolia" == $personal_info[0]->country) ? 'selected' : '' }}>Mongolia</option>
+                        <option value="Montserrat" {{ ( "Montserrat" == $personal_info[0]->country) ? 'selected' : '' }}>Montserrat</option>
+                        <option value="Morocco" {{ ( "Morocco" == $personal_info[0]->country) ? 'selected' : '' }}>Morocco</option>
+                        <option value="Mozambique" {{ ( "Mozambique" == $personal_info[0]->country) ? 'selected' : '' }}>Mozambique</option>
+                        <option value="Myanmar" {{ ( "Myanmar" == $personal_info[0]->country) ? 'selected' : '' }}>Myanmar</option>
+                        <option value="Nambia" {{ ( "Nambia" == $personal_info[0]->country) ? 'selected' : '' }}>Nambia</option>
+                        <option value="Nauru" {{ ( "Nauru" == $personal_info[0]->country) ? 'selected' : '' }}> Nauru</option>
+                        <option value="Netherland Antilles" {{ ( "Nevis" == $personal_info[0]->country) ? 'selected' : '' }}>Netherland Antilles</option>
+                        <option value="Netherlands" {{ ( "Netherland Antilles" == $personal_info[0]->country) ? 'selected' : '' }}>Netherlands (Holland, Europe)</option>
+                        <option value="Nevis" {{ ( "Nevis" == $personal_info[0]->country) ? 'selected' : '' }}>Nevis</option>
+                        <option value="New Caledonia" {{ ( "New Caledonia" == $personal_info[0]->country) ? 'selected' : '' }}>New Caledonia</option>
+                        <option value="New Zealand" {{ ( "New Zealand" == $personal_info[0]->country) ? 'selected' : '' }}>New Zealand</option>
+                        <option value="Nicaragua" {{ ( "Nicaragua" == $personal_info[0]->country) ? 'selected' : '' }}>Nicaragua</option>
+                        <option value="Niger" {{ ( "Niger" == $personal_info[0]->country) ? 'selected' : '' }}>Niger</option>
+                        <option value="Nigeria" {{ ( "Nigeria" == $personal_info[0]->country) ? 'selected' : '' }}>Nigeria</option>
+                        <option value="Niue" {{ ( "Niue" == $personal_info[0]->country) ? 'selected' : '' }}>Niue</option>
+                        <option value="Norfolk Island" {{ ( "Norfolk Island" == $personal_info[0]->country) ? 'selected' : '' }}>Norfolk Island</option>
+                        <option value="Norway" {{ ( "Norway" == $personal_info[0]->country) ? 'selected' : '' }}>Norway</option>
+                        <option value="Palau Island" {{ ( "Palau Island" == $personal_info[0]->country) ? 'selected' : '' }}>Palau Island</option>
+                        <option value="Palestine" {{ ( "Palestine" == $personal_info[0]->country) ? 'selected' : '' }}>Palestine</option>
+                        <option value="Panama" {{ ( "Panama" == $personal_info[0]->country) ? 'selected' : '' }}>Panama</option>
+                        <option value="Paraguay" {{ ( "Paraguay" == $personal_info[0]->country) ? 'selected' : '' }}>Paraguay</option>
+                        <option value="Peru" {{ ( "Peru" == $personal_info[0]->country) ? 'selected' : '' }}>Peru</option>
+                        <option value="Phillipines" {{ ( "Phillipines" == $personal_info[0]->country) ? 'selected' : '' }}>Philippines</option>
+                        <option value="Pitcairn Island" {{ ( "Pitcairn Island" == $personal_info[0]->country) ? 'selected' : '' }}>Pitcairn Island</option>
+                        <option value="Poland" {{ ( "Poland" == $personal_info[0]->country) ? 'selected' : '' }}>Poland</option>
+                        <option value="Portugal" {{ ( "Portugal" == $personal_info[0]->country) ? 'selected' : '' }}>Portugal</option>
+                        <option value="Puerto Rico" {{ ( "Puerto Rico" == $personal_info[0]->country) ? 'selected' : '' }}>Puerto Rico</option>
+                        <option value="Republic of Montenegro" {{ ( "Republic of Montenegro" == $personal_info[0]->country) ? 'selected' : '' }}>Republic of Montenegro</option>
+                        <option value="Republic of Serbia" {{ ( "Republic of Serbia" == $personal_info[0]->country) ? 'selected' : '' }}>Republic of Serbia</option>
+                        <option value="Reunion" {{ ( "Reunion" == $personal_info[0]->country) ? 'selected' : '' }}>Reunion</option>
+                        <option value="Romania" {{ ( "Romania" == $personal_info[0]->country) ? 'selected' : '' }}>Romania</option>
+                        <option value="Rwanda" {{ ( "Rwanda" == $personal_info[0]->country) ? 'selected' : '' }}>Rwanda</option>
+                        <option value="St Barthelemy" {{ ( "St Barthelemy" == $personal_info[0]->country) ? 'selected' : '' }}>St Barthelemy</option>
+                        <option value="St Eustatius" {{ ( "St Eustatius" == $personal_info[0]->country) ? 'selected' : '' }}>St Eustatius</option>
+                        <option value="St Helena" {{ ( "St Helena" == $personal_info[0]->country) ? 'selected' : '' }}>St Helena</option>
+                        <option value="St Kitts-Nevis" {{ ( "St Kitts-Nevis" == $personal_info[0]->country) ? 'selected' : '' }}>St Kitts-Nevis</option>
+                        <option value="St Lucia" {{ ( "St Lucia" == $personal_info[0]->country) ? 'selected' : '' }}>St Lucia</option>
+                        <option value="St Maarten" {{ ( "St Maarten" == $personal_info[0]->country) ? 'selected' : '' }}>St Maarten</option>
+                        <option value="St Pierre & Miquelon" {{ ( "St Pierre & Miquelon" == $personal_info[0]->country) ? 'selected' : '' }}>St Pierre & Miquelon</option>
+                        <option value="St Vincent & Grenadines" {{ ( "St Vincent & Grenadines" == $personal_info[0]->country) ? 'selected' : '' }}>St Vincent & Grenadines</option>
+                        <option value="Saipan" {{ ( "Saipan" == $personal_info[0]->country) ? 'selected' : '' }}>Saipan</option>
+                        <option value="Samoa" {{ ( "Samoa" == $personal_info[0]->country) ? 'selected' : '' }}>Samoa</option>
+                        <option value="Samoa American" {{ ( "Samoa American" == $personal_info[0]->country) ? 'selected' : '' }}>Samoa American</option>
+                        <option value="San Marino" {{ ( "San Marino" == $personal_info[0]->country) ? 'selected' : '' }}>San Marino</option>
+                        <option value="Sao Tome & Principe" {{ ( "Sao Tome & Principe" == $personal_info[0]->country) ? 'selected' : '' }}>Sao Tome & Principe</option>
+                        <option value="Senegal" {{ ( "Senegal" == $personal_info[0]->country) ? 'selected' : '' }}>Senegal</option>
+                        <option value="Seychelles" {{ ( "Seychelles" == $personal_info[0]->country) ? 'selected' : '' }}>Seychelles</option>
+                        <option value="Sierra Leone" {{ ( "Sierra Leone" == $personal_info[0]->country) ? 'selected' : '' }}>Sierra Leone</option>
+                        <option value="Singapore" {{ ( "Singapore" == $personal_info[0]->country) ? 'selected' : '' }}>Singapore</option>
+                        <option value="Slovakia" {{ ( "Slovakia" == $personal_info[0]->country) ? 'selected' : '' }}>Slovakia</option>
+                        <option value="Slovenia" {{ ( "Slovenia" == $personal_info[0]->country) ? 'selected' : '' }}>Slovenia</option>
+                        <option value="Solomon Islands" {{ ( "Solomon Islands" == $personal_info[0]->country) ? 'selected' : '' }}>Solomon Islands</option>
+                        <option value="South Africa" {{ ( "South Africa" == $personal_info[0]->country) ? 'selected' : '' }}>South Africa</option>
+                        <option value="Spain" {{ ( "Spain" == $personal_info[0]->country) ? 'selected' : '' }}>Spain</option>
+                        <option value="Sri Lanka" {{ ( "Sri Lanka" == $personal_info[0]->country) ? 'selected' : '' }}>Sri Lanka</option>
+                        <option value="Suriname" {{ ( "Suriname" == $personal_info[0]->country) ? 'selected' : '' }}>Suriname</option>
+                        <option value="Swaziland" {{ ( "Swaziland" == $personal_info[0]->country) ? 'selected' : '' }}>Swaziland</option>
+                        <option value="Sweden" {{ ( "Sweden" == $personal_info[0]->country) ? 'selected' : '' }}>Sweden</option>
+                        <option value="Switzerland" {{ ( "Switzerland" == $personal_info[0]->country) ? 'selected' : '' }}>Switzerland</option>
+                        <option value="Tahiti" {{ ( "Tahiti" == $personal_info[0]->country) ? 'selected' : '' }}>Tahiti</option>
+                        <option value="Taiwan" {{ ( "Taiwan" == $personal_info[0]->country) ? 'selected' : '' }}>Taiwan</option>
+                        <option value="Tajikistan" {{ ( "Tajikistan" == $personal_info[0]->country) ? 'selected' : '' }}>Tajikistan</option>
+                        <option value="Tanzania" {{ ( "Tanzania" == $personal_info[0]->country) ? 'selected' : '' }}>Tanzania</option>
+                        <option value="Thailand" {{ ( "Thailand" == $personal_info[0]->country) ? 'selected' : '' }}>Thailand</option>
+                        <option value="Togo" {{ ( "Togo" == $personal_info[0]->country) ? 'selected' : '' }}>Togo</option>
+                        <option value="Tokelau" {{ ( "Tokelau" == $personal_info[0]->country) ? 'selected' : '' }}>Tokelau</option>
+                        <option value="Tonga" {{ ( "Tonga" == $personal_info[0]->country) ? 'selected' : '' }}>Tonga</option>
+                        <option value="Trinidad & Tobago" {{ ( "Trinidad & Tobago" == $personal_info[0]->country) ? 'selected' : '' }}>Trinidad & Tobago</option>
+                        <option value="Tunisia" {{ ( "Tunisia" == $personal_info[0]->country) ? 'selected' : '' }}>Tunisia</option>
+                        <option value="Turks & Caicos Is" {{ ( "Turks & Caicos Is" == $personal_info[0]->country) ? 'selected' : '' }}>Turks & Caicos Is</option>
+                        <option value="Tuvalu" {{ ( "Tuvalu" == $personal_info[0]->country) ? 'selected' : '' }}>Tuvalu</option>
+                        <option value="United Kingdom" {{ ( "United Kingdom" == $personal_info[0]->country) ? 'selected' : '' }}>United Kingdom</option>
+                        <option value="Ukraine" {{ ( "Ukraine" == $personal_info[0]->country) ? 'selected' : '' }}>Ukraine</option>
+                        <option value="United States of America" {{ ( "United States of America" == $personal_info[0]->country) ? 'selected' : '' }}>United States of America</option>
+                        <option value="Uraguay" {{ ( "Uraguay" == $personal_info[0]->country) ? 'selected' : '' }}>Uruguay</option>
+                        <option value="Vanuatu" {{ ( "Vanuatu" == $personal_info[0]->country) ? 'selected' : '' }}>Vanuatu</option>
+                        <option value="Vatican City State" {{ ( "Vatican City State" == $personal_info[0]->country) ? 'selected' : '' }}>Vatican City State</option>
+                        <option value="Venezuela" {{ ( "Venezuela" == $personal_info[0]->country) ? 'selected' : '' }}>Venezuela</option>
+                        <option value="Virgin Islands (Brit)" {{ ( "Virgin Islands (Brit)" == $personal_info[0]->country) ? 'selected' : '' }}>Virgin Islands (Brit)</option>
+                        <option value="Virgin Islands (USA)" {{ ( "Virgin Islands (USA)" == $personal_info[0]->country) ? 'selected' : '' }}>Virgin Islands (USA)</option>
+                        <option value="Wake Island" {{ ( "Wake Island" == $personal_info[0]->country) ? 'selected' : '' }}>Wake Island</option>
+                        <option value="Wallis & Futana Is" {{ ( "Wallis & Futana Is" == $personal_info[0]->country) ? 'selected' : '' }}>Wallis & Futana Is</option>
+                        <option value="Zaire" {{ ( "Zaire" == $personal_info[0]->country) ? 'selected' : '' }}>Zaire</option>
+                        <option value="Zambia" {{ ( "Zambia" == $personal_info[0]->country) ? 'selected' : '' }}>Zambia</option>
+</select>
                 <h5 class="card-title"> Date of Birth : {{$personal_info[0]->dob}} </h5><br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>

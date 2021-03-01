@@ -1951,13 +1951,14 @@ $("#edit").on('click', function () {
     inf.each(function () {
         $(this).replaceWith(function (i, text) {
 			
-			
-            return $("<input>", {
-                type: "text",
-                value: text,
-				name:this.id
-                //id: this.id
+		
+				return $("<input>", {
+					type: "text",
+					value: text,
+					name:this.id
+					//id: this.id
             })
+	
 	
 
         });
