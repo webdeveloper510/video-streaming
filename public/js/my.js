@@ -1875,15 +1875,6 @@ if ($("#social_media").length > 0) {
       media: {
         required: true,
       },
-      description: {
-        required: true,
-        maxlength: 250
-      }
-	  ,
-	  username: {
-        required: true,
-        maxlength: 250
-      }
     },
     messages: {
 		media: {
@@ -1951,6 +1942,25 @@ if ($("#social_media").length > 0) {
     }
   })
 }
+
+$("#edit").on('click', function () {
+    var inf = $(".replace");
+    inf.each(function () {
+        $(this).replaceWith(function (i, text) {
+
+            return $("<input>", {
+                type: "text",
+                value: text,
+                //id: this.id
+            })
+
+        });
+
+    });
+	$(this).hide();
+	$(this).next().show();
+
+});
 
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 

@@ -661,7 +661,7 @@ class artist extends Controller
               }
               else
               {
-                  return response()->json(array('status'=>0, 'messge'=>'Some Eror!'));
+                  return response()->json(array('status'=>0, 'messge'=>'Some Error!'));
               }
         }
 }
