@@ -1919,6 +1919,9 @@ if ($("#social_media").length > 0) {
 						percent = Math.ceil(position / total * 100);
 					}
 					$('.percentage').html(percent+'%');
+					if(percent==100){
+						$('.loader').hide();
+					}
 				}, true);
 			}
 			return xhr;
@@ -1951,6 +1954,7 @@ $("#edit").on('click', function () {
             return $("<input>", {
                 type: "text",
                 value: text,
+				name:this.id
                 //id: this.id
             })
 
@@ -1961,6 +1965,43 @@ $("#edit").on('click', function () {
 	$(this).next().show();
 
 });
+
+$(document).on('submit', '#updateUser', function (event) {
+	event.preventDefault();
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/updateArtist",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: $(this).serialize(),
+		
+
+			success: function(data){
+
+				//console.log(data);return false;
+
+				if(data==1){
+
+					location.reload();
+						
+				}
+
+				else{
+
+					alert('Some Error');
+					
+				}
+
+
+			}
+	});
+
+});
+
+
 
 /*------------------------------------------Add Active Class-----------------------------------------------*/
 
