@@ -1890,18 +1890,20 @@ if ($("#social_media").length > 0) {
         required: "Please Enter Media",
         maxlength: "Enter Media"
       },
-      description: {
-        required: "Please Enter description",
-        maxlength: "Your last body maxlength should be 250 characters long."
-      },
-	  username: {
-        required: "Please Enter Username",
-        maxlength: "Your last body maxlength should be 250 characters long."
-      },
+    //   description: {
+    //     required: "Please Enter description",
+    //     maxlength: "Your last body maxlength should be 250 characters long."
+    //   },
+	//   username: {
+    //     required: "Please Enter Username",
+    //     maxlength: "Your last body maxlength should be 250 characters long."
+    //   },
     },
     submitHandler: function(form) {
-		event.preventDefault();
-		var formData = new FormData($(this)[0]);
+		//event.preventDefault();
+		var form  =  $("#social_media");
+		var formData = new FormData($(form)[0]);
+		
 		$('.loader').show();
 		$('.percentage').html('0');
      $.ajaxSetup({
@@ -1931,17 +1933,17 @@ if ($("#social_media").length > 0) {
 			return xhr;
 	},
         success: function( response ) {
-       
-				if(data.status==1){
+			//console.log(response);return false;
+				if(response.status==1){
 					$('#success').show();
-					$('#success').html(data.messge);
+					$('#success').html(response.messge);
 					   
 			   }
 
 			   else{
 
 				   $('#success').show();
-				   $('#success').html(data.messge);
+				   $('#success').html(response.messge);
 				   
 			   }
         }

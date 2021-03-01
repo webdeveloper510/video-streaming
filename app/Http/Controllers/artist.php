@@ -635,10 +635,12 @@ class artist extends Controller
 
     $this->validate($req,[
       'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
-      'description'=>'required|max:2000',
-      'username'=>'required|max:30',   
+     // 'description'=>'required|max:2000',
+     // 'username'=>'required|max:30',   
   ]
     );
+
+    //print_r($req->all());die;
 
     if($req->media){
       $data=$req->all();
@@ -647,10 +649,13 @@ class artist extends Controller
         $filePath= ($ext=='mp3') ? $req->media->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media->storeAs('video', $fileName, 'public'): $req->media->storeAs('uploads', $fileName, 'public'));
         unset($data['_token']);
         $data['media']=$fileName;
+        $data['description'] = $data['description'] ? $data['description'] : '';
+        $data['username'] = $data['username'] ? $data['username'] : '';
         
           if($filePath){
 
           $insert = $this->model->uploadSocialMedia($data);
+          //print_r($insert);die;
             if($insert){
                 return response()->json(array('status'=>1, 'messge'=>'Media Uploaded!'));
               }
