@@ -191,7 +191,7 @@
 
                 <h5 class="card-title">First Name : <span class="replace" id="firstname"><?php echo e($personal_info[0]->firstname); ?></span></h5><br>
                 <h5 class="card-title">Country : <span class="replace" id="country"> <?php echo e($personal_info[0]->country); ?></span> </h5><br>
-                <h5 class="card-title"> Date of Birth : <span class="replace" id="dob"><?php echo e($personal_info[0]->dob); ?></span> </h5><br>
+                <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
