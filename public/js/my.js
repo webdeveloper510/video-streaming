@@ -1993,7 +1993,7 @@ $(document).on('submit', '#updateUser', function (event) {
 
 				else{
 
-					alert('Some Error');
+					location.reload();
 					
 				}
 
