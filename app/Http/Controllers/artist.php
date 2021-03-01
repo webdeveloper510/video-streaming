@@ -649,6 +649,8 @@ class artist extends Controller
         $filePath= ($ext=='mp3') ? $req->media->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media->storeAs('video', $fileName, 'public'): $req->media->storeAs('uploads', $fileName, 'public'));
         unset($data['_token']);
         $data['media']=$fileName;
+        $data['description'] = $data['description'] ? $data['description'] : '';
+        $data['username'] = $data['username'] ? $data['username'] : '';
         
           if($filePath){
 
