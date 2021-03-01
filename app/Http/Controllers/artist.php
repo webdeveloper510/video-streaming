@@ -666,11 +666,15 @@ class artist extends Controller
         }
 }
 
-    
-    print_r($req->all());die;
+  }
 
-    $this->model->uploadSocialMedia();
+  public function updateartist(Request $req){
 
+        unset($req['_token']);
+
+           $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all());
+
+           return $updateInfo;
 
   }
 

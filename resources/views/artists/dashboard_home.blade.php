@@ -175,17 +175,21 @@
                 <div class="text-right">
                 {{ Form::submit('Update!',['class'=>'btn btn-light btn-sm']) }}
               </div>
+              {{Form::close()}}
               </div>
               @else
               <div class="card-body pb-1 ">
-                <h5 class="card-title">First Name : <span class="replace">{{$personal_info[0]->firstname}}</span></h5><br>
-                <h5 class="card-title">Country : <span class="replace"> {{$personal_info[0]->country}}</span> </h5><br>
-                <h5 class="card-title"> Date of Birth : <span class="replace">{{$personal_info[0]->dob}}</span> </h5><br>
+              {!!Form::open(['id'=>'updateUser', 'method' => 'post'])!!}
+              {{Form::token()}}
+                <h5 class="card-title">First Name : <span class="replace" id="firstname">{{$personal_info[0]->firstname}}</span></h5><br>
+                <h5 class="card-title">Country : <span class="replace" id="country"> {{$personal_info[0]->country}}</span> </h5><br>
+                <h5 class="card-title"> Date of Birth : <span class="replace" id="dob">{{$personal_info[0]->dob}}</span> </h5><br>
                
-                <h5 class="card-title">Email : <span class="replace">{{$personal_info[0]->email}}</span></h5>
+                <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
-                {{ Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
+                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
                 <div style="display:none;">{{ Form::submit('Update!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update']) }}</div>
+                {{Form::close()}}
               </div>
             </div>
             @endif

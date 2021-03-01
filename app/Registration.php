@@ -2143,6 +2143,17 @@ public function buyofferVideo($data,$offer){
 
 }
 
+public function UpdateData($table,$key,$data){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  $update = DB::table($table)->where(array($key=>$userid))->update($data); 
+
+    return $update;
+}
+
 public function updateSubscriberCount($uid,$data,$tableData){
 
   $userIds = $tableData[0]->userid;

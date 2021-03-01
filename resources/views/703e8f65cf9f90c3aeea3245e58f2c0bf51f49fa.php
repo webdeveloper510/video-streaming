@@ -180,18 +180,26 @@
                 <?php echo e(Form::submit('Update!',['class'=>'btn btn-light btn-sm'])); ?>
 
               </div>
+              <?php echo e(Form::close()); ?>
+
               </div>
               <?php else: ?>
               <div class="card-body pb-1 ">
-                <h5 class="card-title">First Name : <span class="replace"><?php echo e($personal_info[0]->firstname); ?></span></h5><br>
-                <h5 class="card-title">Country : <span class="replace"> <?php echo e($personal_info[0]->country); ?></span> </h5><br>
-                <h5 class="card-title"> Date of Birth : <span class="replace"><?php echo e($personal_info[0]->dob); ?></span> </h5><br>
+              <?php echo Form::open(['id'=>'updateUser', 'method' => 'post']); ?>
+
+              <?php echo e(Form::token()); ?>
+
+                <h5 class="card-title">First Name : <span class="replace" id="firstname"><?php echo e($personal_info[0]->firstname); ?></span></h5><br>
+                <h5 class="card-title">Country : <span class="replace" id="country"> <?php echo e($personal_info[0]->country); ?></span> </h5><br>
+                <h5 class="card-title"> Date of Birth : <span class="replace" id="dob"><?php echo e($personal_info[0]->dob); ?></span> </h5><br>
                
-                <h5 class="card-title">Email : <span class="replace"><?php echo e($personal_info[0]->email); ?></span></h5>
+                <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
-                <?php echo e(Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit'])); ?>
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit'])); ?>
 
                 <div style="display:none;"><?php echo e(Form::submit('Update!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update'])); ?></div>
+                <?php echo e(Form::close()); ?>
+
               </div>
             </div>
             <?php endif; ?>
