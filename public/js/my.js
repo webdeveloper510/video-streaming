@@ -1950,15 +1950,15 @@ $("#edit").on('click', function () {
     var inf = $(".replace");
     inf.each(function () {
         $(this).replaceWith(function (i, text) {
-			 if(this.id=='dob'){
-				return true;
-			 }
+			
+			
             return $("<input>", {
                 type: "text",
                 value: text,
 				name:this.id
                 //id: this.id
             })
+	
 
         });
 
