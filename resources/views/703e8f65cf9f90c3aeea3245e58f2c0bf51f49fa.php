@@ -183,14 +183,15 @@
               </div>
               <?php else: ?>
               <div class="card-body pb-1 ">
-                <h5 class="card-title">First Name : <?php echo e($personal_info[0]->firstname); ?></h5><br>
-                <h5 class="card-title">Country : <?php echo e($personal_info[0]->country); ?> </h5><br>
-                <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
+                <h5 class="card-title">First Name : <span class="replace"><?php echo e($personal_info[0]->firstname); ?></span></h5><br>
+                <h5 class="card-title">Country : <span class="replace"> <?php echo e($personal_info[0]->country); ?></span> </h5><br>
+                <h5 class="card-title"> Date of Birth : <span class="replace"><?php echo e($personal_info[0]->dob); ?></span> </h5><br>
                
-                <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
+                <h5 class="card-title">Email : <span class="replace"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
-                <?php echo e(Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5'])); ?>
+                <?php echo e(Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit'])); ?>
 
+                <div style="display:none;"><?php echo e(Form::submit('Update!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update'])); ?></div>
               </div>
             </div>
             <?php endif; ?>

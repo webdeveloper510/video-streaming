@@ -178,13 +178,14 @@
               </div>
               @else
               <div class="card-body pb-1 ">
-                <h5 class="card-title">First Name : {{$personal_info[0]->firstname}}</h5><br>
-                <h5 class="card-title">Country : {{$personal_info[0]->country}} </h5><br>
-                <h5 class="card-title"> Date of Birth : {{$personal_info[0]->dob}} </h5><br>
+                <h5 class="card-title">First Name : <span class="replace">{{$personal_info[0]->firstname}}</span></h5><br>
+                <h5 class="card-title">Country : <span class="replace"> {{$personal_info[0]->country}}</span> </h5><br>
+                <h5 class="card-title"> Date of Birth : <span class="replace">{{$personal_info[0]->dob}}</span> </h5><br>
                
-                <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
+                <h5 class="card-title">Email : <span class="replace">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
-                {{ Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5']) }}
+                {{ Form::submit('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
+                <div style="display:none;">{{ Form::submit('Update!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update']) }}</div>
               </div>
             </div>
             @endif
