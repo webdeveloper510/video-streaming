@@ -173,7 +173,7 @@
                 <br>
                 <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
                 <div class="text-right">
-                {{ Form::submit('Update!',['class'=>'btn btn-light btn-sm']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
               </div>
               {{Form::close()}}
               </div>
@@ -188,7 +188,7 @@
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
                 {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
-                <div style="display:none;">{{ Form::submit('Update!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update']) }}</div>
+                <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update']) }}</div>
                 {{Form::close()}}
               </div>
             </div>
