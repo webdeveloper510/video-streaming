@@ -1471,7 +1471,9 @@ public function readNotification(Request $request){
 
           //print_r($request->all());
 
-          $this->model->updateDuration($request->all());
+          $updateInfo = $this->model->UpdateData('media','id',$req->all(),$req['id']);
+
+          return $updateInfo;
       }
 
 

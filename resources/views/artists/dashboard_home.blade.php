@@ -638,7 +638,7 @@
                 <h5>{{$today_paz ? $today_paz[0]->tokens:0}} PAZ</h5>
                 <br>
                 <h4 class="card-title">This Month:</h4>
-                <h5>{{$month_paz[0]->total_token}} PAZ</h5>
+                <h5>{{$month_paz[0]->total_token ? $month_paz[0]->total_token : 0}} PAZ</h5>
                 <br>
                 <h4 class="card-title">This Year:</h4>
                 <h5>{{$year_PAZ[0]->total_token}} PAZ</h5>
