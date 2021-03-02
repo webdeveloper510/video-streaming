@@ -610,12 +610,12 @@
                         <option value="Wallis & Futana Is" <?php echo e(( "Wallis & Futana Is" == $personal_info[0]->country) ? 'selected' : ''); ?>>Wallis & Futana Is</option>
                         <option value="Zaire" <?php echo e(( "Zaire" == $personal_info[0]->country) ? 'selected' : ''); ?>>Zaire</option>
                         <option value="Zambia" <?php echo e(( "Zambia" == $personal_info[0]->country) ? 'selected' : ''); ?>>Zambia</option>
-</select>
+</select> <br>
                 <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit'])); ?>
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-3' , 'id'=>'edit'])); ?>
 
                 <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update'])); ?></div>
                 <?php echo e(Form::close()); ?>

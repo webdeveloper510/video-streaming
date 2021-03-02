@@ -72,7 +72,7 @@ tr.shown td.details-control {
   <body>
     <div class="container">
     <div class="tab">
-  <!-- <button class="tablinks "disabled onclick="openCity(event, 'London')">Projects</button> -->
+  <!-- <button class="tablinks" onclick="openCity(event, 'London')">Projects</button> -->
   <button class="tablinks active" onclick="openCity(event, 'Paris')">Orders</button>
 
   
@@ -157,7 +157,7 @@ tr.shown td.details-control {
                        <th>Title</th>
                         <th >Media</th>
                         <th>Duration</th>
-                        <th>P/O</th>
+                       
                         <th >Customer Name</th>
                         <th > Status</th>              
                         <th> Delievery Time</th>   
@@ -170,7 +170,7 @@ tr.shown td.details-control {
                         <th>Title</th>
                         <th>Media</th>
                         <th>Duration</th>
-                        <th>P/O</th>
+                 
                         <th>Customer Name</th>
                         <th> Status</th>              
                         <th>Delievery Time</th>   
