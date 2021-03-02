@@ -169,7 +169,7 @@
                 <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name'])); ?>
 
                 <?php echo e(Form::label('Country', 'Country')); ?> 
-                <select name="country">
+                 <select name="country">
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
                         <option value="American Samoa">American Samoa</option>

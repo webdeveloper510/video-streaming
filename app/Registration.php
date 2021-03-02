@@ -879,12 +879,9 @@ public function getRespectedSub($data){
               'quality'=>$data['quality'],
               'media'=>$data['media'],
            );
-           //print_r($update);die;
 
            $update = $this->UpdateData('offer','id',$update,$data['offerid']);
-           $update = DB::table('offer')->where('id',$data['offerid'])->update($update);
 
-          // print_r($update);die;
 
            return $update ? 1 : 0;
     }
@@ -2323,15 +2320,7 @@ public function update_due_to_process($data){
 
     }
 
-    // public function updateDuration($data){
 
-    //   $update = DB::table('media')->where('id',$data['id'])->update([
-
-    //     'duration' => $data['duration']
-    //   ]);
-
-    //   return $update;
-    // }
 
 
     public function UpdateData($table,$key,$data,$where){

@@ -669,17 +669,16 @@ class artist extends Controller
   }
 
   public function updateartist(Request $req){
-
     
-    $session_data =   Session::get('User');
-    
-    $userid =  $session_data->id;
+        $session_data =   Session::get('User');
+        
+        $userid =  $session_data->id;
 
-        unset($req['_token']);
+            unset($req['_token']);
 
-           $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
+              $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
 
-           return $updateInfo;
+              return $updateInfo;
 
   }
 
