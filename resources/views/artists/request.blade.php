@@ -142,7 +142,7 @@ tr.shown td.details-control {
                 <select class="custom-select col-md-4" id="select_option" onchange="filterproject(this)">
                     <option >All</option>
                     <option value="new" {{($box) == 'new' ? 'selected' : '' }}>New</option>
-                    <option value="In Process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
+                    <option value="process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
                     <option value="due" {{($box) == 'due' ? 'selected' : '' }}>Due</option>
                   </select>
                 </div>

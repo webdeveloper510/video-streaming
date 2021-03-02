@@ -136,9 +136,6 @@ public function getTotalPrice($cartid){
 
 public function uploadContentData($userdata){
 
-
- 
-
      $array = array();
 
        $contentData=Session::get('User');
@@ -673,25 +670,23 @@ public function getRespectedSub($data){
     }
 
     public function show_offer_Requests($sts){
+      //DB::enableQueryLog();
       
       $data = \DB::table("offer")
       ->select("users.nickname","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->leftjoin("users","users.id","=","offer.userid")
-     // ->where('offer.userid','users')
-      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname")
-      ->get();
-    //     echo "<pre>";
-    //  print_r($data);die;
-
+      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
+     
+       
       if ($sts) {
-
+            //echo $sts;
         $data = $data->where('status', '=', $sts);
     }
 
 
       
-         return $data;
+         return $data->get();
     }
 
 
@@ -707,7 +702,7 @@ public function getRespectedSub($data){
 
     public function count_process_orders($table){
 
-      $value=DB::table($table)->where('status','In Process')->count();
+      $value=DB::table($table)->where('status','process')->count();
 
       return $value;
 
@@ -2279,6 +2274,23 @@ public function getSubscribeArtist(){
 
 }
 
+public function getDayDiffrence(){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  $value=DB::table('contentprovider')
+       
+  ->select(DB::raw("DATEDIFF(DATE(DATE_ADD(created_at, INTERVAL 30 DAY)),now()) as difference"))
+
+  ->where('id',$userid)->get()->toArray();
+
+
+  return $value;
+
+}
+
 
 public function update_due_to_process($data){
 
@@ -2288,7 +2300,8 @@ public function update_due_to_process($data){
 
   $update = DB::table($table)->where('id',$data['id'])->update([
 
-    'status' => 'In Process'
+    'status' => 'process'
+
   ]);
 
   return $update;

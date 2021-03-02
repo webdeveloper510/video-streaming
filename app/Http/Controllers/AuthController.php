@@ -1443,7 +1443,7 @@ public function readNotification(Request $request){
 
         $offerInfo['created_at'] = now();
         $offerInfo['updated_at'] = now();
-        $offerInfo['status'] = 'New';
+        $offerInfo['status'] = 'new';
         $offerInfo['choice'] = $request->duration;
         $offerInfo['userdescription'] = $request->description;
 

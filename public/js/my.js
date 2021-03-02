@@ -1559,6 +1559,12 @@ $(document).ready(function() {
 	var name = $('#select_option').find(":selected").val();
 
 	//console.log(name);
+
+	var artistCountry = $("#all_country").val();
+
+	$('#countries').val(artistCountry).attr("selected","selected");
+
+	//console.log(name);
 		
 	var table1 = $('#example1').DataTable({
 		'ajax': name!='All' ? APP_URL+'/artist/getRequests/orders/'+name : APP_URL+'/artist/getRequests/orders',
