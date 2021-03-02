@@ -655,7 +655,29 @@
                
                 <p>-Upload 3 videos/audios to the collection and keep them tere for a minimum of 30 days</p>
                 <div class="text-right">
-                   <button class="btn btn-primary btn-sm mt-5" type="button">Get my reward!</button>
+                   <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button">Get my reward!</button>
+                   <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="reward" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="card text-center" style=" margin:0px !important;">
+             <h5 class="card-title text-left pt-3 pl-3">Requirement status:</h5>
+             <hr>
+              <div class="card-body ">
+               
+                <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right "><i class="fa fa-check"></i></span></p>
+
+                <p class="card-text"  style="    font-size: 20px;">3audio or video for collection :<span class="text-right "><i class="fa fa-check"></i></span></p>
+                
+                <button class="btn btn-primary " data-dismiss="modal" aria-label="Close" type="button">Back</button>
+              </div>
+            </div>
+    </div>
+  </div>
+</div>
                 </div>
               </div>
             </div>
