@@ -380,12 +380,12 @@
                           <span class="sr-only">70% Complete</span>
                     </div>
                    
-                    
-                </div>
-                <?php if(isset($levelData[0])): ?>       
+                    <?php if(isset($levelData[0])): ?>       
                 <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
                  
                   <?php endif; ?>
+                </div>
+                
                   <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?> </p>
                   </div>
                 
