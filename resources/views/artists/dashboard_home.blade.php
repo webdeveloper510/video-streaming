@@ -867,7 +867,7 @@
                
                 <p>-Upload 3 videos/audios to the collection and keep them tere for a minimum of 30 days</p>
                 <div class="text-right">
-                   <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button">Get my reward!</button>
+                   <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 
 
@@ -880,10 +880,11 @@
              <hr>
               <div class="card-body ">
                
-                <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right "><i class="fa fa-check"></i></span></p>
+                <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right "><i class="fa fa-check"></i></span><span class="text-right cross"><i class="fa fa-check"></i></span></p>
 
-                <p class="card-text"  style="    font-size: 20px;">3audio or video for collection :<span class="text-right "><i class="fa fa-check"></i></span></p>
+                <p class="card-text"  style="    font-size: 20px;">3audio or video for collection :  <span class="text-right "><i class="fa fa-check"></i></span><span class="text-right days">2d Remaining</span> <span class="text-right cross "><i class="fa fa-check"></i></span></p>
                 
+                <button class="btn btn-primary "  type="button">Get my reward!</button>
                 <button class="btn btn-primary " data-dismiss="modal" aria-label="Close" type="button">Back</button>
               </div>
             </div>
