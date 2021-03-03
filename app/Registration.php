@@ -163,9 +163,9 @@ public function uploadContentData($userdata){
 
   }
   
-  
+  $update = $this->UpdateData('contentprovider','id',$array,$contentId);
 
-      $update=DB::table('contentprovider')->where('id',$contentId)->update($array);
+    //$update=DB::table('contentprovider')->where('id',$contentId)->update($array);
 
       //print_r($update);die;
 
@@ -225,26 +225,17 @@ public function uploadContentData($userdata){
 }
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
-       $userid=$session_data->id;
-     // print_r($userid);die;
-    $update = DB::table('profiletable')->where('userid',$userid)->update([
-        'backupemail' => $data['backupemail'],
-        'aboutme' => $data['aboutme'],
-        'profilepicture' => $data['profilepicture'],
-        'gender' => $data['gender'],
-        'sexology' => $data['sexology'],
-        'titssize' => $data['titssize'] ? $data['titssize']:'',
-        'privy' => $data['privy'],
-        'ass' =>$data['ass'] ? $data['ass'] :'',
-        'hairlength' => $data['hairlength'],
-        'haircolor' => $data['haircolor'],
-        'eyecolor' => $data['eyecolor'],
-        'height' => $data['height'],
-        'weight' => $data['weight'],
-        'created_at'=> now(),
-        'updated_at'=> now()
-    ]);
-    return $update ? 1 : 0;
+
+      $userid=$session_data->id;
+
+      $data['titssize'] = $data['titssize'] ? $data['titssize']:'';
+      $data['ass'] = $data['ass'] ? $data['ass']:'';
+      $data['created_at'] = now();
+      $data['updated_at'] = now();
+
+      $update = $this->UpdateData('profiletable','userid',$data,$userid);
+
+        return $update ? 1 : 0;
 }
 public function getContentProvider($type){
     $value=DB::table('media')->where('type', $type)->get();
@@ -474,23 +465,20 @@ public function getArtistDetail($artid,$type){
 
   public function edit_other($profile,$data){
 
-//     print_r($profile);
-//     print_r($data);
-// die;
+
     $session_data =   Session::get('User');
 
     $contentid=$session_data->id;
 
-   // print_r($profile);die;
-  
 
-    $update = DB::table('contentprovider')->where('id',$contentid)->update($profile);
+    $update = $this->UpdateData('contentprovider','id',$profile,$contentid);
 
 
        $id=$data['hid'];
+
       unset($data['hid']);
-      //print_r($data);die;
-      $update1 = DB::table('media')->where('id',$id)->update($data);
+
+      $update1 = $this->UpdateData('media','id',$data,$id);
 
       return $update1; 
 
@@ -624,11 +612,8 @@ public function getRespectedSub($data){
 
       $table_name = $type == 'users' ? 'users' : 'contentprovider'; 
 
-        $update = DB::table($table_name)->where('id',$userId)->update([
+      $update = $this->UpdateData($table_name,'id',array('verify'=>1),$userId);
 
-            'verify' => 1
-
-          ]);
 
         return $update ? 1 : 0;
 
@@ -671,7 +656,9 @@ public function getRespectedSub($data){
         'status'=> 1
       );
 
-      $update = DB::table('all_emails')->where('id',$notify)->update($data);
+      $update = $this->UpdateData('all_emails','id',array('status'=>1),$notify);
+
+     // $update = DB::table('all_emails')->where('id',$notify)->update($data);
 
       return $update ? 1 : 0 ; 
 
@@ -893,6 +880,8 @@ public function getRespectedSub($data){
               'media'=>$data['media'],
            );
            //print_r($update);die;
+
+           $update = $this->UpdateData('offer','id',$update,$data['offerid']);
            $update = DB::table('offer')->where('id',$data['offerid'])->update($update);
 
           // print_r($update);die;
@@ -2143,16 +2132,6 @@ public function buyofferVideo($data,$offer){
 
 }
 
-public function UpdateData($table,$key,$data){
-
-  $session_data =   Session::get('User');
-
-  $userid =  $session_data->id;
-
-  $update = DB::table($table)->where(array($key=>$userid))->update($data); 
-
-    return $update;
-}
 
 public function updateSubscriberCount($uid,$data,$tableData){
 
@@ -2344,15 +2323,25 @@ public function update_due_to_process($data){
 
     }
 
-    public function updateDuration($data){
+    // public function updateDuration($data){
 
-      $update = DB::table('media')->where('id',$data['id'])->update([
+    //   $update = DB::table('media')->where('id',$data['id'])->update([
 
-        'duration' => $data['duration']
-      ]);
+    //     'duration' => $data['duration']
+    //   ]);
 
-      return $update;
+    //   return $update;
+    // }
+
+
+    public function UpdateData($table,$key,$data,$where){
+
+    
+      $update = DB::table($table)->where(array($key=>$where))->update($data); 
+    
+        return $update;
     }
+    
 
 
 }
