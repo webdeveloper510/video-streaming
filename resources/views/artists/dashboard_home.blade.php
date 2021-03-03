@@ -393,8 +393,8 @@
               {{Form::token()}}
                 <h5 class="card-title">First Name : <span class="replace" id="firstname">{{$personal_info[0]->firstname}}</span></h5><br>
                 <input type="hidden" value="{{$personal_info[0]->country}}" id="all_country"/>
-                <label>Country</label>
-                <select name="country" class="form-control" id="countries">
+                <h5 class="card-title">Country : <span class="replace" id="country">{{$personal_info[0]->country}}</span></h5><br>
+                <select name="country" class="form-control country" id="countries" style="display:none">
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
                         <option value="American Samoa">American Samoa</option>
