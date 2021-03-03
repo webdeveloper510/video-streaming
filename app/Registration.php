@@ -2340,23 +2340,6 @@ public function update_due_to_process($data){
 
     }
 
-<<<<<<< HEAD
-    // public function updateDuration($data){
-
-    //   $update = DB::table('media')->where('id',$data['id'])->update([
-
-    //     'duration' => $data['duration']
-    //   ]);
-
-    //   return $update;
-    // }
-
-
-=======
-
-
-
->>>>>>> 5be79e52273172b5db21d27cfb4e12d86597c22c
     public function UpdateData($table,$key,$data,$where){
 
     

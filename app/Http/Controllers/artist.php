@@ -677,7 +677,6 @@ class artist extends Controller
         
         $userid =  $session_data->id;
 
-<<<<<<< HEAD
     
     $session_data =   Session::get('User');
     
@@ -686,11 +685,7 @@ class artist extends Controller
         unset($req['_token']);
 
            $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
-=======
-            unset($req['_token']);
 
-              $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
->>>>>>> 5be79e52273172b5db21d27cfb4e12d86597c22c
 
               return $updateInfo;
 
