@@ -874,16 +874,10 @@ public function getRespectedSub($data){
               'quality'=>$data['quality'],
               'media'=>$data['media'],
            );
-<<<<<<< HEAD
            //print_r($update);die;
 
            $update = $this->UpdateData('offer','id',$update,$data['offerid']);
-           $update = DB::table('offer')->where('id',$data['offerid'])->update($update);
-=======
->>>>>>> 5be79e52273172b5db21d27cfb4e12d86597c22c
-
-           $update = $this->UpdateData('offer','id',$update,$data['offerid']);
-
+           
 
            return $update ? 1 : 0;
     }
