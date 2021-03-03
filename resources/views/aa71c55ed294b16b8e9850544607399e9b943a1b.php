@@ -436,10 +436,14 @@
     width: 207px !important;
     position: absolute;
     margin-left: -24px;
+    left: 149px;
+    top: 33px;
 }
 .navbar.navbar-absolute {
-   
     padding-top: 7px !important;
+}
+.progress:hover .leveltext.text-white {
+    display: BLOCK;
 }
 .wid {
     width: 160px !important ;
