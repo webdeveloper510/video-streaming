@@ -67,14 +67,16 @@
           <div class="col-md-8">
    <div class="opentickettext">
        <div class="row">
+       <a href="#" data-toggle="modal" data-target="#chat">
             <div class="col-9">
                <h3>#34567893 - Technical Issue</h3>
                <p>Last Updated: Monday,21.march,2021(15:03)</p>
 
             </div>
+            </a>
             <div class="col-3 mt-4">
                 
-               <button type="button" class="btn btn-primary"data-toggle="modal" data-target="#chat">Open</button>
+               <button type="button" class="btn btn-primary">Open</button>
                <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
             </div>
             <!-- Button trigger modal -->
