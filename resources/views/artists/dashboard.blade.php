@@ -428,10 +428,8 @@
 
 .leveltext.text-white {
     display: none;
-    width: 207px !important;
+    width: 151px !important;
     position: absolute;
-    margin-left: -24px;
-    left: 149px;
     top: 33px;
 }
 .navbar.navbar-absolute {
