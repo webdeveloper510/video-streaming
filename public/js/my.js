@@ -1954,6 +1954,10 @@ if ($("#social_media").length > 0) {
 				if(response.status==1){
 					$('#success').show();
 					$('#success').html(response.messge);
+
+					setTimeout(function(){
+						location.reload();
+					},2000)
 					   
 			   }
 
