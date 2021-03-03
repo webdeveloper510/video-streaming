@@ -563,18 +563,22 @@ class AuthController extends Controller
       }
   }
   public function providerContent(Request $request){
+
+    $validator = \Validator::make($req->all(), [
+      'media' => $req->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
+      'description'=>'required|max:2000',
+      'title'=>'required|max:30',
+      'price'=>'required|max:50000',
+      'category'=>'required', 
+  ]);
+        
+  if ($validator->fails())
+  {
+      return response()->json(['errors'=>$validator->errors()->all()]);
+  }
+
         $this->validate($request,[
-          'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
-          //'audio_pic'=>'required',
-          'description'=>'required|max:2000',
-          //'hour'=>'required',
-          //'minutes'=>'required',
-          //'seconds'=>'required',
-          //'keyword'=>'required',
-          'title'=>'required|max:30',
-          'price'=>'required|max:50000',
-          'category'=>'required',    
-          //'subcategory'=>'required'    
+ 
       ]
         );
        // print_r($request->all());die;

@@ -1712,6 +1712,15 @@ $(document).on('submit', '#myForm', function (event) {
 		},
 
 			success: function(data){
+
+				if(data.errors){
+
+					jQuery.each(data.errors, function(key, value){
+						jQuery('.alert-danger').show();
+						jQuery('.alert-danger').append('<p>'+value+'</p>');
+					});
+				}
+				else{
 				$('.loader').hide();
 				//$('.percentage').hide();
 				if(data.status==1){
@@ -1732,6 +1741,7 @@ $(document).on('submit', '#myForm', function (event) {
 
 
 			}
+		}
 	});
 
 });
