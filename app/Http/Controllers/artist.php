@@ -325,19 +325,27 @@ class artist extends Controller
 
   public function createOffer(Request $req){
 
-      $this->validate($req,[
-          'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
-          'title'=>'required',
-          'offer_status'=>'required',
-          'delieveryspeed'=>'required',
-          'additional_price'=>'required',
-          'quality'=>'required',
-          'delieveryspeed'=>'required',
-          'description'=>'required|max:2000',
-          'category'=>'required',
-          'price'=>'required|max:50000'
-      ]
-        );
+
+          $validator = \Validator::make($req->all(), [
+            'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
+            'title'=>'required',
+            'offer_status'=>'required',
+            'delieveryspeed'=>'required',
+            'additional_price'=>'required',
+            'quality'=>'required',
+            'delieveryspeed'=>'required',
+            'description'=>'required|max:2000',
+            'category'=>'required',
+            'price'=>'required|max:50000'
+        ]);
+              
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+   
+
 
         if($req->media){
 

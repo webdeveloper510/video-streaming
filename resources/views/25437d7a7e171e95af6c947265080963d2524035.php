@@ -659,13 +659,13 @@
     </div>
     <div class="col-md-4">
          <div class="card" style="height: 370px;">
-             <h5 class="card-title text-left pt-3 pl-3">Reward:</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
                 <h4 class="card-title">Setup your Profile and get 100 PAZ tokens!</h4>
-                <p>-Upload 5 picture/videos on the social Media Box</p>
+                <p>-Upload 5 Picture/Videos on the social Media Box</p>
                
-                <p>-Upload 3 videos/audios to the collection and keep them tere for a minimum of 30 days</p>
+                <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
                 <div class="text-right">
                    <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
@@ -682,7 +682,7 @@
                
                 <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right" style="<?php echo e($social_count < 5  ? 'display:block':'display:none'); ?>"><i class="fa fa-times"></i></span><span class="text-right cross" style="<?php echo e($social_count < 5 ? 'display:none':'display:block'); ?>"><i class="fa fa-check"></i></span></p>
 
-                <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  <span class="text-right " style="<?php echo e($totalCollection < 3 ? 'display:block':'display:none'); ?>"><i class="fa fa-times"></i></span><span class="text-right days"><?php echo e($day_difference[0]->difference); ?> Remaining</span> <span class="text-right cross" style="<?php echo e($totalCollection < 3 ? 'display:none':'display:block'); ?>"><i class="fa fa-check"></i></span></p>
+                <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  <span class="text-right " style="<?php echo e($totalCollection < 3 ? 'display:block':'display:none'); ?>"><i class="fa fa-times"></i></span><span class="text-right days" style="<?php echo e($totalCollection < 3 ? 'display:none': 'display:block'); ?>"><?php echo e($day_difference->difference); ?> Remaining</span> <span class="text-right cross" style="<?php echo e($totalCollection < 3 ? 'display:none':'display:block'); ?>"><i class="fa fa-check"></i></span></p>
                 
                 <button class="btn btn-primary "  type="button">Get my reward!</button>
                 <button class="btn btn-primary " data-dismiss="modal" aria-label="Close" type="button">Back</button>
@@ -695,6 +695,7 @@
               </div>
             </div>
     </div>
+   
     <div class="col-md-12">
          <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted: <?php echo e($social_count); ?></h5>
@@ -762,6 +763,15 @@
             </div>
             <?php echo e(Form::close()); ?>
 
+            <div class="col-md-4">
+         <div class="card" >
+              <div class="card-body text-center">
+                <h4 class="card-title">Download Our Logo</h4>
+                  <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fliud logodownload">
+                  <button class=" btn btn-primary" type="button">Download</button>
+              </div>
+            </div>
+    </div>
     </div>
 
    
@@ -792,7 +802,11 @@ label.error {
     color: white;
     
 }
-
+img.img-fliud.logodownload {
+    border: 1px solid black;
+    padding: 11px;
+    margin: 13px 0px;
+}
 .columesdashboard2 {
     border: 3px solid #22b14c;
     padding: 30px 18px;

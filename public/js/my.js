@@ -245,6 +245,8 @@ $(document).ready(function() {
 		});
 
 $(document).on('change', '#file_input', function () {
+
+
 	//alert('he;p');return false;
 	readURL(this);
 })
@@ -261,39 +263,33 @@ $(document).on('keyup change', '#change_duration', function () {
 });
 function readURL(input) {
 
-	document.getElementById('filename').textContent=input.files[0].name;
+	var radio_checked = $(".select_media_pic:checked").val();
 
-	//$('.filename').val();
+	//var ext = input.split('.').pop();
+	var filepath = input.value;
 
-	//console.log(input.files[0])
- 
-// var filepath = input.value;
-// var extension = filepath.split('.')[1];
-// if(extension=='mp4'){
-// 	document.getElementById('image').style.display='none'
-// 	document.getElementById('video_choose').style.display='block'
-//    var $source =  $('#video') ;
-// 	$source[0].src = URL.createObjectURL(input.files[0]);
-//    $source.parent()[0].load();
-// }
-// else{
-// 	document.getElementById('video_choose').style.display='none'
-// 	document.getElementById('image').style.display='block'
-// 	var $source = $("#image");
-// 	$source[0].src = URL.createObjectURL(input.files[0]);
-//    $source.parent()[0].load();
-// }
+	var extension = filepath.split('.')[1];
 
-  // console.log(input.value);return false;
-//   if (input.files && input.files[0]) {
-//     var reader = new FileReader();
-    
-//     reader.onload = function(e) {
-//       $('#blah').attr('src', e.target.result);
-//     }
-    
-//     reader.readAsDataURL(input.files[0]); // convert to base64 string
-//   }
+	if(extension=='mp4' && radio_checked!='video'){
+
+		document.getElementById('filename').textContent='Please Select Audio File';
+
+		return false;
+
+	}
+
+	else if(extension=='mp3' && radio_checked!='audio'){
+
+		document.getElementById('filename').textContent='Please Select Video File';
+
+		   return false;
+
+	}
+
+	else{
+		document.getElementById('filename').textContent=input.files[0].name;
+	}
+
 }
 
 
@@ -1777,6 +1773,16 @@ $(document).on('submit', '#create_offer', function (event) {
 
 			success: function(data){
 
+				if(data.errors){
+
+				jQuery.each(data.errors, function(key, value){
+					jQuery('.alert-danger').show();
+					jQuery('.alert-danger').append('<p>'+value+'</p>');
+				});
+			}
+
+			else{
+
 				$('.loader').hide();
 				//console.log(data);return false;
 
@@ -1798,6 +1804,7 @@ $(document).on('submit', '#create_offer', function (event) {
 
 
 			}
+		}
 	});
 
 });

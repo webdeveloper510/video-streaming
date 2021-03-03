@@ -682,7 +682,7 @@
                
                 <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right" style="<?php echo e($social_count < 5  ? 'display:block':'display:none'); ?>"><i class="fa fa-times"></i></span><span class="text-right cross" style="<?php echo e($social_count < 5 ? 'display:none':'display:block'); ?>"><i class="fa fa-check"></i></span></p>
 
-                <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  <span class="text-right " style="<?php echo e($totalCollection < 3 ? 'display:block':'display:none'); ?>"><i class="fa fa-times"></i></span><span class="text-right days"><?php echo e($day_difference[0]->difference); ?> Remaining</span> <span class="text-right cross" style="<?php echo e($totalCollection < 3 ? 'display:none':'display:block'); ?>"><i class="fa fa-check"></i></span></p>
+                <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  <span class="text-right " style="<?php echo e($totalCollection < 3 ? 'display:block':'display:none'); ?>"><i class="fa fa-times"></i></span><span class="text-right days" style="<?php echo e($totalCollection < 3 && $social_count < 5 ? 'display:none': 'display:block'); ?>"><?php echo e($day_difference->difference); ?> Remaining</span> <span class="text-right cross" style="<?php echo e($totalCollection < 3 ? 'display:none':'display:block'); ?>"><i class="fa fa-check"></i></span></p>
                 
                 <button class="btn btn-primary "  type="button">Get my reward!</button>
                 <button class="btn btn-primary " data-dismiss="modal" aria-label="Close" type="button">Back</button>
