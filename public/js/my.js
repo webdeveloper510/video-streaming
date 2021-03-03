@@ -1978,14 +1978,19 @@ $("#edit").on('click', function () {
     inf.each(function () {
         $(this).replaceWith(function (i, text) {
 			
-		
+					if(this.id=='country'){
+						$('#'+this.id).hide();
+						$('.'+this.id).show();
+						return;
+					}
+					else{
 				return $("<input>", {
 					type: "text",
 					value: text,
 					name:this.id
 					//id: this.id
             })
-	
+		}
 	
 
         });
