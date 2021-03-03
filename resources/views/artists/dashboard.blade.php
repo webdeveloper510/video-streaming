@@ -375,12 +375,12 @@
                           <span class="sr-only">70% Complete</span>
                     </div>
                    
-                    
-                </div>
-                @if(isset($levelData[0]))       
+                    @if(isset($levelData[0]))       
                 <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
                  
                   @endif
+                </div>
+                
                   <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}} </p>
                   </div>
                 
@@ -431,10 +431,14 @@
     width: 207px !important;
     position: absolute;
     margin-left: -24px;
+    left: 149px;
+    top: 33px;
 }
 .navbar.navbar-absolute {
-   
     padding-top: 7px !important;
+}
+.progress:hover .leveltext.text-white {
+    display: BLOCK;
 }
 .wid {
     width: 160px !important ;

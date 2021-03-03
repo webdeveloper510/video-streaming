@@ -50,10 +50,11 @@ class artist extends Controller
       //echo $status;
       $data = array();
     $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests($status);
-
-   // print_r($show_requests);die;
+  //   echo "<pre>";
+  //  print_r($show_requests);die;
     $data['data'] = $show_requests;
-  
+    // echo "<pre>";
+    //     print_r($data);die;
       echo json_encode($data);
 
     }
@@ -217,9 +218,9 @@ class artist extends Controller
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
-     // print_r($info);die;
 
       if($info[0]->gender==''){
+
         return redirect('artist/edit');
       }
 
@@ -230,6 +231,8 @@ class artist extends Controller
       $count_process_project = $this->model->count_process_orders('offer');
 
       $count_new_projects = $this->model->count_orders('add_request');
+
+       $dayDiffernce = $this->model->getDayDiffrence();
 
       $count_social_media = $this->model->getSocialMediaCount();
 
@@ -250,7 +253,7 @@ class artist extends Controller
 
       $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max :[];
 
-      //print_r($percentage);die;
+      //print_r($dayDiffernce);die;
 
       $count_due_project = $this->model->count_due_offer('add_request');
 
@@ -262,7 +265,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -669,7 +672,12 @@ class artist extends Controller
   }
 
   public function updateartist(Request $req){
+    
+        $session_data =   Session::get('User');
+        
+        $userid =  $session_data->id;
 
+<<<<<<< HEAD
     
     $session_data =   Session::get('User');
     
@@ -678,8 +686,13 @@ class artist extends Controller
         unset($req['_token']);
 
            $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
+=======
+            unset($req['_token']);
 
-           return $updateInfo;
+              $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
+>>>>>>> 5be79e52273172b5db21d27cfb4e12d86597c22c
+
+              return $updateInfo;
 
   }
 
