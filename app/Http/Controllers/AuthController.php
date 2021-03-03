@@ -564,8 +564,8 @@ class AuthController extends Controller
   }
   public function providerContent(Request $request){
 
-    $validator = \Validator::make($req->all(), [
-      'media' => $req->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
+    $validator = \Validator::make($request->all(), [
+      'media' => $request->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
@@ -577,10 +577,6 @@ class AuthController extends Controller
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-        $this->validate($request,[
- 
-      ]
-        );
        // print_r($request->all());die;
       if($request->media){
             $data=$request->all();
