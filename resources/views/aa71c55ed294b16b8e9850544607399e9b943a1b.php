@@ -433,13 +433,15 @@
 
 .leveltext.text-white {
     display: none;
-    width: 207px !important;
+    width: 151px !important;
     position: absolute;
-    margin-left: -24px;
+    top: 33px;
 }
 .navbar.navbar-absolute {
-   
     padding-top: 7px !important;
+}
+.progress:hover .leveltext.text-white {
+    display: BLOCK;
 }
 .wid {
     width: 160px !important ;
