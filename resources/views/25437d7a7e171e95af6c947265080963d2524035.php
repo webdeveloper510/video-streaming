@@ -659,7 +659,7 @@
     </div>
     <div class="col-md-4">
          <div class="card" style="height: 370px;">
-             <h5 class="card-title text-left pt-3 pl-3">Reward:</h5>
+             <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
                 <h4 class="card-title">Setup your Profile and get 100 PAZ tokens!</h4>
