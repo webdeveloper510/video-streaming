@@ -41,6 +41,10 @@
           
       <div class="container profile">
         <h2 class="text-center">Collection Upload</h2>
+
+        <div class="alert alert-danger" id="error" style="display:none">
+      
+      </div>
        
           <div class="row align-items-center text-white">
             <div class="col-md-12">
