@@ -6,16 +6,17 @@
  
            
          
-        <div class="alert alert-danger" id="error" style="display:none">
       
-        </div>
-    
 <?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
       <div class="container profile ">
         <h1 class="text-center">Create Offer</h1>
+
+        <div class="alert alert-danger" id="error" style="display:none">
+      
+      </div>
         
           <div class="row align-items-center text-white">
           <div class="col-md-12 mt-5 ">

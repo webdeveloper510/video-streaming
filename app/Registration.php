@@ -2280,12 +2280,11 @@ public function getDayDiffrence(){
 
   $userid =  $session_data->id;
 
-  $value=DB::table('contentprovider')
+  $value=DB::table('media')
        
   ->select(DB::raw("DATEDIFF(DATE(DATE_ADD(created_at, INTERVAL 30 DAY)),now()) as difference"))
 
-  ->where('id',$userid)->get()->toArray();
-
+  ->where('contentProviderid',$userid)->skip(2)->take(1)->first();
 
   return $value;
 
