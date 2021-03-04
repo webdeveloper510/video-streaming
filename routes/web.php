@@ -220,6 +220,7 @@ Route::post('createList', 'AuthController@createList');
     Route::post('addDescription','artist@addDescription');
 
     Route::post('sendToTip','artist@sendTip');
+    Route::post('insertTime','artist@sendTimeFrame');
     
     Route::post('createOffer','artist@createOffer');
 

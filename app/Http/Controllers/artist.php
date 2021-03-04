@@ -719,4 +719,8 @@ class artist extends Controller
 
   }
 
+  public function sendTimeFrame(Request $req){
+        print_r($req->all());
+  }
+
   }

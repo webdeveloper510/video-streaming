@@ -377,40 +377,22 @@ $(document).on('click', '.create_list', function () {
 });
 
 
-$(document).on('click', '.create_list', function () {
-	var listname= $('.list').val();
-
-	//console.log(listname);return false;
+$(document).on('click', '#timeFrame', function () {
+	var timeframe= $('#timeframe').val();
 	$.ajax({
 				type: 'POST',
-			    url:APP_URL+"/createList",
+			    url:APP_URL+"/insertTime",
 				 headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                },
 
-				data: {"listname": listname},
+				data: {"timeframe": timeframe},
 
 				success: function(data){
 
-					//console.log(data);return false;
+					console.log(data);return false;
 					
-					if(data.status==1){
-
-						alert('List Created Successfully!');
-
-						location.reload();
-						// $('.message').show();
-						// // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
-						//  $('.message').html(data.message);
-						 //$('.list').val('');
-
-					}
-
-					else{
-							$('.message').show();
-
-						$('.message').html(data.message);
-					}
+					
 
 						
 					

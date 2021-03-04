@@ -47,7 +47,7 @@
           <div class="side">
         <ul class="mobile">
         <li class="profileimagemobile">
-         @if($artistProfile[0]->profilepicture)
+         @if(array_key_exists(0,$artistProfile) && $artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
           @else
  
