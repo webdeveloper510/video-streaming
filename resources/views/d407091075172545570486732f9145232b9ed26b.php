@@ -1,4 +1,4 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class=" support">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -19,20 +19,20 @@
        
       <div class="row">
 
-        @foreach($social_info as $info)
+        <?php $__currentLoopData = $social_info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
           <div class="col-md-12">
             <div class="row">
                 <div class="col-md-8">
                     <div class="delete">
-                       <h3> {{$info->nickname}}</h3>
+                       <h3> <?php echo e($info->nickname); ?></h3>
                        <div class="text-right">
                           <button class="btn btn-outline-succes" type="button">Delete</button>
                        </div>
                     </div>
                     <div class="post">
                          <h3>Description for the Post :</h3>
-                         <p>{{$info->description}}</p>
+                         <p><?php echo e($info->description); ?></p>
                          <div class="text-right">
                              <button class="btn btn-outline-primary" type="button">Copy</button>
                          </div>
@@ -42,7 +42,7 @@
                      <div class="soc">
                        <div class="mp4">
                          <video width="320" height="240" controls>
-                            <source src="{{url('storage/app/public/video/'.$info->media) }}" type="video/mp4">
+                            <source src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" type="video/mp4">
                             Your browser does not support the video tag.
                          </video>
                          <div class="text-right">
@@ -51,8 +51,8 @@
                        </div>
                        <div class="accounts">
                              <h3> Social Accounts :</h3>
-                             <h5> Instagram {{$info->username}}</h5>
-                             <h5> Twitter {{$info->username}}</h5>
+                             <h5> Instagram <?php echo e($info->username); ?></h5>
+                             <h5> Twitter <?php echo e($info->username); ?></h5>
                              <div class="text-right">
                                   <button class="btn btn-primary" type="button">Copy</button>
                              </div>
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
        
       </div>
   </div>
@@ -156,4 +156,5 @@ li.nav-item a {
 
 
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/support1.blade.php ENDPATH**/ ?>

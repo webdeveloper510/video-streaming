@@ -504,11 +504,7 @@ class AuthController extends Controller
     return view('artistRegister');
 
   }
-  public function support1(){
-
-    return view('support1');
-
-  }
+ 
 
     public function contentForm(){
 

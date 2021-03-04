@@ -662,6 +662,8 @@ class artist extends Controller
         $data['media']=$fileName;
         $data['description'] = $data['description'] ? $data['description'] : '';
         $data['username'] = $data['username'] ? $data['username'] : '';
+        $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
+
         
           if($filePath){
 
@@ -690,6 +692,14 @@ class artist extends Controller
               $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
 
               return $updateInfo;
+
+  }
+
+  public function showSocialMedia(){
+
+      $social = $this->model->getSocialInfo();
+
+    return view('artists.support1',['social_info'=>$social]);
 
   }
 
