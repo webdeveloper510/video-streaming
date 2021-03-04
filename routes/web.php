@@ -213,7 +213,7 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
-    Route::get('artist/Profile', 'artist@profile')->middleware('contentAuth');
+    Route::get('artist/Profile/{text?}', 'artist@profile')->middleware('contentAuth');
 
     Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
 

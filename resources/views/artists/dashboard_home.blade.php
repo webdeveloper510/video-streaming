@@ -110,11 +110,12 @@
     </div>
    
     <div class="col-md-3">
-   
+   <a href="{{url('artist/Profile/collection')}}">
     <div class="columesdashboard3">
            <h1>{{$totalCollection ? $totalCollection : 0}}</h1>
            <h4 class="text-center">Collection Items  </h4>
-        </div>     
+        </div>  
+        </a>   
     </div>
 </div>
 

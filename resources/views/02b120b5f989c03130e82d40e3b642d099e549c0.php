@@ -3,6 +3,8 @@
 
         <div class="alert alert-success" id="success" style="display:none">
         </div>
+        <div class="alert alert-danger"  style="display:none">
+        </div>
  
            
          
@@ -93,8 +95,8 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5">
-            <label>Quality:</label>
-            <select name="quality" class="form-control" id="quality">
+            <label class="convert">Quality:</label>
+            <select name="quality" class="form-control convert" id="quality">
                     <option value="">Choose ...</option>
                     <option value="480">480p  </option>
                     <option value="720">HD 720p </option>
@@ -138,15 +140,19 @@
             </select>
             <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
-                 <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
-            
-                <?php echo e(Form::file('media',['class'=>'form-control','id'=>'file_input'])); ?>
+ <br>
+               <?php echo e(Form::file('media',['class'=>'form-control','id'=>'file_input'])); ?>
 
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
                 </div>
                 <?php endif; ?>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
+            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
+
+            </div>
                 <span id="filename" style="color:red;"></span>
                <br>
               <video width="200" id="video_choose" controls style="display:none;">

@@ -88,7 +88,7 @@
   <div class="container-fluid">
   <div class="row">
  
-  @foreach($social_info as $info)
+  @foreach($social_audio as $info)
   
    <div class="col-md-12">
      <div class="row">
@@ -113,7 +113,7 @@
               <div class="soc">
                 <div class="mp4">
                   <audio  width="50%" controls>
-                  <source src="{{url('storage/app/public/video/'.$info->media) }}" type="audio/mp3">
+                  <source src="{{url('storage/app/public/audio/'.$info->media) }}" type="audio/mp3">
                              Your browser does not support the video tag.
                   </audio >
                   <div class="text-right Delete">
@@ -145,7 +145,7 @@
 <div class="container-fluid">
   <div class="row">
  
-  @foreach($social_info as $info)
+  @foreach($social_image as $info)
   
    <div class="col-md-12">
      <div class="row">
@@ -170,7 +170,7 @@
               <div class="soc">
                 <div class="mp4">
                   
-                  <img src="{{url('storage/app/public/video/'.$info->media) }}" class="img-fluid">
+                  <img src="{{url('storage/app/public/uploads/'.$info->media) }}" class="img-fluid">
                          
                   <div class="text-right Delete">
                       <button class="btn btn-outline-primary" type="button">Delete</button>
