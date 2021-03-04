@@ -128,7 +128,7 @@
               <hr>
           <div class="row">
                 <div class="col-md-4">
-                  <button class="btn btn-info send_time" type="button" value='1+2' style="{{$count_time_fame['1+2']=='6' ? 'color:grey' : ''}}">Week 1+2</button>
+                  <button class="btn btn-info send_time" type="button" value='1+2' style="{{array_key_exists('1+2',$count_time_fame) && $count_time_fame['1+2']=='6' ? 'color:grey' : ''}}">Week 1+2</button>
                   <button class="btn btn-info send_time" type="button" value='3+4' style="{{array_key_exists('3+4',$count_time_fame) && $count_time_fame['3+4']=='6' ? 'color:grey' : ''}}">Week 3+4</button>
                   <button class="btn btn-info send_time" type="button" value='5+6' style="{{array_key_exists('5+6',$count_time_fame) && $count_time_fame['5+6']=='6' ? 'color:grey' : ''}}">Week 5+6</button>
                   <button class="btn btn-info send_time" type="button" value='7+8' style="{{array_key_exists('7+8',$count_time_fame) && $count_time_fame['7+8']=='6' ? 'color:grey' : ''}}">Week 7+8</button>
