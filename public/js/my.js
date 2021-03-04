@@ -376,6 +376,49 @@ $(document).on('click', '.create_list', function () {
 
 });
 
+
+$(document).on('click', '.create_list', function () {
+	var listname= $('.list').val();
+
+	//console.log(listname);return false;
+	$.ajax({
+				type: 'POST',
+			    url:APP_URL+"/createList",
+				 headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+               },
+
+				data: {"listname": listname},
+
+				success: function(data){
+
+					//console.log(data);return false;
+					
+					if(data.status==1){
+
+						alert('List Created Successfully!');
+
+						location.reload();
+						// $('.message').show();
+						// // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
+						//  $('.message').html(data.message);
+						 //$('.list').val('');
+
+					}
+
+					else{
+							$('.message').show();
+
+						$('.message').html(data.message);
+					}
+
+						
+					
+				}
+		});
+
+});
+
 $(document).on('click', '.addNow', function () {
 	var token= $('.token').val();
 	var videoid= $('#vidid').val();
@@ -1145,6 +1188,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 });
 
 
+
 $(document).ready(function(){
 
 	// Delete 
@@ -1226,17 +1270,7 @@ function addTohistory(type){
 
 }
 
-// function change_other(){
-// 			//var x =[];
-// 		$('.edittable').each(function(index, obj)
-// 		{
-// 			var text = $(this).text();
-// 			$(this).html("<input type='text' value='"+text+">'");
-// 		    //x.push($(this).text());
-// 		});
 
-// 		//console.log(x);
-// }
 
 $('.image').click(function(){
 	var image_type = $(this).attr('data-id');
