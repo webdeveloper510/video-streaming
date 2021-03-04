@@ -128,7 +128,7 @@
             
              <div class="col-md-12 pt-3">
             {{Form::label('ABOUT ME', 'ABOUT ME')}} 
-                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])}}
+                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','cols' => 30])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('aboutme') ?>
