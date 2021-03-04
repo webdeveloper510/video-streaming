@@ -121,19 +121,19 @@
 
 <div class="row">
 <div class="col-md-12">
-         <div class="card">
+         <div class="card" style="<?php echo e($existTimeFrame==1 ? 'display:none': 'display:block'); ?>">
              <div class="week">
              <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
               on the landingpage and on the customer homepage for free</h5>
               <hr>
           <div class="row">
-             <div class="col-md-4">
-              <button class="btn btn-info" type="button" value='1+2'>Week 1+2</button>
-              <button class="btn btn-info" type="button" value='3+4'>Week 3+4</button>
-              <button class="btn btn-info" type="button" value='5+6'>Week 5+6</button>
-              <button class="btn btn-info" type="button" value='7+8'>Week 7+8</button>
-            
-             </div>
+                <div class="col-md-4">
+                  <button class="btn btn-info send_time" type="button" value='1+2'>Week 1+2</button>
+                  <button class="btn btn-info send_time" type="button" value='3+4'>Week 3+4</button>
+                  <button class="btn btn-info send_time" type="button" value='5+6'>Week 5+6</button>
+                  <button class="btn btn-info send_time" type="button" value='7+8'>Week 7+8</button>
+                
+                </div>
              <div class="col-md-4">
              <button class="btn btn-info" type="button">Week 9+10</button>
              <button class="btn btn-info" type="button">Week 11+12</button>

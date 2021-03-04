@@ -376,6 +376,10 @@ $(document).on('click', '.create_list', function () {
 
 });
 
+$(document).on('click', '.send_time', function () {
+
+			$('#timeframe').val($(this).val());
+})
 
 $(document).on('click', '#timeFrame', function () {
 	var timeframe= $('#timeframe').val();
@@ -390,9 +394,16 @@ $(document).on('click', '#timeFrame', function () {
 
 				success: function(data){
 
-					console.log(data);return false;
-					
-					
+					//console.log(data);return false;
+
+					if(data==1){
+
+						location.reload();
+					}
+
+					else{
+						alert('Some Error Occure');
+					}
 
 						
 					
