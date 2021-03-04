@@ -30,12 +30,9 @@
    
         </div>
   
-        <!-- @foreach($errors->all() as $error)
-          <div class="alert alert-danger">
-        {{$error}}
-        </div> -->
       
-        @endforeach
+      
+  
   {!!Form::open(['id'=>'myForm','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
           
