@@ -922,12 +922,15 @@ public function getRespectedSub($data){
       $data['created_at'] = now();
       $data['updated_at'] = now();
        $data['by_created']=1;
+       $data['quality'] = $data['quality'] ? $data['quality'] : '';
 
 
       $data['artistid'] = $userid;
       $data['userdescription'] = '';
 
       $data['userid'] =0;
+
+      //print_r($data);die;
 
 
         $insert = DB::table('offer')->insert($data);
@@ -2308,11 +2311,12 @@ public function update_due_to_process($data){
 }
 
 
-public function getSocialInfo(){
+public function getSocialInfo($type){
 
          $data =  DB::table('social_media')
           ->leftjoin('contentprovider', 'contentprovider.id', '=','social_media.artist_id')
           ->select('contentprovider.nickname', 'social_media.*')
+          ->where('social_media.type',$type)
           ->get()->toArray();
             
           return $data;

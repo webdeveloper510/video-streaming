@@ -19,7 +19,7 @@
        
       <div class="row">
 
-        @foreach($social_info as $info)
+        @foreach($social_video as $info)
          
           <div class="col-md-12">
             <div class="row">

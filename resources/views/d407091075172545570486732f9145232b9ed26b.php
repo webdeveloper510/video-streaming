@@ -19,7 +19,7 @@
        
       <div class="row">
 
-        <?php $__currentLoopData = $social_info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $social_video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
           <div class="col-md-12">
             <div class="row">

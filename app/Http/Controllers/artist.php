@@ -325,6 +325,8 @@ class artist extends Controller
 
   public function createOffer(Request $req){
 
+    
+
 
           $validator = \Validator::make($req->all(), [
             'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
@@ -332,12 +334,14 @@ class artist extends Controller
             'offer_status'=>'required',
             'delieveryspeed'=>'required',
             'additional_price'=>'required',
-            'quality'=>'required',
+            'quality'=>$req->type=='video'? 'required': '',
             'delieveryspeed'=>'required',
             'description'=>'required|max:2000',
             'category'=>'required',
             'price'=>'required|max:50000'
         ]);
+
+        //print_r($req->all());die;
               
         if ($validator->fails())
         {
@@ -345,19 +349,22 @@ class artist extends Controller
         }
 
    
-
+         
 
         if($req->media){
 
             $data=$req->all();
               $fileName = time().'_'.$req->media->getClientOriginalName();
               $ext =$req->media->getClientOriginalExtension();
+              $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():'';
+              $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'): '';
               $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
 
               unset($data['_token']);
               $data['media']=$fileName;
               $data['categoryid']=$req->category;
               $data['type']=  $data['type'];
+              $data['audio_pic'] = $audio_pics;
                 if($filePath){
 
                 $createOffer = $this->model->createOffer($data);
@@ -697,9 +704,11 @@ class artist extends Controller
 
   public function showSocialMedia(){
 
-      $social = $this->model->getSocialInfo();
+      $socialVideo = $this->model->getSocialInfo('video');
+      $socialAudio = $this->model->getSocialInfo('audio');
+      $socialImage = $this->model->getSocialInfo('image');
 
-    return view('artists.support1',['social_info'=>$social]);
+    return view('artists.support1',['social_video'=>$socialVideo,'social_audio'=>$socialAudio,'social_image'=>$socialImage]);
 
   }
 

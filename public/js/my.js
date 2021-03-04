@@ -270,7 +270,7 @@ function readURL(input) {
 
 	var extension = filepath.split('.')[1];
 
-	if(extension=='mp4' && radio_checked!='video'){
+	if(extension!='mp3' && radio_checked!='video'){
 
 		document.getElementById('filename').textContent='Please Select Audio File';
 
@@ -278,7 +278,7 @@ function readURL(input) {
 
 	}
 
-	else if(extension=='mp3' && radio_checked!='audio'){
+	else if(extension!='mp4' && radio_checked!='audio'){
 
 		document.getElementById('filename').textContent='Please Select Video File';
 
@@ -1657,6 +1657,8 @@ function getPaz(a){
 
 
 $(document).on('click','.select_media_pic',function(){
+
+	//alert('hello');return false;
 		
 			var value = $(this).val();
 
@@ -1782,6 +1784,8 @@ $(document).on('submit', '#create_offer', function (event) {
 		},
 
 			success: function(data){
+
+				console.log(data);
 
 				if(data.errors){
 
