@@ -1,6 +1,8 @@
+
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<section class=" support">
+
+<section class=" support1">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
     <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Video Files</a>
@@ -38,94 +40,162 @@
                          </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                     <div class="soc">
-                       <div class="mp4">
-                         <video width="320" height="240" controls>
-                            <source src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" type="video/mp4">
-                            Your browser does not support the video tag.
-                         </video>
-                         <div class="text-right">
-                             <button class="btn btn-outline-primary" type="button">Delete</button>
-                         </div>
-                       </div>
-                       <div class="accounts">
-                             <h3> Social Accounts :</h3>
-                             <h5> Instagram <?php echo e($info->username); ?></h5>
-                             <h5> Twitter <?php echo e($info->username); ?></h5>
-                             <div class="text-right">
-                                  <button class="btn btn-primary" type="button">Copy</button>
-                             </div>
-                       </div>
-
-                     </div>
+             </div>
+             <div class="post">
+                  <h3>Description for the Post :</h3>
+                 
+                  <p><?php echo e($info->description); ?></p>
+                  <div class="text-right mr-2">
+                      <button class="btn btn-outline-primary" type="button">Copy</button>
+                  </div>
+             </div>
+         </div>
+         <div class="col-md-4">
+              <div class="soc">
+                <div class="mp4">
+                  <video width="50%" controls>
+                  <source src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" type="video/mp4">
+                             Your browser does not support the video tag.
+                  </video>
+                  <div class="text-right Delete">
+                      <button class="btn btn-outline-primary" type="button">Delete</button>
+                  </div>
                 </div>
-            </div>
-        </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-       
-      </div>
-  </div>
+                <hr>
+                <div class="accounts">
+                      <h3> Social Accounts :</h3>
+                      <h5> Instagram <?php echo e($info->username); ?></h5>
+                      <br>
+                      <h5> Twitter <?php echo e($info->username); ?></h5>
+                      <div class="text-right my-3">
+                           <button class="btn btn-primary" type="button">Copy</button>
+                      </div>
+                </div>
 
+              </div>
+         </div>
+     </div>
+ </div>
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+</div>
+</div>
+
+  
   <!--------- tickets tab------------------------------------------>
 
   <div class="tab-pane fade" id="pills-audio" role="tabpanel" aria-labelledby="pills-audio-tab">
+  <div class="container-fluid">
   <div class="row">
-          <div class="col"></div>
-          <div class="col-md-8">
-   <div class="opentickettext">
-       <div class="row">
-       <a href="#" data-toggle="modal" data-target="#chat">
-            <div class="col-9">
-               <h3>#34567893 - Technical Issue</h3>
-               <p>Last Updated: Monday,21.march,2021(15:03)</p>
-
-            </div>
-            </a>
-            <div class="col-3 mt-4">
-                
-               <button type="button" class="btn btn-primary">Open</button>
-               <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
-            </div>
-            <!-- Button trigger modal -->
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="chat1">
-                         <p>hello</p>
-
-                         <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Message" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" ><i class="material-icons"id="button-addon2">send</i></button>
-                    </div>
-                    </div>
-
-                        </div>
-                    </div>
-                    
-                    </div>
+ 
+  <?php $__currentLoopData = $social_audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  
+   <div class="col-md-12">
+     <div class="row">
+         <div class="col-md-8">
+             <div class="delete1">
+               
+                <h3> <?php echo e($info->nickname); ?></h3>
+                <div class="text-right artistname">
+                   <button class="btn btn-outline-succes" type="button">Delete</button>
                 </div>
+             </div>
+             <div class="post">
+                  <h3>Description for the Post :</h3>
+                 
+                  <p><?php echo e($info->description); ?></p>
+                  <div class="text-right mr-2">
+                      <button class="btn btn-outline-primary" type="button">Copy</button>
+                  </div>
+             </div>
+         </div>
+         <div class="col-md-4">
+              <div class="soc">
+                <div class="mp4">
+                  <audio  width="50%" controls>
+                  <source src="<?php echo e(url('storage/app/public/audio/'.$info->media)); ?>" type="audio/mp3">
+                             Your browser does not support the video tag.
+                  </audio >
+                  <div class="text-right Delete">
+                      <button class="btn btn-outline-primary" type="button">Delete</button>
+                  </div>
+                </div>
+                <hr>
+                <div class="accounts">
+                      <h3> Social Accounts :</h3>
+                      <h5> Instagram <?php echo e($info->username); ?></h5>
+                      <br>
+                      <h5> Twitter <?php echo e($info->username); ?></h5>
+                      <div class="text-right my-3">
+                           <button class="btn btn-primary" type="button">Copy</button>
+                      </div>
                 </div>
 
-
-        </div>   
-        <hr>   
-
-    </div>
+              </div>
+         </div>
+     </div>
+ </div>
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
-<div class="col"></div>
 </div>
-
 
 </div>
 
+<div class="tab-pane fade " id="pills-images" role="tabpanel" aria-labelledby="pills-images-tab">
+<div class="container-fluid">
+  <div class="row">
+ 
+  <?php $__currentLoopData = $social_image; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  
+   <div class="col-md-12">
+     <div class="row">
+         <div class="col-md-8">
+             <div class="delete1">
+               
+                <h3> <?php echo e($info->nickname); ?></h3>
+                <div class="text-right artistname">
+                   <button class="btn btn-outline-succes" type="button">Delete</button>
+                </div>
+             </div>
+             <div class="post">
+                  <h3>Description for the Post :</h3>
+                 
+                  <p><?php echo e($info->description); ?></p>
+                  <div class="text-right mr-2">
+                      <button class="btn btn-outline-primary" type="button">Copy</button>
+                  </div>
+             </div>
+         </div>
+         <div class="col-md-4">
+              <div class="soc">
+                <div class="mp4">
+                  
+                  <img src="<?php echo e(url('storage/app/public/uploads/'.$info->media)); ?>" class="img-fluid">
+                         
+                  <div class="text-right Delete">
+                      <button class="btn btn-outline-primary" type="button">Delete</button>
+                  </div>
+                </div>
+                <hr>
+                <div class="accounts">
+                      <h3> Social Accounts :</h3>
+                      <h5> Instagram <?php echo e($info->username); ?></h5>
+                      <br>
+                      <h5> Twitter <?php echo e($info->username); ?></h5>
+                      <div class="text-right my-3">
+                           <button class="btn btn-primary" type="button">Copy</button>
+                      </div>
+                </div>
 
-  </div>
+              </div>
+         </div>
+     </div>
+ </div>
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+</div>
+
+</div>
  
 </div>
 
@@ -135,8 +205,13 @@
 
 
 <style>
-    section.support {
-    margin-top: 10%;
+ section.support1 {
+    margin-top: 10px;
+}
+
+li.nav-item {
+    width: 33.33%;
+    text-align: center;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #1d0101;
@@ -150,11 +225,48 @@ ul#pills-tab {
 li.nav-item a {
     color: white;
 }
+.text-right.Delete {
+    position: absolute;
+    right: 25px;
+    top: 39px;
+}
+.text-right.artistname {
+    position: absolute;
+    right: 21px;
+    top: 12px;
+}
+.delete1 {
+  
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
 
+.delete1 h3 {
+    padding-top: 13px;
+}
+
+.post {
+    padding-top: 12px;
+}
+
+.post p {
+    padding-left: 60px;
+}
+
+
+
+.col-md-8 {
+    border: 1px solid;
+    padding: 0px;
+}
+
+.col-md-4 {
+    border: 1px solid;
+    padding: 10px;
+}
 </style>
 
-
-
-
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/support1.blade.php ENDPATH**/ ?>
