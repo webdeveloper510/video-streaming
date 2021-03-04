@@ -89,7 +89,7 @@
 
 
             <div class="col-md-6 pt-3 hide" >
-            {{Form::label('Tits Size', 'Tits Size')}} 
+            {{Form::label('Choose  Size', 'Choose  Size')}} 
                 {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
                 @if(session('errors'))
                 <div class="alert alert-danger">
@@ -99,8 +99,8 @@
             </div>
         
             <div class="col-md-6 pt-3 hide">
-            {{Form::label('Ass', 'Ass')}} 
-                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
+            {{Form::label('Choose Size', 'Choose Size')}} 
+                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('ass') ?>
