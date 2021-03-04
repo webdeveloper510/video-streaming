@@ -712,6 +712,7 @@ class artist extends Controller
 
       $socialVideo = $this->model->getSocialInfo('video');
       $socialAudio = $this->model->getSocialInfo('audio');
+     // print_r($socialAudio);die;
       $socialImage = $this->model->getSocialInfo('image');
 
     return view('artists.support1',['social_video'=>$socialVideo,'social_audio'=>$socialAudio,'social_image'=>$socialImage]);

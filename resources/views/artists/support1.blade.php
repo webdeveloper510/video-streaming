@@ -31,7 +31,6 @@
                        <div class="text-right">
                           <button class="btn btn-outline-succes" type="button">Delete</button>
                        </div>
-                    </div>
                     <div class="post">
                          <h3>Description for the Post :</h3>
                          <p>{{$info->description}}</p>
@@ -40,15 +39,6 @@
                          </div>
                     </div>
                 </div>
-             </div>
-             <div class="post">
-                  <h3>Description for the Post :</h3>
-                 
-                  <p>{{$info->description}}</p>
-                  <div class="text-right mr-2">
-                      <button class="btn btn-outline-primary" type="button">Copy</button>
-                  </div>
-             </div>
          </div>
          <div class="col-md-4">
               <div class="soc">
@@ -75,11 +65,12 @@
               </div>
          </div>
      </div>
- </div>
+     </div>
  @endforeach
 </div>
 </div>
 </div>
+
 
   
   <!--------- tickets tab------------------------------------------>
