@@ -1800,6 +1800,10 @@ $(document).on('submit', '#create_offer', function (event) {
 					 $('#success').show();
 					 $('#success').html(data.messge);
 
+					 setTimeout(function(){
+						 location.reload()
+					 },2000);
+
 					 //location.reload();
 					//$('.popup_close').trigger('click');
 						

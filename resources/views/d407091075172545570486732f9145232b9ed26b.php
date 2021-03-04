@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-@include('artists.dashboard')
-=======
-@include('layouts.header')
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class=" support">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -22,32 +18,21 @@
   <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
        
       <div class="row">
-<<<<<<< HEAD
-=======
 
-        @foreach($social_info as $info)
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+        <?php $__currentLoopData = $social_info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
           <div class="col-md-12">
             <div class="row">
                 <div class="col-md-8">
                     <div class="delete">
-<<<<<<< HEAD
-                       <h3> artistnamexyz</h3>
-=======
-                       <h3> {{$info->nickname}}</h3>
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+                       <h3> <?php echo e($info->nickname); ?></h3>
                        <div class="text-right">
                           <button class="btn btn-outline-succes" type="button">Delete</button>
                        </div>
                     </div>
                     <div class="post">
                          <h3>Description for the Post :</h3>
-<<<<<<< HEAD
-                         <p>sdkjhsdgvhdsgvjhdsbvhjbdsvjbjds</p>
-=======
-                         <p>{{$info->description}}</p>
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+                         <p><?php echo e($info->description); ?></p>
                          <div class="text-right">
                              <button class="btn btn-outline-primary" type="button">Copy</button>
                          </div>
@@ -57,12 +42,7 @@
                      <div class="soc">
                        <div class="mp4">
                          <video width="320" height="240" controls>
-<<<<<<< HEAD
-                            <source src="movie.mp4" type="video/mp4">
-                            <source src="movie.ogg" type="video/ogg">
-=======
-                            <source src="{{url('storage/app/public/video/'.$info->media) }}" type="video/mp4">
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+                            <source src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" type="video/mp4">
                             Your browser does not support the video tag.
                          </video>
                          <div class="text-right">
@@ -71,13 +51,8 @@
                        </div>
                        <div class="accounts">
                              <h3> Social Accounts :</h3>
-<<<<<<< HEAD
-                             <h5> Instagram Accountname</h5>
-                             <h5> Twitter Accountname</h5>
-=======
-                             <h5> Instagram {{$info->username}}</h5>
-                             <h5> Twitter {{$info->username}}</h5>
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+                             <h5> Instagram <?php echo e($info->username); ?></h5>
+                             <h5> Twitter <?php echo e($info->username); ?></h5>
                              <div class="text-right">
                                   <button class="btn btn-primary" type="button">Copy</button>
                              </div>
@@ -87,10 +62,7 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-=======
-        @endforeach
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
        
       </div>
   </div>
@@ -184,8 +156,5 @@ li.nav-item a {
 
 
 
-<<<<<<< HEAD
-@include('artists.dashboard_footer');
-=======
-@include('layouts.footer')
->>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/support1.blade.php ENDPATH**/ ?>

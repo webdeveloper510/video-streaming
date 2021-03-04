@@ -2309,6 +2309,17 @@ public function update_due_to_process($data){
 }
 
 
+public function getSocialInfo(){
+
+         $data =  DB::table('social_media')
+          ->leftjoin('contentprovider', 'contentprovider.id', '=','social_media.artist_id')
+          ->select('contentprovider.nickname', 'social_media.*')
+          ->get()->toArray();
+            
+          return $data;
+
+}
+
     public function deleteoffer($data){
 
      return DB::table('offer')->where('id', $data['id'])->delete();
