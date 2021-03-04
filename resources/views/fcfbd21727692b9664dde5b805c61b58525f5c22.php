@@ -620,4 +620,4 @@ rewindNav:false
 })
 </script-->
 
-<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>

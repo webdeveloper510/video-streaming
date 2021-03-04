@@ -1,4 +1,6 @@
+
 @include('layouts.header')
+
 
 <section class=" support1">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -17,6 +19,7 @@
     <!--------- Open  ticket tab------------------------------------------>
   <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
        
+
   <div class="container-fluid">
   <div class="row">
  
@@ -70,8 +73,9 @@
  @endforeach
 </div>
 </div>
-
 </div>
+
+  
   <!--------- tickets tab------------------------------------------>
 
   <div class="tab-pane fade" id="pills-audio" role="tabpanel" aria-labelledby="pills-audio-tab">
@@ -257,7 +261,5 @@ li.nav-item a {
 }
 </style>
 
-
-
-
 @include('layouts.footer')
+

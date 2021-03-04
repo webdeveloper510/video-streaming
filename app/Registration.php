@@ -874,9 +874,10 @@ public function getRespectedSub($data){
               'quality'=>$data['quality'],
               'media'=>$data['media'],
            );
+           //print_r($update);die;
 
            $update = $this->UpdateData('offer','id',$update,$data['offerid']);
-
+           
 
            return $update ? 1 : 0;
     }
@@ -2342,9 +2343,6 @@ public function getSocialInfo(){
       return $random;
 
     }
-
-
-
 
     public function UpdateData($table,$key,$data,$where){
 

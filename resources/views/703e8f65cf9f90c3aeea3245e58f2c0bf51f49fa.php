@@ -159,32 +159,6 @@
     <div class="card" style=" height: 370px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
-
-             <div class="card-body pb-1">
-             <?php echo e(Form::label('First Name', 'First Name')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter name'])); ?>
-
-                <?php echo e(Form::label('Country', 'Country')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Country'])); ?>
-
-                <?php echo e(Form::label('Date of Birth', 'Date of Birth')); ?> 
-                <input type="date" class="form-control" />
-                <h5 class="card-title">Email : example@gmail.com</h5>
-                <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
-              </div>
-              </div>
-              <div class="card-body pb-1 " style="display:none;">
-                <h5 class="card-title">First Name : artist Name </h5><br>
-                <h5 class="card-title">Country : USA </h5><br>
-                <h5 class="card-title"> Date of Birth : 05.02.1994 </h5><br>
-               
-                <h5 class="card-title">Email : example@gmail.com</h5>
-                <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
-              </div>
-            </div>
-
              <?php if($personal_info[0]->firstname==''): ?>
              <div class="card-body pb-1">
                  <?php echo Form::open(['action' => 'AuthController@personal_info', 'method' => 'post']); ?>
@@ -856,4 +830,4 @@ h5.customer1.text-center.pt-3.pl-3 {
 
 </style>
 
-<?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/dashboard_home.blade.php ENDPATH**/ ?>

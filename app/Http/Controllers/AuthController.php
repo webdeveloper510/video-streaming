@@ -506,6 +506,8 @@ class AuthController extends Controller
   }
  
 
+
+
     public function contentForm(){
 
        $tab='artist_info';
