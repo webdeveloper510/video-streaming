@@ -378,6 +378,8 @@ $(document).on('click', '.create_list', function () {
 
 $(document).on('click', '.send_time', function () {
 
+	$(this).addClass('btn btn-success').removeClass('btn-info');
+
 			$('#timeframe').val($(this).val());
 })
 

@@ -2355,6 +2355,12 @@ public function getSocialInfo($type){
           return DB::table('timeframe')->insert($data);
     }
 
+    public function getAllData($table){
+
+      return DB::table($table)->pluck('timeframe')->toArray();
+
+    } 
+
     public function UpdateData($table,$key,$data,$where){
 
     
