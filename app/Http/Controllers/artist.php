@@ -219,6 +219,7 @@ class artist extends Controller
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
 
+
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
         return redirect('artist/edit');
@@ -235,6 +236,10 @@ class artist extends Controller
        $dayDiffernce = $this->model->getDayDiffrence();
 
       $count_social_media = $this->model->getSocialMediaCount();
+
+      $existTimeFrame = $this->model->selectDataById('artist_id','timeframe',$contentType->id);
+
+          //print_r(count($existTimeFrame));die;
 
       $count_process_offer = $this->model->count_process_orders('add_request');
 
@@ -265,7 +270,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -720,7 +725,20 @@ class artist extends Controller
   }
 
   public function sendTimeFrame(Request $req){
-        print_r($req->all());
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+    $req['created_at']=now();
+    $req['updated_at']=now();
+    $req['artist_id']=$userid;
+
+    
+        
+    $timeFrame = $this->model->insert_data($req->all());
+
+        return $timeFrame;
   }
 
   }

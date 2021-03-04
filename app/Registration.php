@@ -2348,6 +2348,13 @@ public function getSocialInfo($type){
 
     }
 
+    public function insert_data($data){
+
+      //print_r($data);die;
+
+          return DB::table('timeframe')->insert($data);
+    }
+
     public function UpdateData($table,$key,$data,$where){
 
     
