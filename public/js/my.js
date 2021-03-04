@@ -244,12 +244,38 @@ $(document).ready(function() {
 		}
 		});
 
-$(document).on('change', '#file_input', function () {
+$(document).on('change', '.file_input', function () {
 
 
 	//alert('he;p');return false;
 	readURL(this);
 })
+
+$(document).on('change', '.chooseImage', function () {
+
+
+	//alert('he;p');return false;
+	readURL1(this);
+})
+
+function readURL1(input){
+
+	var filepath = input.value;
+
+	var extension = filepath.split('.')[1];
+
+	if(extension!='jpg'){
+
+		input.nextElementSibling.textContent = 'Please Select Image';
+
+
+	}
+
+	else{
+		input.nextElementSibling.textContent = input.files[0].name;
+	}
+
+}
 
 $(document).on('keyup change', '#change_duration', function () {
 //$("#change_duration").bind('keyup mouseup', function () {
@@ -270,9 +296,12 @@ function readURL(input) {
 
 	var extension = filepath.split('.')[1];
 
-	if(extension!='mp3' && radio_checked!='video'){
 
-		document.getElementById('filename').textContent='Please Select Audio File';
+	
+
+	  if(extension!='mp3' && radio_checked!='video'){
+
+		input.nextElementSibling.textContent = 'Please Select Audio File';
 
 		return false;
 
@@ -280,14 +309,17 @@ function readURL(input) {
 
 	else if(extension!='mp4' && radio_checked!='audio'){
 
-		document.getElementById('filename').textContent='Please Select Video File';
+		input.nextElementSibling.textContent = 'Please Select Video File';
+
+		//document.getElementById('filename').textContent='Please Select Video File';
 
 		   return false;
 
 	}
 
 	else{
-		document.getElementById('filename').textContent=input.files[0].name;
+		input.nextElementSibling.textContent = input.files[0].name;
+		//document.getElementById('filename').textContent=input.files[0].name;
 	}
 
 }

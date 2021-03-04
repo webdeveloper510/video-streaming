@@ -82,20 +82,21 @@
             </select>
             
             <div class="col-md-12 mt-3 text-white">
-            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+            <label class="media_label"></label>
+                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
-            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
-            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
+            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+            <label>Choose Image</label>        
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
+                <span id="filename" style="color:red;"></span>
             </div>
             </div>
             <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 8, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
 
             </div>
             <div class="row">

@@ -140,20 +140,23 @@
             </select>
             <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
- <br>
-               <?php echo e(Form::file('media',['class'=>'form-control','id'=>'file_input'])); ?>
 
+ <br>
+               <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
+
+               <span id="filename" style="color:red;"></span>
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
                 </div>
                 <?php endif; ?>
                 <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
-            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
+                <label>Choose Image</label>
+                <?php echo e(Form::file('audio_pic',['class'=>'form-control file_input'])); ?>
 
-            </div>
                 <span id="filename" style="color:red;"></span>
+            </div>
+                
                <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
@@ -168,7 +171,7 @@
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 20, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])); ?>
 
                  <?php if($errors->first('description')): ?>
                 <div class="alert alert-danger">

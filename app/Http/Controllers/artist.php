@@ -351,7 +351,10 @@ class artist extends Controller
             'delieveryspeed'=>'required',
             'description'=>'required|max:2000',
             'category'=>'required',
-            'price'=>'required|max:50000'
+            'price'=>'required|max:50000',
+            'min'=>'required|min:1',
+            'max'=>'required|gt:min'
+
         ]);
 
         //print_r($req->all());die;
