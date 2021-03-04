@@ -504,6 +504,7 @@ class AuthController extends Controller
     return view('artistRegister');
 
   }
+ 
 
 
 

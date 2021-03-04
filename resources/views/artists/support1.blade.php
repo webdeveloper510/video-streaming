@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @include('artists.dashboard')
+=======
+@include('layouts.header')
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
 @include('layouts.header')
 >>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
@@ -23,6 +27,11 @@
        
       <div class="row">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+        @foreach($social_info as $info)
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
 
         @foreach($social_info as $info)
@@ -33,7 +42,11 @@
                 <div class="col-md-8">
                     <div class="delete">
 <<<<<<< HEAD
+<<<<<<< HEAD
                        <h3> artistnamexyz</h3>
+=======
+                       <h3> {{$info->nickname}}</h3>
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
                        <h3> {{$info->nickname}}</h3>
 >>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
@@ -44,7 +57,11 @@
                     <div class="post">
                          <h3>Description for the Post :</h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
                          <p>sdkjhsdgvhdsgvjhdsbvhjbdsvjbjds</p>
+=======
+                         <p>{{$info->description}}</p>
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
                          <p>{{$info->description}}</p>
 >>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
@@ -58,8 +75,12 @@
                        <div class="mp4">
                          <video width="320" height="240" controls>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <source src="movie.mp4" type="video/mp4">
                             <source src="movie.ogg" type="video/ogg">
+=======
+                            <source src="{{url('storage/app/public/video/'.$info->media) }}" type="video/mp4">
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
                             <source src="{{url('storage/app/public/video/'.$info->media) }}" type="video/mp4">
 >>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
@@ -72,8 +93,13 @@
                        <div class="accounts">
                              <h3> Social Accounts :</h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
                              <h5> Instagram Accountname</h5>
                              <h5> Twitter Accountname</h5>
+=======
+                             <h5> Instagram {{$info->username}}</h5>
+                             <h5> Twitter {{$info->username}}</h5>
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
                              <h5> Instagram {{$info->username}}</h5>
                              <h5> Twitter {{$info->username}}</h5>
@@ -88,6 +114,10 @@
             </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        @endforeach
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
         @endforeach
 >>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
@@ -185,7 +215,11 @@ li.nav-item a {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @include('artists.dashboard_footer');
+=======
+@include('layouts.footer')
+>>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
 =======
 @include('layouts.footer')
 >>>>>>> 124e0379f7edccd1374a0462e0e5cc969c19f2d4
