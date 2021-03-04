@@ -39,7 +39,7 @@
             </div>
              <div class="col-md-6 pt-3">
             {{Form::label('Gender', 'Gender')}} <br>
-                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
+                 {{Form::radio('gender', 'male', false,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
                 {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female&nbsp;&nbsp;
                 {{Form::radio('gender', 'trans',false,['class'=>'rad_But'])}}Trans
                  @if(session('errors'))
@@ -50,7 +50,7 @@
 
             </div>
             <div class="col-md-6 pt-3">
-            {{Form::label('Privy part', 'Privy part')}} 
+            {{Form::label('Choose', 'Choose')}} 
                 {{Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Privy part'])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
@@ -78,7 +78,7 @@
             </div>
 
                <div class="col-md-6 pt-3">
-            {{Form::label('Sexology', 'Sexology')}} 
+            {{Form::label('Choose', 'Choose')}} 
                 {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
