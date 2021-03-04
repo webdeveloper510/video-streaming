@@ -45,7 +45,7 @@
             </div>
              <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Gender', 'Gender')); ?> <br>
-                 <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male&nbsp;&nbsp;
+                 <?php echo e(Form::radio('gender', 'male', false,['class'=>'rad_But'])); ?>Male&nbsp;&nbsp;
                 <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female&nbsp;&nbsp;
                 <?php echo e(Form::radio('gender', 'trans',false,['class'=>'rad_But'])); ?>Trans
                  <?php if(session('errors')): ?>
@@ -56,7 +56,7 @@
 
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
+            <?php echo e(Form::label('Choose', 'Choose')); ?> 
                 <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Privy part'])); ?>
 
                   <?php if(session('errors')): ?>
@@ -87,7 +87,7 @@
             </div>
 
                <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
+            <?php echo e(Form::label('Choose', 'Choose')); ?> 
                 <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])); ?>
 
                  <?php if(session('errors')): ?>
@@ -99,7 +99,7 @@
 
 
             <div class="col-md-6 pt-3 hide" >
-            <?php echo e(Form::label('Tits Size', 'Tits Size')); ?> 
+            <?php echo e(Form::label('Choose  Size', 'Choose  Size')); ?> 
                 <?php echo e(Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])); ?>
 
                 <?php if(session('errors')): ?>
@@ -110,8 +110,8 @@
             </div>
         
             <div class="col-md-6 pt-3 hide">
-            <?php echo e(Form::label('Ass', 'Ass')); ?> 
-                <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])); ?>
+            <?php echo e(Form::label('Choose Size', 'Choose Size')); ?> 
+                <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -142,7 +142,7 @@
             
              <div class="col-md-12 pt-3">
             <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
-                <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])); ?>
+                <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','cols' => 30])); ?>
 
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
