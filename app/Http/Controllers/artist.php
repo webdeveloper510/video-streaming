@@ -251,6 +251,14 @@ class artist extends Controller
 
       $totalCollection  =  $this->model->count_collection_items();
 
+        $getCountTimeFrame = $this->model->getAllData('timeframe');
+      
+       $counts = array_count_values($getCountTimeFrame);
+
+       
+
+        //  echo $counts['Ben'];
+
       //print_r($totalCollection);die;
 
       $getLevel= $this->model->getlevel();
@@ -270,7 +278,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
