@@ -137,13 +137,13 @@
             </div>
              <div class="col-md-6 pt-4 ">
             {{Form::label('Choose Profilepicture', 'Choose Profilepicture',['class'=>'custom-file-label'])}} 
-  {{Form::file('image',['class'=>'custom-file-input', 'class'=>'file_input'])}}
+  {{Form::file('image',['class'=>'custom-file-input chooseImage'])}}
   <span id="filename" style="color:red;"></span>
 </div>
 
 <div class="col-md-6 pt-4 ">
             {{Form::label('Choose Backgroundimage', 'Choose Backgroundimage',['class'=>'custom-file-label'])}} 
-  {{Form::file('cover_photo',['class'=>'custom-file-input', 'class'=>'file_input'])}}
+  {{Form::file('cover_photo',['class'=>'custom-file-input chooseImage'])}}
   <span id="filename" style="color:red;"></span>
 </div>
 

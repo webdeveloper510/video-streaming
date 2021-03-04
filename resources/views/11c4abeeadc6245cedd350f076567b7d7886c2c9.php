@@ -152,7 +152,7 @@
                 <?php endif; ?>
                 <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
                 <label>Choose Image</label>
-                <?php echo e(Form::file('audio_pic',['class'=>'form-control file_input'])); ?>
+                <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
