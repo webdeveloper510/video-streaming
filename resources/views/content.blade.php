@@ -128,7 +128,7 @@
             
              <div class="col-md-12 pt-3">
             {{Form::label('ABOUT ME', 'ABOUT ME')}} 
-                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','cols' => 30])}}
+                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','maxlength'=>'2000','cols' => 30])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('aboutme') ?>
@@ -136,10 +136,17 @@
                 @endif
             </div>
              <div class="col-md-6 pt-4 ">
-            {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-  {{Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])}}
+            {{Form::label('Choose Profilepicture', 'Choose Profilepicture',['class'=>'custom-file-label'])}} 
+  {{Form::file('image',['class'=>'custom-file-input', 'class'=>'file_input'])}}
   <span id="filename" style="color:red;"></span>
 </div>
+
+<div class="col-md-6 pt-4 ">
+            {{Form::label('Choose Backgroundimage', 'Choose Backgroundimage',['class'=>'custom-file-label'])}} 
+  {{Form::file('cover_photo',['class'=>'custom-file-input', 'class'=>'file_input'])}}
+  <span id="filename" style="color:red;"></span>
+</div>
+
 <div class="col-md-6 pt-2 text-center">
   <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
                   @if(session('errors'))

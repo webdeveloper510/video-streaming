@@ -531,6 +531,7 @@ class AuthController extends Controller
 
        $this->validate($request,[
         'image' => 'required|file',
+        'cover_photo'=>'required|file',
         'aboutme'=>'required',
         'sexology'=>'required',
         'ass'=>'sometimes|required',
@@ -547,12 +548,15 @@ class AuthController extends Controller
 
               $data=$request->all();  
               $fileName = time().'_'.$request->image->getClientOriginalName();
+              $cover_photo = time().'_'.$request->cover_photo->getClientOriginalName();
               $ext = $request->image->getClientOriginalExtension();
               $filePath = $request->image->storeAs('uploads', $fileName, 'public');
+              $filePath1 = $request->image->storeAs('uploads', $cover_photo, 'public');
               $data['image'] = '';
               unset($data['image']);
               unset($data['_token']);
               $data['profilepicture']=$fileName;
+              $data['cover_photo']=$cover_photo;
          if($filePath){          
               $update_data = $this->model->uploadContentData($data);
                 if($update_data){
@@ -568,11 +572,12 @@ class AuthController extends Controller
   public function providerContent(Request $request){
 
     $validator = \Validator::make($request->all(), [
-      'media' => $request->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
+      'media' => $request->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,webm':'required|mimes:mp3',
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
       'category'=>'required', 
+      'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png' : ''
   ]);
         
   if ($validator->fails())

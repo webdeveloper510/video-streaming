@@ -132,18 +132,21 @@
             </select>
             <br>
             <label>Sample Audio/Video/Image(Max 30s)</label>
+
  <br>
-               {{Form::file('media',['class'=>'form-control','id'=>'file_input'])}}
+               {{Form::file('media',['class'=>'form-control file_input'])}}
+               <span id="filename" style="color:red;"></span>
                  @if($errors->first('media'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
                 </div>
                 @endif
                 <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
-            {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
-                {{Form::file('audio_pic',['class'=>'custom-file-input'])}}
-            </div>
+                <label>Choose Image</label>
+                {{Form::file('audio_pic',['class'=>'form-control file_input'])}}
                 <span id="filename" style="color:red;"></span>
+            </div>
+                
                <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
@@ -158,7 +161,7 @@
               
             <div class="col-md-6 mt-5">
              {{Form::label('Description', 'Description')}} 
-                {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 20, 'cols' => 40])}}
+                {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])}}
                  @if($errors->first('description'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('description') ?>

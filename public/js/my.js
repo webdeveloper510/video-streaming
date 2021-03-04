@@ -244,12 +244,27 @@ $(document).ready(function() {
 		}
 		});
 
-$(document).on('change', '#file_input', function () {
+$(document).on('change', '.file_input', function () {
 
 
 	//alert('he;p');return false;
 	readURL(this);
 })
+
+$(document).on('change', '.chooseImage', function () {
+
+
+	//alert('he;p');return false;
+	readURL1(this);
+})
+
+function readURL1(input){
+
+	var filepath = input.value;
+
+	var extension = filepath.split('.')[1];
+
+}
 
 $(document).on('keyup change', '#change_duration', function () {
 //$("#change_duration").bind('keyup mouseup', function () {
@@ -270,7 +285,10 @@ function readURL(input) {
 
 	var extension = filepath.split('.')[1];
 
-	if(extension!='mp3' && radio_checked!='video'){
+
+	
+
+	  if(extension!='mp3' && radio_checked!='video'){
 
 		document.getElementById('filename').textContent='Please Select Audio File';
 
@@ -287,7 +305,8 @@ function readURL(input) {
 	}
 
 	else{
-		document.getElementById('filename').textContent=input.files[0].name;
+		input.nextElementSibling.textContent = input.files[0].name;
+		//document.getElementById('filename').textContent=input.files[0].name;
 	}
 
 }
