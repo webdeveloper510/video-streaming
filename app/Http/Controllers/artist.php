@@ -219,7 +219,7 @@ class artist extends Controller
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
 
-      if($info[0]->gender==''){
+      if(array_key_exists(0,$info) && $info[0]->gender==''){
 
         return redirect('artist/edit');
       }
