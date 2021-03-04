@@ -264,6 +264,17 @@ function readURL1(input){
 
 	var extension = filepath.split('.')[1];
 
+	if(extension!='jpg'){
+
+		input.nextElementSibling.textContent = 'Please Select Image';
+
+
+	}
+
+	else{
+		input.nextElementSibling.textContent = input.files[0].name;
+	}
+
 }
 
 $(document).on('keyup change', '#change_duration', function () {
@@ -290,7 +301,7 @@ function readURL(input) {
 
 	  if(extension!='mp3' && radio_checked!='video'){
 
-		document.getElementById('filename').textContent='Please Select Audio File';
+		input.nextElementSibling.textContent = 'Please Select Audio File';
 
 		return false;
 
@@ -298,7 +309,9 @@ function readURL(input) {
 
 	else if(extension!='mp4' && radio_checked!='audio'){
 
-		document.getElementById('filename').textContent='Please Select Video File';
+		input.nextElementSibling.textContent = 'Please Select Video File';
+
+		//document.getElementById('filename').textContent='Please Select Video File';
 
 		   return false;
 
