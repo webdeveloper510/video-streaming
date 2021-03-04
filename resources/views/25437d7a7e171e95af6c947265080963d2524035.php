@@ -128,10 +128,10 @@
               <hr>
           <div class="row">
              <div class="col-md-4">
-              <button class="btn btn-info" type="button">Week 1+2</button>
-              <button class="btn btn-info" type="button">Week 3+4</button>
-              <button class="btn btn-info" type="button">Week 5+6</button>
-              <button class="btn btn-info" type="button">Week 7+8</button>
+              <button class="btn btn-info" type="button" value='1+2'>Week 1+2</button>
+              <button class="btn btn-info" type="button" value='3+4'>Week 3+4</button>
+              <button class="btn btn-info" type="button" value='5+6'>Week 5+6</button>
+              <button class="btn btn-info" type="button" value='7+8'>Week 7+8</button>
             
              </div>
              <div class="col-md-4">
@@ -150,7 +150,8 @@
           </div>
           <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
           <div class="text-right">
-          <button class="btn btn-primary" type="button">Submit</button>
+          <input type="hidden" value="" id="timeframe"/>
+          <button class="btn btn-primary" type="button" id="timeFrame">Submit</button>
 
           </div>
             </div>
