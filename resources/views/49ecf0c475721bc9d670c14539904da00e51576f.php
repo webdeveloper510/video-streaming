@@ -386,7 +386,7 @@
                   <?php endif; ?>
                 </div>
                 
-                  <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?> </p>
+                  <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : '1'); ?> </p>
                   </div>
                 
                   

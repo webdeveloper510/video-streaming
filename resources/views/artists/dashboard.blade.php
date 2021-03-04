@@ -381,7 +381,7 @@
                   @endif
                 </div>
                 
-                  <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : 'Lvl1'}} </p>
+                  <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : '1'}} </p>
                   </div>
                 
                   
