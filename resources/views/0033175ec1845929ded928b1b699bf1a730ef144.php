@@ -455,12 +455,11 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
 
           <div class="row align-items-center text-white">   
-              <?php if(isset($random[0])): ?>
+      
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
-          </div>  
-          <?php endif; ?>  
+          </div>   
           <div class="col-md-6 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
@@ -546,7 +545,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Body', 'Body')); ?> 
-                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
+                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">

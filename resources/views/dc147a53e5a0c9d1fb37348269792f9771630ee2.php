@@ -23,14 +23,13 @@
 <link rel="stylesheet" href="<?php echo e(asset('design/style.css')); ?>" />
 
 <link rel="stylesheet" href="<?php echo e(asset('design/font-awesome.min.css')); ?>" />
-<!-- responsive css -->
 <link rel="stylesheet" href="<?php echo e(asset('design/responsive.css')); ?>" />
 <link rel="stylesheet" href="<?php echo e(asset('design/detailpage.css')); ?>" />
-<!-- colors css -->
-<!-- <link rel="stylesheet" href="<?php echo e(asset('design/colors1.css')); ?>" /> -->
-<!-- custom css -->
+
+<link rel="stylesheet" href="<?php echo e(asset('design/datatables.min.css')); ?>" />     
+
+
 <link rel="stylesheet" href="<?php echo e(asset('design/custom.css')); ?>" />
-<!-- wow Animation css -->
 <link rel="stylesheet" href="<?php echo e(asset('design/animate.css')); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/settings.css')); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/layers.css')); ?>" />
@@ -40,25 +39,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
-<!-- jQuery and JS bundle w/ Popper.js -->
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
-<script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+
+  <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+
+  <script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
+
+
+
 
  <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
+
+
 <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
-<script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
 
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-
-        crossorigin="anonymous">
-</script> -->
-
-<!-- menu js -->
 <script src="<?php echo e(asset('js/menumaker.js')); ?>"></script>
 <!-- wow animation -->
 <script src="<?php echo e(asset('js/wow.js')); ?>"></script>
