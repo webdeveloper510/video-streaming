@@ -200,6 +200,8 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artist/feed', 'artist@feed');
 
+    Route::get('artist/earning', 'artist@earning');
+
     Route::get('artist/my-offer', 'artist@myoffer');
 
     Route::get('artist/requests/{text?}', 'artist@showRequest')->middleware('contentAuth');

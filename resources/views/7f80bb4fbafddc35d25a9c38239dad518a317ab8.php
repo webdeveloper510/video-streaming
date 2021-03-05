@@ -1,4 +1,4 @@
-@include('artists.dashboard')
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <div class="earningpage">
 <div class="container-fluid">
@@ -59,4 +59,4 @@
 
 
 
-@include('artists.dashboard_footer')
+<?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/earning.blade.php ENDPATH**/ ?>
