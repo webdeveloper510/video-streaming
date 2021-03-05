@@ -300,7 +300,7 @@ Your browser does not support the audio tag.
       @foreach($details[0] as $key=>$profile)
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
             <div class="col-md-3">
-              <label><b>{{ucwords($key)}}</b></label>
+              <label><b>{{$key=='weight' ? ucwords('body'): ucwords($key)}}</b></label>
               <p class="edittable">{{$profile}}</p>
             </div>
           @endif
@@ -519,7 +519,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-6 pt-3">
             {{Form::label('Body', 'Body')}} 
-                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Average'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])}}
+                {{Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('weight') ?>
