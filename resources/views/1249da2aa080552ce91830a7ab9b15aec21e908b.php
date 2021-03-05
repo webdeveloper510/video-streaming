@@ -306,7 +306,7 @@ Your browser does not support the audio tag.
       <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
             <div class="col-md-3">
-              <label><b><?php echo e(ucwords($key)); ?></b></label>
+              <label><b><?php echo e($key=='weight' ? ucwords('body'): ucwords($key)); ?></b></label>
               <p class="edittable"><?php echo e($profile); ?></p>
             </div>
           <?php endif; ?>
@@ -545,8 +545,8 @@ Your browser does not support the audio tag.
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Weight', 'Weight')); ?> 
-                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
+            <?php echo e(Form::label('Body', 'Body')); ?> 
+                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
