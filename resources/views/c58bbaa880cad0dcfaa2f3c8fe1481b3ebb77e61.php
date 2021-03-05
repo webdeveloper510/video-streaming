@@ -1,19 +1,19 @@
-@include('layouts.header')
-<link rel="stylesheet" href="{{asset('design/artistDetail.css')}}" />
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
+          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
         </div>
         <div class="profileimg">
-        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
+        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
-            <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
-             <i class="fa fa-star" style="color:red;"></i>  {{isset($countSub[0]) ? $countSub[0] : 0}}  
-             <button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" data-toggle="modal" data-target="#Subscribe" id="subscribe" >Subscribe </button>
+            <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
+             <i class="fa fa-star" style="color:red;"></i>  <?php echo e(isset($countSub[0]) ? $countSub[0] : 0); ?>  
+             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" data-toggle="modal" data-target="#Subscribe" id="subscribe" >Subscribe </button>
     
-             <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
+             <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
              </h3>
                  
           <!--------------- Button trigger modal -->
@@ -29,7 +29,7 @@
       <div class="text-center Artistxyz">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
      
-        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},true)" >Subscribe</button>
+        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" >Subscribe</button>
         </div>
       </div>
      
@@ -48,7 +48,7 @@
       <div class="text-center Artistxyz">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       
-        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Unsubscribe</button>
+        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Unsubscribe</button>
        </div>
       </div>
      
@@ -76,14 +76,14 @@
               
           <div class="container">
                 <div class="row mb-5">
-                    @if($offerData)
+                    <?php if($offerData): ?>
 
-                       @foreach($offerData as $offer)
+                       <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-md-12">
                     <div class="artistoffer row">
                       <div class="col-md-2">
                       <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-                              <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
+                              <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                               
                               Your browser does not support the video tag.
                           </video>
@@ -91,28 +91,30 @@
                     </div>
        
         <div class="col-md-8 pl-5 showoffer">
-        <a target="_blank" href="{{url('artistoffers/'.$offer->id)}}">
-           <h2>{{$offer->title}}</h2>
-               <p>{{$offer->description}}</p>
-                 {{$details[0]->nickname}}
+        <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
+           <h2><?php echo e($offer->title); ?></h2>
+               <p><?php echo e($offer->description); ?></p>
+                 <?php echo e($details[0]->nickname); ?>
+
            <br>
-         Categories :{{$offer->category}}
+         Categories :<?php echo e($offer->category); ?>
+
          </a>
         </div>
        
         <div class="col-md-2">
-         <h4>{{$offer->price}}/min PAZ</h4>
+         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
         </div>
         <hr>
       
       </div>
     </div>
-    @endforeach
-    @else
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php else: ?>
           <div class="artistoffer1">
             <h4> Artist does not Create any Offer</h4>
           </div>
-          @endif
+          <?php endif; ?>
    </div>
 
     </div>
@@ -161,18 +163,18 @@
   <h3 class="mt-3">Videos</h3>   
    
           <div class="row mb-5">
-               @if(isset($details[0]->type))
-                   @foreach ($details as $detail)
-                       @if($detail->type=='video') 
+               <?php if(isset($details[0]->type)): ?>
+                   <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3 hover">
                 <div class='media_div'>
                <div class="checkall" style="display:none">
                <form> 
-                  <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
+                  <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
-               <a href="{{url('artist-video/'.$detail->id)}}">
+               <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
             <video class="hoverVideo" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
-                <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
+                <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
@@ -182,13 +184,13 @@
 </div>
 
             </div>
-                    @endif
-                @endforeach
-              @else
+                    <?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              <?php else: ?>
               <div class="artistvideo">
                 <h4> Artist does not upload any video</h4>
               </div>
-               @endif
+               <?php endif; ?>
           </div>
           </div>
   <!------------------------------------------------------------Audio Section---------------------------------------------------------------------->      
@@ -196,19 +198,19 @@
   
      <h3>Audios</h3>
      <div class="row mb-5">
-      @if(isset($audio->type))
-          @foreach($audio as $aud)
+      <?php if(isset($audio->type)): ?>
+          <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none">
    <form> 
    <input type="checkbox" class="slct_video"></form></div>
-     <a href="{{url('artist-video/'.$aud->id)}}">
-    <img src="{{asset('images/logos/voice.jpg')}}">
+     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+    <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
 <audio controls controlsList="nodownload" disablePictureInPicture>
 
-<source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
+<source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
 Your browser does not support the audio tag.
 </audio>
 
@@ -218,12 +220,12 @@ Your browser does not support the audio tag.
 </div>
 </div>
 
-@endforeach
-@else
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<?php else: ?>
 <div class="artistaudio">
             <h4> Artist does not upload any Audio</h4>
           </div>
-@endif
+<?php endif; ?>
 </div>
 </div>
 
@@ -232,29 +234,29 @@ Your browser does not support the audio tag.
 
          <h3>Playlists</h3>
           <div class="row mb-5 pb-5">
-          @foreach ($playlist as $play)
+          <?php $__currentLoopData = $playlist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $play): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php 
               $videos = explode(',',$play->videos);
               $count = count($videos);
               //print_r($videos);
             ?>
             <div class="col-md-4 mb-3 play1">
-            <a href="{{url('playlist/'.$play->id)}}">
+            <a href="<?php echo e(url('playlist/'.$play->id)); ?>">
                 <div class="overlayplay1">
-                    <h2 class="text-white">{{$count}}</h2>
+                    <h2 class="text-white"><?php echo e($count); ?></h2>
                      <i class="fa fa-play"></i>
                 </div>
                 </a>
             <video width="100%" class="hoverVideo" height="250" controls controlsList="nodownload" disablePictureInPicture>
-                <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
+                <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
 
             
-        <h4 class="text-center mb-5">{{$play->playlistname}}</h4>
+        <h4 class="text-center mb-5"><?php echo e($play->playlistname); ?></h4>
             </div>
-           @endforeach
+           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
 </div> -->
 </div>
@@ -330,7 +332,7 @@ Your browser does not support the audio tag.
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
             <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-                      <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
+                      <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
                   <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
@@ -342,21 +344,21 @@ Your browser does not support the audio tag.
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
                 <hr>
-                <p>{{$details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme ? $artist[0]->aboutme : 'Not Any Description'}}</p>
+                <p><?php echo e($details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme ? $artist[0]->aboutme : 'Not Any Description'); ?></p>
               </div>
   
       </div>
       <div class="row text-center text-black">
-        @if(isset($details[0]))
-      @foreach($details[0] as $key=>$profile)
-       @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
+        <?php if(isset($details[0])): ?>
+      <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+       <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
             <div class="col-md-3">
-                 <label><b>{{ucwords($key)}}</b></label>
-                 <p>{{$profile}}</p>
+                 <label><b><?php echo e(ucwords($key)); ?></b></label>
+                 <p><?php echo e($profile); ?></p>
             </div>
-          @endif
-      @endforeach
-      @endif
+          <?php endif; ?>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      <?php endif; ?>
       </div>
       
         </div>
@@ -451,4 +453,5 @@ ul.selected li {
 }
 
 </style>
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

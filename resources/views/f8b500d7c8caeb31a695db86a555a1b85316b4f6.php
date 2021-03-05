@@ -110,29 +110,30 @@
     </div>
    
     <div class="col-md-3">
-   
+   <a href="<?php echo e(url('artist/Profile/collection')); ?>">
     <div class="columesdashboard3">
            <h1><?php echo e($totalCollection ? $totalCollection : 0); ?></h1>
            <h4 class="text-center">Collection Items  </h4>
-        </div>     
+        </div>  
+        </a>   
     </div>
 </div>
 
 <div class="row">
 <div class="col-md-12">
-         <div class="card">
+         <div class="card" style="<?php echo e($existTimeFrame==1 ? 'display:none': 'display:block'); ?>">
              <div class="week">
              <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
               on the landingpage and on the customer homepage for free</h5>
               <hr>
           <div class="row">
-             <div class="col-md-4">
-              <button class="btn btn-info" type="button">Week 1+2</button>
-              <button class="btn btn-info" type="button">Week 3+4</button>
-              <button class="btn btn-info" type="button">Week 5+6</button>
-              <button class="btn btn-info" type="button">Week 7+8</button>
-            
-             </div>
+                <div class="col-md-4">
+                  <button class="btn btn-info send_time" type="button" value='1+2' style="<?php echo e(array_key_exists('1+2',$count_time_fame) && $count_time_fame['1+2']=='6' ? 'color:grey' : ''); ?>">Week 1+2</button>
+                  <button class="btn btn-info send_time" type="button" value='3+4' style="<?php echo e(array_key_exists('3+4',$count_time_fame) && $count_time_fame['3+4']=='6' ? 'color:grey' : ''); ?>">Week 3+4</button>
+                  <button class="btn btn-info send_time" type="button" value='5+6' style="<?php echo e(array_key_exists('5+6',$count_time_fame) && $count_time_fame['5+6']=='6' ? 'color:grey' : ''); ?>">Week 5+6</button>
+                  <button class="btn btn-info send_time" type="button" value='7+8' style="<?php echo e(array_key_exists('7+8',$count_time_fame) && $count_time_fame['7+8']=='6' ? 'color:grey' : ''); ?>">Week 7+8</button>
+                
+                </div>
              <div class="col-md-4">
              <button class="btn btn-info" type="button">Week 9+10</button>
              <button class="btn btn-info" type="button">Week 11+12</button>
@@ -149,7 +150,8 @@
           </div>
           <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
           <div class="text-right">
-          <button class="btn btn-primary" type="button">Submit</button>
+          <input type="hidden" value="" id="timeframe"/>
+          <button class="btn btn-primary" type="button" id="timeFrame">Submit</button>
 
           </div>
             </div>
@@ -159,32 +161,6 @@
     <div class="card" style=" height: 370px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
-
-             <div class="card-body pb-1">
-             <?php echo e(Form::label('First Name', 'First Name')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter name'])); ?>
-
-                <?php echo e(Form::label('Country', 'Country')); ?> 
-                <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Country'])); ?>
-
-                <?php echo e(Form::label('Date of Birth', 'Date of Birth')); ?> 
-                <input type="date" class="form-control" />
-                <h5 class="card-title">Email : example@gmail.com</h5>
-                <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
-              </div>
-              </div>
-              <div class="card-body pb-1 " style="display:none;">
-                <h5 class="card-title">First Name : artist Name </h5><br>
-                <h5 class="card-title">Country : USA </h5><br>
-                <h5 class="card-title"> Date of Birth : 05.02.1994 </h5><br>
-               
-                <h5 class="card-title">Email : example@gmail.com</h5>
-                <div class="text-right">
-                <button class="btn btn-light btn-sm" type="button">Edit</button>
-              </div>
-            </div>
-
              <?php if($personal_info[0]->firstname==''): ?>
              <div class="card-body pb-1">
                  <?php echo Form::open(['action' => 'AuthController@personal_info', 'method' => 'post']); ?>
