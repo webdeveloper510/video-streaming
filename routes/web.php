@@ -205,6 +205,7 @@ Route::post('createList', 'AuthController@createList');
     Route::get('artist/requests/{text?}', 'artist@showRequest')->middleware('contentAuth');
 
     Route::get('artist/getRequests/{text}/{status?}', 'artist@getRequests')->middleware('contentAuth');
+    Route::get('customer_orders/{text}', 'AuthController@getRequests');
    // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
 
     Route::get('artist/notification','artist@ShowArtistNotification');

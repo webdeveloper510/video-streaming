@@ -1501,7 +1501,25 @@ public function readNotification(Request $request){
       }
 
       public function seeOrder(){
-        
+
+            return view('all_orders');
+
+      }
+
+
+      public function getRequests($type){
+
+        //print_r($type);die;
+
+        $data = array();
+      $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_customer_orders();
+  
+       $data['data'] = $show_requests;
+
+      // print_r($data);die;
+    
+        echo json_encode($data);
+  
       }
 
 }
