@@ -7,12 +7,12 @@
 <!-- <h5>Audio/Video</h5> -->
 <a href="{{$offer[0]->artistid}}"><h3>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </h3></a>
 <div class="text-right">
-<button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}"  data-toggle="modal" data-target="#Subscribe" >Subscribe </button>
+<button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}"  data-toggle="modal" data-target="#Subscribe1" id="subscribe" >Subscribe </button>
     
- <button class="btn btn-secondary text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe" >Subscribed </button>
+ <button class="btn btn-secondary text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
 </div>
 <!-- Modal  Subscribe-->
-<div class="modal fade" id="Subscribe" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
+<div class="modal fade" id="Subscribe1" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -31,7 +31,7 @@
 
 
 <!------------------------------------ Modal  unSubscribe------------------------------->
-<div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+<div class="modal fade" id="Unsubscribe1" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -40,7 +40,7 @@
       <div class="text-center Artistxyz">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       
-        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Unsubscribe</button>
+        <button type="button" class="btn btn-primary" onclick="subscribe({{$offer[0]->artistid}},false)">Unsubscribe</button>
        </div>
       </div>
      
