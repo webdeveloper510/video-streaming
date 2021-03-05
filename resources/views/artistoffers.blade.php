@@ -40,7 +40,7 @@
       <div class="text-center Artistxyz">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       
-        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},true)">Unsubscribe</button>
+        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Unsubscribe</button>
        </div>
       </div>
      
