@@ -104,7 +104,7 @@
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
             <div class="col text-center pt-3">
-            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary disable_this'])); ?>
 
      </div>
      </div>

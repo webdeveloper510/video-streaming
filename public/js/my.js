@@ -305,6 +305,8 @@ function readURL(input) {
 
 	  if(extension!='mp3' && radio_checked!='video'){
 
+		$('.disable_this').prop('disabled', true);
+
 		input.nextElementSibling.textContent = 'Please Select Audio File';
 
 		return false;
@@ -312,6 +314,9 @@ function readURL(input) {
 	}
 
 	else if(extension!='mp4' && radio_checked!='audio'){
+
+		$('.disable_this').prop('disabled', true);
+
 
 		input.nextElementSibling.textContent = 'Please Select Video File';
 
@@ -322,6 +327,7 @@ function readURL(input) {
 	}
 
 	else{
+		$('.disable_this').prop('disabled', false);
 		input.nextElementSibling.textContent = input.files[0].name;
 		//document.getElementById('filename').textContent=input.files[0].name;
 	}
