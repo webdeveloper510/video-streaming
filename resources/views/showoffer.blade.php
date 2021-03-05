@@ -21,13 +21,13 @@
     <a href="{{url('artistoffers/'.$val->id)}}">
       <div class="card">
           @if($val->type=='video')
-	   <video width="100%" height="240" controls>
+	   <video class="hoverVideo" width="100%" height="240" >
   <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 @else
 <img src="{{url('storage/app/public/uploads/'.$val->audio_pic) }}">
-<audio width="100%" height="240" controls>
+<audio  width="100%" height="240" controls>
   <source src="{{url('storage/app/public/audio/'.$val->media) }}" type="audio/mp3">
   Your browser does not support the video tag.
 </audio>
