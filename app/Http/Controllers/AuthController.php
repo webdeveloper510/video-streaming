@@ -1500,4 +1500,8 @@ public function readNotification(Request $request){
                $update = $this->model->update_due_to_process($req->all());
       }
 
+      public function seeOrder(){
+        
+      }
+
 }

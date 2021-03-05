@@ -62,6 +62,7 @@ $GLOBALS['price'] = $offerdata->price;
 <input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
 <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
 <input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
+<input type="hidden" name="allinfo" value="<?php echo e(json_encode($offerdata)); ?>"/>
 <div class="col-md-4">
 	<h3>Set Duration</h3>
   <?php echo e(Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','placeholder'=>'Duration'])); ?>
