@@ -97,7 +97,7 @@
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
             <div class="col text-center pt-3">
-            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+            {{ Form::submit('Submit!',['class'=>'btn btn-primary disable_this']) }}
      </div>
      </div>
    </div>
