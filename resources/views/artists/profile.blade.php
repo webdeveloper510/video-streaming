@@ -159,7 +159,7 @@
           @else
           <div class="artistvideo">
           <h4> No <span class="textcolor"> Video </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload Video</span></a>
+            <a href="{{url('artist/contentUpload')}}"> <span class="textcolor">Upload Video</span></a>
           </div>
           @endif
           </div>
@@ -190,7 +190,7 @@ Your browser does not support the audio tag.
 @else
 <div class="artistaudio">
 <h4> No <span class="textcolor">Audio </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload Audio</span></a>
+            <a href="{{url('artist/contentUpload')}}"> <span class="textcolor">Upload Audio</span></a>
           </div>
 @endif
 </div>

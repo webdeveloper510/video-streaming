@@ -23,7 +23,7 @@
     <a href="<?php echo e(url('artistoffers/'.$val->id)); ?>">
       <div class="card">
           <?php if($val->type=='video'): ?>
-	   <video width="100%" height="240" controls>
+	   <video width="100%" height="240" class="hoverVideo">
   <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -47,7 +47,7 @@
         </tr>
         <tr>
           <th>Media</th>
-          <td><?php echo e($val->type=='video' ? 'video/mp4' : 'audio/mp3'); ?></td>
+          <td><?php echo e($val->type=='video' ? 'Video/mp4' : 'Audio/mp3'); ?></td>
         </tr>
             <tr>
             	<th>Price</th>
