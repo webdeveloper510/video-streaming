@@ -40,7 +40,7 @@
         </tr>
         <tr>
           <th>Media</th>
-          <td><?php echo e($val->type); ?></td>
+          <td><?php echo e($val->type); ?>/mp4</td>
         </tr>
             <tr>
             	<th>Price</th>
@@ -116,11 +116,15 @@ table.table.table-borderless tr td, th {
     background: black;
     color: white;
 }
+hr{
+  background:white;
+}
 
 .card {
     background: black;
     border: 1px solid white;
     color: white;
+    padding:13px;
 }
 .alert-success {
     color: #155724;

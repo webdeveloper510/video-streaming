@@ -38,7 +38,7 @@
         </tr>
         <tr>
           <th>Media</th>
-          <td>{{$val->type}}</td>
+          <td>{{$val->type}}/mp4</td>
         </tr>
             <tr>
             	<th>Price</th>
