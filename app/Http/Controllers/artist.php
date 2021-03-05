@@ -312,6 +312,10 @@ class artist extends Controller
 
   }
 
+  public function earning(){
+    return view('artists.earning');
+  }
+
   public function addDescription(Request $req){
 
       unset($req['_token']);
