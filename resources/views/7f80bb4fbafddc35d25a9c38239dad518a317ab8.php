@@ -9,27 +9,27 @@
   <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Customer Name</th>
-      <th scope="col">Video</th>
-      <th scope="col">Titlexyz</th>
-      <th scope="col">500PAZ</th>
-      <th scope="col">12.04.2021(21:23)</th>
+      <th scope="col"> Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Title</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Time</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-    <th scope="col">Customer Name</th>
-      <th scope="col">Video</th>
-      <th scope="col">Titlexyz</th>
-      <th scope="col">500PAZ</th>
-      <th scope="col">12.04.2021(21:23)</th>
+        <td scope="row">Customer Name</td>
+       <td >Video</td>
+      <td>Titlexyz</td>
+      <td>500PAZ</td>
+      <td>12.04.2021(21:23)</td>
     </tr>
     <tr>
-    <th scope="col">Customer Name</th>
-      <th scope="col">Video</th>
-      <th scope="col">Titlexyz</th>
-      <th scope="col">500PAZ</th>
-      <th scope="col">12.04.2021(21:23)</th>
+    <td scope="row">Customer Name</td>
+    <td>Video</td>
+      <td>Titlexyz</td>
+      <td>500PAZ</td>
+      <td>12.04.2021(21:23)</td>
     </tr>
     <tr>
       <td colspan="5" class="text-center">No data available</td>
@@ -53,6 +53,9 @@
 
 .earningtext {
     margin-top: 12%;
+}
+.table thead tr th {
+    font-weight: bold;
 }
 </style>
 
