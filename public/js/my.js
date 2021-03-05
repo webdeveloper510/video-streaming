@@ -264,8 +264,12 @@ function readURL1(input){
 
 	var extension = filepath.split('.')[1];
 
+	console.log(extension)
+
 	if(extension!='jpg' || extension!='jpeg' || extension!='png'){
 
+		console.log('yes');
+		
 		input.nextElementSibling.textContent = 'Please Select Image';
 
 

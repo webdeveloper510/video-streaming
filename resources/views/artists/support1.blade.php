@@ -59,7 +59,7 @@
                       <h5> Instagram {{$info->username}}</h5>
                       <br>
                       <h5> Twitter {{$info->username}}</h5>
-                      <div class="text-right my-3">
+                      <div class="text-right m-3 ">
                            <button class="btn btn-primary" type="button">Copy</button>
                       </div>
                 </div>
@@ -97,7 +97,7 @@
                   <h3>Description for the Post :</h3>
                  
                   <p>{{$info->description}}</p>
-                  <div class="text-right mr-2">
+                  <div class="text-right mr-3">
                       <button class="btn btn-outline-primary" type="button">Copy</button>
                   </div>
              </div>
@@ -119,7 +119,7 @@
                       <h5> Instagram {{$info->username}}</h5>
                       <br>
                       <h5> Twitter {{$info->username}}</h5>
-                      <div class="text-right my-3">
+                      <div class="text-right m-3">
                            <button class="btn btn-primary" type="button">Copy</button>
                       </div>
                 </div>
@@ -154,7 +154,7 @@
                   <h3>Description for the Post :</h3>
                  
                   <p>{{$info->description}}</p>
-                  <div class="text-right mr-2">
+                  <div class="text-right mr-3">
                       <button class="btn btn-outline-primary" type="button">Copy</button>
                   </div>
              </div>
@@ -175,7 +175,7 @@
                       <h5> Instagram {{$info->username}}</h5>
                       <br>
                       <h5> Twitter {{$info->username}}</h5>
-                      <div class="text-right my-3">
+                      <div class="text-right m-3">
                            <button class="btn btn-primary" type="button">Copy</button>
                       </div>
                 </div>

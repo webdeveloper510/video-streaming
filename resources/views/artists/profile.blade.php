@@ -445,7 +445,7 @@ Your browser does not support the audio tag.
           <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}
-                <span style="color:red;">{{isset($random[0]->media) ? $random[0]->media : ''}}</span>
+                <!-- <span style="color:red;">{{isset($random[0]->media) ? $random[0]->media : ''}}</span> -->
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
