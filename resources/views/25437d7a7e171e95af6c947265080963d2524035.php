@@ -135,17 +135,17 @@
                 
                 </div>
              <div class="col-md-4">
-             <button class="btn btn-info" type="button">Week 9+10</button>
-             <button class="btn btn-info" type="button">Week 11+12</button>
-              <button class="btn btn-info" type="button">Week 13+14</button>
-              <button class="btn btn-info" type="button">Week 15+16</button>
+             <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('9+10',$count_time_fame) && $count_time_fame['9+10']=='6' ? 'color:grey' : ''); ?>">Week 9+10</button>
+             <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('11+12',$count_time_fame) && $count_time_fame['11+12']=='6' ? 'color:grey' : ''); ?>">Week 11+12</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('13+14',$count_time_fame) && $count_time_fame['13+14']=='6' ? 'color:grey' : ''); ?>">Week 13+14</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('15+16',$count_time_fame) && $count_time_fame['15+16']=='6' ? 'color:grey' : ''); ?>">Week 15+16</button>
              </div>
              <div class="col-md-4 ">
              
-              <button class="btn btn-info" type="button">Week 17+18</button>
-              <button class="btn btn-info" type="button">Week 19+20</button>
-              <button class="btn btn-info" type="button">Week 21+22</button>
-              <button class="btn btn-info" type="button">Week 23+24</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('17+18',$count_time_fame) && $count_time_fame['17+18']=='6' ? 'color:grey' : ''); ?>">Week 17+18</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('19+20',$count_time_fame) && $count_time_fame['19+20']=='6' ? 'color:grey' : ''); ?>">Week 19+20</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('21+22',$count_time_fame) && $count_time_fame['21+22']=='6' ? 'color:grey' : ''); ?>">Week 21+22</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('23+24',$count_time_fame) && $count_time_fame['23+24']=='6' ? 'color:grey' : ''); ?>">Week 23+24</button>
              </div>
           </div>
           <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>

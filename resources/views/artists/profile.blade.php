@@ -300,7 +300,7 @@ Your browser does not support the audio tag.
       @foreach($details[0] as $key=>$profile)
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
             <div class="col-md-3">
-              <label><b>{{ucwords($key)}}</b></label>
+              <label><b>{{$key=='weight' ? ucwords('body'): ucwords($key)}}</b></label>
               <p class="edittable">{{$profile}}</p>
             </div>
           @endif
@@ -367,8 +367,15 @@ Your browser does not support the audio tag.
                   {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
                 <br>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                   <label>Choose Image</label>        
+                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
+                <span id="filename" style="color:red;"></span>
+            </div>
                 <input type="hidden" name="offerid" id="offerid" value="">
-                  <input type="file" name="file" id="file_input" value=""/>
+                <label class="media_label"></label>
+                  <input type="file" name="file" class="file_input" value=""/>
+                  <span id="filename" style="color:red;"></span>
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
@@ -381,13 +388,15 @@ Your browser does not support the audio tag.
                    
             </select>
             <br>
-            <label for="Convert to:">Convert to:</label> 
-           <select name="quality" class="form-control" id="quality">
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
+            <div class="convert">
+                <label for="Convert to:">Convert to:</label> 
+              <select name="quality" class="form-control" id="quality">
+                        <option value="">Choose ...</option>
+                        <option value="480">480p  </option>
+                        <option value="720">HD 720p </option>
+                        <option value="1080">Full HD 1080p  </option>
+                </select>
+            </div>
             <br>
             {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
                 {{Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])}}
@@ -427,16 +436,15 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
 
           <div class="row align-items-center text-white">   
-              @if(isset($random[0]))
+      
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" {{$random[0]->type=='audio' ? 'checked': ''}}/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
-          </div>  
-          @endif  
+          </div>   
           <div class="col-md-6 mt-3 text-white">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
                 {{Form::file('media',['class'=>'custom-file-input'])}}
-                <span style="color:red;">{{isset($random[0]->media) ? $random[0]->media : ''}}</span>
+                <!-- <span style="color:red;">{{isset($random[0]->media) ? $random[0]->media : ''}}</span> -->
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             {{Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])}} 
@@ -509,8 +517,8 @@ Your browser does not support the audio tag.
                 @endif
             </div>
             <div class="col-md-6 pt-3">
-            {{Form::label('Weight', 'Weight')}} 
-                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])}}
+            {{Form::label('Body', 'Body')}} 
+                {{Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('weight') ?>

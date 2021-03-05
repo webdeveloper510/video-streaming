@@ -262,24 +262,27 @@ function readURL1(input){
 
 	var filepath = input.value;
 
-	var extension = filepath.split('.')[1];
+	var extension1 = filepath.split('.')[1];
 
-	if(extension!='jpg' || extension!='jpeg' || extension!='png'){
+	var ext = $.trim(extension1);
 
-		input.nextElementSibling.textContent = 'Please Select Image';
+
+	if(ext=='jpg' || ext=='jpeg' || ext=='png'){
+
+		input.nextElementSibling.textContent = input.files[0].name;
+
 
 
 	}
 
 	else{
-		input.nextElementSibling.textContent = input.files[0].name;
+		
+		input.nextElementSibling.textContent = 'Please Select Image';
 	}
 
 }
 
 $(document).on('keyup change', '#change_duration', function () {
-//$("#change_duration").bind('keyup mouseup', function () {
-	//console.log('yes');return false;
 	var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val()); 
 	
 	$('#offer_pay').val(pay_price);
@@ -291,15 +294,13 @@ function readURL(input) {
 
 	var radio_checked = $(".select_media_pic:checked").val();
 
-	//var ext = input.split('.').pop();
 	var filepath = input.value;
 
 	var extension = filepath.split('.')[1];
 
-
-	
-
 	  if(extension!='mp3' && radio_checked!='video'){
+
+		$('.disable_this').prop('disabled', true);
 
 		input.nextElementSibling.textContent = 'Please Select Audio File';
 
@@ -308,6 +309,9 @@ function readURL(input) {
 	}
 
 	else if(extension!='mp4' && radio_checked!='audio'){
+
+		$('.disable_this').prop('disabled', true);
+
 
 		input.nextElementSibling.textContent = 'Please Select Video File';
 
@@ -318,6 +322,7 @@ function readURL(input) {
 	}
 
 	else{
+		$('.disable_this').prop('disabled', false);
 		input.nextElementSibling.textContent = input.files[0].name;
 		//document.getElementById('filename').textContent=input.files[0].name;
 	}
