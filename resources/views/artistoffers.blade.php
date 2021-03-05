@@ -7,9 +7,9 @@
 <!-- <h5>Audio/Video</h5> -->
 <a href="{{url('artistDetail/'.$offer[0]->artistid)}}"><h3>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  761 </h3></a>
 <div class="text-right">
-<button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}"  data-toggle="modal" data-target="#Subscribe" id="subscribe">Subscribe </button>
+<button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}"  data-toggle="modal" data-target="#Subscribe" >Subscribe </button>
     
- <button class="btn btn-secondary text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe">Subscribed </button>
+ <button class="btn btn-secondary text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe" >Subscribed </button>
 </div>
 <!-- Modal  Subscribe-->
 <div class="modal fade" id="Subscribe" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
@@ -117,6 +117,10 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 </div>
 
-
+<style>
+.text-center.Artistxyz {
+    padding: 30px;
+}
+</style>
 	
 @include('layouts.footer')
