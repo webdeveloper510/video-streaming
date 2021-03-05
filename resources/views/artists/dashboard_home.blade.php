@@ -635,6 +635,7 @@
            
     </div>
     <div class="col-md-4">
+    <a href="">
          <div class="card" style="    height: 370px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
@@ -649,6 +650,7 @@
                 <h5>{{$year_PAZ[0]->total_token ? $year_PAZ[0]->total_token : 0}} PAZ</h5>
               </div>
             </div>
+            </a>
     </div>
     <div class="col-md-4">
          <div class="card" style="height: 370px;">
