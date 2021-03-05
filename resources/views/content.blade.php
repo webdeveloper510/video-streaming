@@ -118,7 +118,7 @@
             </div>
             <div class="col-md-6 pt-3">
             {{Form::label('Body', 'Body')}} 
-                {{Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chuuby'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])}}
+                {{Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chuuby'], null, ['class'=>'form-control','placeholder' => 'Choose'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('weight') ?>
