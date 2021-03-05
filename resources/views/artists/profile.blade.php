@@ -518,8 +518,8 @@ Your browser does not support the audio tag.
                 @endif
             </div>
             <div class="col-md-6 pt-3">
-            {{Form::label('Weight', 'Weight')}} 
-                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])}}
+            {{Form::label('Body', 'Body')}} 
+                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Average'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('weight') ?>

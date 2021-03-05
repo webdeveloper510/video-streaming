@@ -545,8 +545,8 @@ Your browser does not support the audio tag.
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Weight', 'Weight')); ?> 
-                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
+            <?php echo e(Form::label('Body', 'Body')); ?> 
+                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Average'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">

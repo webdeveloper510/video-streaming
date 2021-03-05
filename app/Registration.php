@@ -416,7 +416,15 @@ public function getRecentlySearch(){
 public function getArtists($flag){
     if($flag=='No'){
 
-      $artists=DB::table('contentprovider')->take(6)->get()->toArray();
+      $ArtistTimeFrame = DB::table('contentprovider')
+      ->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
+      ->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
+      //->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
+      //->orWhere('contentprovider.id',$artid)
+      ->get()->toArray();
+
+        return $ArtistTimeFrame;
+     
     }
     else{
 
