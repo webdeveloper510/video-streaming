@@ -1,4 +1,6 @@
+
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
 <section class=" support1">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -17,29 +19,26 @@
     <!--------- Open  ticket tab------------------------------------------>
   <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
        
-  <div class="container-fluid">
-  <div class="row">
- 
-  <?php $__currentLoopData = $social_info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-  
-   <div class="col-md-12">
-     <div class="row">
-         <div class="col-md-8">
-             <div class="delete1">
-               
-                <h3> <?php echo e($info->nickname); ?></h3>
-                <div class="text-right artistname">
-                   <button class="btn btn-outline-succes" type="button">Delete</button>
+      <div class="row">
+
+        <?php $__currentLoopData = $social_video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+         
+          <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="delete">
+                       <h3> <?php echo e($info->nickname); ?></h3>
+                       <div class="text-right">
+                          <button class="btn btn-outline-succes" type="button">Delete</button>
+                       </div>
+                    <div class="post">
+                         <h3>Description for the Post :</h3>
+                         <p><?php echo e($info->description); ?></p>
+                         <div class="text-right">
+                             <button class="btn btn-outline-primary" type="button">Copy</button>
+                         </div>
+                    </div>
                 </div>
-             </div>
-             <div class="post">
-                  <h3>Description for the Post :</h3>
-                 
-                  <p><?php echo e($info->description); ?></p>
-                  <div class="text-right mr-2">
-                      <button class="btn btn-outline-primary" type="button">Copy</button>
-                  </div>
-             </div>
          </div>
          <div class="col-md-4">
               <div class="soc">
@@ -66,19 +65,21 @@
               </div>
          </div>
      </div>
- </div>
+     </div>
  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 </div>
-
 </div>
+
+
+  
   <!--------- tickets tab------------------------------------------>
 
   <div class="tab-pane fade" id="pills-audio" role="tabpanel" aria-labelledby="pills-audio-tab">
   <div class="container-fluid">
   <div class="row">
  
-  <?php $__currentLoopData = $social_info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <?php $__currentLoopData = $social_audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   
    <div class="col-md-12">
      <div class="row">
@@ -103,7 +104,7 @@
               <div class="soc">
                 <div class="mp4">
                   <audio  width="50%" controls>
-                  <source src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" type="audio/mp3">
+                  <source src="<?php echo e(url('storage/app/public/audio/'.$info->media)); ?>" type="audio/mp3">
                              Your browser does not support the video tag.
                   </audio >
                   <div class="text-right Delete">
@@ -135,7 +136,7 @@
 <div class="container-fluid">
   <div class="row">
  
-  <?php $__currentLoopData = $social_info; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <?php $__currentLoopData = $social_image; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   
    <div class="col-md-12">
      <div class="row">
@@ -160,7 +161,7 @@
               <div class="soc">
                 <div class="mp4">
                   
-                  <img src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" class="img-fluid">
+                  <img src="<?php echo e(url('storage/app/public/uploads/'.$info->media)); ?>" class="img-fluid">
                          
                   <div class="text-right Delete">
                       <button class="btn btn-outline-primary" type="button">Delete</button>
@@ -257,8 +258,6 @@ li.nav-item a {
 }
 </style>
 
-
-
-
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/support1.blade.php ENDPATH**/ ?>
