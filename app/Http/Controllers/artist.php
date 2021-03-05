@@ -47,14 +47,11 @@ class artist extends Controller
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
     public function getRequests($type,$status=null){
-      //echo $status;
       $data = array();
     $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests($status);
-  //   echo "<pre>";
-  //  print_r($show_requests);die;
+
     $data['data'] = $show_requests;
-    // echo "<pre>";
-    //     print_r($data);die;
+  
       echo json_encode($data);
 
     }
