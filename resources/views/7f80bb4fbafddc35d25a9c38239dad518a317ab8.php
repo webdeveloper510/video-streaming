@@ -26,6 +26,18 @@
     </tr>
     <tr>
     <td scope="row">Customer Name</td>
+    <td>Audio</td>
+      <td>Titlexyz</td>
+      <td>100PAZ</td>
+      <td>12.04.2021(21:23)</td>
+    </tr>
+    <td scope="row">Customer Name</td>
+    <td>Video</td>
+      <td>Titlexyz</td>
+      <td>500PAZ</td>
+      <td>12.04.2021(21:23)</td>
+    </tr>
+    <td scope="row">Customer Name</td>
     <td>Video</td>
       <td>Titlexyz</td>
       <td>500PAZ</td>

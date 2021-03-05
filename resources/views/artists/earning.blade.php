@@ -26,22 +26,22 @@
     </tr>
     <tr>
     <td scope="row">Customer Name</td>
-    <td>Video</td>
+    <td>Audio</td>
       <td>Titlexyz</td>
-      <td>500PAZ</td>
-      <td>12.04.2021(21:23)</td>
+      <td>100PAZ</td>
+      <td>11.04.2021(21:23)</td>
     </tr>
     <td scope="row">Customer Name</td>
     <td>Video</td>
       <td>Titlexyz</td>
-      <td>500PAZ</td>
-      <td>12.04.2021(21:23)</td>
+      <td>600PAZ</td>
+      <td>8.04.2021(21:23)</td>
     </tr>
     <td scope="row">Customer Name</td>
     <td>Video</td>
       <td>Titlexyz</td>
-      <td>500PAZ</td>
-      <td>12.04.2021(21:23)</td>
+      <td>300PAZ</td>
+      <td>6.04.2021(21:23)</td>
     </tr>
     <tr>
       <td colspan="5" class="text-center">No data available</td>
