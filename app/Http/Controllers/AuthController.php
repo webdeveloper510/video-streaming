@@ -530,8 +530,8 @@ class AuthController extends Controller
               }
 
        $this->validate($request,[
-        'image' => 'required|file',
-        'cover_photo'=>'required|file',
+        'image' => 'required|mimes:jpg,png,jpeg',
+        'cover_photo'=>'required|mimes:jpg,png,jpeg',
         'aboutme'=>'required',
         'sexology'=>'required',
         'ass'=>'sometimes|required',
@@ -577,7 +577,7 @@ class AuthController extends Controller
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
       'category'=>'required', 
-      'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png' : ''
+      'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
   if ($validator->fails())

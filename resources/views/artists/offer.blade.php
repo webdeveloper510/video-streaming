@@ -23,8 +23,6 @@
          
          <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          
-              <i class="fa fa-money"></i>
               Create Offer
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -131,7 +129,7 @@
                    
             </select>
             <br>
-            <label>Sample Audio/Video/Image(Max 30s)</label>
+            <label class="media_label"></label>
 
  <br>
                {{Form::file('media',['class'=>'form-control file_input'])}}

@@ -8,7 +8,6 @@
          <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
-              <i class="fa fa-money"></i>
               Collection Upload       
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
