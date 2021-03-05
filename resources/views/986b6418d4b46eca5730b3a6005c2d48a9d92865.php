@@ -5,7 +5,7 @@
 <div class="offer ">
 <h4 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h4> 
 <!-- <h5>Audio/Video</h5> -->
-<a href="<?php echo e($offer[0]->artistid); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
+<a href="<?php echo e(url('artistDetail/'.$offer[0]->artistid)); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
 <div class="text-right">
 <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>"  data-toggle="modal" data-target="#Subscribe1" id="subscribe" >Subscribe </button>
     

@@ -27,7 +27,7 @@
 </video>
 @else
 <img src="{{url('storage/app/public/uploads/'.$val->audio_pic) }}">
-<audio width="100%" height="240" controls>
+<audio  width="100%" height="240" controls>
   <source src="{{url('storage/app/public/audio/'.$val->media) }}" type="audio/mp3">
   Your browser does not support the video tag.
 </audio>

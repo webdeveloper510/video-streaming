@@ -142,7 +142,7 @@
             <div class="col-md-4 hover" >
             <a href="{{url('artist-video/'.$recnt->id)}}">
             
-          <video width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video width="350px" height="275px"  class="hoverVideo" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -187,7 +187,7 @@
            
             <div class="col-md-4 hover">
                 <a href="{{url('artist-video/'.$pop->id)}}">
-                <video width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <video width="100%" height="100%" class="hoverVideo" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -229,7 +229,7 @@
             <div class="col-md-4 showoffer1 mb-3">
     <a href="{{url('artistoffers/'.$offer->id)}}">
       <div class="card">
-	   <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+	   <video width="100%" height="240" class="hoverVideo" controlsList="nodownload" disablePictureInPicture>
   <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
 
   Your browser does not support the video tag.
