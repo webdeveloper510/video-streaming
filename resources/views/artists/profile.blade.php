@@ -367,8 +367,15 @@ Your browser does not support the audio tag.
                   {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
                 <br>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                   <label>Choose Image</label>        
+                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
+                <span id="filename" style="color:red;"></span>
+            </div>
                 <input type="hidden" name="offerid" id="offerid" value="">
-                  <input type="file" name="file" id="file_input" value=""/>
+                <label class="media_label"></label>
+                  <input type="file" name="file" class="file_input" value=""/>
+                  <span id="filename" style="color:red;"></span>
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
@@ -381,13 +388,15 @@ Your browser does not support the audio tag.
                    
             </select>
             <br>
-            <label for="Convert to:">Convert to:</label> 
-           <select name="quality" class="form-control" id="quality">
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
+            <div class="convert">
+                <label for="Convert to:">Convert to:</label> 
+              <select name="quality" class="form-control" id="quality">
+                        <option value="">Choose ...</option>
+                        <option value="480">480p  </option>
+                        <option value="720">HD 720p </option>
+                        <option value="1080">Full HD 1080p  </option>
+                </select>
+            </div>
             <br>
             {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
                 {{Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])}}

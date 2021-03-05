@@ -23,22 +23,24 @@
 
         <?php $__currentLoopData = $social_video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
-          <div class="col-md-12">
+          <div class="col-md-12 mb-3 px-3">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="delete">
+                    <div class="delete1">
                        <h3> <?php echo e($info->nickname); ?></h3>
-                       <div class="text-right">
+                       <div class="text-right artistname">
                           <button class="btn btn-outline-succes" type="button">Delete</button>
+                       </div>
+
                        </div>
                     <div class="post">
                          <h3>Description for the Post :</h3>
                          <p><?php echo e($info->description); ?></p>
-                         <div class="text-right">
+                         <div class="text-right mr-3">
                              <button class="btn btn-outline-primary" type="button">Copy</button>
                          </div>
                     </div>
-                </div>
+               
          </div>
          <div class="col-md-4">
               <div class="soc">
@@ -69,7 +71,7 @@
  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 </div>
-</div>
+
 
 
   
