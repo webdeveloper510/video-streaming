@@ -40,7 +40,7 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Quality</h3>
-      <p>{{$offerdata->quality}}px</p>
+      <p>{{$offerdata->quality}}p</p>
 	</div>
   <div class="col">
       <h3>Category</h3>
