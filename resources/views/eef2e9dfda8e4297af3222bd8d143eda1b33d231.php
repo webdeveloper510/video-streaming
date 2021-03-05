@@ -58,7 +58,6 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 <?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
 
-  <
 <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
 <input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
 <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
