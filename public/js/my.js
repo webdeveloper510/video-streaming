@@ -264,7 +264,7 @@ function readURL1(input){
 
 	var extension = filepath.split('.')[1];
 
-	if(extension!='jpg'){
+	if(extension!='jpg' || extension!='jpeg' || extension!='png'){
 
 		input.nextElementSibling.textContent = 'Please Select Image';
 
@@ -1725,7 +1725,7 @@ $(document).on('click','.select_media_pic',function(){
 
 			if(value=='audio'){
 
-					$('.media_label').text('Choose Audio');
+					$('.media_label').text('Upload Sample Audio (~30s)');
 					$('.audio_picture').show();
 					$('.convert').hide();
 
@@ -1734,7 +1734,7 @@ $(document).on('click','.select_media_pic',function(){
 
 				$('.audio_picture').hide();
 
-				$('.media_label').text('Choose Video');
+				$('.media_label').text('Upload Sample Video (~30s)');
 
 				$('.convert').show();
 			}

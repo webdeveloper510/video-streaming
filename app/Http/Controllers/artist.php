@@ -353,7 +353,8 @@ class artist extends Controller
             'category'=>'required',
             'price'=>'required|max:50000',
             'min'=>'required|min:1',
-            'max'=>'required|gt:min'
+            'max'=>'required|gt:min',
+            'audio_pic'=>$req->type=='audio' ? 'required|mimes:jpg,png,jpeg':''
 
         ]);
 

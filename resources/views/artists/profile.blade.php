@@ -337,10 +337,10 @@ Your browser does not support the audio tag.
                    <div class="row">
                    
                   <div class="col-md-6">
-                       <input type="checkbox" name="type" value="video"/>Video
+              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
                   </div>
                   <div class="col-md-6">
-                       <input type="checkbox" name="type" value="audio"/>Audio
+                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
                   </div>
                   </div>
             {{Form::label('Title', 'Title')}} 
