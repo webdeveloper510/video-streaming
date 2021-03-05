@@ -40,11 +40,11 @@
         </tr>
         <tr>
           <th>Media</th>
-          <td>mp3</td>
+          <td><?php echo e($val->type); ?>/mp4</td>
         </tr>
             <tr>
             	<th>Price</th>
-            	<td> <?php echo e($val->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
+            	<td> <?php echo e($val->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ/Minute</span> </td>
               </tr>
 	      </table>
 	    

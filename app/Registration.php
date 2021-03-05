@@ -1001,6 +1001,10 @@ public function getRespectedSub($data){
 
         });
 
+        // echo "<pre>";
+
+        // print_r($fetch->get());die;
+
           return $fetch->get();
 
     }
