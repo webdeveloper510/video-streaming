@@ -20,11 +20,18 @@
 	<div class="col-md-4 showoffer1">
     <a href="{{url('artistoffers/'.$val->id)}}">
       <div class="card">
+          @if($val->type=='video')
 	   <video width="100%" height="240" controls>
   <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
-
   Your browser does not support the video tag.
 </video>
+@else
+
+<audio width="100%" height="240" controls>
+  <source src="{{url('storage/app/public/video/'.$val->media) }}" type="audio/mp3">
+  Your browser does not support the video tag.
+</audio>
+@endif
 
 	  <div class="carad-body">
 	      <h4 class="card-title text-center text-white">{{$val->title}}</h4>
@@ -38,7 +45,7 @@
         </tr>
         <tr>
           <th>Media</th>
-          <td>{{$val->type}}/mp4</td>
+          <td>{{$val->type=='video' ? 'video/mp4' : 'audio/mp3'}}</td>
         </tr>
             <tr>
             	<th>Price</th>

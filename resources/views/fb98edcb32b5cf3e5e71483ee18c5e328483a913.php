@@ -22,11 +22,18 @@
 	<div class="col-md-4 showoffer1">
     <a href="<?php echo e(url('artistoffers/'.$val->id)); ?>">
       <div class="card">
+          <?php if($val->type=='video'): ?>
 	   <video width="100%" height="240" controls>
   <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-
   Your browser does not support the video tag.
 </video>
+<?php else: ?>
+
+<audio width="100%" height="240" controls>
+  <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="audio/mp3">
+  Your browser does not support the video tag.
+</audio>
+<?php endif; ?>
 
 	  <div class="carad-body">
 	      <h4 class="card-title text-center text-white"><?php echo e($val->title); ?></h4>
@@ -40,7 +47,7 @@
         </tr>
         <tr>
           <th>Media</th>
-          <td><?php echo e($val->type); ?>/mp4</td>
+          <td><?php echo e($val->type=='video' ? 'video/mp4' : 'audio/mp3'); ?></td>
         </tr>
             <tr>
             	<th>Price</th>
