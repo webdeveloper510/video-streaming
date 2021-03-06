@@ -1,17 +1,41 @@
- <script src="{{asset('artistdashboard/js/core/jquery.min.js')}}"></script>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+ <!-- <script src="{{asset('artistdashboard/js/core/jquery.min.js')}}"></script> -->
+
+ <script  src="{{asset('js/datatables.min.js')}}"></script>
+ <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
  
    <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
-  <script src="{{asset('artistdashboard/js/core/popper.min.js')}}"></script>
+
+
   <script src="{{asset('artistdashboard/js/core/bootstrap-material-design.min.js')}}"></script>
+
+
+
   <script src="{{asset('artistdashboard/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+
   <!-- Plugin for the momentJs  -->
   <script src="{{asset('artistdashboard/js/plugins/moment.min.js')}}"></script>
 
 
-  <!--  Plugin for Sweet Alert -->
+
+ 
   <script src="{{asset('artistdashboard/js/plugins/sweetalert2.js')}}"></script>
+
+
   <!-- Forms Validations Plugin -->
-  <script src="{{asset('artistdashboard/js/plugins/jquery.validate.min.js')}}"></script>
+  <!-- <script src="{{asset('artistdashboard/js/plugins/jquery.validate.min.js')}}"></script> -->
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
   <script src="{{asset('artistdashboard/js/plugins/jquery.bootstrap-wizard.js')}}"></script>
   <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
@@ -19,11 +43,11 @@
   <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
   <script src="{{asset('artistdashboard/js/plugins/bootstrap-datetimepicker.min.js')}}"></script>
   <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="{{asset('artistdashboard/js/plugins/jquery.dataTables.min.js')}}"></script>
+  <!-- <script src="{{asset('artistdashboard/js/plugins/jquery.dataTables.min.js')}}"></script> -->
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="{{asset('artistdashboard/js/plugins/bootstrap-tagsinput.js')}}"></script>
   <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="{{asset('artistdashboard/js/plugins/jasny-bootstrap.min.js')}}"></script>
+
   <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
   <script src="{{asset('artistdashboard/js/plugins/fullcalendar.min.js')}}"></script>
   <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
@@ -41,9 +65,15 @@
   <!--  Notifications Plugin    -->
   <script src="{{asset('artistdashboard/js/plugins/bootstrap-notify.js')}}"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="{{asset('artistdashboard/js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script>
+  <!-- <script src="{{asset('artistdashboard/js/material-dashboard.js?v=2.1.2')}}" type="text/javascript"></script> -->
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="{{asset('artistdashboard/demo/demo.js')}}"></script>
+  <script src="{{asset('artistdashboard/css/demo/demo.js')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
   <script>
     $(document).ready(function() {

@@ -18,11 +18,36 @@
       button.btn.btn-primary.my-2.my-sm-0 {
           margin-left: -11px;
       }
+      .artistpage{
+        background:black;
+        color:white;
+      }
 
+      .artist .profileImage {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 75px;
+    color: #fff;
+    text-align: center;
+    line-height: 116px;
+    margin-right: 14px;
+    margin-top: 4px;
+}
+hr{
+  background:white;
+}
+.artistnoimage a{
+  margin: 0px 24px;
+    display: block;
+
+}
     </style>
   </head>
   <body>
     @include('layouts.header')
+    <div class="artistpage">
    <div class="container">
        <div class="row">
            <div class="col-md-4">
@@ -43,10 +68,10 @@
   
             <select class="custom-select form-inline m-2">
              
-                 <option selected>Open this select menu</option>
-                 <option value="1">One</option>
-                 <option value="2">Two</option>
-                 <option value="3">Three</option>
+                 <option selected>Filter</option>
+                 <option value="1">By Popular</option>
+                 <option value="2">By Alphabetical</option>
+                 
                </select>
            </div>
        </div>
@@ -56,11 +81,21 @@
            <div class="col-md-2">
              
                <div class="artist text-center">
-               
+               @if($artist->profilepicture)
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
                 <div class="overlay">
                   <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
                </div>
+               @else
+               <div class="artistnoimage">
+               <a href="{{url('artistDetail/'.$artist->id)}}">
+		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
+	           	<div class="profileImage"></div>
+
+               </a>
+              </div>
+             
+             @endif
                </div>
            </div>
              @endforeach
@@ -70,9 +105,6 @@
     <div class="pagination">{{$artists->links()}}</div>
 
    </div>
-
+</div>
   </body>
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <!--script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script-->
-</html>
+  @include('layouts.footer')

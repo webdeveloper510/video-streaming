@@ -34,7 +34,7 @@ class verifyEmail extends Mailable
      */
      public function build()
     {
-        return $this->from('sender@example.com')
+        return $this->from('info@pornartistzone')
                      ->subject('Email Verification')
                     ->view('mail')
                     ->with(

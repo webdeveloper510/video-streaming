@@ -35,7 +35,7 @@ class checkContentLogin
 
         else{
 
-            return redirect('artistLogin');
+            return redirect('login');
         }
      }
 }

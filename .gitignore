@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /storage/*.key
+/developing-streaming
 /vendor
 .env
 .htaccess
@@ -11,3 +12,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/bootstrap/cache/config.php
+

@@ -3,15 +3,14 @@
     text-align: center;
 }
 
-span.carousel-control-prev-icon {
-   
+.navbar-nav i.fa {
+    padding: 0px 5px;
+    font-size: 25px;
 }
 
 .carousel-control-prev {
     left: 24% !important;
 }
-
-
 
 .main-mistree-circle {
     width: 100%;
@@ -45,7 +44,7 @@ iframe {
 .misstress.kelly h3 {
     color: #732ae8;
     font-size: 34px;
-    margin-top: 26px;
+    margin-top: 12px;
 }
 
 i.fa.fa-play {
@@ -258,10 +257,6 @@ i.fa.fa-filter {
     width: 25%;
 }
 
-
-
-
-
 .main-video-search.content {
     display: flex;
 }
@@ -316,13 +311,7 @@ i.fa.fa-video-camera {
     position: relative;
 }
 
-.main-mistree {
-   
-    position: fixed;
-    width: 23%;
-    margin-left: 16px;
-}
-
+/*
 section.mistress-sec {
     position: relative;
 }
@@ -330,7 +319,7 @@ section.mistress-sec {
 .main-mistree-sec1 {
     position: absolute !important;
     top: -83px;
-}
+}*/
 
 .carousel-control-next {
    

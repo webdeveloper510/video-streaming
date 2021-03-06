@@ -9,15 +9,7 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
           <div class="row">
             <div class="col text-center">
-              <h1 class="text-white">Register As</h1>
-              <?php if(count($errors)>0): ?>
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="alert registration alert-danger">
-          <?php echo e($error); ?>
-
-        </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <?php endif; ?>
+              <h1 class="text-white">Join as</h1>
         <?php if(session('success')): ?>
         <div class="alert alert-success" id="sucess">
         <?php echo e(session('success')); ?>
@@ -41,38 +33,38 @@
 
                
 
-        <?php echo e(Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])); ?> User
+        <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
 
-        <?php echo e(Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])); ?> Artist
-                <?php if($errors->first('email')): ?>
-                <div class="alert alert-danger">
-                     <?php echo $errors->first('email'); ?>
-                </div>
-                <?php endif; ?>
+        <?php echo e(Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])); ?> Artist
             </div>
           </div>
            <div class="row align-items-center">
             <div class="col mt-4">
             <?php echo e(Form::label('email', 'E-Mail Address')); ?> 
-                <?php echo e(Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
+                <?php echo e(Form::email('email1',null,['class'=>'form-control checknameExist','data-id'=>'email','placeholder'=>'example@gmail.com'])); ?>
 
                 <?php if($errors->first('email')): ?>
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
                 </div>
                 <?php endif; ?>
+                <div class="alert alert-danger alreadyNickname" id="email" style="display:none">
+                </div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
             <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
-                <?php echo e(Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])); ?>
+                <?php echo e(Form::text('nickname',null,['class'=>'form-control checknameExist','data-id'=>'nickname','placeholder'=>'Enter Nickname'])); ?>
 
-                <?php if(session('errors')): ?>
+                <?php if($errors->first('nickname')): ?>
                 <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 <?php endif; ?>
+                <div class="alert alert-danger alreadyNickname" id="nickname" style="display:none">
+                </div>
+               
 
             </div>
           </div>
@@ -89,12 +81,34 @@
             </div>
           </div>
           <?php endif; ?>
+
+          <div class="row align-items-center mt-4">
+            <div class="col">
+            <?php echo e(Form::label('Confirm-Password', 'Confirm-Password')); ?>
+
+                <?php echo e(Form::password('confirm',['class'=>'form-control','placeholder'=>'Confirm-Password'])); ?>
+
+                <?php if($errors->first('confirm')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('confirm') ?>
+                </div>
+            </div>
+          </div>
+          <?php endif; ?>
+
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I accept Terms & Conditions and Privacy Policy')); ?> <br>
+              <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?>
 
-               <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?>
+              <label>I accept <a class="text-white" style="border-bottom-color: initial;
+                border-bottom-style: solid;
+                border-bottom-width: 1px; border-color: blue;" href="https://www.websitepolicies.com/policies/view/iV2Lze7O">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
+                border-bottom-style: solid;
+                border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
+
+               <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?><br>
+               <?php echo e(Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?>
 
                 
               </div>
@@ -106,7 +120,7 @@
           <?php echo e(Form::close()); ?>
 
      
-           <p class="mt-2 text-white">Already have an account yet ?</p>
+           <p class="mt-2 text-white">Already have an account ?</p>
           <a href="<?php echo e(URL::to('login')); ?>" style="color:blue; font-size: 17px;">Login</a>
          
               
@@ -118,4 +132,12 @@
   .register{
     border-radius: 28px !important;
   }
+
+  .alert-danger {
+    margin-top: 10px;
+}
+
+.alert-success {
+    margin-top: 10px;
+}
 </style><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/registration.blade.php ENDPATH**/ ?>

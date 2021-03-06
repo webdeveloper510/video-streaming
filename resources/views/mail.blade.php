@@ -13,7 +13,9 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
         <thead>
             <tr>
-                <th><img src="https://www.pure360.com/wp-content/uploads/2015/04/shutterstock_701522602.jpg"  alt="email-image" width="590px"></th>
+                <th>
+                <img src="{{asset('images/email.jpg')}}"  alt="email-image" width="590px">
+                </th>
             </tr>
         </thead>
          <tbody>
@@ -23,8 +25,10 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span>{{$data['nickname']}}</span>, you're almost ready to start enjoying website simply click the big
-                        blue button bellow to verify your email address.</p>
+                     <p>Hey <span>{{$data['nickname']}}</span>, Thank you for visiting our website. We are currently in development process.
+                We will notify you as soon as we are ready.
+               If you have any questions, concerns or other inquiries please reach out to us using:
+                                 <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
                 </td>
              </tr>
              <tr>

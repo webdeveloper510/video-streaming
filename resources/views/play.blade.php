@@ -1,164 +1,288 @@
-@extends('layout.cdn')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>PAZ html</title>
-</head>
-<body id="default_theme" class="it_service">
-<!-- header -->
 @include('layouts.header')
 
+<link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
+
+<div class="row pb-row">
+ 
+<div class="container">
+<div class="text-right">
+      <select class="form-select form-control col-md-4" aria-label="Default select example">
+        <option selected>All</option>
+        <option value="1">Collection</option>
+        <option value="2">Playlists</option>
+        <option value="3">Wishlist</option>
+        <option value="4">History</option>
+      </select>
+  </div>
+<div class="col-md-12 uploa_outer " id="collection">
+		  <div class="slider_tittle">
+		  <h3 class="tittle">My Collection</h3>		  
+		</div>
+        <div class="row pb-row">
+              @if($wishList)
+              @foreach($wishList as $indx=> $val)
+            <div class="col-md-3 pb-video">
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+				
+             </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
+            </div>
+            @endforeach
+            @else
+		             <div class="playwish">
+                     <h4>Collection Empty</h4>
+
+                   </div>
+                   @endif
+	</div>
+  </div>
+</div>
+  <!-- -------------------------- Play List  Start--------------------------->
+
+
 <div class="inner-page">
   <div class="container">
-      <div class="col-md-12 uploa_outer">
+      <div class="col-md-12 uploa_outer" id="playlist">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">Play list</h3>		  
+		  <h3 class="tittle">Playlist</h3>	
+      <form>	
+       <div class="form-group">
+    <label for="exampleFormControlSelect1"> Select Playlist</label>
+    <select class="form-control" name="playlist" id="exampleFormControlSelect1">
+      <option value="">Choose..</option>
+       @foreach($listname as $val)
+<option value="{{$val->id}}">{{$val->playlistname}}</option>
+@endforeach
+    </select>
+
+  </div>
+  </form>  
 		</div>
+
+
+
+       <!-- -------------------------- Video Section  Start--------------------------->
+
+
+
         <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
+          @if($videos)
+
+@forelse ($videos as $vid)
+      @if($vid->type=='video')
+      <div class="col-md-4">
+      
+    <video width="370" height="245" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
+      <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
+
+      </div>
+      @endif
+      @empty
+       @endforelse
+       @else
+       <div class="playhistory col-md-12">
+                     <h4>No play list created yet. <span id="playlistCreate" class="show_list">Create play List +</span></h4>
+                     <span class="create_playlistt" style="display: block">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+          <div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
+      		<button class="create_list btn btn-primary" type="button">Create</button>
+      	</span>
+
+                   </div>
+            @endif
+			
 	</div>
 	<br/>
-	<div class="col-md-12 uploa_outer">
-		  <div class="slider_tittle">
-		  <h3 class="tittle">Wish list</h3>		  
+</div>
+
+  <!-- -------------------------- Wish list Start--------------------------->
+
+
+
+	<div class="col-md-12 uploa_outer" id="wishlist">
+		  <div class="slider_tittle" >
+		  <h3 class="tittle">Wishlist</h3>		  
 		</div>
         <div class="row pb-row">
+              @if($wishList)
+              @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
+             </video>
+             
+				   	<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
+              
+				  
             </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
+           
+            @endforeach
+            @else
+		             <div class="playwish playhistory col-md-12">
+                     <h4>Wishlist Empty</h4>
+
+                   </div>
+                   @endif
 	</div>
 	<br/>
-	<div class="col-md-12 uploa_outer">
+</div>
+  <!-- -------------------------- History Section  Start--------------------------->
+
+
+	<div class="col-md-12 uploa_outer" id="history">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">History</h3>		  
 		</div>
         <div class="row pb-row">
+
+        @if($history)
+              @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
+             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+
+               <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
+             </video>
+             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
+  <span class="tooltiptext">You can not download this video</span>
+</div>
             </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
+            @endforeach
+            @else
+            <div class="playhistory col-md-12">
+                     <h4>History Empty</h4>
+
+                   </div>
+                   @endif
 	</div>	
   </div>
-</div>  
+</div>
+</div>
+</div>
 
-<!--body end-->
+<script>
+  $(document).ready(function() {
+ 
+  $("#owl-example").owlCarousel({
+    items:3
+ loop:true,
+margin:10,
+autoPlay:true,
+nav:true,
+rewindNav:false
+  });
+});
+ </script>
 
-<!--footer -->
-<footer class="footer_style_2">
-  <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
-            </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-            <ul class="social_icons">
-              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Additional links</h2>
-            </div>
-            <ul class="footer-menu">
-              <li><a href="#"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> News</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Contact us</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Contact us</h2>
-            </div>
-            <p>123 Second Street Fifth Avenue,<br>
-              Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-            <div class="footer_mail-section">
-              <form>
-                <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      <div class="cprt">
-        <p>PAZ © Copyrights 2019 Design by PAZ</p>
-      </div>
-    </div>
-  </div>
-</footer>
-</body>
 <style>
-form.form-horizontal {
+body{
+  background: black;
+}
+
+.tooltip {
+ opacity:1 !important;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  right: 12px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 203px;
+    background-color: white;
+    color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+ul.reporting {
+    background: white;
+    color: black;
+    padding: 13px;
+    border-radius: 7px;
+}
+ .owl-carousel {
+    display: block !important;
+  }
+  select.form-select.form-control.col-md-4 {
+    float: right;
+    margin-top: 22px;
+}
+  .playhistory {
+    border: none;
     width: 100%;
-    float: left;
-    display: flex;
+    text-align: left;
+    padding-bottom: 0;
 }
-button.btn.btn-default {
-    background: #a60000;
-}
-.uploa_outer form {
-    padding: 10px 20px;
-}
-.uploa_outer {
-    float: left;
+.playwish {
+    border: 2px dashed red;
     width: 100%;
-    margin: 20px 0px;
+    text-align: center;
+    padding-bottom: 11px;
+}
+.playhistory h4 {
+    margin: 0;
+    font-size: 12px;
+}
+.inner-page {
+    display: inline-block;
+    width: 100%;
+}
+.pb-video {
+    border: 1px solid #e6e6e6;
+    padding: 5px;
+    margin-top: 16px;
+}
+h3.tittle {
+    color: #ffffff;
+}
+.row.pb-row {
+    background: black;
+    color: white !important;
+}
+.playhistory.col-md-12 h4 {
+    color: white !important;
+}
+.pb-video:hover {
+    border: 1px solid gold;
+    padding: 5px;
+}
+span#playlistCreate {
+    font-size: 15px;
+    font-weight: 700;
+    cursor:pointer;
 }
 </style>
-</html>
+<!--body end-->
+<script>
+function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
+</script>
+<!--footer -->
+@include('layouts.footer')
+

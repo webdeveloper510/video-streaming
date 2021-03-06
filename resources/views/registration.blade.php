@@ -9,14 +9,7 @@
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
           <div class="row">
             <div class="col text-center">
-              <h1 class="text-white">Register As</h1>
-              @if(count($errors)>0)
-        @foreach($errors->all() as $error)
-        <div class="alert registration alert-danger">
-          {{$error}}
-        </div>
-        @endforeach
-        @endif
+              <h1 class="text-white">Join as</h1>
         @if(session('success'))
         <div class="alert alert-success" id="sucess">
         {{session('success')}}
@@ -34,38 +27,44 @@
           <div class="row align-items-center">
             <div class="col mt-4">
 
-               
+        {{Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])}} Customer 
 
-        {{Form::radio('person', 'user', $checkRadio == 'user' ,['class'=>'user'])}} User
+        {{Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])}} Artist
 
-        {{Form::radio('person', 'artist',$checkRadio=='artist',['class'=>'user'])}} Artist
-                @if($errors->first('email'))
+        @if($errors->first('email'))
                 <div class="alert alert-danger">
-                     <?php echo $errors->first('email'); ?>
+                     <?php echo $errors->first('person'); ?>
                 </div>
                 @endif
+
+
             </div>
           </div>
            <div class="row align-items-center">
             <div class="col mt-4">
             {{Form::label('email', 'E-Mail Address')}} 
-                {{Form::text('email',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
+                {{Form::email('email1',null,['class'=>'form-control checknameExist','data-id'=>'email','placeholder'=>'example@gmail.com'])}}
                 @if($errors->first('email'))
                 <div class="alert alert-danger">
                      <?php echo $errors->first('email'); ?>
                 </div>
                 @endif
+                <div class="alert alert-danger alreadyNickname" id="email" style="display:none">
+                </div>
             </div>
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
             {{Form::label('Nickname', 'Nickname')}} 
-                {{Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Enter Nickname'])}}
-                @if(session('errors'))
+                {{Form::text('nickname',null,['class'=>'form-control checknameExist','data-id'=>'nickname','placeholder'=>'Enter Nickname'])}}
+                @if($errors->first('nickname'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('nickname') ?>
                 </div>
                 @endif
+                <div class="alert alert-danger alreadyNickname" id="nickname" style="display:none">
+                </div>
+               
 
             </div>
           </div>
@@ -80,12 +79,31 @@
             </div>
           </div>
           @endif
+
+          <div class="row align-items-center mt-4">
+            <div class="col">
+            {{Form::label('Confirm-Password', 'Confirm-Password')}}
+                {{Form::password('confirm',['class'=>'form-control','placeholder'=>'Confirm-Password'])}}
+                @if($errors->first('confirm'))
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('confirm') ?>
+                </div>
+            </div>
+          </div>
+          @endif
+
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I accept Terms & Conditions and Privacy Policy')}} <br>
+              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
+              <label>I accept <a class="text-white" style="border-bottom-color: initial;
+                border-bottom-style: solid;
+                border-bottom-width: 1px; border-color: blue;" href="https://www.websitepolicies.com/policies/view/iV2Lze7O">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
+                border-bottom-style: solid;
+                border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
-               {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}
+               {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}<br>
+               {{Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')}}
                 
               </div>
 
@@ -94,7 +112,7 @@
           </div>
           {{ Form::close() }}
      
-           <p class="mt-2 text-white">Already have an account yet ?</p>
+           <p class="mt-2 text-white">Already have an account ?</p>
           <a href="{{ URL::to('login')}}" style="color:blue; font-size: 17px;">Login</a>
          
               
@@ -106,4 +124,12 @@
   .register{
     border-radius: 28px !important;
   }
+
+  .alert-danger {
+    margin-top: 10px;
+}
+
+.alert-success {
+    margin-top: 10px;
+}
 </style>

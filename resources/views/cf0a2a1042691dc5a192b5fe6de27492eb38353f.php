@@ -4,7 +4,7 @@
   <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <div class="container">
-          <div class="overlay1">
+          <div class="overlay1 ovr my-5 ">
 
             <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
@@ -19,6 +19,10 @@
 
         </div>
         <?php endif; ?>
+
+  <!-- --------------------------  Profile Update Section Start--------------------------->
+
+
 
   <?php echo Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true]); ?>
 
@@ -42,6 +46,7 @@
             <br>
                  <?php echo e(Form::radio('gender', 'male', true,['class'=>'rad_But'])); ?>Male
                 <?php echo e(Form::radio('gender', 'female',false,['class'=>'rad_But'])); ?>Female
+                <?php echo e(Form::radio('gender', 'trans',false,['class'=>'rad_But'])); ?>Trans
                  <?php if($errors->first('gender')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('gender') ?>
@@ -70,7 +75,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-4 hide" >
+            <!-- <div class="col-md-6 mt-4 hide" >
             <?php echo e(Form::label('Tits Size', 'Tits Size')); ?> 
                 <?php echo e(Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])); ?>
 
@@ -150,7 +155,7 @@
                   <?php echo $errors->first('weight') ?>
                 </div>
                 <?php endif; ?>
-            </div>
+            </div> -->
            <div class="col-md-12 mt-4">
             <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
                 <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])); ?>
@@ -170,14 +175,21 @@
   <?php echo e(Form::close()); ?>
 
   </div>
+
+  <!-- -------------------------- Profile Upadte section End--------------------------->
+
 </div>
 </div>
 </section>
 <style>
+.custom-file-label{
+       z-index:0 !important;
 
+}
 .overlay1 {
     margin-top: 7% !important;
   }
 
 </style>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>
+
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/profile.blade.php ENDPATH**/ ?>

@@ -4,7 +4,19 @@
   position: relative;
   width: 100%;
 }
-
+.levlv {
+  width: 178px;
+  color: #fff;
+  display: flex;
+}
+.wid{
+  width: 109px;
+}
+.progress {
+ 
+  height: 1.5rem !important;
+  
+}
 .tim-typo .tim-note {
   bottom: 5px;
   color: #c0c1c2;
@@ -61,7 +73,7 @@
 }
 .alert.alert-success {
     width: 50%;
-    margin-top: 6%;
+    margin-top: 10%;
     z-index: 99999;
     top: -12px;
     position: absolute;

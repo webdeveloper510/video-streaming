@@ -32,18 +32,45 @@ class AppServiceProvider extends ServiceProvider
              $model = new Registration();
 
             $category = $model->getCategory();
+         
+             $array = $model->getNotification();
 
-            $data=Session::get('User');
+             $notification = $array['notifications'];
 
-            $userId = isset($data) ? $data->id : '';
+              $count = $array['count'];
+
+
+               $data=Session::get('User');
+
+               $isActive = true;
+
+             $userId = isset($data) ? $data->id : '';
+
+            // echo "<pre>";
+
+             $offer = $model->getallOffers();
+            //     echo "<pre>";
+            //  print_r($offer);die;
 
             $tokens = $model->getUserData($userId);
+
+             $artistData = $model->onlyArtistDetail($userId);
+       
+             $getLevel= isset($data) ? $model->getlevel(): '';
+              //print_r($getLevel);die;
+             
+              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];
+            
+
+            //echo $tokens ? 'yes' : 'No';
+
+           // print_r($tokens);die;
 
            // $profile = $model->getUserProfile($userId);
 
             //$type=Session::get('userType');
 
-            $view->with(array('login'=>$data, 'category'=>$category,  'userProfile'=>$tokens));    
+            $view->with(array('latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
 
     }

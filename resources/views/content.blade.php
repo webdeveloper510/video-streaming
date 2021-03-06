@@ -3,7 +3,6 @@
 <section class="background1 pb-5 ">
 <div class="container">
  <div class="overlay1">
-<!--a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a-->
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
@@ -25,9 +24,12 @@
           {{Form::token()}}
       <div class="container profile">
         <div class="heading text-center"><h2 class="text-white ">Artist Detail</h2></div>
+<!---------------------- First Step Form-------------------->
+       
+<!---------------------- second Step Form-------------------->
           <div class="row align-items-center text-white">       
                 <div class="col-md-6 pt-3">
-            {{Form::label('Eye Color', 'Eye Color')}} 
+            {{Form::label('Eye Color/Lens', 'Eye Color/Lens')}} 
                 {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
@@ -37,8 +39,9 @@
             </div>
              <div class="col-md-6 pt-3">
             {{Form::label('Gender', 'Gender')}} <br>
-                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
-                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
+                 {{Form::radio('gender', 'male', false,['class'=>'rad_But'])}}Male&nbsp;&nbsp;
+                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female&nbsp;&nbsp;
+                {{Form::radio('gender', 'trans',false,['class'=>'rad_But'])}}Trans
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('gender') ?>
@@ -47,7 +50,7 @@
 
             </div>
             <div class="col-md-6 pt-3">
-            {{Form::label('Privy part', 'Privy part')}} 
+            {{Form::label('Choose', 'Choose')}} 
                 {{Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Privy part'])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
@@ -75,7 +78,7 @@
             </div>
 
                <div class="col-md-6 pt-3">
-            {{Form::label('Sexology', 'Sexology')}} 
+            {{Form::label('Choose', 'Choose')}} 
                 {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
@@ -86,7 +89,7 @@
 
 
             <div class="col-md-6 pt-3 hide" >
-            {{Form::label('Tits Size', 'Tits Size')}} 
+            {{Form::label('Choose  Size', 'Choose  Size')}} 
                 {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
                 @if(session('errors'))
                 <div class="alert alert-danger">
@@ -96,8 +99,8 @@
             </div>
         
             <div class="col-md-6 pt-3 hide">
-            {{Form::label('Ass', 'Ass')}} 
-                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
+            {{Form::label('Choose Size', 'Choose Size')}} 
+                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('ass') ?>
@@ -115,25 +118,17 @@
             </div>
             <div class="col-md-6 pt-3">
             {{Form::label('Weight', 'Weight')}} 
-                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])}}
+                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Average'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('weight') ?>
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-3 pt-4">
-                <select name="category" class='form-control'>
-                    <option value="">Choose category</option>
-                    @foreach($category as $cat)
-                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-                    @endforeach
-                </select>
-            </div>
             
              <div class="col-md-12 pt-3">
             {{Form::label('ABOUT ME', 'ABOUT ME')}} 
-                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])}}
+                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','maxlength'=>'2000','cols' => 30])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('aboutme') ?>
@@ -141,11 +136,19 @@
                 @endif
             </div>
              <div class="col-md-6 pt-4 ">
-            {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-  {{Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])}}
+            {{Form::label('Choose Profilepicture', 'Choose Profilepicture',['class'=>'custom-file-label'])}} 
+  {{Form::file('image',['class'=>'custom-file-input chooseImage'])}}
+  <span id="filename" style="color:red;"></span>
 </div>
+
+<div class="col-md-6 pt-4 ">
+            {{Form::label('Choose Backgroundimage', 'Choose Backgroundimage',['class'=>'custom-file-label'])}} 
+  {{Form::file('cover_photo',['class'=>'custom-file-input chooseImage'])}}
+  <span id="filename" style="color:red;"></span>
+</div>
+
 <div class="col-md-6 pt-2 text-center">
-  <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" />
+  <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
                   @if(session('errors'))
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>

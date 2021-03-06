@@ -5,17 +5,7 @@
 <footer class="footer_style_2">
   <div class="container">
         <div class="row">
-        <!--   <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
-            </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-            <ul class="social_icons">
-              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            </ul>
-          </div> -->
+       
           <div class="col-md-12">
             <div class="main-heading left_text text-center">
               <h2>Additional links</h2>
@@ -24,43 +14,78 @@
             
             <ul class="footer-menu">
               <li style="border-left-color: red;
-    border-left-style: solid;
-    border-left-width: 1px;"><a href="#"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="https://www.websitepolicies.com/policies/view/iV2Lze7O"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+                  border-left-style: solid;
+                  border-left-width: 1px;">
+              <a href="https://www.websitepolicies.com/policies/view/iV2Lze7O"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
                <li><a href="https://www.websitepolicies.com/policies/view/u5oiPx3i"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
-              <li><a href="https://www.websitepolicies.com/policies/view/GBVn25Ot"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-                <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
+               <li><a href="https://www.websitepolicies.com/policies/view/GBVn25Ot"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+               <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
              
-                 <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
+              <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/uU8Tfpe9"><i class="fa fa-angle-right"></i> Refund Policy</a></li>
               <li><a href="https://www.websitepolicies.com/policies/view/UkyQfdIh"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
+              <li><a href="{{url('/userWithdraw')}}"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
+              <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
+                <!-- Modal -->
+                <div class="modal modal2" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header ">
+                      <div class="form-group"style=" width: 80%;">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
+                        </div>
+                        
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                      </div>
+                      <div class="modal-body">
+                      <div class="row">
+                        <div class="col"></div>
+                         <div class="col-md-8 my-3">
+                            <div class="text-center">
+                                <select class="form-select form-control " aria-label="Default select example">
+                                  <option selected> Select Menu</option>
+                                  <option value="1">Feature Request</option>
+                                  <option value="2">Functionality Question</option>
+                                  <option value="3">Techincal Issue</option>
+                                  <option value="4">General</option>
+                                  <option value="5">Website Fees</option>
+                                  <option value="6">Delete Account</option>
+                                  <option value="7">Other</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col"></div>
+                          </div>
+
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder="We would like to read your description..." id="floatingTextarea"></textarea>
+                        
+                      </div>
+                      <div class="pb-3 pr-3 text-right">
+                      <button class="btn btn-primary" type="button">Submit</button></div>
+                    
+                    </div>
+                    
+                    </div>
+                  </div>
+                </div>
             </ul>
           </div>
+
+
        
-          <!--div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Contact us</h2>
-            </div>
-            <p>123 Second Street Fifth Avenue,<br>
-              Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-            <div class="footer_mail-section">
-              <form>
-                <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div-->
       <div class="cprt">
-        <p>PAZ © Copyrights 2019 Design by PAZ</p>
+        <p>PAZ © Copyrights 2021 Design by PAZ</p>
       </div>
     </div>
   </div>
 </footer>
+<style>
+  div#exampleModal10 {
+    background: transparent;
+}
+</style>
 
     

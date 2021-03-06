@@ -8,15 +8,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- mobile metas -->
 <!-- site metas -->
-<title>PAZ HTML</title>
+<title>Pornartistzone</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" Content-Type="video/mp4">
 
-<link rel="icon" href="<?php echo e(asset('images/fevicon/fevicon.png')); ?>" type="image/gif" />
+<link rel="icon" href="<?php echo e(asset('images/logos/logo_black.png')); ?>" type="image/png" sizes="16x16">
 <!-- bootstrap css -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <!-- Site css -->
 
@@ -28,7 +27,7 @@
 <link rel="stylesheet" href="<?php echo e(asset('design/responsive.css')); ?>" />
 <link rel="stylesheet" href="<?php echo e(asset('design/detailpage.css')); ?>" />
 <!-- colors css -->
-<link rel="stylesheet" href="<?php echo e(asset('design/colors1.css')); ?>" />
+<!-- <link rel="stylesheet" href="<?php echo e(asset('design/colors1.css')); ?>" /> -->
 <!-- custom css -->
 <link rel="stylesheet" href="<?php echo e(asset('design/custom.css')); ?>" />
 <!-- wow Animation css -->
@@ -37,17 +36,28 @@
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/layers.css')); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo e(asset('revolution/css/navigation.css')); ?>" />
 
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
 <!-- jQuery and JS bundle w/ Popper.js -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
 <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+
  <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
 <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
+<script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+
+        crossorigin="anonymous">
+</script> -->
+
 <!-- menu js -->
 <script src="<?php echo e(asset('js/menumaker.js')); ?>"></script>
 <!-- wow animation -->
@@ -65,6 +75,8 @@
 <script src="<?php echo e(asset('revolution/js/extensions/revolution.extension.navigation.min.js')); ?>"></script>
 <script src="<?php echo e(asset('revolution/js/extensions/revolution.extension.parallax.min.js')); ?>"></script>
 <script src="<?php echo e(asset('revolution/js/extensions/revolution.extension.slideanims.min.js')); ?>"></script>
+
+
 <script src="https://designmodo.com/demo/dropdown-menu-search/prefixfree-1.0.7.js"></script>
 <script src="<?php echo e(asset('revolution/js/extensions/revolution.extension.video.min.js')); ?>"></script>
     <!-- Bootstrap CSS -->

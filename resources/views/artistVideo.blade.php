@@ -1,5 +1,5 @@
-@extends('layout.cdn')
 @include('layouts.header')
+<link rel="stylesheet" href="{{asset('design/artistVideo.css')}}" />
 <div class="inner-page"> 
 	 <section>
 	   <div class="container-fluid">
@@ -12,41 +12,77 @@
 				   </div>
 				</div>
 				@foreach($vedios as $video)
-				@if($video->type=='video')
+				<?php 
+			
+			$GLOBALS['videoid'] = $video->id ;
+			$GLOBALS['type'] = $video->type ;
+
+			$GLOBALS['paz'] = $video->price ;
+			$GLOBALS['artistid'] = $video->contentProviderid ;
+
+			?>
+			
+			
+				@if($video->type=='video' || $video->type=='audio')
+			
 				<div class="col-md-5">
 				   <div class="content-area">
 					  <h3>{{$video->title}}</h3>
-					  <p>{{$video->nickname}}</p>
+					  <a href="{{url('artistDetail/'.$video->contentProviderid)}}"><p>{{$video->nickname}}</p></a>
 				   </div>
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3><sub>$</sub>{{$video->price}}</h3>
+					  <h3 class="paz_price">{{$video->price}}PAZ</h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
 				   <div class="content-cart">
 				   
-                   <div class="cart1">  
-                   	<a href="{{url('cart1')}}"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>
-                          <span class="itemCount">{{$count}}</span>
-
-                   </div>
-
- <button type="button" id="{{$video->id}}" class="addToCart">
- 	 	<form action="" method="post">
- 	Add to Cart
- </form>
+              
+ <button type="button" style="cursor:pointer;" id="{{$video->id}}" class="addToCart">
+ 	 	
+ 	Add to Wishlist
  </button>
-					  <div class="dropdown">
-			 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						 </button>
-						 <div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Link 1</a>
-							<a class="dropdown-item" href="#">Link 2</a>
-							<a class="dropdown-item" href="#">Link 3</a>
-						 </div>
-					  </div>
+
+<button  type="button" style="cursor:pointer;" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-left">
+    
+      <h3>Choose Playlist</h3>
+      <div class="Playlist1">
+      	@foreach($listname as $index=>$val)
+      	<h5 class="select_list">{{$val->listname}} </h5> <a href="" class="aedit">edit</a><br>
+      	@endforeach
+      	<a href="#" class="show_list">Create New Playlist +</a>
+      	<span class="create_playlistt" style="display: none">
+      		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+      		<button class="create_list btn btn-primary" type="button">Create</button>
+      	</span>
+      </div>
+      <div class="text-center mt-4">
+      <h2>Token:{{ $GLOBALS['paz'] }} PAZ</h2>
+      <input type="hidden" id="vidid" name="videoid" value="{{$GLOBALS['videoid']}}">
+      <input type="hidden" class="token" name="token" value="{{ $GLOBALS['paz'] }}">
+      <input type="hidden" class="art_id" name="art_id" value="{{ $GLOBALS['artistid'] }}">
+      <button type="button" class="addNow">ADD NOW</button>
+	  <div class="alert alert-success message" role="alert" style="display: none">
+        A simple success alert—check it out!
+   </div>
+  </div>
+      </div>
+    
+    </div>
+  </div>
+</div>		  
 				   </div>
 				</div>
 			 </div>
@@ -58,14 +94,77 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
-				   <video width="320" height="240" controls>
+						@if($video->type=='video')
+				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
 				   	<source src="{{url('storage/app/public/video/'.$video->media)}}" type="video/mp4">
 				   </video>
+				   @else
+
+				   <div class="artistaudiopage col-md-4">
+				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
+
+				   <audio controls>
+				   	<source src="{{url('storage/app/public/audio/'.$video->media)}}" type="audio/mp3">
+				   </audio>
+					</div>
+				   @endif
+				   <div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
+						 <li>You can not download this video.</li>
+						</ul>
+				   </div>
 				</div>
 			 </div>
 		  </div>
 	   </div>
 	</section>
+          
+       
+	    <!-- Modal -->
+		<div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header ">
+                      <div class="row" style="width: 100%;">
+                        <div class="col"></div>
+                         <div class="col-md-8 my-3">
+                            <div class="text-center">
+                                <select class="form-select form-control " aria-label="Default select example">
+                                  <option selected> Select Menu</option>
+                                  <option value="1">Feature Request</option>
+                                  <option value="2">Functionality Question</option>
+                                  <option value="3">Techincal Issue</option>
+                                  <option value="4">General</option>
+                                  <option value="5">Website Fees</option>
+                                  <option value="6">Delete Account</option>
+                                  <option value="7">Other</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col"></div>
+                          </div>
+                        
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                      </div>
+                      <div class="modal-body">
+                      
+
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                      </div>
+                      <div class="pb-3 pr-3 text-right">
+                      <button class="btn btn-primary" type="button">Submit</button></div>
+                    
+                    </div>
+                    
+                    </div>
+                  </div>
+                </div>
+
+
+
 
 	<section class="published">
 	   <div class="container-fluid">
@@ -88,7 +187,7 @@
 							   <p>Media Type</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>mp4</p>
+							   <p>{{$video->type=='video' ? 'mp4':'mp3'}}</p>
 							</div>
 						 </div>
 					  </div>
@@ -108,20 +207,11 @@
 							   <p>Resolution</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>HD 720p</p>
+							   <p>{{$video->convert}}</p>
 							</div>
 						 </div>
 					  </div>
-					  <div class="media-property">
-						 <div class="property-1">
-							<div class="Media-Type">
-							   <p>File Size</p>
-							</div>
-							<div class="Media-Type1">
-							   <p>{{$video->size}}</p>
-							</div>
-						 </div>
-					  </div>
+					 
 				   </div>
 				</div>
 			 </div>
@@ -130,25 +220,25 @@
 	</section>
 		@endif
 	@endforeach
-	<section>
+	<!-- <section>
 	   <div class="container-fluid">
-		  <div class="row">
-			 <div class="col-md-12">
-				<h3 class="top selling-content">
-				<span>$</span>Top Selling Content
-				<h3>
-			 </div>
-		  </div>
+			<div class="row">
+					<div class="col-md-12">
+						<h3 class="top selling-content">
+						<span>$</span>Top Selling Content
+						<h3>
+					</div>
+			</div>
 		  <div class="row">
 			 <div class="col-md-12">
 				<div id="demo" class="carousel slide" data-ride="carousel">
-				   <!-- Indicators -->
-				   <ul class="carousel-indicators">
-					  <li data-target="#demo" data-slide-to="0" class="active"></li>
-					  <li data-target="#demo" data-slide-to="1"></li>
-					  <li data-target="#demo" data-slide-to="2"></li>
-				   </ul>
-				   <!-- The slideshow -->
+				   <!-- Indicators 
+						<ul class="carousel-indicators">
+							<li data-target="#demo" data-slide-to="0" class="active"></li>
+							<li data-target="#demo" data-slide-to="1"></li>
+							<li data-target="#demo" data-slide-to="2"></li>
+						</ul>
+				   <!-- The slideshow 
 				   <div class="carousel-inner">
 					  <div class="carousel-item active">
 						 <div class="main-video-search content">
@@ -307,7 +397,7 @@
 						 </div>
 					  </div>
 				   </div>
-				   <!-- Left and right controls -->
+				   <!-- Left and right controls 
 				   <a class="carousel-control-prev" href="#demo" data-slide="prev">
 				   <span class="carousel-control-prev-icon"></span>
 				   </a>
@@ -318,471 +408,49 @@
 			 </div>
 		  </div>
 	   </div>
-	</section>
+	</section> -->
 </div>  
+
+
+<script>
+	var type = "{{$GLOBALS['type']}}";
+
+     addTohistory(type);
+		
+
+</script>
 <style>
-.image.area {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 20px;
-}
-
-.image.area img {
-    width: 100%;
-    width: 115px;
-    height: 115px;
-    border-radius: 50%;
-  
-}
-
-
-
-.content-area h3 {
-    color: #a60000;
-    font-weight: 400;
-    padding-left: 68px;
-    line-height: 40px;
-    margin-bottom: 0px;
-}
-.content-area p {
-    padding-left: 68px;
-    font-size: 18px;
-    color: #000000b5;
-}
-
-.content-area {
-    padding-top: 16px;
-}
-
-.content-price h3 {
-    color: #36B1E9;
-    font-size: 50px;
-    font-weight: 300;
-}
-
-.content-price h3 sub {
-    vertical-align: top;
-    font-weight: 600;
-    font-size: 28px;
-   
-}
-.cart1 {
+.report-op {
     position: absolute;
-    top: -58px;
-    z-index: 9999;
-    color: white;
-    font-size: 28px;
-}
-.content-price {
-    padding-top: 20px;
-    text-align: end;
-}
-
-
-.published h3 {
-    font-weight: 300;
-    color: #a60000;
-    line-height: 75px;
-}
-
-.content-cart {
-    text-align: end;
-}
-
-
-
-.content-cart button {
-    background-color: #a60000;
-    border: 2px solid #a60000;
-    color: #fff;
-    width: 210px;
-    padding: 10px;
-    font-size: 22px;
-}
-
-.content-cart {
-    padding-top: 20px;
-    text-align: end;
-    display: flex;
-    justify-content: flex-end;
-	padding-right: 10px;
-}
-button.btn {
-    min-width: 39px !important;
-    height: 26px !important;
-}
-button.btn.btn-primary.dropdown-toggle {
     width: 100%;
-    margin-left: 1px;
-    border-radius: 0;
+    top: 6px;
+    padding-left: 267px;
 }
-
-.main-cnt-sec {
-    box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
-}
-
-.vid-sec {
-    background-color: #ededed;
-    text-align: center;
-}
-
-.published :nth-child(2) {
-    color: #a60000;
-    font-size: 18px;
-}
-.published :nth-child(3) {
-    font-size: 19px;
-    color: #00000087;
-    font-style: oblique;
-}
-
-.published :nth-child(5) {
-    color: #36b1e9;
-    font-style: oblique;
-    font-size: 18px;
-    margin-top: 30px;
-}
-
-.property-1 {
-    display: flex;
-    justify-content: space-around;
-}
-
-
-
-.Media-Type p {
-    color: #a60000;
-    font-weight: bold;
-}
-
-.main-mediacl {
-    margin-top: 135px;
-}
-
-.published {
-    padding-bottom: 70px;
-}
-
-
-.Media-Type1 p {
-    color: #a60000;
-}
-
-
-.pubcontainer {
-    border-bottom: 1px solid #0000003b;
-}
-
-.main-video-search.content {
-    width: 100%;
-    display: flex;
-}
-
-
-
-.videos2 {
-    width: 24%;
-    margin: 10px;
-}
-
-.camera {
-    display: flex;
-    position: absolute;
-    right: 1px;
-    top: 0;
-}
-
-.videos2 p {
-    font-size: 17px;
-    margin-bottom: 0;
-    padding-left: 9px;
-}
-
-.video-icon {
-    position: relative;
-}
-
-i.fa.fa-video-camera {
-    padding-top: 5px;
-}
-
-.camera p {
-    padding-left: 3px;
-}
-.videos2 p {
-    font-size: 17px;
-    margin-bottom: 0;
-    padding-left: 9px;
-}
-
-.videos2 p span {
-    color: #36b1ea;
-    font-size: 16px;
-}
-
-.videos2 {
-    width: 24%;
-    margin: 10px;
-    margin: 0 auto;
-    margin-right: 14px;
-}
-
-h3.top.selling-content {
-    font-weight: 300;
-	 margin-bottom: 21px;
-	  font-size: 26px;
-}
-
-
-h3.top.selling-content span {
-    font-size: 28px;
-    color: #48b8eb;
-    font-weight: bold;
-    margin-right: 8px;
-}
-.carousel {
-  
-    padding-bottom: 100px;
-}
-
-a.carousel-control-next {
-    background: #48b8eb;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-}
-
-a.carousel-control-prev {
-    background: #48b8eb;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-}
-
-.carousel-control-next, .carousel-control-prev {
-    position: absolute;
-    top: 250px !important;
-    bottom: 0;
-    
-}
-
-
-
-
-span.itemCount {
-    position: absolute;
-    top: -23px;
-    right: 4px;
-}
-@media only screen and (max-width: 768px) {
-
-.image.area {
-    
-     display: flex; 
-    
-}
-
-.content-cart button {
-    
-     font-size: 13px; 
-}
-
-.content-price h3 {
-   
-     font-size: 38px; 
-   
+.content-cart .addToCart:hover {
+    background: #0062cc !important;
+    border: 1px solid #0062cc !important;
 }
-
-.content-area h3 {
-    
-     line-height: 28px; 
-    
-     font-size: 20px; 
-}
-
-
-
-.content-area p {
-    padding-left: 69px;
-    font-size: 16px;
-}
-
-.image.area {
-    width: 100%; 
-     display: unset; 
-   
-    padding-left: 20px; 
-}
-
-.main-cnt-sec {
-    
-    padding-top: 7px;
-}
-.image.area img {
-   
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  
-}
-
-.camera {
-  
-    top: 50px;
-}
-
-.content-area {
-    padding-top: 12px;
-}
-
-
-
-}
-
-
-
-@media only screen and (max-width: 767px) {
-
-
-
-.image.area {
-    width: 100% !important; 
-    display: flex;
-    padding-left: 20px;
-    justify-content: center;
-}
-
-.content-cart button {
-    
-     font-size: 13px; 
-}
-
-.content-price h3 {
-   
-     font-size: 38px; 
-   
-}
-
-.content-area h3 {
-    
-    padding-left: 0px;
-    
-}
-
-.content-area p {
-    padding-left: 0px;
-   
-}
-
-.content-area p {
-  
-    margin-top: 20px;
-}
-
-.content-cart {
-    
-    display: flex;
-    justify-content: center;
-   
-}
-.content-price {
-    padding-top: 0px;
-    text-align: center;
-}
-.content-area h3 {
-    line-height: 28px;
-    font-size: 28px;
-}
-
-.content-area p {
-    padding-left: 69px;
-    font-size: 16px;
-}
-
-.image.area {
-    width: 100%; 
-     display: flex; 
-   
-    padding-left: 20px; 
-}
-
-.main-cnt-sec {
-    
-    padding-top: 7px;
-}
-.image.area img {
-   
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  
-}
-.content-area {
-  
-    text-align: center;
-}
-
-.content-area p {
-   
-    padding-left: 0 ! important;
-}
-
-.content-cart {
-   padding-top: 0px !important;
-   padding-bottom: 20px;
-  
-    
+ul.reporting {
+    background: #efefef;
+    width: 241px;
+    margin-left: 50%;
+    box-shadow: 0 3px 6px #00000026;
+    padding: 8px 6px 8px;
+    text-align: left;
+    font-size: 13px;
 }
-
-.main-mediacl {
- 
-    margin-top: 0;
-}
-
-.camera {
-   
-    top: 48px;
-}
-.vid-sec iframe {
-    WIDTH: 100% !IMPORTANT;
-}
-
-.videos2 {
-    width: 100%;
-   
-}
-.main-video-search.content {
-    
-    display: unset;
-}
-
-.camera {
-    top: 0px !important;
+.artistaudiopage {
+    margin: 1px auto;
+    padding: 4px;
 }
 
-
-.carousel-control-next, .carousel-control-prev {
-    position: absolute;
-    
-    top: 92% !important;
-   
-}
-
-
+.artistaudiopage img {
+    height: 184px;
 }
-
-
-@media only screen and (max-width: 748px){
-.camera {
-    top: 76px;
-}
-}
-
 </style>
-
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
+	
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -792,11 +460,19 @@ $(".addToCart").click(function(e) {
              "_token": "{{ csrf_token() }}", 
         },
         success: function(result) {
-            $('.itemCount').text(result);
+        	$('.addToCart').text('Added');
+           // $('.itemCount').text(result);
         },
         error: function(result) {
             alert('error');
         }
     });
 });
+function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
 </script>
+
+
+@include('layouts.footer')
