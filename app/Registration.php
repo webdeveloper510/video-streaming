@@ -970,44 +970,73 @@ public function getRespectedSub($data){
 
     public function showOfer($data){
 
-        $result = $data;
-       // print_r($result);die;
-        $fetch = DB::table('offer')
-        ->where(function($query) use ($result){
+    // print_r($data);die;
 
-            foreach ($result as $key => $value) {
+      
+      $offers = DB::table('offer')
+               ->leftJoin('category', function($join) use($data) {
+                      //$join->where('category.id','=', $data['catid'][0])
+                      $join->on("category.id", "=", "offer.categoryid");
+              })
+              ->whereIn('offer.categoryid', $data['catid'])
+              ->orderBy('offer.price', $data['price'])
+               ->select('offer.*','category.category')
+               ->get();
 
-                if(is_array($value)){
+               //echo "<pre>";
 
-                  $query->whereIn('categoryid',$value);
+               return $offers;
 
-                }
+      //   $result = $data;
+      //  // print_r($result);die;
+      //   $fetch = DB::table('offer')
 
-                else{
+      //   ->leftJoin('category',function($query) use ($result){
 
-                  if($key=='price'){
+      //       foreach ($result as $key => $value) {
 
-                    $query->orderBy('price',$value);
-                  }
+      //           if(is_array($value)){
 
-                  else{
+      //             $query->where('category.id','=', $value)
+      //             ->on("category.id", "=", "offer.categoryid");
 
-                   $query->where($key,$value);
+      //             //$query->whereIn('categoryid',$value);
 
-                 }
-                }
+      //           }
 
-            }
+      //           else{
 
-        });
+      //             if($key=='price'){
 
-        // echo "<pre>";
+      //               $query->orderBy('price',$value);
+      //             }
 
-        // print_r($fetch->get());die;
+      //             else{
 
-          return $fetch->get();
+      //              $query->where($key,$value);
+
+      //            }
+      //           }
+
+      //       }
+
+      //   })
+
+      //   ->select('offer.*','category.*')
+
+      //   ->get();
+
+      //   print_r($fetch);die;
+
+        // // echo "<pre>";
+
+        // // print_r($fetch->get());die;
+
+        //   return $fetch->get('A.*','B.*');
 
     }
+
+    
 
     public function editDescription($data)
 

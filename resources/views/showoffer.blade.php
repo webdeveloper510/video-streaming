@@ -41,7 +41,7 @@
 	      <table class="table table-borderless text-center">
         <tr>
           <th>Category</th>
-          <td>xyz</td>
+          <td>{{$val->category}}</td>
         </tr>
         <tr>
           <th>Media</th>
