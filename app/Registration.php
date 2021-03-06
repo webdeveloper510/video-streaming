@@ -970,6 +970,20 @@ public function getRespectedSub($data){
 
     public function showOfer($data){
 
+      // $key_value = array();
+
+      // foreach($data as $key=>val){
+
+      //       if(is_array($val)){
+
+      //       }
+
+      //       else{
+      //             echo 'dd';
+      //       }
+
+      // }
+
     // print_r($data);die;
 
       
