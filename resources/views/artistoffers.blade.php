@@ -58,7 +58,7 @@ $GLOBALS['add_price'] = $offerdata->additional_price;
 $GLOBALS['price'] = $offerdata->price;
 ?>
 <div class="container">
-<video width="100%" height="340" controls controlsList="nodownload" disablePictureInPicture>
+<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
   <source src="{{url('storage/app/public/video/'.$offerdata->media) }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
