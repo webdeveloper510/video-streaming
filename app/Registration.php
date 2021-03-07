@@ -475,15 +475,23 @@ public function getArtistDetail($artid,$type){
 
     $contentid=$session_data->id;
 
+    //print_r($profile);
 
+//
     $update = $this->UpdateData('contentprovider','id',$profile,$contentid);
+   // print_r($update);die;
+      if($data){
 
+        $id=$data['hid'];
 
-       $id=$data['hid'];
+        unset($data['hid']);
+  
+        $update = $this->UpdateData('media','id',$data,$id);
 
-      unset($data['hid']);
+      }
 
-      $update1 = $this->UpdateData('media','id',$data,$id);
+     // print_r($update);die;
+      
 
       return $update1; 
 
