@@ -1714,6 +1714,7 @@ $(document).on('click','.select_media_pic',function(){
 			if(value=='audio'){
 
 					$('.media_label').text('Upload Sample Audio (~30s)');
+					$('.media_label12').text('Audio Sample');
 					$('.audio_picture').show();
 					$('.convert').hide();
 
@@ -1721,6 +1722,9 @@ $(document).on('click','.select_media_pic',function(){
 			else{
 
 				$('.audio_picture').hide();
+
+				$('.media_label12').text('Video Sample');
+
 
 				$('.media_label').text('Upload Sample Video (~30s)');
 
