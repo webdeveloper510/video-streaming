@@ -401,7 +401,7 @@ class artist extends Controller
 
   public function offerpage($id){
 
-    $navbaractive = 'withdraw';
+    $navbaractive = 'profile';
 
 
     $offerData = $this->model->getOfferById($id);
