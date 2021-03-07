@@ -40,7 +40,7 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Quality</h3>
-      <p><?php echo e($offerdata->quality); ?>px</p>
+      <p><?php echo e($offerdata->quality); ?>p</p>
 	</div>
   <div class="col">
       <h3>Category</h3>
