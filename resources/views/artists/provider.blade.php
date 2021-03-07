@@ -77,7 +77,7 @@
             </select>
             
             <div class="col-md-12 mt-3 text-white">
-            <label class="media_label12">Sample Audio/Video(~30sec)</label>
+            <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
                 <span id="filename" style="color:red;"></span>
             </div>

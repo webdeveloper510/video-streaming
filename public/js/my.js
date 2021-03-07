@@ -283,6 +283,9 @@ $(document).on('keyup change', '#change_duration', function () {
 
 	console.log(pay_price);     
 });
+$(document).on('click','.additional_price',function(){
+	alert('hello');
+})
 function readURL(input) {
 
 	var radio_checked = $(".select_media_pic:checked").val();
@@ -1123,7 +1126,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
 			success: function(data){
 
-				//console.log(data);return false;
+				sconsole.log(data);return false;
 
 				if(data.status==1){
 					$('.alert-success').show();

@@ -486,7 +486,7 @@ class artist extends Controller
 
   public function edit_offer(Request $req){    
 
-    //print_r($req->all());die;
+    print_r($req->all());die;
     
        $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
 
