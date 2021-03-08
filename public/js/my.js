@@ -283,6 +283,8 @@ $(document).on('keyup change', '#change_duration', function () {
 
 	console.log(pay_price);     
 });
+
+
 $(document).on('click','.additional_price',function(){
 	alert('hello');
 })
@@ -1432,7 +1434,8 @@ function filterproject(data){
 
 }
 
-$(document).on('keyup', '#calculate_tokens', function () {
+$(document).on('keyup change', '#calculate_tokens', function () {
+	
 	var amount = parseInt($(this).val())/20;
 	var fees = (parseFloat(amount)*$("#fees").val())/100;
 	$('#real_amount').val(parseFloat(amount)-parseFloat(fees));
