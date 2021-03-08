@@ -1,4 +1,5 @@
 @include('artists.dashboard')
+<section class="background1 ">
 
 
         <div class="alert alert-success" id="success" style="display:none">
@@ -8,7 +9,7 @@
  
            
          
-      <section class="background1 ">
+  
 {!!Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile ">
