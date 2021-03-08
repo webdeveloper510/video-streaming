@@ -79,12 +79,12 @@
             <div class="col-md-12 mt-3 text-white">
             <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
             <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
             <label>Choose Image</label>        
                  {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
             <div class="col-md-6 mt-3">
