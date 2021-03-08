@@ -5,11 +5,47 @@
 <div class="offer ">
 <h4 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h4> 
 <!-- <h5>Audio/Video</h5> -->
-<a href="<?php echo e($offer[0]->artistid); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
+<a href="<?php echo e(url('artistDetail/'.$offer[0]->artistid)); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
 <div class="text-right">
-<button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe">Subscribe </button>
+<button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>"  data-toggle="modal" data-target="#Subscribe1" id="subscribe" >Subscribe </button>
     
- <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Un Subscribed </button>
+ <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
+</div>
+<!-- Modal  Subscribe-->
+<div class="modal fade" id="Subscribe1" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+      <h3> Subscribe from Artistname</h3>
+      <div class="text-center Artistxyz">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     
+        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" >Subscribe</button>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+<!------------------------------------ Modal  unSubscribe------------------------------->
+<div class="modal fade" id="Unsubscribe1" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+      <h3> Unsubscribe from Artistname</h3>
+      <div class="text-center Artistxyz">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Unsubscribe</button>
+       </div>
+      </div>
+     
+    </div>
+  </div>
 </div>
 <p>Sample</p>
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -22,7 +58,7 @@ $GLOBALS['add_price'] = $offerdata->additional_price;
 $GLOBALS['price'] = $offerdata->price;
 ?>
 <div class="container">
-<video width="100%" height="340" controls controlsList="nodownload" disablePictureInPicture>
+<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
   <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -86,6 +122,10 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 </div>
 
-
+<style>
+.text-center.Artistxyz {
+    padding: 30px;
+}
+</style>
 	
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>

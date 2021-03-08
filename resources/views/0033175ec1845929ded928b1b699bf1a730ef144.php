@@ -306,7 +306,7 @@ Your browser does not support the audio tag.
       <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
             <div class="col-md-3">
-              <label><b><?php echo e(ucwords($key)); ?></b></label>
+              <label><b><?php echo e($key=='weight' ? ucwords('body'): ucwords($key)); ?></b></label>
               <p class="edittable"><?php echo e($profile); ?></p>
             </div>
           <?php endif; ?>
@@ -345,10 +345,10 @@ Your browser does not support the audio tag.
                    <div class="row">
                    
                   <div class="col-md-6">
-                       <input type="checkbox" name="type" value="video"/>Video
+              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
                   </div>
                   <div class="col-md-6">
-                       <input type="checkbox" name="type" value="audio"/>Audio
+                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
                   </div>
                   </div>
             <?php echo e(Form::label('Title', 'Title')); ?> 
@@ -381,8 +381,16 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
                 <br>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                   <label>Choose Image</label>        
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                <span id="filename" style="color:red;"></span>
+            </div>
                 <input type="hidden" name="offerid" id="offerid" value="">
-                  <input type="file" name="file" id="file_input" value=""/>
+                <label class="media_label"></label>
+                  <input type="file" name="file" class="file_input" value=""/>
+                  <span id="filename" style="color:red;"></span>
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
@@ -395,13 +403,15 @@ Your browser does not support the audio tag.
                    
             </select>
             <br>
-            <label for="Convert to:">Convert to:</label> 
-           <select name="quality" class="form-control" id="quality">
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
+            <div class="convert">
+                <label for="Convert to:">Convert to:</label> 
+              <select name="quality" class="form-control" id="quality">
+                        <option value="">Choose ...</option>
+                        <option value="480">480p  </option>
+                        <option value="720">HD 720p </option>
+                        <option value="1080">Full HD 1080p  </option>
+                </select>
+            </div>
             <br>
             <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
                 <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])); ?>
@@ -445,17 +455,16 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
 
           <div class="row align-items-center text-white">   
-              <?php if(isset($random[0])): ?>
+      
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
-          </div>  
-          <?php endif; ?>  
+          </div>   
           <div class="col-md-6 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
-                <span style="color:red;"><?php echo e(isset($random[0]->media) ? $random[0]->media : ''); ?></span>
+                <!-- <span style="color:red;"><?php echo e(isset($random[0]->media) ? $random[0]->media : ''); ?></span> -->
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
@@ -535,8 +544,8 @@ Your browser does not support the audio tag.
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Weight', 'Weight')); ?> 
-                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
+            <?php echo e(Form::label('Body', 'Body')); ?> 
+                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">

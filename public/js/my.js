@@ -163,15 +163,8 @@ $(document).ready(function() {
 			$('#'+id1[1]).show();
 			$('#'+notId[1]).hide();
 
-  	   //var id1= $(".media1:checked").attr('class').split(' ');
-
-  	//var notId2= $(".media1:not(:checked)").attr('class').split(' ');
-  	//$('#'+id1[1]).show();
-  	//$('#'+notId2[1]).hide();
-
-
-
-        
+  	
+       
     });
 
  function mufunc(){
@@ -262,24 +255,27 @@ function readURL1(input){
 
 	var filepath = input.value;
 
-	var extension = filepath.split('.')[1];
+	var extension1 = filepath.split('.')[1];
 
-	if(extension!='jpg'){
+	var ext = $.trim(extension1);
 
-		input.nextElementSibling.textContent = 'Please Select Image';
+
+	if(ext=='jpg' || ext=='jpeg' || ext=='png'){
+
+		input.nextElementSibling.textContent = input.files[0].name;
+
 
 
 	}
 
 	else{
-		input.nextElementSibling.textContent = input.files[0].name;
+		
+		input.nextElementSibling.textContent = 'Please Select Image';
 	}
 
 }
 
 $(document).on('keyup change', '#change_duration', function () {
-//$("#change_duration").bind('keyup mouseup', function () {
-	//console.log('yes');return false;
 	var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val()); 
 	
 	$('#offer_pay').val(pay_price);
@@ -291,15 +287,13 @@ function readURL(input) {
 
 	var radio_checked = $(".select_media_pic:checked").val();
 
-	//var ext = input.split('.').pop();
 	var filepath = input.value;
 
 	var extension = filepath.split('.')[1];
 
-
-	
-
 	  if(extension!='mp3' && radio_checked!='video'){
+
+		$('.disable_this').prop('disabled', true);
 
 		input.nextElementSibling.textContent = 'Please Select Audio File';
 
@@ -308,6 +302,9 @@ function readURL(input) {
 	}
 
 	else if(extension!='mp4' && radio_checked!='audio'){
+
+		$('.disable_this').prop('disabled', true);
+
 
 		input.nextElementSibling.textContent = 'Please Select Video File';
 
@@ -318,6 +315,7 @@ function readURL(input) {
 	}
 
 	else{
+		$('.disable_this').prop('disabled', false);
 		input.nextElementSibling.textContent = input.files[0].name;
 		//document.getElementById('filename').textContent=input.files[0].name;
 	}
@@ -1530,86 +1528,73 @@ function format ( d , type) {
 }
 
 $(document).ready(function() {
-
 	
-    // var table = $('#example').DataTable({
-    //    'ajax': APP_URL+'/artist/getRequests/projects/',
-    //    'columns': [
-    //         {
-    //             'className':      'details-control',
-    //             'orderable':      false,
-    //             'data':           null,
-    //             'defaultContent': ''
-    //         },
-    //         { 'data': 'title' },
-    //         { 'data': 'media' },
-	// 		{ 
-	// 			'data': 'duration' ,
-	// 			// render: function ( data, type, row ) {
-	// 			// 	return  data+'Minutes';
-	// 			// }
-	// 		},
-	// 		{
-		
-    //         "data": null,
-	// 		"defaultContent": 'Projects'
-	// 		},
-    //         { 'data': 'user_name' },
-    //         { 'data': 'status' },
-    //         { 
-	// 			'data': 'remaining_days' ,
-	// 			render: function ( data, type, row ) {
-	// 				return  data < 0 ? 'Expired' : data +' Days';
-	// 			}
-	// 		}
-    //     ],
-    //   //  'order': [[1, 'asc']]
-	// } );
+    var table2 = $('#example2').DataTable({
+		'ajax': APP_URL+'/customer_orders/orders',
+		'columns': [
+			 {
+				 'className':      'details-control',
+				 'orderable':      false,
+				 'data':           null,
+				 'defaultContent': ''
+			 },
+			 { 'data': 'title' },
+			 { 'data': 'type' },
+			 { 'data': 'choice' },
+			
+			 { 'data': 'nickname' },
+			 { 'data': 'status' },
+			 { 
+				 'data': 'remaining_days',
+				 render: function ( data, type, row ) {
+					return  data < 0 ? 'Expired': data+' Days';
+				}
+				 }
+		 ],
+	 } );
+	 
 	
-
-	//     // Add event listener for opening and closing details
-    // $('#example tbody').on('click', 'td.details-control', function(){
-    //     var tr = $(this).closest('tr');
-    //     var row = table.row( tr );
-
-    //     if(row.child.isShown()){
-    //         // This row is already open - close it
-    //         row.child.hide();
-    //         tr.removeClass('shown');
-    //     } else {
-    //         // Open this row
-    //         row.child(format(row.data(),'request')).show();
-    //         tr.addClass('shown');
-    //     }
-    // });
-
-    // // Handle click on "Expand All" button
-    // $('#btn-show-all-children').on('click', function(){
-    //     // Enumerate all rows
-    //     table.rows().every(function(){
-    //         // If row has details collapsed
-    //         if(!this.child.isShown()){
-    //             // Open this row
-    //             this.child(format(this.data(),'request')).show();
-    //             $(this.node()).addClass('shown');
-    //         }
-    //     });
-    // });
-
-    // // Handle click on "Collapse All" button
-    // $('#btn-hide-all-children').on('click', function(){
-    //     // Enumerate all rows
-    //     table.rows().every(function(){
-    //         // If row has details expanded
-    //         if(this.child.isShown()){
-    //             // Collapse row details
-    //             this.child.hide();
-    //             $(this.node()).removeClass('shown');
-    //         }
-    //     });
-	// });
-
-
+		 // Add event listener for opening and closing details
+	 $('#example1 tbody').on('click', 'td.details-control', function(){
+		 var tr = $(this).closest('tr');
+		 var row = table2.row( tr );
+	
+		 if(row.child.isShown()){
+			 // This row is already open - close it
+			 row.child.hide();
+			 tr.removeClass('shown');
+		 } else {
+			 // Open this row
+			 row.child(format(row.data(),'offer')).show();
+			 tr.addClass('shown');
+		 }
+	 });
+	
+	 // Handle click on "Expand All" button
+	 $('#btn-show-all-children1').on('click', function(){
+		 // Enumerate all rows
+		 table2.rows().every(function(){
+			 // If row has details collapsed
+			 if(!this.child.isShown()){
+				 // Open this row
+				 this.child(format(this.data(),'offer')).show();
+				 $(this.node()).addClass('shown');
+			 }
+		 });
+	 });
+	
+	 // Handle click on "Collapse All" button
+	 $('#btn-hide-all-children1').on('click', function(){
+		 // Enumerate all rows
+		 table2.rows().every(function(){
+			 // If row has details expanded
+			 if(this.child.isShown()){
+				 // Collapse row details
+				 this.child.hide();
+				 $(this.node()).removeClass('shown');
+			 }
+		 });
+	 });
 
 
 	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
@@ -1621,7 +1606,7 @@ $(document).ready(function() {
 
 	$('#countries').val(artistCountry).attr("selected","selected");
 
-	//console.log(name);
+     //console.log(name);
 		
 	var table1 = $('#example1').DataTable({
 		'ajax': name!='All' ? APP_URL+'/artist/getRequests/orders/'+name : APP_URL+'/artist/getRequests/orders',
@@ -1725,7 +1710,7 @@ $(document).on('click','.select_media_pic',function(){
 
 			if(value=='audio'){
 
-					$('.media_label').text('Choose Audio');
+					$('.media_label').text('Upload Sample Audio (~30s)');
 					$('.audio_picture').show();
 					$('.convert').hide();
 
@@ -1734,7 +1719,7 @@ $(document).on('click','.select_media_pic',function(){
 
 				$('.audio_picture').hide();
 
-				$('.media_label').text('Choose Video');
+				$('.media_label').text('Upload Sample Video (~30s)');
 
 				$('.convert').show();
 			}
@@ -1900,64 +1885,16 @@ $(function() {
     }
 });
 
-/*------------------------------Social Media Uploading -----------------------------------------*/
 
 
-// $(document).on('submit', '#social_media', function (event) {
-// 	event.preventDefault();
-// 	var formData = new FormData($(this)[0]);
-// 	$('.loader').show();
-// 	$('.percentage').html('0');
-//        $.ajax({
-// 			type: 'POST',
-// 			url:APP_URL+"/uploadSocial",
-// 			 headers: {
-// 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-// 		   },
-
-// 			data: formData,
-// 			processData: false,
-// 			contentType: false,
-// 			xhr: function () {
-// 				var xhr = $.ajaxSettings.xhr();
-// 				if (xhr.upload) {
-// 					xhr.upload.addEventListener('progress', function(event) {
-// 						var percent = 0;
-// 						var position = event.loaded || event.position;
-// 						var total = event.total;
-// 						if (event.lengthComputable) {
-// 							percent = Math.ceil(position / total * 100);
-// 						}
-// 						$('.percentage').html(percent+'%');
-// 					}, true);
-// 				}
-// 				return xhr;
-// 		},
-
-// 			success: function(data){
-
-// 				console.log(data);
-
-// 				$('.loader').hide();
-
-// 				if(data.status==1){
-// 					 $('#success').show();
-// 					 $('#success').html(data.messge);
-						
-// 				}
-
-// 				else{
-
-// 					$('#success').show();
-// 					$('#success').html(data.messge);
-					
-// 				}
+/*--------------------------------------Customers Orders----------------------------------------*/
 
 
-// 			}
-// 	});
 
-// });
+
+
+
+
 
 
 if ($("#social_media").length > 0) {
@@ -1973,14 +1910,7 @@ if ($("#social_media").length > 0) {
         required: "Please Enter Media",
         maxlength: "Enter Media"
       },
-    //   description: {
-    //     required: "Please Enter description",
-    //     maxlength: "Your last body maxlength should be 250 characters long."
-    //   },
-	//   username: {
-    //     required: "Please Enter Username",
-    //     maxlength: "Your last body maxlength should be 250 characters long."
-    //   },
+  
     },
     submitHandler: function(form) {
 		//event.preventDefault();

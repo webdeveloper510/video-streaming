@@ -1,65 +1,67 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="show-offer">
 <div class="container">
 
-	 @if(session('success'))
+	 <?php if(session('success')): ?>
         <div class="alert alert-success" id="success">
-        {{session('success')}}
+        <?php echo e(session('success')); ?>
+
         </div>
-        @endif
+        <?php endif; ?>
            
-          @if(session('error'))
+          <?php if(session('error')): ?>
         <div class="alert alert-danger" id="error">
-        {{session('error')}}
+        <?php echo e(session('error')); ?>
+
         </div>
-        @endif
+        <?php endif; ?>
 <div class="row">
-  @if($offer)
-	@foreach($offer as $val)
+  <?php if($offer): ?>
+	<?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 	<div class="col-md-4 showoffer1">
-    <a href="{{url('artistoffers/'.$val->id)}}">
+    <a href="<?php echo e(url('artistoffers/'.$val->id)); ?>">
       <div class="card">
-          @if($val->type=='video')
+          <?php if($val->type=='video'): ?>
 	   <video width="100%" height="240" class="hoverVideo">
-  <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
+  <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-@else
-<img src="{{url('storage/app/public/uploads/'.$val->audio_pic) }}">
+<?php else: ?>
+<img src="<?php echo e(url('storage/app/public/uploads/'.$val->audio_pic)); ?>">
 <audio  width="100%" height="240" controls>
-  <source src="{{url('storage/app/public/audio/'.$val->media) }}" type="audio/mp3">
+  <source src="<?php echo e(url('storage/app/public/audio/'.$val->media)); ?>" type="audio/mp3">
   Your browser does not support the video tag.
 </audio>
-@endif
+<?php endif; ?>
 
 	  <div class="carad-body">
-	      <h4 class="card-title text-center text-white">{{$val->title}}</h4>
+	      <h4 class="card-title text-center text-white"><?php echo e($val->title); ?></h4>
 	      <hr>
 	     
 	      
 	      <table class="table table-borderless text-center">
         <tr>
           <th>Category</th>
-          <td>{{$val->category}}</td>
+          <td><?php echo e($val->category); ?></td>
         </tr>
         <tr>
           <th>Media</th>
-          <td>{{$val->type=='video' ? 'Video/mp4' : 'Audio/mp3'}}</td>
+          <td><?php echo e($val->type=='video' ? 'Video/mp4' : 'Audio/mp3'); ?></td>
         </tr>
             <tr>
             	<th>Price</th>
-            	<td> {{$val->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ/Minute</span> </td>
+            	<td> <?php echo e($val->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ/Minute</span> </td>
               </tr>
 	      </table>
 	    
-	      <!-- <a href="#" data-toggle="modal" onclick="getId('{{$val->id}}')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
+	      <!-- <a href="#" data-toggle="modal" onclick="getId('<?php echo e($val->id); ?>')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
      </div>
    </div>
    </a>
  </div>
- @endforeach
- @endif
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+ <?php endif; ?>
 </div>
 
 <div class="modal fade" id="addDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -72,15 +74,20 @@
         </button>
       </div>
       <div class="modal-body">
-         {!!Form::open(['action' => 'artist@addUserDescription', 'method' => 'post'])!!}
-          {{Form::token()}}
-          {{Form::label('Your Description', 'Your Description')}} 
-                {{Form::textarea('Description',null,['class'=>'form-control description','rows' => 4, 'cols' => 40])}}
+         <?php echo Form::open(['action' => 'artist@addUserDescription', 'method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?>
+
+          <?php echo e(Form::label('Your Description', 'Your Description')); ?> 
+                <?php echo e(Form::textarea('Description',null,['class'=>'form-control description','rows' => 4, 'cols' => 40])); ?>
+
 
        <input type="hidden" name="reqId" value="" id="reqid">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          {{ Form::submit('Submit Request!',['class'=>'btn btn-primary']) }}
-   {{ Form::close() }}
+          <?php echo e(Form::submit('Submit Request!',['class'=>'btn btn-primary'])); ?>
+
+   <?php echo e(Form::close()); ?>
+
       </div>
       <div class="modal-footer">
    
@@ -136,4 +143,4 @@ hr{
   border:2px solid yellow;
 }
 	</style>
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/showoffer.blade.php ENDPATH**/ ?>

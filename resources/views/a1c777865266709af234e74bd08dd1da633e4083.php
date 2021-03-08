@@ -530,7 +530,7 @@
 					
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
     <div class="noti"></div></a>
-    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link">
+    <a href="<?php echo e(url('/seeall/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     <?php if($login && $latestOffer): ?>
     <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id  ? 'display: block' : 'display: none'); ?>">

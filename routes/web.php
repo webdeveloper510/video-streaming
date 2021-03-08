@@ -67,6 +67,7 @@ Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication')
 Route::get('inProcess', 'AuthController@process'); 
 
 Route::get('seeall/{text}', 'AuthController@seeall'); 
+Route::get('seeall1/{text}', 'AuthController@seeOrder'); 
 Route::get('playlist/{id}', 'AuthController@playlistByid'); 
 
 Route::get('reset', 'AuthController@reset'); 
@@ -199,11 +200,14 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artist/feed', 'artist@feed');
 
+    Route::get('artist/earning', 'artist@earning');
+
     Route::get('artist/my-offer', 'artist@myoffer');
 
     Route::get('artist/requests/{text?}', 'artist@showRequest')->middleware('contentAuth');
 
     Route::get('artist/getRequests/{text}/{status?}', 'artist@getRequests')->middleware('contentAuth');
+    Route::get('customer_orders/{text}', 'AuthController@getRequests');
    // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
 
     Route::get('artist/notification','artist@ShowArtistNotification');

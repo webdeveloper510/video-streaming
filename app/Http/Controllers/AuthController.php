@@ -530,8 +530,8 @@ class AuthController extends Controller
               }
 
        $this->validate($request,[
-        'image' => 'required|file',
-        'cover_photo'=>'required|file',
+        'image' => 'required|mimes:jpg,png,jpeg',
+        'cover_photo'=>'required|mimes:jpg,png,jpeg',
         'aboutme'=>'required',
         'sexology'=>'required',
         'ass'=>'sometimes|required',
@@ -577,7 +577,7 @@ class AuthController extends Controller
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
       'category'=>'required', 
-      'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png' : ''
+      'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
   if ($validator->fails())
@@ -647,7 +647,9 @@ public function artistselling(){
 
     $isSubscribe =$this->model->isSubscribe($artId);
 
-    //print_r($isSubscribe);die;
+    // echo "<pre>";
+
+    // print_r($data);die;
         
     return view('artistoffers',['offer'=>isset($data) ? $data :[],'isSubscribed'=>$isSubscribe]);
 
@@ -1498,6 +1500,28 @@ public function readNotification(Request $request){
        // print_r($req->all());die;
 
                $update = $this->model->update_due_to_process($req->all());
+      }
+
+      public function seeOrder(){
+
+            return view('all_orders');
+
+      }
+
+
+      public function getRequests($type){
+
+        //print_r($type);die;
+
+        $data = array();
+      $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_customer_orders();
+  
+       $data['data'] = $show_requests;
+
+      // print_r($data);die;
+    
+        echo json_encode($data);
+  
       }
 
 }

@@ -47,14 +47,11 @@ class artist extends Controller
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
     public function getRequests($type,$status=null){
-      //echo $status;
       $data = array();
     $show_requests = $type =='projects' ?  $this->model->showProjectsRequests() : $this->model->show_offer_Requests($status);
-  //   echo "<pre>";
-  //  print_r($show_requests);die;
+
     $data['data'] = $show_requests;
-    // echo "<pre>";
-    //     print_r($data);die;
+  
       echo json_encode($data);
 
     }
@@ -315,6 +312,10 @@ class artist extends Controller
 
   }
 
+  public function earning(){
+    return view('artists.earning');
+  }
+
   public function addDescription(Request $req){
 
       unset($req['_token']);
@@ -353,7 +354,8 @@ class artist extends Controller
             'category'=>'required',
             'price'=>'required|max:50000',
             'min'=>'required|min:1',
-            'max'=>'required|gt:min'
+            'max'=>'required|gt:min',
+            'audio_pic'=>$req->type=='audio' ? 'required|mimes:jpg,png,jpeg':''
 
         ]);
 

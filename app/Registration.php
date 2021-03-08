@@ -416,7 +416,15 @@ public function getRecentlySearch(){
 public function getArtists($flag){
     if($flag=='No'){
 
-      $artists=DB::table('contentprovider')->take(6)->get()->toArray();
+      $ArtistTimeFrame = DB::table('contentprovider')
+      ->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
+      ->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
+      //->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
+      //->orWhere('contentprovider.id',$artid)
+      ->get()->toArray();
+
+        return $ArtistTimeFrame;
+     
     }
     else{
 
@@ -689,6 +697,25 @@ public function getRespectedSub($data){
          return $data->get();
     }
 
+    public function show_customer_orders(){
+      
+      $data = \DB::table("offer")
+      ->select("users.nickname","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
+      ->leftjoin("users","users.id","=","offer.userid")
+      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
+     
+       
+      if ($sts) {
+            //echo $sts;
+        $data = $data->where('status', '=', $sts);
+    }
+
+
+      
+         return $data->get();
+    }
+
 
     public function count_orders($table){
 
@@ -943,40 +970,87 @@ public function getRespectedSub($data){
 
     public function showOfer($data){
 
-        $result = $data;
-       // print_r($result);die;
-        $fetch = DB::table('offer')
-        ->where(function($query) use ($result){
+      // $key_value = array();
 
-            foreach ($result as $key => $value) {
+      // foreach($data as $key=>val){
 
-                if(is_array($value)){
+      //       if(is_array($val)){
 
-                  $query->whereIn('categoryid',$value);
+      //       }
 
-                }
+      //       else{
+      //             echo 'dd';
+      //       }
 
-                else{
+      // }
 
-                  if($key=='price'){
+    // print_r($data);die;
 
-                    $query->orderBy('price',$value);
-                  }
+      
+      $offers = DB::table('offer')
+               ->leftJoin('category', function($join) use($data) {
+                      //$join->where('category.id','=', $data['catid'][0])
+                      $join->on("category.id", "=", "offer.categoryid");
+              })
+              ->whereIn('offer.categoryid', $data['catid'])
+              ->orderBy('offer.price', $data['price'])
+               ->select('offer.*','category.category')
+               ->get();
 
-                  else{
+               //echo "<pre>";
 
-                   $query->where($key,$value);
+               return $offers;
 
-                 }
-                }
+      //   $result = $data;
+      //  // print_r($result);die;
+      //   $fetch = DB::table('offer')
 
-            }
+      //   ->leftJoin('category',function($query) use ($result){
 
-        });
+      //       foreach ($result as $key => $value) {
 
-          return $fetch->get();
+      //           if(is_array($value)){
+
+      //             $query->where('category.id','=', $value)
+      //             ->on("category.id", "=", "offer.categoryid");
+
+      //             //$query->whereIn('categoryid',$value);
+
+      //           }
+
+      //           else{
+
+      //             if($key=='price'){
+
+      //               $query->orderBy('price',$value);
+      //             }
+
+      //             else{
+
+      //              $query->where($key,$value);
+
+      //            }
+      //           }
+
+      //       }
+
+      //   })
+
+      //   ->select('offer.*','category.*')
+
+      //   ->get();
+
+      //   print_r($fetch);die;
+
+        // // echo "<pre>";
+
+        // // print_r($fetch->get());die;
+
+        //   return $fetch->get('A.*','B.*');
 
     }
+
+    
 
     public function editDescription($data)
 
