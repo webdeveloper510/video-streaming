@@ -159,7 +159,7 @@
                   <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
                   </div>
                   </div>
-            </div>
+            
                 </a>
                
                 <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
