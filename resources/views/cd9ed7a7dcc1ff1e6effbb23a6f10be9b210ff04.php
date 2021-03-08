@@ -236,6 +236,9 @@ li.nav-item.dropdown {
 label {
     color: white;
 }
+section.background1 {
+    margin-top: -16px;
+}
 .modal {
     position: fixed;
     top: 50%;
