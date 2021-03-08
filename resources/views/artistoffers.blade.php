@@ -105,7 +105,7 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 @endforeach
 <h4>Additional Request <small>(Price: {{$GLOBALS['add_price']}}PAZ)</small></h4>
-{{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])}}
+{{Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])}}
 
 <br>
 <strong id="change_text"></strong>
