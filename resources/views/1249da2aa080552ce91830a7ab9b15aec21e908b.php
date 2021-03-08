@@ -614,7 +614,7 @@ div#nav-contact {
     color: white;
     padding: 10px;
 }
-.col-md-4.mb-3.hover {
+.col-md-4.mb-3.hover:hover {
     border: 1px solid gold;
     padding: 10px;
 }
