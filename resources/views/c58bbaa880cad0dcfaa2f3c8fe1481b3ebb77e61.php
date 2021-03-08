@@ -179,10 +179,18 @@
                 Your browser does not support the video tag.
             </video>
                 </a>
+              
                 <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-
+            <span class="tooltiptext">You can not download this video</span>
+          </div>
+          <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white">12/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+          </div>
             </div>
                     <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -215,9 +223,18 @@ Your browser does not support the audio tag.
 </audio>
 
 </a>
+
 <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
   <span class="tooltiptext">You can not download this video</span>
 </div>
+<div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+          </div>
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -378,6 +395,20 @@ div#nav-contact {
     background: #000;
     color: #fff !important;
 }
+.pricetime .text-right h6 {
+    background: white;
+    height: 30px;
+    width: 45px;
+    float: right;
+    color: black !important;
+    padding: 7px;
+}
+
+.pricetime .text-left h6 {
+    background: white;
+    padding: 5px;
+    color: black !important;
+}
 div#nav-contact *{
     color: #fff;
 }
@@ -392,13 +423,20 @@ select.form-select.form-control, select.form-select.form-control * {
     border: 2px solid yellow;
 }
 .coverimg img {
-    object-fit: cover;
+    object-fit: fill;
 }
 .price {
  
     padding: 24px 18px;
 }
-
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -31px;
+    margin-right: 7px;
+}
 .tooltip {
  opacity:1 !important;
   display: inline-block;
