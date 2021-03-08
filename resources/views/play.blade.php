@@ -68,7 +68,7 @@
 
         <!-- Modal -->
         <div class="modal fade w-100" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog " role="document" style="max-width:100%;    z-index: 2;">
+          <div class="modal-dialog " role="document" style="max-width:100%;    z-index: 1099;">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
@@ -124,8 +124,7 @@
             </div>
           </div>
         </div> 
-        
-		</div>
+ 
 
 
 
@@ -263,6 +262,7 @@ body{
   display: inline-block;
   border-bottom: 1px dotted black;
   right: 12px;
+  z-index:1 !important;
 }
 
 .tooltip .tooltiptext {
