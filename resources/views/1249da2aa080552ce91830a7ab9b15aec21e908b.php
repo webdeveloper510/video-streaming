@@ -158,16 +158,17 @@
                 Your browser does not support the tag.
             </video>
                 </a>
-                <div class="pricetime">
-          <div class="text-left">
-          <h6 class="text-white">12/PAZ</h6>
-          </div>
-          <div class="text-right">
-          <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
-          </div>
-          </div>
-            </div>
+               
                 <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white">12/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+                  </div>
+                  </div>
+            </div>
             </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
