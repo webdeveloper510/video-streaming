@@ -1516,7 +1516,9 @@ public function readNotification(Request $request){
   
        $data['data'] = $show_requests;
 
-      // print_r($data);die;
+      //  echo "<pre>";
+
+      //  print_r($data);die;
     
         echo json_encode($data);
   
