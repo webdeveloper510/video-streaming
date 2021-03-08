@@ -763,4 +763,13 @@ class artist extends Controller
         return $timeFrame;
   }
 
+  public function VideoPage($id){
+
+            $fetch = $this->model->selectDataById('id','media',$id);
+
+            return view('artists.videoDetail',['vedios'=>$fetch]);
+
+            
+  }
+
   }

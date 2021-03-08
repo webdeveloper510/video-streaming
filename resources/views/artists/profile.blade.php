@@ -145,7 +145,7 @@
                <form> 
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
-               <a href="{{url('artist-video/'.$detail->id)}}">
+               <a href="{{url('artistVideo/'.$detail->id)}}">
             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
@@ -174,7 +174,7 @@
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
-     <a href="{{url('artist-video/'.$aud->id)}}">
+     <a href="{{url('artistVideo/'.$aud->id)}}">
     <img src="{{$aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')}}">
 
 <audio controls controlsList="nodownload" disablePictureInPicture>
