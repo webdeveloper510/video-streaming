@@ -246,6 +246,8 @@ public function getContentProvider($type){
 
 public function getVedio($data){
 
+ 
+
 
    
 /* ----------------------------------------------Filter Data Using WhereIn-------------------------------------- */
@@ -281,6 +283,10 @@ public function getVedio($data){
 
 
                 $response = $result->get();
+
+                // echo "<pre>";
+
+                // print_r($response);die;
 
       
 
@@ -983,36 +989,53 @@ public function getRespectedSub($data){
 
     public function showOfer($data){
 
-      // $key_value = array();
+     unset($data['type']);
 
-      // foreach($data as $key=>val){
+     //print_r($data);die;
 
-      //       if(is_array($val)){
-
-      //       }
-
-      //       else{
-      //             echo 'dd';
-      //       }
-
-      // }
-
-    // print_r($data);die;
-
+    $result = DB::table('offer')
+    ->join('contentprovider', 'contentprovider.id', '=', 'offer.artistid')
+    ->join('category','category.id','=','offer.categoryid')
+    ->select('offer.*','category.category')
+    ->where(function($query) use ($data)
+    {
+         foreach($data as $key=>$val){
+         
+      if(is_array($val)){
+         $query->whereIn($key, $val);
       
-      $offers = DB::table('offer')
-               ->leftJoin('category', function($join) use($data) {
-                      //$join->where('category.id','=', $data['catid'][0])
-                      $join->on("category.id", "=", "offer.categoryid");
-              })
-              ->whereIn('offer.categoryid', $data['catid'])
-              ->orderBy('offer.price', $data['price'])
-               ->select('offer.*','category.category')
-               ->get();
+    }
+
+    else{
+          if($key=='price'){
+
+            $query->orderBy($key, $val);
+
+          }
+          else{
+            $query->where($key, $val);
+          }
+    }
+  }
+
+    });
+
+   return $result->get();
+    
+      
+      // $offers = DB::table('offer')
+      //          ->leftJoin('category', function($join) use($data) {
+      //                 //$join->where('category.id','=', $data['catid'][0])
+      //                 $join->on("category.id", "=", "offer.categoryid");
+      //         })
+      //         ->whereIn('offer.categoryid', $data['catid'])
+      //         ->orderBy('offer.price', $data['price'])
+      //          ->select('offer.*','category.category')
+      //          ->get();
 
                //echo "<pre>";
 
-               return $offers;
+               //return $offers;
 
       //   $result = $data;
       //  // print_r($result);die;
