@@ -166,8 +166,8 @@ class artist extends Controller
     public function artistVideo($vedioid){
       
           $allVedios = $this->model->getVideo($vedioid);
-          // echo "<pre>";
-          // print_r($allVedios);die;
+          echo "<pre>";
+          print_r($allVedios);die;
 
          $all_play_lists = $this->model->getPlaylist();
 
