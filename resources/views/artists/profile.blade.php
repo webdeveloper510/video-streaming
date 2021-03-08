@@ -151,10 +151,7 @@
                 
                 Your browser does not support the tag.
             </video>
-                </a>
-               
-                <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
-                <div class="pricetime">
+            <div class="pricetime">
                   <div class="text-left">
                   <h6 class="text-white">12/PAZ</h6>
                   </div>
@@ -163,7 +160,11 @@
                   </div>
                   </div>
             </div>
-            </div>
+                </a>
+               
+                <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
+               
+           
              @endif
           @endforeach
           @else
