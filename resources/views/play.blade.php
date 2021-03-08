@@ -87,6 +87,7 @@
                                </video>
                          </div>
                          <h3>Titlename</h3>
+                         <p>March 5,2021<p>
 
                       </div>
                   </div>
@@ -96,6 +97,7 @@
                        <h4>hello</h4>
                        <p>1/5</p>
                    </div>
+       <!------------start list------------------>
                    <div class="row">
                    <div class="videolist col-4" >
                    <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
@@ -108,6 +110,62 @@
                           <p>artistname</p>
                      </div>
                    </div>
+
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+         <!------------end list------------------>
+
                    </div>
 
                   </div>
@@ -117,10 +175,7 @@
 
                </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+              
             </div>
           </div>
         </div> 
