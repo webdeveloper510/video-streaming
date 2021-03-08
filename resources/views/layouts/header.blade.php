@@ -506,7 +506,7 @@
 					
 		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
     <div class="noti"></div></a>
-    <a href="{{url('/seeall/orders')}}"  class="nav-item nav-link">
+    <a href="{{url('/seeall1/orders')}}"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     @if($login && $latestOffer)
     <div class="noti" style="{{$latestOffer->userid !== $login->id  ? 'display: block' : 'display: none' }}">

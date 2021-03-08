@@ -706,11 +706,16 @@ public function getRespectedSub($data){
     }
 
     public function show_customer_orders(){
+
+      $session_data =   Session::get('User');
+
+      $userid=  $session_data->id;
       
       $data = \DB::table("offer")
       ->select("users.nickname","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->leftjoin("users","users.id","=","offer.userid")
+      ->where('offer.userid',$userid)
       ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
      
        
