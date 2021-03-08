@@ -21,7 +21,7 @@ input.select_media_pic {
     color: white;
 }
 .coverimg img {
-    object-fit: cover;
+    object-fit: fill;
 }
 .profileimg img {
     position: absolute;
