@@ -7,12 +7,12 @@
 <!-- <h5>Audio/Video</h5> -->
 <a href="<?php echo e(url('artistDetail/'.$offer[0]->artistid)); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
 <div class="text-right">
-<button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>"  data-toggle="modal" data-target="#Subscribe" >Subscribe </button>
+<button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>"  data-toggle="modal" data-target="#Subscribe1" id="subscribe" >Subscribe </button>
     
- <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" >Subscribed </button>
+ <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
 </div>
 <!-- Modal  Subscribe-->
-<div class="modal fade" id="Subscribe" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
+<div class="modal fade" id="Subscribe1" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -31,7 +31,7 @@
 
 
 <!------------------------------------ Modal  unSubscribe------------------------------->
-<div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+<div class="modal fade" id="Unsubscribe1" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -40,7 +40,7 @@
       <div class="text-center Artistxyz">
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       
-        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Unsubscribe</button>
+        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,false)">Unsubscribe</button>
        </div>
       </div>
      
@@ -58,7 +58,7 @@ $GLOBALS['add_price'] = $offerdata->additional_price;
 $GLOBALS['price'] = $offerdata->price;
 ?>
 <div class="container">
-<video width="100%" height="340" controls controlsList="nodownload" disablePictureInPicture>
+<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
   <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -98,6 +98,7 @@ $GLOBALS['price'] = $offerdata->price;
 <input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
 <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
 <input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
+
 <input type="hidden" name="allinfo" value="<?php echo e(json_encode($offerdata)); ?>"/>
 <div class="col-md-4">
 	<h3>Set Duration</h3>
@@ -107,6 +108,7 @@ $GLOBALS['price'] = $offerdata->price;
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small></h4>
 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
+
 
 <br>
 <strong id="change_text"></strong>

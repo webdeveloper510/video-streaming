@@ -647,9 +647,7 @@ public function artistselling(){
 
     $isSubscribe =$this->model->isSubscribe($artId);
 
-    // echo "<pre>";
-
-    // print_r($data);die;
+   
         
     return view('artistoffers',['offer'=>isset($data) ? $data :[],'isSubscribed'=>$isSubscribe]);
 
