@@ -1,4 +1,5 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<section class="background1 ">
 
 
         <div class="alert alert-success" id="success" style="display:none">
@@ -8,18 +9,15 @@
  
            
          
-      
+  
 <?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
       <div class="container profile ">
-        <h1 class="text-center">Create Offer</h1>
-
-     
-        
-          <div class="row align-items-center text-white">
-          <div class="col-md-12 mt-5 ">
+      <div class="overlay1 ">
+            
+      <div class="col-md-12 ">
           
           <ul class="nav">
          
@@ -37,12 +35,18 @@
           
         </ul>
         </div>
+        <h2 class="text-center text-white ">Create Offer</h2>
+
+     
+        
+          <div class="row align-items-center text-white">
+         
                     <div class="col-md-4 mt-5 ">
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
-        <div class="radiobtn">
-          <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
-          <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
+        <div class="radiobtn text-white">
+          <input type="radio" class="select_media_pic" name="type" value="audio" /><p class="text-white">Audio</p>
+          <input type="radio" class="select_media_pic" name="type" value="video"/><p class="text-white">Video</p>
    
             </div>
             </div>
@@ -142,7 +146,7 @@
  <br>
                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
-               <span id="filename" style="color:red;"></span>
+               <span id="filename" style="color:yellow;"></span>
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
@@ -152,7 +156,7 @@
                 <label>Choose Image</label>
                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
                 
                <br>
@@ -194,10 +198,11 @@
           </div>
           </div>
      </div>
+     </div>
   <?php echo e(Form::close()); ?>
 
 
-
+</section>
 
    <style>
 .btn.btn-secondary {
@@ -225,10 +230,17 @@
     box-shadow: none;
 }
 li.nav-item.dropdown {
-    border: 1px solid #9c27b0;
+    border: 1px solid #fff;
 }
 .modal-body img {
     width: 26rem;
+}
+label {
+    color: white;
+}
+section.background1 {
+    margin-top: -16px;
+    padding-top: 2%;
 }
 .modal {
     position: fixed;
@@ -253,8 +265,8 @@ input.select_media_pic {
     height: 21px;
 }
   a#navbarDropdown23 {
-    border: 1px solid #7b0000 ;
-    color: #7b0000 ;
+    border: 1px solid #fff;
+    color: #fff ;
 }
 </style>
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/offer.blade.php ENDPATH**/ ?>
