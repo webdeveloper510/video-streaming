@@ -158,7 +158,17 @@
                 Your browser does not support the tag.
             </video>
                 </a>
+               
                 <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white">12/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+                  </div>
+                  </div>
+            </div>
             </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -256,7 +266,7 @@ Your browser does not support the audio tag.
   </div>
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
-    </div>
+    
 
 
 
@@ -597,6 +607,31 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
+}
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -31px;
+    margin-right: 7px;
+}
+.pricetime .text-right h6 {
+    background: white;
+    height: 30px;
+    width: auto;
+    float: right;
+    color: black !important;
+    padding: 7px;
+}
+
+.pricetime .text-left h6 {
+    background: white;
+    padding: 5px;
+    color: black !important;
+}
+.pricetime {
+    position: relative;
 }
 </style>
 
