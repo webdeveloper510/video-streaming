@@ -609,6 +609,15 @@ Your browser does not support the audio tag.
     right: 43px;
     top: -3px;
 }
+div#nav-contact {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+.col-md-4.mb-3.hover:hover {
+    border: 1px solid gold;
+    padding: 10px;
+}
 .pricetime .text-left {
     float: left;
     padding-left: 10px;
