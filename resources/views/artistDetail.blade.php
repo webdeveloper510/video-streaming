@@ -356,7 +356,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
                       <source src="{{isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
