@@ -60,7 +60,71 @@
     </select>
 
   </div>
-  </form>  
+  </form> 
+  <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade w-100" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog " role="document" style="max-width:100%;    z-index: 2;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <div class="row">
+                  <div class="col-md-8">
+                      <div class="videodata">
+                         <div class="">
+                              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                                  <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                               </video>
+                         </div>
+                         <h3>Titlename</h3>
+
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                  <div class="videoinfo">
+                   <div class="playlistname">
+                       <h4>hello</h4>
+                       <p>1/5</p>
+                   </div>
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+                   </div>
+
+                  </div>
+
+
+                  </div>
+
+               </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div> 
+        
 		</div>
 
 
