@@ -661,7 +661,7 @@
                 <p>-Upload 5 Picture/Videos on the social Media Box</p>
                
                 <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
-                <div class="text-right">
+                <div class="text-right mt-5">
                    <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 
