@@ -33,7 +33,7 @@
           
         </ul>
         </div>
-        <h1 class="text-center text-white ">Create Offer</h1>
+        <h2 class="text-center text-white ">Create Offer</h2>
 
      
         
