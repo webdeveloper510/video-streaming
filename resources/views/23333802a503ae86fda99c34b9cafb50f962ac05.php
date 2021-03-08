@@ -107,7 +107,7 @@ $GLOBALS['price'] = $offerdata->price;
 </div>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small></h4>
-<?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])); ?>
+<?php echo e(Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])); ?>
 
 
 <br>
