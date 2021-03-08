@@ -169,8 +169,6 @@
             var id;
               setTimeout(() => {
               video = $("#recently_"+"<?php echo e($recnt->id); ?>");
-              console.log(video);
-              //id = $("#video_"+"<?php echo e($recnt->id); ?>");
               seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($recnt->id); ?>","<?php echo e($recnt->id); ?>");
             }, 2000);
           </script>
@@ -235,16 +233,17 @@
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
-            
+         <?php if($recnt->duration==''): ?>
           <script>
-      
       setTimeout(() => {
       video = $("#video_"+"<?php echo e($pop->id); ?>");
       id = $("#video_"+"<?php echo e($pop->id); ?>");
        seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>");
 
     }, 2000);
+
     </script>
+    <?php endif; ?>
           </div>
 </div>
                 <h5><?php echo e($pop->title); ?></h5>
@@ -261,9 +260,7 @@
 <script>
             function seconds_to_min_sec(seconds,id,vidid) {
 
-              console.log('seconds'+seconds)
-              console.log('id'+id)
-              console.log('vid'+vidid);return false;
+  
               var minutes = Math.floor(seconds / 60);
               var seconds = seconds - minutes * 60;
               var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
