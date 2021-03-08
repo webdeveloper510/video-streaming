@@ -198,6 +198,8 @@ Route::post('createList', 'AuthController@createList');
 
     Route::get('artist/offer', 'artist@offer');
 
+    Route::get('artistVideo/{id}','artist@VideoPage');
+
     Route::get('artist/feed', 'artist@feed');
 
     Route::get('artist/earning', 'artist@earning');
