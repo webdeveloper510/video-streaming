@@ -220,6 +220,9 @@ li.nav-item.dropdown {
 .modal-body img {
     width: 26rem;
 }
+label {
+    color: white;
+}
 .modal {
     position: fixed;
     top: 50%;
