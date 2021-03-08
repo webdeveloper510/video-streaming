@@ -90,7 +90,8 @@
                 </div>
                 @endif
             </div>
-         
+            <div class="col-md-6 mt-5">
+            
             <label>Duration(In Minutes)</label>
             <div class="row">
 
@@ -120,7 +121,6 @@
                    
             </select>
             <br>
-            <div class="col-md-6 mt-5">
             <label class="convert">Quality:</label>
             <select name="quality" class="form-control convert" id="quality">
                     <option value="">Choose ...</option>
