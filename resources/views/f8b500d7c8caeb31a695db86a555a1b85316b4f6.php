@@ -158,7 +158,7 @@
     </div>
     </div>
     <div class="col-md-4">
-    <div class="card" style=" height: 370px;">
+    <div class="card" style=" height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
              <?php if($personal_info[0]->firstname==''): ?>
@@ -619,8 +619,10 @@
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit'])); ?>
+                
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
+                
                 <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?></div>
                 <?php echo e(Form::close()); ?>
 
@@ -645,7 +647,7 @@
     </div>
     <div class="col-md-4">
     <a href=" <?php echo e(url('/artist/earning')); ?>">
-         <div class="card" style="    height: 370px;">
+         <div class="card" style="    height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -662,7 +664,7 @@
             </a>
     </div>
     <div class="col-md-4">
-         <div class="card" style="height: 370px;">
+         <div class="card" style="height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
@@ -670,7 +672,7 @@
                 <p>-Upload 5 Picture/Videos on the social Media Box</p>
                
                 <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
-                <div class="text-right">
+                <div class="text-right mt-5">
                    <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 
@@ -720,7 +722,7 @@
                   <br>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
-                        <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+                        <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
 
                         <span id="filename" style="color:red;"></span>
                           <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])); ?>
@@ -772,7 +774,7 @@
               <div class="card-body text-center">
                 <h4 class="card-title">Download Our Logo</h4>
                   <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" download class="img-fliud logodownload">
-                 <a href="" download="logo_black.png"> <button class=" btn btn-primary" type="button">Download</button></a>
+                 <a href="<?php echo e(asset('images/logos/logo_black.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
               </div>
             </div>
     </div>
@@ -805,6 +807,9 @@ label.error {
     background: #ff7f27;
     color: white;
     
+}
+.edit12 {
+    margin-top: 30%;
 }
 img.img-fliud.logodownload {
     border: 1px solid black;
