@@ -93,7 +93,7 @@
               <p><i class="material-icons">person</i>   Profile</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='upload' || $tab=='offer' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+          <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
@@ -414,7 +414,7 @@
           </div>
 
       </nav>
-      
+      <div class="container">
       <style>
 .levlv {
     width: auto;

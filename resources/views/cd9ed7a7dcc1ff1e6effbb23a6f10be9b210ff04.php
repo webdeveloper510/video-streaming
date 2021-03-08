@@ -16,12 +16,8 @@
 
       <div class="container profile ">
       <div class="overlay1 ">
-        <h1 class="text-center">Create Offer</h1>
-
-     
-        
-          <div class="row align-items-center text-white">
-          <div class="col-md-12 mt-5 ">
+            
+      <div class="col-md-12 ">
           
           <ul class="nav">
          
@@ -31,7 +27,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Content Upload</a>
+            <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Collection Upload</a>
         </div>
          
 
@@ -39,12 +35,18 @@
           
         </ul>
         </div>
+        <h2 class="text-center text-white ">Create Offer</h2>
+
+     
+        
+          <div class="row align-items-center text-white">
+         
                     <div class="col-md-4 mt-5 ">
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
-        <div class="radiobtn">
-          <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
-          <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
+        <div class="radiobtn text-white">
+          <input type="radio" class="select_media_pic" name="type" value="audio" /><p class="text-white">Audio</p>
+          <input type="radio" class="select_media_pic" name="type" value="video"/><p class="text-white">Video</p>
    
             </div>
             </div>
@@ -95,19 +97,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5">
-            <label class="convert">Quality:</label>
-            <select name="quality" class="form-control convert" id="quality">
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
-            <?php if($errors->first('quality')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('quality') ?>
-                </div>
-                <?php endif; ?>
-            <br>
+            
             <label>Duration(In Minutes)</label>
             <div class="row">
 
@@ -138,6 +128,19 @@
                     <option value="online">Online</option>
                    
             </select>
+            <br>
+            <label class="convert">Quality:</label>
+            <select name="quality" class="form-control convert" id="quality">
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
+            </select>
+            <?php if($errors->first('quality')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('quality') ?>
+                </div>
+                <?php endif; ?>
             <br>
             <label class="media_label"></label>
 
@@ -228,7 +231,7 @@
     box-shadow: none;
 }
 li.nav-item.dropdown {
-    border: 1px solid #9c27b0;
+    border: 1px solid #fff;
 }
 .modal-body img {
     width: 26rem;
@@ -238,6 +241,7 @@ label {
 }
 section.background1 {
     margin-top: -16px;
+    padding-top: 2%;
 }
 .modal {
     position: fixed;
@@ -262,8 +266,8 @@ input.select_media_pic {
     height: 21px;
 }
   a#navbarDropdown23 {
-    border: 1px solid #7b0000 ;
-    color: #7b0000 ;
+    border: 1px solid #fff;
+    color: #fff ;
 }
 </style>
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/offer.blade.php ENDPATH**/ ?>
