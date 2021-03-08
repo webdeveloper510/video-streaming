@@ -61,10 +61,7 @@
 
   </div>
   </form> 
-  <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-          Playlists
-        </button>
+ 
 
         <!-- Modal -->
         <div class="modal fade w-100" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -219,8 +216,23 @@
       	</span>
 
                    </div>
+                   
             @endif
-			
+			      <!-- Button trigger modal -->
+
+              <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+
+              <video width="320" height="240" >
+                <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/tags/movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+              </video>
+              <div class="videooverlay">
+                <p>
+
+              </div>
+              </a>
+            
 	</div>
 	<br/>
 </div>
@@ -349,6 +361,18 @@ ul.reporting {
   select.form-select.form-control.col-md-4 {
     float: right;
     margin-top: 22px;
+}
+.videooverlay {
+    background: #151515;
+    position: absolute;
+    height: 240px;
+    z-index: 9999;
+    top: 146px;
+    width: 161px;
+    display:none;
+}
+.row.pb-row a:hover .videooverlay{
+  display:block;
 }
   .playhistory {
     border: none;

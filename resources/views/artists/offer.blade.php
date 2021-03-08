@@ -8,10 +8,11 @@
  
            
          
-      
+      <section class="background1 ">
 {!!Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile ">
+      <div class="overlay1 ">
         <h1 class="text-center">Create Offer</h1>
 
      
@@ -182,9 +183,10 @@
           </div>
           </div>
      </div>
+     </div>
   {{ Form::close() }}
 
-
+</section>
 
    <style>
 .btn.btn-secondary {
