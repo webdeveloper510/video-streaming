@@ -15,7 +15,7 @@
       <div class="container profile ">
       <div class="overlay1 ">
             
-      <div class="col-md-12 mt-5 ">
+      <div class="col-md-12 ">
           
           <ul class="nav">
          
@@ -217,7 +217,7 @@
     box-shadow: none;
 }
 li.nav-item.dropdown {
-    border: 1px solid #9c27b0;
+    border: 1px solid #fff;
 }
 .modal-body img {
     width: 26rem;
@@ -227,6 +227,7 @@ label {
 }
 section.background1 {
     margin-top: -16px;
+    padding-top: 2%;
 }
 .modal {
     position: fixed;
@@ -251,8 +252,8 @@ input.select_media_pic {
     height: 21px;
 }
   a#navbarDropdown23 {
-    border: 1px solid #7b0000 ;
-    color: #7b0000 ;
+    border: 1px solid #fff;
+    color: #fff ;
 }
 </style>
  @include('artists.dashboard_footer');
