@@ -44,8 +44,8 @@
                     <div class="col-md-4 mt-5 ">
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
-        <div class="radiobtn">
-          <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+        <div class="radiobtn text-white">
+          <input type="radio" class="select_media_pic" name="type" value="audio" /><p >Audio</p>
           <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
    
             </div>
