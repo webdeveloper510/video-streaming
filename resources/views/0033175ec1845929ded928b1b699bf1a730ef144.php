@@ -356,25 +356,25 @@ Your browser does not support the audio tag.
 
             <br>
             <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
+                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
 
                 <br>
                 <label>Duration(Minutes):</label>
                 <div class="row">
                   <div class="col-md-6">
                 <?php echo e(Form::label('Min', 'Min')); ?> 
-                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])); ?>
+                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])); ?>
 
                    </div>
                    <div class="col-md-6">
                 <?php echo e(Form::label('Max', 'Max')); ?> 
-                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])); ?>
+                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])); ?>
 
                 </div>
                 </div>
                 <br>
                 <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
-                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])); ?>
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
                   <?php echo e(Form::label('Description', 'Description')); ?> 

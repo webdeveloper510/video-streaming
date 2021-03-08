@@ -169,8 +169,6 @@
             var id;
               setTimeout(() => {
               video = $("#recently_"+"<?php echo e($recnt->id); ?>");
-              console.log(video);
-              //id = $("#video_"+"<?php echo e($recnt->id); ?>");
               seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($recnt->id); ?>","<?php echo e($recnt->id); ?>");
             }, 2000);
           </script>
@@ -235,16 +233,17 @@
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
-            
+         <?php if($recnt->duration==''): ?>
           <script>
-      
       setTimeout(() => {
       video = $("#video_"+"<?php echo e($pop->id); ?>");
       id = $("#video_"+"<?php echo e($pop->id); ?>");
        seconds_to_min_sec(video[0].duration,"#duration_"+"<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>","<?php echo e($pop->id); ?>");
 
     }, 2000);
+
     </script>
+    <?php endif; ?>
           </div>
 </div>
                 <h5><?php echo e($pop->title); ?></h5>
@@ -259,32 +258,7 @@
              </div>
             </div>
 <script>
-            function seconds_to_min_sec(seconds,id,vidid) {
-
-              console.log('seconds'+seconds)
-              console.log('id'+id)
-              console.log('vid'+vidid);return false;
-              var minutes = Math.floor(seconds / 60);
-              var seconds = seconds - minutes * 60;
-              var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-              $(id).html(duration);
-              $.ajax({
-              type: 'POST',
-              url:APP_URL+"/duration",
-              headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-		    	data: {'duration':duration, 'id':vidid},
-
-			success: function(data){
-
-				console.log(data);return false;
-
-
-			}
-	});
-
-            }
+ 
     </script>
 
   
@@ -370,8 +344,8 @@
               <div class="col-md-4 mb-3 audiohome">
               <a href="<?php echo e(url('artist-video/'.$audio->id)); ?>">
               
-              <img src="<?php echo e($audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'); ?>">
-              <audio  controlsList="nodownload" disablePictureInPicture>
+              <img  width="100%" src="<?php echo e($audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'); ?>">
+              <audio  controlsList="nodownload" id="audio_<?php echo e($audio->id); ?>" disablePictureInPicture>
                  <source src="<?php echo e(url('storage/app/public/audio/'.$audio->media)); ?>" type="audio/mp3">
             </audio>
             </a>
@@ -380,11 +354,22 @@
           <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="audio_dur<?php echo e($audio->id); ?>"><?php echo e($audio->duration ? $audio->duration :''); ?></h6>
           </div>
           </div>
               </div>
+              <?php if($audio->duration==''): ?>
+          <script>
+           var audio;
+            var id;
+              setTimeout(() => {
+              audio = $("#audio_"+"<?php echo e($audio->id); ?>");
+              seconds_to_min_sec(audio[0].duration,"#audio_dur"+"<?php echo e($audio->id); ?>","<?php echo e($audio->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
               <?php endif; ?>
+
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
              <?php endif; ?>
   
