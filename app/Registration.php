@@ -1373,6 +1373,9 @@ public function getRespectedSub($data){
           unset($video['category']);
           unset($video['count']);
 
+            //print_r($getOffer);die;
+
+
           $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
          // $insert  = DB::table('offer')->insert($video);
@@ -1400,17 +1403,16 @@ public function getRespectedSub($data){
       //print_r($video);die;
       if(isset($video['userdescription'])){
 
-     
+        $getOffer = $this->selectDataById('id','offer',$video['id']);
 
-
-      $getOffer = $this->selectDataById('id','offer',$video['id']);
+        //print_r($getOffer);die;
         $video_id = $video['id'];
       unset($video['id']);
       unset($video['nickname']);
       unset($video['category']);
       unset($video['count']);
 
-      $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
+      $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($video_id,$video):$this->insertOffer($video);
 
       }
   
@@ -1447,7 +1449,10 @@ public function getRespectedSub($data){
 
     public function updateOffer($vidid,$data){
 
-          //print_r($data);die;
+      // echo "update";
+
+
+      //     print_r($data);die;
 
       $return = DB::table('offer')->where(array('id'=>$vidid))->update([
         'userdescription' =>$data['userdescription'],
@@ -1461,6 +1466,10 @@ public function getRespectedSub($data){
     }
 
     public function insertOffer($data){
+
+      // echo "insert";
+
+      // print_r($data);die;
 
 
 
@@ -2201,11 +2210,11 @@ public function buyofferVideo($data,$offer){
 
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
 
-        $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
+        // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
-        $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
+        // $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
-          $return = $status_succedd;
+          $return = $return;
     }
 
     else{
