@@ -171,7 +171,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
-            <video class="hoverVideo" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_{{$detail->id}}" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -183,14 +183,24 @@
           </div>
           <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white">12/PAZ</h6>
+          <h6 class="text-white">{{$detail->price}}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
           </div>
           </div>
             </div>
-                    @endif
+                  @endif
+                  @if($detail->duration=='')
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#detail_"+"{{$detail->id}}");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"{{$detail->id}}","{{$detail->id}}");
+            }, 2000);
+          </script>
+          @endif
                 @endforeach
               @else
               <div class="artistvideo">

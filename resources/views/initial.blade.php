@@ -258,30 +258,7 @@
              </div>
             </div>
 <script>
-            function seconds_to_min_sec(seconds,id,vidid) {
-
-  
-              var minutes = Math.floor(seconds / 60);
-              var seconds = seconds - minutes * 60;
-              var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-              $(id).html(duration);
-              $.ajax({
-              type: 'POST',
-              url:APP_URL+"/duration",
-              headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-		    	data: {'duration':duration, 'id':vidid},
-
-			success: function(data){
-
-				console.log(data);return false;
-
-
-			}
-	});
-
-            }
+ 
     </script>
 
   
@@ -367,8 +344,8 @@
               <div class="col-md-4 mb-3 audiohome">
               <a href="{{url('artist-video/'.$audio->id)}}">
               
-              <img src="{{$audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'}}">
-              <audio  controlsList="nodownload" disablePictureInPicture>
+              <img  width="100%" src="{{$audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'}}">
+              <audio  controlsList="nodownload" id="audio_{{$audio->id}}" disablePictureInPicture>
                  <source src="{{url('storage/app/public/audio/'.$audio->media) }}" type="audio/mp3">
             </audio>
             </a>
@@ -377,11 +354,22 @@
           <h6 class="text-white">{{ $audio->price}}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white" id="audio_dur{{$audio->id}}">{{ $audio->duration ? $audio->duration :'' }}</h6>
           </div>
           </div>
               </div>
+              @if($audio->duration=='')
+          <script>
+           var audio;
+            var id;
+              setTimeout(() => {
+              audio = $("#audio_"+"{{$audio->id}}");
+              seconds_to_min_sec(audio[0].duration,"#audio_dur"+"{{$audio->id}}","{{$audio->id}}");
+            }, 2000);
+          </script>
+          @endif
               @endif
+
               @empty
              @endforelse
   
