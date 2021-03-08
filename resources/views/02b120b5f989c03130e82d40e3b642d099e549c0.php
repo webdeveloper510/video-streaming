@@ -142,7 +142,7 @@
  <br>
                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
-               <span id="filename" style="color:red;"></span>
+               <span id="filename" style="color:yellow;"></span>
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
@@ -152,7 +152,7 @@
                 <label>Choose Image</label>
                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
                 
                <br>

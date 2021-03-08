@@ -268,7 +268,7 @@ Your browser does not support the audio tag.
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
     </div>
-
+      </div>
 
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
