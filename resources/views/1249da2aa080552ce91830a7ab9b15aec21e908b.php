@@ -616,6 +616,20 @@ Your browser does not support the audio tag.
     margin-top: -31px;
     margin-right: 7px;
 }
+.pricetime .text-right h6 {
+    background: white;
+    height: 30px;
+    width: 45px;
+    float: right;
+    color: black !important;
+    padding: 7px;
+}
+
+.pricetime .text-left h6 {
+    background: white;
+    padding: 5px;
+    color: black !important;
+}
 </style>
 
 
