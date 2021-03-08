@@ -261,9 +261,9 @@
 <script>
             function seconds_to_min_sec(seconds,id,vidid) {
 
-              console.log('seconds'+seconds)
-              console.log('id'+id)
-              console.log('vid'+vidid);return false;
+              // console.log('seconds'+seconds)
+              // console.log('id'+id)
+              // console.log('vid'+vidid);return false;
               var minutes = Math.floor(seconds / 60);
               var seconds = seconds - minutes * 60;
               var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
