@@ -791,6 +791,9 @@ label.error {
     color: white;
     
 }
+.edit12 {
+    margin-top: 30%;
+}
 img.img-fliud.logodownload {
     border: 1px solid black;
     padding: 11px;
