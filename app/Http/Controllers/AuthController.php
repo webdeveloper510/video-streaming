@@ -1020,7 +1020,11 @@ public function notifyEmail(Request $req){
 
       $data = Session::get('offer');
 
+     // print_r($data);die;
+
       $showOffer = $this->model->showOfer($data);
+
+    
 
       return view('showoffer',['offer'=>isset($showOffer) ? $showOffer :[]]);
       

@@ -20,14 +20,7 @@
           
         </ul>
 
-        <div class="alert alert-success" id="success" style="display:none">
     
-        </div>
- 
-      
-        <div class="alert alert-danger" id="error" style="display:none">
-   
-        </div>
   
       
       
@@ -98,6 +91,14 @@
             </div>
             <div class="col text-center pt-3">
             {{ Form::submit('Submit!',['class'=>'btn btn-primary disable_this']) }}
+            <div class="alert alert-success" id="success" style="display:none">
+    
+    </div>
+
+  
+    <div class="alert alert-danger" id="error" style="display:none">
+
+    </div>
      </div>
      </div>
    </div>
