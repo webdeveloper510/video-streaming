@@ -1775,6 +1775,10 @@ $(document).on('submit', '#myForm', function (event) {
 					 $('#success').show();
 					 $('#success').html(data.messge);
 
+					 setTimeout(function(){
+						 location.reload();
+					 },2000);
+
 					// location.reload();
 					//$('.popup_close').trigger('click');
 						
