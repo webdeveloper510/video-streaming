@@ -1447,7 +1447,10 @@ public function getRespectedSub($data){
 
     public function updateOffer($vidid,$data){
 
-          //print_r($data);die;
+      echo "update";
+
+
+          print_r($data);die;
 
       $return = DB::table('offer')->where(array('id'=>$vidid))->update([
         'userdescription' =>$data['userdescription'],
@@ -1461,6 +1464,10 @@ public function getRespectedSub($data){
     }
 
     public function insertOffer($data){
+
+      echo "insert";
+
+      print_r($data);die;
 
 
 

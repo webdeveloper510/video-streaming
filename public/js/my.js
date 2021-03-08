@@ -1151,7 +1151,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-				//console.log(data);return false;
+				console.log(data);return false;
 
 					if(data.status==1){
 						$('.show_alert').show();
