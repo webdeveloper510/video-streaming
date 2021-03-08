@@ -173,18 +173,36 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video class="hoverVideo" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
                 </a>
+              
                 <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-
+            <span class="tooltiptext">You can not download this video</span>
+          </div>
+          <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+          </div>
+          </div>
             </div>
-                    <?php endif; ?>
+                  <?php endif; ?>
+                  <?php if($detail->duration==''): ?>
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#detail_"+"<?php echo e($detail->id); ?>");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               <?php else: ?>
               <div class="artistvideo">
@@ -215,9 +233,18 @@ Your browser does not support the audio tag.
 </audio>
 
 </a>
+
 <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
   <span class="tooltiptext">You can not download this video</span>
 </div>
+<div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white">2:00</h6>
+          </div>
+          </div>
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -331,7 +358,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
@@ -378,6 +405,20 @@ div#nav-contact {
     background: #000;
     color: #fff !important;
 }
+.pricetime .text-right h6 {
+    background: white;
+    height: 30px;
+    width: 45px;
+    float: right;
+    color: black !important;
+    padding: 7px;
+}
+
+.pricetime .text-left h6 {
+    background: white;
+    padding: 5px;
+    color: black !important;
+}
 div#nav-contact *{
     color: #fff;
 }
@@ -392,13 +433,20 @@ select.form-select.form-control, select.form-select.form-control * {
     border: 2px solid yellow;
 }
 .coverimg img {
-    object-fit: cover;
+    object-fit: fill;
 }
 .price {
  
     padding: 24px 18px;
 }
-
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -31px;
+    margin-right: 7px;
+}
 .tooltip {
  opacity:1 !important;
   display: inline-block;
