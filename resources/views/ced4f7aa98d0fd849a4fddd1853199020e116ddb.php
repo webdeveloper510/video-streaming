@@ -59,7 +59,7 @@
          
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price')); ?> 
-            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
+            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
             <div class="col-md-6 mt-2 ">
@@ -81,16 +81,16 @@
             </select>
             
             <div class="col-md-12 mt-3 text-white">
-            <label class="media_label"></label>
+            <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
             <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
             <label>Choose Image</label>        
                  <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
             <div class="col-md-6 mt-3">

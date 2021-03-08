@@ -395,7 +395,7 @@
               {{Form::token()}}
                 <h5 class="card-title">First Name : <span class="replace" id="firstname">{{$personal_info[0]->firstname}}</span></h5><br>
                 <input type="hidden" value="{{$personal_info[0]->country}}" id="all_country"/>
-                <h5 class="card-title">Country : <span class="replace" id="country">{{$personal_info[0]->country}}</span></h5><br>
+                <h5 class="card-title">Country : <span class="replace" id="country">{{$personal_info[0]->country}}</span></h5>
                 <select name="country" class="form-control country" id="countries" style="display:none">
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -612,8 +612,8 @@
                
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
-                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-3' , 'id'=>'edit']) }}
-                <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update']) }}</div>
+                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
+                <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}</div>
                 {{Form::close()}}
               </div>
             </div>

@@ -16,7 +16,7 @@
 
       <div class="container profile ">
       <div class="overlay1 ">
-        <h1 class="text-center">Create Offer</h1>
+        <h1 class="text-center text-white">Create Offer</h1>
 
      
         
@@ -232,6 +232,12 @@ li.nav-item.dropdown {
 }
 .modal-body img {
     width: 26rem;
+}
+label {
+    color: white;
+}
+section.background1 {
+    margin-top: -16px;
 }
 .modal {
     position: fixed;

@@ -1,21 +1,24 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<section class="background1 ">
 
 
         <div class="alert alert-success" id="success" style="display:none">
         </div>
+        <div class="alert alert-danger"  style="display:none">
+        </div>
  
            
          
-        <div class="alert alert-danger" id="error" style="display:none">
-      
-        </div>
-    
+  
 <?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
 
       <div class="container profile ">
+      <div class="overlay1 ">
         <h1 class="text-center">Create Offer</h1>
+
+     
         
           <div class="row align-items-center text-white">
           <div class="col-md-12 mt-5 ">
@@ -24,8 +27,6 @@
          
          <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          
-              <i class="fa fa-money"></i>
               Create Offer
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -94,8 +95,8 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 mt-5">
-            <label>Quality:</label>
-            <select name="quality" class="form-control" id="quality">
+            <label class="convert">Quality:</label>
+            <select name="quality" class="form-control convert" id="quality">
                     <option value="">Choose ...</option>
                     <option value="480">480p  </option>
                     <option value="720">HD 720p </option>
@@ -138,17 +139,24 @@
                    
             </select>
             <br>
-            <label>Sample Audio/Video/Image(Max 30s)</label>
-                 <?php echo e(Form::label('Audio/Video', 'Audio/Video')); ?> <br>
-            
-                <?php echo e(Form::file('media',['class'=>'form-control','id'=>'file_input'])); ?>
+            <label class="media_label"></label>
 
+ <br>
+               <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
+
+               <span id="filename" style="color:yellow;"></span>
                  <?php if($errors->first('media')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('media') ?>
                 </div>
                 <?php endif; ?>
-                <span id="filename" style="color:red;"></span>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
+                <label>Choose Image</label>
+                <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+                
                <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
@@ -163,7 +171,7 @@
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 20, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])); ?>
 
                  <?php if($errors->first('description')): ?>
                 <div class="alert alert-danger">
@@ -188,10 +196,11 @@
           </div>
           </div>
      </div>
+     </div>
   <?php echo e(Form::close()); ?>
 
 
-
+</section>
 
    <style>
 .btn.btn-secondary {
@@ -223,6 +232,12 @@ li.nav-item.dropdown {
 }
 .modal-body img {
     width: 26rem;
+}
+label {
+    color: white;
+}
+section.background1 {
+    margin-top: -16px;
 }
 .modal {
     position: fixed;
