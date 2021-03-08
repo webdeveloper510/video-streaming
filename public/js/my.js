@@ -2015,7 +2015,7 @@ $("#edit").on('click', function () {
 
     });
 	$(this).hide();
-	$(this).next().next().show();
+	$(this).next().show();
 
 });
 
