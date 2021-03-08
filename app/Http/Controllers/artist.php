@@ -78,7 +78,7 @@ class artist extends Controller
          
          $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
         //   echo "<pre>";
-        //  print_r($allArtistsAudio);die;
+        //  print_r($allArtistsVideo);die;
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid);
 
@@ -761,6 +761,15 @@ class artist extends Controller
     $timeFrame = $this->model->insert_data($req->all());
 
         return $timeFrame;
+  }
+
+  public function VideoPage($id){
+
+            $fetch = $this->model->selectDataById('id','media',$id);
+
+            return view('artists.videoDetail',['vedios'=>$fetch]);
+
+            
   }
 
   }

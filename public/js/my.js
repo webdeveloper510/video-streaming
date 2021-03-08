@@ -2014,6 +2014,33 @@ $("#edit").on('click', function () {
 
 });
 
+function seconds_to_min_sec(seconds,id,vidid) {
+
+	//console.log(seconds);return false;
+
+  
+	var minutes = Math.floor(seconds / 60);
+	var seconds = seconds - minutes * 60;
+	var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+	$(id).html(duration);
+	$.ajax({
+	type: 'POST',
+	url:APP_URL+"/duration",
+	headers: {
+  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  },
+	  data: {'duration':duration, 'id':vidid},
+
+  success: function(data){
+
+	  console.log(data);return false;
+
+
+  }
+});
+
+  }
+
 $(document).on('submit', '#updateUser', function (event) {
 	event.preventDefault();
 	//console.log(formData);return false;

@@ -151,13 +151,22 @@
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
-               <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
+               <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
             </video>
                 </a>
+                <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white">12/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+          </div>
+          </div>
+            </div>
                 <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
             </div>
              <?php endif; ?>
@@ -180,7 +189,7 @@
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
-     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+     <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
     <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>">
 
 <audio controls controlsList="nodownload" disablePictureInPicture>
