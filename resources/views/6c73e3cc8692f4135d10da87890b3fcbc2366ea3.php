@@ -22,7 +22,7 @@
                <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
              
               <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
-              <li><a href="https://www.websitepolicies.com/policies/view/uU8Tfpe9"><i class="fa fa-angle-right"></i> Refund Policy</a></li>
+            
               <li><a href="https://www.websitepolicies.com/policies/view/UkyQfdIh"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
               <li><a href="<?php echo e(url('/userWithdraw')); ?>"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
               <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
@@ -77,6 +77,7 @@
 
        
       <div class="cprt">
+      <p>BETA Version 1.0</p>
         <p>PAZ © Copyrights 2021 Design by PAZ</p>
       </div>
     </div>
