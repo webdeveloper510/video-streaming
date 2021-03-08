@@ -146,13 +146,13 @@
         <?php if(isset($details[0]->type)): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 hover">
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -608,6 +608,11 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
+}
+div#nav-contact {
+    background: black;
+    color: white;
+    padding: 10px;
 }
 .pricetime .text-left {
     float: left;
