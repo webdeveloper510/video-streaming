@@ -1,4 +1,5 @@
 @include('layouts.header')
+<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
@@ -49,7 +50,7 @@
       <div class="col-md-12 uploa_outer" id="playlist">
 		  <div class="slider_tittle">
 		  <h3 class="tittle">Playlist</h3>	
-      <form>	
+      <!-- <form>	
        <div class="form-group">
     <label for="exampleFormControlSelect1"> Select Playlist</label>
     <select class="form-control" name="playlist" id="exampleFormControlSelect1">
@@ -60,7 +61,7 @@
     </select>
 
   </div>
-  </form> 
+  </form>  -->
  
 
         <!-- Modal -->
@@ -205,7 +206,7 @@
       @empty
        @endforelse
        @else
-       <div class="playhistory col-md-12">
+       <!-- <div class="playhistory col-md-12">
                      <h4>No play list created yet. <span id="playlistCreate" class="show_list">Create play List +</span></h4>
                      <span class="create_playlistt" style="display: block">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
@@ -215,7 +216,7 @@
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
 
-                   </div>
+                   </div> -->
                    
             @endif
 			      <!-- Button trigger modal -->
@@ -227,8 +228,13 @@
                 <source src="https://www.w3schools.com/tags/movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
               </video>
-              <div class="videooverlay">
-                <p>
+              <div class="videooverlay text-white">
+              
+              <span class="fa-layers fa-fw fa-4x">
+			<svg class="svg-inline--fa fa-play fa-w-14" data-fa-transform="shrink-1 right-6.5 down-4" data-fa-mask="fas fa-bars" aria-hidden="true" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><defs><clipPath id="clip-BI4jsYsO0ydT"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></clipPath><mask x="0" y="0" width="100%" height="100%" id="mask-NL2qReMfCV3W" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse"><rect x="0" y="0" width="100%" height="100%" fill="white"></rect><g transform="translate(224 256)"><g transform="translate(208, 128)  scale(0.9375, 0.9375)  rotate(0 0 0)"><path fill="black" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" transform="translate(-224 -256)"></path></g></g></mask></defs><rect fill="currentColor" clip-path="url(#clip-BI4jsYsO0ydT)" mask="url(#mask-NL2qReMfCV3W)" x="0" y="0" width="100%" height="100%"></rect></svg><!-- <i class="fas fa-play" data-fa-transform="shrink-1 right-6.5 down-4" data-fa-mask="fas fa-bars"></i> -->
+			<svg class="svg-inline--fa fa-play fa-w-14" data-fa-transform="shrink-8 right-6 down-4" aria-hidden="true" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="" style="transform-origin: 0.8125em 0.75em;"><g transform="translate(224 256)"><g transform="translate(192, 128)  scale(0.5, 0.5)  rotate(0 0 0)"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" transform="translate(-224 -256)"></path></g></g></svg><!-- <i class="fas fa-play" data-fa-transform="shrink-8 right-6 down-4"></i> -->
+		</span>
+                <h2 class="text-white pl-5">5</h2>
 
               </div>
               </a>
@@ -367,8 +373,9 @@ ul.reporting {
     position: absolute;
     height: 240px;
     z-index: 9999;
-    top: 146px;
+    top: 69px;
     width: 161px;
+    padding:43px;
     display:none;
 }
 .row.pb-row a:hover .videooverlay{
