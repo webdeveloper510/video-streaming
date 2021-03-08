@@ -612,9 +612,9 @@
                
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
-                
-                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5 edit12' , 'id'=>'edit']) }}
-                
+                <div class="mt-5">
+                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
+                </div>
                 <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}</div>
                 {{Form::close()}}
               </div>
