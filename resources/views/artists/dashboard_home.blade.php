@@ -613,7 +613,7 @@
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
                 
-                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5 edit12' , 'id'=>'edit']) }}
+                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit']) }}
                 
                 <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}</div>
                 {{Form::close()}}
@@ -790,6 +790,9 @@ label.error {
     background: #ff7f27;
     color: white;
     
+}
+.edit12 {
+    margin-top: 30%;
 }
 img.img-fliud.logodownload {
     border: 1px solid black;
