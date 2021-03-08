@@ -235,6 +235,7 @@
 			<svg class="svg-inline--fa fa-play fa-w-14" data-fa-transform="shrink-8 right-6 down-4" aria-hidden="true" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="" style="transform-origin: 0.8125em 0.75em;"><g transform="translate(224 256)"><g transform="translate(192, 128)  scale(0.5, 0.5)  rotate(0 0 0)"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" transform="translate(-224 -256)"></path></g></g></svg><!-- <i class="fas fa-play" data-fa-transform="shrink-8 right-6 down-4"></i> -->
 		</span>
                 <h2 class="text-white pl-5">5</h2>
+                <p class="text-white">playlistname</p>
 
               </div>
               </a>
@@ -371,12 +372,12 @@ ul.reporting {
 .videooverlay {
     background: #151515;
     position: absolute;
-    height: 240px;
+    height: 245px;
     z-index: 9999;
-    top: 69px;
+    top: 20%;
     width: 161px;
-    padding:43px;
-    display:none;
+    padding: 43px;
+    display: none;
 }
 .row.pb-row a:hover .videooverlay{
   display:block;
