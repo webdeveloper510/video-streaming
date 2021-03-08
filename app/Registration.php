@@ -475,15 +475,23 @@ public function getArtistDetail($artid,$type){
 
     $contentid=$session_data->id;
 
+    //print_r($profile);
 
+//
     $update = $this->UpdateData('contentprovider','id',$profile,$contentid);
+   // print_r($update);die;
+      if($data){
 
+        $id=$data['hid'];
 
-       $id=$data['hid'];
+        unset($data['hid']);
+  
+        $update = $this->UpdateData('media','id',$data,$id);
 
-      unset($data['hid']);
+      }
 
-      $update1 = $this->UpdateData('media','id',$data,$id);
+     // print_r($update);die;
+      
 
       return $update1; 
 
@@ -970,44 +978,87 @@ public function getRespectedSub($data){
 
     public function showOfer($data){
 
-        $result = $data;
-       // print_r($result);die;
-        $fetch = DB::table('offer')
-        ->where(function($query) use ($result){
+      // $key_value = array();
 
-            foreach ($result as $key => $value) {
+      // foreach($data as $key=>val){
 
-                if(is_array($value)){
+      //       if(is_array($val)){
 
-                  $query->whereIn('categoryid',$value);
+      //       }
 
-                }
+      //       else{
+      //             echo 'dd';
+      //       }
 
-                else{
+      // }
 
-                  if($key=='price'){
+    // print_r($data);die;
 
-                    $query->orderBy('price',$value);
-                  }
+      
+      $offers = DB::table('offer')
+               ->leftJoin('category', function($join) use($data) {
+                      //$join->where('category.id','=', $data['catid'][0])
+                      $join->on("category.id", "=", "offer.categoryid");
+              })
+              ->whereIn('offer.categoryid', $data['catid'])
+              ->orderBy('offer.price', $data['price'])
+               ->select('offer.*','category.category')
+               ->get();
 
-                  else{
+               //echo "<pre>";
 
-                   $query->where($key,$value);
+               return $offers;
 
-                 }
-                }
+      //   $result = $data;
+      //  // print_r($result);die;
+      //   $fetch = DB::table('offer')
 
-            }
+      //   ->leftJoin('category',function($query) use ($result){
 
-        });
+      //       foreach ($result as $key => $value) {
 
-        // echo "<pre>";
+      //           if(is_array($value)){
 
-        // print_r($fetch->get());die;
+      //             $query->where('category.id','=', $value)
+      //             ->on("category.id", "=", "offer.categoryid");
 
-          return $fetch->get();
+      //             //$query->whereIn('categoryid',$value);
+
+      //           }
+
+      //           else{
+
+      //             if($key=='price'){
+
+      //               $query->orderBy('price',$value);
+      //             }
+
+      //             else{
+
+      //              $query->where($key,$value);
+
+      //            }
+      //           }
+
+      //       }
+
+      //   })
+
+      //   ->select('offer.*','category.*')
+
+      //   ->get();
+
+      //   print_r($fetch);die;
+
+        // // echo "<pre>";
+
+        // // print_r($fetch->get());die;
+
+        //   return $fetch->get('A.*','B.*');
 
     }
+
+    
 
     public function editDescription($data)
 

@@ -283,6 +283,11 @@ $(document).on('keyup change', '#change_duration', function () {
 
 	console.log(pay_price);     
 });
+
+
+$(document).on('click','.additional_price',function(){
+	alert('hello');
+})
 function readURL(input) {
 
 	var radio_checked = $(".select_media_pic:checked").val();
@@ -1123,7 +1128,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
 			success: function(data){
 
-				//console.log(data);return false;
+				//sconsole.log(data);return false;
 
 				if(data.status==1){
 					$('.alert-success').show();
@@ -1190,7 +1195,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 			success: function(data){
 
-				// console.log(data);return false;
+				//console.log(data);return false;
 
 				if(data.status==1){
 					// $('.alert-success').show();
@@ -1429,7 +1434,8 @@ function filterproject(data){
 
 }
 
-$(document).on('keyup', '#calculate_tokens', function () {
+$(document).on('keyup change', '#calculate_tokens', function () {
+	
 	var amount = parseInt($(this).val())/20;
 	var fees = (parseFloat(amount)*$("#fees").val())/100;
 	$('#real_amount').val(parseFloat(amount)-parseFloat(fees));
@@ -1711,6 +1717,7 @@ $(document).on('click','.select_media_pic',function(){
 			if(value=='audio'){
 
 					$('.media_label').text('Upload Sample Audio (~30s)');
+					$('.media_label12').text('Audio Sample');
 					$('.audio_picture').show();
 					$('.convert').hide();
 
@@ -1718,6 +1725,9 @@ $(document).on('click','.select_media_pic',function(){
 			else{
 
 				$('.audio_picture').hide();
+
+				$('.media_label12').text('Video Sample');
+
 
 				$('.media_label').text('Upload Sample Video (~30s)');
 
@@ -1774,6 +1784,10 @@ $(document).on('submit', '#myForm', function (event) {
 				if(data.status==1){
 					 $('#success').show();
 					 $('#success').html(data.messge);
+
+					 setTimeout(function(){
+						 location.reload();
+					 },2000);
 
 					// location.reload();
 					//$('.popup_close').trigger('click');

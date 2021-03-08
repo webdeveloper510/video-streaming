@@ -347,22 +347,22 @@ Your browser does not support the audio tag.
               {{Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])}}
             <br>
             {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
-                {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])}}
+                {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])}}
                 <br>
                 <label>Duration(Minutes):</label>
                 <div class="row">
                   <div class="col-md-6">
                 {{Form::label('Min', 'Min')}} 
-                {{Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])}}
+                {{Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])}}
                    </div>
                    <div class="col-md-6">
                 {{Form::label('Max', 'Max')}} 
-                {{Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])}}
+                {{Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])}}
                 </div>
                 </div>
                 <br>
                 {{Form::label('Additional Request Price', 'Additional Request Price')}} 
-                {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])}}
+                {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])}}
                 <br>
                   {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}

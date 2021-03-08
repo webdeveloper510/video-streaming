@@ -401,7 +401,7 @@ class artist extends Controller
 
   public function offerpage($id){
 
-    $navbaractive = 'withdraw';
+    $navbaractive = 'profile';
 
 
     $offerData = $this->model->getOfferById($id);
@@ -524,29 +524,38 @@ class artist extends Controller
 
         unset($req['_token']);
 
-      // print_r($req->all());die;
 
-        if($req->media || $req->audio_pic){
+      //print_r($req->all());die;
+      if($req->media){
 
-          $fileName = time().'_'.$req->media->getClientOriginalName();
-          $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():'';
-          $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
-          $ext =$req->media->getClientOriginalExtension();
-          $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
-          $size=$req->media->getSize();
-          $data['size'] = number_format($size / 1048576,2);
-          $data['media']=$fileName;
-          $data['hid']=$req['hid'];
-          $data['audio_pic'] = $audio_pics;
-          $data['convert'] = $req['convert'] ? $req['convert'] : '';
+        $fileName =$req->media ?  time().'_'.$req->media->getClientOriginalName():'';
+        $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():'';
+        $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
+        $ext =$req->media ? $req->media->getClientOriginalExtension():'';
+        $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
+        $size=$req->media->getSize();
+        $data['size'] = number_format($size / 1048576,2);
+        $data['media']=$fileName;
+        $data['hid']=$req['hid'];
+        $data['audio_pic'] = $audio_pics;
+        $data['convert'] = $req['convert'] ? $req['convert'] : '';
+        $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+
+
+      }
+
+
+
+         
+
+
 
           $inputData = Arr::except($req->all(),['media', 'hid','audio_pic','convert','radio']);
 
-         // print_r($inputData);die;
+          //print_r($inputData);die;
 
-          $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
 
-        }
+        
          
 
           //print_r($input);die;

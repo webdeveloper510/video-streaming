@@ -647,9 +647,7 @@ public function artistselling(){
 
     $isSubscribe =$this->model->isSubscribe($artId);
 
-    // echo "<pre>";
-
-    // print_r($data);die;
+   
         
     return view('artistoffers',['offer'=>isset($data) ? $data :[],'isSubscribed'=>$isSubscribe]);
 
@@ -1479,7 +1477,7 @@ public function readNotification(Request $request){
 
       public function duration(Request $request){
 
-          //print_r($request->all());
+          print_r($request->all());die;
 
           $updateInfo = $this->model->UpdateData('media','id',$req->all(),$req['id']);
 

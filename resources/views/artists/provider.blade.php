@@ -56,7 +56,7 @@
          
             <div class="col-md-6 mt-2 ">
             {{Form::label('Add Price', 'Price')}} 
-            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']) !!}
+            {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]) !!}
             </div>
             <div class="col-md-6 mt-2 ">
            
@@ -77,7 +77,7 @@
             </select>
             
             <div class="col-md-12 mt-3 text-white">
-            <label class="media_label"></label>
+            <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
                 <span id="filename" style="color:red;"></span>
             </div>

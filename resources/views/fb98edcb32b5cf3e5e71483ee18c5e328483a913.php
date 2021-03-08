@@ -29,7 +29,7 @@
 </video>
 <?php else: ?>
 <img src="<?php echo e(url('storage/app/public/uploads/'.$val->audio_pic)); ?>">
-<audio width="100%" height="240" controls>
+<audio  width="100%" height="240" controls>
   <source src="<?php echo e(url('storage/app/public/audio/'.$val->media)); ?>" type="audio/mp3">
   Your browser does not support the video tag.
 </audio>
@@ -43,7 +43,7 @@
 	      <table class="table table-borderless text-center">
         <tr>
           <th>Category</th>
-          <td>xyz</td>
+          <td><?php echo e($val->category); ?></td>
         </tr>
         <tr>
           <th>Media</th>

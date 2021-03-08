@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
+          <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
         </div>
         <div class="profileimg">
         <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
@@ -93,7 +93,7 @@
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="{{url('artistoffers/'.$offer->id)}}">
            <h2>{{$offer->title}}</h2>
-               <p>{{$offer->description}}</p>
+               <!-- <p>{{$offer->description}}</p> -->
                  {{$details[0]->nickname}}
            <br>
          Categories :{{$offer->category}}

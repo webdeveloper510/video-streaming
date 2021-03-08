@@ -165,8 +165,11 @@
           <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
           @if($recnt->duration=='')
           <script>
+           var video;
+            var id;
               setTimeout(() => {
               video = $("#recently_"+"{{$recnt->id}}");
+              console.log(video);
               //id = $("#video_"+"{{$recnt->id}}");
               seconds_to_min_sec(video[0].duration,"#duration_"+"{{$recnt->id}}","{{$recnt->id}}");
             }, 2000);
@@ -257,6 +260,10 @@
             </div>
 <script>
             function seconds_to_min_sec(seconds,id,vidid) {
+
+              console.log('seconds'+seconds)
+              console.log('id'+id)
+              console.log('vid'+vidid);return false;
               var minutes = Math.floor(seconds / 60);
               var seconds = seconds - minutes * 60;
               var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);

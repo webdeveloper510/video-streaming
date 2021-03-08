@@ -97,14 +97,16 @@ $GLOBALS['price'] = $offerdata->price;
 <input type="hidden" name="price" id="offer_pay" value="{{$GLOBALS['price']}}"/>
 <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
 <input type="hidden" name="add_price" id="additional" value="{{$GLOBALS['add_price']}}">
+
 <input type="hidden" name="allinfo" value="{{json_encode($offerdata)}}"/>
 <div class="col-md-4">
 	<h3>Set Duration</h3>
-  {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','placeholder'=>'Duration'])}}
+  {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>1,'placeholder'=>'Duration'])}}
 </div>
 @endforeach
 <h4>Additional Request <small>(Price: {{$GLOBALS['add_price']}}PAZ)</small></h4>
 {{Form::textarea('description',null,['class'=>'form-control', 'rows' => 5, 'cols' => 30])}}
+
 <br>
 <strong id="change_text"></strong>
 <div class="text-right mt-5">
