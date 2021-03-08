@@ -27,7 +27,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Content Upload</a>
+            <a class="dropdown-item" href="<?php echo e(url('artist/contentUpload')); ?>">Collection Upload</a>
         </div>
          
 
@@ -96,20 +96,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 mt-5">
-            <label class="convert">Quality:</label>
-            <select name="quality" class="form-control convert" id="quality">
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
-            <?php if($errors->first('quality')): ?>
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('quality') ?>
-                </div>
-                <?php endif; ?>
-            <br>
+         
             <label>Duration(In Minutes)</label>
             <div class="row">
 
@@ -140,6 +127,20 @@
                     <option value="online">Online</option>
                    
             </select>
+            <br>
+            <div class="col-md-6 mt-5">
+            <label class="convert">Quality:</label>
+            <select name="quality" class="form-control convert" id="quality">
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
+            </select>
+            <?php if($errors->first('quality')): ?>
+                <div class="alert alert-danger">
+                  <?php echo $errors->first('quality') ?>
+                </div>
+                <?php endif; ?>
             <br>
             <label class="media_label"></label>
 
