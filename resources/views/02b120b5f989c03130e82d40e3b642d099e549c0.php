@@ -16,12 +16,8 @@
 
       <div class="container profile ">
       <div class="overlay1 ">
-        <h1 class="text-center text-white">Create Offer</h1>
-
-     
-        
-          <div class="row align-items-center text-white">
-          <div class="col-md-12 mt-5 ">
+            
+      <div class="col-md-12 mt-5 ">
           
           <ul class="nav">
          
@@ -39,6 +35,12 @@
           
         </ul>
         </div>
+        <h1 class="text-center ">Create Offer</h1>
+
+     
+        
+          <div class="row align-items-center text-white">
+         
                     <div class="col-md-4 mt-5 ">
 
             <?php echo e(Form::label('Media Offering', 'Media Offering')); ?> <br>
