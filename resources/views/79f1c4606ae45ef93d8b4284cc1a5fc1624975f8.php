@@ -151,21 +151,31 @@
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
-               <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
+               <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
             </video>
                 </a>
+               
                 <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white">12/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+                  </div>
+                  </div>
+            </div>
             </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
           <div class="artistvideo">
           <h4> No <span class="textcolor"> Video </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload Video</span></a>
+            <a href="<?php echo e(url('artist/contentUpload')); ?>"> <span class="textcolor">Upload Video</span></a>
           </div>
           <?php endif; ?>
           </div>
@@ -180,7 +190,7 @@
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
-     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+     <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
     <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>">
 
 <audio controls controlsList="nodownload" disablePictureInPicture>
@@ -196,7 +206,7 @@ Your browser does not support the audio tag.
 <?php else: ?>
 <div class="artistaudio">
 <h4> No <span class="textcolor">Audio </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload Audio</span></a>
+            <a href="<?php echo e(url('artist/contentUpload')); ?>"> <span class="textcolor">Upload Audio</span></a>
           </div>
 <?php endif; ?>
 </div>
@@ -356,25 +366,25 @@ Your browser does not support the audio tag.
 
             <br>
             <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
+                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
 
                 <br>
                 <label>Duration(Minutes):</label>
                 <div class="row">
                   <div class="col-md-6">
                 <?php echo e(Form::label('Min', 'Min')); ?> 
-                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])); ?>
+                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])); ?>
 
                    </div>
                    <div class="col-md-6">
                 <?php echo e(Form::label('Max', 'Max')); ?> 
-                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])); ?>
+                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])); ?>
 
                 </div>
                 </div>
                 <br>
                 <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
-                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])); ?>
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
                   <?php echo e(Form::label('Description', 'Description')); ?> 
@@ -597,6 +607,31 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
+}
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -31px;
+    margin-right: 7px;
+}
+.pricetime .text-right h6 {
+    background: white;
+    height: 30px;
+    width: auto;
+    float: right;
+    color: black !important;
+    padding: 7px;
+}
+
+.pricetime .text-left h6 {
+    background: white;
+    padding: 5px;
+    color: black !important;
+}
+.pricetime {
+    position: relative;
 }
 </style>
 
