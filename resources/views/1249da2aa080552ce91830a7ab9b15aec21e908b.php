@@ -614,6 +614,10 @@ div#nav-contact {
     color: white;
     padding: 10px;
 }
+.col-md-4.mb-3.hover {
+    border: 1px solid gold;
+    padding: 10px;
+}
 .pricetime .text-left {
     float: left;
     padding-left: 10px;
