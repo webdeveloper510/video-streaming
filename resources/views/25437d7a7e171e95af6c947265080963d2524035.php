@@ -620,7 +620,7 @@
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
                 
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5 edit12' , 'id'=>'edit'])); ?>
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
                 
                 <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?></div>
@@ -774,7 +774,7 @@
               <div class="card-body text-center">
                 <h4 class="card-title">Download Our Logo</h4>
                   <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" download class="img-fliud logodownload">
-                 <a href="" download="logo_black.png"> <button class=" btn btn-primary" type="button">Download</button></a>
+                 <a href="<?php echo e(asset('images/logos/logo_black.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
               </div>
             </div>
     </div>
@@ -807,6 +807,9 @@ label.error {
     background: #ff7f27;
     color: white;
     
+}
+.edit12 {
+    margin-top: 30%;
 }
 img.img-fliud.logodownload {
     border: 1px solid black;

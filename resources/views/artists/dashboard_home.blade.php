@@ -757,7 +757,7 @@
               <div class="card-body text-center">
                 <h4 class="card-title">Download Our Logo</h4>
                   <img src="{{asset('images/logos/logo_black.png')}}" download class="img-fliud logodownload">
-                 <a href="" download="logo_black.png"> <button class=" btn btn-primary" type="button">Download</button></a>
+                 <a href="{{asset('images/logos/logo_black.png')}}" download> <button class=" btn btn-primary" type="button">Download</button></a>
               </div>
             </div>
     </div>
