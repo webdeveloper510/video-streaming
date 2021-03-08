@@ -32,7 +32,7 @@
           <div class="col-md-4">
     
            <div class="amount">Enter PAZ Amount <br>
-              <input type="text" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
+              <input type="text"  pattern="(5000|([1-4][0-9][0-9][0-9])|([1-9][0-9][0-9])|([1-9][0-9])|[1-9])" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
          <input type="hidden" id="fees" value="<?php echo e($levelData ? $levelData[0]->fees : 0); ?>"/>
          <strong class="show_fees" style="color:black"></strong>
