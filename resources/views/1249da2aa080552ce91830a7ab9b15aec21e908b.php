@@ -608,6 +608,14 @@ Your browser does not support the audio tag.
     right: 43px;
     top: -3px;
 }
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -31px;
+    margin-right: 7px;
+}
 </style>
 
 
