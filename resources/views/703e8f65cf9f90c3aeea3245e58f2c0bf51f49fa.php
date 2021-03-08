@@ -619,10 +619,10 @@
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
-                <div class="mt-5">
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit'])); ?>
+                
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5 edit12' , 'id'=>'edit'])); ?>
 
-                </div>
+                
                 <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?></div>
                 <?php echo e(Form::close()); ?>
 
