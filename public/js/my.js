@@ -308,9 +308,9 @@ $(document).ready(function() {
 
 $(document).on('change', '.file_input', function () {
 
+	var id = $(this).attr('id');
 
-	//alert('he;p');return false;
-	readURL(this);
+	id ? readURL(this,true) : readURL(this,false);
 })
 
 $(document).on('change', '.chooseImage', function () {
@@ -357,13 +357,22 @@ $(document).on('keyup change', '#change_duration', function () {
 $(document).on('click','.additional_price',function(){
 	alert('hello');
 })
-function readURL(input) {
+function readURL(input,bool) {
 
 	var radio_checked = $(".select_media_pic:checked").val();
 
 	var filepath = input.value;
 
 	var extension = filepath.split('.')[1];
+
+
+	if(bool){
+
+		input.nextElementSibling.textContent = input.files[0].name;
+
+		return false;
+
+	}
 
 	  if(extension!='mp3' && radio_checked!='video'){
 

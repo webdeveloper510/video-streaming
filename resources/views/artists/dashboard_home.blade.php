@@ -711,7 +711,7 @@
                   <br>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
-                        {{Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])}}
+                        {{Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])}}
                         <span id="filename" style="color:red;"></span>
                           {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])}}
                           <div class="alert alert-danger d-none">{{$errors->first('media') ?  $errors->first('media') : ''}}</div>
