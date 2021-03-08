@@ -78,7 +78,7 @@
        
       <div class="cprt">
       <p>BETA Version 1.0</p>
-        <p>PAZ © Copyrights 2021 Design by PAZ</p>
+        <p>PAZ LLC © Copyrights 2021 Design by PAZ</p>
       </div>
     </div>
   </div>
