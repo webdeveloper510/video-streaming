@@ -158,7 +158,7 @@
     </div>
     </div>
     <div class="col-md-4">
-    <div class="card" style=" height: 370px;">
+    <div class="card" style=" height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
              @if($personal_info[0]->firstname=='')
@@ -395,7 +395,7 @@
               {{Form::token()}}
                 <h5 class="card-title">First Name : <span class="replace" id="firstname">{{$personal_info[0]->firstname}}</span></h5><br>
                 <input type="hidden" value="{{$personal_info[0]->country}}" id="all_country"/>
-                <h5 class="card-title">Country : <span class="replace" id="country">{{$personal_info[0]->country}}</span></h5><br>
+                <h5 class="card-title">Country : <span class="replace" id="country">{{$personal_info[0]->country}}</span></h5>
                 <select name="country" class="form-control country" id="countries" style="display:none">
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -612,8 +612,8 @@
                
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                 <div class="text-right">
-                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-3' , 'id'=>'edit']) }}
-                <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update']) }}</div>
+                {{ Form::button('edit!',['class'=>'btn btn-light btn-sm mt-5' , 'id'=>'edit']) }}
+                <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}</div>
                 {{Form::close()}}
               </div>
             </div>
@@ -636,7 +636,7 @@
     </div>
     <div class="col-md-4">
     <a href=" {{url('/artist/earning')}}">
-         <div class="card" style="    height: 370px;">
+         <div class="card" style="    height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -653,7 +653,7 @@
             </a>
     </div>
     <div class="col-md-4">
-         <div class="card" style="height: 370px;">
+         <div class="card" style="height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
@@ -661,7 +661,7 @@
                 <p>-Upload 5 Picture/Videos on the social Media Box</p>
                
                 <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
-                <div class="text-right">
+                <div class="text-right mt-5">
                    <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 

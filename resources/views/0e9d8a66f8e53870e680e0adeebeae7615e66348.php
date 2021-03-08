@@ -60,8 +60,123 @@
     </select>
 
   </div>
-  </form>  
-		</div>
+  </form> 
+ 
+
+        <!-- Modal -->
+        <div class="modal fade w-100" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog " role="document" style="max-width:100%;    z-index: 1099;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               <div class="row">
+                  <div class="col-md-8">
+                      <div class="videodata">
+                         <div class="">
+                              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                                  <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                               </video>
+                         </div>
+                         <h3>Titlename</h3>
+                         <p>March 5,2021<p>
+
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                  <div class="videoinfo">
+                   <div class="playlistname">
+                       <h4>hello</h4>
+                       <p>1/5</p>
+                   </div>
+       <!------------start list------------------>
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+
+
+                   <div class="row">
+                   <div class="videolist col-4" >
+                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
+                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                                      
+                     </video>
+                     </div>
+                     <div class="videonameq col-6">
+                          <h3>title</h3>
+                          <p>artistname</p>
+                     </div>
+                   </div>
+         <!------------end list------------------>
+
+                   </div>
+
+                  </div>
+
+
+                  </div>
+
+               </div>
+              </div>
+              
+            </div>
+          </div>
+        </div> 
+ 
 
 
 
@@ -101,8 +216,23 @@
       	</span>
 
                    </div>
+                   
             <?php endif; ?>
-			
+			      <!-- Button trigger modal -->
+
+              <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+
+              <video width="320" height="240" >
+                <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/tags/movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+              </video>
+              <div class="videooverlay">
+                <p>
+
+              </div>
+              </a>
+            
 	</div>
 	<br/>
 </div>
@@ -199,6 +329,7 @@ body{
   display: inline-block;
   border-bottom: 1px dotted black;
   right: 12px;
+  z-index:1 !important;
 }
 
 .tooltip .tooltiptext {
@@ -230,6 +361,18 @@ ul.reporting {
   select.form-select.form-control.col-md-4 {
     float: right;
     margin-top: 22px;
+}
+.videooverlay {
+    background: #151515;
+    position: absolute;
+    height: 240px;
+    z-index: 9999;
+    top: 146px;
+    width: 161px;
+    display:none;
+}
+.row.pb-row a:hover .videooverlay{
+  display:block;
 }
   .playhistory {
     border: none;

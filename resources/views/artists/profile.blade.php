@@ -159,12 +159,12 @@
                   <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
                   </div>
                   </div>
+            
                 </a>
                
                 <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
-              
-          
-            </div>
+               
+           
              @endif
           @endforeach
           @else
@@ -261,8 +261,8 @@ Your browser does not support the audio tag.
   </div>
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
-    
-
+    </div>
+      </div>
 
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
