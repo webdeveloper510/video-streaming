@@ -158,7 +158,7 @@
     </div>
     </div>
     <div class="col-md-4">
-    <div class="card" style=" height: 370px;">
+    <div class="card" style=" height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
              @if($personal_info[0]->firstname=='')
@@ -636,7 +636,7 @@
     </div>
     <div class="col-md-4">
     <a href=" {{url('/artist/earning')}}">
-         <div class="card" style="    height: 370px;">
+         <div class="card" style="    height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -653,7 +653,7 @@
             </a>
     </div>
     <div class="col-md-4">
-         <div class="card" style="height: 370px;">
+         <div class="card" style="height: 400px;">
              <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
