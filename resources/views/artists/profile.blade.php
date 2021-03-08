@@ -589,7 +589,7 @@ Your browser does not support the audio tag.
 .pricetime .text-right h6 {
     background: white;
     height: 30px;
-    width: 45px;
+    width: auto;
     float: right;
     color: black !important;
     padding: 7px;
@@ -599,6 +599,9 @@ Your browser does not support the audio tag.
     background: white;
     padding: 5px;
     color: black !important;
+}
+.pricetime {
+    position: relative;
 }
 </style>
 

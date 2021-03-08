@@ -13,7 +13,7 @@
       <?php $__currentLoopData = $level_system; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
           <?php if($val['level']==isset($levelData[0]->level_name)): ?>
          <h3> PAZ Service Fee :20%</h3>
-         <h3> <?php echo e($levelData ? $levelData[0]->level_name: ''); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
+         <h3> <?php echo e($val['level']); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-$val['fee']); ?>%</span></h3>
          <?php endif; ?>
@@ -32,7 +32,7 @@
           <div class="col-md-4">
     
            <div class="amount">Enter PAZ Amount <br>
-              <input type="text" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
+              <input type="number"  min="0" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
          <input type="hidden" id="fees" value="<?php echo e($levelData ? $levelData[0]->fees : 0); ?>"/>
          <strong class="show_fees" style="color:black"></strong>
