@@ -173,7 +173,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -408,7 +408,7 @@ div#nav-contact {
 .pricetime .text-right h6 {
     background: white;
     height: 30px;
-    width: 45px;
+    width: auto;
     float: right;
     color: black !important;
     padding: 7px;
