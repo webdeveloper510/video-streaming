@@ -140,13 +140,13 @@
         @if(isset($details[0]->type))
               @foreach ($details as $detail)
                    @if($detail->type=='video') 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 hover">
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
                <a href="{{url('artistVideo/'.$detail->id)}}">
-            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -578,6 +578,15 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
+}
+div#nav-contact {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+.col-md-4.mb-3.hover:hover {
+    border: 1px solid gold;
+    padding: 10px;
 }
 .pricetime .text-left {
     float: left;
