@@ -408,7 +408,7 @@ div#nav-contact {
 .pricetime .text-right h6 {
     background: white;
     height: 30px;
-    width: 45px;
+    width: auto;
     float: right;
     color: black !important;
     padding: 7px;
