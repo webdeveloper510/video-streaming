@@ -17,7 +17,7 @@
       </select>
   </div>
 <div class="col-md-12 uploa_outer " id="collection">
-		  <div class="slider_tittle my-4">
+		  <div class="slider_tittle">
 		  <h3 class="tittle text-white">My Collection</h3>		  
 		</div>
         <div class="row pb-row">
@@ -35,7 +35,7 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php else: ?>
 		             <div class="playwish ">
-                     <h4>Collection Empty</h4>
+                     <h4 class="text-white">Collection Empty</h4>
 
                    </div>
                    <?php endif; ?>
