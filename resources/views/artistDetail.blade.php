@@ -171,7 +171,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
-            <video class="hoverVideo" id="detail_{{$detail->id}}" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_{{$detail->id}}" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.

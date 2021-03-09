@@ -161,6 +161,14 @@
     
     
 </div>
+<style>
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15%;
+}
+</style>
 @endif
  </div>
           <!--------------------------------- On login show data ------------------------------------->
