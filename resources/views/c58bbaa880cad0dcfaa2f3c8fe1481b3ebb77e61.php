@@ -415,9 +415,9 @@ div#nav-contact {
 }
 
 .pricetime .text-left h6 {
-    background: white;
-    padding: 5px;
-    color: black !important;
+  padding: 5px;
+    color: gold !important;
+    font-weight: 800;
 }
 div#nav-contact *{
     color: #fff;
@@ -444,7 +444,7 @@ select.form-select.form-control, select.form-select.form-control * {
     padding-left: 10px;
 }
 .pricetime .text-right {
-    margin-top: -31px;
+    margin-top: -41px;
     margin-right: 7px;
 }
 .tooltip {
