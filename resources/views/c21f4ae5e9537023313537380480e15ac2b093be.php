@@ -32,6 +32,40 @@
    <div class="slider_tittle">
 
   <?php if(!$login): ?> 
+  <div class="outer_slider">
+  <div class="container my-4">
+          <div class="slider_tittle">
+              <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
+              <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
+           </div>
+           <div class="row mb-5">
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+           <div class="col-md-2 col-6">
+             
+               <div class="artist text-center">
+               <?php if($artist->profilepicture): ?>
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
+                <div class="overlay">
+                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?>
+
+               </div>
+               <?php else: ?>
+               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
+	           	<div class="profileImage"></div>
+
+               </a>
+             
+             <?php endif; ?>
+               </div>
+           </div>
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+       </div>
+
+  
+            </div>
+    </div>
 <div class="row mt-5">
   <div class="col-md-6">
       <div class="user1 mb-3">
