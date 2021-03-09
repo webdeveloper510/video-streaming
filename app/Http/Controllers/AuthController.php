@@ -1044,7 +1044,11 @@ public function notifyEmail(Request $req){
 
    
 
-    $playName = $this->model->getPlayListName();
+    $playName = $this->model->getAllPlaylist();
+
+    // echo "<pre>";
+
+    // print_r($playName);die;
 
       $wishList = $this->model->getWishlist();
 
