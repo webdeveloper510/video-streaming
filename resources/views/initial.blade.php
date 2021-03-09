@@ -32,6 +32,14 @@
    <div class="slider_tittle">
 
   @if(!$login) 
+  <style>
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15%  !important;
+}
+</style>
   <div class="outer_slider">
   <div class="container my-4">
           <div class="slider_tittle">
@@ -161,14 +169,7 @@
     
     
 </div>
-<style>
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 15%;
-}
-</style>
+
 @endif
  </div>
           <!--------------------------------- On login show data ------------------------------------->
