@@ -1130,6 +1130,12 @@ function subscribe(id,setValue){
 });
 }
 
+function showPlaylistVedio(){
+
+	//var videos = JSON.parse(data);
+	console.log(data);
+}
+
 /*--------------------------------------------Order Video-------------------------------------------------*/
 
 $(document).on('click','.off',function(){
@@ -1151,7 +1157,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-				console.log(data);return false;
+				//console.log(data);return false;
 
 					if(data.status==1){
 						$('.show_alert').show();

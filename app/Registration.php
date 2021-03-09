@@ -1769,26 +1769,38 @@ public function createList($create){
 
 public function getAllPlaylist(){
 
+      $session_data =   Session::get('User');
+
+      $userid =  $session_data->id;
+
       $data = \DB::table("playlist")
       ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
       ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+      ->where('playlist.userid',$userid)
       ->groupBy("playlist.id","playlist.playlistname")
       ->get();
 
     return $data;
 }
 
-public function getPlayListName(){
+// public function getPlayListName(){
 
-    $session_data =   Session::get('User');
+//     $session_data =   Session::get('User');
 
-    $userid =  $session_data->id;
+//     $userid =  $session_data->id;
 
-         $value=DB::table('playlist')->where('userid', $userid)->get()->toArray();
+//     // $docomuntOrders = \DB::table("orders")
+//     //         ->select("orders.*",\DB::raw("GROUP_CONCAT(documents.name) as docname"))
+//     //         ->leftjoin("documents",\DB::raw("FIND_IN_SET(documents.id,orders.file_id)"),">",\DB::raw("'0'"))
+//     //         ->where('user_id',getCurrentUser()->user_id)
+//     //         ->groupBy("orders.id")
+//     //         ->paginate(10);
 
-         return $value;
+//          $value=DB::table('playlist')->where('userid', $userid)->get()->toArray();
 
-}
+//          return $value;
+
+// }
 
 
 public function getPlaylistById($id){
