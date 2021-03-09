@@ -11,50 +11,28 @@
         <div class="artistdetail11 mb-5">
             <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
              <i class="fa fa-star" style="color:red;"></i>  {{isset($countSub[0]) ? $countSub[0] : 0}}  
-             <button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" data-toggle="modal" data-target="#Subscribe" id="subscribe" >Subscribe </button>
+             <button class="btn btn-danger text-left {{$isSubscribed ? 'hide' : 'block'}}" id="subscribe" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},true)" >Subscribe </button>
     
              <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
              </h3>
-                 
-          <!--------------- Button trigger modal -->
 
-
-<!-- Modal  Subscribe-->
-<div class="modal fade" id="Subscribe" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      
-      <div class="modal-body">
-      <h3> Subscribe from Artistname</h3>
-      <div class="text-center Artistxyz">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-     
-        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},true)" >Subscribe</button>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
-
-
-<!------------------------------------ Modal  unSubscribe------------------------------->
-<div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      
-      <div class="modal-body">
-      <h3> Unsubscribe from Artistname</h3>
-      <div class="text-center Artistxyz">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
-        <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Unsubscribe</button>
-       </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
+            <!------------------------------------ Modal  unSubscribe------------------------------->
+            <div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                  <h3> Unsubscribe from Artistname</h3>
+                  <div class="text-center Artistxyz">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                    <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Unsubscribe</button>
+                  </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
