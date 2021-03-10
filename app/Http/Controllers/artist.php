@@ -220,7 +220,10 @@ class artist extends Controller
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
         return redirect('artist/edit');
+
       }
+
+   
 
       $today_PAZ = $this->model->today_PAZ();
 
@@ -252,7 +255,25 @@ class artist extends Controller
       
        $counts = array_count_values($getCountTimeFrame);
 
-       
+      // print_r($counts);die;
+
+       $timeFrame_array = array('1+2','3+4','5+6','7+8','9+10','11+12','13+14','15+16','17+18','19+20','21+22','23+24');
+
+       for($i=0; $i<count($timeFrame_array); $i++){
+
+              if($counts && $counts[$timeFrame_array[$i]]<=6){
+
+                        $time = $timeFrame_array[$i];
+
+                        break;
+              }
+
+              else{
+                  $time = '1+2';
+              }
+
+
+       }
 
         //  echo $counts['Ben'];
 
@@ -275,7 +296,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
