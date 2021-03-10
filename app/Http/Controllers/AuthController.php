@@ -1510,6 +1510,16 @@ public function readNotification(Request $request){
 
       public function seeOrder(){
 
+        $artistOfferId =   Session::get('offer_artist_id');
+
+        //$userid=$session_data->id;
+
+        $data= array(
+          'is_seen'=>'yes'
+        );
+
+        $this->model->UpdateData('offer','artistid',$data,$artistOfferId);
+
             return view('all_orders');
 
       }

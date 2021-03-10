@@ -50,6 +50,8 @@ class AppServiceProvider extends ServiceProvider
             // echo "<pre>";
 
              $offer = $model->getallOffers();
+
+              Session::put('offer_artist_id',$offer->artistid);
             //     echo "<pre>";
             //  print_r($offer);die;
 
