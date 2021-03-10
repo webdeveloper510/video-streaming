@@ -533,7 +533,7 @@
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     <?php if($login && $latestOffer): ?>
-    <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id  ? 'display: block' : 'display: none'); ?>">
+    <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>
     <?php endif; ?>
     </a>
@@ -615,9 +615,9 @@
                 <?php if($notification): ?>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
-<?php 
-  $GLOBALS['ids'][] = $val->id;
-?>
+        <?php 
+          $GLOBALS['ids'][] = $val->id;
+        ?>
     
       <a href="<?php echo e(url('notification/user')); ?>" id="bold" class="bold"><?php echo e($val->message); ?></a>
 
@@ -635,7 +635,8 @@
      
                 </div>
               </li>
-              <li class="nav-item"><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <li class="nav-item">
+              <a class="nav-link text-white" onclick="$('.subss').show()" href=" #" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
