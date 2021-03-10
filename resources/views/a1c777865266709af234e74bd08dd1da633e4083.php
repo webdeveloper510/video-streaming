@@ -642,6 +642,7 @@
                 <div class="col-md-4 subss" style="display:none;">
                   <h3>Subscriptions</h3>
                   <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
                     <div class="row mb-3">
                       <div class="col">
                         <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
@@ -654,6 +655,7 @@
                                       </div>
                               </div>
                     </div>
+                    </a>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                  
                                    </div>
