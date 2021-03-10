@@ -591,9 +591,9 @@
                 @if($notification)
       @foreach($notification as $val)
     @if($val->notificationfor=='user')
-<?php 
-  $GLOBALS['ids'][] = $val->id;
-?>
+        <?php 
+          $GLOBALS['ids'][] = $val->id;
+        ?>
     
       <a href="{{url('notification/user')}}" id="bold" class="bold">{{$val->message}}</a>
 
@@ -611,7 +611,8 @@
      
                 </div>
               </li>
-              <li class="nav-item"><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <li class="nav-item">
+              <a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
