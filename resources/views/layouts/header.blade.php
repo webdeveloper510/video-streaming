@@ -612,7 +612,7 @@
                 </div>
               </li>
               <li class="nav-item">
-              <a class="nav-link text-white" onclick="$('.subss').toggle()" href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="{{$login ? '#' : url('/register')}}" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
