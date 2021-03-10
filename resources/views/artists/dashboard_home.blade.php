@@ -744,7 +744,7 @@
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
-            <div class="primary primary-success" id="success" style="display:none"></div>
+            <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
                   {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
                     <!-- <button class="btn btn-primary btn-sm" type="button">Submit</button> -->
