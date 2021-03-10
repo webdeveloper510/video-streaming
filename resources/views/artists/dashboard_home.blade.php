@@ -123,8 +123,7 @@
 <div class="col-md-12">
          <div class="card" style="{{$existTimeFrame==1 ? 'display:none': 'display:block'}}">
              <div class="week">
-             <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
-              on the landingpage and on the customer homepage for free</h5>
+             <h5 class="card-title text-left pt-3 pl-3">We want to thank you for your early support! You will be automatically promoted from us in the marked timeframe!</h5>
               <hr>
           <div class="row">
                 <div class="col-md-4">
