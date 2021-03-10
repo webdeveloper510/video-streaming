@@ -2336,7 +2336,7 @@ public function showSubscribeArtists(){
 
   $subscribedArtist = DB::table('subscriber')
   ->leftjoin('contentprovider','contentprovider.id','=','subscriber.artistid')
-  ->select('contentprovider.nickname','contentprovider.profilepicture')
+  ->select('contentprovider.nickname','contentprovider.profilepicture','subscriber.artistid')
   ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
   ->get();
 

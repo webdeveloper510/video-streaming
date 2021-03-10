@@ -618,6 +618,7 @@
                 <div class="col-md-4 subss" style="display:none;">
                   <h3>Subscriptions</h3>
                   @foreach($subscribed_artist as $artist)
+                    <a href="{{url('artistDetail/'.$artist->artistid)}}">
                     <div class="row mb-3">
                       <div class="col">
                         <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture)}}" class="img-fluid">
@@ -630,6 +631,7 @@
                                       </div>
                               </div>
                     </div>
+                    </a>
                     @endforeach
                  
                                    </div>
