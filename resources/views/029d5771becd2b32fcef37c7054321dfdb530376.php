@@ -130,8 +130,8 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Weight', 'Weight')); ?> 
-                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])); ?>
+            <?php echo e(Form::label('Body', 'Body')); ?> 
+                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chuuby'], null, ['class'=>'form-control','placeholder' => 'Choose'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -142,7 +142,7 @@
             
              <div class="col-md-12 pt-3">
             <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
-                <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','cols' => 30])); ?>
+                <?php echo e(Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 20,'placeholder'=>'About Me','maxlength'=>'2000','cols' => 30])); ?>
 
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -151,11 +151,19 @@
                 <?php endif; ?>
             </div>
              <div class="col-md-6 pt-4 ">
-            <?php echo e(Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])); ?> 
-  <?php echo e(Form::file('image',['class'=>'custom-file-input', 'id'=>'file_input'])); ?>
+            <?php echo e(Form::label('Choose Profilepicture', 'Choose Profilepicture',['class'=>'custom-file-label'])); ?> 
+  <?php echo e(Form::file('image',['class'=>'custom-file-input chooseImage'])); ?>
 
   <span id="filename" style="color:red;"></span>
 </div>
+
+<div class="col-md-6 pt-4 ">
+            <?php echo e(Form::label('Choose Backgroundimage', 'Choose Backgroundimage',['class'=>'custom-file-label'])); ?> 
+  <?php echo e(Form::file('cover_photo',['class'=>'custom-file-input chooseImage'])); ?>
+
+  <span id="filename" style="color:red;"></span>
+</div>
+
 <div class="col-md-6 pt-2 text-center">
   <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
                   <?php if(session('errors')): ?>
