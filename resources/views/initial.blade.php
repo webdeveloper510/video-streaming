@@ -32,6 +32,47 @@
    <div class="slider_tittle">
 
   @if(!$login) 
+  <style>
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15%  !important;
+}
+</style>
+  <div class="outer_slider">
+  <div class="container my-4">
+          <div class="slider_tittle">
+              <h3 class="tittle"><a href="{{url('seeall/artists')}}">Artists</a></h3>
+              <a href="{{url('seeall/artists')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>
+           </div>
+           <div class="row mb-5">
+    @foreach ($artists as $artist)
+           <div class="col-md-2 col-6">
+             
+               <div class="artist text-center">
+               @if($artist->profilepicture)
+                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+                <div class="overlay">
+                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}
+               </div>
+               @else
+               <a href="{{url('artistDetail/'.$artist->id)}}">
+		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
+	           	<div class="profileImage"></div>
+
+               </a>
+             
+             @endif
+               </div>
+           </div>
+             @endforeach
+
+       </div>
+
+  
+            </div>
+    </div>
 <div class="row mt-5">
   <div class="col-md-6">
       <div class="user1 mb-3">
@@ -128,6 +169,7 @@
     
     
 </div>
+
 @endif
  </div>
           <!--------------------------------- On login show data ------------------------------------->

@@ -18,7 +18,7 @@
   </div>
 <div class="col-md-12 uploa_outer " id="collection">
 		  <div class="slider_tittle">
-		  <h3 class="tittle">My Collection</h3>		  
+		  <h3 class="tittle text-white">My Collection</h3>		  
 		</div>
         <div class="row pb-row">
               @if($wishList)
@@ -34,8 +34,8 @@
             </div>
             @endforeach
             @else
-		             <div class="playwish">
-                     <h4>Collection Empty</h4>
+		             <div class="playwish ">
+                     <h4 class="text-white">Collection Empty</h4>
 
                    </div>
                    @endif
@@ -245,7 +245,7 @@
            
             @endforeach
             @else
-		             <div class="playwish playhistory col-md-12">
+		             <div class="playwish playhistory col-md-12 py-4">
                      <h4>Wishlist Empty</h4>
 
                    </div>
