@@ -636,78 +636,27 @@
                 </div>
               </li>
               <li class="nav-item">
-              <a class="nav-link text-white" onclick="$('.subss').show()" href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href=" #" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
                   <h3>Subscriptions</h3>
+                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
+                      <div class="col">
+                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p><?php echo e($artist->nickname); ?></p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online">
+                                      </div>
+                              </div>
                     </div>
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-
-
-                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 
+                                   </div>
                     </div>
 
                     

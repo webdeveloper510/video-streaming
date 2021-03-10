@@ -2328,6 +2328,24 @@ public function isSubscribe($artistId){
 
 }
 
+public function showSubscribeArtists(){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  $subscribedArtist = DB::table('subscriber')
+  ->leftjoin('contentprovider','contentprovider.id','=','subscriber.artistid')
+  ->select('contentprovider.nickname','contentprovider.profilepicture')
+  ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
+  ->get();
+
+  //print_r($subscribedArtist);die;
+
+     return $subscribedArtist;
+
+}
+
 public function insertSubscriber($uid,$data){
 
   //print_r($data);die;
