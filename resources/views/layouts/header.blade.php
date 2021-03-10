@@ -612,78 +612,27 @@
                 </div>
               </li>
               <li class="nav-item">
-              <a class="nav-link text-white" onclick="$('.subss').show()" href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href=" #" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
                   <h3>Subscriptions</h3>
+                  @foreach($subscribed_artist as $artist)
                     <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
+                      <div class="col">
+                        <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture)}}" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p>{{$artist->nickname}}</p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online">
+                                      </div>
+                              </div>
                     </div>
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-
-
-                    </div>
+                    @endforeach
+                 
+                                   </div>
                     </div>
 
                     
