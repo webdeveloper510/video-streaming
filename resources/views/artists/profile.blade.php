@@ -1,6 +1,5 @@
 @include('artists.dashboard')
 
-<link rel="stylesheet" href="{{asset('design/artistDetail.css')}}" />
 <link rel="stylesheet" href="{{asset('design/profile.css')}}" />
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
@@ -577,11 +576,7 @@ Your browser does not support the audio tag.
     right: 43px;
     top: -3px;
 }
-div#nav-contact {
-    background: black;
-    color: white;
-    padding: 10px;
-}
+
 .col-md-4.mb-3.hover:hover {
     border: 1px solid gold;
     padding: 10px;
@@ -610,6 +605,26 @@ div#nav-contact {
 }
 .pricetime {
     position: relative;
+}
+.artistvideo {
+    border: 2px dashed red;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistaudio {
+    border: 2px dashed red;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistoffer1 {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
 }
 </style>
 

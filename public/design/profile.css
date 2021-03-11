@@ -100,3 +100,23 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
     margin-top: -244px;
 }
 
+.artistvideo {
+    border: 2px dashed red;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistaudio {
+    border: 2px dashed red;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistoffer1 {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+}
