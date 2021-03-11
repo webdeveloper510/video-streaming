@@ -653,6 +653,31 @@ public function artistselling(){
 
   }
 
+  public function accept(){
+
+        return view('acceptable');
+  }
+  public function dmca(){
+
+    return view('dmca');
+}
+public function cookie(){
+
+  return view('cookie');
+}
+public function disclaimer(){
+
+  return view('disclaimer');
+}
+public function terms(){
+
+  return view('terms');
+}
+public function privacy(){
+
+  return view('privacy');
+}
+
   public function view1(){
 
     echo "yes";
