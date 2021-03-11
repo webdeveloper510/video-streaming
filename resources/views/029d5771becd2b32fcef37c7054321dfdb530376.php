@@ -97,7 +97,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Eye Lenses Color', 'Eye Lenses Color')); ?> 
+            <?php echo e(Form::label('Eye/Lenses Color', 'Eye/Lenses Color')); ?> 
                 <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose '])); ?>
 
                   <?php if(session('errors')): ?>
@@ -133,7 +133,7 @@
             </div>
         
             <div class="col-md-6 pt-3 hide">
-            <?php echo e(Form::label('Choose Size', 'Choose Size')); ?> 
+            <?php echo e(Form::label('Ass Size', 'Ass Size')); ?> 
                 <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Choose'])); ?>
 
                  <?php if(session('errors')): ?>
