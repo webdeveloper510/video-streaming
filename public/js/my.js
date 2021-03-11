@@ -1567,6 +1567,8 @@ function format ( d , type) {
 
 	var file = d.type=='video' ? 'Uplaod Video' : 'Upload Audio';
 
+	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
+
 	//console.log(d);return false;
 
 	// var hair = d.haircolor.split(',');
@@ -1608,6 +1610,8 @@ function format ( d , type) {
 	'<label>'+file+
 	'</label>'+
 	'<input type="file" name="media">'+
+	  html
+	'<div>'
 	'<input type="hidden" name="offerid" value='+d.id+'>'+
 	'<div class="loader col-6" style="display:none">'+
 	'<span style="color:green; font-weight: bold;">Uploading...</span><img src="http://localhost/laravel/video-streaming/public/images/loading2.gif" width="50px" height="50px"/>'+
