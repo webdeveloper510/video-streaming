@@ -93,6 +93,8 @@ $(document).ready(function(){
 
 		var original_media = d.deliever_media;
 
+		
+
 		var folder = d.type=='video' ? 'video' :'audio';
 
 		return '<div class="offer">'+
@@ -121,7 +123,7 @@ $(document).ready(function(){
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
-		'<a href='+storage_url/folder/original_media+' download><button type="button"class="btn btn-primary">Download</button></a>'+
+		'<a href='+storage_url+'/'+folder+'/'+original_media+' download><button type="button"class="btn btn-primary">Download</button></a>'+
 		'</div>'+
 		'</div>'+
 		'</div>'+

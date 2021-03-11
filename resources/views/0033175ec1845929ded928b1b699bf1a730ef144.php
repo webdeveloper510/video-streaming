@@ -64,7 +64,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2">
-        <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
