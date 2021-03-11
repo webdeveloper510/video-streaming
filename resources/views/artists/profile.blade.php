@@ -322,12 +322,7 @@ Your browser does not support the audio tag.
         </div>
   
   </div>
-  </div>
-  
-</div>
-
-</div>
-</div>
+ 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -342,7 +337,7 @@ Your browser does not support the audio tag.
                 </div>
             </div>
             <div class="modal-body">
-            {!!Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true])!!}
+              {!!Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true])!!}
                    {{Form::token()}}
                    <label>Media Offering</label>
                    <div class="row">
@@ -354,21 +349,21 @@ Your browser does not support the audio tag.
                   <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
                   </div>
                   </div>
-            {{Form::label('Title', 'Title')}} 
-              {{Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])}}
-            <br>
-            {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
-                {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])}}
-                <br>
-                <label>Duration(Minutes):</label>
-                <div class="row">
+                 {{Form::label('Title', 'Title')}} 
+                  {{Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])}}
+                  <br>
+                   {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
+                     {{Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])}}
+                  <br>
+                  <label>Duration(Minutes):</label>
+                  <div class="row">
                   <div class="col-md-6">
-                {{Form::label('Min', 'Min')}} 
-                {{Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])}}
+                  {{Form::label('Min', 'Min')}} 
+                  {{Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])}}
                    </div>
                    <div class="col-md-6">
-                {{Form::label('Max', 'Max')}} 
-                {{Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])}}
+                  {{Form::label('Max', 'Max')}} 
+                  {{Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])}}
                 </div>
                 </div>
                 <br>
