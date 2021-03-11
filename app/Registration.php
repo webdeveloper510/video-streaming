@@ -541,6 +541,8 @@ public function getArtistDetail($artid,$type){
 
       $data = $offers->get()->toArray();
 
+      print_r($data);die;
+
      return $data;
      
 
