@@ -50,6 +50,8 @@
 
  <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
 
+ <script id="storagePath" url="{{url('storage/app/public/') }}"></script>
+
 
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
