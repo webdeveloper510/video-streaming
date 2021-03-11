@@ -542,7 +542,7 @@ public function getArtistDetail($artid,$type){
         $offers = DB::table('offer')->where('artistid',$artistId)->get()->toArray();
       }
 
-        print_r($offers);die;
+        //print_r($offers);die;
 
      return $offers;
      
