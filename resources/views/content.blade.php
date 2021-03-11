@@ -87,7 +87,7 @@
                 @endif
             </div>
             <div class="col-md-6 pt-3">
-            {{Form::label('Eye Lenses Color', 'Eye Lenses Color')}} 
+            {{Form::label('Eye/Lenses Color', 'Eye/Lenses Color')}} 
                 {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose '])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
@@ -120,7 +120,7 @@
             </div>
         
             <div class="col-md-6 pt-3 hide">
-            {{Form::label('Choose Size', 'Choose Size')}} 
+            {{Form::label('Ass Size', 'Ass Size')}} 
                 {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Choose'])}}
                  @if(session('errors'))
                 <div class="alert alert-danger">
