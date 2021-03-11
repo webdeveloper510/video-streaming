@@ -268,7 +268,6 @@ Your browser does not support the audio tag.
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
     </div>
-      </div>
 
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -328,7 +327,7 @@ Your browser does not support the audio tag.
         </div>
   
   </div>
- 
+  </div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -590,7 +589,11 @@ Your browser does not support the audio tag.
         </div>
     </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <style>
 .trans{
   position: absolute;
