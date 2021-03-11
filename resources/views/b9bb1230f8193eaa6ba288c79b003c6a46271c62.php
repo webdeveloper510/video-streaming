@@ -50,6 +50,8 @@
 
  <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
 
+ <script id="storagePath" url="<?php echo e(url('storage/app/public/')); ?>"></script>
+
 
 <script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
 

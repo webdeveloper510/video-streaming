@@ -83,12 +83,18 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
+	var storage_url = $('#storagePath').attr('url');
+
+	
+
 
 
 	function format3(d){
 
 		var original_media = d.deliever_media;
-		
+
+		var folder = d.type=='video' ? 'video' :'audio';
+
 		return '<div class="offer">'+
 		'<div class="row">'+
 		  '<div class="col">'+
@@ -115,7 +121,7 @@ $(document).ready(function(){
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
-		'<button type="button"class="btn btn-primary">Download</button>'+
+		'<a href='+storage_url/folder/original_media+' download><button type="button"class="btn btn-primary">Download</button></a>'+
 		'</div>'+
 		'</div>'+
 		'</div>'+

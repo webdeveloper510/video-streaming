@@ -2,10 +2,7 @@
 <section class="background1 ">
 
 
-        <div class="alert alert-success" id="success" style="display:none">
-        </div>
-        <div class="alert alert-danger"  style="display:none">
-        </div>
+        
  
            
          
@@ -61,7 +58,7 @@
            
                     <div class="col-md-4 mt-5 ">
                     {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
-                        {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])}}
+                        {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])}}
                         @if($errors->first('price'))
                         <div class="alert alert-danger">
                           <?php echo $errors->first('price') ?>
@@ -74,7 +71,7 @@
             
             <div class="col-md-6 mt-5 ">
             {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
-                {{Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])}}
+                {{Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed','min'=>0])}}
                  @if($errors->first('delieveryspeed'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('delieveryspeed') ?>
@@ -83,7 +80,7 @@
                </div>
                <div class="col-md-6 mt-5">
              {{Form::label('Additional Request', 'Additional Request Price(PAZ)')}} 
-                {{Form::number('additional_price',null,['class'=>'form-control'])}}
+                {{Form::number('additional_price',null,['class'=>'form-control', 'min'=>0])}}
                  @if($errors->first('additional_price'))
                 <div class="alert alert-danger">
                   <?php echo $errors->first('additional_price') ?>
@@ -98,11 +95,11 @@
                <div class="col">
                   
                <label>Min :</label>
-               {{Form::number('min', '',['class'=>'form-control','placeholder'=>'Min'])}}
+               {{Form::number('min', '',['class'=>'form-control','placeholder'=>'Min','min'=>0])}}
                  </div>
                      <div class="col">
                    <label>Max :</label>
-                   {{Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])}}
+                   {{Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max','min'=>0])}}
                          </div>
                      </div>
            <br>
@@ -181,6 +178,10 @@
                 <img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
+            <div class="alert alert-success" id="success" style="display:none">
+        </div>
+        <div class="alert alert-danger"  style="display:none">
+        </div>
               <div class="col text-center pt-3">
 
             {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
