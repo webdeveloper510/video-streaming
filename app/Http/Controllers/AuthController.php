@@ -429,7 +429,7 @@ class AuthController extends Controller
        if($get){
         //echo "yes";die;
           Mail::to($request->email1)->send(new verifyEmail($request,$get,$user));
-         return redirect('/register')->with('success','Registration Successfull ! Please Verify To Login');
+         return redirect('/register')->with('success','Please check Email Inbox and/or Spam Folder');
        }
        else{
         return redirect('/register#error')->with('error','Email Already Exist!');
@@ -1509,6 +1509,16 @@ public function readNotification(Request $request){
       }
 
       public function seeOrder(){
+
+        $artistOfferId =   Session::get('offer_artist_id');
+
+        //$userid=$session_data->id;
+
+        $data= array(
+          'is_seen'=>'yes'
+        );
+
+        $this->model->UpdateData('offer','artistid',$data,$artistOfferId);
 
             return view('all_orders');
 

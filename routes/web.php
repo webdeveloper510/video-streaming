@@ -46,7 +46,7 @@ Route::post('addmoney/stripe', 'AuthController@postPaymentStripe');
 
 Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 
-Route::get('artistDetail/{id}', 'artist@artistDetail');
+Route::get('artistDetail/{id}', 'artist@artistDetail')->middleware('authentication');
 
 //Route::get('artist-profile', 'artist@artistProfile');
 
@@ -66,8 +66,8 @@ Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication')
 
 Route::get('inProcess', 'AuthController@process'); 
 
-Route::get('seeall/{text}', 'AuthController@seeall'); 
-Route::get('seeall1/{text}', 'AuthController@seeOrder'); 
+Route::get('seeall/{text}', 'AuthController@seeall')->middleware('authentication');; 
+Route::get('seeall1/{text}', 'AuthController@seeOrder')->middleware('authentication');; 
 Route::get('playlist/{id}', 'AuthController@playlistByid'); 
 
 Route::get('reset', 'AuthController@reset'); 

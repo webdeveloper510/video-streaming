@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
-  <title>
+  <title id="top_title">
    Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -93,7 +93,7 @@
               <p><i class="material-icons">person</i>   Profile</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='upload' || $tab=='offer' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
@@ -419,7 +419,7 @@
           </div>
 
       </nav>
-      
+      <div class="container">
       <style>
 .levlv {
     width: auto;

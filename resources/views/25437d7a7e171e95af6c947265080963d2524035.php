@@ -121,10 +121,9 @@
 
 <div class="row">
 <div class="col-md-12">
-         <div class="card" style="<?php echo e($existTimeFrame==1 ? 'display:none': 'display:block'); ?>">
+         <div class="card" style="<?php echo e($existTimeFrame>=1 ? 'display:none': 'display:block'); ?>">
              <div class="week">
-             <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
-              on the landingpage and on the customer homepage for free</h5>
+             <h5 class="card-title text-left pt-3 pl-3">We want to thank you for your early support!<br> You will be automatically promoted from us in the marked timeframe!</h5>
               <hr>
           <div class="row">
                 <div class="col-md-4">
@@ -149,16 +148,18 @@
              </div>
           </div>
           <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
-          <div class="text-right">
-          <input type="hidden" value="" id="timeframe"/>
-          <button class="btn btn-primary" type="button" id="timeFrame">Submit</button>
+              <div class="text-right">
+              To Confirm your promotion please type <?php echo e($timeArray); ?> :
+                <input type="text" value="" id="timeframe"/>
 
-          </div>
+              <button class="btn btn-primary" type="button" id="timeFrame">Activate</button>
+
+              </div>
             </div>
     </div>
     </div>
     <div class="col-md-4">
-    <div class="card" style=" height: 400px;">
+    <div class="card" style=" height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
              <?php if($personal_info[0]->firstname==''): ?>
@@ -647,7 +648,7 @@
     </div>
     <div class="col-md-4">
     <a href=" <?php echo e(url('/artist/earning')); ?>">
-         <div class="card" style="    height: 400px;">
+         <div class="card" style="    height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -664,7 +665,7 @@
             </a>
     </div>
     <div class="col-md-4">
-         <div class="card" style="height: 400px;">
+         <div class="card" style="height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
@@ -759,7 +760,7 @@
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
-            <div class="primary primary-success" id="success" style="display:none"></div>
+            <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
                   <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary btn-sm'])); ?>
 

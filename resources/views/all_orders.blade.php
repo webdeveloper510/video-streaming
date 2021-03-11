@@ -109,7 +109,6 @@ tr.shown td.details-control {
                        
                         <th >Artist Name</th>
                         <th > Status</th>              
-                        <th> Delievery Time</th>   
         </tr>
     </thead>
   
@@ -122,7 +121,6 @@ tr.shown td.details-control {
                  
                         <th>Artist Name</th>
                         <th> Status</th>              
-                        <th>Delievery Time</th>   
         </tr>
     </tfoot>
 </table>

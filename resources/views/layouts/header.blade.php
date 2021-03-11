@@ -509,7 +509,7 @@
     <a href="{{url('/seeall1/orders')}}"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     @if($login && $latestOffer)
-    <div class="noti" style="{{$latestOffer->userid !== $login->id  ? 'display: block' : 'display: none' }}">
+    <div class="noti" style="{{$latestOffer->userid !== $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none' }}">
     </div>
     @endif
     </a>
@@ -612,78 +612,29 @@
                 </div>
               </li>
               <li class="nav-item">
-              <a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="{{$login ? '#' : url('/register')}}" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
                   <h3>Subscriptions</h3>
+                  @foreach($subscribed_artist as $artist)
+                    <a href="{{url('artistDetail/'.$artist->artistid)}}">
                     <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
+                      <div class="col">
+                        <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture)}}" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p>{{$artist->nickname}}</p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online">
+                                      </div>
+                              </div>
                     </div>
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="{{asset('images/logos/logo_black.png')}}" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-
-
-                    </div>
+                    </a>
+                    @endforeach
+                 
+                                   </div>
                     </div>
 
                     

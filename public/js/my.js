@@ -83,6 +83,40 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
+	function format3(d){
+		return '<div class="offer">'+
+		'<div class="row">'+
+		  '<div class="col">'+
+				'<div class="descriptions">'+
+				'<h3 class="description">Description :</h3>'+
+				'<p>'+ d.description +'</p>'+
+				'</div>'+
+		  '</div>'+
+			'<div class="col">'+
+			'<h3 class="look">Additional Request :</h3>'+
+			'<p>'+d.userdescription+'</p>'+
+			'</div>'+
+		'<div class="col">'+
+		'<table>'+
+		'<tr>'+
+		'<td> <p>Categories :</p>'+
+		'<p class="category">'+d.catgories+'</p>'+
+		'</td>'+
+		'<td> <p class="quality">Quality :</p>'+
+		'<p>'+d.quality+'p</p>'+
+		'</td>'+
+		'</tr>'+
+		'<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>'+
+		'<tr>'+
+		'</table>'+
+		'<div class="">'+
+		'<button type="button"class="btn btn-primary">Download</button>'+
+		'</div>'+
+		'</div>'+
+		'</div>'+
+		'</div>';
+	}
+
 	
 	//console.log('yes');
     var table2 = $('#example2').DataTable({
@@ -99,13 +133,7 @@ $(document).ready(function(){
 			 { 'data': 'choice' },
 			
 			 { 'data': 'nickname' },
-			 { 'data': 'status' },
-			 { 
-				 'data': 'remaining_days',
-				 render: function ( data, type, row ) {
-					return  data < 0 ? 'Expired': data+' Days';
-				}
-				 }
+			 { 'data': 'status' }
 		 ],
 	 } );
 	 
@@ -121,7 +149,7 @@ $(document).ready(function(){
 			 tr.removeClass('shown');
 		 } else {
 			 // Open this row
-			 row.child(format(row.data(),'offer')).show();
+			 row.child(format3(row.data())).show();
 			 tr.addClass('shown');
 		 }
 	 });
@@ -133,7 +161,7 @@ $(document).ready(function(){
 			 // If row has details collapsed
 			 if(!this.child.isShown()){
 				 // Open this row
-				 this.child(format(this.data(),'offer')).show();
+				 this.child(format3(this.data())).show();
 				 $(this.node()).addClass('shown');
 			 }
 		 });
@@ -429,9 +457,11 @@ $(document).on('click', '#checkPrice', function () {
 
 						var beforePrice= parseInt(data.token)/20;
 						var afterPrice=beforePrice * (data.fee/100);
+						var bonus = parseFloat(1000*(40/100))- parseFloat(1000*(data.fee/100));
 						var credit = 2.9;
 						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
 						$('.calculate').html('');
+						$('.bonusPAZ').html('Bonus PAZ :' +bonus+ 'PAZ');
 						$('.calculate').append("<table  class='table text-white'><tr><th>Price:</th><td>" +beforePrice+"</td></tr><tr class='text-white'><th>Fee:</th><td>"+data.fee+"%"+"</td></tr><tr><th>Total:</th><td>"+total.toFixed(2)+"</td></tr></table>")
 						$('.amount').text('$'+total.toFixed(2));
 						$('.price').val(total.toFixed(2));
@@ -1974,6 +2004,7 @@ if ($("#social_media").length > 0) {
 					if (event.lengthComputable) {
 						percent = Math.ceil(position / total * 100);
 					}
+					$('#top_title').html('Uploding...'+percent+'%');
 					$('.percentage').html(percent+'%');
 					if(percent==100){
 						$('.loader').hide();

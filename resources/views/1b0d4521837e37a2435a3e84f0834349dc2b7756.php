@@ -11,50 +11,28 @@
         <div class="artistdetail11 mb-5">
             <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
              <i class="fa fa-star" style="color:red;"></i>  <?php echo e(isset($countSub[0]) ? $countSub[0] : 0); ?>  
-             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" data-toggle="modal" data-target="#Subscribe" id="subscribe" >Subscribe </button>
+             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" id="subscribe" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" >Subscribe </button>
     
              <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
              </h3>
-                 
-          <!--------------- Button trigger modal -->
 
-
-<!-- Modal  Subscribe-->
-<div class="modal fade" id="Subscribe" tabindex="-1" aria-labelledby="SubscribeLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      
-      <div class="modal-body">
-      <h3> Subscribe from Artistname</h3>
-      <div class="text-center Artistxyz">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-     
-        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" >Subscribe</button>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
-
-
-<!------------------------------------ Modal  unSubscribe------------------------------->
-<div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      
-      <div class="modal-body">
-      <h3> Unsubscribe from Artistname</h3>
-      <div class="text-center Artistxyz">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
-        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Unsubscribe</button>
-       </div>
-      </div>
-     
-    </div>
-  </div>
-</div>
+            <!------------------------------------ Modal  unSubscribe------------------------------->
+            <div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                  <h3> Unsubscribe from Artistname</h3>
+                  <div class="text-center Artistxyz">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                    <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Unsubscribe</button>
+                  </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
@@ -173,7 +151,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -408,16 +386,16 @@ div#nav-contact {
 .pricetime .text-right h6 {
     background: white;
     height: 30px;
-    width: 45px;
+    width: auto;
     float: right;
     color: black !important;
     padding: 7px;
 }
 
 .pricetime .text-left h6 {
-    background: white;
-    padding: 5px;
-    color: black !important;
+  padding: 5px;
+    color: gold !important;
+    font-weight: 800;
 }
 div#nav-contact *{
     color: #fff;
@@ -444,7 +422,7 @@ select.form-select.form-control, select.form-select.form-control * {
     padding-left: 10px;
 }
 .pricetime .text-right {
-    margin-top: -31px;
+    margin-top: -41px;
     margin-right: 7px;
 }
 .tooltip {

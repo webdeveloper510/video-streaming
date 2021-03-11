@@ -18,12 +18,22 @@
     @else
     <div class="col-md-4 showoffer1 mb-3">
     <a href="{{url('artistoffers/'.$vid->id)}}">
+
       <div class="card">
+        @if($vid->type=='video')
       <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
 
              Your browser does not support the video tag.
       </video>
+      @else
+      <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"/>
+      <audio width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+            <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
+
+             Your browser does not support the video tag.
+      </audio>
+      @endif
 
 	  <div class="carad-body">
 	      <h4 class="card-title text-center text-white"> {{$vid->title}}</h4>
