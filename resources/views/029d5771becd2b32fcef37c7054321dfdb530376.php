@@ -107,7 +107,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('privy', 'Privy')); ?> 
+            <?php echo e(Form::label('privy part', 'Privy Part')); ?> 
                 <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Choose'])); ?>
 
                   <?php if(session('errors')): ?>

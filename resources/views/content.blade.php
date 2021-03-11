@@ -96,7 +96,7 @@
                 @endif
             </div>
             <div class="col-md-6 pt-3">
-            {{Form::label('privy', 'Privy')}} 
+            {{Form::label('privy part', 'Privy Part')}} 
                 {{Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Choose'])}}
                   @if(session('errors'))
                 <div class="alert alert-danger">
