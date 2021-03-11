@@ -529,11 +529,20 @@ public function getArtistDetail($artid,$type){
     ->join('category', 'category.id', '=','offer.categoryid')
     ->join('subscriber','subscriber.artistid','=','offer.artistid')
      ->select('offer.*', 'category.category','subscriber.count')
-     ->where('offer.artistid',$artistId)
-     ->get()->toArray();
+     ->where('offer.artistid',$artistId);
+     
       if($offer){
-          return $offer;
+           $offers = $offer;
       }
+
+      else{
+        $offers = DB::table('offer')->where('artistid',$artistId);
+      }
+
+      $data = $offers->get()->toArray();
+
+     return $data;
+     
 
   }
 
