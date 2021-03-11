@@ -2,10 +2,7 @@
 <section class="background1 ">
 
 
-        <div class="alert alert-success" id="success" style="display:none">
-        </div>
-        <div class="alert alert-danger"  style="display:none">
-        </div>
+        
  
            
          
@@ -64,7 +61,7 @@
            
                     <div class="col-md-4 mt-5 ">
                     <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                        <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price'])); ?>
+                        <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])); ?>
 
                         <?php if($errors->first('price')): ?>
                         <div class="alert alert-danger">
@@ -78,7 +75,7 @@
             
             <div class="col-md-6 mt-5 ">
             <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
-                <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed'])); ?>
+                <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed','min'=>0])); ?>
 
                  <?php if($errors->first('delieveryspeed')): ?>
                 <div class="alert alert-danger">
@@ -88,7 +85,7 @@
                </div>
                <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Additional Request', 'Additional Request Price(PAZ)')); ?> 
-                <?php echo e(Form::number('additional_price',null,['class'=>'form-control'])); ?>
+                <?php echo e(Form::number('additional_price',null,['class'=>'form-control', 'min'=>0])); ?>
 
                  <?php if($errors->first('additional_price')): ?>
                 <div class="alert alert-danger">
@@ -104,12 +101,12 @@
                <div class="col">
                   
                <label>Min :</label>
-               <?php echo e(Form::number('min', '',['class'=>'form-control','placeholder'=>'Min'])); ?>
+               <?php echo e(Form::number('min', '',['class'=>'form-control','placeholder'=>'Min','min'=>0])); ?>
 
                  </div>
                      <div class="col">
                    <label>Max :</label>
-                   <?php echo e(Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max'])); ?>
+                   <?php echo e(Form::number('max', '',['class'=>'form-control','min'=>0,'placeholder'=>'Max','min'=>0])); ?>
 
                          </div>
                      </div>
@@ -192,6 +189,10 @@
                 <img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
+            <div class="alert alert-success" id="success" style="display:none">
+        </div>
+        <div class="alert alert-danger"  style="display:none">
+        </div>
               <div class="col text-center pt-3">
 
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
