@@ -83,7 +83,12 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
+
+
 	function format3(d){
+
+		var original_media = d.deliever_media;
+		
 		return '<div class="offer">'+
 		'<div class="row">'+
 		  '<div class="col">'+
@@ -1558,10 +1563,18 @@ $(document).on('keyup change', '#calculate_tokens', function () {
 })
 
 
+
+
 /**--------------------------------------------------Data Table Js---------------------------------------------------------- */
 
 /* Formatting function for row details - modify as you need */
 function format ( d , type) {
+
+	var file = d.type=='video' ? 'Uplaod Video' : 'Upload Audio';
+
+	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
+
+	//console.log(d);return false;
 
 	// var hair = d.haircolor.split(',');
 	// var privy = d.privy.split(',');
@@ -1572,7 +1585,7 @@ function format ( d , type) {
 	// `d` is the original data object for the row
 	if(type=='offer')
 	{
-		updateStatus(d.id,type);
+	updateStatus(d.id,type);
     return '<div class="offer">'+
 	'<div class="row">'+
 	  '<div class="col">'+
@@ -1592,14 +1605,31 @@ function format ( d , type) {
 	'<p class="category">'+d.catgories+'</p>'+
 	'</td>'+
 	'<td> <p class="quality">Quality :</p>'+
-	'<p>'+d.quality+'px</p>'+
+	'<p>'+d.quality+'p </p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>'+
-	'<tr>'+
+	'<tr><td>Reward:</td><td class="Reward">'+d.price+'PAZ</td></tr>'+
+	'<tr><td>'+
+	'<div class="col-md-12">'+
+	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
+	'<label>'+file+
+	'</label>'+
+	'<input type="file" name="media">'+
+	  html+
+	'<div>'+
+	'<input type="hidden" name="offerid" value='+d.id+'>'+
+	'<div class="loader col-6" style="display:none">'+
+	'<span style="color:green; font-weight: bold;">Uploading...</span><img src="http://localhost/laravel/video-streaming/public/images/loading2.gif" width="50px" height="50px"/>'+
+	'<span class="percentage" style="color:green;font-weight: bold;"></span>'+
+  '</div>'+
+	'</form>'+
+	'</div>'+
+	'</td></tr>'+
 	'</table>'+
+	'<div class="alert alert-success" id="success" style="display:none">'+
+    '</div>'+
 	'<div class="">'+
-	'<button type="button"class="btn btn-primary">Upload Content</button>'+
+	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)" >Deleiver</button>'+
 	'</div>'+
 	'</div>'+
 	'</div>'+
@@ -1632,7 +1662,7 @@ function format ( d , type) {
 	'<p class="category">'+d.category_name+'</p>'+
 	'</td>'+
 	'<td> <p class="quality">Quality :</p>'+
-	'<p>'+d.quality+'px</p>'+
+	'<p>'+d.quality+'p</p>'+
 	'</td>'+
 	'</tr>'+
 	'<tr><td>Reward:</td><td class="Reward">'+d.total_price+'PAZ</td></tr>'+
@@ -1647,11 +1677,78 @@ function format ( d , type) {
    }
 }
 
-$(document).ready(function() {
+
+
+function formsubmit(scop){
+
+		var form = $('.uploadOffer');
+		var formdata = new FormData(form[0]);
+		
+		$('.loader').show();
+		$('.percentage').html('0');
+		//console.log(formData);return false;
+		   $.ajax({
+				type: 'POST',
+				url:APP_URL+"/deleiver",
+				 headers: {
+				 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			   },				
+				data: formdata,
+				processData: false,
+				contentType: false,
+				xhr: function () {
+					var xhr = $.ajaxSettings.xhr();
+					if (xhr.upload) {
+						xhr.upload.addEventListener('progress', function(event) {
+							var percent = 0;
+							var position = event.loaded || event.position;
+							var total = event.total;
+							if (event.lengthComputable) {
+								percent = Math.ceil(position / total * 100);
+							}
+							$('.percentage').html(percent+'%');
+							if(percent==100){
+								$('.loader').hide();
+							}
+						}, true);
+					}
+					return xhr;
+			},
 	
-	console.log('yes')
+				success: function(data){
+
+					//console.log(data);return false;
+
+					if(data==1){
+
+						$('#success').show();
+
+						$('#success').html('Content Uploaded');
+
+						setTimeout(function(){
+							location.reload();
+						},2000)
+					}
+
+					else{
+
+						alert('Some Error');
 
 
+					}
+
+					
+				}
+
+		});
+
+	
+
+}
+
+
+
+$(document).ready(function() {
 
 	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
 	var name = $('#select_option').find(":selected").val();
@@ -1732,6 +1829,10 @@ $(document).ready(function() {
 		 });
 	 });
 
+
+	 
+	
+
 });
 
 
@@ -1760,7 +1861,6 @@ function getPaz(a){
 
 $(document).on('click','.select_media_pic',function(){
 
-	//alert('hello');return false;
 		
 			var value = $(this).val();
 
@@ -1859,6 +1959,12 @@ $(document).on('submit', '#myForm', function (event) {
 });
 
 
+/** -------------------------------------------------Upload New Offer ---------------------------------------------------------*/
+
+
+
+
+
 $(document).on('submit', '#create_offer', function (event) {
 	event.preventDefault();
 	var formData = new FormData($(this)[0]);
@@ -1952,13 +2058,6 @@ $(function() {
 
 
 /*--------------------------------------Customers Orders----------------------------------------*/
-
-
-
-
-
-
-
 
 
 if ($("#social_media").length > 0) {
@@ -2126,6 +2225,8 @@ $(document).on('submit', '#updateUser', function (event) {
 	});
 
 });
+
+
 
 
 

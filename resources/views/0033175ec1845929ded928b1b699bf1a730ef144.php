@@ -146,13 +146,13 @@
         <?php if(isset($details[0]->type)): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 hover">
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -268,7 +268,6 @@ Your browser does not support the audio tag.
    <div class="modal" role="dialog" id="exampleModal" >
     </div>
     </div>
-      </div>
 
 
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -329,11 +328,6 @@ Your browser does not support the audio tag.
   
   </div>
   </div>
-  
-</div>
-
-</div>
-</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -348,7 +342,7 @@ Your browser does not support the audio tag.
                 </div>
             </div>
             <div class="modal-body">
-            <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
+              <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
 
                    <?php echo e(Form::token()); ?>
 
@@ -362,24 +356,24 @@ Your browser does not support the audio tag.
                   <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
                   </div>
                   </div>
-            <?php echo e(Form::label('Title', 'Title')); ?> 
-              <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
+                 <?php echo e(Form::label('Title', 'Title')); ?> 
+                  <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
 
-            <br>
-            <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
+                  <br>
+                   <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                     <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
 
-                <br>
-                <label>Duration(Minutes):</label>
-                <div class="row">
+                  <br>
+                  <label>Duration(Minutes):</label>
+                  <div class="row">
                   <div class="col-md-6">
-                <?php echo e(Form::label('Min', 'Min')); ?> 
-                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])); ?>
+                  <?php echo e(Form::label('Min', 'Min')); ?> 
+                  <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])); ?>
 
                    </div>
                    <div class="col-md-6">
-                <?php echo e(Form::label('Max', 'Max')); ?> 
-                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])); ?>
+                  <?php echo e(Form::label('Max', 'Max')); ?> 
+                  <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])); ?>
 
                 </div>
                 </div>
@@ -595,7 +589,11 @@ Your browser does not support the audio tag.
         </div>
     </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <style>
 .trans{
   position: absolute;
@@ -608,6 +606,15 @@ Your browser does not support the audio tag.
     z-index: 999;
     right: 43px;
     top: -3px;
+}
+div#nav-contact {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+.col-md-4.mb-3.hover:hover {
+    border: 1px solid gold;
+    padding: 10px;
 }
 .pricetime .text-left {
     float: left;
