@@ -814,7 +814,7 @@ class artist extends Controller
   
     $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
     unset($data['_token']);
-    $data['media']=$fileName;
+    $data['deliever_media']=$fileName;
     $data['type']=  $ext=='mp4' ? 'video' : 'audio';
       //print_r($data);die;
 

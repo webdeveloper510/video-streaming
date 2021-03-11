@@ -83,7 +83,12 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
+
+
 	function format3(d){
+
+		var original_media = d.deliever_media;
+		
 		return '<div class="offer">'+
 		'<div class="row">'+
 		  '<div class="col">'+
@@ -1610,8 +1615,8 @@ function format ( d , type) {
 	'<label>'+file+
 	'</label>'+
 	'<input type="file" name="media">'+
-	  html
-	'<div>'
+	  html+
+	'<div>'+
 	'<input type="hidden" name="offerid" value='+d.id+'>'+
 	'<div class="loader col-6" style="display:none">'+
 	'<span style="color:green; font-weight: bold;">Uploading...</span><img src="http://localhost/laravel/video-streaming/public/images/loading2.gif" width="50px" height="50px"/>'+
