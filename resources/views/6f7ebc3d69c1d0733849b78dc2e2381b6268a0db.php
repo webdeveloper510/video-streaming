@@ -5,15 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="<?php echo e(asset('design/datatables.min.css')); ?>" />   
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    
-
-  <style>
+    <style>
    
 .tab {
     overflow: hidden;
@@ -43,9 +37,6 @@
   transition: 0.3s;
   font-size: 17px;
 }
-
-
-
 /* Style the tab content */
 .tabcontent {
   display: none;
@@ -64,19 +55,14 @@ tr.shown td.details-control {
     background: url('https://cdn.rawgit.com/DataTables/DataTables/6c7ada53ebc228ea9bc28b1b216e793b1825d188/examples/resources/details_close.png') no-repeat center center;
 }
 
-</style>
-   
-
-  
+</style>  
   </head>
   <body>
     <div class="container">
     <div class="tab">
   <!-- <button class="tablinks" onclick="openCity(event, 'London')">Projects</button> -->
   <button class="tablinks active" onclick="openCity(event, 'Paris')">Orders</button>
-
-  
-  
+ 
 </div>
 
 
@@ -86,14 +72,6 @@ tr.shown td.details-control {
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
               </div>
               <h2 class="text-center "></h2>
-                <!-- <div class="dropreq text-right">
-                <select class="custom-select col-md-4" onchange="filterproject(this)">
-                    <option selected="">All</option>
-                    <option value="New">New</option>
-                    <option value="In Process">In Process</option>
-                    <option value="Due">Due</option>
-                  </select>
-                </div> -->
                 <button id="btn-show-all-children" type="button">Expand All</button>
 <button id="btn-hide-all-children" type="button">Collapse All</button>
 <hr>
@@ -101,10 +79,10 @@ tr.shown td.details-control {
 <table id="example" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-                       <th></th>
-                       <th>Title</th>
-                        <th >Media</th>
-                        <th>Duration</th>
+                         <th></th>
+                         <th>Title</th>
+                         <th >Media</th>
+                          <th>Duration</th>
                         <th>P/O</th>
                         <th >Customer Name</th>
                         <th > Status</th>              
@@ -182,11 +160,7 @@ tr.shown td.details-control {
         </div>
 
     </div>
-</div>
-
-
-
-      
+</div>      
 <div class="modal fade" id="descri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
