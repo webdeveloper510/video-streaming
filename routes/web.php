@@ -232,6 +232,8 @@ Route::post('createList', 'AuthController@createList');
 
     Route::post('createPlaylist','artist@createPlaylist');
 
+    Route::post('deleiver','artist@deleiverOffer');
+
     Route::post('uploadSocial','artist@socialUpload');
 
     Route::post('updateArtist','artist@updateartist');

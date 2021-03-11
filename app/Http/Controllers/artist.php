@@ -796,4 +796,32 @@ class artist extends Controller
             
   }
 
+  public function deleiverOffer(Request $req){
+
+    $fileName = time().'_'.$req->media->getClientOriginalName();
+    $ext =$req->media->getClientOriginalExtension();
+    if($req->audio_pic){
+
+      $audio_pics = time().'_'.$req->audio_pic->getClientOriginalName();
+
+      $req->audio_pic->storeAs('uploads',$audio_pics,'public');
+
+      $data['audio_pic'] = $audio_pics;
+
+
+    }
+
+  
+    $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
+    unset($data['_token']);
+    $data['media']=$fileName;
+    $data['type']=  $ext=='mp4' ? 'video' : 'audio';
+      //print_r($data);die;
+
+    $return_data = $this->model->UpdateData('offer','id',$data,$req['offerid']);
+
+    return $return_data;
+            
+  }
+
   }
