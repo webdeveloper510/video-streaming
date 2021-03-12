@@ -756,9 +756,23 @@ public function getRespectedSub($data){
 
     public function count_orders($table){
 
-      $value=DB::table($table)->where('status','new')->count();
+      $session_data =   Session::get('User');
 
-      return $value;
+      $userid=  $session_data->id;
+
+      $value=DB::table($table)->where('status','new');
+
+      if($table=='offer'){
+
+        $val = $value->where('artistid',$userid)->count();
+
+      }
+
+      else{
+        $val = $value->count();
+      }
+
+      return $val;
 
 
 
@@ -766,9 +780,20 @@ public function getRespectedSub($data){
 
     public function count_process_orders($table){
 
-      $value=DB::table($table)->where('status','process')->count();
+      $session_data =   Session::get('User');
 
-      return $value;
+      $userid=  $session_data->id;
+
+      $value=DB::table($table)->where(array('status'=>'process'));
+
+      if($table=='offer'){
+        $val = $value->where('artistid',$userid)->count();
+      }
+      else{
+        $val = $value->count();
+      }
+
+      return $val;
 
 
     }
@@ -796,10 +821,27 @@ public function getRespectedSub($data){
     }
 
     public function count_due_offer($table){
+
+      $session_data =   Session::get('User');
+          
+      $userid=  $session_data->id;
+
         $current = date('Y-m-d');
         $data = DB::table($table)
-        ->select(DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
-       ->get()->toArray();
+        ->select(DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'));
+       
+
+       if($table=='offer'){
+
+           $data = $data->where('artistid',$userid)->get()->toArray();
+
+       }
+
+       else{
+
+        $data = $data->get()->toArray();
+
+       }
 
         return $data;
     }
@@ -867,6 +909,7 @@ public function getRespectedSub($data){
 
 
           $session_data =   Session::get('User');
+
         $userid=  $session_data->id;
 
 
