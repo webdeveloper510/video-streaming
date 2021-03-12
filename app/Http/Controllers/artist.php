@@ -249,6 +249,8 @@ class artist extends Controller
 
       $count_due_offer = $this->model->count_due_offer('offer');
 
+     
+
       $totalCollection  =  $this->model->count_collection_items();
 
         $getCountTimeFrame = $this->model->getAllData('timeframe');
@@ -296,7 +298,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$total_process_offer,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_result,'count_new_projects'=>$total_count,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -799,6 +801,8 @@ class artist extends Controller
 
   public function deleiverOffer(Request $req){
 
+    //print_r($req->all());die;
+
     $fileName = time().'_'.$req->media->getClientOriginalName();
     $ext =$req->media->getClientOriginalExtension();
     if($req->audio_pic){
@@ -823,7 +827,10 @@ class artist extends Controller
 
     $delivered = $return_data ? $this->model->UpdateData('offer','id',array('status'=>'delievered'),$req['offerid']):'';
 
-    return $delivered;
+    $done = $this->model->addonContentProvider($req);
+
+
+    return $done;
             
   }
 
