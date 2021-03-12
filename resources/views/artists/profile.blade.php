@@ -59,7 +59,7 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-2">
+        <div class="col-md-2 mt-5">
         <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                 
