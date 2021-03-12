@@ -2558,13 +2558,21 @@ public function update_due_to_process($data){
 
      $table = $data['type']=='request' ? 'add_request' : 'offer';
 
-  $update = DB::table($table)->where('id',$data['id'])->update([
+     $status = $this->selectDataById('id','offer',$data['id']);
 
-    'status' => 'process'
+     if($status[0]->status=='new'){
+      
+          $update = DB::table($table)->where('id',$data['id'])->update([
 
-  ]);
+            'status' => 'process'
 
-  return $update;
+          ]);
+
+          return $update;
+
+     }
+
+  
 
 }
 
