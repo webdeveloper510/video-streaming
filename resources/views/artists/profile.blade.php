@@ -162,13 +162,14 @@
             
                 </a>
                 <div class="edit">
-                <button class="btn btn-sm btn-info">Edit</button>
+                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>
-           
+            
                
               </div>
+             
               @if($detail->duration=='')
           <script>
            var video;
@@ -209,11 +210,11 @@ Your browser does not support the audio tag.
 </audio>
 </a>
 <div class="edit">
-<button class="btn btn-sm btn-info">Edit</button>
+<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-
+   
 @endforeach
 @else
 <div class="artistaudio">
@@ -580,6 +581,72 @@ Your browser does not support the audio tag.
 </div>
 </div>
 </div>
+ <!-- Modal -->
+ <div class="modal fade" id="media" tabindex="-1" aria-labelledby="mediaLabel">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Media</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form >
+                          <div class="row align-items-center text-white">
+                          
+                          <div class="col-md-6 mt-2 ">
+                          {{Form::label('Title', 'Title')}} 
+                              {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
+                          </div>
+                      
+                          <div class="col-md-6 mt-2 ">
+                          {{Form::label('Add Price', 'Price')}} 
+                          {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]) !!}
+                          </div>
+                          <div class="col-md-6 mt-2 ">
+                        
+                            <div class="convert">
+                          {{Form::label('Convert to:', 'Convert to:')}} 
+                        <select name="convert"  class='form-control'>
+                                  <option value="">Choose ...</option>
+                                  <option value="1">480p  </option>
+                                  <option value="2">HD 720p </option>
+                                  <option value="3">Full HD 1080p  </option>
+                          </select>
+                          </div>
+                          <select name="category" id="selectCategory" class='form-control my-5'>
+                                  <option value="">Choose Category</option>
+                                  @foreach($category as $cat)
+                                      <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                  @endforeach
+                          </select>
+                          
+                          <div class="col-md-12 mt-3 text-white">
+                          <label class="media_label12">Audio/Video</label>
+                              {{Form::file('media',['class'=>'form-control file_input'])}}
+                              <span id="filename" style="color:yellow;"></span>
+                          </div>
+                          <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                          <label>Choose Image</label>        
+                              {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
+                              <span id="filename" style="color:yellow;"></span>
+                          </div>
+                          </div>
+                          <div class="col-md-6 mt-3">
+                          {{Form::label('Description', 'Description')}} 
+                              {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])}}
+                          </div>
+
+                      </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 <style>
 
 .col-md-4.mb-3.hover:hover {

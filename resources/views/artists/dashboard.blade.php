@@ -38,7 +38,7 @@
 
 
 <!---------------------------------------------------------------- Mobile nav bar ------------------------------------>
-       <div class="mobile-bar">
+      <div class="mobile-bar">
        <div class="headerbar">
        <button class="openbtn" onclick="openNav()">☰ </button> 
 
