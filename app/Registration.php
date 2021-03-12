@@ -1173,8 +1173,13 @@ public function getRespectedSub($data){
      ->where('offer.id',$id)
      ->get()->toArray();
      if($offer){
-         return $offer;
+         $data = $offer;
      }
+     else{
+          $data = DB::table('offer')->where('id',$id)->get()->toArray();
+     }
+
+        return $data;
     }
 
     public function editOfferDescription($data){
