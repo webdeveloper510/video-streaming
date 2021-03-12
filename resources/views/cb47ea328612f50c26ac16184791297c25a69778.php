@@ -94,6 +94,7 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
+					<div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 						<?php if($video->type=='video'): ?>
 				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">

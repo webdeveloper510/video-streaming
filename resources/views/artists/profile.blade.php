@@ -88,6 +88,7 @@
            </div>
         </div>
         <hr>
+
       
       </div>
     </div>
@@ -161,9 +162,9 @@
             
                 </a>
                 <div class="edit">
-                <button class="btn btn-sm btn-info edit">Edit</button>
+                <button class="btn btn-sm btn-info">Edit</button>
                
-                <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-light trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>
            
                
@@ -197,8 +198,10 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
-<button class="btn btn-sm btn-info edit">Edit</button>
+<div class="edit">
+<button class="btn btn-sm btn-info">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
+</div>
 </div>
 
 @endforeach
@@ -568,18 +571,6 @@ Your browser does not support the audio tag.
 </div>
 </div>
 <style>
-.trans{
-  position: absolute;
-    z-index: 999;
-    right: 16px;
-    top: 10px;
-}
-.trans1{
-  position: absolute;
-    z-index: 999;
-    right: 43px;
-    top: -3px;
-}
 
 .col-md-4.mb-3.hover:hover {
     border: 1px solid gold;
@@ -610,10 +601,10 @@ Your browser does not support the audio tag.
 .pricetime {
     position: relative;
 }
-button.btn.btn-sm.btn-info.edit {
-    top: -3px;
+.edit {
     position: absolute;
-    right: 102px;
+    top: -1px;
+    right: 64px;
 }
 .artistvideo {
     border: 2px dashed red;

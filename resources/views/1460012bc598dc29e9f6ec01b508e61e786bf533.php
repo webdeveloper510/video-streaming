@@ -220,6 +220,12 @@
                                
                             
                           <div class="row text-left text-white mt-3 red">
+                                  <div class="col-md-4 mb-4  das">
+                                    <label>Gender</label><br>
+                                    <?php echo e(Form::checkbox('gender[]','Male')); ?>Male <br>
+                                    <?php echo e(Form::checkbox('gender[]','Female')); ?>Female <br>
+                                    <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans 
+                                  </div>
                                   <div class="col-md-4 mb-4 logy">
                                     <label>Sexology</label><br>
                                     <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero <br>
@@ -232,14 +238,19 @@
                                     <?php echo e(Form::checkbox('titssize[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('titssize[]','Big')); ?>Big 
                                   </div>
-                                   <div class="col-md-4 mb-4 ass">
+                                   <div class="col-md-4 mb-4 ">
                                     <label>Ass</label><br>
                                      <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
                                     <?php echo e(Form::checkbox('ass[]','Normal')); ?>Normal <br>
                                    
                                     <?php echo e(Form::checkbox('ass[]','Big')); ?>Big 
-                                    
- 
+                                    <br>
+                                    <br>
+                                    <label>Body</label><br>
+                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
+                                    <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
+                                    <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
+                                    <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
                                   </div>
                                   <div class="col-md-4 mb-4 logy">
                                       <label>Privy part</label><br>
@@ -267,7 +278,7 @@
                                     <?php echo e(Form::checkbox('eyecolor[]','indigo')); ?>Indigo <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','violet')); ?>Violet <br>
                                   </div>
-                                        <div class="col-md-4 mb-4 ass">
+                                        <div class="col-md-4 mb-4 ">
                                     <label>Hair color</label><br>
                                     <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
                                     <?php echo e(Form::checkbox('haircolor[]','brown')); ?>Brown <br>
@@ -290,12 +301,8 @@
                                     <?php echo e(Form::checkbox('hairlength[]','Long')); ?>Long <br>
                                     <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
                                   </div>
-                                   <div class="col-md-8 mb-4">
-                                    <label>Body</label><br>
-                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
-                                    <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
-                                    <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
-                                    <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
+                                   <div class="col-md-4 mb-4">
+                                   
                                   </div>
                                   
                               </div>
@@ -682,7 +689,7 @@
     border-radius: 50%;
 }
 ul.nav.custom.search ul.subnav {
-    width: 523px !important;
+    width: 523px;
 }
 .noti-icon {
     color: white;

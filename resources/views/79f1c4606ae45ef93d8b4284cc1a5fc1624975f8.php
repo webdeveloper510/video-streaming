@@ -94,6 +94,7 @@
            </div>
         </div>
         <hr>
+
       
       </div>
     </div>
@@ -158,7 +159,7 @@
             </video>
             <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">12/PAZ</h6>
+                  <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
@@ -166,11 +167,14 @@
                   </div>
             
                 </a>
-                <button class="btn btn-sm btn-info edit">Edit</button>
+                <div class="edit">
+                <button class="btn btn-sm btn-info">Edit</button>
                
-                <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
-               
+                <button class="btn btn-sm btn-light trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                </div>
            
+               
+              </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
@@ -200,8 +204,10 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
-<button class="btn btn-sm btn-info edit">Edit</button>
+<div class="edit">
+<button class="btn btn-sm btn-info">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
+</div>
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -595,18 +601,6 @@ Your browser does not support the audio tag.
 </div>
 </div>
 <style>
-.trans{
-  position: absolute;
-    z-index: 999;
-    right: 16px;
-    top: 10px;
-}
-.trans1{
-  position: absolute;
-    z-index: 999;
-    right: 43px;
-    top: -3px;
-}
 
 .col-md-4.mb-3.hover:hover {
     border: 1px solid gold;
@@ -637,10 +631,10 @@ Your browser does not support the audio tag.
 .pricetime {
     position: relative;
 }
-button.btn.btn-sm.btn-info.edit {
-    top: -3px;
+.edit {
     position: absolute;
-    right: 102px;
+    top: -1px;
+    right: 64px;
 }
 .artistvideo {
     border: 2px dashed red;
