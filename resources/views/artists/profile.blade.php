@@ -88,6 +88,7 @@
            </div>
         </div>
         <hr>
+
       
       </div>
     </div>
@@ -152,7 +153,7 @@
             </video>
             <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">12/PAZ</h6>
+                  <h6 class="text-white">{{$detail->price}}/PAZ</h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
@@ -160,11 +161,14 @@
                   </div>
             
                 </a>
-                <button class="btn btn-sm btn-info edit">Edit</button>
+                <div class="edit">
+                <button class="btn btn-sm btn-info">Edit</button>
                
-                <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
-               
+                <button class="btn btn-sm btn-light trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
+                </div>
            
+               
+              </div>
              @endif
           @endforeach
           @else
@@ -194,8 +198,10 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
-<button class="btn btn-sm btn-info edit">Edit</button>
+<div class="edit">
+<button class="btn btn-sm btn-info">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
+</div>
 </div>
 
 @endforeach
@@ -284,8 +290,7 @@ Your browser does not support the audio tag.
           @else
           <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}" width="100%;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">
-                     
+               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">          
           </audio>
           @endif
           
@@ -566,18 +571,6 @@ Your browser does not support the audio tag.
 </div>
 </div>
 <style>
-.trans{
-  position: absolute;
-    z-index: 999;
-    right: 16px;
-    top: 10px;
-}
-.trans1{
-  position: absolute;
-    z-index: 999;
-    right: 43px;
-    top: -3px;
-}
 
 .col-md-4.mb-3.hover:hover {
     border: 1px solid gold;
@@ -608,10 +601,10 @@ Your browser does not support the audio tag.
 .pricetime {
     position: relative;
 }
-button.btn.btn-sm.btn-info.edit {
-    top: -3px;
+.edit {
     position: absolute;
-    right: 102px;
+    top: -1px;
+    right: 64px;
 }
 .artistvideo {
     border: 2px dashed red;

@@ -63,7 +63,7 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-2">
+        <div class="col-md-2 mt-5">
         <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
@@ -94,6 +94,7 @@
            </div>
         </div>
         <hr>
+
       
       </div>
     </div>
@@ -151,14 +152,14 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
             </video>
             <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">12/PAZ</h6>
+                  <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
@@ -166,10 +167,14 @@
                   </div>
             
                 </a>
+                <div class="edit">
+                <button class="btn btn-sm btn-info">Edit</button>
                
-                <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
-               
+                <button class="btn btn-sm btn-light trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                </div>
            
+               
+              </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
@@ -199,7 +204,10 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
+<div class="edit">
+<button class="btn btn-sm btn-info">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
+</div>
 </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -288,8 +296,7 @@ Your browser does not support the audio tag.
           <?php else: ?>
           <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); ?>" width="100%;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">
-                     
+               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
           <?php endif; ?>
           
@@ -594,18 +601,6 @@ Your browser does not support the audio tag.
 </div>
 </div>
 <style>
-.trans{
-  position: absolute;
-    z-index: 999;
-    right: 16px;
-    top: 10px;
-}
-.trans1{
-  position: absolute;
-    z-index: 999;
-    right: 43px;
-    top: -3px;
-}
 
 .col-md-4.mb-3.hover:hover {
     border: 1px solid gold;
@@ -635,6 +630,11 @@ Your browser does not support the audio tag.
 }
 .pricetime {
     position: relative;
+}
+.edit {
+    position: absolute;
+    top: -1px;
+    right: 64px;
 }
 .artistvideo {
     border: 2px dashed red;

@@ -16,14 +16,14 @@
               <li style="border-left-color: red;
                   border-left-style: solid;
                   border-left-width: 1px;">
-              <a href="https://www.websitepolicies.com/policies/view/iV2Lze7O"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-               <li><a href="https://www.websitepolicies.com/policies/view/u5oiPx3i"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
-               <li><a href="https://www.websitepolicies.com/policies/view/GBVn25Ot"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-               <li><a href="https://www.websitepolicies.com/policies/view/EyJ7ew81"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
+              <a href="<?php echo e(url('/terms')); ?>"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+               <li><a href="<?php echo e(url('/acceptable')); ?>"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
+               <li><a href="<?php echo e(url('/privacy')); ?>"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+               <li><a href="<?php echo e(url('/dmca')); ?>"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
              
-              <li><a href="https://www.websitepolicies.com/policies/view/K1Bzlo8F"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
+              <li><a href="<?php echo e(url('/cookie')); ?>"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
             
-              <li><a href="https://www.websitepolicies.com/policies/view/UkyQfdIh"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
+              <li><a href="<?php echo e(url('/disclaimer')); ?>"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
               <li><a href="<?php echo e(url('/userWithdraw')); ?>"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
               <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
                 <!-- Modal -->
