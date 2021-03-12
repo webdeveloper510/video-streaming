@@ -160,10 +160,11 @@
                   </div>
             
                 </a>
+                <div class="edit">
                 <button class="btn btn-sm btn-info edit">Edit</button>
                
                 <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
-               
+                </div>
            
              @endif
           @endforeach
