@@ -64,7 +64,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2">
-        <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -151,7 +151,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -166,6 +166,7 @@
                   </div>
             
                 </a>
+                <button class="btn btn-sm btn-info edit">Edit</button>
                
                 <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                
@@ -199,6 +200,7 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
+<button class="btn btn-sm btn-info edit">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 
@@ -635,6 +637,11 @@ Your browser does not support the audio tag.
 }
 .pricetime {
     position: relative;
+}
+button.btn.btn-sm.btn-info.edit {
+    top: -3px;
+    position: absolute;
+    right: 102px;
 }
 .artistvideo {
     border: 2px dashed red;

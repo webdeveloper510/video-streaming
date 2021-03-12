@@ -391,9 +391,6 @@ Your browser does not support the audio tag.
     color: gold !important;
     font-weight: 800;
 }
-div#nav-contact *{
-    color: #fff;
-}
 select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
 }
