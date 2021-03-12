@@ -1711,16 +1711,15 @@ public function getRespectedSub($data){
 
 public function reduceTokens($tokns,$userid,$tok,$artid){
 
-  //print_r($artid);die;
 
   $databasetoks = $tokns[0]->tokens;
 
-  //print_r($databasetoks);die;
 
         if($tok < $databasetoks){
-         //echo "yes";die;
+
              $update = DB::table('users')->where(array('id'=>$userid))->update([
             'tokens' =>  DB::raw('tokens -'.$tok)
+
           ]);
 
             if($update){
@@ -2236,17 +2235,19 @@ public function buyofferVideo($data,$offer){
       if($token > $data['price']){
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
+
+        $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
         
-
-        //print_r($value);die;
-
+       //print_r($value);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
+
+       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data['price']) : $this->insertReservedTable($data,$id);
 
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
         // $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
-          $return = $return;
+          $return = $done;
     }
 
     else{
@@ -2255,6 +2256,62 @@ public function buyofferVideo($data,$offer){
     }
 
     return $return;
+
+}
+
+public function updateReservedTable($uid,$price){
+
+  $deducted  = $this->deductUserTokens($uid,$price);
+
+  if($deducted){
+
+    $update = DB::table('reserved_tokens')->where(array('userid'=>$uid))->update([
+      'tokens'=>$price
+      ]);
+
+  } 
+
+  return $update;
+      
+}
+
+public function deductUserTokens($uid,$token){
+
+ 
+
+        $update = DB::table('users')->where(array('id'=>$uid))->update([
+          'tokens' =>  DB::raw('tokens -'.$token)
+          
+        ]);
+
+
+        return $update;
+}
+
+public function insertReservedTable($data,$vid)
+{
+
+  $deducted  = $this->deductUserTokens($vid[1],$data['price']);
+
+  if($deducted){
+
+    $data  = array(
+      'created_at'=>now(),
+      'updated_at'=>now(),
+      'Offermediaid'=>$vid[0],
+      'tokens'=>$data['price'],
+      'userid'=>$vid[1],
+      'artistid'=>$data['art_id'],
+
+    );
+
+    return DB::table('reserved_tokens')->insert($data);
+
+
+  }
+
+
+  
 
 }
 

@@ -823,6 +823,7 @@ class artist extends Controller
 
     $delivered = $return_data ? $this->model->UpdateData('offer','id',array('status'=>'delievered'),$req['offerid']):'';
 
+
     return $delivered;
             
   }
