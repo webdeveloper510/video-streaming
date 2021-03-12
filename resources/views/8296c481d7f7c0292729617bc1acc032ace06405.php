@@ -94,6 +94,7 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
+					<div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 						<?php if($video->type=='video'): ?>
 				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
 				   	<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
@@ -420,6 +421,28 @@
 
 </script>
 <style>
+	.lockicon {
+    background: #00000080;
+    height: 240px;
+    width: 320px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 9;
+}
+
+.lockicon i {
+    position: absolute;
+    top: 84px;
+    display: block;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
 .report-op {
     position: absolute;
     width: 100%;
