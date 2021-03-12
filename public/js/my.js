@@ -1358,7 +1358,7 @@ $(document).ready(function(){
 	$('.delete').click(function(){
 	
 	  // Delete id
-	  var deleteid = $(this).data('id');
+	  var deleteid = $(this).attr('data-id');
   
 	  // Confirm box
 	  bootbox.confirm({

@@ -249,6 +249,8 @@ class artist extends Controller
 
       $count_due_offer = $this->model->count_due_offer('offer');
 
+     
+
       $totalCollection  =  $this->model->count_collection_items();
 
         $getCountTimeFrame = $this->model->getAllData('timeframe');

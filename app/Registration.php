@@ -220,6 +220,13 @@ public function uploadContentData($userdata){
 
         
 }
+
+public function updateStatusDue(){
+
+      return   DB::table('offer')->where(date('Y-m-d'),'DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY))')->update([
+          'status'=>'due'
+        ]);
+}
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
 
@@ -531,7 +538,7 @@ public function getArtistDetail($artid,$type){
     ->join('category', 'category.id', '=','offer.categoryid')
     ->join('subscriber','subscriber.artistid','=','offer.artistid')
      ->select('offer.*', 'category.category','subscriber.count')
-     ->where('offer.artistid',$artistId)->get()->toArray();
+     ->where(array('offer.artistid'=>$artistId,'is_deleted'=>'false'))->get()->toArray();
      
       if($offer){
            $offers = $offer;
@@ -2634,7 +2641,7 @@ public function getSocialInfo($type){
 
     public function deleteoffer($data){
 
-     return DB::table('offer')->where('id', $data['id'])->delete();
+     return DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
 
 
     }
