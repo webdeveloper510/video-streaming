@@ -145,7 +145,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
                <a href="{{url('artistVideo/'.$detail->id)}}">
-            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -160,6 +160,7 @@
                   </div>
             
                 </a>
+                <button class="btn btn-sm btn-info edit">Edit</button>
                
                 <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                
@@ -193,6 +194,7 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
+<button class="btn btn-sm btn-info edit">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 
@@ -605,6 +607,11 @@ Your browser does not support the audio tag.
 }
 .pricetime {
     position: relative;
+}
+button.btn.btn-sm.btn-info.edit {
+    top: -3px;
+    position: absolute;
+    right: 102px;
 }
 .artistvideo {
     border: 2px dashed red;
