@@ -146,7 +146,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
                <a href="{{url('artistVideo/'.$detail->id)}}">
-            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"  id="collection_{{$detail->id}}" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -169,6 +169,16 @@
            
                
               </div>
+              @if($detail->duration=='')
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#collection_"+"{{$detail->id}}");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"{{$detail->id}}","{{$detail->id}}");
+            }, 2000);
+          </script>
+          @endif
              @endif
           @endforeach
           @else
