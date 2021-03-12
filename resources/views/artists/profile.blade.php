@@ -284,8 +284,7 @@ Your browser does not support the audio tag.
           @else
           <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}" width="100%;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">
-                     
+               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">          
           </audio>
           @endif
           
