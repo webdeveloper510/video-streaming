@@ -379,10 +379,6 @@ Your browser does not support the audio tag.
 .fa-lock{
   font-size:30px;
 }
-div#nav-contact {
-    background: #000;
-    color: #fff !important;
-}
 .pricetime .text-right h6 {
     background: white;
     height: 30px;
@@ -396,9 +392,6 @@ div#nav-contact {
   padding: 5px;
     color: gold !important;
     font-weight: 800;
-}
-div#nav-contact *{
-    color: #fff;
 }
 select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;

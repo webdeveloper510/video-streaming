@@ -421,6 +421,28 @@
 
 </script>
 <style>
+	.lockicon {
+    background: #00000080;
+    height: 240px;
+    width: 320px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 9;
+}
+
+.lockicon i {
+    position: absolute;
+    top: 84px;
+    display: block;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
 .report-op {
     position: absolute;
     width: 100%;

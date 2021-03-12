@@ -1,4 +1,4 @@
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="container">
 	<div class="policy">
 	<div class="header my-2">
@@ -118,4 +118,4 @@ body {
     background: white;
     padding: 20px;
 }
-</style>
+</style><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/privacy.blade.php ENDPATH**/ ?>
