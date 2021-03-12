@@ -1475,7 +1475,8 @@ public function getRespectedSub($data){
       $return = DB::table('offer')->where(array('id'=>$vidid))->update([
         'userdescription' =>$data['userdescription'],
         'choice'=>$data['choice'],
-        'userid'=>$data['userid']
+        'userid'=>$data['userid'],
+        'status'=>'new'
         ]);
 
         return $return;
@@ -2235,6 +2236,7 @@ public function buyofferVideo($data,$offer){
       if($token > $data['price']){
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
+        
 
         //print_r($value);die;
 

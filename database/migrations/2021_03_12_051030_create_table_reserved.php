@@ -16,6 +16,11 @@ class CreateTableReserved extends Migration
         Schema::create('reserved_tokens', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('Offermediaid');
+            $table->integer('tokens');
+            $table->integer('userid');
+            $table->integer('artistid');
+
         });
     }
 
