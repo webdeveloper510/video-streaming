@@ -821,7 +821,9 @@ class artist extends Controller
 
     $return_data = $this->model->UpdateData('offer','id',$data,$req['offerid']);
 
-    return $return_data;
+    $delivered = $return_data ? $this->model->UpdateData('offer','id',array('status'=>'delievered'),$req['offerid']):'';
+
+    return $delivered;
             
   }
 
