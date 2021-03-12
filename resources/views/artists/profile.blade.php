@@ -152,7 +152,7 @@
             </video>
             <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">12/PAZ</h6>
+                  <h6 class="text-white">{{$detail->price}}/PAZ</h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
@@ -166,6 +166,8 @@
                 <button class="btn btn-sm btn-light delete trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>
            
+               
+              </div>
              @endif
           @endforeach
           @else

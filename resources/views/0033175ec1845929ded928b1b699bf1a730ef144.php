@@ -63,7 +63,7 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-2">
+        <div class="col-md-2 mt-5">
         <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
@@ -151,14 +151,14 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" height="100%"  controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
             </video>
             <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">12/PAZ</h6>
+                  <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
@@ -166,10 +166,11 @@
                   </div>
             
                 </a>
+                <button class="btn btn-sm btn-info edit">Edit</button>
                
                 <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                
-           
+              </div>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
@@ -199,6 +200,7 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
+<button class="btn btn-sm btn-info edit">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 
@@ -635,6 +637,11 @@ Your browser does not support the audio tag.
 }
 .pricetime {
     position: relative;
+}
+button.btn.btn-sm.btn-info.edit {
+    top: -3px;
+    position: absolute;
+    right: 102px;
 }
 .artistvideo {
     border: 2px dashed red;
