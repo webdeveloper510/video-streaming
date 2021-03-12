@@ -23,6 +23,12 @@ Route::get('/register/{id?}', 'AuthController@register');
 Route::get('checkUser/{user}', 'AuthController@check');
 
 Route::get('addToken', 'AuthController@addtoken');
+Route::get('disclaimer', 'AuthController@disclaimer');
+Route::get('privacy', 'AuthController@privacy');
+Route::get('dmca', 'AuthController@dmca');
+Route::get('cookie', 'AuthController@cookie');
+Route::get('terms', 'AuthController@terms');
+Route::get('accept', 'AuthController@accept');
 
 Route::get('login', 'AuthController@login');
 
