@@ -799,6 +799,8 @@ class artist extends Controller
 
   public function deleiverOffer(Request $req){
 
+    //print_r($req->all());die;
+
     $fileName = time().'_'.$req->media->getClientOriginalName();
     $ext =$req->media->getClientOriginalExtension();
     if($req->audio_pic){
@@ -823,7 +825,10 @@ class artist extends Controller
 
     $delivered = $return_data ? $this->model->UpdateData('offer','id',array('status'=>'delievered'),$req['offerid']):'';
 
-    return $delivered;
+    $done = $this->model->addonContentProvider($req);
+
+
+    return $done;
             
   }
 

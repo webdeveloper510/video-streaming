@@ -1475,9 +1475,6 @@ public function readNotification(Request $request){
 /*-----------------------------------------------Order Video By User-------------------------------------------------*/
       public function orderVideo(Request $request){
 
-        //print_r($request->all());
-        
-
         $data = json_decode($request->allinfo);
 
         $offerInfo = (array)$data;
@@ -1487,9 +1484,6 @@ public function readNotification(Request $request){
         $offerInfo['status'] = 'new';
         $offerInfo['choice'] = $request->duration;
         $offerInfo['userdescription'] = $request->description;
-
-        //print_r($offerInfo);die;
-
 
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
 

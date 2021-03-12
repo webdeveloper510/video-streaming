@@ -152,7 +152,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"  id="collection_<?php echo e($detail->id); ?>" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -175,6 +175,16 @@
            
                
               </div>
+              <?php if($detail->duration==''): ?>
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#collection_"+"<?php echo e($detail->id); ?>");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>

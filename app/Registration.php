@@ -704,14 +704,19 @@ public function getRespectedSub($data){
     }
 
     public function show_offer_Requests($sts){
+
+      $user=Session::get('User');
+
+      $userId =$user->id;
       //DB::enableQueryLog();
       //echo "h";die;
       $data = \DB::table("offer")
-      ->select("users.nickname","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->select("users.nickname","offer.userid","offer.artistid","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("users","users.id","=","offer.userid")
+      ->where('offer.artistid',$userId)
 
-      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
+      ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
      
        
       if ($sts) {
@@ -1711,16 +1716,15 @@ public function getRespectedSub($data){
 
 public function reduceTokens($tokns,$userid,$tok,$artid){
 
-  //print_r($artid);die;
 
   $databasetoks = $tokns[0]->tokens;
 
-  //print_r($databasetoks);die;
 
         if($tok < $databasetoks){
-         //echo "yes";die;
+
              $update = DB::table('users')->where(array('id'=>$userid))->update([
             'tokens' =>  DB::raw('tokens -'.$tok)
+
           ]);
 
             if($update){
@@ -2236,17 +2240,19 @@ public function buyofferVideo($data,$offer){
       if($token > $data['price']){
 
         $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'offer'))->get()->toArray();
+
+        $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
         
-
-        //print_r($value);die;
-
+       //print_r($value);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
+
+       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data['price']) : $this->insertReservedTable($data,$id);
 
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
         // $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
-          $return = $return;
+          $return = $done;
     }
 
     else{
@@ -2255,6 +2261,88 @@ public function buyofferVideo($data,$offer){
     }
 
     return $return;
+
+}
+
+public function addonContentProvider($data){
+
+  //print_r($data->all());die;
+
+    $exists = $this->selectDataById('Offermediaid','reserved_tokens',$data['offerid']);
+
+   // print_r($exists);die;
+
+    if($exists[0]->userid==$data['userid'] && $exists[0]->artistid==$data['artistid']){
+
+      //echo "yes";die;
+
+      $update = DB::table('contentprovider')->where(array('id'=>$data['artistid']))->update([
+        'token' =>  DB::raw('token +'.$exists[0]->tokens)
+        
+      ]);
+
+      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens) : 0;
+  
+    }
+
+    return $status_done;
+
+
+}
+
+public function updateReservedTable($uid,$price){
+
+  $deducted  = $this->deductUserTokens($uid,$price);
+
+  if($deducted){
+
+    $update = DB::table('reserved_tokens')->where(array('userid'=>$uid))->update([
+      'tokens'=>$price
+      ]);
+
+  } 
+
+  return $update;
+      
+}
+
+public function deductUserTokens($uid,$token){
+
+ 
+
+        $update = DB::table('users')->where(array('id'=>$uid))->update([
+          'tokens' =>  DB::raw('tokens -'.$token)
+          
+        ]);
+
+
+        return $update;
+}
+
+public function insertReservedTable($data,$vid)
+{
+
+  $deducted  = $this->deductUserTokens($vid[1],$data['price']);
+
+  if($deducted){
+
+    $data  = array(
+      'created_at'=>now(),
+      'updated_at'=>now(),
+      'Offermediaid'=>$vid[0],
+      'tokens'=>$data['price'],
+      'userid'=>$vid[1],
+      'artistid'=>$data['art_id'],
+
+    );
+
+    return DB::table('reserved_tokens')->insert($data);
+
+
+  }
+
+
+  
 
 }
 

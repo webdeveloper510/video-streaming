@@ -1205,12 +1205,18 @@ $(document).on('submit', '#form_sub', function (event) {
 					if(data.status==1){
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
+						setTimeout(function(){
+							location.reload()
+						},2000);
 					}	
 					
 					else{
 
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
+						setTimeout(function(){
+							location.reload()
+						},2000);
 					}
 				
 			}
@@ -1626,6 +1632,8 @@ function format ( d , type) {
 	  html+
 	'<div>'+
 	'<input type="hidden" name="offerid" value='+d.id+'>'+
+	'<input type="hidden" name="userid" value='+d.userid+'>'+
+	'<input type="hidden" name="artistid" value='+d.artistid+'>'+
 	'<div class="loader col-6" style="display:none">'+
 	'<span style="color:green; font-weight: bold;">Uploading...</span><img src="http://localhost/laravel/video-streaming/public/images/loading2.gif" width="50px" height="50px"/>'+
 	'<span class="percentage" style="color:green;font-weight: bold;"></span>'+
