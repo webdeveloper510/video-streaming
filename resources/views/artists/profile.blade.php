@@ -83,7 +83,7 @@
          <h4>{{$offer->price}}/min PAZ</h4>
          
          <div class="text-right mr-3">
-      <button class="btn btn-sm btn-light delete" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
+      <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('{{json_encode($offer)}}')">Edit</button>
            </div>
         </div>
@@ -164,7 +164,7 @@
                 <div class="edit">
                 <button class="btn btn-sm btn-info">Edit</button>
                
-                <button class="btn btn-sm btn-light trans" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-light delete" table="media" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>
            
                
@@ -210,7 +210,7 @@ Your browser does not support the audio tag.
 </a>
 <div class="edit">
 <button class="btn btn-sm btn-info">Edit</button>
-<button class="btn btn-sm btn-light delete trans1" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
+<button class="btn btn-sm btn-light delete trans1" table="media" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
 

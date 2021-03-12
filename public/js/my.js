@@ -1359,10 +1359,14 @@ $(document).ready(function(){
 	
 	  // Delete id
 	  var deleteid = $(this).attr('data-id');
+	  var table = $(this).attr('table');
+	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this Collection?"
+
+	  //console.log(table);return false;
   
 	  // Confirm box
 	  bootbox.confirm({
-	message:"Do you really want to delete this Offer?", 
+	message:message, 
 	buttons: { 
 
 	confirm: {
@@ -1385,12 +1389,11 @@ $(document).ready(function(){
 			 headers: {
 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   },
-			 data: { id:deleteid },
+			 data: { id:deleteid,table:table },
 			 success: function(response){
 
 
 				console.log(response);
-
 				if(response==1){
 
 					$(this).parent().parent().parent().remove();

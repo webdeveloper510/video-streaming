@@ -688,9 +688,18 @@ class artist extends Controller
 
   public function deleteOfer(Request $req){
 
-    //print_r($req->all());die;
+          if($req['table']=='media'){
 
-    $delete = $this->model->deleteoffer($req->all());
+            $delete =$this->model->deleteCollection($req->all());
+          }
+
+          else{
+
+            $delete = $this->model->deleteoffer($req->all());
+
+          }
+
+    
 
     if($delete){
 

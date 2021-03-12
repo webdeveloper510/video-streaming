@@ -336,7 +336,7 @@
                             @endforeach
                           
                       </div>
-                      <div class="dropdown12 text-white" id="audio">
+                      <div class="dropdown12 text-white" id="audio" style="display:none">
                             @foreach($category as $cat)
                             @if($cat->type=='audio')
                    <label class=""> 

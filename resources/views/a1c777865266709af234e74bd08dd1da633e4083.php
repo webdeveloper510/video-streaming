@@ -352,7 +352,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                      <div class="dropdown12 text-white" id="audio">
+                      <div class="dropdown12 text-white" id="audio" style="display:none">
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='audio'): ?>
                    <label class=""> 
