@@ -5525,9 +5525,12 @@ i.fa.fa-shopping-cart {
 /*--------------------- Responsive css --------------------------*/
 @media only screen and (max-width: 768px) {
 	ul.nav.custom.search ul.subnav {
-		width: 100%;
+		width: 100% !important;
 		left: -34px;
 		background: #7b0000;
+	}
+	#search {
+		width: auto !important;
 	}
 .col-md-4.mb-4.logy {
     padding-left: 16px !important;
