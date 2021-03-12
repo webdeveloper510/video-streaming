@@ -1205,12 +1205,18 @@ $(document).on('submit', '#form_sub', function (event) {
 					if(data.status==1){
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
+						setTimeout(function(){
+							location.reload()
+						},2000);
 					}	
 					
 					else{
 
 						$('.show_alert').show();
 						$('.show_alert').html(data.message);
+						setTimeout(function(){
+							location.reload()
+						},2000);
 					}
 				
 			}
