@@ -2646,6 +2646,11 @@ public function getSocialInfo($type){
 
     }
 
+    public function deleteCollection($data){
+
+              return DB::table('media')->where('id',$data['id'])->delete();
+    }
+
     public function getRandomData(){
 
       $session_data =   Session::get('User');

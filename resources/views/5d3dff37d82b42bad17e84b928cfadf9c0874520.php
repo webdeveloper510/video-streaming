@@ -8,6 +8,26 @@
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
 
+  <!-- <div class="mobilebar">
+    <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <div class="logo">
+    <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
+						<img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+					</a>
+     </div>
+     <div class="subscrive">
+
+     </div>
+</div> -->
   <div class="header_bottom">
 
 		<div class="container">	
@@ -21,8 +41,7 @@
 					</button>
 
     
-                     <!----------------------------- search Menu --------------------->
-
+         <!----------------------------- search Menu --------------------->
 
 					<div class="search_meu">
 				
@@ -352,7 +371,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                      <div class="dropdown12 text-white" id="audio">
+                      <div class="dropdown12 text-white" id="audio" style="display:none">
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='audio'): ?>
                    <label class=""> 
@@ -755,6 +774,15 @@ button.btn.btn-warning.text-white {
 }
 
 </style>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
       //alert('rrr');
