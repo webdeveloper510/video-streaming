@@ -1207,9 +1207,6 @@ public function getRespectedSub($data){
     }
 
     public function getOffer(){
-
-
-
       return DB::table('offer')
       ->leftjoin('category','offer.categoryid','=','category.id')
       ->select('offer.*','category.category')
@@ -1231,8 +1228,14 @@ public function getRespectedSub($data){
          $data = $offer;
      }
      else{
-          $data = DB::table('offer')->where('id',$id)->get()->toArray();
+          $data = DB::table('offer')
+          ->join('category', 'category.id', '=', 'offer.categoryid')
+        ->join('contentprovider', 'contentprovider.id', '=', 'offer.artistid')
+         ->select('offer.*', 'category.category','contentprovider.nickname')
+          ->where('offer.id',$id)->get()->toArray();
      }
+
+    // print_r($data);
 
         return $data;
     }
@@ -2089,6 +2092,8 @@ public function getHistoryVideo(){
 public function getallOffer($flag){
         if($flag=='No'){
 
+          //echo "eee";
+
           return  DB::table('offer')
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
@@ -2099,6 +2104,8 @@ public function getallOffer($flag){
   else{
 
     $code = DB::table('offer')
+    ->leftjoin('category','offer.categoryid','=','category.id')
+    ->select('offer.*','category.category')
     ->where('by_created',1)
     ->paginate(3);
     return $code;

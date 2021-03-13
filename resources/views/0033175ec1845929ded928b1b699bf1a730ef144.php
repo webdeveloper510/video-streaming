@@ -168,13 +168,14 @@
             
                 </a>
                 <div class="edit">
-                <button class="btn btn-sm btn-info">Edit</button>
+                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>
-           
+            
                
               </div>
+             
               <?php if($detail->duration==''): ?>
           <script>
            var video;
@@ -215,11 +216,11 @@ Your browser does not support the audio tag.
 </audio>
 </a>
 <div class="edit">
-<button class="btn btn-sm btn-info">Edit</button>
+<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-
+   
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php else: ?>
 <div class="artistaudio">
@@ -610,6 +611,77 @@ Your browser does not support the audio tag.
 </div>
 </div>
 </div>
+ <!-- Modal -->
+ <div class="modal fade" id="media" tabindex="-1" aria-labelledby="mediaLabel">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Media</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form >
+                          <div class="row align-items-center text-white">
+                          
+                          <div class="col-md-6 mt-2 ">
+                          <?php echo e(Form::label('Title', 'Title')); ?> 
+                              <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
+
+                          </div>
+                      
+                          <div class="col-md-6 mt-2 ">
+                          <?php echo e(Form::label('Add Price', 'Price')); ?> 
+                          <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
+
+                          </div>
+                          <div class="col-md-6 mt-2 ">
+                        
+                            <div class="convert">
+                          <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+                        <select name="convert"  class='form-control'>
+                                  <option value="">Choose ...</option>
+                                  <option value="1">480p  </option>
+                                  <option value="2">HD 720p </option>
+                                  <option value="3">Full HD 1080p  </option>
+                          </select>
+                          </div>
+                          <select name="category" id="selectCategory" class='form-control my-5'>
+                                  <option value="">Choose Category</option>
+                                  <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                          </select>
+                          
+                          <div class="col-md-12 mt-3 text-white">
+                          <label class="media_label12">Audio/Video</label>
+                              <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
+
+                              <span id="filename" style="color:yellow;"></span>
+                          </div>
+                          <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                          <label>Choose Image</label>        
+                              <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                              <span id="filename" style="color:yellow;"></span>
+                          </div>
+                          </div>
+                          <div class="col-md-6 mt-3">
+                          <?php echo e(Form::label('Description', 'Description')); ?> 
+                              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
+
+                          </div>
+
+                      </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 <style>
 
 .col-md-4.mb-3.hover:hover {
@@ -644,7 +716,7 @@ Your browser does not support the audio tag.
 .edit {
     position: absolute;
     top: -1px;
-    right: 64px;
+    right: 13px;
 }
 .artistvideo {
     border: 2px dashed red;
