@@ -679,18 +679,22 @@ Your browser does not support the audio tag.
     margin-right: 7px;
 }
 .pricetime .text-right h6 {
-    background: white;
+    background: black;
     height: 30px;
     width: auto;
     float: right;
-    color: black !important;
+    color: white !important;
     padding: 7px;
 }
-
+@media only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 .pricetime .text-left h6 {
-    background: white;
+    background: black;
     padding: 5px;
-    color: black !important;
+    color: yellow !important;
 }
 .pricetime {
     position: relative;
