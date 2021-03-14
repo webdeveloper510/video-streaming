@@ -112,7 +112,7 @@
                      </div>
            <br>
            <div class="video" style="display:none">
-            <select name="category"  class='form-control'>
+            <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if($cat->type=='video'): ?>
@@ -123,7 +123,7 @@
             </select>
             </div>
             <div class="audio" style="display:none">
-            <select name="category"  class='form-control'>
+            <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if($cat->type=='audio'): ?>
@@ -187,6 +187,7 @@
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 
+            
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])); ?>
 
                  <?php if($errors->first('description')): ?>

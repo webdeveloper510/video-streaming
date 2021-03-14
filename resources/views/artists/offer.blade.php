@@ -177,6 +177,7 @@
               
             <div class="col-md-6 mt-5">
              {{Form::label('Description', 'Description')}} 
+            
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])}}
                  @if($errors->first('description'))
                 <div class="alert alert-danger">

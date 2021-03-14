@@ -513,6 +513,17 @@ $(document).on('click', '#checkPrice', function () {
 
 });
 
+$(document).on('click','.add_price',function(){
+
+	//$(this).val())
+	if($(this).val()=='Yes'){
+			$('.extra_price').show();
+	}
+	else{
+		$('.extra_price').hide();
+	}
+})
+
 $(document).on('click', '.create_list', function () {
 	var listname= $('.list').val();
 
@@ -2194,7 +2205,7 @@ if ($("#create_offer").length > 0) {
 			},
     submitHandler: function(form) {
 		//event.preventDefault();
-		var form  =  $("#myForm");
+		var form  =  $("#create_offer");
 		var formData = new FormData($(form)[0]);
 		
 		$('.loader').show();
@@ -2231,7 +2242,7 @@ if ($("#create_offer").length > 0) {
 	},
 	success: function(data){
 
-		console.log(data);
+		//console.log(data);return false;
 
 		if(data.errors){
 

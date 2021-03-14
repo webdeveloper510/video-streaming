@@ -65,7 +65,7 @@
           </div>
           <div class="col">
               <h3>Quality</h3>
-              <p><?php echo e($offerdata->quality); ?> px</p>
+              <p><?php echo e($offerdata->quality); ?> p</p>
           </div>
           <div class="col">
               <h3>Category</h3>
@@ -90,14 +90,17 @@
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small></h4>
+        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small>  <input type="radio" id="Yes" name="gender" value="Yes">
+              <label for="male">Yes</label>
+              <input type="radio" id="No" name="gender" value="No">
+              <label for="female">No</label></h4>
         <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])); ?>
 
 
         <br>
         <strong id="change_text"></strong>
         <div class="text-right mt-5">
-        <?php echo e(Form::submit('Pay !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
+        <?php echo e(Form::submit('Order Now !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
 
         </div>
         <?php echo e(Form::close()); ?>

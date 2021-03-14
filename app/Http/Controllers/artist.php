@@ -385,7 +385,7 @@ class artist extends Controller
 
         ]);
 
-        //print_r($req->all());die;
+        print_r($req->all());die;
               
         if ($validator->fails())
         {
