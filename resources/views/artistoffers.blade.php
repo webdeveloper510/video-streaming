@@ -88,7 +88,10 @@
           {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>1,'placeholder'=>'Duration'])}}
         </div>
         @endforeach
-        <h4>Additional Request <small>(Price: {{$GLOBALS['add_price']}}PAZ)</small></h4>
+        <h4>Additional Request <small>(Price: {{$GLOBALS['add_price']}}PAZ)</small>  <input type="radio" id="Yes" name="gender" value="Yes">
+              <label for="male">Yes</label>
+              <input type="radio" id="No" name="gender" value="No">
+              <label for="female">No</label></h4>
         {{Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])}}
 
         <br>
