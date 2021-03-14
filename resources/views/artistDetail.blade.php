@@ -469,5 +469,10 @@ ul.selected li {
      margin-top: 7px;
 }
 
+@media only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 </style>
 @include('layouts.footer')

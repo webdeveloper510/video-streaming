@@ -686,7 +686,11 @@ Your browser does not support the audio tag.
     color: black !important;
     padding: 7px;
 }
-
+@media only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 .pricetime .text-left h6 {
     background: white;
     padding: 5px;
