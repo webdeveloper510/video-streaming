@@ -89,7 +89,7 @@
          <h4><?php echo e($offer->price); ?>/min PAZ</h4>
          
          <div class="text-right mr-3">
-      <button class="btn btn-sm btn-light delete" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
+      <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
            </div>
         </div>
@@ -152,7 +152,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%"   controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%"  id="collection_<?php echo e($detail->id); ?>" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -170,12 +170,22 @@
                 <div class="edit">
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
                
-                <button class="btn btn-sm btn-light trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>
             
                
               </div>
              
+              <?php if($detail->duration==''): ?>
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#collection_"+"<?php echo e($detail->id); ?>");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
@@ -207,7 +217,7 @@ Your browser does not support the audio tag.
 </a>
 <div class="edit">
 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
-<button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
+<button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
    
@@ -430,12 +440,26 @@ Your browser does not support the audio tag.
 
                 <br>
             <label>Choose Category</label>
-            <select name="category" id="selectCategory" class='form-control'>
+            <div class="video" style="display:none">
+            <select name="category"  class='form-control video'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($cat->type=='video'): ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                      <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
+            </div>
+            <div class="audio" style="display:none">
+            <select name="category"  class='form-control audio'>
+                    <option value="">Choose category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='audio'): ?>
+                    <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+            </div>
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -638,10 +662,13 @@ Your browser does not support the audio tag.
                           </select>
                           </div>
                           <select name="category" id="selectCategory" class='form-control my-5'>
+                                
                                   <option value="">Choose Category</option>
+                                  <div class="video"> 
                                   <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                  </div>
                           </select>
                           
                           <div class="col-md-12 mt-3 text-white">
@@ -706,7 +733,7 @@ Your browser does not support the audio tag.
 .edit {
     position: absolute;
     top: -1px;
-    right: 64px;
+    right: 13px;
 }
 .artistvideo {
     border: 2px dashed red;
