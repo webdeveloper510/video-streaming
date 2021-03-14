@@ -63,7 +63,7 @@
             </select>
             </div>
             <div class="video" style="display:none">
-            <select name="category"  class='form-control my-5'>
+            <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     @foreach($category as $cat)
                         @if($cat->type=='video')
@@ -75,7 +75,7 @@
             </div>
 
             <div class="audio" style="display:none">
-            <select name="category"  class='form-control my-5'>
+            <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     @foreach($category as $cat)
                         @if($cat->type=='audio')

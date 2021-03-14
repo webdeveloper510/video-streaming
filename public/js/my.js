@@ -119,7 +119,7 @@ $(document).ready(function(){
 		'<p>'+d.quality+'p</p>'+
 		'</td>'+
 		'</tr>'+
-		'<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>'+
+		'<tr><td>Paid:</td><td class="Reward">'+d.price+'PAZ</td></tr>'+
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
@@ -2102,7 +2102,7 @@ if ($("#myForm").length > 0) {
 				//$('.percentage').hide();
 				if(response.status==1){
 					 $('#success').show();
-					 $('#success').html(data.messge);
+					 $('#success').html(response.messge);
 
 					 setTimeout(function(){
 						 location.reload();
@@ -2116,7 +2116,7 @@ if ($("#myForm").length > 0) {
 				else{
 
 					$('#error').show();
-					$('#error').html(data.messge);
+					$('#error').html(response.messge);
 					
 				}
 
