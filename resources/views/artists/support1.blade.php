@@ -1,7 +1,6 @@
 
 @include('layouts.header')
 
-
 <section class=" support1">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -246,8 +245,6 @@ li.nav-item a {
 .post p {
     padding-left: 60px;
 }
-
-
 
 .col-md-8 {
     border: 1px solid;

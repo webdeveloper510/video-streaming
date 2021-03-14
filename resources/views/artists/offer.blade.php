@@ -177,6 +177,10 @@
               
             <div class="col-md-6 mt-5">
              {{Form::label('Description', 'Description')}} 
+             <input type="radio" id="Yes" name="gender" value="Yes">
+              <label for="male">Yes</label>
+              <input type="radio" id="No" name="gender" value="No">
+              <label for="female">No</label>
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])}}
                  @if($errors->first('description'))
                 <div class="alert alert-danger">
