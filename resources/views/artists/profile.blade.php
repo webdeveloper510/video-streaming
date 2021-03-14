@@ -80,7 +80,7 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
-         <h4>{{$offer->price}}/min PAZ</h4>
+         <h4>{{$offer->price}}PAZ/min </h4>
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
