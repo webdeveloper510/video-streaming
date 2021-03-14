@@ -377,7 +377,7 @@ class artist extends Controller
             'quality'=>$req->type=='video'? 'required': '',
             'delieveryspeed'=>'required',
             'description'=>'required|max:2000',
-            'category'=>'required',
+            //'category'=>'required',
             'price'=>'required|max:50000',
             'min'=>'required|min:1',
             'max'=>'required|gt:min',
