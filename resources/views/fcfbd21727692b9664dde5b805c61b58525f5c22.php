@@ -52,9 +52,9 @@
              
                <div class="artist text-center">
                <?php if($artist->profilepicture): ?>
-               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+              
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-                <div class="overlay">
+                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"> <div class="overlay">
                   <?php echo e($artist->nickname); ?>
 
                </div></a>
