@@ -2102,7 +2102,7 @@ if ($("#myForm").length > 0) {
 				//$('.percentage').hide();
 				if(response.status==1){
 					 $('#success').show();
-					 $('#success').html(data.messge);
+					 $('#success').html(response.messge);
 
 					 setTimeout(function(){
 						 location.reload();
@@ -2116,7 +2116,7 @@ if ($("#myForm").length > 0) {
 				else{
 
 					$('#error').show();
-					$('#error').html(data.messge);
+					$('#error').html(response.messge);
 					
 				}
 

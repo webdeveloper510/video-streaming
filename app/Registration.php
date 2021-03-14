@@ -381,7 +381,7 @@ public function uploadContentProvider($contentdata){
     unset($contentdata['email']);
    
     $contentdata['contentProviderid']=$contentid;
-     $contentdata['catid']=$contentdata['category'];
+     $contentdata['catid']=$contentdata['category'][0];
     // $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
