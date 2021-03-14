@@ -380,11 +380,11 @@ Your browser does not support the audio tag.
   font-size:30px;
 }
 .pricetime .text-right h6 {
-    background: white;
+    background: black;
     height: 30px;
     width: auto;
     float: right;
-    color: black !important;
+    color: white !important;
     padding: 7px;
 }
 
@@ -392,6 +392,7 @@ Your browser does not support the audio tag.
   padding: 5px;
     color: gold !important;
     font-weight: 800;
+    background:black;
 }
 select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
