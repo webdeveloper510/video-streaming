@@ -24,10 +24,11 @@ width: 200px;
 position: absolute;
 padding: 10px;
 right: 151px;
-margin-top: -40px;
+margin-top: -13px;
 z-index: 99999999999 !important;
 display: none;
 }
+
 span.iconss:hover .data {
 display: block !important;
 }
@@ -67,7 +68,7 @@ color: black;
 width: 348px;
 position: absolute;
 padding: 10px;
-right: -11px;
+right: -5px;
 margin-top: -20px;
 z-index: 99999999999 !important;
 
@@ -80,7 +81,7 @@ width: 382px;
 position: absolute;
 padding: 10px;
 right: 108px;
-margin-top: -20px;
+margin-top: -3px;
 z-index: 99999999999 !important;
 
 display: none;
