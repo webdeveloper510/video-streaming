@@ -41,6 +41,10 @@
 	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">
         <tr>
+          <th>Category</th>
+          <td>{{$vid->category}}</td>
+        </tr>
+        <tr>
           <th>Media</th>
           <td>{{$vid->type=='video'? 'Video/mp4' :'Audio/mp3' }}</td>
         </tr>

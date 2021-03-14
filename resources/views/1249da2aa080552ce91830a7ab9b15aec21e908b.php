@@ -716,7 +716,7 @@ Your browser does not support the audio tag.
 .edit {
     position: absolute;
     top: -1px;
-    right: 64px;
+    right: 13px;
 }
 .artistvideo {
     border: 2px dashed red;

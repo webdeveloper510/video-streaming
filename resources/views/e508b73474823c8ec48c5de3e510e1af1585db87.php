@@ -41,6 +41,10 @@
 	      <hr class="cardhr">
 	      <table class="table table-borderless text-center">
         <tr>
+          <th>Category</th>
+          <td><?php echo e($vid->category); ?></td>
+        </tr>
+        <tr>
           <th>Media</th>
           <td><?php echo e($vid->type=='video'? 'Video/mp4' :'Audio/mp3'); ?></td>
         </tr>

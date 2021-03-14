@@ -1354,6 +1354,8 @@ public function seeall($flag){
       //$isActive = false;
 
       $videos = $this->model->getallOffer($paginate='yes');
+
+      //print_r($videos);die;
     }
 
     if($flag=='video'){

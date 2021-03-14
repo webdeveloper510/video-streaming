@@ -65,7 +65,7 @@
           </div>
           <div class="col">
               <h3>Quality</h3>
-              <p>{{$offerdata->quality}} px</p>
+              <p>{{$offerdata->quality}} p</p>
           </div>
           <div class="col">
               <h3>Category</h3>
@@ -94,7 +94,7 @@
         <br>
         <strong id="change_text"></strong>
         <div class="text-right mt-5">
-        {{ Form::submit('Pay !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit']) }}
+        {{ Form::submit('Order Now !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit']) }}
         </div>
         {{ Form::close() }}
         </div>
