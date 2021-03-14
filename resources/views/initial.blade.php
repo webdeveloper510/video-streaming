@@ -54,9 +54,9 @@
                @if($artist->profilepicture)
               
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-                <a href="{{url('artistDetail/'.$artist->id)}}"> <div class="overlay">
-                  {{$artist->nickname}}
-               </div></a>
+                <a href="{{url('artistDetail/'.$artist->id)}}" class="overlay">
+                <a href="{{url('artistDetail/'.$artist->id)}}"class="tag">{{$artist->nickname}}</a>
+              </a>
                @else
                <a href="{{url('artistDetail/'.$artist->id)}}">
 		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
@@ -440,9 +440,9 @@
                <div class="artist text-center">
                @if($artist->profilepicture)
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-                <div class="overlay">
-                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}
-               </div>
+                <a href="{{url('artistDetail/'.$artist->id)}}" class="overlay">
+                  <a href="{{url('artistDetail/'.$artist->id)}}" class="tag">{{$artist->nickname}}</a>
+               </a>
                @else
                <a href="{{url('artistDetail/'.$artist->id)}}">
 		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
@@ -486,6 +486,17 @@
   }
   .artist.text-center:hover .overlay {
     opacity: 0.7;
+}
+a.tag {
+    text-align: center;
+    position: absolute;
+    top: 41%;
+    right: 0;
+    display: none;
+    left: 0;
+}
+.artist.text-center:hover a.tag {
+  display:block !important;
 }
   .overlay {
     position: absolute;
