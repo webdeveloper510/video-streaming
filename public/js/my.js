@@ -515,12 +515,19 @@ $(document).on('click', '#checkPrice', function () {
 
 $(document).on('click','.add_price',function(){
 
+	var total = $('#offer_pay').val();
+	var add_price = $('#additional').val()
+
 	//$(this).val())
 	if($(this).val()=='Yes'){
 			$('.extra_price').show();
+			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
 	}
 	else{
+
 		$('.extra_price').hide();
+		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
+
 	}
 })
 

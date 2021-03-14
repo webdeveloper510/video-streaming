@@ -91,7 +91,7 @@
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small>
-        <input type="radio" id="Yes" class="add_price" name="gender" value="Yes">
+        <input type="radio" id="Yes" class="add_price" name="gender"  value="Yes">
               <label for="male">Yes</label>
               <input type="radio" id="No" class="add_price" name="gender" value="No">
               <label for="female">No</label><h4>  
