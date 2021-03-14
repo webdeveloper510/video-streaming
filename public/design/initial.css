@@ -62,7 +62,8 @@ a.btn, button.btn {
 }
 .pricetime .text-left h6 {
     font-weight: bold;
-    color:yellow !important
+    color:yellow !important;
+    background:black;
 }
 
 .pricetime .text-left {

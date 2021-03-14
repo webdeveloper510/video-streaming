@@ -562,7 +562,7 @@ h4.card-title.text-center {
 .hover:hover video{ border: 2px solid yellow; }
 h5{ color :#fff;}
 .pricetime {
-    margin-top: -30px;
+    margin-top: -35px;
 }
 @media only screen and (max-width: 768px) {
 
