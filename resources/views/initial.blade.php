@@ -52,10 +52,11 @@
              
                <div class="artist text-center">
                @if($artist->profilepicture)
+               <a href="{{url('artistDetail/'.$artist->id)}}">
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
                 <div class="overlay">
-                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}
-               </div>
+                  {{$artist->nickname}}
+               </div></a>
                @else
                <a href="{{url('artistDetail/'.$artist->id)}}">
 		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
