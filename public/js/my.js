@@ -1910,163 +1910,10 @@ $(document).on('click','.select_media_pic',function(){
 			}
 })
 
-$(document).on('submit', '#myForm', function (event) {
-	event.preventDefault();
-	var formData = new FormData($(this)[0]);
-	$('.loader').show();
-	$('.percentage').html('0');
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/postContent",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },				
-			data: formData,
-			processData: false,
-			contentType: false,
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				if (xhr.upload) {
-					xhr.upload.addEventListener('progress', function(event) {
-						var percent = 0;
-						var position = event.loaded || event.position;
-						var total = event.total;
-						if (event.lengthComputable) {
-							percent = Math.ceil(position / total * 100);
-						}
-						$('.percentage').html(percent+'%');
-						if(percent==100){
-							$('.loader').hide();
-						}
-					}, true);
-				}
-				return xhr;
-		},
 
-			success: function(data){
-
-				if(data.errors){
-
-					jQuery.each(data.errors, function(key, value){
-						jQuery('.alert-danger').show();
-						jQuery('.alert-danger').append('<p>'+value+'</p>');
-					});
-				}
-				else{
-				$('.loader').hide();
-				//$('.percentage').hide();
-				if(data.status==1){
-					 $('#success').show();
-					 $('#success').html(data.messge);
-
-					 setTimeout(function(){
-						 location.reload();
-					 },2000);
-
-					// location.reload();
-					//$('.popup_close').trigger('click');
-						
-				}
-
-				else{
-
-					$('#error').show();
-					$('#error').html(data.messge);
-					
-				}
-
-
-			}
-		}
-	});
-
-});
 
 
 /** -------------------------------------------------Upload New Offer ---------------------------------------------------------*/
-
-
-
-
-
-$(document).on('submit', '#create_offer', function (event) {
-	event.preventDefault();
-	var formData = new FormData($(this)[0]);
-	$('.loader').show();
-	$('.percentage').html('0');
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/createOffer",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-
-			data: formData,
-			processData: false,
-			contentType: false,
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				if (xhr.upload) {
-					xhr.upload.addEventListener('progress', function(event) {
-						var percent = 0;
-						var position = event.loaded || event.position;
-						var total = event.total;
-						if (event.lengthComputable) {
-							percent = Math.ceil(position / total * 100);
-						}
-						//update progressbar
-						$('.percentage').html(percent+'%');
-					//	$(progress_bar_id + " .status").text(percent +"%");
-					}, true);
-				}
-				return xhr;
-		},
-
-			success: function(data){
-
-				console.log(data);
-
-				if(data.errors){
-
-				jQuery.each(data.errors, function(key, value){
-					jQuery('.alert-danger').show();
-					jQuery('.alert-danger').append('<p>'+value+'</p>');
-				});
-			}
-
-			else{
-
-				$('.loader').hide();
-				//console.log(data);return false;
-
-				if(data.status==1){
-					 $('#success').show();
-					 $('#success').html(data.messge);
-
-					 setTimeout(function(){
-						 location.reload()
-					 },2000);
-
-					 //location.reload();
-					//$('.popup_close').trigger('click');
-						
-				}
-
-				else{
-
-					$('#error').show();
-					$('#error').html(data.messge);
-					
-				}
-
-
-			}
-		}
-	});
-
-});
 
 $(function() {
     $('a[data-toggle="tab"]').on('click', function(e) {
@@ -2156,6 +2003,249 @@ if ($("#social_media").length > 0) {
 				   
 			   }
         }
+      });
+    }
+  })
+}
+
+if ($("#myForm").length > 0) {
+    $("#myForm").validate({
+      
+		rules: {
+			title: {
+			required: true,
+			maxlength: 30
+		},
+		convert: {
+			required: true,
+			
+		 },
+		 category: {
+			required: true,
+		 },
+		 description: {
+			required: true,
+			maxlength: 2000
+		},
+		},
+			messages: {
+				title: {
+				required: "Please Add Title",
+				maxlength:'Character may be less than 30'
+
+			},
+			category: {
+				required: "Choose Quality",
+			  },
+
+			  convert: {
+				required: "Choose Category",
+			  },
+
+			  description: {
+				required: "Please Add Description",
+				maxlength:'Character may be less than 2000'
+			},
+		
+			},
+    submitHandler: function(form) {
+		//event.preventDefault();
+		var form  =  $("#myForm");
+		var formData = new FormData($(form)[0]);
+		
+		$('.loader').show();
+		$('.percentage').html('0');
+     $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+      $.ajax({
+		url:APP_URL+"/postContent",
+        type: "POST",
+		data: formData,
+		processData: false,
+		contentType: false,
+		xhr: function () {
+			var xhr = $.ajaxSettings.xhr();
+			if (xhr.upload) {
+				xhr.upload.addEventListener('progress', function(event) {
+					var percent = 0;
+					var position = event.loaded || event.position;
+					var total = event.total;
+					if (event.lengthComputable) {
+						percent = Math.ceil(position / total * 100);
+					}
+					$('#top_title').html('Uploding...'+percent+'%');
+					$('.percentage').html(percent+'%');
+					if(percent==100){
+						$('.loader').hide();
+					}
+				}, true);
+			}
+			return xhr;
+	},
+        success: function( response ) {
+
+			//console.log(response);return false;
+
+			
+			if(response.errors){
+
+				jQuery.each(response.errors, function(key, value){
+					jQuery('.alert-danger').show();
+					jQuery('.alert-danger').append('<p>'+value+'</p>');
+				});
+			}
+			else{
+				$('.loader').hide();
+				//$('.percentage').hide();
+				if(response.status==1){
+					 $('#success').show();
+					 $('#success').html(data.messge);
+
+					 setTimeout(function(){
+						 location.reload();
+					 },2000);
+
+					// location.reload();
+					//$('.popup_close').trigger('click');
+						
+				}
+
+				else{
+
+					$('#error').show();
+					$('#error').html(data.messge);
+					
+				}
+
+
+			}
+        }
+      });
+    }
+  })
+}
+
+
+if ($("#create_offer").length > 0) {
+    $("#create_offer").validate({
+      
+		rules: {
+			title: {
+			required: true,
+			maxlength: 30
+		},
+		quality: {
+			required: true,
+			
+		 },
+		 category: {
+			required: true,
+		 },
+		 description: {
+			required: true,
+			maxlength: 2000
+		},
+		},
+			messages: {
+				title: {
+				required: "Please Add Title",
+				maxlength:'Character may be less than 30'
+
+			},
+			quality: {
+				required: "Choose Quality",
+			  },
+
+			  category: {
+				required: "Choose Category",
+			  },
+
+			  description: {
+				required: "Please Add Description",
+				maxlength:'Character may be less than 2000'
+			},
+		
+			},
+    submitHandler: function(form) {
+		//event.preventDefault();
+		var form  =  $("#myForm");
+		var formData = new FormData($(form)[0]);
+		
+		$('.loader').show();
+		$('.percentage').html('0');
+     $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+      $.ajax({
+		url:APP_URL+"/createOffer",
+        type: "POST",
+		data: formData,
+		processData: false,
+		contentType: false,
+		xhr: function () {
+			var xhr = $.ajaxSettings.xhr();
+			if (xhr.upload) {
+				xhr.upload.addEventListener('progress', function(event) {
+					var percent = 0;
+					var position = event.loaded || event.position;
+					var total = event.total;
+					if (event.lengthComputable) {
+						percent = Math.ceil(position / total * 100);
+					}
+					$('#top_title').html('Uploding...'+percent+'%');
+					$('.percentage').html(percent+'%');
+					if(percent==100){
+						$('.loader').hide();
+					}
+				}, true);
+			}
+			return xhr;
+	},
+	success: function(data){
+
+		console.log(data);
+
+		if(data.errors){
+
+		jQuery.each(data.errors, function(key, value){
+			jQuery('.alert-danger').show();
+			jQuery('.alert-danger').append('<p>'+value+'</p>');
+		});
+	}
+
+	else{
+
+		$('.loader').hide();
+		//console.log(data);return false;
+
+		if(data.status==1){
+			 $('#success').show();
+			 $('#success').html(data.messge);
+
+			 setTimeout(function(){
+				 location.reload()
+			 },2000);
+
+			 //location.reload();
+			//$('.popup_close').trigger('click');
+				
+		}
+
+		else{
+
+			$('#error').show();
+			$('#error').html(data.messge);
+			
+		}
+
+
+	}
+}
       });
     }
   })
