@@ -54,10 +54,9 @@
                <?php if($artist->profilepicture): ?>
               
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"> <div class="overlay">
-                  <?php echo e($artist->nickname); ?>
-
-               </div></a>
+                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>" class="overlay">
+                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
+              </a>
                <?php else: ?>
                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
 		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
@@ -441,10 +440,9 @@
                <div class="artist text-center">
                <?php if($artist->profilepicture): ?>
                 <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-                <div class="overlay">
-                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?>
-
-               </div>
+                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>" class="overlay">
+                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>" class="tag"><?php echo e($artist->nickname); ?></a>
+               </a>
                <?php else: ?>
                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
 		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
@@ -488,6 +486,17 @@
   }
   .artist.text-center:hover .overlay {
     opacity: 0.7;
+}
+a.tag {
+    text-align: center;
+    position: absolute;
+    top: 41%;
+    right: 0;
+    display: none;
+    left: 0;
+}
+.artist.text-center:hover a.tag {
+  display:block !important;
 }
   .overlay {
     position: absolute;
