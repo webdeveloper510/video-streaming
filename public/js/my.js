@@ -1527,9 +1527,11 @@ function edit_offer(data){
 		$('#price').val(json_info.price);
 		$('#speed').val(json_info.delieveryspeed);
 		$('#description').val(json_info.description);
+		$('.'+json_info.type).show();
 		$('#select_status').val(json_info.offer_status).attr("selected","selected");
 		$('#quality').val(json_info.quality).attr("selected","selected");
-		$('#selectCategory').val(json_info.categoryid).attr("selected","selected");;
+
+		$('.'+json_info.type).val(json_info.categoryid).attr("selected","selected");;
 	//alert('helo');
 	//$('#myModal').modal('show');
 }
@@ -1882,6 +1884,7 @@ $(document).on('click','.select_media_pic',function(){
 
 		
 			var value = $(this).val();
+			
 
 			if(value=='audio'){
 
@@ -1889,6 +1892,8 @@ $(document).on('click','.select_media_pic',function(){
 					$('.media_label12').text('Audio Sample');
 					$('.audio_picture').show();
 					$('.convert').hide();
+					$('.audio').show()
+					$('.video').hide()
 
 			}
 			else{
@@ -1899,8 +1904,9 @@ $(document).on('click','.select_media_pic',function(){
 
 
 				$('.media_label').text('Upload Sample Video (~30s)');
-
+				$('.audio').hide()
 				$('.convert').show();
+				$('.video').show()
 			}
 })
 

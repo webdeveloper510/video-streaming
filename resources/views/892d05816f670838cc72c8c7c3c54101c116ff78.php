@@ -66,12 +66,29 @@
                     <option value="3">Full HD 1080p  </option>
             </select>
             </div>
-            <select name="category" id="selectCategory" class='form-control my-5'>
+            <div class="video" style="display:none">
+            <select name="category"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($cat->type=='video'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  
             </select>
+            </div>
+
+            <div class="audio" style="display:none">
+            <select name="category"  class='form-control my-5'>
+                    <option value="">Choose Category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($cat->type=='audio'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                   
+            </select>
+            </div>
             
             <div class="col-md-12 mt-3 text-white">
             <label class="media_label12">Audio/Video</label>
