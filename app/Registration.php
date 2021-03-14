@@ -2098,6 +2098,7 @@ public function getallOffer($flag){
           return  DB::table('offer')
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
+          ->where('offer.offer_status','online')
           ->take(3)
           ->get()
           ->toArray();
