@@ -2098,6 +2098,7 @@ public function getallOffer($flag){
           return  DB::table('offer')
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
+          ->where('offer.offer_status','online')
           ->take(3)
           ->get()
           ->toArray();
@@ -2108,7 +2109,7 @@ public function getallOffer($flag){
     ->leftjoin('category','offer.categoryid','=','category.id')
     ->select('offer.*','category.category')
     ->where('by_created',1)
-    ->paginate(3);
+    ->paginate(30);
     return $code;
   }
 }

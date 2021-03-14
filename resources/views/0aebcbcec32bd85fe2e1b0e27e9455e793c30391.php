@@ -19,7 +19,7 @@
     <div class="col-md-4 showoffer1 mb-3">
     <a href="<?php echo e(url('artistoffers/'.$vid->id)); ?>">
 
-      <div class="card">
+      <div class="card" style="<?php echo e($vid->offer_status=='offline' ? 'display:none' : 'display:block'); ?>">
         <?php if($vid->type=='video'): ?>
       <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
