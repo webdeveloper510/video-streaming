@@ -441,7 +441,7 @@ Your browser does not support the audio tag.
                 <br>
             <label>Choose Category</label>
             <div class="video" style="display:none">
-            <select name="category"  class='form-control video'>
+            <select name="category[]"  class='form-control video'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($cat->type=='video'): ?>
@@ -451,7 +451,7 @@ Your browser does not support the audio tag.
             </select>
             </div>
             <div class="audio" style="display:none">
-            <select name="category"  class='form-control audio'>
+            <select name="category[]"  class='form-control audio'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <?php if($cat->type=='audio'): ?>

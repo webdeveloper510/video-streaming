@@ -425,7 +425,7 @@ Your browser does not support the audio tag.
                 <br>
             <label>Choose Category</label>
             <div class="video" style="display:none">
-            <select name="category"  class='form-control video'>
+            <select name="category[]"  class='form-control video'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                     @if($cat->type=='video')
@@ -435,7 +435,7 @@ Your browser does not support the audio tag.
             </select>
             </div>
             <div class="audio" style="display:none">
-            <select name="category"  class='form-control audio'>
+            <select name="category[]"  class='form-control audio'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                           @if($cat->type=='audio')
