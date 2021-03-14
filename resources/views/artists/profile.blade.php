@@ -424,12 +424,26 @@ Your browser does not support the audio tag.
                 {{Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])}}
                 <br>
             <label>Choose Category</label>
-            <select name="category" id="selectCategory" class='form-control'>
+            <div class="video" style="display:none">
+            <select name="category"  class='form-control video'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
+                    @if($cat->type=='video')
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
+                      @endif
                     @endforeach
             </select>
+            </div>
+            <div class="audio" style="display:none">
+            <select name="category"  class='form-control audio'>
+                    <option value="">Choose category</option>
+                    @foreach($category as $cat)
+                          @if($cat->type=='audio')
+                    <option value="{{$cat->id}}">{{$cat->category}}</option>
+                        @endif
+                    @endforeach
+            </select>
+            </div>
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -616,10 +630,13 @@ Your browser does not support the audio tag.
                           </select>
                           </div>
                           <select name="category" id="selectCategory" class='form-control my-5'>
+                                
                                   <option value="">Choose Category</option>
+                                  <div class="video"> 
                                   @foreach($category as $cat)
                                       <option value="{{$cat->id}}">{{$cat->category}}</option>
                                   @endforeach
+                                  </div>
                           </select>
                           
                           <div class="col-md-12 mt-3 text-white">

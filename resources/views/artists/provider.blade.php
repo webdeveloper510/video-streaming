@@ -62,12 +62,29 @@
                     <option value="3">Full HD 1080p  </option>
             </select>
             </div>
-            <select name="category" id="selectCategory" class='form-control my-5'>
+            <div class="video" style="display:none">
+            <select name="category"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     @foreach($category as $cat)
-                        <option value="{{$cat->id}}">{{$cat->category}}</option>
-                    @endforeach
+                        @if($cat->type=='video')
+                            <option value="{{$cat->id}}">{{$cat->category}}</option>
+                        @endif
+                        @endforeach
+                  
             </select>
+            </div>
+
+            <div class="audio" style="display:none">
+            <select name="category"  class='form-control my-5'>
+                    <option value="">Choose Category</option>
+                    @foreach($category as $cat)
+                        @if($cat->type=='audio')
+                            <option value="{{$cat->id}}">{{$cat->category}}</option>
+                            @endif
+                        @endforeach
+                   
+            </select>
+            </div>
             
             <div class="col-md-12 mt-3 text-white">
             <label class="media_label12">Audio/Video</label>
