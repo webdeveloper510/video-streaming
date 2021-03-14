@@ -65,7 +65,7 @@
           </div>
           <div class="col">
               <h3>Quality</h3>
-              <p><?php echo e($offerdata->quality); ?> px</p>
+              <p><?php echo e($offerdata->quality); ?> p</p>
           </div>
           <div class="col">
               <h3>Category</h3>
@@ -97,7 +97,7 @@
         <br>
         <strong id="change_text"></strong>
         <div class="text-right mt-5">
-        <?php echo e(Form::submit('Pay !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
+        <?php echo e(Form::submit('Order Now !',['class'=>'btn btn-primary mb-5 btn-lg', 'name'=>'submit'])); ?>
 
         </div>
         <?php echo e(Form::close()); ?>

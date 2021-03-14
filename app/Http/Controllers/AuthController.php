@@ -12,6 +12,8 @@ use View;
 
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -45,6 +47,7 @@ class AuthController extends Controller
 {
 
   private $model;
+  
 
     public function __construct(Request $request, Redirector $redirect)
     {
