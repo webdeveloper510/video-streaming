@@ -576,7 +576,7 @@ class AuthController extends Controller
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
-      'category'=>'required', 
+      //'category'=>'required', 
       'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
