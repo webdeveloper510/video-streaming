@@ -55,7 +55,7 @@
               
                 <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
                 <a href="{{url('artistDetail/'.$artist->id)}}" class="overlay">
-                <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
+                <a href="{{url('artistDetail/'.$artist->id)}}"class="tag">{{$artist->nickname}}</a>
               </a>
                @else
                <a href="{{url('artistDetail/'.$artist->id)}}">
