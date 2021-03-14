@@ -103,12 +103,28 @@
                          </div>
                      </div>
            <br>
-            <select name="category" id="selectCategory" class='form-control'>
+           <div class="video" style="display:none">
+            <select name="category"  class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
+                      @if($cat->type=='video')
                         <option value="{{$cat->id}}">{{$cat->category}}</option>
+                        @endif
                     @endforeach
+                  
             </select>
+            </div>
+            <div class="audio" style="display:none">
+            <select name="category"  class='form-control'>
+                    <option value="">Choose category</option>
+                    @foreach($category as $cat)
+                      @if($cat->type=='audio')
+                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+                        @endif
+                    @endforeach
+                
+            </select>
+            </div>
             <br>
             <label>Offer Status</label>
             <select name="offer_status"  class='form-control'>
@@ -205,6 +221,17 @@
 }
 .radiobtn{
   display:inline-flex;
+}
+
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
 }
 
 .custom-file-label {

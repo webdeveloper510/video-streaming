@@ -715,7 +715,7 @@
                         {{Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])}}
                         <span id="filename" style="color:red;"></span>
                           {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])}}
-                          <div class="alert alert-danger d-none">{{$errors->first('media') ?  $errors->first('media') : ''}}</div>
+                          <!-- <div class="alert alert-danger d-none">{{$errors->first('media') ?  $errors->first('media') : ''}}</div> -->
                           <small>Upload social media friendly content here</small>
                         </div>
                     </div>
