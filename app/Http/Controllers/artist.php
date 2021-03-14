@@ -407,7 +407,7 @@ class artist extends Controller
               unset($data['_token']);
               $data['media']=$fileName;
               $data['quality']= $req->quality ? $req->quality : '';
-              $data['categoryid']=$req->category;
+              $data['categoryid']=$req->category[0];
               $data['type']=  $data['type'];
               $data['audio_pic'] = $audio_pics;
                 if($filePath){

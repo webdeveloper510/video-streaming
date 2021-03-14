@@ -743,11 +743,12 @@ public function getRespectedSub($data){
       $userid=  $session_data->id;
       
       $data = \DB::table("offer")
-      ->select("contentprovider.nickname","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("contentprovider","contentprovider.id","=","offer.artistid")
+      ->join('reserved_tokens','reserved_tokens.Offermediaid','=','offer.id')
       ->where('offer.userid',$userid)
-      ->groupBy("offer.id","offer.title","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","offer.status","contentprovider.nickname");
+      ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","offer.status","contentprovider.nickname");
      
        
       if ($sts) {
@@ -978,7 +979,7 @@ public function getRespectedSub($data){
               'title'=>$data['title'],
               'price'=>$data['price'],
               'description'=>$data['description'],
-              'categoryid'=>$data['category'],
+              'categoryid'=>$data['category'][0],
               'min'=>$data['min'],
               'max'=>$data['max'],
               'type'=>$data['type'],
