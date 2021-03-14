@@ -131,7 +131,25 @@ tr.shown td.details-control {
     </div>
 </div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="download" tabindex="-1" aria-labelledby="downloadLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="downloadLabel"> Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+         <p>The media has not been delivered yet,
+please remain patient. Thank You!</p>
+          <button type="button" class="btn btn-outline-primary">Okay</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
       
 <div class="modal fade" id="descri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

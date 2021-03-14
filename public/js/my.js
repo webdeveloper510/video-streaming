@@ -93,9 +93,13 @@ $(document).ready(function(){
 
 		var original_media = d.deliever_media;
 
+		var folder = d.type=='video' ? 'video' :'audio';
+
+		var existMedia = d.deliever_media ? storage_url+'/'+folder+'/'+original_media :'';
+
 		
 
-		var folder = d.type=='video' ? 'video' :'audio';
+	
 
 		return '<div class="offer">'+
 		'<div class="row">'+
@@ -123,12 +127,13 @@ $(document).ready(function(){
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
-		'<a href='+storage_url+'/'+folder+'/'+original_media+' download><button type="button"class="btn btn-primary">Download</button></a>'+
+		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>'+
 		'</div>'+
 		'</div>'+
 		'</div>'+
 		'</div>';
 	}
+
 
 	
 	//console.log('yes');
@@ -220,6 +225,18 @@ function pause(a){
 	var video = a;
 	video.currentTime=0;
 	video.pause();
+}
+
+function download1(a){
+	var anchor = $(a).prev().attr('href');
+	if(anchor)
+	{
+		$('#hash')[0].click();
+	}
+	else{
+		$("#download").addClass('show');
+	}
+
 }
 function playVideo(a){
 
