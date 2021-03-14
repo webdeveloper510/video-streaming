@@ -471,6 +471,11 @@ ul.selected li {
      margin-top: 7px;
 }
 
+@media  only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 </style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>
