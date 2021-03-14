@@ -119,7 +119,7 @@ $(document).ready(function(){
 		'<p>'+d.quality+'p</p>'+
 		'</td>'+
 		'</tr>'+
-		'<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>'+
+		'<tr><td>Paid:</td><td class="Reward">'+d.price+'PAZ</td></tr>'+
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
