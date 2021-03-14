@@ -69,13 +69,19 @@ a.btn, button.btn {
     float: left;
     padding-left: 10px;
 }
-.pricetime .text-right h6{
+.pricetime .text-right h6 {
+    background: black;
+    padding: 5px;
     font-weight: bold !important;
 }
+.col-md-4.hover h5 {
+    float: left;
+    width: 100%;
+}
 .pricetime .text-right {
-    margin-top: -31px;
+
+    float: right;
     margin-right: 29px;
-   
 }
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;
