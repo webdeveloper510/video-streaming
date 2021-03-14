@@ -190,7 +190,7 @@
                        
                         </div>
                       
-                             <div class="dropdown1 text-white">
+                             <div class="dropdown1 audio12 text-white">
                            <h4 >Duration</h4>
                             <label>  
                            {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
@@ -201,19 +201,37 @@
               
                           
                           </label>
-                          </div>
+                          <!-- Modal -->
+                          <div class="collapse pt-4" id="audio123">
+                                        <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                                 <label>Gender</label><br>
+                                                    {{Form::checkbox('gender[]','Male')}}Male <br>
+                                                    {{Form::checkbox('gender[]','Female')}}Female <br>
+                                                   {{Form::checkbox('gender[]','Trans')}}Trans 
+                                                  </div>
+                                              <div class="col-md-12 mb-4">
+                                              <label>Sexology</label><br>
+                                                  {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
+                                                 {{Form::checkbox('sexology[]','Homo')}}Homo <br>
+                                                   {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
+                                               </div>
+                                        </div>
+                                  </div>
+                                </div>
                           </div>
                           <div class="col-md-6">
                               
                            </div>
                             <div class="col-md-12 pr-5 text-right">
+                            <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" >
                        {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                       {{ Form::close() }}
                      </div> 
                             </div>
                            
                       </div>
-
+                      
 
                         <!-- -------------------------- 3rd Tab  Start--------------------------->
 
@@ -678,6 +696,10 @@
 
 </header>
 <style>
+.dropdown1.audio12.text-white {
+    height: 107px;
+    overflow-y: scroll;
+}
 .col-md-4.subss img {
     width: 60px;
     height: 60px;

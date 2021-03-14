@@ -150,6 +150,17 @@
     background: transparent !important;
 }
 
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
+}
+
 .loader img {
     background: #ffffff61;
     /* border-radius: 50%; */
