@@ -2108,7 +2108,7 @@ public function getallOffer($flag){
     ->leftjoin('category','offer.categoryid','=','category.id')
     ->select('offer.*','category.category')
     ->where('by_created',1)
-    ->paginate(3);
+    ->paginate(30);
     return $code;
   }
 }
