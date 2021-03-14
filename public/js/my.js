@@ -149,6 +149,12 @@ $(document).ready(function(){
 			 { 'data': 'title' },
 			 { 'data': 'type' },
 			 { 'data': 'choice' },
+			 { 
+				'data': 'remaining_days',
+				render: function ( data, type, row ) {
+				   return  data < 0 ? 'Expired': data+' Days';
+			}
+				},
 			
 			 { 'data': 'nickname' },
 			 { 'data': 'status' }
@@ -1818,7 +1824,7 @@ $(document).ready(function() {
 				 'data': 'remaining_days',
 				 render: function ( data, type, row ) {
 					return  data < 0 ? 'Expired': data+' Days';
-				}
+			 }
 				 }
 		 ],
 	   //  'order': [[1, 'asc']]
