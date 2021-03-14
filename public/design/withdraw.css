@@ -4,6 +4,7 @@
 margin-top: 18% !important;
 
 }
+
 span.iconss {
 vertical-align: super;
 font-size: 14px;
@@ -24,10 +25,11 @@ width: 200px;
 position: absolute;
 padding: 10px;
 right: 151px;
-margin-top: -40px;
+margin-top: -13px !important;
 z-index: 99999999999 !important;
 display: none;
 }
+
 span.iconss:hover .data {
 display: block !important;
 }
@@ -67,8 +69,8 @@ color: black;
 width: 348px;
 position: absolute;
 padding: 10px;
-right: -11px;
-margin-top: -20px;
+right: -5px;
+margin-top: -5px !important;
 z-index: 99999999999 !important;
 
 display: none;
@@ -80,7 +82,7 @@ width: 382px;
 position: absolute;
 padding: 10px;
 right: 108px;
-margin-top: -20px;
+margin-top: -3px !important;
 z-index: 99999999999 !important;
 
 display: none;
