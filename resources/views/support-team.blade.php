@@ -157,8 +157,19 @@
   <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
-   <div class="opentickettext">
-       <div class="row">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-secondary active">
+                    <input type="radio" name="options" id="option1" checked> New
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="options" id="option2"> Open
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="options" id="option3"> Closed
+                </label>
+                </div>
+            <div class="opentickettext">
+               <div class="row">
     
             <div class="col-7">
             <a href="#" data-toggle="modal" data-target="#chat">

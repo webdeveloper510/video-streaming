@@ -115,8 +115,7 @@
                 border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
                <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?><br>
-               <?php echo e(Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?>
-
+               <span class="discount"><?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?></span>
                 
               </div>
 
