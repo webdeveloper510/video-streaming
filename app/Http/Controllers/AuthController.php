@@ -424,7 +424,7 @@ class AuthController extends Controller
          }
 
          else{
-
+              //print_r($request->all());die;
             $get = $this->artistPost($request);
          }
 
