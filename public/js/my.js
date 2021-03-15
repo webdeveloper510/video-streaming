@@ -13,6 +13,8 @@ $('.rad_But').click(function(){
 
 $(document).on('click', '.user', function () {
 
+	$(this).val()=='users' ? $('.discount').show() : $('.discount').hide();
+
     if($(this).hasClass("imChecked")){
 
       $(this).prop('checked', false);
@@ -1047,9 +1049,10 @@ $(document).on('click', '#forgetLink', function () {
 
 					if(data==1){
 
+						$('.show_message').show();
 						
 						
-						//$('.show_message').html('Please Check your Email');
+						$('.show_message').html('Please check email inbox/spam folder');
 					}
 
 
