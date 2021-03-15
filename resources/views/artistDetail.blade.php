@@ -379,15 +379,15 @@ Your browser does not support the audio tag.
 }
 .pricetime .text-right h6 {
     background: black;
-    height: 30px;
+   
     width: auto;
     float: right;
     color: white !important;
-    padding: 7px;
+    padding: 10px;
 }
 
 .pricetime .text-left h6 {
-  padding: 5px;
+  padding: 10px;
     color: gold !important;
     font-weight: 800;
     background:black;
