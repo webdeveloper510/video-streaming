@@ -411,13 +411,35 @@ function readURL1(input){
 }
 
 $(document).on('keyup change', '#change_duration', function () {
-	var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val()); 
+	var pay_price = $(this).attr('data-id') * $(this).val(); 
 	
-	$('#offer_pay').val(pay_price);
-	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ" + "+ "+ "<span class='new_additional'>Addtioanl Price"+" "+$('#additional').val()+" = "+ " "+pay_price+ " "+"PAZ</span>");
+	$('#offer_pay').val($(this).attr('data-id') * $(this).val());
+	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ");
 
 	console.log(pay_price);     
 });
+
+$(document).on('click','.add_price',function(){
+
+	var total = $('#offer_pay').val();
+	var add_price = $('#additional').val()
+
+	//$(this).val())
+	if($(this).val()=='Yes'){
+			$('.extra_price').show();
+			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
+			$('#change_text').append('<span class="price_add">+Additional Price='+add_price+'</span>')
+
+	}
+	else{
+
+		$('.extra_price').hide();
+		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
+		$('.price_add').html('');
+
+
+	}
+})
 
 
 $(document).on('click','.additional_price',function(){
@@ -515,28 +537,7 @@ $(document).on('click', '#checkPrice', function () {
 
 });
 
-$(document).on('click','.add_price',function(){
 
-	var total = $('#offer_pay').val();
-	var add_price = $('#additional').val()
-
-	//$(this).val())
-	if($(this).val()=='Yes'){
-			$('.extra_price').show();
-			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
-			$('.new_additional').html('');
-			$('.new_additional').html('Additional Price'+add_price)
-
-	}
-	else{
-
-		$('.extra_price').hide();
-		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
-		$('.new_additional').html('');
-
-
-	}
-})
 
 $(document).on('click', '.create_list', function () {
 	var listname= $('.list').val();
@@ -2332,18 +2333,20 @@ function seconds_to_min_sec(seconds,id,vidid) {
 
 	//console.log(seconds);return false;
 
-  
+
 	var minutes = Math.floor(seconds / 60);
+	var hours = Math.floor(seconds / 3600);
 	var seconds = seconds - minutes * 60;
 	var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-	$(id).html(duration);
+	var hours_sys = hours==0 ? '0' + ':' + parseInt(duration) : hours + ":" + parseInt(duration);
+	$(id).html(hours_sys);
 	$.ajax({
 	type: 'POST',
 	url:APP_URL+"/duration",
 	headers: {
   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   },
-	  data: {'duration':duration, 'id':vidid},
+	  data: {'duration':hours_sys, 'id':vidid},
 
   success: function(data){
 
