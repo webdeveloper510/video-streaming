@@ -429,10 +429,12 @@ $(document).on('click','.add_price',function(){
 	var total = $('#offer_pay').val();
 	var add_price = $('#additional').val()
 
+	
 	//$(this).val())
 	if($(this).val()=='Yes'){
 			$('.extra_price').show();
 			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
+			$('.price_add').html('');
 			$('#change_text').append('<span class="price_add">+Additional Price='+add_price+'</span>')
 
 	}
@@ -444,6 +446,10 @@ $(document).on('click','.add_price',function(){
 
 
 	}
+
+
+
+
 })
 
 
