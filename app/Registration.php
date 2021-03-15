@@ -88,6 +88,7 @@ class Registration extends Model
             $userdata['reffered_by']= $reffer_id ? $reffer_id : 0;
            
             $userdata['cover_photo']= '';
+            $userdata['aboutme']= '';
             
             $insertedid =  DB::table('contentprovider')->insertGetId($userdata);
 
