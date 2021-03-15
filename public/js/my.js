@@ -412,9 +412,14 @@ function readURL1(input){
 
 $(document).on('keyup change', '#change_duration', function () {
 	var pay_price = $(this).attr('data-id') * $(this).val(); 
-	
-	$('#offer_pay').val($(this).attr('data-id') * $(this).val());
-	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ");
+	if($(".add_price:checked").val()=='Yes'){
+		var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val())
+	}
+	else{
+		var pay_price = $(this).attr('data-id') * $(this).val();
+	}
+	$('#offer_pay').val(pay_price);
+	$('#change_text').html("You will Pay:" + pay_price + " "+"PAZ");
 
 	console.log(pay_price);     
 });
