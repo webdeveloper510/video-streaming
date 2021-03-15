@@ -1488,7 +1488,7 @@ public function readNotification(Request $request){
         $offerInfo['updated_at'] = now();
         $offerInfo['status'] = 'new';
         $offerInfo['choice'] = $request->duration;
-        $offerInfo['userdescription'] = $request->description;
+        $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additioal Requests' ;
 
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
 
