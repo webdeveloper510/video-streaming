@@ -127,7 +127,7 @@ $(document).ready(function(){
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
-		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>'+
+		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button"class="btn btn-outline-success">Cancel Order</button>'+
 		'</div>'+
 		'</div>'+
 		'</div>'+

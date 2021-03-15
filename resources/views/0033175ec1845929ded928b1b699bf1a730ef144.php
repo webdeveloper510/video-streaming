@@ -441,7 +441,7 @@ Your browser does not support the audio tag.
                 <br>
             <label>Choose Category</label>
             <div class="video" style="display:none">
-            <select name="category"  class='form-control video'>
+            <select name="category[]"  class='form-control video'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <?php if($cat->type=='video'): ?>
@@ -451,7 +451,7 @@ Your browser does not support the audio tag.
             </select>
             </div>
             <div class="audio" style="display:none">
-            <select name="category"  class='form-control audio'>
+            <select name="category[]"  class='form-control audio'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <?php if($cat->type=='audio'): ?>
@@ -714,18 +714,22 @@ Your browser does not support the audio tag.
     margin-right: 7px;
 }
 .pricetime .text-right h6 {
-    background: white;
+    background: black;
     height: 30px;
     width: auto;
     float: right;
-    color: black !important;
+    color: white !important;
     padding: 7px;
 }
-
+@media  only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 .pricetime .text-left h6 {
-    background: white;
+    background: black;
     padding: 5px;
-    color: black !important;
+    color: yellow !important;
 }
 .pricetime {
     position: relative;

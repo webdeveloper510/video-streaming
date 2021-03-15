@@ -157,7 +157,7 @@
 					  <div class="media-property">
 						 <div class="property-1">
 							<div class="Media-Type">
-							   <p>{{$video->type=='video' ? Resolution : ''}}</p>
+							   <p>{{$video->type=='video' ? Quality : ''}}</p>
 							</div>
 							<div class="Media-Type1">
 							   <p>{{$video->type=='video' ? $video->convert.'p' : ''}}</p>
