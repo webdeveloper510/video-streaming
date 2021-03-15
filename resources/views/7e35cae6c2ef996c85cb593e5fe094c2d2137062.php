@@ -73,8 +73,7 @@
            <button class="dropdown-item" type="button">
           <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
     </div> -->
-    <?php echo e($tab); ?>
-
+  
    <hr style="color:white;background: white;">
   <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
@@ -95,12 +94,14 @@
               <p><i class="material-icons">person</i>   Profile</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='upload' || $tab=='offer' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+    
+          <li class="nav-item active" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
             </a>
           </li>
+      
           <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               
