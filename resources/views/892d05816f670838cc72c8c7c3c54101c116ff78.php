@@ -58,7 +58,7 @@
             <div class="col-md-6 mt-2 ">
            
               <div class="convert">
-            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+            <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
            <select name="convert"  class='form-control'>
                     <option value="">Choose ...</option>
                     <option value="1">480p  </option>
