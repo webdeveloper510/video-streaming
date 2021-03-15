@@ -412,9 +412,14 @@ function readURL1(input){
 
 $(document).on('keyup change', '#change_duration', function () {
 	var pay_price = $(this).attr('data-id') * $(this).val(); 
-	
-	$('#offer_pay').val($(this).attr('data-id') * $(this).val());
-	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ");
+	if($(".add_price:checked").val()=='Yes'){
+		var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val())
+	}
+	else{
+		var pay_price = $(this).attr('data-id') * $(this).val();
+	}
+	$('#offer_pay').val(pay_price);
+	$('#change_text').html("You will Pay:" + pay_price + " "+"PAZ");
 
 	console.log(pay_price);     
 });
@@ -424,10 +429,12 @@ $(document).on('click','.add_price',function(){
 	var total = $('#offer_pay').val();
 	var add_price = $('#additional').val()
 
+	
 	//$(this).val())
 	if($(this).val()=='Yes'){
 			$('.extra_price').show();
 			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
+			$('.price_add').html('');
 			$('#change_text').append('<span class="price_add">+Additional Price='+add_price+'</span>')
 
 	}
@@ -439,6 +446,10 @@ $(document).on('click','.add_price',function(){
 
 
 	}
+
+
+$(this).off('click');
+
 })
 
 
@@ -2277,9 +2288,9 @@ if ($("#create_offer").length > 0) {
 			 $('#success').show();
 			 $('#success').html(data.messge);
 
-			 setTimeout(function(){
-				 location.reload()
-			 },2000);
+			//  setTimeout(function(){
+			// 	 location.reload()
+			//  },2000);
 
 			 //location.reload();
 			//$('.popup_close').trigger('click');
