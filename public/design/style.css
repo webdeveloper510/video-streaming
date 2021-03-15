@@ -1484,16 +1484,6 @@ input[type=radio] {
 	left: 0px;
 }
 
-header .header_top,
-header .header_bottom,
-section,
-footer,
-.bottom_footer,
-.light_silver,
-.bottom_silver_section {
-	float: left;
-	width: 100%;
-}
 
 
 /*------------------------------------------------------------------
