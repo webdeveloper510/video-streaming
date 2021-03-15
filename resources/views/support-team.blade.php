@@ -106,8 +106,10 @@
                <p>Last Updated: Monday,21.march,2021(15:03)</p>
                </a>
             </div>
-            
-            <div class="col-3 mt-4">
+            <div class="col-3">
+              <p>Artist Name</p>
+                </div>
+            <div class="col-2 mt-4">
                 
                <button type="button" class="btn btn-primary">Open</button>
                <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
@@ -155,22 +157,51 @@
   <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
-   <div class="opentickettext">
-       <div class="row">
-       <a href="#" data-toggle="modal" data-target="#chat">
-            <div class="col-9">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-outline-secondary active">
+                    <input type="radio" name="options" id="option1" checked> New
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="options" id="option2"> Open
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="options" id="option3"> Closed
+                </label>
+                </div>
+            <div class="opentickettext">
+               <div class="row">
+    
+            <div class="col-7">
+            <a href="#" data-toggle="modal" data-target="#chat">
                <h3>#34567893 - Technical Issue</h3>
                <p>Last Updated: Monday,21.march,2021(15:03)</p>
-
+               </a>
             </div>
-            </a>
-            <div class="col-3 mt-4">
+          
+            <div class="col-3">
+              <p>Artist Name</p>
+                </div>
+            <div class="col-2 mt-4">
                 
-               <button type="button" class="btn btn-primary">Open</button>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#open">Open</button>
                <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
             </div>
             <!-- Button trigger modal -->
 
+                        <!-- Modal -->
+                        <div class="modal fade" id="open" tabindex="-1" aria-labelledby="openLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-body">
+                              <h3>  Close Ticket?   </h3>
+                              <div class="text-center">
+                              <button type="button" class="btn btn-primary">No</button>
+                              <button type="button" class="btn btn-Success">Yes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
