@@ -1438,7 +1438,7 @@ public function getRespectedSub($data){
          
      // print_r($video);die;
 
-      if(isset($video['userdescription'])){
+      if(isset($video['choice'])){
 
           $videoId = $video['id'];
 
@@ -1533,7 +1533,7 @@ public function getRespectedSub($data){
       //     print_r($data);die;
 
       $return = DB::table('offer')->where(array('id'=>$vidid))->update([
-        'userdescription' =>$data['userdescription'],
+        'userdescription' =>$data['userdescription'] ,
         'choice'=>$data['choice'],
         'userid'=>$data['userid'],
         'status'=>'new'

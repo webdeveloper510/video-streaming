@@ -157,7 +157,8 @@
   <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="text-center">
+             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-outline-secondary active">
                     <input type="radio" name="options" id="option1" checked> New
                 </label>
@@ -168,6 +169,7 @@
                     <input type="radio" name="options" id="option3"> Closed
                 </label>
                 </div>
+            </div>
             <div class="opentickettext">
                <div class="row">
     
