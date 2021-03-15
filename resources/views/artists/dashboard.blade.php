@@ -148,7 +148,7 @@
 
 
        <div class="logo">
-       <img src="{{asset('images/logos/logo_black.png')}}" height="50" alt="CoolBrand">
+       <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
        </div>
 
        <div class="right">
