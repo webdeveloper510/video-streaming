@@ -4907,15 +4907,7 @@ form.example::after {
 ul.need_flx {
     display: flex;
 }
-.outer_slider {
-    float: left;
-    width: 100%;
-}
-.slider_tittle {
-    float: left;
-    width: 100%;
-    margin-top: 20px;
-}
+
 .carousel-indicators {
     bottom: -20px;
 }
