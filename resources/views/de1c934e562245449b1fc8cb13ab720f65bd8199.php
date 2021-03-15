@@ -1,9 +1,10 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="background1">
-  <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <div class="container mt-5">
+ 
+    <div class="container pt-5">
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
@@ -114,8 +115,7 @@
                 border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
                <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?><br>
-               <?php echo e(Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?>
-
+               <span class="discount"><?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?></span>
                 
               </div>
 
@@ -146,4 +146,5 @@
 .alert-success {
     margin-top: 10px;
 }
-</style><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/registration.blade.php ENDPATH**/ ?>
+</style>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/registration.blade.php ENDPATH**/ ?>
