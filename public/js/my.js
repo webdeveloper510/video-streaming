@@ -448,7 +448,7 @@ $(document).on('click','.add_price',function(){
 	}
 
 
-
+$(this).off('click');
 
 })
 
