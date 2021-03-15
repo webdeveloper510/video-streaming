@@ -1,12 +1,5 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<section class="background1 ">
-
-
-        
- 
-           
-         
-  
+<section class="background1 "> 
 <?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>

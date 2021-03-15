@@ -73,6 +73,7 @@
            <button class="dropdown-item" type="button">
           <a href="{{url('/my-requests')}}">Projects</a></button>
     </div> -->
+    {{$tab}}
    <hr style="color:white;background: white;">
   <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
@@ -87,13 +88,13 @@
               <p> <i class="material-icons">dashboard</i> Dashboard</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='profile'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+          <li class="nav-item {{$tab=='profile'  ? 'active' : ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/Profile')}}">
               
               <p><i class="material-icons">person</i>   Profile</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+          <li class="nav-item {{$tab=='upload' OR $tab=='offer'? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
