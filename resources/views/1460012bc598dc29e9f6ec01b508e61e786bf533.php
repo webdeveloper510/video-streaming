@@ -21,7 +21,7 @@
 
     <div class="logo">
     <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
      </div>
      <div class="subscrive">
@@ -34,7 +34,7 @@
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
