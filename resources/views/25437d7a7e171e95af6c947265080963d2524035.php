@@ -721,6 +721,12 @@
               <div class="col-md-4">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
+                  <input type="radio" id="video" name="gender" value="Video">
+                  <label for="male">Video</label>
+                  <input type="radio" id="audio" name="gender" value="audio">
+                  <label for="audio">Audio</label>
+                  <input type="radio" id="image" name="gender" value="image">
+                  <label for="image">Image</label>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
                         <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
