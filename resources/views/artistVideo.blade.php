@@ -94,28 +94,45 @@
 		  <div class="row">
 			 <div class="col-md-12">
 				<div class="vid-sec">
-					<div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+				<div class="row">
+				  <div class="col"></div>
 						@if($video->type=='video')
-				   <video width="320" height="240" controls controlsList="nodownload" disablePictureInPicture>
-				   	<source src="{{url('storage/app/public/video/'.$video->media)}}" type="video/mp4">
-				   </video>
+						 <div class="col-md-4">
+						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+					
+							<video width="500" height="400" controls controlsList="nodownload" disablePictureInPicture>
+								<source src="{{url('storage/app/public/video/'.$video->media)}}" type="video/mp4">
+							</video>
+							<div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
+						 
+						</ul>
+				   </div>
+ 							</div>
+							 
 				   @else
 
 				   <div class="artistaudiopage col-md-4">
+				   <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+					
 				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
 
 				   <audio controls>
 				   	<source src="{{url('storage/app/public/audio/'.$video->media)}}" type="audio/mp3">
 				   </audio>
-					</div>
-				   @endif
 				   <div class="report-op">
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
 						<ul style="display:none;" class="reporting">
 						 <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
-						 <li>You can not download this video.</li>
+						 
 						</ul>
 				   </div>
+					</div>
+				   @endif
+				   <div class="col"></div>
+				 </div>
 				</div>
 			 </div>
 		  </div>
@@ -423,10 +440,10 @@
 <style>
 	.lockicon {
     background: #00000080;
-    height: 240px;
-    width: 320px;
+    height: 400px;
+    width: 500px;
     position: absolute;
-    left: 0;
+    left: 15px;
     right: 0;
     top: 0;
     display: flex;
@@ -437,7 +454,7 @@
 
 .lockicon i {
     position: absolute;
-    top: 84px;
+    top: 42%;
     display: block;
     margin: 0 auto;
     left: 0;
@@ -445,9 +462,10 @@
 }
 .report-op {
     position: absolute;
-    width: 100%;
     top: 6px;
-    padding-left: 267px;
+    right: -48px;
+    cursor: pointer;
+	z-index: 1000;
 }
 .content-cart .addToCart:hover {
     background: #0062cc !important;
@@ -469,6 +487,16 @@ ul.reporting {
 
 .artistaudiopage img {
     height: 184px;
+}
+@media only screen and (max-width: 768px) {
+.vid-sec video {
+    width: 100%;
+    height: 100%;
+}
+.lockicon {
+    height: 100%;
+    width: 100%;
+}
 }
 </style>
 <script type="text/javascript">
