@@ -412,7 +412,7 @@ $(document).on('keyup change', '#change_duration', function () {
 	var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val()); 
 	
 	$('#offer_pay').val(pay_price);
-	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ" + "+ "+ "Addtioanl Price"+" "+$('#additional').val()+" = "+ " "+pay_price+ " "+"PAZ");
+	$('#change_text').html("You will Pay:" + $(this).attr('data-id') * $(this).val() + " "+"PAZ" + "+ "+ "<span class='new_additional'>Addtioanl Price"+" "+$('#additional').val()+" = "+ " "+pay_price+ " "+"PAZ</span>");
 
 	console.log(pay_price);     
 });
@@ -515,12 +515,24 @@ $(document).on('click', '#checkPrice', function () {
 
 $(document).on('click','.add_price',function(){
 
+	var total = $('#offer_pay').val();
+	var add_price = $('#additional').val()
+
 	//$(this).val())
 	if($(this).val()=='Yes'){
 			$('.extra_price').show();
+			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
+			$('.new_additional').html('');
+			$('.new_additional').html('Additional Price'+add_price)
+
 	}
 	else{
+
 		$('.extra_price').hide();
+		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
+		$('.new_additional').html('');
+
+
 	}
 })
 

@@ -54,7 +54,7 @@
             <div class="col-md-6 mt-2 ">
            
               <div class="convert">
-            {{Form::label('Convert to:', 'Convert to:')}} 
+            {{Form::label('Quality:', 'Quality:')}} 
            <select name="convert"  class='form-control'>
                     <option value="">Choose ...</option>
                     <option value="1">480p  </option>
