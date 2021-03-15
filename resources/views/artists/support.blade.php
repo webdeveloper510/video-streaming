@@ -77,10 +77,25 @@
             
             <div class="col-3 mt-4">
                 
-               <button type="button" class="btn btn-primary">Open</button>
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#open">Open</button>
                <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
             </div>
             <!-- Button trigger modal -->
+                    
+
+            <div class="modal fade" id="open" tabindex="-1" aria-labelledby="openLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-body">
+                              <h3>  Close Ticket?   </h3>
+                              <div class="text-center">
+                              <button type="button" class="btn btn-primary">No</button>
+                              <button type="button" class="btn btn-Success">Yes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
 
 
                 <!-- Modal -->
