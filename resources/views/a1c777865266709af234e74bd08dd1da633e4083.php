@@ -21,7 +21,7 @@
 
     <div class="logo">
     <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
      </div>
      <div class="subscrive">
@@ -34,7 +34,7 @@
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
@@ -577,7 +577,7 @@
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     <?php if($login && $latestOffer): ?>
-    <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
+    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>
     <?php endif; ?>
     </a>

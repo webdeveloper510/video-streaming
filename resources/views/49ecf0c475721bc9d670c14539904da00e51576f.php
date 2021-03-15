@@ -148,7 +148,7 @@
 
 
        <div class="logo">
-       <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+       <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
        </div>
 
        <div class="right">
@@ -168,7 +168,7 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="https://cdn0.iconfinder.com/data/icons/user-interface-151/24/List_menu_toggle-512.png">
      
       <div class="logo"><a href="<?php echo e(url('/artists/dashboard')); ?>" class="simple-text logo-normal">
-      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
