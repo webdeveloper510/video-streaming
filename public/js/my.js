@@ -421,7 +421,7 @@ $(document).on('keyup change', '#change_duration', function () {
 	$('#offer_pay').val(pay_price);
 	$('#change_text').html("You will Pay:" + pay_price + " "+"PAZ");
 
-	console.log(pay_price);     
+	//console.log(pay_price);     
 });
 
 $(document).on('click','.add_price',function(){

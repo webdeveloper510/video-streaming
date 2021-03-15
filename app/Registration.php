@@ -2135,7 +2135,13 @@ public function getallOffer($flag){
 
 public function getallOffers(){
 
-   $batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('by_created', '=' , 1)->first();
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+
+  // $batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('by_created', '=' , 1)->first();
+   $batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('userid', '=' , $userid)->first();
+// echo "<prE>";
+//    print_r($batch_data);die;
  
    return $batch_data;
 
