@@ -434,9 +434,10 @@ $(document).on('click','.add_price',function(){
 	if($(this).val()=='Yes'){
 			$('.extra_price').show();
 			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
+			var total = parseInt(total)+parseInt(add_price)
 			//$('.price_add').html('');
 			$('#change_text').html('');
-			$('#change_text').html("You will Pay:" + parseInt(total)+parseInt(add_price) + " "+"PAZ");
+			$('#change_text').html("You will Pay:" + total + " "+"PAZ");
 			//$('#change_text').append('<span class="price_add">+Additional Price='+add_price+'</span>')
 
 	}
@@ -444,9 +445,10 @@ $(document).on('click','.add_price',function(){
 
 		$('.extra_price').hide();
 		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
+		var total = parseInt(total)-parseInt(add_price)
 		$('.price_add').html('');
 		$('#change_text').html('');
-		$('#change_text').html("You will Pay:" + parseInt(total)-parseInt(add_price) + " "+"PAZ");
+		$('#change_text').html("You will Pay:" + total + " "+"PAZ");
 
 
 	}
