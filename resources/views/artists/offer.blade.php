@@ -1,12 +1,5 @@
 @include('artists.dashboard')
-<section class="background1 ">
-
-
-        
- 
-           
-         
-  
+<section class="background1 "> 
 {!!Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile ">
