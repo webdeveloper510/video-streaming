@@ -2332,18 +2332,20 @@ function seconds_to_min_sec(seconds,id,vidid) {
 
 	//console.log(seconds);return false;
 
-  
+
 	var minutes = Math.floor(seconds / 60);
+	var hours = Math.floor(seconds / 3600);
 	var seconds = seconds - minutes * 60;
 	var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-	$(id).html(duration);
+	var hours_sys = hours==0 ? '0' + ':' + parseInt(duration) : hours + ":" + parseInt(duration);
+	$(id).html(hours_sys);
 	$.ajax({
 	type: 'POST',
 	url:APP_URL+"/duration",
 	headers: {
   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   },
-	  data: {'duration':duration, 'id':vidid},
+	  data: {'duration':hours_sys, 'id':vidid},
 
   success: function(data){
 
