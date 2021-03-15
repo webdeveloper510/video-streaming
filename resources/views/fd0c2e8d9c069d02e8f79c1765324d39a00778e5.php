@@ -6,18 +6,19 @@
           <div class="col-lg-10">
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ! 
+      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
     
       <div class="data">
       <?php if($level_system): ?>
       <?php $__currentLoopData = $level_system; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-          <?php if($val['level']==isset($levelData[0]->level_name)): ?>
+          <?php if($val['level']==$levelData[0]->level_name): ?>
          <h3> PAZ Service Fee :20%</h3>
          <h3> <?php echo e($val['level']); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-$val['fee']); ?>%</span></h3>
          <?php endif; ?>
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+         
          <?php endif; ?>
       </div>
   
@@ -50,7 +51,7 @@
        
 
          <div class="text_one">
-         <h6>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD! <span class="firsttext">!  
+         <h6>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD! <span class="firsttext">? 
            <div class="firsttextbody">
             <p>The pay-out occurs when the invited Artist achieves Level 3 (400Subscribers) and a total income of +20 000 PAZ</p>
            </div>
@@ -59,7 +60,7 @@
        <br>
        
          <h6>Get 10% of our revenue on every new customer you have invited as passive income ! 
-         <span class="secondtext">!  <div class="secondtextbody">
+         <span class="secondtext">?  <div class="secondtextbody">
             <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
            </div> 
           
@@ -79,7 +80,7 @@
     <div class=" invitedbox">
     <div class="card" >
         <div class="text-center">
-       <h3>You've been invited form artistname </h3>
+       <h3>You've been invited from artistname </h3>
        <h4>Get your $150 USD with :</h4>
             </div>
   <div class="card-body">

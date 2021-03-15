@@ -11,13 +11,14 @@
       <div class="data">
       @if($level_system)
       @foreach($level_system as $key=>$val) 
-          @if($val['level']==isset($levelData[0]->level_name))
+          @if($val['level']==$levelData[0]->level_name)
          <h3> PAZ Service Fee :20%</h3>
          <h3> {{$val['level']}} <small>(you save)</small>: {{$val['fee']}}%</h3>
          <hr>
          <h3>Current Fee : <span>{{20-$val['fee']}}%</span></h3>
          @endif
          @endforeach
+         
          @endif
       </div>
   
