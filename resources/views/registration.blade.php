@@ -4,7 +4,7 @@
 @include('layouts.header')
 <section class="background1">
  
-    <div class="container pt-5">
+    <div class="container pt-5 pb-5">
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
