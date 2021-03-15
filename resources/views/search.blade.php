@@ -67,7 +67,49 @@
      </button></a> -->
   </div> 
   @endif
+  <h3 class="text-white"> Your search -<span> jhgsdjhgsjdf</span> - Did not match any content.<br>
+   Please update your search/filter options.</h3>
   <br/>
+  <div class="popularvideo">
+    <h3 class="text-white">Popular Video :</h3>
+    <div class="row">
+     <div class="col-md-4 mb-3">
+     <video width="100%" height="300" >
+        <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+      </video>
+      </div>
+      <div class="col-md-4 mb-3">
+      <video width="100%" height="300" >
+      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+      </video>
+      </div>
+      <div class="col-md-4 mb-3">
+      <video width="100%" height="300" >
+      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+      </video>
+      </div>
+      <div class="col-md-4 mb-3">
+      <video width="100%" height="300" >
+      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+      </video>
+      </div>
+      <div class="col-md-4 mb-3">
+      <video width="100%" height="300" >
+      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+      </video>
+      </div>
+      <div class="col-md-4 mb-3">
+      <video width="100%" height="300" >
+      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4"> 
+      </video>
+      </div>
+    
+
+      </div>
+ 
+
+</div>
+
 </div> 
 
 <div class="choose1" style="display:none;">
