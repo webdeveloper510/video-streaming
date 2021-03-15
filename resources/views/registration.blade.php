@@ -1,9 +1,10 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
+@include('layouts.header')
 <section class="background1">
-  @include('layouts.header')
-    <div class="container mt-5">
+ 
+    <div class="container pt-5">
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
@@ -133,3 +134,4 @@
     margin-top: 10px;
 }
 </style>
+@include('layouts.footer')

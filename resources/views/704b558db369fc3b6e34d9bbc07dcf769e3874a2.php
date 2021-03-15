@@ -1,9 +1,10 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="background1">
-  <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <div class="container mt-5">
+ 
+    <div class="container pt-5">
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
@@ -146,4 +147,5 @@
 .alert-success {
     margin-top: 10px;
 }
-</style><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/registration.blade.php ENDPATH**/ ?>
+</style>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/registration.blade.php ENDPATH**/ ?>
