@@ -2015,22 +2015,40 @@ public function updatePopular($data,$uid){
 public function PopularVideos($flag,$type){
 
 
-  $videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
+  //$videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
+        
 
 
       if($flag=='No'){
 
+        $videos=DB::table('media') 
+        ->leftjoin('popular','popular.mediaid','=','media.id')
+        ->select('media.*')
+        ->where('popular.type',$type)
+        ->orderBy('count','desc')
+        ->take(3)
+        ->get()
+        ->toArray();
 
-        $videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray(): DB::table("media")->take(3)->get()->toArray();
+
+       // $videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray(): DB::table("media")->take(3)->get()->toArray();
 
       }
       else{
 
-        $videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->paginate(30) : DB::table("media")->get()->toArray();
+        $videos=DB::table('media') 
+        ->leftjoin('popular','popular.mediaid','=','media.id')
+        ->select('media.*')
+        ->where('popular.type',$type)
+        ->orderBy('count','desc')
+        ->paginate(30);
+
+
+        //$videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->paginate(30) : DB::table("media")->get()->toArray();
 
       }
 // echo "<pre>";
-//       print_r($videos);die;
+      //print_r($videos);die;
 
     return $videos;
 }

@@ -379,16 +379,12 @@ Your browser does not support the audio tag.
 .fa-lock{
   font-size:30px;
 }
-div#nav-contact {
-    background: #000;
-    color: #fff !important;
-}
 .pricetime .text-right h6 {
-    background: white;
+    background: black;
     height: 30px;
     width: auto;
     float: right;
-    color: black !important;
+    color: white !important;
     padding: 7px;
 }
 
@@ -396,9 +392,7 @@ div#nav-contact {
   padding: 5px;
     color: gold !important;
     font-weight: 800;
-}
-div#nav-contact *{
-    color: #fff;
+    background:black;
 }
 select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
@@ -478,6 +472,11 @@ ul.selected li {
      margin-top: 7px;
 }
 
+@media  only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 </style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

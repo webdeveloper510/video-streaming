@@ -356,7 +356,7 @@ class artist extends Controller
 
     $navbaractive = 'offer';
 
-
+      //echo $navbaractive;die;
     
 
     return view('artists.offer',['tab'=>$navbaractive]);
