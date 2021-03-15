@@ -86,7 +86,7 @@
             <div class="modal fade" id="open" tabindex="-1" aria-labelledby="openLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                            <div class="modal-body">
+                            <div class="modal-body text-center">
                               <h3>  Close Ticket?   </h3>
                               <div class="text-center">
                               <button type="button" class="btn btn-primary">No</button>
