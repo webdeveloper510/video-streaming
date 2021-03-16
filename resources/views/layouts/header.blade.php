@@ -19,15 +19,50 @@
 
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-    <div class="logo">
+    <div class="logomobile text-center">
     <a href="{{url('/')}}" class="navbar-brand">
 						<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
 					</a>
      </div>
      <div class="subscrive">
+       <ul>
+       <li class="nav-item">
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="{{$login ? '#' : url('/register')}}" ><i class="fa fa-address-card-o"></i></a>
+               
+               
+                <div class="col-md-4 subss" style="display:none;">
+                  <h3>Subscriptions</h3>
+                  @foreach($subscribed_artist as $artist)
+                    <a href="{{url('artistDetail/'.$artist->artistid)}}">
+                    <div class="row mb-3">
+                      <div class="col">
+                        <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture)}}" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p>{{$artist->nickname}}</p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online" style="{{$artist->by_created==1 ? 'display:block' :'display:none' }}">
+                                      </div>
+                              </div>
+                    </div>
+                    </a>
+                    @endforeach
+                 
+                                   </div>
+                    </div>
 
+                    
+                </div>
+                
+              </li>
+       </ul>
      </div>
 </div> -->
+
+
+
+
   <div class="header_bottom">
 
 		<div class="container">	

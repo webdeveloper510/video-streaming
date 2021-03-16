@@ -8,7 +8,7 @@
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
 
-  <!-- <div class="mobilebar">
+  <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">About</a>
@@ -19,15 +19,50 @@
 
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
-    <div class="logo">
+    <div class="logomobile text-center">
     <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
 						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
      </div>
      <div class="subscrive">
+       <ul>
+       <li class="nav-item">
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="<?php echo e($login ? '#' : url('/register')); ?>" ><i class="fa fa-address-card-o"></i></a>
+               
+               
+                <div class="col-md-4 subss" style="display:none;">
+                  <h3>Subscriptions</h3>
+                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
+                    <div class="row mb-3">
+                      <div class="col">
+                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p><?php echo e($artist->nickname); ?></p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
+                                      </div>
+                              </div>
+                    </div>
+                    </a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 
+                                   </div>
+                    </div>
 
+                    
+                </div>
+                
+              </li>
+       </ul>
      </div>
-</div> -->
+</div>
+
+
+
+
   <div class="header_bottom">
 
 		<div class="container">	

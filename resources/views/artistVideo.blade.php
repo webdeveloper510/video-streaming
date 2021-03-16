@@ -253,9 +253,9 @@
 	.lockicon {
     background: #00000080;
     height: 100%;
-    width: 100%;
+    width: 97%;
     position: absolute;
-    left: 15px;
+    left: -3px;
     right: 0;
     top: 0;
     display: flex;
