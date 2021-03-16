@@ -1,5 +1,5 @@
 @include('artists.dashboard')
-
+<body onload="createCaptcha()">
 <section class=" support">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -43,8 +43,14 @@
             <div class="col-md-6">
                 <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
                 automated submissions.</p>
-               <p class="qrcode"> <span class="a">d</span><span class="b">R</span><span class="c">f</span><span class="d">g</span><span class="e">2</span></p>
-                <input type="text" class="form-control" >
+               
+            <form onsubmit="validateCaptcha()">
+                <div id="captcha">
+                </div>
+                <input type="text" class="formcontrol" placeholder="Captcha" id="cpatchaTextBox"/>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+           
             </div>
         </div>
         <div class="text-right">
@@ -150,7 +156,47 @@ p.qrcode {
 }
 </style>
 
+<script>
+var code;
+function createCaptcha() {
+  //clear the contents of captcha div first 
+  document.getElementById('captcha').innerHTML = "";
+  var charsArray =
+  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+  var lengthOtp = 6;
+  var captcha = [];
+  for (var i = 0; i < lengthOtp; i++) {
+    //below code will not allow Repetition of Characters
+    var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+    if (captcha.indexOf(charsArray[index]) == -1)
+      captcha.push(charsArray[index]);
+    else i--;
+  }
+  var canv = document.createElement("canvas");
+  canv.id = "captcha";
+  canv.width = 100;
+  canv.height = 50;
+  var ctx = canv.getContext("2d");
+  ctx.font = "25px Georgia";
+  ctx.strokeText(captcha.join(""), 0, 30);
+  //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+  code = captcha.join("");
+  console.log(code);
+  document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+}
+function validateCaptcha() {
+  event.preventDefault();
+  debugger
+  if (document.getElementById("cpatchaTextBox").value == code) {
+    alert("Valid Captcha")
+  }else{
+    alert("Invalid Captcha. try Again");
+    createCaptcha();
+  }
+}
 
+
+</script>
 
 
 @include('artists.dashboard_footer');
