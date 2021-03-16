@@ -97,10 +97,10 @@
 				<div class="row">
 				  <div class="col"></div>
 						<?php if($video->type=='video'): ?>
-						 <div class="col-md-4">
+						 <div class="col-md-8">
 						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="500" height="400" controls controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 							</video>
 							<div class="report-op">
@@ -252,8 +252,8 @@
 <style>
 	.lockicon {
     background: #00000080;
-    height: 400px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     position: absolute;
     left: 15px;
     right: 0;
@@ -275,7 +275,7 @@
 .report-op {
     position: absolute;
     top: 6px;
-    right: -48px;
+    right: 0;
     cursor: pointer;
 	z-index: 1000;
 }

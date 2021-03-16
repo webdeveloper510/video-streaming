@@ -49,11 +49,7 @@
                 <?php endif; ?>
           </div> 
 
-          <div class="form-group">
-              <?php echo e(Form::radio('user', 'contentprovider', true)); ?> Artist
-
-               <?php echo e(Form::radio('user', 'users', false )); ?>  Customer 
-          </div> 
+          
 
             
 <a href="#"  style="float:right; color:blue;" data-bs-toggle="modal" data-bs-target="#exampleModal">

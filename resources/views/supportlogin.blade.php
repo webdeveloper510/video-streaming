@@ -45,11 +45,7 @@
                 @endif
           </div> 
 
-          <div class="form-group">
-              {{Form::radio('user', 'contentprovider', true)}} Artist
-
-               {{Form::radio('user', 'users', false )}}  Customer 
-          </div> 
+          
 
             
 <a href="#"  style="float:right; color:blue;" data-bs-toggle="modal" data-bs-target="#exampleModal">
