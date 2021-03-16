@@ -93,6 +93,9 @@ $(document).ready(function(){
 
 	function format3(d){
 
+		//console.log(d);return false;
+		var disable = d.remaining_days > 0 ? 'disabled' : ''
+
 		var original_media = d.deliever_media;
 
 		var folder = d.type=='video' ? 'video' :'audio';
@@ -129,7 +132,7 @@ $(document).ready(function(){
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
-		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button"class="btn btn-outline-success">Cancel Order</button>'+
+		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button" class="btn btn-outline-success"'+disable+'>Cancel Order</button>'+
 		'</div>'+
 		'</div>'+
 		'</div>'+
