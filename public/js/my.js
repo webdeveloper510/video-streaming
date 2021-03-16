@@ -93,6 +93,9 @@ $(document).ready(function(){
 
 	function format3(d){
 
+		//console.log(d);return false;
+		var disable = d.remaining_days > 0 ? 'disabled' : ''
+
 		var original_media = d.deliever_media;
 
 		var folder = d.type=='video' ? 'video' :'audio';
@@ -129,7 +132,7 @@ $(document).ready(function(){
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
-		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button"class="btn btn-outline-success">Cancel Order</button>'+
+		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button" class="btn btn-outline-success"'+disable+'>Cancel Order</button>'+
 		'</div>'+
 		'</div>'+
 		'</div>'+
@@ -1091,6 +1094,22 @@ $(document).on('click', '#forgetLink', function () {
 });
 
 
+function editVideoinfo(data){
+	var json_info = JSON.parse(data);
+	var type =json_info.type;
+	$('.video_title').val(json_info.title)
+	$('#mediaid').val(json_info.id)
+	$('#type').val(json_info.type)
+	$('.'+type).show();
+	$('.video_price').val(json_info.price)
+	$('.video_quality').val(json_info.convert).attr("selected","selected");
+	
+	$('.video_category').val(json_info.catid).attr("selected","selected");
+	$('.video_description').val(json_info.description)
+	
+}
+
+
 
 $(document).on('click', '#withdrawmoney', function () {
 
@@ -1423,6 +1442,47 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 });
 
 
+/*------------------------------------------------------Edit Video Info------------------------------------------*/
+
+
+$(document).on('submit', '#edit_Video_info', function (event) {
+	event.preventDefault();
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/artist/editVedio",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: $(this).serialize(),
+			success: function(data){
+
+				console.log(data);
+
+				if(data==1){
+					 $('.alert-success').show();
+					 $('.alert-success').html('Update Successfully!');
+					 setTimeout(function(){
+						 location.reload()
+					 },2000)
+					//$('.close').trigger('click');
+					//location.reload();
+				}
+
+				else{
+
+					$('.alert-danger').show();
+					$('.alert-danger').html(data.message);
+					
+				}
+
+
+			}
+	});
+
+});
+
+
 
 $(document).ready(function(){
 
@@ -1661,6 +1721,8 @@ $(document).on('keyup change', '#calculate_tokens', function () {
 /* Formatting function for row details - modify as you need */
 function format ( d , type) {
 
+	var disabled = d.remaining_days > 0 ? 'disabled' : ''
+
 	var file = d.type=='video' ? 'Uplaod Video' : 'Upload Audio';
 
 	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
@@ -1722,7 +1784,7 @@ function format ( d , type) {
 	'<div class="alert alert-success" id="success" style="display:none">'+
     '</div>'+
 	'<div class="">'+
-	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)" >Deleiver</button>'+
+	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deleiver</button>'+
 	'</div>'+
 	'</div>'+
 	'</div>'+

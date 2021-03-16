@@ -160,7 +160,7 @@
 							   <p>{{$video->type=='video' ? Quality : ''}}</p>
 							</div>
 							<div class="Media-Type1">
-							   <p>{{$video->type=='video' ? $video->quality.'p' : ''}}</p>
+							   <p>{{$video->type=='video' ? $video->convert.'p' : ''}}</p>
 							</div>
 						 </div>
 					  </div>
