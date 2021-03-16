@@ -2142,6 +2142,144 @@ if ($("#social_media").length > 0) {
   })
 }
 
+/**---------------------------------------Suport Functyiong------------------------------------- */
+
+
+if ($("#technical_functiong").length > 0) {
+    $("#technical_functiong").validate({
+      
+		rules: {
+			technical_issue: {
+			required: true,
+		},
+
+		description: {
+			required: true,
+			maxlength: 2000
+		},
+		file:{
+			required: true,
+		},
+		match_recaptcha:{
+			required: true,
+			equalTo: "#recaptcha"
+		}
+		},
+			messages: {
+				technical_issue: {
+				required: "Please Select Issue",
+			},
+
+			file: {
+				required: "Choose File",
+			  },
+
+			  match_recaptcha: "Please Match Recaptcha",
+			
+
+			  description: {
+				required: "Please Add Description",
+				maxlength:'Character may be less than 2000'
+			},
+		
+			},
+    submitHandler: function(form) {
+		//event.preventDefault();
+		var form  =  $("#technical_functiong");
+		var formData = new FormData($(form)[0]);
+		
+		$('.loader').show();
+		$('.percentage').html('0');
+     $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+      $.ajax({
+		url:APP_URL+"/artist/insert_support",
+        type: "POST",
+		data: formData,
+		processData: false,
+		contentType: false,
+		xhr: function () {
+			var xhr = $.ajaxSettings.xhr();
+			if (xhr.upload) {
+				xhr.upload.addEventListener('progress', function(event) {
+					var percent = 0;
+					var position = event.loaded || event.position;
+					var total = event.total;
+					if (event.lengthComputable) {
+						percent = Math.ceil(position / total * 100);
+					}
+					$('#top_title').html('Uploding...'+percent+'%');
+					$('.percentage').html(percent+'%');
+					if(percent==100){
+						$('.loader').hide();
+					}
+				}, true);
+			}
+			return xhr;
+	},
+        success: function( response ) {
+
+		//	console.log(response);return false;
+
+			if(response==1){
+						 $('#success').show();
+						 $('#success').html('Ticket Created Successfully!');
+	
+						 setTimeout(function(){
+							 location.reload();
+						 },2000);
+							
+					}
+	
+					else{
+	
+						$('#error').show();
+						$('#error').html('Some Error');
+						
+					}
+
+			
+			// if(response.errors){
+
+			// 	jQuery.each(response.errors, function(key, value){
+			// 		jQuery('.alert-danger').show();
+			// 		jQuery('.alert-danger').append('<p>'+value+'</p>');
+			// 	});
+			// }
+			// else{
+			// 	$('.loader').hide();
+			// 	//$('.percentage').hide();
+			// 	if(response.status==1){
+			// 		 $('#success').show();
+			// 		 $('#success').html(response.messge);
+
+			// 		 setTimeout(function(){
+			// 			 location.reload();
+			// 		 },2000);
+
+			// 		// location.reload();
+			// 		//$('.popup_close').trigger('click');
+						
+			// 	}
+
+			// 	else{
+
+			// 		$('#error').show();
+			// 		$('#error').html(response.messge);
+					
+			// 	}
+
+
+			// }
+        }
+      });
+    }
+  })
+}
+
 if ($("#myForm").length > 0) {
     $("#myForm").validate({
       

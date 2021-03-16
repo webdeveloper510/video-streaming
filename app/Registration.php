@@ -2579,6 +2579,20 @@ public function update_cover($data,$req){
 
 }
 
+public function insert_ticket_table($data){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+        $data['created_at']=now();
+        $data['updated_at']=now();
+        $data['artistid']=$userid;
+
+        return DB::table('ticket')->insert($data);
+
+}
+
 
 public function getlevel(){
 
