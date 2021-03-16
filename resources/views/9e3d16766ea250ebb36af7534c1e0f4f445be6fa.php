@@ -68,7 +68,7 @@
             </div>
             <div class="video" style="display:none">
             <select name="category[]"  class='form-control my-5'>
-                    <option>Choose Category</option>
+                    <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='video'): ?>
                             <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
@@ -80,7 +80,7 @@
 
             <div class="audio" style="display:none">
             <select name="category[]"  class='form-control my-5'>
-                    <option>Choose Category</option>
+                    <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='audio'): ?>
                             <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>

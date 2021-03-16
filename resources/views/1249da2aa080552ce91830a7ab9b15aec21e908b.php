@@ -78,7 +78,7 @@
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
-         Categories :<?php echo e($offer->category); ?>
+         Category :<?php echo e($offer->category); ?>
 
          </a>
         </div>
