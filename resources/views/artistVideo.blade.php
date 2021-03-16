@@ -275,7 +275,7 @@
 .report-op {
     position: absolute;
     top: 6px;
-    right: 0;
+    right: 33px;
     cursor: pointer;
 	z-index: 1000;
 }
