@@ -1721,6 +1721,8 @@ $(document).on('keyup change', '#calculate_tokens', function () {
 /* Formatting function for row details - modify as you need */
 function format ( d , type) {
 
+	var disabled = d.remaining_days > 0 ? 'disabled' : ''
+
 	var file = d.type=='video' ? 'Uplaod Video' : 'Upload Audio';
 
 	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
@@ -1782,7 +1784,7 @@ function format ( d , type) {
 	'<div class="alert alert-success" id="success" style="display:none">'+
     '</div>'+
 	'<div class="">'+
-	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)" >Deleiver</button>'+
+	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deleiver</button>'+
 	'</div>'+
 	'</div>'+
 	'</div>'+
