@@ -1,17 +1,4 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-
-    
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
-    
-
   <style>
    
 .tab {
@@ -106,10 +93,9 @@ tr.shown td.details-control {
                        <th>Title</th>
                         <th >Media</th>
                         <th>Duration</th>
-                       
+                        <th>Delivery Time</th>
                         <th >Artist Name</th>
                         <th > Status</th>              
-                        <th> Delievery Time</th>   
         </tr>
     </thead>
   
@@ -119,10 +105,9 @@ tr.shown td.details-control {
                         <th>Title</th>
                         <th>Media</th>
                         <th>Duration</th>
-                 
+                        <th>Delivery Time</th>
                         <th>Artist Name</th>
                         <th> Status</th>              
-                        <th>Delievery Time</th>   
         </tr>
     </tfoot>
 </table>
@@ -133,7 +118,25 @@ tr.shown td.details-control {
     </div>
 </div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="download" tabindex="-1" aria-labelledby="downloadLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="downloadLabel"> Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+         <p>The media has not been delivered yet,
+please remain patient. Thank You!</p>
+          <button type="button" class="btn btn-outline-primary">Okay</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
       
 <div class="modal fade" id="descri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
