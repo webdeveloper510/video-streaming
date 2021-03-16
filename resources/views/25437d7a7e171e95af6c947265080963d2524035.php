@@ -5,7 +5,7 @@
 
 <div class="row mt-5 pt-5 text-center">
   
-<div class="titleheader col-md-12">
+<div class="titleheader col-md-12" style="<?php echo e($totalCollection > 0 ? 'display:none':'display:block'); ?>">
      <p>Please complete the setup by uploading an overview media for your profile.</p>
 </div>
     <div class="col-md-3">
