@@ -1,4 +1,10 @@
-@include('layouts.header')
+@include('layout.cdn')
+<header>
+<div class="text-center">
+<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+<h1 class="text-white mt-2"> Support Team</h1>
+</div>
+</header>
 
 <section class=" support">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -269,8 +275,11 @@ li.nav-item {
 li.nav-item a {
     color: white;
 }
-
-</style>
+header {
+    background: #7b0000;
+    padding: 11px;
+}
+  </style>
 
 
 

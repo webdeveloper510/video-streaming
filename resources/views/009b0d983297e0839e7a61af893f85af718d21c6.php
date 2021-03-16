@@ -1,7 +1,7 @@
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
 <div class="text-center">
-<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 <h1 class="text-white mt-2"> Reported Items</h1>
 </div>
 </header>
@@ -87,4 +87,4 @@ header {
 }
   </style>
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/report-media.blade.php ENDPATH**/ ?>
