@@ -1,4 +1,4 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class=" support">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -274,4 +274,4 @@ li.nav-item a {
 
 
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/support-team.blade.php ENDPATH**/ ?>

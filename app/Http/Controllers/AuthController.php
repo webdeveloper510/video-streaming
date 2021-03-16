@@ -290,6 +290,18 @@ class AuthController extends Controller
 
       return view('Dashboard');
     }
+    public function supportlogin()
+    {
+     
+
+      return view('supportlogin');
+    }
+    public function report_media()
+    {
+     
+
+      return view('report-media');
+    }
 
     public function subcat_video($subid){
      
