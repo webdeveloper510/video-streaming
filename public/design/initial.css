@@ -69,7 +69,7 @@ a.btn, button.btn {
 
 .pricetime .text-left {
     float: left;
-    padding-left: 10px;
+    padding-left: 4px;
 }
 .pricetime .text-right h6 {
     background: black;
@@ -83,7 +83,7 @@ a.btn, button.btn {
 .pricetime .text-right {
 
     float: right;
-    margin-right: 30px;
+    margin-right: 4px;
 }
 .col-md-12.text-center button:hover {
     background: #bf0000 !important;

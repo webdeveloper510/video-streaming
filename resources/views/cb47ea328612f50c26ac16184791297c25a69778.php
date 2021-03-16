@@ -97,10 +97,10 @@
 				<div class="row">
 				  <div class="col"></div>
 						<?php if($video->type=='video'): ?>
-						 <div class="col-md-4">
+						 <div class="col-md-8">
 						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="500" height="400" controls controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 							</video>
 							<div class="report-op">
@@ -238,195 +238,7 @@
 	</section>
 		<?php endif; ?>
 	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-	<!-- <section>
-	   <div class="container-fluid">
-			<div class="row">
-					<div class="col-md-12">
-						<h3 class="top selling-content">
-						<span>$</span>Top Selling Content
-						<h3>
-					</div>
-			</div>
-		  <div class="row">
-			 <div class="col-md-12">
-				<div id="demo" class="carousel slide" data-ride="carousel">
-				   <!-- Indicators 
-						<ul class="carousel-indicators">
-							<li data-target="#demo" data-slide-to="0" class="active"></li>
-							<li data-target="#demo" data-slide-to="1"></li>
-							<li data-target="#demo" data-slide-to="2"></li>
-						</ul>
-				   <!-- The slideshow 
-				   <div class="carousel-inner">
-					  <div class="carousel-item active">
-						 <div class="main-video-search content">
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-						 </div>
-					  </div>
-					  <div class="carousel-item">
-						 <div class="main-video-search content">
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-						 </div>
-					  </div>
-					  <div class="carousel-item">
-						 <div class="main-video-search content">
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-							<div class="videos2">
-							   <iframe width="100%" height="150" src="https://www.youtube.com/embed/dlu504XxrYA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-							   </iframe>
-							   <div class="video-icon">
-								  <p>Nasty balls whacking</p>
-								  <div class="camera">
-									 <i class="fa fa-video-camera" aria-hidden="true"></i>
-									 <p>vid</p>
-								  </div>
-							   </div>
-							   <p><span>MISTRESS KELLY KALASHNIK</span></p>
-							</div>
-						 </div>
-					  </div>
-				   </div>
-				   <!-- Left and right controls 
-				   <a class="carousel-control-prev" href="#demo" data-slide="prev">
-				   <span class="carousel-control-prev-icon"></span>
-				   </a>
-				   <a class="carousel-control-next" href="#demo" data-slide="next">
-				   <span class="carousel-control-next-icon"></span>
-				   </a>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</section> -->
+	
 </div>  
 
 
@@ -440,8 +252,8 @@
 <style>
 	.lockicon {
     background: #00000080;
-    height: 400px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     position: absolute;
     left: 15px;
     right: 0;
@@ -463,7 +275,7 @@
 .report-op {
     position: absolute;
     top: 6px;
-    right: -48px;
+    right: 0;
     cursor: pointer;
 	z-index: 1000;
 }
