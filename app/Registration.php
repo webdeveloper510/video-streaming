@@ -992,7 +992,7 @@ public function getRespectedSub($data){
               'title'=>$data['title'],
               'price'=>$data['price'],
               'description'=>$data['description'],
-              'categoryid'=>$data['category'][0],
+              'categoryid'=>$data['category'][0] ? $data['category'][0] : $data['category'][1],
               'min'=>$data['min'],
               'max'=>$data['max'],
               'type'=>$data['type'],
