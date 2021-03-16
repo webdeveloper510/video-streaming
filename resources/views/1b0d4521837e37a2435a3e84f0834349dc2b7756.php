@@ -81,7 +81,7 @@
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min</h4>
         </div>
         <hr>
       
