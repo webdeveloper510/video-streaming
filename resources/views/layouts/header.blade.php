@@ -671,7 +671,7 @@
                                 <p>{{$artist->nickname}}</p>
                                 </div>
                               <div class="col mt-3">
-                                  <div class="online">
+                                  <div class="online" style="{{$artist->by_created==1 ? 'display:block' :'display:none' }}">
                                       </div>
                               </div>
                     </div>
@@ -724,7 +724,7 @@ ul.nav.custom.search ul.subnav {
     width: 280px;
 }
 .online {
-    background: red;
+    background: #3390ff;
     height: 10px;
     margin-left: 20px;
     width: 10px;

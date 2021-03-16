@@ -60,6 +60,9 @@ class AppServiceProvider extends ServiceProvider
              $artistData = $model->onlyArtistDetail($userId);
 
              $subscribed_artist = $model->showSubscribeArtists();
+            //  echo "<pre>";
+
+            //  print_r($subscribed_artist);die;
        
              $getLevel= isset($data) ? $model->getlevel(): '';
             //  print_r($getLevel);die;
