@@ -847,4 +847,21 @@ class artist extends Controller
             
   }
 
+  public function editVideoInfo(Request $req){
+
+    $arrayData = array(
+      'type'=>$req->type,
+      'title'=>$req->title,
+      'price'=>$req->price,
+      'convert'=>$req->convert ? $req->convert : '',
+      'description'=>$req->description,
+      'catid'=>$req->category[0],
+    );
+
+        $update_video = $this->model->UpdateData('media','id',$arrayData,$req['mediaid']);
+
+        return $update_video;
+
+  }
+
   }

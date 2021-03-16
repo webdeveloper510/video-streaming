@@ -160,7 +160,7 @@
 							   <p><?php echo e($video->type=='video' ? Quality : ''); ?></p>
 							</div>
 							<div class="Media-Type1">
-							   <p><?php echo e($video->type=='video' ? $video->convert.'p' : ''); ?></p>
+							   <p><?php echo e($video->type=='video' ? $video->quality.'p' : ''); ?></p>
 							</div>
 						 </div>
 					  </div>

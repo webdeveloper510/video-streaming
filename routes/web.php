@@ -252,6 +252,7 @@ Route::post('report-media', 'AuthController@report_media');
     Route::post('editOffer','artist@editOffer');
 
     Route::post('draw_money','artist@draw_money');
+    Route::post('artist/editVedio','artist@editVideoInfo');
 
     Route::post('delete_offer','artist@deleteOfer');
 
