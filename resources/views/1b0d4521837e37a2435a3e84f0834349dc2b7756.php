@@ -22,7 +22,7 @@
                 <div class="modal-content">
                   
                   <div class="modal-body">
-                  <h3> Unsubscribe from Artistname</h3>
+                  <h3> Unsubscribe from <?php echo e($details[0]->nickname); ?></h3>
                   <div class="text-center Artistxyz">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   
@@ -75,7 +75,7 @@
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
-         Categories :<?php echo e($offer->category); ?>
+         Category :<?php echo e($offer->category); ?>
 
          </a>
         </div>
