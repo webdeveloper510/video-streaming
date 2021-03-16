@@ -73,7 +73,7 @@
                
                  {{$details[0]->nickname}}
            <br>
-         Categories :{{$offer->category}}
+         Category :{{$offer->category}}
          </a>
         </div>
        
