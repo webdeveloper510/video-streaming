@@ -172,6 +172,10 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
 Route::post('createList', 'AuthController@createList');
 
+Route::post('supportlogin', 'AuthController@supportlogin');
+
+Route::post('report-media', 'AuthController@report_media');
+
    /*-------------------End Web Site Route----------------------*/
 
 
