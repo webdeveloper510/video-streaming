@@ -2023,10 +2023,10 @@ $(document).on('click','.select_media_pic',function(){
 			if(value=='audio'){
 
 					$('.media_label').text('Upload Sample Audio (~30s)');
-					$('.media_label12').text('Audio Sample');
+					$('.media_label12').text('Audio');
 					$('.audio_picture').show();
 					$('.convert').hide();
-					$('.audio').show()
+					$('.audio').show();
 					$('.video').hide()
 
 			}
@@ -2034,7 +2034,7 @@ $(document).on('click','.select_media_pic',function(){
 
 				$('.audio_picture').hide();
 
-				$('.media_label12').text('Video Sample');
+				$('.media_label12').text('Video');
 
 
 				$('.media_label').text('Upload Sample Video (~30s)');
