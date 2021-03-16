@@ -4,6 +4,10 @@
 <div class="container">
 
 <div class="row mt-5 pt-5 text-center">
+  
+<div class="titleheader col-md-12">
+     <p>Please complete the setup by uploading an overview media for your profile.</p>
+</div>
     <div class="col-md-3">
     <!-- <h3 class="text-center">Due</h3> -->
     <a href="<?php echo e(url('artist/requests/due')); ?>">
@@ -842,6 +846,12 @@ h5.customer1.text-center.pt-3.pl-3 {
 .week {
     padding: 18px;
     text-align: center !important;
+}
+.titleheader.col-md-12 {
+    margin-bottom: 10px;
+    color: white;
+    background: #80ad12;
+    padding-top: 13px;
 }
 
 </style>
