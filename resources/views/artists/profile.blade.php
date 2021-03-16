@@ -162,7 +162,7 @@
             
                 </a>
                 <div class="edit">
-                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
+                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('{{json_encode($detail)}}')">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>
@@ -604,63 +604,74 @@ Your browser does not support the audio tag.
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
+                        
                         </div>
+                        {!!Form::open([ 'id'=>'edit_Video_info', 'method' => 'post', 'files'=>true])!!}
+                          {{Form::token()}}
                         <div class="modal-body">
-                          <form >
                           <div class="row align-items-center text-white">
-                          
+                          <input type="hidden" value="" name="mediaid" id="mediaid"/>
+                          <input type="hidden" value="" name="type" id="type"/>
                           <div class="col-md-6 mt-2 ">
                           {{Form::label('Title', 'Title')}} 
-                              {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
+                              {{Form::text('title', '',['class'=>'form-control video_title','placeholder'=>'Enter Title'])}}
                           </div>
                       
                           <div class="col-md-6 mt-2 ">
                           {{Form::label('Add Price', 'Price')}} 
-                          {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]) !!}
+                          {!! Form::number('price', '' , ['class' => 'form-control video_price','placeholder'=>'Price','min'=>0]) !!}
                           </div>
-                          <div class="col-md-6 mt-2 ">
-                        
-                            <div class="convert">
-                          {{Form::label('Convert to:', 'Convert to:')}} 
-                        <select name="convert"  class='form-control'>
-                                  <option value="">Choose ...</option>
-                                  <option value="1">480p  </option>
-                                  <option value="2">HD 720p </option>
-                                  <option value="3">Full HD 1080p  </option>
-                          </select>
-                          </div>
-                          <select name="category" id="selectCategory" class='form-control my-5'>
-                                
-                                  <option value="">Choose Category</option>
-                                  <div class="video"> 
-                                  @foreach($category as $cat)
+                          <div class="col-md-12 mt-2 ">
+                                  <div class="convert video" style="display:none">
+                                {{Form::label('Quality:', 'Quality:')}} 
+                              <select name="convert"  class='form-control video_quality'>
+                                        <option value="">Choose ...</option>
+                                        <option value="480">480p  </option>
+                                        <option value="720">HD 720p </option>
+                                        <option value="1080">Full HD 1080p  </option>
+                                </select>
+                                </div>
+                          <div class="video" style="display:none">
+                          <label>Category</label>
+                           <select name="category[]"  class='form-control mb-3 video_category'>
+                          <option value="">Choose Category</option>
+                              @foreach($category as $cat)
+                                  @if($cat->type=='video')
                                       <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                  @endif
                                   @endforeach
-                                  </div>
-                          </select>
-                          
-                          <div class="col-md-12 mt-3 text-white">
-                          <label class="media_label12">Audio/Video</label>
-                              {{Form::file('media',['class'=>'form-control file_input'])}}
-                              <span id="filename" style="color:yellow;"></span>
-                          </div>
-                          <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
-                          <label>Choose Image</label>        
-                              {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
-                              <span id="filename" style="color:yellow;"></span>
-                          </div>
-                          </div>
-                          <div class="col-md-6 mt-3">
+                                  
+                            </select>
+                            </div>
+
+                            <div class="audio" style="display:none">
+                            <label>Category</label>
+                                        <select name="category[]"  class='form-control my-5 video_category'>
+                                                <option value="">Choose Category</option>
+                                                @foreach($category as $cat)
+                                                    @if($cat->type=='audio')
+                                                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                                        @endif
+                                                    @endforeach
+                                              
+                                        </select>
+                            </div>      
+                             <div class="col-md-12 mt-3">
                           {{Form::label('Description', 'Description')}} 
-                              {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])}}
+                              {{Form::textarea('description',null,['class'=>'form-control video_description', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])}}
                           </div>
 
-                      </form>
+            
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <div class="alert alert-success" id="success" style="display:none">
+    
+                           </div>
                         </div>
+                        {{ Form::close() }}
+
                       </div>
                     </div>
                   </div>

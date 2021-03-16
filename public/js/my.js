@@ -1091,6 +1091,22 @@ $(document).on('click', '#forgetLink', function () {
 });
 
 
+function editVideoinfo(data){
+	var json_info = JSON.parse(data);
+	var type =json_info.type;
+	$('.video_title').val(json_info.title)
+	$('#mediaid').val(json_info.id)
+	$('#type').val(json_info.type)
+	$('.'+type).show();
+	$('.video_price').val(json_info.price)
+	$('.video_quality').val(json_info.convert).attr("selected","selected");
+	
+	$('.video_category').val(json_info.catid).attr("selected","selected");
+	$('.video_description').val(json_info.description)
+	
+}
+
+
 
 $(document).on('click', '#withdrawmoney', function () {
 
@@ -1407,6 +1423,47 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 					// $('.alert-success').html(data.message);
 					$('.popup_close').trigger('click');
 						location.reload();
+				}
+
+				else{
+
+					$('.alert-danger').show();
+					$('.alert-danger').html(data.message);
+					
+				}
+
+
+			}
+	});
+
+});
+
+
+/*------------------------------------------------------Edit Video Info------------------------------------------*/
+
+
+$(document).on('submit', '#edit_Video_info', function (event) {
+	event.preventDefault();
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/artist/editVedio",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: $(this).serialize(),
+			success: function(data){
+
+				console.log(data);
+
+				if(data==1){
+					 $('.alert-success').show();
+					 $('.alert-success').html('Update Successfully!');
+					 setTimeout(function(){
+						 location.reload()
+					 },2000)
+					//$('.close').trigger('click');
+					//location.reload();
 				}
 
 				else{
