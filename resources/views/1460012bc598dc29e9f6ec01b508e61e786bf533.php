@@ -8,7 +8,7 @@
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
 
-  <div class="mobilebar">
+  <!-- <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">About</a>
@@ -58,7 +58,7 @@
               </li>
        </ul>
      </div>
-</div>
+</div> -->
 
 
 

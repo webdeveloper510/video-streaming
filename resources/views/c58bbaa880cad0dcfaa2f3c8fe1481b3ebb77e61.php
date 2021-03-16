@@ -158,9 +158,7 @@
             </video>
                 </a>
               
-                <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-            <span class="tooltiptext">You can not download this video</span>
-          </div>
+                
           <div class="pricetime">
           <div class="text-left">
           <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
@@ -184,7 +182,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               <?php else: ?>
               <div class="artistvideo">
-                <h4> Artist does not upload any video</h4>
+                <h4> No video available.</h4>
               </div>
                <?php endif; ?>
           </div>
@@ -197,42 +195,40 @@
       <?php if(isset($audio->type)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-<div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none">
-   <form> 
-   <input type="checkbox" class="slct_video"></form></div>
-     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
-    <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+        <div class="col-md-4 mb-3">
+          <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
+            <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+            <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
-<audio controls controlsList="nodownload" disablePictureInPicture>
+        <audio controls controlsList="nodownload" disablePictureInPicture>
 
-<source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
-Your browser does not support the audio tag.
-</audio>
+        <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
+        Your browser does not support the audio tag.
+        </audio>
 
-</a>
+        </a>
 
-<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-<div class="pricetime">
-          <div class="text-left">
-          <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
-          </div>
-          <div class="text-right">
-          <h6 class="text-white">2:00</h6>
-          </div>
-          </div>
-</div>
 
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<?php else: ?>
-<div class="artistaudio">
-            <h4> Artist does not upload any Audio</h4>
-          </div>
-<?php endif; ?>
-</div>
-</div>
+        <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white">2:00</h6>
+                  </div>
+                  </div>
+        </div>
+
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php else: ?>
+        <div class="artistaudio">
+                    <h4> No Audio available.</h4>
+                  </div>
+        <?php endif; ?>
+        </div>
+        </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
   <!-- <div class="filter_div" id="playlist">
@@ -380,18 +376,19 @@ Your browser does not support the audio tag.
   font-size:30px;
 }
 .pricetime .text-right h6 {
-    background: white;
-    height: 30px;
+    background: black;
+   
     width: auto;
     float: right;
-    color: black !important;
-    padding: 7px;
+    color: white !important;
+    padding: 10px;
 }
 
 .pricetime .text-left h6 {
-  padding: 5px;
+  padding: 10px;
     color: gold !important;
     font-weight: 800;
+    background:black;
 }
 select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
@@ -471,6 +468,11 @@ ul.selected li {
      margin-top: 7px;
 }
 
+@media  only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 </style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>

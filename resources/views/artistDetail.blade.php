@@ -180,7 +180,7 @@
                 @endforeach
               @else
               <div class="artistvideo">
-                <h4> Artist does not upload any video</h4>
+                <h4> No video available.</h4>
               </div>
                @endif
           </div>
@@ -222,7 +222,7 @@
         @endforeach
         @else
         <div class="artistaudio">
-                    <h4> Artist does not upload any Audio</h4>
+                    <h4> No Audio available.</h4>
                   </div>
         @endif
         </div>
