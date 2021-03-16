@@ -2157,9 +2157,6 @@ if ($("#technical_functiong").length > 0) {
 			required: true,
 			maxlength: 2000
 		},
-		file:{
-			required: true,
-		},
 		match_recaptcha:{
 			required: true,
 			equalTo: "#recaptcha"
@@ -2169,10 +2166,6 @@ if ($("#technical_functiong").length > 0) {
 				technical_issue: {
 				required: "Please Select Issue",
 			},
-
-			file: {
-				required: "Choose File",
-			  },
 
 			  match_recaptcha: "Please Match Recaptcha",
 			
@@ -2499,9 +2492,9 @@ if ($("#create_offer").length > 0) {
 			 $('#success').show();
 			 $('#success').html(data.messge);
 
-			//  setTimeout(function(){
-			// 	 location.reload()
-			//  },2000);
+			 setTimeout(function(){
+				 location.reload()
+			 },2000);
 
 			 //location.reload();
 			//$('.popup_close').trigger('click');
