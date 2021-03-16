@@ -57,13 +57,13 @@
             </div>
             <div class="col-md-6 mt-2 ">
            
-              <div class="convert">
+              <div class="convert video">
             <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
            <select name="convert"  class='form-control'>
                     <option value="">Choose ...</option>
-                    <option value="1">480p  </option>
-                    <option value="2">HD 720p </option>
-                    <option value="3">Full HD 1080p  </option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
             </select>
             </div>
             <div class="video" style="display:none">
