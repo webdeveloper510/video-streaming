@@ -22,7 +22,7 @@
                 <div class="modal-content">
                   
                   <div class="modal-body">
-                  <h3> Unsubscribe from Artistname</h3>
+                  <h3> Unsubscribe from {{$details[0]->nickname}}</h3>
                   <div class="text-center Artistxyz">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   
