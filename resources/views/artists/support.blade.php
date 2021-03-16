@@ -43,7 +43,7 @@
             <div class="col-md-6">
                 <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
                 automated submissions.</p>
-                <img src="" class="img-fluid" alt="qr image">
+               <p> <span class="1">d</span><span class="2">R</span><span class="3">f</span><span class="4">g</span><span class="5">2</span></p>
                 <input type="text" class="form-control" >
             </div>
         </div>
