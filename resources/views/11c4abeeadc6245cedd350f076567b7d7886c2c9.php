@@ -105,6 +105,8 @@
                      </div>
            <br>
            <div class="video" style="display:none">
+           <label>Category</label>
+
             <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -116,6 +118,7 @@
             </select>
             </div>
             <div class="audio" style="display:none">
+            <label>Category</label>
             <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -128,6 +131,7 @@
             </div>
             <br>
             <label>Offer Status</label>
+            
             <select name="offer_status"  class='form-control'>
                     <option value="">Choose...</option>
                     <option value="offline">Offline(Draft)</option>

@@ -681,12 +681,16 @@ class artist extends Controller
   }
 
   public function support(){
+
     $tab = 'support';
-    $randomNumber = array('drFg5','dgsg5','dRhg5','dMbg5','dNhg7');
-    $random_keys=array_rand($randomNumber,1);
-    $random_string = $randomNumber[$random_keys];
-    //print_r(explode(' ',$random_string));die;
-    return view('artists/support',['tab'=>$tab]);
+
+    $session_data =   Session::get('User');
+
+    $userid=$session_data->id;
+
+    $value = $this->model->selectDataById('artistid','ticket',$userid);
+
+    return view('artists/support',['tab'=>$tab,'tickets'=>$value]);
   }
 
 
@@ -862,6 +866,36 @@ class artist extends Controller
 
         return $update_video;
 
+  }
+
+  public function insertData(Request $req){
+
+   // print_r($req->all());die;
+
+    if($req->file){
+      $data=$req->all();
+        $fileName = time().'_'.$req->file->getClientOriginalName();
+        $ext =$req->file->getClientOriginalExtension();
+        $filePath= ($ext=='mp3') ? $req->file->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->file->storeAs('video', $fileName, 'public'): $req->file->storeAs('uploads', $fileName, 'public'));
+        unset($data['_token']);
+        unset($data['recaptcha']);
+        unset($data['match_recaptcha']);
+        unset($data['file']);
+        $data['issue_file']=$fileName;
+        $data['description'] = $data['description'];
+        $data['technical_issue'] = $data['technical_issue'];
+        $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
+
+        
+          if($filePath){
+
+          $insert = $this->model->insert_ticket_table($data);
+
+          return $insert;
+          //print_r($insert);die;
+            
+        }
+}
   }
 
   }
