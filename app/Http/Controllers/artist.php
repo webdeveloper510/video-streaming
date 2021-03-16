@@ -385,7 +385,7 @@ class artist extends Controller
 
         ]);
 
-        //print_r($req->all());die;
+        print_r($req->all());die;
               
         if ($validator->fails())
         {
@@ -407,7 +407,7 @@ class artist extends Controller
               unset($data['_token']);
               $data['media']=$fileName;
               $data['quality']= $req->quality ? $req->quality : '';
-              $data['categoryid']=$req->category[0];
+              $data['categoryid']=$req->category[0] ? $req->category[0] : $req->category[1];
               $data['type']=  $data['type'];
               $data['audio_pic'] = $audio_pics;
                 if($filePath){
