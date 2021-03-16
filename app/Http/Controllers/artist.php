@@ -80,7 +80,7 @@ class artist extends Controller
         //   echo "<pre>";
         //  print_r($allArtistsVideo);die;
 
-         $allArtistOffer =      $this->model->getArtistOffer($artistid);
+         $allArtistOffer =      $this->model->getArtistOffer($artistid,'customer');
 
          $subscriber =  $this->model->count_subscriber($artistid);
 
@@ -316,7 +316,7 @@ class artist extends Controller
 
        $random =            $this->model->getRandomData();
 
-      $allArtistOffer =      $this->model->getArtistOffer($userid);
+      $allArtistOffer =      $this->model->getArtistOffer($userid,'artist');
 
       $quality = $this->model->getQuality();
 

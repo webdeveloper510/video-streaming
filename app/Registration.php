@@ -529,7 +529,7 @@ public function getArtistDetail($artid,$type){
     return $details;
   }
 
-  public function getArtistOffer($artistId){
+  public function getArtistOffer($artistId,$user){
 
     
 
@@ -538,24 +538,33 @@ public function getArtistDetail($artid,$type){
     $offer=DB::table('offer')
     ->leftjoin('category', 'category.id', '=','offer.categoryid')
     ->leftjoin('subscriber','subscriber.artistid','=','offer.artistid')
-     ->select('offer.*', 'category.category','subscriber.count')
-     ->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false'))->get()->toArray();
+     ->select('offer.*', 'category.category','subscriber.count');
+   
+
+     if($user=='customer'){
+
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online'));
+
+     }
+     else{
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false'));
+     }
      
-      if($offer){
-           $offers = $offer;
-      }
+      // if($offer){
+      //      $offers = $offer;
+      // }
 
-      else{
+      // else{
 
-        $offers = DB::table('offer')
-        ->leftjoin('category', 'category.id', '=','offer.categoryid')
-        ->select('offer.*', 'category.category')
-        ->where(['offer.artistid'=>$artistId,'offer.is_deleted'=>'false'])->get()->toArray();
-      }
+      //   $offers = DB::table('offer')
+      //   ->leftjoin('category', 'category.id', '=','offer.categoryid')
+      //   ->select('offer.*', 'category.category')
+      //   ->where(['offer.artistid'=>$artistId,'offer.is_deleted'=>'false'])->get()->toArray();
+      // }
 
         //print_r($offers);die;
 
-     return $offers;
+     return $data->get()->toArray();
      
 
   }
