@@ -2233,45 +2233,14 @@ if ($("#technical_functiong").length > 0) {
 						$('#error').html('Some Error');
 						
 					}
-
-			
-			// if(response.errors){
-
-			// 	jQuery.each(response.errors, function(key, value){
-			// 		jQuery('.alert-danger').show();
-			// 		jQuery('.alert-danger').append('<p>'+value+'</p>');
-			// 	});
-			// }
-			// else{
-			// 	$('.loader').hide();
-			// 	//$('.percentage').hide();
-			// 	if(response.status==1){
-			// 		 $('#success').show();
-			// 		 $('#success').html(response.messge);
-
-			// 		 setTimeout(function(){
-			// 			 location.reload();
-			// 		 },2000);
-
-			// 		// location.reload();
-			// 		//$('.popup_close').trigger('click');
-						
-			// 	}
-
-			// 	else{
-
-			// 		$('#error').show();
-			// 		$('#error').html(response.messge);
-					
-			// 	}
-
-
-			// }
-        }
+       }
       });
     }
   })
 }
+
+
+
 
 if ($("#myForm").length > 0) {
     $("#myForm").validate({
@@ -2593,6 +2562,73 @@ $(document).on('submit', '#updateUser', function (event) {
 				if(data==1){
 
 					location.reload();
+						
+				}
+
+				else{
+
+					location.reload();
+					
+				}
+
+
+			}
+	});
+
+});
+
+
+
+
+/*---------------------------------------------------Edit Artist Personal Info-----------------------------------*/
+
+$(document).on('submit', '#artist_info', function (event) {
+	event.preventDefault();
+	var form  = $('#artist_info');
+	var formData = new FormData($(form)[0]);
+	$('.loader').show();
+	$('.percentage').html('0');
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/contentProvider",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: formData,
+
+			contentType: false,
+			processData: false,
+
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				if (xhr.upload) {
+					xhr.upload.addEventListener('progress', function(event) {
+						var percent = 0;
+						var position = event.loaded || event.position;
+						var total = event.total;
+						if (event.lengthComputable) {
+							percent = Math.ceil(position / total * 100);
+						}
+						$('#top_title').html('Uploding...'+percent+'%');
+						$('.percentage').html(percent+'%');
+						if(percent==100){
+							$('.loader').hide();
+						}
+					}, true);
+				}
+				return xhr;
+		},
+		
+
+			success: function(data){
+
+				//console.log(data);return false;
+
+				if(data==1){
+
+					window.location.href = APP_URL+'artists/dashboard';
 						
 				}
 

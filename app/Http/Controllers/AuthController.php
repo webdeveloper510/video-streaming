@@ -574,13 +574,15 @@ class AuthController extends Controller
               $data['cover_photo']=$cover_photo;
          if($filePath){          
               $update_data = $this->model->uploadContentData($data);
-                if($update_data){
-                    return redirect('artists/dashboard');
-                  }
-              else
-              {
-                  return redirect('/getContent#error')->with('error','Some Error Occure!');
-          }
+
+              return $update_data;
+              //   if($update_data){
+              //       return redirect('artists/dashboard');
+              //     }
+              // else
+              // {
+              //     return redirect('/getContent#error')->with('error','Some Error Occure!');
+              //  }
         }
       }
   }
@@ -1547,7 +1549,7 @@ public function readNotification(Request $request){
       public function support_team(){
 
         return view('support-team');
-        
+
       }
 
       public function seeOrder(){
