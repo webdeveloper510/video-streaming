@@ -1532,6 +1532,12 @@ public function readNotification(Request $request){
                $update = $this->model->update_due_to_process($req->all());
       }
 
+      public function support_team(){
+
+        return view('support-team');
+        
+      }
+
       public function seeOrder(){
 
         $artistOfferId =   Session::get('offer_artist_id');

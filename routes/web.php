@@ -201,6 +201,7 @@ Route::post('createList', 'AuthController@createList');
     Route::get('showMedia', 'artist@showSocialMedia');
     
     Route::get('artist/offers/{id}', 'artist@offerpage');
+    Route::get('support-team', 'AuthController@support_team');
 
     Route::get('artist/offer', 'artist@offer');
 

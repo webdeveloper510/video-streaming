@@ -2527,13 +2527,17 @@ public function showSubscribeArtists(){
   $userid =  $session_data->id;
 
   $subscribedArtist = DB::table('subscriber')
-  ->leftjoin('contentprovider','contentprovider.id','=','subscriber.artistid')
-  ->select('contentprovider.nickname','contentprovider.profilepicture','subscriber.artistid')
-  ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
+  ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
+  ->leftJoin ('offer','offer.artistid','=','subscriber.artistid')
+  ->select('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+  ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
+  ->where(['offer.by_created'=>1,'offer.is_seen'=>'no'])
+  ->orderBy('offer.id', 'DESC')
+  ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+  
   ->get();
-
-  //print_r($subscribedArtist);die;
-
+    // echo "<pre>";
+    //   print_r($subscribedArtist);die;
      return $subscribedArtist;
 
 }
