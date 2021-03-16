@@ -3,7 +3,7 @@
 
 <div class="container">
     @if($videos)
-   <div class="row pt-5 mt-5">
+   <div class="row pt-5">
    @foreach($videos as $vid)
     @if($flag!='offer')
        <div class="col-md-4 my-3">
@@ -92,6 +92,7 @@
 }
 .borderhover:hover {
     border:2px solid yellow;
+    padding:0px !important;
 
 }
 .seealldata1{
