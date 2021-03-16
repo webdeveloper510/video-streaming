@@ -539,7 +539,7 @@ public function getArtistDetail($artid,$type){
     ->leftjoin('category', 'category.id', '=','offer.categoryid')
     ->leftjoin('subscriber','subscriber.artistid','=','offer.artistid')
      ->select('offer.*', 'category.category','subscriber.count')
-     ->where(array('offer.artistid'=>$artistId,'is_deleted'=>'false'))->get()->toArray();
+     ->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false'))->get()->toArray();
      
       if($offer){
            $offers = $offer;
@@ -550,7 +550,7 @@ public function getArtistDetail($artid,$type){
         $offers = DB::table('offer')
         ->leftjoin('category', 'category.id', '=','offer.categoryid')
         ->select('offer.*', 'category.category')
-        ->where(['artistid'=>$artistId,'is_deleted'=>'false'])->get()->toArray();
+        ->where(['offer.artistid'=>$artistId,'offer.is_deleted'=>'false'])->get()->toArray();
       }
 
         //print_r($offers);die;
