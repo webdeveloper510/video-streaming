@@ -196,7 +196,7 @@
             <div class="col-md-4 hover" >
             <a href="{{url('artist-video/'.$recnt->id)}}">
             
-          <video class="hoverVideo" id="recently_{{$recnt->id}}" width="350px" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video class="hoverVideo" id="recently_{{$recnt->id}}" width="100%" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$recnt->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -266,7 +266,7 @@
            
             <div class="col-md-4 hover">
                 <a  id="anchor_{{$pop->id}}" href="{{url('artist-video/'.$pop->id)}}">
-                <video class="hoverVideo" id="video_{{$pop->id}}" width="100%" height="100%" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <video class="hoverVideo" id="video_{{$pop->id}}" width="100%"  height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="{{url('storage/app/public/video/'.$pop->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -289,7 +289,7 @@
     @endif
           </div>
 </div>
-                <h5>{{ $pop->title }}</h5>
+                <h5 class="mt-4">{{ $pop->title }}</h5>
                 </a>
             </div> 
          
@@ -329,7 +329,7 @@
             <div class="col-md-4 showoffer1 mb-3">
     <a href="{{url('artistoffers/'.$offer->id)}}">
       <div class="card">
-      <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+      <video width="100%"  height="275px"  controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
 
              Your browser does not support the video tag.
@@ -562,7 +562,7 @@ h4.card-title.text-center {
 .hover:hover video{ border: 2px solid yellow; }
 h5{ color :#fff;}
 .pricetime {
-    margin-top: -35px;
+    margin-top: -43px;
 }
 @media only screen and (max-width: 768px) {
 

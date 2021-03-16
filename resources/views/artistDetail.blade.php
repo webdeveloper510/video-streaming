@@ -156,9 +156,7 @@
             </video>
                 </a>
               
-                <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-            <span class="tooltiptext">You can not download this video</span>
-          </div>
+                
           <div class="pricetime">
           <div class="text-left">
           <h6 class="text-white">{{$detail->price}}/PAZ</h6>
@@ -195,42 +193,40 @@
       @if(isset($audio->type))
           @foreach($audio as $aud)
 
-<div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none">
-   <form> 
-   <input type="checkbox" class="slct_video"></form></div>
-     <a href="{{url('artist-video/'.$aud->id)}}">
-    <img src="{{asset('images/logos/voice.jpg')}}">
+        <div class="col-md-4 mb-3">
+          <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
+            <a href="{{url('artist-video/'.$aud->id)}}">
+            <img src="{{asset('images/logos/voice.jpg')}}">
 
-<audio controls controlsList="nodownload" disablePictureInPicture>
+        <audio controls controlsList="nodownload" disablePictureInPicture>
 
-<source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
-Your browser does not support the audio tag.
-</audio>
+        <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
+        Your browser does not support the audio tag.
+        </audio>
 
-</a>
+        </a>
 
-<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-<div class="pricetime">
-          <div class="text-left">
-          <h6 class="text-white">{{ $audio->price}}/PAZ</h6>
-          </div>
-          <div class="text-right">
-          <h6 class="text-white">2:00</h6>
-          </div>
-          </div>
-</div>
 
-@endforeach
-@else
-<div class="artistaudio">
-            <h4> Artist does not upload any Audio</h4>
-          </div>
-@endif
-</div>
-</div>
+        <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white">{{ $audio->price}}/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white">2:00</h6>
+                  </div>
+                  </div>
+        </div>
+
+        @endforeach
+        @else
+        <div class="artistaudio">
+                    <h4> Artist does not upload any Audio</h4>
+                  </div>
+        @endif
+        </div>
+        </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
   <!-- <div class="filter_div" id="playlist">
@@ -379,15 +375,15 @@ Your browser does not support the audio tag.
 }
 .pricetime .text-right h6 {
     background: black;
-    height: 30px;
+   
     width: auto;
     float: right;
     color: white !important;
-    padding: 7px;
+    padding: 10px;
 }
 
 .pricetime .text-left h6 {
-  padding: 5px;
+  padding: 10px;
     color: gold !important;
     font-weight: 800;
     background:black;
