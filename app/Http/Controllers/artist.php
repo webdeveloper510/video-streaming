@@ -80,7 +80,7 @@ class artist extends Controller
         //   echo "<pre>";
         //  print_r($allArtistsVideo);die;
 
-         $allArtistOffer =      $this->model->getArtistOffer($artistid);
+         $allArtistOffer =      $this->model->getArtistOffer($artistid,'customer');
 
          $subscriber =  $this->model->count_subscriber($artistid);
 
@@ -316,7 +316,7 @@ class artist extends Controller
 
        $random =            $this->model->getRandomData();
 
-      $allArtistOffer =      $this->model->getArtistOffer($userid);
+      $allArtistOffer =      $this->model->getArtistOffer($userid,'artist');
 
       $quality = $this->model->getQuality();
 
@@ -385,7 +385,7 @@ class artist extends Controller
 
         ]);
 
-        //print_r($req->all());die;
+        print_r($req->all());die;
               
         if ($validator->fails())
         {
@@ -407,7 +407,7 @@ class artist extends Controller
               unset($data['_token']);
               $data['media']=$fileName;
               $data['quality']= $req->quality ? $req->quality : '';
-              $data['categoryid']=$req->category[0];
+              $data['categoryid']=$req->category[0] ? $req->category[0] : $req->category[1];
               $data['type']=  $data['type'];
               $data['audio_pic'] = $audio_pics;
                 if($filePath){
@@ -681,12 +681,16 @@ class artist extends Controller
   }
 
   public function support(){
+
     $tab = 'support';
-    $randomNumber = array('drFg5','dgsg5','dRhg5','dMbg5','dNhg7');
-    $random_keys=array_rand($randomNumber,1);
-    $random_string = $randomNumber[$random_keys];
-    //print_r(explode(' ',$random_string));die;
-    return view('artists/support',['tab'=>$tab]);
+
+    $session_data =   Session::get('User');
+
+    $userid=$session_data->id;
+
+    $value = $this->model->selectDataById('artistid','ticket',$userid);
+
+    return view('artists/support',['tab'=>$tab,'tickets'=>$value]);
   }
 
 
@@ -863,5 +867,37 @@ class artist extends Controller
         return $update_video;
 
   }
+
+  public function insertData(Request $req){
+
+   // print_r($req->all());die;
+
+
+      $data=$req->all();
+        $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
+        $ext =$req->file ? $req->file->getClientOriginalExtension():'';
+        if($req->file){
+
+          $filePath= ($ext=='mp3') ? $req->file->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->file->storeAs('video', $fileName, 'public'): $req->file->storeAs('uploads', $fileName, 'public'));
+          $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
+
+        }
+        unset($data['_token']);
+        unset($data['recaptcha']);
+        unset($data['match_recaptcha']);
+        unset($data['file']);
+        $data['issue_file']=$fileName;
+        $data['description'] = $data['description'];
+        $data['technical_issue'] = $data['technical_issue'];
+        $data['type'] = $data['type'] ? $data['type'] : '';
+
+        
+          $insert = $this->model->insert_ticket_table($data);
+
+          return $insert;
+          //print_r($insert);die;
+            
+        }
+
 
   }

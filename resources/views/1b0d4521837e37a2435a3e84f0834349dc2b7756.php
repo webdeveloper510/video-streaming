@@ -22,7 +22,7 @@
                 <div class="modal-content">
                   
                   <div class="modal-body">
-                  <h3> Unsubscribe from Artistname</h3>
+                  <h3> Unsubscribe from <?php echo e($details[0]->nickname); ?></h3>
                   <div class="text-center Artistxyz">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   
@@ -75,13 +75,13 @@
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
-         Categories :<?php echo e($offer->category); ?>
+         Category :<?php echo e($offer->category); ?>
 
          </a>
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min</h4>
         </div>
         <hr>
       
@@ -158,9 +158,7 @@
             </video>
                 </a>
               
-                <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-            <span class="tooltiptext">You can not download this video</span>
-          </div>
+                
           <div class="pricetime">
           <div class="text-left">
           <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
@@ -197,42 +195,40 @@
       <?php if(isset($audio->type)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-<div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none">
-   <form> 
-   <input type="checkbox" class="slct_video"></form></div>
-     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
-    <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+        <div class="col-md-4 mb-3">
+          <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
+            <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+            <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
-<audio controls controlsList="nodownload" disablePictureInPicture>
+        <audio controls controlsList="nodownload" disablePictureInPicture>
 
-<source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
-Your browser does not support the audio tag.
-</audio>
+        <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
+        Your browser does not support the audio tag.
+        </audio>
 
-</a>
+        </a>
 
-<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-<div class="pricetime">
-          <div class="text-left">
-          <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
-          </div>
-          <div class="text-right">
-          <h6 class="text-white">2:00</h6>
-          </div>
-          </div>
-</div>
 
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<?php else: ?>
-<div class="artistaudio">
-            <h4> Artist does not upload any Audio</h4>
-          </div>
-<?php endif; ?>
-</div>
-</div>
+        <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white">2:00</h6>
+                  </div>
+                  </div>
+        </div>
+
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php else: ?>
+        <div class="artistaudio">
+                    <h4> Artist does not upload any Audio</h4>
+                  </div>
+        <?php endif; ?>
+        </div>
+        </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
   <!-- <div class="filter_div" id="playlist">
@@ -381,15 +377,15 @@ Your browser does not support the audio tag.
 }
 .pricetime .text-right h6 {
     background: black;
-    height: 30px;
+   
     width: auto;
     float: right;
     color: white !important;
-    padding: 7px;
+    padding: 10px;
 }
 
 .pricetime .text-left h6 {
-  padding: 5px;
+  padding: 10px;
     color: gold !important;
     font-weight: 800;
     background:black;

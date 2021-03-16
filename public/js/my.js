@@ -2023,10 +2023,10 @@ $(document).on('click','.select_media_pic',function(){
 			if(value=='audio'){
 
 					$('.media_label').text('Upload Sample Audio (~30s)');
-					$('.media_label12').text('Audio Sample');
+					$('.media_label12').text('Audio');
 					$('.audio_picture').show();
 					$('.convert').hide();
-					$('.audio').show()
+					$('.audio').show();
 					$('.video').hide()
 
 			}
@@ -2034,7 +2034,7 @@ $(document).on('click','.select_media_pic',function(){
 
 				$('.audio_picture').hide();
 
-				$('.media_label12').text('Video Sample');
+				$('.media_label12').text('Video');
 
 
 				$('.media_label').text('Upload Sample Video (~30s)');
@@ -2141,6 +2141,106 @@ if ($("#social_media").length > 0) {
     }
   })
 }
+
+/**---------------------------------------Suport Functyiong------------------------------------- */
+
+
+if ($("#technical_functiong").length > 0) {
+    $("#technical_functiong").validate({
+      
+		rules: {
+			technical_issue: {
+			required: true,
+		},
+
+		description: {
+			required: true,
+			maxlength: 2000
+		},
+		match_recaptcha:{
+			required: true,
+			equalTo: "#recaptcha"
+		}
+		},
+			messages: {
+				technical_issue: {
+				required: "Please Select Issue",
+			},
+
+			  match_recaptcha: "Please Match Recaptcha",
+			
+
+			  description: {
+				required: "Please Add Description",
+				maxlength:'Character may be less than 2000'
+			},
+		
+			},
+    submitHandler: function(form) {
+		//event.preventDefault();
+		var form  =  $("#technical_functiong");
+		var formData = new FormData($(form)[0]);
+		
+		$('.loader').show();
+		$('.percentage').html('0');
+     $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+      $.ajax({
+		url:APP_URL+"/artist/insert_support",
+        type: "POST",
+		data: formData,
+		processData: false,
+		contentType: false,
+		xhr: function () {
+			var xhr = $.ajaxSettings.xhr();
+			if (xhr.upload) {
+				xhr.upload.addEventListener('progress', function(event) {
+					var percent = 0;
+					var position = event.loaded || event.position;
+					var total = event.total;
+					if (event.lengthComputable) {
+						percent = Math.ceil(position / total * 100);
+					}
+					$('#top_title').html('Uploding...'+percent+'%');
+					$('.percentage').html(percent+'%');
+					if(percent==100){
+						$('.loader').hide();
+					}
+				}, true);
+			}
+			return xhr;
+	},
+        success: function( response ) {
+
+		//	console.log(response);return false;
+
+			if(response==1){
+						 $('#success').show();
+						 $('#success').html('Ticket Created Successfully!');
+	
+						 setTimeout(function(){
+							 location.reload();
+						 },2000);
+							
+					}
+	
+					else{
+	
+						$('#error').show();
+						$('#error').html('Some Error');
+						
+					}
+       }
+      });
+    }
+  })
+}
+
+
+
 
 if ($("#myForm").length > 0) {
     $("#myForm").validate({
@@ -2361,9 +2461,9 @@ if ($("#create_offer").length > 0) {
 			 $('#success').show();
 			 $('#success').html(data.messge);
 
-			//  setTimeout(function(){
-			// 	 location.reload()
-			//  },2000);
+			 setTimeout(function(){
+				 location.reload()
+			 },2000);
 
 			 //location.reload();
 			//$('.popup_close').trigger('click');
@@ -2462,6 +2562,73 @@ $(document).on('submit', '#updateUser', function (event) {
 				if(data==1){
 
 					location.reload();
+						
+				}
+
+				else{
+
+					location.reload();
+					
+				}
+
+
+			}
+	});
+
+});
+
+
+
+
+/*---------------------------------------------------Edit Artist Personal Info-----------------------------------*/
+
+$(document).on('submit', '#artist_info', function (event) {
+	event.preventDefault();
+	var form  = $('#artist_info');
+	var formData = new FormData($(form)[0]);
+	$('.loader').show();
+	$('.percentage').html('0');
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/contentProvider",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: formData,
+
+			contentType: false,
+			processData: false,
+
+			xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				if (xhr.upload) {
+					xhr.upload.addEventListener('progress', function(event) {
+						var percent = 0;
+						var position = event.loaded || event.position;
+						var total = event.total;
+						if (event.lengthComputable) {
+							percent = Math.ceil(position / total * 100);
+						}
+						$('#top_title').html('Uploding...'+percent+'%');
+						$('.percentage').html(percent+'%');
+						if(percent==100){
+							$('.loader').hide();
+						}
+					}, true);
+				}
+				return xhr;
+		},
+		
+
+			success: function(data){
+
+				//console.log(data);return false;
+
+				if(data==1){
+
+					window.location.href = APP_URL+'artists/dashboard';
 						
 				}
 

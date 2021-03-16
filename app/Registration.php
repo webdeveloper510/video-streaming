@@ -382,7 +382,7 @@ public function uploadContentProvider($contentdata){
     unset($contentdata['email']);
    
     $contentdata['contentProviderid']=$contentid;
-     $contentdata['catid']=$contentdata['category'][0];
+     $contentdata['catid']=$contentdata['category'][0] ? $contentdata['category'][0] : $contentdata['category'][1];
     // $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
@@ -529,30 +529,42 @@ public function getArtistDetail($artid,$type){
     return $details;
   }
 
-  public function getArtistOffer($artistId){
+  public function getArtistOffer($artistId,$user){
 
     
 
     //echo $artistId;die;
 
     $offer=DB::table('offer')
-    ->join('category', 'category.id', '=','offer.categoryid')
-    ->join('subscriber','subscriber.artistid','=','offer.artistid')
-     ->select('offer.*', 'category.category','subscriber.count')
-     ->where(array('offer.artistid'=>$artistId,'is_deleted'=>'false'))->get()->toArray();
+    ->leftjoin('category', 'category.id', '=','offer.categoryid')
+    ->leftjoin('subscriber','subscriber.artistid','=','offer.artistid')
+     ->select('offer.*', 'category.category','subscriber.count');
+   
+
+     if($user=='customer'){
+
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online'));
+
+     }
+     else{
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false'));
+     }
      
-      if($offer){
-           $offers = $offer;
-      }
+      // if($offer){
+      //      $offers = $offer;
+      // }
 
-      else{
+      // else{
 
-        $offers = DB::table('offer')->where('artistid',$artistId)->get()->toArray();
-      }
+      //   $offers = DB::table('offer')
+      //   ->leftjoin('category', 'category.id', '=','offer.categoryid')
+      //   ->select('offer.*', 'category.category')
+      //   ->where(['offer.artistid'=>$artistId,'offer.is_deleted'=>'false'])->get()->toArray();
+      // }
 
         //print_r($offers);die;
 
-     return $offers;
+     return $data->get()->toArray();
      
 
   }
@@ -2576,6 +2588,20 @@ public function update_cover($data,$req){
          ]);
    
        return $update;
+
+}
+
+public function insert_ticket_table($data){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+        $data['created_at']=now();
+        $data['updated_at']=now();
+        $data['artistid']=$userid;
+
+        return DB::table('ticket')->insert($data);
 
 }
 

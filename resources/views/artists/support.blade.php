@@ -17,24 +17,27 @@
       <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
+          {!!Form::open(['id'=>'technical_functiong','method' => 'post', 'files'=>true])!!}
+              {{Form::token()}}
      <div class="ticketstext">
         <label>Subject</label>
-        <select class="custom-select">
-            <option selected>Select menu</option>
-            <option value="1">Feature Request</option>
-            <option value="2">Functionality Question</option>
-            <option value="3">Technical Issue</option>
-            <option value="4">General</option>
-            <option value="5">Website Fees</option>
-            <option value="6">Delete Account</option>
-            <option value="7">Other</option>
-        </select>
+              <select name="technical_issue" class="custom-select">
+                  <option selected>Select menu</option>
+                  <option value="Feature Request">Feature Request</option>
+                  <option value="Functionality Question">Functionality Question</option>
+                  <option value="Technical Issue">Technical Issue</option>
+                  <option value="General">General</option>
+                  <option value="Website Fees">Website Fees</option>
+                  <option value="Delete Account">Delete Account</option>
+                  <option value="Other">Other</option>
+              </select>
     <div class="description mt-3">
     <label>Description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
   <br>
-  <input type="file" class="form-control" placeholder="add file">
+  <input type="file" name="file" class="form-control" placeholder="add file">
+  <input type="hidden" name="recaptcha" value="" id="recaptcha"/>
     <div class="mt-3">
         <div class="row">
             <div class="col-md-3">
@@ -42,24 +45,29 @@
             </div>
             <div class="col-md-6">
                 <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
-                automated submissions.</p>
-               
+                automated submissions.</p> 
             <form onsubmit="validateCaptcha()">
                 <div id="captcha">
                 </div>
-                <input type="text" class="formcontrol" placeholder="Captcha" id="cpatchaTextBox"/>
-                <button class="btn btn-success" type="submit">Submit</button>
+                <input type="text" name="match_recaptcha" class="formcontrol" placeholder="Captcha" id="cpatchaTextBox"/>
             </form>
            
             </div>
         </div>
         <div class="text-right">
-            <button type="button" class="btn btn-light">Submit</button>
+        <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
+            <button type="submit" class="btn btn-light">Submit</button>
+
+            <div class="alert alert-success" id="success" style="display:none"></div>
+
 </div>
     </div>
 
     </div>
-   
+    {{ Form::close() }}
 </div>
 <div class="col"></div>
 </div>
@@ -74,19 +82,22 @@
              
    <div class="opentickettext">
        <div class="row">
-       
+       @foreach($tickets as $ticket)
             <div class="col-9">
-            <a href="#" data-toggle="modal" data-target="#chat">
-               <h3>#34567893 - Technical Issue</h3>
-               <p>Last Updated: Monday,21.march,2021(15:03)</p>
-               </a>
+                <a href="#" data-toggle="modal" data-target="#chat">
+                  <h3>#34567893 - {{$ticket->technical_issue}}</h3>
+                  <p>Last Updated: {{$ticket->created_at}}</p>
+                  </a>
             </div>
             
-            <div class="col-3 mt-4">
-                
-               <button type="button" class="btn btn-primary" >Open</button>
-               <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
-            </div>
+                    <div class="col-3 mt-4">
+                        
+                      <button type="button" class="btn btn-primary" >Open</button>
+                      <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
+                    </div>
+
+                    @endforeach
+
             <!-- Button trigger modal -->
                 
                 <!-- Modal -->
@@ -145,7 +156,16 @@ ul#pills-tab {
     background: #7b0000;
     color: white !important;
 }
-
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
+}
 li.nav-item a {
     color: white;
 }
@@ -182,6 +202,7 @@ function createCaptcha() {
   //storing captcha so that can validate you can save it somewhere else according to your specific requirements
   code = captcha.join("");
   console.log(code);
+  $('#recaptcha').val(code)
   document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
 }
 function validateCaptcha() {
