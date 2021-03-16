@@ -1,5 +1,5 @@
 @include('layouts.header')
-<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+<!-- <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script> -->
 
 <link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
@@ -287,19 +287,7 @@
 </div>
 </div>
 </div>
-<script>
-  $(document).ready(function() {
- 
-  $("#owl-example").owlCarousel({
-    items:3
- loop:true,
-margin:10,
-autoPlay:true,
-nav:true,
-rewindNav:false
-  });
-});
- </script>
+
 
 <style>
 body{
