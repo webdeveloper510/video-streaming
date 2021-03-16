@@ -1,8 +1,14 @@
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<header>
+<div class="text-center">
+<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
+<h1 class="text-white mt-2"> Reported Items</h1>
+</div>
+</header>
 
 <section class="reportmeadia">
   <div class="container">
-    <h2>Reported Items</h2>
+    <h2></h2>
       <div class="row media">
           <div class="col-md-4">
           <video width="100%" controls>
@@ -75,7 +81,10 @@
     padding: 13px;
     margin-bottom: 12px;
 }
-
-</style>
+header {
+    background: #7b0000;
+    padding: 11px;
+}
+  </style>
 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/report-media.blade.php ENDPATH**/ ?>
