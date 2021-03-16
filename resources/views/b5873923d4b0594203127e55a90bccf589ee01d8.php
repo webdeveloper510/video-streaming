@@ -43,7 +43,7 @@
             <div class="col-md-6">
                 <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
                 automated submissions.</p>
-                <img src="" class="img-fluid" alt="qr image">
+               <p> <span class="1">d</span><span class="2">R</span><span class="3">f</span><span class="4">g</span><span class="5">2</span></p>
                 <input type="text" class="form-control" >
             </div>
         </div>
@@ -65,23 +65,24 @@
   <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
+             
    <div class="opentickettext">
        <div class="row">
-       <a href="#" data-toggle="modal" data-target="#chat">
+       
             <div class="col-9">
+            <a href="#" data-toggle="modal" data-target="#chat">
                <h3>#34567893 - Technical Issue</h3>
                <p>Last Updated: Monday,21.march,2021(15:03)</p>
-
+               </a>
             </div>
-            </a>
+            
             <div class="col-3 mt-4">
                 
-               <button type="button" class="btn btn-primary">Open</button>
+               <button type="button" class="btn btn-primary" >Open</button>
                <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
             </div>
             <!-- Button trigger modal -->
-
-
+                
                 <!-- Modal -->
                 <div class="modal fade" id="chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

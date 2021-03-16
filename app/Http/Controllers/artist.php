@@ -630,7 +630,6 @@ class artist extends Controller
           //'zip'=>45701
         ],
         'first_name'=>'Navdeep',
-
         'ssn_last_4'=>2212,
         'id_number'=>111122212,
         'last_name'=>'tondon',
@@ -654,7 +653,7 @@ class artist extends Controller
       ]
       ]);
 
-     print_r($account);die;
+     //print_r($account);die;
 
           if((array)$account){
 
@@ -682,7 +681,12 @@ class artist extends Controller
   }
 
   public function support(){
-    return view('artists/support',['tab'=>'dashboard']);
+    $tab = 'support';
+    $randomNumber = array('drFg5','dgsg5','dRhg5','dMbg5','dNhg7');
+    $random_keys=array_rand($randomNumber,1);
+    $random_string = $randomNumber[$random_keys];
+    //print_r(explode(' ',$random_string));die;
+    return view('artists/support',['tab'=>$tab]);
   }
 
 
