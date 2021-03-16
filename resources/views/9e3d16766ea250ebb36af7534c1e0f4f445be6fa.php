@@ -8,7 +8,6 @@
          <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
-              <i class="fa fa-money"></i>
               Collection Upload       
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -21,22 +20,11 @@
           
         </ul>
 
-        <div class="alert alert-success" id="success" style="display:none">
     
-        </div>
- 
-      
-        <div class="alert alert-danger" id="error" style="display:none">
-   
-        </div>
   
-        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <div class="alert alert-danger">
-        <?php echo e($error); ?>
-
-        </div>
       
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      
+  
   <?php echo Form::open(['id'=>'myForm','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
@@ -64,13 +52,13 @@
          
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price')); ?> 
-            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price']); ?>
+            <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
             <div class="col-md-6 mt-2 ">
            
               <div class="convert">
-            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+            <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
            <select name="convert"  class='form-control'>
                     <option value="">Choose ...</option>
                     <option value="1">480p  </option>
@@ -78,28 +66,46 @@
                     <option value="3">Full HD 1080p  </option>
             </select>
             </div>
-            <select name="category" id="selectCategory" class='form-control my-5'>
+            <div class="video" style="display:none">
+            <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($cat->type=='video'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  
             </select>
+            </div>
+
+            <div class="audio" style="display:none">
+            <select name="category[]"  class='form-control my-5'>
+                    <option value="">Choose Category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($cat->type=='audio'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                   
+            </select>
+            </div>
             
             <div class="col-md-12 mt-3 text-white">
-            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+            <label class="media_label12">Audio/Video</label>
+                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
-            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
-            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
-                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
+            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+            <label>Choose Image</label>        
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
+                <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
             <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
-                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'rows' => 8, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
 
             </div>
             <div class="row">
@@ -108,8 +114,16 @@
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
             <div class="col text-center pt-3">
-            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary'])); ?>
+            <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary disable_this'])); ?>
 
+            <div class="alert alert-success" id="success" style="display:none">
+    
+    </div>
+
+  
+    <div class="alert alert-danger" id="error" style="display:none">
+
+    </div>
      </div>
      </div>
    </div>
@@ -134,6 +148,17 @@
 
 .modal-dialog {
     background: transparent !important;
+}
+
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
 }
 
 .loader img {

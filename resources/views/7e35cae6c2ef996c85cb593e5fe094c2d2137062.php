@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
-  <title>
+  <title id="top_title">
    Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -38,7 +38,7 @@
 
 
 <!---------------------------------------------------------------- Mobile nav bar ------------------------------------>
-       <div class="mobile-bar">
+      <div class="mobile-bar">
        <div class="headerbar">
        <button class="openbtn" onclick="openNav()">☰ </button> 
 
@@ -47,7 +47,7 @@
           <div class="side">
         <ul class="mobile">
         <li class="profileimagemobile">
-         <?php if($artistProfile[0]->profilepicture): ?>
+         <?php if(array_key_exists(0,$artistProfile) && $artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
           <?php else: ?>
  
@@ -73,6 +73,7 @@
            <button class="dropdown-item" type="button">
           <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
     </div> -->
+  
    <hr style="color:white;background: white;">
   <b><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
@@ -87,18 +88,20 @@
               <p> <i class="material-icons">dashboard</i> Dashboard</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='profile'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+          <li class="nav-item <?php echo e($tab=='profile'  ? 'active' : ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/Profile')); ?>">
               
               <p><i class="material-icons">person</i>   Profile</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+    
+          <li class="nav-item active" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
             </a>
           </li>
+      
           <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/withdraw')); ?>">
               
@@ -145,7 +148,7 @@
 
 
        <div class="logo">
-       <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+       <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
        </div>
 
        <div class="right">
@@ -165,7 +168,7 @@
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="https://cdn0.iconfinder.com/data/icons/user-interface-151/24/List_menu_toggle-512.png">
      
       <div class="logo"><a href="<?php echo e(url('/artists/dashboard')); ?>" class="simple-text logo-normal">
-      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
         
         </a></div>
       <div class="sidebar-wrapper">
@@ -386,7 +389,7 @@
                   <?php endif; ?>
                 </div>
                 
-                  <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : 'Lvl1'); ?> </p>
+                  <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : '1'); ?> </p>
                   </div>
                 
                   

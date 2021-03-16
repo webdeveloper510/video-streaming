@@ -1,9 +1,10 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <section class="background1">
-  <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <div class="container mt-5">
+ 
+    <div class="container pt-5 pb-5">
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg mt-5">
@@ -31,11 +32,17 @@
           <div class="row align-items-center">
             <div class="col mt-4">
 
-               
-
         <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
 
         <?php echo e(Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])); ?> Artist
+
+        <?php if($errors->first('email')): ?>
+                <div class="alert alert-danger">
+                     <?php echo $errors->first('person'); ?>
+                </div>
+                <?php endif; ?>
+
+
             </div>
           </div>
            <div class="row align-items-center">
@@ -108,8 +115,7 @@
                 border-bottom-width: 1px; border-color: blue;"  href="https://www.websitepolicies.com/policies/view/GBVn25Ot">Privacy Policy</a> </label> <br>
 
                <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?><br>
-               <?php echo e(Form::checkbox('News','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?>
-
+               <span class="discount"><?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?></span>
                 
               </div>
 
@@ -140,4 +146,5 @@
 .alert-success {
     margin-top: 10px;
 }
-</style><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/registration.blade.php ENDPATH**/ ?>
+</style>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/registration.blade.php ENDPATH**/ ?>

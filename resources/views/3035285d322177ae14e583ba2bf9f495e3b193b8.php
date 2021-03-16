@@ -1,13 +1,5 @@
-<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="<?php echo e(asset('design/datatables.min.css')); ?>" />   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <style>
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+  <style>
    
 .tab {
     overflow: hidden;
@@ -37,6 +29,9 @@
   transition: 0.3s;
   font-size: 17px;
 }
+
+
+
 /* Style the tab content */
 .tabcontent {
   display: none;
@@ -55,60 +50,23 @@ tr.shown td.details-control {
     background: url('https://cdn.rawgit.com/DataTables/DataTables/6c7ada53ebc228ea9bc28b1b216e793b1825d188/examples/resources/details_close.png') no-repeat center center;
 }
 
-</style>  
+</style>
+   
+
+  
   </head>
   <body>
     <div class="container">
     <div class="tab">
   <!-- <button class="tablinks" onclick="openCity(event, 'London')">Projects</button> -->
   <button class="tablinks active" onclick="openCity(event, 'Paris')">Orders</button>
- 
-</div>
 
-
-<div id="London" class="tabcontent" >
-<div class="row">
-            <div class="col-md-12">
-                   <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
-              </div>
-              <h2 class="text-center "></h2>
-                <button id="btn-show-all-children" type="button">Expand All</button>
-<button id="btn-hide-all-children" type="button">Collapse All</button>
-<hr>
-
-<table id="example" class="display" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-                         <th></th>
-                         <th>Title</th>
-                         <th >Media</th>
-                          <th>Duration</th>
-                        <th>P/O</th>
-                        <th >Customer Name</th>
-                        <th > Status</th>              
-                        <th> Delievery Time</th>   
-        </tr>
-    </thead>
   
-    <tfoot>
-        <tr>
-              <th></th>
-                       <th>Title</th>
-               
-                        <th >Media</th>
-                        <th>Duration</th>
-                        <th>P/O</th>
-                        <th >Customer Name</th>
-                        <th > Status</th>              
-                        <th> Delievery Time</th>   
-        </tr>
-    </tfoot>
-</table>
-            </div>
-        </div>
-
-    </div>
+  
 </div>
+
+
+
 
 <div id="Paris" class="tabcontent" style="display:block">
 <div class="row">
@@ -128,17 +86,16 @@ tr.shown td.details-control {
                 <button id="btn-show-all-children1" type="button">Expand All</button>
 <button id="btn-hide-all-children1" type="button">Collapse All</button>
 <hr>
-<table id="example1" class="display" cellspacing="0" width="100%">
+<table id="example2" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
                        <th></th>
                        <th>Title</th>
                         <th >Media</th>
                         <th>Duration</th>
-                       
-                        <th >Customer Name</th>
+                        <th>Delivery Time</th>
+                        <th >Artist Name</th>
                         <th > Status</th>              
-                        <th> Delivery Time</th>   
         </tr>
     </thead>
   
@@ -148,10 +105,9 @@ tr.shown td.details-control {
                         <th>Title</th>
                         <th>Media</th>
                         <th>Duration</th>
-                 
-                        <th>Customer Name</th>
+                        <th>Delivery Time</th>
+                        <th>Artist Name</th>
                         <th> Status</th>              
-                        <th>Delivery Time</th>   
         </tr>
     </tfoot>
 </table>
@@ -160,7 +116,29 @@ tr.shown td.details-control {
         </div>
 
     </div>
-</div>      
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="download" tabindex="-1" aria-labelledby="downloadLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="downloadLabel"> Title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+         <p>The media has not been delivered yet,
+please remain patient. Thank You!</p>
+          <button type="button" class="btn btn-outline-primary">Okay</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+      
 <div class="modal fade" id="descri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -284,5 +262,5 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
-</html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/request.blade.php ENDPATH**/ ?>
+  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+</html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/all_orders.blade.php ENDPATH**/ ?>

@@ -4,6 +4,10 @@
 <div class="container">
 
 <div class="row mt-5 pt-5 text-center">
+  
+<div class="titleheader col-md-12">
+     <p>Please complete the setup by uploading an overview media for your profile.</p>
+</div>
     <div class="col-md-3">
     <!-- <h3 class="text-center">Due</h3> -->
     <a href="<?php echo e(url('artist/requests/due')); ?>">
@@ -110,53 +114,56 @@
     </div>
    
     <div class="col-md-3">
-   
+   <a href="<?php echo e(url('artist/Profile/collection')); ?>">
     <div class="columesdashboard3">
            <h1><?php echo e($totalCollection ? $totalCollection : 0); ?></h1>
            <h4 class="text-center">Collection Items  </h4>
-        </div>     
+        </div>  
+        </a>   
     </div>
 </div>
 
 <div class="row">
 <div class="col-md-12">
-         <div class="card">
+         <div class="card" style="<?php echo e($existTimeFrame>=1 ? 'display:none': 'display:block'); ?>">
              <div class="week">
-             <h5 class="card-title text-left pt-3 pl-3">Choose the timeframe available to get promoted
-              on the landingpage and on the customer homepage for free</h5>
+             <h5 class="card-title text-left pt-3 pl-3">We want to thank you for your early support!<br> You will be automatically promoted from us in the marked timeframe!</h5>
               <hr>
           <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-info send_time" type="button" value='1+2' style="<?php echo e(array_key_exists('1+2',$count_time_fame) && $count_time_fame['1+2']=='6' ? 'color:grey' : ''); ?>">Week 1+2</button>
+                  <button class="btn btn-info send_time" type="button" value='3+4' style="<?php echo e(array_key_exists('3+4',$count_time_fame) && $count_time_fame['3+4']=='6' ? 'color:grey' : ''); ?>">Week 3+4</button>
+                  <button class="btn btn-info send_time" type="button" value='5+6' style="<?php echo e(array_key_exists('5+6',$count_time_fame) && $count_time_fame['5+6']=='6' ? 'color:grey' : ''); ?>">Week 5+6</button>
+                  <button class="btn btn-info send_time" type="button" value='7+8' style="<?php echo e(array_key_exists('7+8',$count_time_fame) && $count_time_fame['7+8']=='6' ? 'color:grey' : ''); ?>">Week 7+8</button>
+                
+                </div>
              <div class="col-md-4">
-              <button class="btn btn-info" type="button">Week 1+2</button>
-              <button class="btn btn-info" type="button">Week 3+4</button>
-              <button class="btn btn-info" type="button">Week 5+6</button>
-              <button class="btn btn-info" type="button">Week 7+8</button>
-            
-             </div>
-             <div class="col-md-4">
-             <button class="btn btn-info" type="button">Week 9+10</button>
-             <button class="btn btn-info" type="button">Week 11+12</button>
-              <button class="btn btn-info" type="button">Week 13+14</button>
-              <button class="btn btn-info" type="button">Week 15+16</button>
+             <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('9+10',$count_time_fame) && $count_time_fame['9+10']=='6' ? 'color:grey' : ''); ?>">Week 9+10</button>
+             <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('11+12',$count_time_fame) && $count_time_fame['11+12']=='6' ? 'color:grey' : ''); ?>">Week 11+12</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('13+14',$count_time_fame) && $count_time_fame['13+14']=='6' ? 'color:grey' : ''); ?>">Week 13+14</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('15+16',$count_time_fame) && $count_time_fame['15+16']=='6' ? 'color:grey' : ''); ?>">Week 15+16</button>
              </div>
              <div class="col-md-4 ">
              
-              <button class="btn btn-info" type="button">Week 17+18</button>
-              <button class="btn btn-info" type="button">Week 19+20</button>
-              <button class="btn btn-info" type="button">Week 21+22</button>
-              <button class="btn btn-info" type="button">Week 23+24</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('17+18',$count_time_fame) && $count_time_fame['17+18']=='6' ? 'color:grey' : ''); ?>">Week 17+18</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('19+20',$count_time_fame) && $count_time_fame['19+20']=='6' ? 'color:grey' : ''); ?>">Week 19+20</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('21+22',$count_time_fame) && $count_time_fame['21+22']=='6' ? 'color:grey' : ''); ?>">Week 21+22</button>
+              <button class="btn btn-info send_time" type="button" style="<?php echo e(array_key_exists('23+24',$count_time_fame) && $count_time_fame['23+24']=='6' ? 'color:grey' : ''); ?>">Week 23+24</button>
              </div>
           </div>
           <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
-          <div class="text-right">
-          <button class="btn btn-primary" type="button">Submit</button>
+              <div class="text-right">
+              To Confirm your promotion please type <?php echo e($timeArray); ?> :
+                <input type="text" value="" id="timeframe"/>
 
-          </div>
+              <button class="btn btn-primary" type="button" id="timeFrame">Activate</button>
+
+              </div>
             </div>
     </div>
     </div>
     <div class="col-md-4">
-    <div class="card" style=" height: 370px;">
+    <div class="card" style=" height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
              <hr>
              <?php if($personal_info[0]->firstname==''): ?>
@@ -400,7 +407,7 @@
 
                 <h5 class="card-title">First Name : <span class="replace" id="firstname"><?php echo e($personal_info[0]->firstname); ?></span></h5><br>
                 <input type="hidden" value="<?php echo e($personal_info[0]->country); ?>" id="all_country"/>
-                <h5 class="card-title">Country : <span class="replace" id="country"><?php echo e($personal_info[0]->country); ?></span></h5><br>
+                <h5 class="card-title">Country : <span class="replace" id="country"><?php echo e($personal_info[0]->country); ?></span></h5>
                 <select name="country" class="form-control country" id="countries" style="display:none">
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -617,9 +624,11 @@
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                 <div class="text-right">
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm mt-3' , 'id'=>'edit'])); ?>
+                
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
-                <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-5','id'=>'update'])); ?></div>
+                
+                <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?></div>
                 <?php echo e(Form::close()); ?>
 
               </div>
@@ -642,7 +651,8 @@
            
     </div>
     <div class="col-md-4">
-         <div class="card" style="    height: 370px;">
+    <a href=" <?php echo e(url('/artist/earning')); ?>">
+         <div class="card" style="    height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Earnings:</h5>
              <hr>
               <div class="card-body text-center">
@@ -656,9 +666,10 @@
                 <h5><?php echo e($year_PAZ[0]->total_token ? $year_PAZ[0]->total_token : 0); ?> PAZ</h5>
               </div>
             </div>
+            </a>
     </div>
     <div class="col-md-4">
-         <div class="card" style="height: 370px;">
+         <div class="card" style="height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Check Reward Status:</h5>
              <hr>
               <div class="card-body text-center">
@@ -666,7 +677,7 @@
                 <p>-Upload 5 Picture/Videos on the social Media Box</p>
                
                 <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
-                <div class="text-right">
+                <div class="text-right mt-5">
                    <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 
@@ -714,14 +725,20 @@
               <div class="col-md-4">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
+                  <input type="radio" id="video" name="gender" value="Video">
+                  <label for="male">Video</label>
+                  <input type="radio" id="audio" name="gender" value="audio">
+                  <label for="audio">Audio</label>
+                  <input type="radio" id="image" name="gender" value="image">
+                  <label for="image">Image</label>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
-                        <?php echo e(Form::file('media',['class'=>'custom-file-input','id'=>'file_input'])); ?>
+                        <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
 
                         <span id="filename" style="color:red;"></span>
                           <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])); ?>
 
-                          <div class="alert alert-danger d-none"><?php echo e($errors->first('media') ?  $errors->first('media') : ''); ?></div>
+                          <!-- <div class="alert alert-danger d-none"><?php echo e($errors->first('media') ?  $errors->first('media') : ''); ?></div> -->
                           <small>Upload social media friendly content here</small>
                         </div>
                     </div>
@@ -753,7 +770,7 @@
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
-            <div class="primary primary-success" id="success" style="display:none"></div>
+            <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
                   <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary btn-sm'])); ?>
 
@@ -766,14 +783,14 @@
             <div class="col-md-4">
          <div class="card" >
               <div class="card-body text-center">
-                <h4 class="card-title">Download Our Logo</h4>
-                  <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" download class="img-fliud logodownload">
-                 <a href="" download="logo_black.png"> <button class=" btn btn-primary" type="button">Download</button></a>
+                <h4 class="card-title">Download Our Logo</h4>      
+                  <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download class="img-fliud w-100 logodownload">
+                 <a href="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
               </div>
             </div>
     </div>
     </div>
-
+   
    
 </div>
 </div>
@@ -802,6 +819,9 @@ label.error {
     color: white;
     
 }
+.edit12 {
+    margin-top: 30%;
+}
 img.img-fliud.logodownload {
     border: 1px solid black;
     padding: 11px;
@@ -826,6 +846,12 @@ h5.customer1.text-center.pt-3.pl-3 {
 .week {
     padding: 18px;
     text-align: center !important;
+}
+.titleheader.col-md-12 {
+    margin-bottom: 10px;
+    color: white;
+    background: #80ad12;
+    padding-top: 13px;
 }
 
 </style>

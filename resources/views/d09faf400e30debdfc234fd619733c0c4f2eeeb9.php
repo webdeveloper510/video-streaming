@@ -1,8 +1,8 @@
 
-
-<section class="background1">
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <div class="container mt-5 mb-5">
+<section class="background1 ">
+
+    <div class="container pt-5 pb-5">
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
@@ -92,7 +92,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
-        <div class="show_message"></div>
+        <div class="alert alert-success show_message" style="display:none"></div>
         <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">

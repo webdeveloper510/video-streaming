@@ -8,21 +8,40 @@
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
 
+  <!-- <div class="mobilebar">
+    <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact</a>
+    </div>
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <div class="logo">
+    <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
+					</a>
+     </div>
+     <div class="subscrive">
+
+     </div>
+</div> -->
   <div class="header_bottom">
 
 		<div class="container">	
 			<div class="bs-example">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" height="50" alt="CoolBrand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 					</a>
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
     
-                     <!----------------------------- search Menu --------------------->
-
+         <!----------------------------- search Menu --------------------->
 
 					<div class="search_meu">
 				
@@ -178,7 +197,7 @@
                        
                         </div>
                       
-                             <div class="dropdown1 text-white">
+                             <div class="dropdown1 audio12 text-white">
                            <h4 >Duration</h4>
                             <label>  
                            <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
@@ -189,12 +208,30 @@
               
                           
                           </label>
-                          </div>
+                          <!-- Modal -->
+                          <div class="collapse pt-4" id="audio123">
+                                        <div class="row">
+                                        <div class="col-md-12 mb-4">
+                                                 <label>Gender</label><br>
+                                                    <?php echo e(Form::checkbox('gender[]','Male')); ?>Male <br>
+                                                    <?php echo e(Form::checkbox('gender[]','Female')); ?>Female <br>
+                                                   <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans 
+                                                  </div>
+                                              <div class="col-md-12 mb-4">
+                                              <label>Sexology</label><br>
+                                                  <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero <br>
+                                                 <?php echo e(Form::checkbox('sexology[]','Homo')); ?>Homo <br>
+                                                   <?php echo e(Form::checkbox('sexology[]','Bisexual')); ?>Bisexual 
+                                               </div>
+                                        </div>
+                                  </div>
+                                </div>
                           </div>
                           <div class="col-md-6">
                               
                            </div>
                             <div class="col-md-12 pr-5 text-right">
+                            <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" >
                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
@@ -203,7 +240,7 @@
                             </div>
                            
                       </div>
-
+                      
 
                         <!-- -------------------------- 3rd Tab  Start--------------------------->
 
@@ -220,6 +257,12 @@
                                
                             
                           <div class="row text-left text-white mt-3 red">
+                                  <div class="col-md-4 mb-4  das">
+                                    <label>Gender</label><br>
+                                    <?php echo e(Form::checkbox('gender[]','Male')); ?>Male <br>
+                                    <?php echo e(Form::checkbox('gender[]','Female')); ?>Female <br>
+                                    <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans 
+                                  </div>
                                   <div class="col-md-4 mb-4 logy">
                                     <label>Sexology</label><br>
                                     <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero <br>
@@ -232,14 +275,19 @@
                                     <?php echo e(Form::checkbox('titssize[]','Normal')); ?>Normal <br>
                                     <?php echo e(Form::checkbox('titssize[]','Big')); ?>Big 
                                   </div>
-                                   <div class="col-md-4 mb-4 ass">
+                                   <div class="col-md-4 mb-4 ">
                                     <label>Ass</label><br>
                                      <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
                                     <?php echo e(Form::checkbox('ass[]','Normal')); ?>Normal <br>
                                    
                                     <?php echo e(Form::checkbox('ass[]','Big')); ?>Big 
-                                    
- 
+                                    <br>
+                                    <br>
+                                    <label>Body</label><br>
+                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
+                                    <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
+                                    <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
+                                    <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
                                   </div>
                                   <div class="col-md-4 mb-4 logy">
                                       <label>Privy part</label><br>
@@ -267,7 +315,7 @@
                                     <?php echo e(Form::checkbox('eyecolor[]','indigo')); ?>Indigo <br>
                                     <?php echo e(Form::checkbox('eyecolor[]','violet')); ?>Violet <br>
                                   </div>
-                                        <div class="col-md-4 mb-4 ass">
+                                        <div class="col-md-4 mb-4 ">
                                     <label>Hair color</label><br>
                                     <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
                                     <?php echo e(Form::checkbox('haircolor[]','brown')); ?>Brown <br>
@@ -290,12 +338,8 @@
                                     <?php echo e(Form::checkbox('hairlength[]','Long')); ?>Long <br>
                                     <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
                                   </div>
-                                   <div class="col-md-8 mb-4">
-                                    <label>Body</label><br>
-                                    <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
-                                    <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
-                                    <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
-                                    <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
+                                   <div class="col-md-4 mb-4">
+                                   
                                   </div>
                                   
                               </div>
@@ -345,7 +389,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           
                       </div>
-                      <div class="dropdown12 text-white" id="audio">
+                      <div class="dropdown12 text-white" id="audio" style="display:none">
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($cat->type=='audio'): ?>
                    <label class=""> 
@@ -530,10 +574,10 @@
 					
 		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
     <div class="noti"></div></a>
-    <a href="<?php echo e(url('/seeall/offer')); ?>"  class="nav-item nav-link">
+    <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
     <?php if($login && $latestOffer): ?>
-    <div class="noti" style="<?php echo e($latestOffer->userid !== $login->id  ? 'display: block' : 'display: none'); ?>">
+    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>
     <?php endif; ?>
     </a>
@@ -615,9 +659,9 @@
                 <?php if($notification): ?>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($val->notificationfor=='user'): ?>
-<?php 
-  $GLOBALS['ids'][] = $val->id;
-?>
+        <?php 
+          $GLOBALS['ids'][] = $val->id;
+        ?>
     
       <a href="<?php echo e(url('notification/user')); ?>" id="bold" class="bold"><?php echo e($val->message); ?></a>
 
@@ -635,78 +679,30 @@
      
                 </div>
               </li>
-              <li class="nav-item"><a class="nav-link text-white " href=" #" ><i class="fa fa-address-card-o"></i></a>
+              <li class="nav-item">
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="<?php echo e($login ? '#' : url('/register')); ?>" ><i class="fa fa-address-card-o"></i></a>
                
                
                 <div class="col-md-4 subss" style="display:none;">
                   <h3>Subscriptions</h3>
+                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
                     <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
+                      <div class="col">
+                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p><?php echo e($artist->nickname); ?></p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
+                                      </div>
+                              </div>
                     </div>
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                    <div class="col">
-                      <img src="<?php echo e(asset('images/logos/logo_black.png')); ?>" class="img-fluid">
-                      </div>
-                      <div class="col-6 mt-3">
-                      <p>Artistname</p>
-                      </div>
-                      <div class="col mt-3">
-                      <div class="online">
-                          </div>
-                      </div>
-                    </div>
-
-
-
-                    </div>
+                    </a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 
+                                   </div>
                     </div>
 
                     
@@ -724,13 +720,17 @@
 
 </header>
 <style>
+.dropdown1.audio12.text-white {
+    height: 107px;
+    overflow-y: scroll;
+}
 .col-md-4.subss img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
 ul.nav.custom.search ul.subnav {
-    width: 523px !important;
+    width: 523px;
 }
 .noti-icon {
     color: white;
@@ -748,7 +748,7 @@ ul.nav.custom.search ul.subnav {
     width: 280px;
 }
 .online {
-    background: red;
+    background: #3390ff;
     height: 10px;
     margin-left: 20px;
     width: 10px;
@@ -796,6 +796,15 @@ button.btn.btn-warning.text-white {
 }
 
 </style>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
  <?php if($errors->all()): ?>
   <script type="text/javascript">
       //alert('rrr');

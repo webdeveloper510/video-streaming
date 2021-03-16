@@ -1,6 +1,5 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 <link rel="stylesheet" href="<?php echo e(asset('design/profile.css')); ?>" />
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
@@ -41,9 +40,9 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-link tabss " id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
+    <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
    
   </div>
 </nav>
@@ -51,7 +50,7 @@
 
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade <?php echo e($collection_selection ? '' : 'show active'); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
   
@@ -64,8 +63,8 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-2">
-        <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+        <div class="col-md-2 mt-5">
+        <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -87,14 +86,15 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
-         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min </h4>
          
          <div class="text-right mr-3">
-      <button class="btn btn-sm btn-light delete" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
+      <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
            </div>
         </div>
         <hr>
+
       
       </div>
     </div>
@@ -119,7 +119,7 @@
 
   <!-------------------------------------------------Contant videos ---------------------------------------------------->
 
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
+  <div class="tab-pane fade <?php echo e($collection_selection ? 'show active' : ''); ?>" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">           
 
    <div class="container">
     <div class="row mb-5">
@@ -146,26 +146,52 @@
         <?php if(isset($details[0]->type)): ?>
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3 ">
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
-               <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+               <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
+            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>" controls controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
             </video>
+            <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+                  </div>
+                  </div>
+            
                 </a>
-                <button class="btn btn-sm btn-light delete trans" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
-            </div>
+                <div class="edit">
+                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
+               
+                <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                </div>
+            
+               
+              </div>
+             
+              <?php if($detail->duration==''): ?>
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#collection_"+"<?php echo e($detail->id); ?>");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
              <?php endif; ?>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           <?php else: ?>
           <div class="artistvideo">
           <h4> No <span class="textcolor"> Video </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload Video</span></a>
+            <a href="<?php echo e(url('artist/contentUpload')); ?>"> <span class="textcolor">Upload Video</span></a>
           </div>
           <?php endif; ?>
           </div>
@@ -180,7 +206,7 @@
 <div class="col-md-4 mb-3">
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
-     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+     <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
     <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>">
 
 <audio controls controlsList="nodownload" disablePictureInPicture>
@@ -189,14 +215,17 @@
 Your browser does not support the audio tag.
 </audio>
 </a>
-<button class="btn btn-sm btn-light delete trans1" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
+<div class="edit">
+<button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media">Edit</button>
+<button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
-
+</div>
+   
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php else: ?>
 <div class="artistaudio">
 <h4> No <span class="textcolor">Audio </span> uploaded yet </h4>
-            <a href=""> <span class="textcolor">Upload Audio</span></a>
+            <a href="<?php echo e(url('artist/contentUpload')); ?>"> <span class="textcolor">Upload Audio</span></a>
           </div>
 <?php endif; ?>
 </div>
@@ -259,7 +288,6 @@ Your browser does not support the audio tag.
     </div>
 
 
-
         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
   
   <!----------------------------------------------- Profile View --------------------------------------------->
@@ -279,8 +307,7 @@ Your browser does not support the audio tag.
           <?php else: ?>
           <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); ?>" width="100%;">
           <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">
-                     
+               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
           <?php endif; ?>
           
@@ -306,7 +333,7 @@ Your browser does not support the audio tag.
       <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
             <div class="col-md-3">
-              <label><b><?php echo e(ucwords($key)); ?></b></label>
+              <label><b><?php echo e($key=='weight' ? ucwords('body'): ucwords($key)); ?></b></label>
               <p class="edittable"><?php echo e($profile); ?></p>
             </div>
           <?php endif; ?>
@@ -318,11 +345,6 @@ Your browser does not support the audio tag.
   
   </div>
   </div>
-  
-</div>
-
-</div>
-</div>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -337,7 +359,7 @@ Your browser does not support the audio tag.
                 </div>
             </div>
             <div class="modal-body">
-            <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
+              <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
 
                    <?php echo e(Form::token()); ?>
 
@@ -345,44 +367,52 @@ Your browser does not support the audio tag.
                    <div class="row">
                    
                   <div class="col-md-6">
-                       <input type="checkbox" name="type" value="video"/>Video
+              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
                   </div>
                   <div class="col-md-6">
-                       <input type="checkbox" name="type" value="audio"/>Audio
+                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
                   </div>
                   </div>
-            <?php echo e(Form::label('Title', 'Title')); ?> 
-              <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
+                 <?php echo e(Form::label('Title', 'Title')); ?> 
+                  <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
 
-            <br>
-            <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','placeholder'=>'Price'])); ?>
+                  <br>
+                   <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                     <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
 
-                <br>
-                <label>Duration(Minutes):</label>
-                <div class="row">
+                  <br>
+                  <label>Duration(Minutes):</label>
+                  <div class="row">
                   <div class="col-md-6">
-                <?php echo e(Form::label('Min', 'Min')); ?> 
-                <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','placeholder'=>'Min'])); ?>
+                  <?php echo e(Form::label('Min', 'Min')); ?> 
+                  <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])); ?>
 
                    </div>
                    <div class="col-md-6">
-                <?php echo e(Form::label('Max', 'Max')); ?> 
-                <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','placeholder'=>'Max'])); ?>
+                  <?php echo e(Form::label('Max', 'Max')); ?> 
+                  <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])); ?>
 
                 </div>
                 </div>
                 <br>
                 <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
-                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','placeholder'=>'Additional Price'])); ?>
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
                   <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
                 <br>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                   <label>Choose Image</label>        
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                <span id="filename" style="color:red;"></span>
+            </div>
                 <input type="hidden" name="offerid" id="offerid" value="">
-                  <input type="file" name="file" id="file_input" value=""/>
+                <label class="media_label"></label>
+                  <input type="file" name="file" class="file_input" value=""/>
+                  <span id="filename" style="color:red;"></span>
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
@@ -395,25 +425,41 @@ Your browser does not support the audio tag.
                    
             </select>
             <br>
-            <label for="Convert to:">Convert to:</label> 
-           <select name="quality" class="form-control" id="quality">
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
+            <div class="convert">
+                <label for="Convert to:">Convert to:</label> 
+              <select name="quality" class="form-control" id="quality">
+                        <option value="">Choose ...</option>
+                        <option value="480">480p  </option>
+                        <option value="720">HD 720p </option>
+                        <option value="1080">Full HD 1080p  </option>
+                </select>
+            </div>
             <br>
             <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
                 <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])); ?>
 
                 <br>
             <label>Choose Category</label>
-            <select name="category" id="selectCategory" class='form-control'>
+            <div class="video" style="display:none">
+            <select name="category[]"  class='form-control video'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <?php if($cat->type=='video'): ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                      <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
+            </div>
+            <div class="audio" style="display:none">
+            <select name="category[]"  class='form-control audio'>
+                    <option value="">Choose category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='audio'): ?>
+                    <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+            </div>
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -445,17 +491,16 @@ Your browser does not support the audio tag.
         <div class="heading text-center"><h2 class="text-dark ">Artist Detail</h2></div>
 
           <div class="row align-items-center text-white">   
-              <?php if(isset($random[0])): ?>
+      
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
-          </div>  
-          <?php endif; ?>  
+          </div>   
           <div class="col-md-6 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
-                <span style="color:red;"><?php echo e(isset($random[0]->media) ? $random[0]->media : ''); ?></span>
+                <!-- <span style="color:red;"><?php echo e(isset($random[0]->media) ? $random[0]->media : ''); ?></span> -->
             </div>
             <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
@@ -535,8 +580,8 @@ Your browser does not support the audio tag.
                 <?php endif; ?>
             </div>
             <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Weight', 'Weight')); ?> 
-                <?php echo e(Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose Weight'])); ?>
+            <?php echo e(Form::label('Body', 'Body')); ?> 
+                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -575,19 +620,143 @@ Your browser does not support the audio tag.
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <!-- Modal -->
+ <div class="modal fade" id="media" tabindex="-1" aria-labelledby="mediaLabel">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Media</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form >
+                          <div class="row align-items-center text-white">
+                          
+                          <div class="col-md-6 mt-2 ">
+                          <?php echo e(Form::label('Title', 'Title')); ?> 
+                              <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])); ?>
 
+                          </div>
+                      
+                          <div class="col-md-6 mt-2 ">
+                          <?php echo e(Form::label('Add Price', 'Price')); ?> 
+                          <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
+
+                          </div>
+                          <div class="col-md-6 mt-2 ">
+                        
+                            <div class="convert">
+                          <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+                        <select name="convert"  class='form-control'>
+                                  <option value="">Choose ...</option>
+                                  <option value="1">480p  </option>
+                                  <option value="2">HD 720p </option>
+                                  <option value="3">Full HD 1080p  </option>
+                          </select>
+                          </div>
+                          <select name="category" id="selectCategory" class='form-control my-5'>
+                                
+                                  <option value="">Choose Category</option>
+                                  <div class="video"> 
+                                  <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                  </div>
+                          </select>
+                          
+                          <div class="col-md-12 mt-3 text-white">
+                          <label class="media_label12">Audio/Video</label>
+                              <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
+
+                              <span id="filename" style="color:yellow;"></span>
+                          </div>
+                          <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                          <label>Choose Image</label>        
+                              <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                              <span id="filename" style="color:yellow;"></span>
+                          </div>
+                          </div>
+                          <div class="col-md-6 mt-3">
+                          <?php echo e(Form::label('Description', 'Description')); ?> 
+                              <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
+
+                          </div>
+
+                      </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 <style>
-.trans{
-  position: absolute;
-    z-index: 999;
-    right: 16px;
-    top: 10px;
+
+video:hover {
+    border: 1px solid gold;
 }
-.trans1{
-  position: absolute;
-    z-index: 999;
-    right: 43px;
-    top: -3px;
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -41px;
+    margin-right: 7px;
+}
+.pricetime .text-right h6 {
+    background: black;
+    height: 30px;
+    width: 70px;
+    float: right;
+    color: white !important;
+    padding: 7px;
+}
+@media  only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
+.pricetime .text-left h6 {
+    background: black;
+    padding: 5px;
+    color: yellow !important;
+}
+.pricetime {
+    position: relative;
+}
+.edit {
+    position: absolute;
+    top: -1px;
+    right: 13px;
+}
+.artistvideo {
+    border: 2px dashed red;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistaudio {
+    border: 2px dashed red;
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.artistoffer1 {
+    border: 2px dashed red;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
 }
 </style>
 

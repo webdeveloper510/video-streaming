@@ -3,7 +3,7 @@
 <div class="container">
 
 <div class="offer ">
-<h2 style=" margin-top: 10% !important;">Offer Tittle</h2>
+<h2 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h2>
 <!-- <h5>Audio/Video</h5> -->
 <h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  <?php echo e($offer[0]->count); ?> </h3>
 </div>
@@ -40,7 +40,7 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Quality</h3>
-      <p>1080p</p>
+      <p><?php echo e($offerdata->quality); ?>p</p>
 	</div>
   <div class="col">
       <h3>Category</h3>

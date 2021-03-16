@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
+          <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
         </div>
         <div class="profileimg">
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
@@ -11,11 +11,28 @@
         <div class="artistdetail11 mb-5">
             <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
              <i class="fa fa-star" style="color:red;"></i>  <?php echo e(isset($countSub[0]) ? $countSub[0] : 0); ?>  
-             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" id="subscribe">Subscribe </button>
+             <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" id="subscribe" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" >Subscribe </button>
     
-             <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" id="unsubscribe" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Subscribed </button>
+             <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
              </h3>
-           
+
+            <!------------------------------------ Modal  unSubscribe------------------------------->
+            <div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                  <h3> Unsubscribe from Artistname</h3>
+                  <div class="text-center Artistxyz">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                    <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Unsubscribe</button>
+                  </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
@@ -54,7 +71,7 @@
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
            <h2><?php echo e($offer->title); ?></h2>
-               <p><?php echo e($offer->description); ?></p>
+               <!-- <p><?php echo e($offer->description); ?></p> -->
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
@@ -90,6 +107,9 @@
 .text-left.buttons input {
     width: 300px;
     margin-right: 18px;
+}
+.text-center.Artistxyz {
+    padding: 30px;
 }
  </style>
 </div>
@@ -131,18 +151,34 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video class="hoverVideo" width="100%"  height="100%" controls  loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
                 </a>
-                <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-
+              
+                
+          <div class="pricetime">
+          <div class="text-left">
+          <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
+          </div>
+          <div class="text-right">
+          <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+          </div>
+          </div>
             </div>
-                    <?php endif; ?>
+                  <?php endif; ?>
+                  <?php if($detail->duration==''): ?>
+          <script>
+           var video;
+            var id;
+              setTimeout(() => {
+              video = $("#detail_"+"<?php echo e($detail->id); ?>");
+              seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
+            }, 2000);
+          </script>
+          <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               <?php else: ?>
               <div class="artistvideo">
@@ -159,33 +195,40 @@
       <?php if(isset($audio->type)): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-<div class="col-md-4 mb-3">
-   <div class="checkall" style="display:none">
-   <form> 
-   <input type="checkbox" class="slct_video"></form></div>
-     <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
-    <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+        <div class="col-md-4 mb-3">
+          <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
+            <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+            <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
-<audio controls controlsList="nodownload" disablePictureInPicture>
+        <audio controls controlsList="nodownload" disablePictureInPicture>
 
-<source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
-Your browser does not support the audio tag.
-</audio>
+        <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
+        Your browser does not support the audio tag.
+        </audio>
 
-</a>
-<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
-</div>
+        </a>
 
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<?php else: ?>
-<div class="artistaudio">
-            <h4> Artist does not upload any Audio</h4>
-          </div>
-<?php endif; ?>
-</div>
-</div>
+
+        <div class="pricetime">
+                  <div class="text-left">
+                  <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+                  </div>
+                  <div class="text-right">
+                  <h6 class="text-white">2:00</h6>
+                  </div>
+                  </div>
+        </div>
+
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php else: ?>
+        <div class="artistaudio">
+                    <h4> Artist does not upload any Audio</h4>
+                  </div>
+        <?php endif; ?>
+        </div>
+        </div>
 
   <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
   <!-- <div class="filter_div" id="playlist">
@@ -289,7 +332,7 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
@@ -332,12 +375,20 @@ Your browser does not support the audio tag.
 .fa-lock{
   font-size:30px;
 }
-div#nav-contact {
-    background: #000;
-    color: #fff !important;
+.pricetime .text-right h6 {
+    background: black;
+   
+    width: auto;
+    float: right;
+    color: white !important;
+    padding: 10px;
 }
-div#nav-contact *{
-    color: #fff;
+
+.pricetime .text-left h6 {
+  padding: 10px;
+    color: gold !important;
+    font-weight: 800;
+    background:black;
 }
 select.form-select.form-control, select.form-select.form-control * {
     color: #000 !important;
@@ -350,13 +401,20 @@ select.form-select.form-control, select.form-select.form-control * {
     border: 2px solid yellow;
 }
 .coverimg img {
-    object-fit: cover;
+    object-fit: fill;
 }
 .price {
  
     padding: 24px 18px;
 }
-
+.pricetime .text-left {
+    float: left;
+    padding-left: 10px;
+}
+.pricetime .text-right {
+    margin-top: -41px;
+    margin-right: 7px;
+}
 .tooltip {
  opacity:1 !important;
   display: inline-block;
@@ -410,6 +468,11 @@ ul.selected li {
      margin-top: 7px;
 }
 
+@media  only screen and (max-width: 768px) {
+.coverimg img {
+    object-fit: contain;
+}
+}
 </style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistDetail.blade.php ENDPATH**/ ?>

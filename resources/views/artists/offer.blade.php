@@ -97,6 +97,8 @@
                      </div>
            <br>
            <div class="video" style="display:none">
+           <label>Category</label>
+
             <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
@@ -108,6 +110,7 @@
             </select>
             </div>
             <div class="audio" style="display:none">
+            <label>Category</label>
             <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
@@ -120,6 +123,7 @@
             </div>
             <br>
             <label>Offer Status</label>
+            
             <select name="offer_status"  class='form-control'>
                     <option value="">Choose...</option>
                     <option value="offline">Offline(Draft)</option>

@@ -22,11 +22,18 @@
 	<div class="col-md-4 showoffer1">
     <a href="<?php echo e(url('artistoffers/'.$val->id)); ?>">
       <div class="card">
-	   <video width="100%" height="240" controls>
+          <?php if($val->type=='video'): ?>
+	   <video width="100%" height="240" class="hoverVideo">
   <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-
   Your browser does not support the video tag.
 </video>
+<?php else: ?>
+<img src="<?php echo e(url('storage/app/public/uploads/'.$val->audio_pic)); ?>">
+<audio  width="100%" height="240" controls>
+  <source src="<?php echo e(url('storage/app/public/audio/'.$val->media)); ?>" type="audio/mp3">
+  Your browser does not support the video tag.
+</audio>
+<?php endif; ?>
 
 	  <div class="carad-body">
 	      <h4 class="card-title text-center text-white"><?php echo e($val->title); ?></h4>
@@ -36,15 +43,15 @@
 	      <table class="table table-borderless text-center">
         <tr>
           <th>Category</th>
-          <td>xyz</td>
+          <td><?php echo e($val->category); ?></td>
         </tr>
         <tr>
           <th>Media</th>
-          <td>mp3</td>
+          <td><?php echo e($val->type=='video' ? 'Video/mp4' : 'Audio/mp3'); ?></td>
         </tr>
             <tr>
             	<th>Price</th>
-            	<td> <?php echo e($val->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span> </td>
+            	<td> <?php echo e($val->price); ?>  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ/Minute</span> </td>
               </tr>
 	      </table>
 	    
@@ -116,11 +123,15 @@ table.table.table-borderless tr td, th {
     background: black;
     color: white;
 }
+hr{
+  background:white;
+}
 
 .card {
     background: black;
     border: 1px solid white;
     color: white;
+    padding:13px;
 }
 .alert-success {
     color: #155724;
