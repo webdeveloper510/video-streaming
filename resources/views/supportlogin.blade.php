@@ -1,7 +1,11 @@
-
-
+@include('layout.cdn')
+<header>
+<div class="text-center">
+<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+<h1 class="text-white mt-2"> PAZ Team Login</h1>
+</div>
+</header>
 <section class="background1">
-@include('layouts.header')
     <div class="container pt-5 pb-5">
 
       <div class="row justify-content-center">
@@ -11,7 +15,6 @@
               <!-- <h1>Login</h1> -->
             </div>
           </div>
-          <h1 class="text-white">Support Team Login</h1>
       
           @if(session('error'))
         <div class="alert alert-danger" id="error">
@@ -105,7 +108,10 @@
     a.ffff {
         color: blue;
     }
-
+    header {
+    background: #7b0000;
+    padding: 11px;
+}
   </style>
   @include('layouts.footer')
 

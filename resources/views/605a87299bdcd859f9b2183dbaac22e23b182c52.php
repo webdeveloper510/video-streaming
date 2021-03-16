@@ -1,7 +1,11 @@
-
-
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<header>
+<div class="text-center">
+<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
+<h1 class="text-white mt-2"> PAZ Team Login</h1>
+</div>
+</header>
 <section class="background1">
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="container pt-5 pb-5">
 
       <div class="row justify-content-center">
@@ -11,7 +15,6 @@
               <!-- <h1>Login</h1> -->
             </div>
           </div>
-          <h1 class="text-white">Support Team Login</h1>
       
           <?php if(session('error')): ?>
         <div class="alert alert-danger" id="error">
@@ -111,7 +114,10 @@
     a.ffff {
         color: blue;
     }
-
+    header {
+    background: #7b0000;
+    padding: 11px;
+}
   </style>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 

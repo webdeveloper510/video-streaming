@@ -1,8 +1,14 @@
-@include('layouts.header')
+@include('layout.cdn')
+<header>
+<div class="text-center">
+<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+<h1 class="text-white mt-2"> Reported Items</h1>
+</div>
+</header>
 
 <section class="reportmeadia">
   <div class="container">
-    <h2>Reported Items</h2>
+    <h2></h2>
       <div class="row media">
           <div class="col-md-4">
           <video width="100%" controls>
@@ -75,7 +81,10 @@
     padding: 13px;
     margin-bottom: 12px;
 }
-
-</style>
+header {
+    background: #7b0000;
+    padding: 11px;
+}
+  </style>
 
 @include('layouts.footer')
