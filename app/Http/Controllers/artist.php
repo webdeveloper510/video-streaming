@@ -872,11 +872,16 @@ class artist extends Controller
 
    // print_r($req->all());die;
 
-    if($req->file){
+
       $data=$req->all();
-        $fileName = time().'_'.$req->file->getClientOriginalName();
-        $ext =$req->file->getClientOriginalExtension();
-        $filePath= ($ext=='mp3') ? $req->file->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->file->storeAs('video', $fileName, 'public'): $req->file->storeAs('uploads', $fileName, 'public'));
+        $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
+        $ext =$req->file ? $req->file->getClientOriginalExtension():'';
+        if($req->file){
+
+          $filePath= ($ext=='mp3') ? $req->file->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->file->storeAs('video', $fileName, 'public'): $req->file->storeAs('uploads', $fileName, 'public'));
+          $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
+
+        }
         unset($data['_token']);
         unset($data['recaptcha']);
         unset($data['match_recaptcha']);
@@ -884,18 +889,15 @@ class artist extends Controller
         $data['issue_file']=$fileName;
         $data['description'] = $data['description'];
         $data['technical_issue'] = $data['technical_issue'];
-        $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
+        $data['type'] = $data['type'] ? $data['type'] : '';
 
         
-          if($filePath){
-
           $insert = $this->model->insert_ticket_table($data);
 
           return $insert;
           //print_r($insert);die;
             
         }
-}
-  }
+
 
   }
