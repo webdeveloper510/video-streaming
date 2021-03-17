@@ -138,7 +138,7 @@ tr.shown td.details-control {
                        
                         <th >Customer Name</th>
                         <th > Status</th>              
-                        <th> Delievery Time</th>   
+                        <th> Delivery Time</th>   
         </tr>
     </thead>
   
@@ -151,7 +151,7 @@ tr.shown td.details-control {
                  
                         <th>Customer Name</th>
                         <th> Status</th>              
-                        <th>Delievery Time</th>   
+                        <th>Delivery Time</th>   
         </tr>
     </tfoot>
 </table>

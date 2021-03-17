@@ -2,7 +2,7 @@
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
-
+       
       <ul class="nav">
          
          <li class="nav-item dropdown ">
@@ -57,17 +57,9 @@
             </div>
             <div class="col-md-6 mt-2 ">
            
-              <div class="convert">
-            <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
-           <select name="convert"  class='form-control'>
-                    <option value="">Choose ...</option>
-                    <option value="1">480p  </option>
-                    <option value="2">HD 720p </option>
-                    <option value="3">Full HD 1080p  </option>
-            </select>
-            </div>
+             
             <div class="video" style="display:none">
-            <select name="category"  class='form-control my-5'>
+            <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='video'): ?>
@@ -77,9 +69,18 @@
                   
             </select>
             </div>
+            <div class="convert video">
+            <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
+           <select name="convert"  class='form-control'>
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
+            </select>
+            </div>
 
             <div class="audio" style="display:none">
-            <select name="category"  class='form-control my-5'>
+            <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='audio'): ?>
@@ -148,6 +149,17 @@
 
 .modal-dialog {
     background: transparent !important;
+}
+
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
 }
 
 .loader img {
