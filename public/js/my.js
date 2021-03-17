@@ -2641,7 +2641,7 @@ $(document).on('submit', '#artist_info', function (event) {
 
 				else{
 
-					location.reload();
+					location.reload();       
 					
 				}
 
