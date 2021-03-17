@@ -372,6 +372,8 @@ class AuthController extends Controller
 
             if($get==1 && $data['g-recaptcha-response']){
 
+              Session::forget('login_attempt');
+
         return  $data['user']=='users' ?  redirect($redirect_url)->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
 
             }
@@ -384,10 +386,6 @@ class AuthController extends Controller
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
-
-              print_r('yes');
-              print_r($i);
-
               Session::put('login_attempt',$i);
               return redirect('/login')->with('error','Invalid Email or Password!');
 

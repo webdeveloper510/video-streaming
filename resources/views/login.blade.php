@@ -23,7 +23,6 @@
        
            {!!Form::open(['action' => 'AuthController@postLogin', 'method' => 'post'])!!}
           <div class="form-group">
-            {{$attempt}}
                {{Form::label('E-Mail Address', 'E-Mail Address')}} 
                 {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
                 @if($errors->first('email'))
@@ -67,8 +66,8 @@
              
       </div>
           @endif
-
-            <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
+            <p style="{{$attempt=='10' ? 'display:block': 'display:none'}}">Please Reset Password</p>
+            <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary','id'=>$attempt, $attempt==10 ? 'disabled' : '']) }}</p>
             {{ Form::close() }}
            
     <div class="bottom mt-5">
