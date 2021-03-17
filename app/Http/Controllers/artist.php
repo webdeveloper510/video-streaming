@@ -336,7 +336,10 @@ class artist extends Controller
   }
 
   public function earning(){
-    return view('artists.earning');
+
+    $earnings = $this->model->showEarnings();
+
+    return view('artists.earning',['earnings'=>$earnings]);
   }
 
   public function addDescription(Request $req){
@@ -385,7 +388,7 @@ class artist extends Controller
 
         ]);
 
-        print_r($req->all());die;
+       // print_r($req->all());die;
               
         if ($validator->fails())
         {
@@ -413,6 +416,8 @@ class artist extends Controller
                 if($filePath){
 
                 $createOffer = $this->model->createOffer($data);
+
+               // print_r($createOffer);die;
                   if($createOffer==1){
                     return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
                     }
