@@ -1,12 +1,5 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<section class="background1 ">
-
-
-        
- 
-           
-         
-  
+<section class="background1 "> 
 <?php echo Form::open(['id'=>'create_offer','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?>
@@ -111,14 +104,34 @@
                          </div>
                      </div>
            <br>
-            <select name="category" id="selectCategory" class='form-control'>
+           <div class="video" style="display:none">
+           <label>Category</label>
+
+            <select name="category[]"  class='form-control'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php if($cat->type=='video'): ?>
                         <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                        <?php endif; ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  
             </select>
+            </div>
+            <div class="audio" style="display:none">
+            <label>Category</label>
+            <select name="category[]"  class='form-control'>
+                    <option value="">Choose category</option>
+                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php if($cat->type=='audio'): ?>
+                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                        <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
+            </select>
+            </div>
             <br>
             <label>Offer Status</label>
+            
             <select name="offer_status"  class='form-control'>
                     <option value="">Choose...</option>
                     <option value="offline">Offline(Draft)</option>
@@ -171,6 +184,7 @@
               
             <div class="col-md-6 mt-5">
              <?php echo e(Form::label('Description', 'Description')); ?> 
+            
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])); ?>
 
                  <?php if($errors->first('description')): ?>
@@ -218,6 +232,17 @@
 }
 .radiobtn{
   display:inline-flex;
+}
+
+label.error {
+    background: red;
+    padding: 9px;
+    font-size: 16px;
+    display: flex;
+    color: white;
+    text-align: center;
+    margin-top: 22px;
+    border-radius: 9px;
 }
 
 .custom-file-label {

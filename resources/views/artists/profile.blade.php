@@ -4,6 +4,9 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
+        <div class="overlayartist text-center">
+           <img src=" {{asset('images/loaderartist.gif')}}" class="img-fluid">
+        </div>
   <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
@@ -20,11 +23,15 @@
         </div>
         </div>
         <div class="profileimg">
+        <div class="overlayprofile">
+           <img src=" {{asset('images/loaderartist.gif')}}" width="200px" height="200px" class="img-fluid">
+        </div>
         <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
         </div>
+        
         </div>
         <div class="artistdetail11 mb-5">
             <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
@@ -107,6 +114,16 @@
         .row hr {
     width: 100%;
   }
+  .overlayartist {
+    position: absolute;
+    top: 0;
+    width: 97%;
+}
+
+.overlayartist img {
+    margin-top: 16%;
+} 
+.overlayprofile img {z-index: 2;}
  </style>
 </div>
 
@@ -289,10 +306,15 @@ Your browser does not support the audio tag.
   <div class="container">
      
       <h2>Overview</h2>
+      <div class="text-right">
+   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('{{json_encode($details[0])}}')">Edit</button>
+              </div>
       <div class="row">
+      
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
+       
           @if(isset($random[0]->type)&&$random[0]->type=='video')
             <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                       <source src="{{isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
@@ -311,9 +333,7 @@ Your browser does not support the audio tag.
             </div>
               <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
                 <h1>About Me</h1>
-                <div class="text-right">
-   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('{{json_encode($details[0])}}')">Edit</button>
-              </div>
+                
                 <hr>
                 <p class="edittable">{{isset($details[0]->aboutme) ? $details[0]->aboutme : $artist[0]->aboutme}}</p>
                 <hr>
@@ -343,8 +363,9 @@ Your browser does not support the audio tag.
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Edit Offer</h4>
                 <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Edit Offer</h4>
+                
                 <div class="alert alert-success" role="alert" style="display:none">
                            This is a success alert—check it out!
                 </div>
@@ -411,7 +432,7 @@ Your browser does not support the audio tag.
             </select>
             <br>
             <div class="convert">
-                <label for="Convert to:">Convert to:</label> 
+                <label for="quality:">quality:</label> 
               <select name="quality" class="form-control" id="quality">
                         <option value="">Choose ...</option>
                         <option value="480">480p  </option>
@@ -462,8 +483,9 @@ Your browser does not support the audio tag.
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
                 <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal1" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+                
             </div>
             <div class="modal-body">
             {!!Form::open([ 'id'=>'edit_profile_info', 'method' => 'post', 'files'=>true])!!}
@@ -489,7 +511,7 @@ Your browser does not support the audio tag.
             <input type="hidden" value="{{isset($random[0]->id)}}" name="hid"/>
            
           <div class="col-md-6 mt-2 convert">
-           {{Form::label('Convert to:', 'Convert to:')}} 
+           {{Form::label('quality:', 'quality:')}} 
            <select name="convert"  class='form-control'>
                 <option value="">Choose ...</option>
                @foreach($qualities as $q)

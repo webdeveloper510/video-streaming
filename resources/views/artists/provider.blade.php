@@ -2,7 +2,7 @@
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
-
+       
       <ul class="nav">
          
          <li class="nav-item dropdown ">
@@ -53,15 +53,7 @@
             </div>
             <div class="col-md-6 mt-2 ">
            
-              <div class="convert video">
-            {{Form::label('Quality:', 'Quality:')}} 
-           <select name="convert"  class='form-control'>
-                    <option value="">Choose ...</option>
-                    <option value="480">480p  </option>
-                    <option value="720">HD 720p </option>
-                    <option value="1080">Full HD 1080p  </option>
-            </select>
-            </div>
+             
             <div class="video" style="display:none">
             <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
@@ -71,6 +63,15 @@
                         @endif
                         @endforeach
                   
+            </select>
+            </div>
+            <div class="convert video">
+            {{Form::label('Quality:', 'Quality:')}} 
+           <select name="convert"  class='form-control'>
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
             </select>
             </div>
 
