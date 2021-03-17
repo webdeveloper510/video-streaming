@@ -23,6 +23,7 @@
        
            {!!Form::open(['action' => 'AuthController@postLogin', 'method' => 'post'])!!}
           <div class="form-group">
+            {{$attempt}}
                {{Form::label('E-Mail Address', 'E-Mail Address')}} 
                 {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
                 @if($errors->first('email'))

@@ -207,7 +207,6 @@ public function uploadContentData($userdata){
                 }
 
                 else{
-           
 
     $data['user'] == 'users' ? Session::put('userType','User'): Session::put('userType','contentUser');
      Session::put('User', $value);
@@ -2548,7 +2547,6 @@ public function showSubscribeArtists(){
   ->where(['offer.by_created'=>1,'offer.is_seen'=>'no'])
   ->orderBy('offer.id', 'DESC')
   ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
-  
   ->get();
     // echo "<pre>";
     //   print_r($subscribedArtist);die;

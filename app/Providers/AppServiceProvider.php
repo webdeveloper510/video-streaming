@@ -47,36 +47,21 @@ class AppServiceProvider extends ServiceProvider
 
              $userId = isset($data) ? $data->id : '';
 
-            // echo "<pre>";
 
              $offer = $model->getallOffers();
 
               Session::put('offer_artist_id',$offer->id);
-            //     echo "<pre>";
-            //  print_r($offer);die;
 
             $tokens = $model->getUserData($userId);
 
              $artistData = $model->onlyArtistDetail($userId);
 
              $subscribed_artist = $model->showSubscribeArtists();
-            //  echo "<pre>";
-
-            //  print_r($subscribed_artist);die;
+      
        
              $getLevel= isset($data) ? $model->getlevel(): '';
-            //  print_r($getLevel);die;
              
-              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];
-            
-
-            //echo $tokens ? 'yes' : 'No';
-
-           // print_r($tokens);die;
-
-           // $profile = $model->getUserProfile($userId);
-
-            //$type=Session::get('userType');
+              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];            
 
             $view->with(array('subscribed_artist'=>$subscribed_artist,'latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
