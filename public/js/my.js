@@ -85,9 +85,14 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
+	console.log('yess')
+
 	var storage_url = $('#storagePath').attr('url');
 
-	
+	var checked_radio = $('.user:checked').val();
+
+   checked_radio == 'contentprovider' ? $('.discount').hide() : $('.discount').show()
+
 
 
 
@@ -284,13 +289,15 @@ function playVideo(a){
 }
 $(document).ready(function() {
 
-       //console.log('hello');
+  
 
         $('.rad_But').each(function() {
             if ($(this).is(':checked') == true) {
                 $(this).val()=='male' ? $('.hide').hide() : $('.hide').show();
             }
         });
+
+	
 
 
 	var id1= $(".media1:checked").attr('class').split(' ');
