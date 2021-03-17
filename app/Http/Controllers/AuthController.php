@@ -222,8 +222,6 @@ class AuthController extends Controller
 
              $attempt =   Session::get('login_attempt');
 
-             print_r($attempt);
-
 
              if($type=='contentUser'){
                 
