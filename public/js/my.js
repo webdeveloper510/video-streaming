@@ -2635,7 +2635,7 @@ $(document).on('submit', '#artist_info', function (event) {
 
 				if(data==1){
 
-					window.location.href = APP_URL+'artists/dashboard';
+					window.location.href = APP_URL+'/artists/dashboard';
 						
 				}
 

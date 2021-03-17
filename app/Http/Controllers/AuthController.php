@@ -12,6 +12,7 @@ use View;
 
 use Illuminate\Support\Facades\Validator;
 
+
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
 use Illuminate\Http\Request;
@@ -47,6 +48,8 @@ class AuthController extends Controller
 {
 
   private $model;
+
+  use ThrottlesLogins;
   
 
     public function __construct(Request $request, Redirector $redirect)
@@ -329,13 +332,12 @@ class AuthController extends Controller
             ]
             
             );
-
             $data=$request->all();
 
 
+
+
             $get = $this->model->login($data);
-
-
 
 
              $redirect_url=Session::get('redirect_url');
