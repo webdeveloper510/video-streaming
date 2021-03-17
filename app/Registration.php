@@ -26,6 +26,7 @@ class Registration extends Model
             $userdata['password']= md5($data['confirm']);
 
             $userdata['created_at']= now();
+            $userdata['is_news']= $data['news'] ? 'yes' : 'no' ;
             $userdata['reffered_by']= $reffer_id ? $reffer_id : 0;
             $userdata['updated_at']= now();
                 $insertedid=DB::table('users')->insertGetId($userdata);
@@ -992,7 +993,7 @@ public function getRespectedSub($data){
               'title'=>$data['title'],
               'price'=>$data['price'],
               'description'=>$data['description'],
-              'categoryid'=>$data['category'][0],
+              'categoryid'=>$data['category'][0] ? $data['category'][0] : $data['category'][1],
               'min'=>$data['min'],
               'max'=>$data['max'],
               'type'=>$data['type'],

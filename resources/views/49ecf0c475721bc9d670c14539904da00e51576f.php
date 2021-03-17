@@ -383,9 +383,10 @@
                           <span class="sr-only">70% Complete</span>
                     </div>
                    
-                    <?php if(isset($levelData[0])): ?>       
+                    <?php if(isset($levelData)): ?>       
                 <div class="leveltext text-white"> <p><?php echo e(($levelData[0]->max+1)-$levelData[0]->countsubscriber); ?> Subscribers for next level</p></div>
-                 
+                 <?php else: ?>
+                 <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
                   <?php endif; ?>
                 </div>
                 
