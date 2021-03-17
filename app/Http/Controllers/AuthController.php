@@ -220,6 +220,10 @@ class AuthController extends Controller
 
              $type =   Session::get('userType');
 
+             $attempt =   Session::get('login_attempt');
+
+             print_r($attempt);
+
 
              if($type=='contentUser'){
                 
@@ -229,7 +233,7 @@ class AuthController extends Controller
              
 
          
-            return view('login') ;     
+            return view('login',['attempt'=>$attempt]) ;     
       } 
 
     public function profile(){
@@ -332,6 +336,24 @@ class AuthController extends Controller
             ]
             
             );
+
+            if(Session::get('login_attempt')){
+
+              $val = Session::get('login_attempt');
+
+              $i = $val+1;
+
+
+            }
+
+            else{
+
+              $i=1;
+
+            }
+
+        
+            
             $data=$request->all();
 
 
@@ -339,8 +361,12 @@ class AuthController extends Controller
 
             $get = $this->model->login($data);
 
+            //$get!='' ? Session::forget('login_attempt') : '';
 
-             $redirect_url=Session::get('redirect_url');
+
+
+
+            $redirect_url=Session::get('redirect_url');
 
     
 
@@ -358,7 +384,13 @@ class AuthController extends Controller
               return redirect('/login')->with('error','Please Verify Your Email!');
             }
             else{
+
+              print_r('yes');
+              print_r($i);die;
+
+              Session::put('login_attempt',$i);
               return redirect('/login')->with('error','Invalid Email or Password!');
+
             }
 
       }
