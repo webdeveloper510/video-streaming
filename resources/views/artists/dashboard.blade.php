@@ -378,9 +378,10 @@
                           <span class="sr-only">70% Complete</span>
                     </div>
                    
-                    @if(isset($levelData[0]))       
+                    @if(isset($levelData))       
                 <div class="leveltext text-white"> <p>{{($levelData[0]->max+1)-$levelData[0]->countsubscriber}} Subscribers for next level</p></div>
-                 
+                 @else
+                 <div class="leveltext text-white"> <p>100 Subscribers for next level</p></div>
                   @endif
                 </div>
                 
