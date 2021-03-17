@@ -1463,6 +1463,8 @@ public function readNotification(Request $request){
 /*------------------------------------------------Reset  Password---------------------------------------------------*/
     public function resetPassword(Request $req){
 
+      Session::forget('login_attempt');   
+
       $email = $req->email;
 
       Session::put('email',$email);
