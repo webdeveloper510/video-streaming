@@ -10,39 +10,24 @@
   <thead>
     <tr>
       <th scope="col"> Name</th>
-      <th scope="col">Type</th>
-      <th scope="col">Title</th>
+      <th scope="col">Collection Media Title</th>
+      <th scope="col">Offer Media Title</th>
       <th scope="col">Amount</th>
       <th scope="col">Time</th>
+      <th scope="col">Pay From</th>
     </tr>
   </thead>
   <tbody>
+  @foreach($earnings as $earn)
     <tr>
-        <td scope="row">Customer Name</td>
-       <td >Video</td>
-      <td>Titlexyz</td>
-      <td>500PAZ</td>
-      <td>12.04.2021(21:23)</td>
+      <td scope="row">{{$earn->nickname}}</td>
+       <td >{{$earn->mediaTitle}}</td>
+      <td>{{$earn->Offertitles}}</td>
+      <td>{{$earn->tokens}}PAZ</td>
+      <td>{{$earn->created_at}}</td>
+      <td>{{$earn->pay_from}}</td>
     </tr>
-    <tr>
-    <td scope="row">Customer Name</td>
-    <td>Audio</td>
-      <td>Titlexyz</td>
-      <td>100PAZ</td>
-      <td>11.04.2021(21:23)</td>
-    </tr>
-    <td scope="row">Customer Name</td>
-    <td>Video</td>
-      <td>Titlexyz</td>
-      <td>600PAZ</td>
-      <td>8.04.2021(21:23)</td>
-    </tr>
-    <td scope="row">Customer Name</td>
-    <td>Video</td>
-      <td>Titlexyz</td>
-      <td>300PAZ</td>
-      <td>6.04.2021(21:23)</td>
-    </tr>
+    @endforeach
     <tr>
       <td colspan="5" class="text-center">No data available</td>
     </tr>

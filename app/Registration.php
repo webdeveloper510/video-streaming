@@ -832,10 +832,10 @@ public function getRespectedSub($data){
 
       $getData = $this->reduceTokens($checkTokn,$userid,$data['price'],$data['artistid']);
 
-      $insert_in_payment = $getData==1 ? $this->insertPaymentStatus($userid,$data['artistid'],'',$data['price']):'';
+      //$insert_in_payment = $getData==1 ? $this->insertPaymentStatus($userid,$data['artistid'],'',$data['price']):'';
       //print_r($getData);die;
 
-      return $insert_in_payment;
+      return $getData;
 
 
 
@@ -1658,7 +1658,7 @@ public function getRespectedSub($data){
                 $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
                               
-                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens) : 0;
+                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens,'collection') : 0;
 
                 $return = $status_succedd;
 
@@ -1694,7 +1694,7 @@ public function getRespectedSub($data){
 
           $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
 
-          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens) : 0;
+          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens,'collection') : 0;
 
           //print_r($status_succedd);
           $return = $status_succedd;
@@ -1713,7 +1713,7 @@ public function getRespectedSub($data){
     return $return;
   }
 
-  public function insertPaymentStatus($uid,$artid,$vid,$paz){
+  public function insertPaymentStatus($uid,$artid,$vid,$paz,$from){
 
     //echo $uid.$artid.$vid.$paz;die;
 
@@ -1724,7 +1724,8 @@ public function getRespectedSub($data){
       'artistid'=>$artid,
       'mediaid'=>$vid,
       'status'=>'success',
-      'tokens'=>$paz
+      'tokens'=>$paz,
+      'pay_from'=>$from
     );
 
     $insert_payment  = DB::table('payment_token')->insert($payment);
@@ -2347,7 +2348,7 @@ public function buyofferVideo($data,$offer){
 
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
-        // $status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
+         //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
           $return = $done;
     }
@@ -2378,7 +2379,7 @@ public function addonContentProvider($data){
         
       ]);
 
-      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens) : 0;
+      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens,'offer') : 0;
   
     }
 
@@ -2752,6 +2753,32 @@ public function getSocialInfo($type){
       $update = DB::table($table)->where(array($key=>$where))->update($data); 
     
         return $update;
+    }
+
+
+    public function showEarnings(){
+
+      $session_data =   Session::get('User');
+
+      $userid =  $session_data->id;   
+
+      $data = \DB::table("payment_token")    
+      ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,payment_token.mediaid)"),">",\DB::raw("'0'"))
+      ->leftjoin('offer','offer.id','=','payment_token.mediaid')
+      ->leftjoin('users','users.id','=','payment_token.userid')
+      ->select("users.nickname",\DB::raw("offer.type as types"),'payment_token.mediaid',\DB::raw("offer.title as Offertitles"),'payment_token.tokens','payment_token.pay_from','payment_token.created_at',\DB::raw("GROUP_CONCAT(media.title) as mediaTitle"),\DB::raw("GROUP_CONCAT(media.type) as mediaType"))
+       ->groupBy('users.nickname','offer.type','payment_token.mediaid','payment_token.pay_from','offer.title','payment_token.tokens','payment_token.created_at')
+      ->where('payment_token.artistid', $userid)
+      ->get();
+      //   echo "<pre>";
+      // print_r($data);die;
+  
+       return $data;
+
+
+
+
+
     }
     
 
