@@ -432,7 +432,7 @@ Your browser does not support the audio tag.
             </select>
             <br>
             <div class="convert">
-                <label for="Convert to:">Convert to:</label> 
+                <label for="quality:">quality:</label> 
               <select name="quality" class="form-control" id="quality">
                         <option value="">Choose ...</option>
                         <option value="480">480p  </option>
@@ -511,7 +511,7 @@ Your browser does not support the audio tag.
             <input type="hidden" value="{{isset($random[0]->id)}}" name="hid"/>
            
           <div class="col-md-6 mt-2 convert">
-           {{Form::label('Convert to:', 'Convert to:')}} 
+           {{Form::label('quality:', 'quality:')}} 
            <select name="convert"  class='form-control'>
                 <option value="">Choose ...</option>
                @foreach($qualities as $q)

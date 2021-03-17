@@ -447,7 +447,7 @@ Your browser does not support the audio tag.
             </select>
             <br>
             <div class="convert">
-                <label for="Convert to:">Convert to:</label> 
+                <label for="quality:">quality:</label> 
               <select name="quality" class="form-control" id="quality">
                         <option value="">Choose ...</option>
                         <option value="480">480p  </option>
@@ -532,7 +532,7 @@ Your browser does not support the audio tag.
             <input type="hidden" value="<?php echo e(isset($random[0]->id)); ?>" name="hid"/>
            
           <div class="col-md-6 mt-2 convert">
-           <?php echo e(Form::label('Convert to:', 'Convert to:')); ?> 
+           <?php echo e(Form::label('quality:', 'quality:')); ?> 
            <select name="convert"  class='form-control'>
                 <option value="">Choose ...</option>
                <?php $__currentLoopData = $qualities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $q): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
