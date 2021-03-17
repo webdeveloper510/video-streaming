@@ -22,7 +22,7 @@
                 <div class="modal-content">
                   
                   <div class="modal-body">
-                  <h3> Unsubscribe from Artistname</h3>
+                  <h3> Unsubscribe from <?php echo e($details[0]->nickname); ?></h3>
                   <div class="text-center Artistxyz">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   
@@ -75,13 +75,13 @@
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
-         Categories :<?php echo e($offer->category); ?>
+         Category :<?php echo e($offer->category); ?>
 
          </a>
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min</h4>
         </div>
         <hr>
       
@@ -182,7 +182,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               <?php else: ?>
               <div class="artistvideo">
-                <h4> Artist does not upload any video</h4>
+                <h4> No video available.</h4>
               </div>
                <?php endif; ?>
           </div>
@@ -224,7 +224,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <?php else: ?>
         <div class="artistaudio">
-                    <h4> Artist does not upload any Audio</h4>
+                    <h4> No Audio available.</h4>
                   </div>
         <?php endif; ?>
         </div>

@@ -336,7 +336,10 @@ class artist extends Controller
   }
 
   public function earning(){
-    return view('artists.earning');
+
+    $earnings = $this->model->showEarnings();
+
+    return view('artists.earning',['earnings'=>$earnings]);
   }
 
   public function addDescription(Request $req){
