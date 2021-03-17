@@ -402,6 +402,32 @@ Your browser does not support the audio tag.
                      <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
 
                   <br>
+                  <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
+
+                <br>
+                      <label>Choose Category</label>
+                  <div class="video" style="display:none">
+                  <select name="category[]"  class='form-control video'>
+                          <option value="">Choose category</option>
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='video'): ?>
+                              <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                            <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </select>
+                  </div>
+                  <br>
+                  <div class="audio" style="display:none">
+                    <select name="category[]"  class='form-control audio'>
+                            <option value="">Choose category</option>
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($cat->type=='audio'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                    </div>
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">
@@ -416,13 +442,23 @@ Your browser does not support the audio tag.
                 </div>
                 </div>
                 <br>
-                <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
-                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
+                <?php echo e(Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')); ?> 
+                <?php echo e(Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])); ?>
 
                 <br>
                   <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
+                <br>
+                <div class="convert">
+                <label for="quality:">quality:</label> 
+                  <select name="quality" class="form-control" id="quality">
+                            <option value="">Choose ...</option>
+                            <option value="480">480p  </option>
+                            <option value="720">HD 720p </option>
+                            <option value="1080">Full HD 1080p  </option>
+                    </select>
+                </div>
                 <br>
                 <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
                    <label>Choose Image</label>        
@@ -437,6 +473,7 @@ Your browser does not support the audio tag.
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
+<<<<<<< HEAD
                   <br>
                 <label>Offer Status</label>
             <select name="offer_status"  class='form-control' id="select_status">
@@ -481,6 +518,13 @@ Your browser does not support the audio tag.
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div>
+=======
+                 
+            
+           
+           
+          
+>>>>>>> 617f3b6b2bc3b8e745f2f5f5a5a1ecde42fc2f9a
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -518,19 +562,29 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>   
-          <div class="col-md-6 mt-3 text-white">
+          <div class="col-md-12 mt-2 convert">
+           <?php echo e(Form::label('quality:', 'quality:')); ?> 
+           <select name="convert"  class='form-control'>
+                <option value="">Choose ...</option>
+               <?php $__currentLoopData = $qualities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $q): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+               <option  value="<?php echo e($q->quality); ?>" <?php echo e(($random[0]->convert)==$q->quality ? 'selected' : ''); ?>><?php echo e($q->quality); ?>px </option>
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
+            </div>
+          <div class="col-md-12 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input'])); ?>
 
                 <!-- <span style="color:red;"><?php echo e(isset($random[0]->media) ? $random[0]->media : ''); ?></span> -->
             </div>
-            <div class="col-md-6 mt-3 text-white audio_picture" style="display:none;">
+            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input'])); ?>
 
             </div>
             <input type="hidden" value="<?php echo e(isset($random[0]->id)); ?>" name="hid"/>
            
+<<<<<<< HEAD
           <div class="col-md-6 mt-2 convert">
            <?php echo e(Form::label('quality:', 'quality:')); ?> 
            <select name="convert"  class='form-control'>
@@ -543,47 +597,11 @@ Your browser does not support the audio tag.
                 <div class="col-md-6 pt-3">
             <?php echo e(Form::label('Eye/Lens Color', 'Eye/Lens Color')); ?> 
                 <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
-
-                  <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('eyecolor') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
-                <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])); ?>
-
-                  <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('privy') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Hair length', 'Hair length')); ?> 
-                <?php echo e(Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','id'=>'hairlength','placeholder' => 'Choose Hair Length'])); ?>
-
-                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('hairlength') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Hair Color', 'Hair Color')); ?> 
-                <?php echo e(Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','id'=>'haircolor','placeholder' => 'Choose Hair Color'])); ?>
-
-                   <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('haircolor') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-
-               <div class="col-md-6 pt-3">
+=======
+            <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
                 <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])); ?>
+>>>>>>> 617f3b6b2bc3b8e745f2f5f5a5a1ecde42fc2f9a
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -591,17 +609,7 @@ Your browser does not support the audio tag.
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6 pt-3">
-            <?php echo e(Form::label('Height', 'Height')); ?> 
-                <?php echo e(Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','id'=>'height','placeholder' => 'Choose Height'])); ?>
-
-                 <?php if(session('errors')): ?>
-                <div class="alert alert-danger">
-                    <?php echo $errors->first('height') ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="col-md-6 pt-3">
+            <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Body', 'Body')); ?> 
                 <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose'])); ?>
 
@@ -611,7 +619,56 @@ Your browser does not support the audio tag.
                 </div>
                 <?php endif; ?>
             </div>
-            
+            <div class="col-md-12 pt-3">
+            <?php echo e(Form::label('Height', 'Height')); ?> 
+                <?php echo e(Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','id'=>'height','placeholder' => 'Choose Height'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('height') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-12 pt-3">
+            <?php echo e(Form::label('Hair Color', 'Hair Color')); ?> 
+                <?php echo e(Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','id'=>'haircolor','placeholder' => 'Choose Hair Color'])); ?>
+
+                   <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('haircolor') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-12 pt-3">
+            <?php echo e(Form::label('Hair length', 'Hair length')); ?> 
+                <?php echo e(Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','id'=>'hairlength','placeholder' => 'Choose Hair Length'])); ?>
+
+                 <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('hairlength') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+                <div class="col-md-12 pt-3">
+            <?php echo e(Form::label('Eye/Lens Color', 'Eye/Lens Color')); ?> 
+                <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
+
+                  <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('eyecolor') ?>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-12 pt-3">
+            <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
+                <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])); ?>
+
+                  <?php if(session('errors')): ?>
+                <div class="alert alert-danger">
+                    <?php echo $errors->first('privy') ?>
+                </div>
+                <?php endif; ?>
+            </div>
              <div class="col-md-12 pt-3">
             <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
                 <?php echo e(Form::textarea('aboutme',null,['id'=>'aboutme','class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])); ?>
