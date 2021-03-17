@@ -386,7 +386,7 @@ class AuthController extends Controller
             else{
 
               print_r('yes');
-              print_r($i);die;
+              print_r($i);
 
               Session::put('login_attempt',$i);
               return redirect('/login')->with('error','Invalid Email or Password!');
