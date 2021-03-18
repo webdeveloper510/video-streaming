@@ -23,12 +23,6 @@
       <div class="row">
           <div class="col"></div>
           <div class="col-md-8">
-              <label>For</label><br>
-              <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                <label class="btn btn-outline-secondary active">
-                    <input type="radio" name="options" id="option1" checked> Artist
-                </label>
-                </div>
                 
             <div class="ticketstext">
                 <label>Subject</label>
@@ -43,7 +37,7 @@
                     <option value="7">Other</option>
                 </select>
                 
-                <label>Search for User</label>
+                <label>Search for Artist</label>
                 <form class="form-group my-2 my-lg-0 mb-4">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
