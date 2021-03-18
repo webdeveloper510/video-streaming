@@ -14,19 +14,19 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
         <thead>
             <tr>
                 <th>
-                <img src="{{asset('images/email.jpg')}}"  alt="email-image" width="590px">
+                <img src="<?php echo e(asset('images/email.jpg')); ?>"  alt="email-image" width="590px">
                 </th>
             </tr>
         </thead>
          <tbody>
 
              <tr>
-                 <td><h1 style="margin-top: 10px;"> Issue :-{{$data['customer_issue']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;"> Issue :-<?php echo e($data['customer_issue']); ?></h1></td>
                  
              </tr>
 
              <tr>
-                 <td><h1 style="margin-top: 10px;"> Email :-{{$data['customer_email']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;"> Email :-<?php echo e($data['customer_email']); ?></h1></td>
                  
              </tr>
 
@@ -35,7 +35,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span>{{$data['customer_description']}}</span>, 
+                     <p>Hey <span><?php echo e($data['customer_description']); ?></span>, 
                     </p>
                 </td>
              </tr>
@@ -47,4 +47,4 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
 
 </body>
-</html>
+</html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/email.blade.php ENDPATH**/ ?>

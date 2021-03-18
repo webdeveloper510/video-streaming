@@ -2702,6 +2702,17 @@ public function getSocialInfo($type){
 
 }
 
+
+public function customer_issue($data){
+
+          unset($data['_token']);
+
+          $data['created_at']=now();
+          $data['updated_at']=now();
+
+          return DB::table('customer_issue')->insert($data);
+}
+
     public function deleteoffer($data){
 
      return DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
