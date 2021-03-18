@@ -14,9 +14,6 @@
   <li class="nav-item" role="presentation">
     <a class="nav-link" id="pills-Aritst-tab" data-toggle="pill" href="#pills-Aritst" role="tab" aria-controls="pills-Aritst" aria-selected="false">Aritst Support</a>
   </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-Customer-tab" data-toggle="pill" href="#pills-Customer" role="tab" aria-controls="pills-Customer" aria-selected="false">Customer Support</a>
-  </li>
  
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -30,12 +27,6 @@
               <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                 <label class="btn btn-outline-secondary active">
                     <input type="radio" name="options" id="option1" checked> Artist
-                </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option2"> Customer
-                </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option3"> Other
                 </label>
                 </div>
                 
@@ -159,41 +150,6 @@
 
 </div>
 
-  <div class="tab-pane fade" id="pills-Customer" role="tabpanel" aria-labelledby="pills-Customer-tab">
-  <div class="row">
-          <div class="col"></div>
-          <div class="col-md-8">
-            <div class="text-center mb-4">
-             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-outline-secondary active">
-                    <input type="radio" name="options" id="option1" checked> New
-                </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option2"> Open
-                </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option3"> Closed
-                </label>
-                </div>
-            </div>
-            <div class="opentickettext">
-               <div class="row">
-    
-            <div class="col-7">
-            <a href="#" data-toggle="modal" data-target="#cchat">
-               <h3>#34567893 - Technical Issue</h3>
-               <p>Last Updated: Monday,21.march,2021(15:03)</p>
-               </a>
-            </div>
-          
-            <div class="col-3">
-              <p>Customer Name</p>
-                </div>
-            <div class="col-2 mt-4">
-                
-               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#open">Open</button>
-               <button type="button"  disable class="btn btn-primary" style="display:none;">Close</button>
-            </div>
             <!-- Button trigger modal -->
 
                         <!-- Modal -->
@@ -268,7 +224,7 @@ ul#pills-tab {
     color: white !important;
 }
 li.nav-item {
-    width: 33.33%;
+    width: 50%;
     text-align: center;
 }
 
