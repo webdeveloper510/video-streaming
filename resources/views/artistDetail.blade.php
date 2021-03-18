@@ -190,7 +190,7 @@
   
      <h3>Audios</h3>
      <div class="row mb-5">
-      @if(isset($audio->type))
+      @if($audio)
           @foreach($audio as $aud)
 
         <div class="col-md-4 mb-3">
@@ -211,10 +211,10 @@
 
         <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">{{ $audio->price}}/PAZ</h6>
+                  <h6 class="text-white">{{ $aud->price}}/PAZ</h6>
                   </div>
                   <div class="text-right">
-                  <h6 class="text-white">2:00</h6>
+                  <h6 class="text-white">{{$aud->duration}}</h6>
                   </div>
                   </div>
         </div>
