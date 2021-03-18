@@ -1383,7 +1383,7 @@ public function addmMltiple(Request $req){
             
         }
 
-        print_r($response);
+        //print_r($response);
 
         return response()->json($response);
 
