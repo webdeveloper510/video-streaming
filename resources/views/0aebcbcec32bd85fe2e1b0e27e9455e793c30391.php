@@ -3,7 +3,7 @@
 
 <div class="container">
     <?php if($videos): ?>
-   <div class="row pt-5 mt-5">
+   <div class="row pt-5">
    <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($flag!='offer'): ?>
        <div class="col-md-4 my-3">
@@ -93,6 +93,7 @@
 }
 .borderhover:hover {
     border:2px solid yellow;
+    padding:0px !important;
 
 }
 .seealldata1{

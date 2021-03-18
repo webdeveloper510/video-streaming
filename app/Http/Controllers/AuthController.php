@@ -1541,6 +1541,9 @@ public function readNotification(Request $request){
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
 
 
+        //print_r($requestData);die;
+
+
           if($requestData==1){
 
             return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
@@ -1590,13 +1593,15 @@ public function readNotification(Request $request){
 
         $artistOfferId =   Session::get('offer_artist_id');
 
+        //print_r( $artistOfferId);die;
+
         //$userid=$session_data->id;
 
         $data= array(
           'is_seen'=>'yes'
         );
 
-        $this->model->UpdateData('offer','artistid',$data,$artistOfferId);
+        $this->model->UpdateData('offer','id',$data,$artistOfferId);
 
             return view('all_orders');
 
