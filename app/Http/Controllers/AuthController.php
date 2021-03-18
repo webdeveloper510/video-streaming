@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\verifyEmail;
 
+use App\Mail\customer_issue;
+
 use App\Mail\forgotPassword;
 
 use App\Mail\notifyEmail;
@@ -1616,6 +1618,19 @@ public function readNotification(Request $request){
     
         echo json_encode($data);
   
+      }
+
+      public function technical_issue(Request $req){
+
+        if($req->all()){
+
+            $done = $this->model->customer_issue($req->all());
+
+            $done ? Mail::to('amit@codenomad.net')->send(new customer_issue($req->all())) : 0;
+
+
+
+        }
       }
 
 }

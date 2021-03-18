@@ -25,8 +25,6 @@
            <?php echo Form::open(['action' => 'AuthController@postLogin', 'method' => 'post']); ?>
 
           <div class="form-group">
-            <?php echo e($attempt); ?>
-
                <?php echo e(Form::label('E-Mail Address', 'E-Mail Address')); ?> 
                 <?php echo e(Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
 
@@ -73,8 +71,8 @@
              
       </div>
           <?php endif; ?>
-
-            <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
+            <p class="text-white" style="<?php echo e($attempt=='5' ? 'display:block': 'display:none'); ?>"><b>Please Reset Password</b></p>
+            <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary','id'=>$attempt, $attempt==5 ? 'disabled' : ''])); ?></p>
             <?php echo e(Form::close()); ?>
 
            

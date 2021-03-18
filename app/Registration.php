@@ -201,9 +201,8 @@ public function uploadContentData($userdata){
 
                 if($value->verify!=1){
 
-                 // echo "if";
+                     $return = 'Not Verify';
 
-                 $return = 'Not Verify';
                 }
 
                 else{
@@ -1657,7 +1656,7 @@ public function getRespectedSub($data){
                 $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
                               
-                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens,'collection') : 0;
+                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
 
                 $return = $status_succedd;
 
@@ -1693,7 +1692,7 @@ public function getRespectedSub($data){
 
           $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
 
-          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens,'collection') : 0;
+          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
 
           //print_r($status_succedd);
           $return = $status_succedd;
@@ -2378,7 +2377,7 @@ public function addonContentProvider($data){
         
       ]);
 
-      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens,'offer') : 0;
+      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens,'order') : 0;
   
     }
 
@@ -2701,6 +2700,17 @@ public function getSocialInfo($type){
             
           return $data;
 
+}
+
+
+public function customer_issue($data){
+
+          unset($data['_token']);
+
+          $data['created_at']=now();
+          $data['updated_at']=now();
+
+          return DB::table('customer_issue')->insert($data);
 }
 
     public function deleteoffer($data){
