@@ -66,8 +66,8 @@
              
       </div>
           @endif
-
-            <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
+            <p class="text-white" style="{{$attempt=='5' ? 'display:block': 'display:none'}}"><b>Please Reset Password</b></p>
+            <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary','id'=>$attempt, $attempt==5 ? 'disabled' : '']) }}</p>
             {{ Form::close() }}
            
     <div class="bottom mt-5">
