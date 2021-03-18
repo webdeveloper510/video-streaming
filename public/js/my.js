@@ -2675,8 +2675,8 @@ $(document).on('submit', '#customer_issue', function (event) {
 
 				if(data==1){
 
-					$('.alert alert-success').show();
-					$('.alert alert-success').html('Your Request Sent Successfully!');
+					$('.alert-success').show();
+					$('.alert-success').html('Your Request Sent Successfully!');
 
 						
 				}
