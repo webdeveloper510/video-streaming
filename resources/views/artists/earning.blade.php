@@ -27,7 +27,7 @@
        <td>{{is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type}}</td>
       <td>{{$earn->mediaTitle}}</td>
       <td>{{$earn->tokens}}PAZ</td>
-      <td>{{$earn->created_at}}</td>
+      <td>{{date('m/ d/ Y  (H:i)', strtotime($earn->created_at))}}</td>
     </tr>
     @endif
     @if($earn->pay_from=='order')
@@ -36,7 +36,7 @@
        <td >{{'order-'.$earn->types}}</td>
       <td>{{$earn->Offertitles}}</td>
       <td>{{$earn->tokens}} PAZ</td>
-      <td>{{$earn->created_at}}</td>
+      <td>{{date('m/ d/ Y  (H:i)', strtotime($earn->created_at))}}</td>
     </tr>
     @endif
     @endforeach

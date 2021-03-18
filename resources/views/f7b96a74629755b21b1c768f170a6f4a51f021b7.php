@@ -27,7 +27,7 @@
        <td><?php echo e(is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type); ?></td>
       <td><?php echo e($earn->mediaTitle); ?></td>
       <td><?php echo e($earn->tokens); ?>PAZ</td>
-      <td><?php echo e($earn->created_at); ?></td>
+      <td><?php echo e(date('m/ d/ Y  (H:i)', strtotime($earn->created_at))); ?></td>
     </tr>
     <?php endif; ?>
     <?php if($earn->pay_from=='order'): ?>
@@ -36,7 +36,7 @@
        <td ><?php echo e('order-'.$earn->types); ?></td>
       <td><?php echo e($earn->Offertitles); ?></td>
       <td><?php echo e($earn->tokens); ?> PAZ</td>
-      <td><?php echo e($earn->created_at); ?></td>
+      <td><?php echo e(date('M d, Y', strtotime($earn->created_at))); ?></td>
     </tr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
