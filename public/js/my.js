@@ -2678,6 +2678,7 @@ $(document).on('submit', '#customer_issue', function (event) {
 					$('.alert-success').show();
 					$('.alert-success').html('Your Request Sent Successfully!');
 
+					
 						
 				}
 
