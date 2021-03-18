@@ -557,7 +557,7 @@ class artist extends Controller
         unset($req['_token']);
 
 
-      //print_r($req->all());die;
+     
       if($req->media){
 
         $fileName =$req->media ?  time().'_'.$req->media->getClientOriginalName():'';
@@ -580,9 +580,11 @@ class artist extends Controller
 
          
 
-
+         
 
           $inputData = Arr::except($req->all(),['media', 'hid','audio_pic','convert','radio']);
+
+          //print_r($inputData);die;
 
           //print_r($inputData);die;
 
@@ -590,7 +592,7 @@ class artist extends Controller
         
          
 
-          //print_r($input);die;
+         // print_r($data);die;
         $update = $this->model->edit_other($inputData,$data);
 
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));

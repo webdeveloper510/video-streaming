@@ -1355,6 +1355,8 @@ public function addmMltiple(Request $req){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
+       
+
       
         $response =array();
         if($data ==='Insufficient Paz Tokens'){
@@ -1380,6 +1382,8 @@ public function addmMltiple(Request $req){
           $response['messge'] = 'Some Error Occure!';
             
         }
+
+        print_r($response);
 
         return response()->json($response);
 

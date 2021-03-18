@@ -1394,6 +1394,7 @@ function loadingmessage(){
 $(document).on('submit', '#edit_profile_info', function (event) {
 	event.preventDefault();
 	var formData = new FormData($(this)[0]);
+	$('.loader').show();
 	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
@@ -1426,7 +1427,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 			success: function(data){
 
-				//console.log(data);return false;
+				console.log(data);
 
 				if(data.status==1){
 					// $('.alert-success').show();
