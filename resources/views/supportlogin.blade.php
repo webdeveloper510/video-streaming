@@ -45,12 +45,6 @@
                 @endif
           </div> 
 
-          
-
-            
-<a href="#"  style="float:right; color:blue;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Forgot Password?
-</a>
 <!-- if there are login errors, show them here -->
 <p>
   
@@ -66,11 +60,6 @@
 
             <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
             {{ Form::close() }}
-           
-    <div class="bottom mt-5">
-<p class="text-white">Don't have an account yet ?</p>
-<a href="{{ URL::to('register')}}" class="ffff ">Signup Now</a>
-</div>
 
         </div>
       </div>
