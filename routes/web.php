@@ -131,6 +131,8 @@ Route::post('addmMltiple', 'AuthController@addmMltiple');
 
 Route::post('showOffer','AuthController@showOffer');
 
+Route::post('customer_issue','AuthController@technical_issue');
+
 Route::post('editDescription','AuthController@editDescription');
 
 Route::post('registration', 'AuthController@UserRegistration');

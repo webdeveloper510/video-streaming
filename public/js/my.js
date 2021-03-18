@@ -2528,8 +2528,11 @@ function seconds_to_min_sec(seconds,id,vidid) {
 	var minutes = Math.floor(seconds / 60);
 	var hours = Math.floor(seconds / 3600);
 	var seconds = seconds - minutes * 60;
+	//console.log(hours);return false;
 	var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-	var hours_sys = hours==0 ? '0' + ':' + parseInt(duration) : hours + ":" + parseInt(duration);
+	//console.log(duration);return false;
+	var hours_sys = hours==0 ? '0' + ':' + duration : hours + ":" + duration;
+	//console.log(hours_sys);return false;
 	$(id).html(hours_sys);
 	$.ajax({
 	type: 'POST',
@@ -2636,6 +2639,45 @@ $(document).on('submit', '#artist_info', function (event) {
 				if(data==1){
 
 					window.location.href = APP_URL+'/artists/dashboard';
+						
+				}
+
+				else{
+
+					location.reload();       
+					
+				}
+
+
+			}
+	});
+
+});
+
+
+/*------------------------------------------------------Customer Issue --------------------------------------------------------*/
+
+$(document).on('submit', '#customer_issue', function (event) {
+	event.preventDefault();
+	//console.log(formData);return false;
+       $.ajax({
+			type: 'POST',
+			url:APP_URL+"/customer_issue",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+
+			data: $(this).serialize(),		
+
+			success: function(data){
+
+				console.log(data);
+
+				if(data==1){
+
+					$('.alert alert-success').show();
+					$('.alert alert-success').html('Your Request Sent Successfully!');
+
 						
 				}
 

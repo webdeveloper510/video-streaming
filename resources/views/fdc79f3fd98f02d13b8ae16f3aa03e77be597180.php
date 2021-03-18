@@ -31,9 +31,13 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header ">
+                      <?php echo Form::open(['id'=>'customer_issue','method' => 'post', 'files'=>true]); ?>
+
+               <?php echo e(Form::token()); ?>
+
                       <div class="form-group"style=" width: 80%;">
                           <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <input type="email" name="customer_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                           <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
                         </div>
                         
@@ -44,29 +48,32 @@
                         <div class="col"></div>
                          <div class="col-md-8 my-3">
                             <div class="text-center">
-                                <select class="form-select form-control " aria-label="Default select example">
-                                  <option selected> Select Menu</option>
-                                  <option value="1">Feature Request</option>
-                                  <option value="2">Functionality Question</option>
-                                  <option value="3">Techincal Issue</option>
-                                  <option value="4">General</option>
-                                  <option value="5">Website Fees</option>
-                                  <option value="6">Delete Account</option>
-                                  <option value="7">Other</option>
-                                </select>
+                                  <select class="form-select form-control" name="customer_issue" aria-label="Default select example" required>
+                                    <option selected> Select Menu</option>
+                                    <option value="Feature Request">Feature Request</option>
+                                    <option value="Functionality Question">Functionality Question</option>
+                                    <option value="Techincal Issue">Techincal Issue</option>
+                                    <option value="General">General</option>
+                                    <option value="Website Fees">Website Fees</option>
+                                    <option value="Delete Account">Delete Account</option>
+                                    <option value="Other">Other</option>
+                                  </select>
                               </div>
                           </div>
                           <div class="col"></div>
                           </div>
 
                         <label>Description</label>
-                        <textarea class="form-control" placeholder="We would like to read your description..." id="floatingTextarea"></textarea>
+                        <textarea class="form-control" name="customer_description" placeholder="We would like to read your description..." id="floatingTextarea" required></textarea>
                         
                       </div>
                       <div class="pb-3 pr-3 text-right">
-                      <button class="btn btn-primary" type="button">Submit</button></div>
+                      <button class="btn btn-primary" type="submit">Submit</button></div>
                     
                     </div>
+
+                    <?php echo e(Form::close()); ?>
+
                     
                     </div>
                   </div>
