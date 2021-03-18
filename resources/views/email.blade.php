@@ -11,17 +11,10 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
     <table style="background-color: #fff;text-align: center;">
 
-        <thead>
-            <tr>
-                <th>
-                <img src="https://pornartistzone.com/developing-streaming/public/images/email.jpg"  alt="email-image" width="590px">
-                </th>
-            </tr>
-        </thead>
          <tbody>
 
              <tr>
-                 <td><h1 style="margin-top: 10px;"> Request :-{{$data['customer_issue']}}</h1></td>
+                 <td><h1 style="margin-top: 10px; font-size:50px;"> {{$data['customer_issue']}}</h1></td>
                  
              </tr>
 
@@ -31,7 +24,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
 
              <tr>
-                  <h3>Description</h3>
+                  <h3 style="color:#7b0000; font-size:30px;">Discription</h3>
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
