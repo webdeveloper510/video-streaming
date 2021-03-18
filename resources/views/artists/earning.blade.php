@@ -10,23 +10,35 @@
   <thead>
     <tr>
       <th scope="col"> Name</th>
-      <th scope="col">Collection Media Title</th>
-      <th scope="col">Offer Media Title</th>
+      <th scope="col">Type</th>
+      <th scope="col">Title</th>
       <th scope="col">Amount</th>
       <th scope="col">Time</th>
-      <th scope="col">Pay From</th>
     </tr>
   </thead>
   <tbody>
   @foreach($earnings as $earn)
+      @if($earn->pay_from=='multiple' || $earn->pay_from=='single')
+          <?php 
+            $type = explode(',', $earn->mediaType);
+          ?>
     <tr>
       <td scope="row">{{$earn->nickname}}</td>
-       <td >{{$earn->mediaTitle}}</td>
-      <td>{{$earn->Offertitles}}</td>
+       <td>{{is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type}}</td>
+      <td>{{$earn->mediaTitle}}</td>
       <td>{{$earn->tokens}}PAZ</td>
       <td>{{$earn->created_at}}</td>
-      <td>{{$earn->pay_from}}</td>
     </tr>
+    @endif
+    @if($earn->pay_from=='order')
+    <tr>
+      <td scope="row">{{$earn->nickname}}</td>
+       <td >{{'order-'.$earn->types}}</td>
+      <td>{{$earn->Offertitles}}</td>
+      <td>{{$earn->tokens}} PAZ</td>
+      <td>{{$earn->created_at}}</td>
+    </tr>
+    @endif
     @endforeach
     <tr>
       <td colspan="5" class="text-center">No data available</td>
