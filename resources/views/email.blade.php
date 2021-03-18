@@ -24,7 +24,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
 
              <tr>
-                  <h3 style="color:red; font-size:30px;">Discription</h3>
+                  <h3 style="color:#7b0000; font-size:30px;">Discription</h3>
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
