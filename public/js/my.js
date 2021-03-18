@@ -2676,7 +2676,7 @@ $(document).on('submit', '#customer_issue', function (event) {
 
 				if(data==1){
 
-					alert('done');
+					//alert('done');
 
 					
 						

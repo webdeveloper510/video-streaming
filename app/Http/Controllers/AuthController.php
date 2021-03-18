@@ -1254,6 +1254,9 @@ $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 public function addMultipleVideo(Request $req){
 
 
+  
+
+
 
           $multipleIds = Session::get('SessionmultipleIds');
 
@@ -1285,6 +1288,8 @@ public function addMultipleVideo(Request $req){
               $total = $cartVideo['sum'];
 
               $result = $cartVideo['result'];
+
+              //print_r($req->all());
 
                 //print_r($result);die;
 
