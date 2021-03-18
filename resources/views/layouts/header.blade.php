@@ -8,7 +8,7 @@
 <header id="default_header" class="header_style_1">
   <!-- header bottom -->
 
-  <!-- <div class="mobilebar">
+  <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">About</a>
@@ -17,7 +17,7 @@
           <a href="#">Contact</a>
     </div>
 
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
 
     <div class="logomobile text-center">
     <a href="{{url('/')}}" class="navbar-brand">
@@ -58,7 +58,7 @@
               </li>
        </ul>
      </div>
-</div> -->
+</div>
 
 
 
@@ -754,6 +754,68 @@ ul.nav.custom.search ul.subnav {
     position: absolute;
     right: 16px;
     top: 4px;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.mobilebar {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+.header_bottom {
+    display: none;
+}
+.mobilebar {
+    display: Block;
+}
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+span.togg {
+    float: left;
+    margin-left: 11px;
+    margin-top: 9px;
+}
+
+.subscrive {
+    float: right;
+    margin-top: -51px;
+    font-size: 27px;
+}
+.mobilebar {
+    background: #7b0000;
 }
 #search {
     width: 280px;

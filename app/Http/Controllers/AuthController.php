@@ -1626,7 +1626,18 @@ public function readNotification(Request $request){
 
             $done = $this->model->customer_issue($req->all());
 
-            $done ? Mail::to('amit@codenomad.net')->send(new customer_issue($req->all())) : 0;
+            if($done){
+
+              Mail::to('amit@codenomad.net')->send(new customer_issue($req->all()));
+              return 1;
+
+            }
+
+           else{
+
+            return 0;
+
+           }
 
 
 
