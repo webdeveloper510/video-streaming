@@ -2659,6 +2659,7 @@ $(document).on('submit', '#artist_info', function (event) {
 
 $(document).on('submit', '#customer_issue', function (event) {
 	event.preventDefault();
+	$('.close').trigger('click');
 	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
@@ -2675,9 +2676,9 @@ $(document).on('submit', '#customer_issue', function (event) {
 
 				if(data==1){
 
-					$('.alert alert-success').show();
-					$('.alert alert-success').html('Your Request Sent Successfully!');
+					alert('done');
 
+					
 						
 				}
 
