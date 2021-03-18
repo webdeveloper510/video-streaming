@@ -10,23 +10,35 @@
   <thead>
     <tr>
       <th scope="col"> Name</th>
-      <th scope="col">Collection Media Title</th>
-      <th scope="col">Offer Media Title</th>
+      <th scope="col">Type</th>
+      <th scope="col">Title</th>
       <th scope="col">Amount</th>
       <th scope="col">Time</th>
-      <th scope="col">Pay From</th>
     </tr>
   </thead>
   <tbody>
   <?php $__currentLoopData = $earnings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $earn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <?php if($earn->pay_from=='multiple' || $earn->pay_from=='single'): ?>
+          <?php 
+            $type = explode(',', $earn->mediaType);
+          ?>
     <tr>
       <td scope="row"><?php echo e($earn->nickname); ?></td>
-       <td ><?php echo e($earn->mediaTitle); ?></td>
-      <td><?php echo e($earn->Offertitles); ?></td>
+       <td><?php echo e(is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type); ?></td>
+      <td><?php echo e($earn->mediaTitle); ?></td>
       <td><?php echo e($earn->tokens); ?>PAZ</td>
       <td><?php echo e($earn->created_at); ?></td>
-      <td><?php echo e($earn->pay_from); ?></td>
     </tr>
+    <?php endif; ?>
+    <?php if($earn->pay_from=='order'): ?>
+    <tr>
+      <td scope="row"><?php echo e($earn->nickname); ?></td>
+       <td ><?php echo e('order-'.$earn->types); ?></td>
+      <td><?php echo e($earn->Offertitles); ?></td>
+      <td><?php echo e($earn->tokens); ?> PAZ</td>
+      <td><?php echo e($earn->created_at); ?></td>
+    </tr>
+    <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <tr>
       <td colspan="5" class="text-center">No data available</td>
