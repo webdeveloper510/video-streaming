@@ -78,7 +78,7 @@ class artist extends Controller
          
          $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
         //   echo "<pre>";
-        //  print_r($allArtistsVideo);die;
+        //  print_r($allArtistsAudio);die;
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid,'customer');
 

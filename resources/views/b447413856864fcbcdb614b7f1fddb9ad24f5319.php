@@ -114,6 +114,9 @@
                 <div class="modal fade" id="chat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Artist Name</h3>
+                    </div>
                     <div class="modal-body">
                         <div class="chat1">
                          <p>hello</p>
@@ -151,6 +154,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-body">
+                            <p>close if you are sure that the artist has no open questions.</p>
                               <h3>  Close Ticket?   </h3>
                               <div class="text-center">
                               <button type="button" class="btn btn-primary">No</button>
