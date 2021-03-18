@@ -21,7 +21,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          <tbody>
 
              <tr>
-                 <td><h1 style="margin-top: 10px;"> Issue :-{{$data['customer_issue']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;"> Request :-{{$data['customer_issue']}}</h1></td>
                  
              </tr>
 
@@ -31,7 +31,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
 
              <tr>
-                  <h3>Discription</h3>
+                  <h3>Description</h3>
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
