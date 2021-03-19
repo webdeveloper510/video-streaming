@@ -44,7 +44,9 @@
             </div>
              <div class="col-md-6 mt-2 ">
             {{Form::label('Title', 'Title')}} 
-                {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Enter Title'])}}
+                {{Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])}}
+                <div class="alert alert-success" id="messagediv" style="display:none"></div>
+
             </div>
          
             <div class="col-md-6 mt-2 ">

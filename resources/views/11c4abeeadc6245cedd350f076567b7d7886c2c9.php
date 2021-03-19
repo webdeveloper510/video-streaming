@@ -43,13 +43,15 @@
                 <div class="col-md-4 mt-5 ">
 
                 <?php echo e(Form::label('Title', 'Title')); ?> 
-                    <?php echo e(Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])); ?>
+                    <?php echo e(Form::text('title', '',['class'=>'form-control title','table'=>'offer','placeholder'=>'Title'])); ?>
 
                     <?php if($errors->first('title')): ?>
                     <div class="alert alert-danger">
                       <?php echo $errors->first('title') ?>
                     </div>
                     <?php endif; ?>
+                    <div class="alert alert-success" id="messagediv" style="display:none"></div>
+
                 </div>
            
                     <div class="col-md-4 mt-5 ">

@@ -335,7 +335,7 @@ Your browser does not support the audio tag.
        
           @if(isset($random[0]->type)&&$random[0]->type=='video')
             <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
-                      <source src="{{isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
+                      <source src="{{isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :asset('images/PAZ-Video.mp4')}}" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
           @else
