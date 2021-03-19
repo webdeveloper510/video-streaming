@@ -1209,6 +1209,46 @@ $(document).on('keyup', '.checknameExist', function () {
 })
 
 
+/**-------------------------------------------------Check Title Exist---------------------------------------------------------------- */
+
+$(document).on('keyup', '.title', function () {
+
+
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/checktitleExist",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'title':$(this).val(),'table':$(this).attr('table')},
+
+		success: function(data){
+
+			//console.log(data);return false;
+			if(data==1){
+				$('#messagediv').show();
+				$('#messagediv').addClass('alert alert-danger').removeClass('alert-success');
+				$('#messagediv').html('Title Already Exist!')
+			}
+
+			else{
+
+				$('#messagediv').show();
+				$('#messagediv').addClass('alert alert-success').removeClass('alert-danger');
+				$('#messagediv').html('Title Available!');
+
+			}
+
+
+	
+			
+		}
+});
+
+})
+
+
 
 function updateRead(){
 
@@ -1500,7 +1540,7 @@ $(document).ready(function(){
 	  // Delete id
 	  var deleteid = $(this).attr('data-id');
 	  var table = $(this).attr('table');
-	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this Collection?"
+	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this media file? <br/> Your Customer will lose access to it immediately!"
 
 	  //console.log(table);return false;
   

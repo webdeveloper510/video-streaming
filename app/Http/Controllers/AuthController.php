@@ -570,7 +570,7 @@ class AuthController extends Controller
       return view('content',['category'=>$data,'tab'=>$tab]);
     }
     public function contentProvider1(Request $request){
-
+     // print_r($request->all());die;
         if($request['gender']=='male'){
               unset($request['ass']);
               unset($request['titssize']);
@@ -590,6 +590,8 @@ class AuthController extends Controller
         'weight'=>'required',        
            ]
       );
+
+    
   
       if($request->image){
 
@@ -1656,6 +1658,14 @@ public function readNotification(Request $request){
 
 
         }
+      }
+
+      public function checktitleExist(Request $req){
+
+        $value = $this->model->selectDataById('title',$req['table'],$req['title']);
+
+
+        return count($value) > 0 ? 1 : 0;
       }
 
 }

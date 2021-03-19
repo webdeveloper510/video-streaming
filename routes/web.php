@@ -120,6 +120,7 @@ Route::post('passwordReset', 'AuthController@passwordReset');
 Route::post('addToLibrary', 'AuthController@addToLibrary');
 
 Route::post('checknameExist', 'AuthController@checknameExist');
+Route::post('checktitleExist', 'AuthController@checktitleExist');
 
 Route::post('addMultipleVideo', 'AuthController@addMultipleVideo');
 
