@@ -185,7 +185,7 @@
               <p> Profile</p>
             </a>
           </li>
-          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+          <li class="nav-item <?php echo e($tab=='upload' ? 'active': ''); ?>"  id="active" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
               <i class="fa fa-upload"></i>
               <p>Upload</p>
