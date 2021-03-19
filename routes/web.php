@@ -178,6 +178,7 @@ Route::post('createList', 'AuthController@createList');
 Route::get('supportlogin', 'AuthController@supportlogin');
 
 Route::get('report-media', 'AuthController@report_media');
+Route::get('legal-notice', 'AuthController@legal');
 
    /*-------------------End Web Site Route----------------------*/
 

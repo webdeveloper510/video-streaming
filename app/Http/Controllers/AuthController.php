@@ -309,6 +309,12 @@ class AuthController extends Controller
 
       return view('report-media');
     }
+    public function legal()
+    {
+     
+
+      return view('legal-notice');
+    }
 
     public function subcat_video($subid){
      
