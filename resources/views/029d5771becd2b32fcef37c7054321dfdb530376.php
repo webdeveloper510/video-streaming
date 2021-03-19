@@ -123,7 +123,7 @@
 
             <div class="col-md-6 pt-3 hide" >
             <?php echo e(Form::label('tits  Size', 'Tits  Size')); ?> 
-                <?php echo e(Form::select(' titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Choose','required'])); ?>
+                <?php echo e(Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Choose'])); ?>
 
                 <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -134,7 +134,7 @@
         
             <div class="col-md-6 pt-3 hide">
             <?php echo e(Form::label('Ass Size', 'Ass Size')); ?> 
-                <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Choose','required'])); ?>
+                <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' => 'Choose'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
