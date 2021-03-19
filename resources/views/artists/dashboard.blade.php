@@ -185,7 +185,7 @@
               <p> Profile</p>
             </a>
           </li>
-          <li class="nav-item {{$tab=='upload' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+          <li class="nav-item {{$tab=='upload' ? 'active': ''}}"  id="active" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
               <i class="fa fa-upload"></i>
               <p>Upload</p>

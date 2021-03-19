@@ -48,8 +48,9 @@
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])); ?>
 
+                <div class="alert alert-success" id="messagediv" style="display:none"></div>
+
             </div>
-            <div class="alert alert-success" id="messagediv" style="display:none"></div>
          
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price')); ?> 
