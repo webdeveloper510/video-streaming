@@ -196,16 +196,18 @@ class AuthController extends Controller
       $level_system[$i]['level'] = 'Lvl'.$i;
       $level_system[$i]['fee'] = $b[$i];
       }
-    //  echo "<pre>";
-    //   print_r($level_system);die;
 
       $artistId = $user->id;
+
+      $passive = $this->model->getSumOfPassive($artistId);
+
+      
 
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw',['tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
+      return view('/withdraw',['passive_income'=>$passive,'tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -817,7 +819,7 @@ public function privacy(){
 
       $user=Session::get('User');
 
-      //print_r($user);die;
+      //print_r($request->all());die;
 
       $userId =$user->id;
 
@@ -848,11 +850,23 @@ public function privacy(){
 
       $userData = $this->model->getUserData($userId);
 
+              // if($userData[0]->reffered_by!=0){
+
+              //   print_r($input);die;
+
+              //       $amount = $input['fees'];
+              //       $passive_amount = $amount*10/100;
+              //       $input['amount']=$input['amount']-$passive_amount;
+                   
+              // }
+
+            
+
        $customerId = isset($userData[0]->customer_id) ? $userData[0]->customer_id : '';
 
        if($customerId){
 
-            $charge = $this->createCharge($input,$customerId);/*---------------Call Create Charge Function-----------*/
+            $charge = $this->createCharge($input,$customerId,$userId,$userData);/*---------------Call Create Charge Function-----------*/
 
               if((array)$charge){
 
@@ -871,7 +885,7 @@ public function privacy(){
           
           if((array)$customerData){
 
-              $charge = $this->createCharge($input,$customerData->id);   //Create Charge
+              $charge = $this->createCharge($input,$customerData->id,$userId,$userData);   //Create Charge
 
                if((array)$charge){
 
@@ -911,7 +925,7 @@ public function createCustomer($data,$userdata,$token){
 
 }
 
-public function createCharge($data,$cusid){
+public function createCharge($data,$cusid,$uid,$userdata){
 
 
     $charge = \Stripe\Charge::create([
@@ -925,11 +939,28 @@ public function createCharge($data,$cusid){
     if((array)$charge){
 
 
+      //   Here return 10 % passively to artist of fees
+          
+         
         $response = $this->model->insertTransection($charge,$data);
 
         if($response==1){
 
-            return $charge;
+         
+
+          if($userdata[0]->reffered_by!=0){
+
+           // echo "hello";die;
+      $amount = $input['fees'];
+      $passive_amount = $amount*10/100;
+    $insert_passive = $this->model->insertPaymentStatus($uid,$userdata[0]->reffered_by,'',$passive_amount,'passive-income');     
+    $bonus_inserted_done = $insert_passive ? $this->model->insert_in_bonus($uid,$userdata[0]->reffered_by,$passive_amount) : 0;
+
+    //print_r($bonus_inserted_done);die;
+               
+          }
+
+            return $bonus_inserted_done;
 
         }
 

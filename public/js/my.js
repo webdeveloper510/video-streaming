@@ -557,6 +557,7 @@ $(document).on('click', '#checkPrice', function () {
 						$('.calculate').append("<table  class='table text-white'><tr><th>Price:</th><td>" +beforePrice+"</td></tr><tr class='text-white'><th>Fee:</th><td>"+data.fee+"%"+"</td></tr><tr><th>Total:</th><td>"+total.toFixed(2)+"</td></tr></table>")
 						$('.amount').text('$'+total.toFixed(2));
 						$('.price').val(total.toFixed(2));
+						$('#fees').val(afterPrice);
 						$('#tokens').val(data.token);
 						}
 
