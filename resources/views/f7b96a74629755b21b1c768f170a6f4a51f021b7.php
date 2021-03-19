@@ -21,6 +21,7 @@
       <?php if($earn->pay_from=='multiple' || $earn->pay_from=='single'): ?>
           <?php 
             $type = explode(',', $earn->mediaType);
+            //print_r($type);
           ?>
     <tr>
       <td scope="row"><?php echo e($earn->nickname); ?></td>
@@ -36,7 +37,7 @@
        <td ><?php echo e('order-'.$earn->types); ?></td>
       <td><?php echo e($earn->Offertitles); ?></td>
       <td><?php echo e($earn->tokens); ?> PAZ</td>
-      <td><?php echo e(date('M d, Y', strtotime($earn->created_at))); ?></td>
+      <td><?php echo e(date('m/ d/ Y  (H:i)', strtotime($earn->created_at))); ?></td>
     </tr>
     <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

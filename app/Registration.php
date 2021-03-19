@@ -484,29 +484,35 @@ public function getArtistDetail($artid,$type){
   public function edit_other($profile,$data){
 
 
+
+
     $session_data =   Session::get('User');
 
-    $contentid=$session_data->id;
+   
+     $contentid=$session_data->id;
+
+    // echo $contentid;
 
     //print_r($profile);
 
 //
     $update = $this->UpdateData('contentprovider','id',$profile,$contentid);
-   // print_r($update);die;
+    //
       if($data){
 
+        
         $id=$data['hid'];
 
         unset($data['hid']);
   
-        $update = $this->UpdateData('media','id',$data,$id);
+        $update1 = $this->UpdateData('media','id',$data,$id);
 
       }
 
-     // print_r($update);die;
+      //print_r($update);die;
       
 
-      return $update1; 
+      return $update ? $update : $update1; 
 
 
    // print_r($update);die;
@@ -1569,76 +1575,60 @@ public function getRespectedSub($data){
     }
 
     public function addToLibrary($lists){
-
       $newData =array();
 
-      //print_r($lists);die;
-
         $session_data =   Session::get('User');
+
+       
 
         $userid =  $session_data->id;
 
         $tokens = $lists['price'];
 
-        //$lists['art_id'] = $lists['art_id'];
-
+    
          $listname = Session::get('listname');
 
         $lists['playlistname'] = $listname;
 
-       // print_r($lists);die;
         $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
-
-        
 
         $videoIds = (is_array($newData)) ? implode(',',$newData):'';
       
         
         $lists['userid'] = $userid;
 
-        $ids[]  = $newData ;
-
-       // print_r($ids);die;
-
-        //$lists['videoid'] = $videoIds;
-
-        
+        $ids[]  = $newData ;       
 
         $return = 0;
 
-        //print_r($ids);die;
+          $tokensData = $this->selectDataById('id','users',$userid);
 
-        $tokensData = $this->selectDataById('id','users',$userid);
+
+          //print_r($tokensData);die;
    
           
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
 
-
+   
       if($tokens < $tokensData[0]->tokens){
-
-      //echo "yes";die;
 
         if(count($data)>0){
 
 
-        $newArray = explode(",",$data[0]->listvideo);
-        
-      
+        $newArray = explode(",",$data[0]->listvideo);   
        
  
    $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
 
-  $result_array = array_unique($aunion);
+      $result_array = array_unique($aunion);
 
-    $newListid = implode(',',$result_array);
+        $newListid = implode(',',$result_array);
 
-    //print_r($lists);die;
+        //print_r($newListid);die;
 
      $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
-            'listvideo' =>$newListid  //DB::raw("CONCAT(listvideo,',".$videoid."')")
+            'listvideo' =>$newListid  
           ]);
-
-      //print_r($update);die;
 
          if(isset($update)){         
 
@@ -1648,17 +1638,15 @@ public function getRespectedSub($data){
               ->get();
                   if(count($data)<1){
 
-                    //echo "yes";die;
-
-                 $buyed = $this->buyVideo($lists);
+                        $buyed = $this->buyVideo($lists);
 
 
-                $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
+                        $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
-                              
-                $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
+                                      
+                        $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
 
-                $return = $status_succedd;
+                        $return = $status_succedd;
 
             }
             else{
