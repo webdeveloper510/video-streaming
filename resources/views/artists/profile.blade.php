@@ -434,28 +434,6 @@ Your browser does not support the audio tag.
                   </div>
                   </div>
                   <br>
-                <div class="convert">
-                <label for="quality:">quality:</label> 
-                  <select name="quality" class="form-control" id="quality">
-                            <option value="">Choose ...</option>
-                            <option value="480">480p  </option>
-                            <option value="720">HD 720p </option>
-                            <option value="1080">Full HD 1080p  </option>
-                    </select>
-                </div>
-                <br>
-                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
-                   <label>Choose Image</label>        
-                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
-                <span id="filename" style="color:red;"></span>
-            </div>
-                <input type="hidden" name="offerid" id="offerid" value="">
-                <label class="media_label"></label>
-                  <input type="file" name="file" class="file_input" value=""/>
-                  <span id="filename" style="color:red;"></span>
-                  
-                  <input type="hidden" id="file_url" name="file_url" value=""/>
-                  <br>
                   <label>Choose Category</label>
                   <div class="video" style="display:none">
                   <select name="category[]"  class='form-control video'>
@@ -479,7 +457,30 @@ Your browser does not support the audio tag.
                     </select>
                     </div>
             
-           
+                   <br>
+                <div class="convert">
+                <label for="quality:">quality:</label> 
+                  <select name="quality" class="form-control" id="quality">
+                            <option value="">Choose ...</option>
+                            <option value="480">480p  </option>
+                            <option value="720">HD 720p </option>
+                            <option value="1080">Full HD 1080p  </option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
+                   <label>Choose Image</label>        
+                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
+                <span id="filename" style="color:red;"></span>
+            </div>
+                <input type="hidden" name="offerid" id="offerid" value="">
+                <label class="media_label"></label>
+                  <input type="file" name="file" class="file_input" value=""/>
+                  <span id="filename" style="color:red;"></span>
+                  
+                  <input type="hidden" id="file_url" name="file_url" value=""/>
+                  <br>
+                 
            
           
             </div>
