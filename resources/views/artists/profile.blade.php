@@ -537,7 +537,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <input type="hidden" value="{{isset($random[0]->id)}}" name="hid"/>
-           
+          
             <div class="col-md-12 pt-3">
             {{Form::label('Sexology', 'Sexology')}} 
                 {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])}}

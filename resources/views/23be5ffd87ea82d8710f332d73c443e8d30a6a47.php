@@ -17,32 +17,29 @@
     </tr>
   </thead>
   <tbody>
+  <?php $__currentLoopData = $earnings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $earn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <?php if($earn->pay_from=='multiple' || $earn->pay_from=='single'): ?>
+          <?php 
+            $type = explode(',', $earn->mediaType);
+          ?>
     <tr>
-        <td scope="row">Customer Name</td>
-       <td >Video</td>
-      <td>Titlexyz</td>
-      <td>500PAZ</td>
-      <td>12.04.2021(21:23)</td>
+      <td scope="row"><?php echo e($earn->nickname); ?></td>
+       <td><?php echo e(is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type); ?></td>
+      <td><?php echo e($earn->mediaTitle); ?></td>
+      <td><?php echo e($earn->tokens); ?>PAZ</td>
+      <td><?php echo e(date('m/ d/ Y  (H:i)', strtotime($earn->created_at))); ?></td>
     </tr>
+    <?php endif; ?>
+    <?php if($earn->pay_from=='order'): ?>
     <tr>
-    <td scope="row">Customer Name</td>
-    <td>Audio</td>
-      <td>Titlexyz</td>
-      <td>100PAZ</td>
-      <td>11.04.2021(21:23)</td>
+      <td scope="row"><?php echo e($earn->nickname); ?></td>
+       <td ><?php echo e('order-'.$earn->types); ?></td>
+      <td><?php echo e($earn->Offertitles); ?></td>
+      <td><?php echo e($earn->tokens); ?> PAZ</td>
+      <td><?php echo e(date('m/ d/ Y  (H:i)', strtotime($earn->created_at))); ?></td>
     </tr>
-    <td scope="row">Customer Name</td>
-    <td>Video</td>
-      <td>Titlexyz</td>
-      <td>600PAZ</td>
-      <td>8.04.2021(21:23)</td>
-    </tr>
-    <td scope="row">Customer Name</td>
-    <td>Video</td>
-      <td>Titlexyz</td>
-      <td>300PAZ</td>
-      <td>6.04.2021(21:23)</td>
-    </tr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <tr>
       <td colspan="5" class="text-center">No data available</td>
     </tr>

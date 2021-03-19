@@ -22,7 +22,7 @@
                 <div class="modal-content">
                   
                   <div class="modal-body">
-                  <h3> Unsubscribe from Artistname</h3>
+                  <h3> Unsubscribe from <?php echo e($details[0]->nickname); ?></h3>
                   <div class="text-center Artistxyz">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   
@@ -75,13 +75,13 @@
                  <?php echo e($details[0]->nickname); ?>
 
            <br>
-         Categories :<?php echo e($offer->category); ?>
+         Category :<?php echo e($offer->category); ?>
 
          </a>
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>/min PAZ</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min</h4>
         </div>
         <hr>
       
@@ -182,7 +182,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               <?php else: ?>
               <div class="artistvideo">
-                <h4> Artist does not upload any video</h4>
+                <h4> No video available.</h4>
               </div>
                <?php endif; ?>
           </div>
@@ -192,7 +192,7 @@
   
      <h3>Audios</h3>
      <div class="row mb-5">
-      <?php if(isset($audio->type)): ?>
+      <?php if($audio): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="col-md-4 mb-3">
@@ -213,10 +213,10 @@
 
         <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+                  <h6 class="text-white"><?php echo e($aud->price); ?>/PAZ</h6>
                   </div>
                   <div class="text-right">
-                  <h6 class="text-white">2:00</h6>
+                  <h6 class="text-white"><?php echo e($aud->duration); ?></h6>
                   </div>
                   </div>
         </div>
@@ -224,7 +224,7 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         <?php else: ?>
         <div class="artistaudio">
-                    <h4> Artist does not upload any Audio</h4>
+                    <h4> No Audio available.</h4>
                   </div>
         <?php endif; ?>
         </div>
