@@ -289,25 +289,44 @@ public function getVedio($data){
        /* -----------------------End Filter Data Using orderBy-------------------------------------- */
 
 
-                $response = $result->get();
+                $response = $result->where('type',$data['type'])->get();
 
                 // echo "<pre>";
 
-                // print_r($response);die;
-
-      
+                // print_r($response);die;  
 
 
                    $subid=$response->pluck("subid");
                     //print_r($subid);die;
 
-                     $products = DB::table("subcategory")->whereIn('id', $subid)
-                     ->pluck('id')
-                     ->toArray();
-                    $response['subcategory']=$products;
+                    //  $products = DB::table("subcategory")->whereIn('id', $subid)
+                    //  ->pluck('id')
+                    //  ->toArray();
+                    // $response['subcategory']=$products;
+                      if($response){
 
-                     return $response;
+                        $response['search']= 'searched';
 
+                        return $response;
+
+
+                      }
+
+                      else{
+                        $data= DB::table('media')
+                       ->leftjoin('popular', 'popular.mediaid', '=','media.id')
+                      ->select('media.*')
+                      ->where('popular.type',$data['type'])
+                      ->get()->toArray();
+
+                      $data['search']= 'popular';
+
+                        return $data;
+
+                      }
+
+
+                     
    
 }
 /*-----------------------------------------Get Vedio By Subcategory -----------------------------*/
