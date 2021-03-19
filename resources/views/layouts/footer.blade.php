@@ -34,13 +34,13 @@
                       <div class="modal-header ">
                       {!!Form::open(['id'=>'customer_issue','method' => 'post', 'files'=>true])!!}
                {{Form::token()}}
-                      <div class="form-group"style=" width: 80%;">
+                      <div class="form-group">
                           <label for="exampleInputEmail1">Email address</label>
                           <input type="email" name="customer_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                           <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
                         </div>
                         
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                      <button type="button" class="close footerclose" data-dismiss="modal" aria-label="Close">X</button>
                       </div>
                       <div class="modal-body">
                       <div class="row">
@@ -90,6 +90,11 @@
   </div>
 </footer>
 <style>
+button.close.footerclose {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+}
   div#exampleModal10 {
     background: transparent;
 }
