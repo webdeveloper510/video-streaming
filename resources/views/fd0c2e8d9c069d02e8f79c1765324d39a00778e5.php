@@ -116,12 +116,12 @@
     <div class=" invitedbox">
     <div class="card" >
         <div class="text-center">
-       <h3>Total Bonus Payout : $184 USD</h3>
+       <h3>Total Bonus Payout : <?php echo e($passive_income[0]->passive); ?> USD</h3>
             </div>
   <div class="card-body">
     <h5 class="card-title text-center">Customer Invitations
                 <br> 
-        passive revenue Stream:  $34 USD</h5>
+        passive revenue Stream:  $<?php echo e($passive_income[0]->passive); ?> USD</h5>
         <table class="table table-bordered text-center">
   <thead>
     <tr>

@@ -619,9 +619,9 @@ public function getRespectedSub($data){
     public function getUserData($userId){
 
        $data = DB::table('users')
-       ->join('profiletable', 'profiletable.userid', '=', 'users.id')
-       ->select('profiletable.profilepicture', 'users.tokens','users.nickname')
-       ->where('userid',$userId)
+       //->join('profiletable', 'profiletable.userid', '=', 'users.id')
+      // ->select('profiletable.profilepicture', 'users.tokens','users.nickname')
+       ->where('id',$userId)
        ->get()->toArray();
 
        return $data;
@@ -2771,9 +2771,27 @@ public function customer_issue($data){
       // print_r($data);die;
   
        return $data;
+    }
 
+    public function insert_in_bonus($user,$artist,$amount){
 
+            $data=array(
+              'created_at'=>now(),
+              'updated_at'=>now(),
+              'userid'=>$user,
+              'artistid'=>$artist,
+              'passive_income'=>$amount,
+            );
 
+            return DB::table('show_bonus_passive')->insert($data);
+    }
+
+    public function getSumOfPassive($artid){
+
+      return DB::table('show_bonus_passive')
+      ->select(DB::raw('SUM(passive_income) as passive'))
+      ->where('artistid',$artid)
+      ->get()->toArray();
 
 
     }
