@@ -402,16 +402,7 @@ Your browser does not support the audio tag.
 
                    <?php echo e(Form::token()); ?>
 
-                   <label>Media Offering</label>
-                   <div class="row">
-                   
-                  <div class="col-md-6">
-              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
-                  </div>
-                  <div class="col-md-6">
-                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
-                  </div>
-                  </div>
+                  
                  <?php echo e(Form::label('Title', 'Title')); ?> 
                   <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
 
@@ -424,28 +415,7 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
-                      <label>Choose Category</label>
-                  <div class="video" style="display:none">
-                  <select name="category[]"  class='form-control video'>
-                          <option value="">Choose category</option>
-                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <?php if($cat->type=='video'): ?>
-                              <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
-                            <?php endif; ?>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </select>
-                  </div>
-                  <br>
-                  <div class="audio" style="display:none">
-                    <select name="category[]"  class='form-control audio'>
-                            <option value="">Choose category</option>
-                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                  <?php if($cat->type=='audio'): ?>
-                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
-                                <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                    </div>
+                     
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">
@@ -468,6 +438,41 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])); ?>
 
                 <br>
+                <label>Media Offering</label>
+                   <div class="row">
+                   
+                  <div class="col-md-6">
+              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
+                  </div>
+                  <div class="col-md-6">
+                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+                  </div>
+                  </div>
+                  <br>
+                  <label>Choose Category</label>
+                  <div class="video" style="display:none">
+                  <select name="category[]"  class='form-control video'>
+                          <option value="">Choose category</option>
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='video'): ?>
+                              <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                            <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </select>
+                  </div>
+                  <br>
+                  <div class="audio" style="display:none">
+                    <select name="category[]"  class='form-control audio'>
+                            <option value="">Choose category</option>
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($cat->type=='audio'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                    </div>
+            
+                   <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
                   <select name="quality" class="form-control" id="quality">
@@ -492,8 +497,6 @@ Your browser does not support the audio tag.
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
                  
-            
-           
            
           
             </div>
@@ -555,7 +558,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <input type="hidden" value="<?php echo e(isset($random[0]->id)); ?>" name="hid"/>
-           
+          
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
                 <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])); ?>
@@ -713,7 +716,6 @@ Your browser does not support the audio tag.
                                   
                             </select>
                             </div>
-
                             <div class="audio" style="display:none">
                             <label>Category</label>
                                         <select name="category[]"  class='form-control my-5 video_category'>
