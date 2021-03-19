@@ -1540,7 +1540,7 @@ $(document).ready(function(){
 	  // Delete id
 	  var deleteid = $(this).attr('data-id');
 	  var table = $(this).attr('table');
-	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this Collection?"
+	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this media file?"
 
 	  //console.log(table);return false;
   
