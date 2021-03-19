@@ -16,10 +16,10 @@
         </a>
     </div>
     <?php else: ?>
-    <div class="col-md-4 showoffer1 mb-3">
+    <div class="col-md-4 showoffer1 mb-3" style="<?php echo e($vid->offer_status=='offline' ? 'display:none' : 'display:block'); ?>">
     <a href="<?php echo e(url('artistoffers/'.$vid->id)); ?>">
 
-      <div class="card" style="<?php echo e($vid->offer_status=='offline' ? 'display:none' : 'display:block'); ?>">
+      <div class="card" >
         <?php if($vid->type=='video'): ?>
       <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
