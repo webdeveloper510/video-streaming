@@ -155,7 +155,7 @@
                 </div>
                 <?php endif; ?>
             </div>
-             <div class="col-md-6 pt-4 ">
+             <!-- <div class="col-md-6 pt-4 ">
             <?php echo e(Form::label('Choose Profilepicture', 'Choose Profilepicture',['class'=>'custom-file-label'])); ?> 
   <?php echo e(Form::file('image',['class'=>'custom-file-input chooseImage','required'])); ?>
 
@@ -171,12 +171,12 @@
 
 <div class="col-md-6 pt-2 text-center">
   <!-- <img id="blah" src="https://dummyimage.com/300"  width="100px" height="100px" /> -->
-                  <?php if(session('errors')): ?>
+                  <!-- <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
                     <?php echo $errors->first('image') ?>
                 </div>
                 <?php endif; ?>
-            </div>
+            </div> --> 
             <div class="loader col-6" style="display:none">
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
