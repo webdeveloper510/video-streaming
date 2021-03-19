@@ -26,7 +26,7 @@
               <li><a href="{{url('/disclaimer')}}"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
               <li><a href="{{url('/userWithdraw')}}"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
               <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
-              <li><a href="{{url('/')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
+              <li><a href="{{url('/legal-notice')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
                 <!-- Modal -->
                 <div class="modal modal2" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
