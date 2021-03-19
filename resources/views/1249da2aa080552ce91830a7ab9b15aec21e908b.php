@@ -449,6 +449,30 @@ Your browser does not support the audio tag.
                   </div>
                   </div>
                   <br>
+                  <label>Choose Category</label>
+                  <div class="video" style="display:none">
+                  <select name="category[]"  class='form-control video'>
+                          <option value="">Choose category</option>
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='video'): ?>
+                              <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                            <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </select>
+                  </div>
+                  <br>
+                  <div class="audio" style="display:none">
+                    <select name="category[]"  class='form-control audio'>
+                            <option value="">Choose category</option>
+                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                  <?php if($cat->type=='audio'): ?>
+                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                    </div>
+            
+                   <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
                   <select name="quality" class="form-control" id="quality">
@@ -472,28 +496,9 @@ Your browser does not support the audio tag.
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
-                  <label>Choose Category</label>
-                  <div class="video" style="display:none">
-                  <select name="category[]"  class='form-control video'>
-                          <option value="">Choose category</option>
-                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                          <?php if($cat->type=='video'): ?>
-                              <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
-                            <?php endif; ?>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </select>
-                  </div>
-                  <br>
-                  <div class="audio" style="display:none">
-                    <select name="category[]"  class='form-control audio'>
-                            <option value="">Choose category</option>
-                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                  <?php if($cat->type=='audio'): ?>
-                            <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->category); ?></option>
-                                <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                    </div>
+                 
+           
+          
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -559,7 +564,6 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])); ?>
 
                  <?php if(session('errors')): ?>
-
                 <div class="alert alert-danger">
                     <?php echo $errors->first('sexology') ?>
                 </div>
