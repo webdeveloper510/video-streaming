@@ -394,16 +394,7 @@ Your browser does not support the audio tag.
             <div class="modal-body">
               {!!Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true])!!}
                    {{Form::token()}}
-                   <label>Media Offering</label>
-                   <div class="row">
-                   
-                  <div class="col-md-6">
-              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
-                  </div>
-                  <div class="col-md-6">
-                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
-                  </div>
-                  </div>
+                  
                  {{Form::label('Title', 'Title')}} 
                   {{Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])}}
                   <br>
@@ -413,28 +404,7 @@ Your browser does not support the audio tag.
                   {{Form::label('Additional Request Price', 'Additional Request Price')}} 
                 {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])}}
                 <br>
-                      <label>Choose Category</label>
-                  <div class="video" style="display:none">
-                  <select name="category[]"  class='form-control video'>
-                          <option value="">Choose category</option>
-                          @foreach($category as $cat)
-                          @if($cat->type=='video')
-                              <option value="{{$cat->id}}">{{$cat->category}}</option>
-                            @endif
-                          @endforeach
-                  </select>
-                  </div>
-                  <br>
-                  <div class="audio" style="display:none">
-                    <select name="category[]"  class='form-control audio'>
-                            <option value="">Choose category</option>
-                            @foreach($category as $cat)
-                                  @if($cat->type=='audio')
-                            <option value="{{$cat->id}}">{{$cat->category}}</option>
-                                @endif
-                            @endforeach
-                    </select>
-                    </div>
+                     
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">
@@ -453,6 +423,17 @@ Your browser does not support the audio tag.
                   {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
                 <br>
+                <label>Media Offering</label>
+                   <div class="row">
+                   
+                  <div class="col-md-6">
+              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
+                  </div>
+                  <div class="col-md-6">
+                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+                  </div>
+                  </div>
+                  <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
                   <select name="quality" class="form-control" id="quality">
@@ -475,7 +456,28 @@ Your browser does not support the audio tag.
                   
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
-                 
+                  <label>Choose Category</label>
+                  <div class="video" style="display:none">
+                  <select name="category[]"  class='form-control video'>
+                          <option value="">Choose category</option>
+                          @foreach($category as $cat)
+                          @if($cat->type=='video')
+                              <option value="{{$cat->id}}">{{$cat->category}}</option>
+                            @endif
+                          @endforeach
+                  </select>
+                  </div>
+                  <br>
+                  <div class="audio" style="display:none">
+                    <select name="category[]"  class='form-control audio'>
+                            <option value="">Choose category</option>
+                            @foreach($category as $cat)
+                                  @if($cat->type=='audio')
+                            <option value="{{$cat->id}}">{{$cat->category}}</option>
+                                @endif
+                            @endforeach
+                    </select>
+                    </div>
             
            
            
@@ -679,7 +681,6 @@ Your browser does not support the audio tag.
                                   
                             </select>
                             </div>
-
                             <div class="audio" style="display:none">
                             <label>Category</label>
                                         <select name="category[]"  class='form-control my-5 video_category'>

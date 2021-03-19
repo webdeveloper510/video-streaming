@@ -28,7 +28,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span>{{$data['customer_description']}}</span>, 
+                     <p> <span>{{$data['customer_description']}}</span>, 
                     </p>
                 </td>
              </tr>
@@ -36,8 +36,5 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          </tbody>
 
     </table>
-
-
-
 </body>
 </html>
