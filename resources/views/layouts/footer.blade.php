@@ -26,7 +26,7 @@
               <li><a href="{{url('/disclaimer')}}"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
               <li><a href="{{url('/userWithdraw')}}"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
               <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
-              <li><a href="{{url('/')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
+              <li><a href="{{url('/legal-notice')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
                 <!-- Modal -->
                 <div class="modal modal2" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
@@ -34,13 +34,13 @@
                       <div class="modal-header ">
                       {!!Form::open(['id'=>'customer_issue','method' => 'post', 'files'=>true])!!}
                {{Form::token()}}
-                      <div class="form-group"style=" width: 80%;">
+                      <div class="form-group">
                           <label for="exampleInputEmail1">Email address</label>
                           <input type="email" name="customer_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
                           <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
                         </div>
                         
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                      <button type="button" class="close footerclose" data-dismiss="modal" aria-label="Close">X</button>
                       </div>
                       <div class="modal-body">
                       <div class="row">
@@ -90,6 +90,11 @@
   </div>
 </footer>
 <style>
+button.close.footerclose {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+}
   div#exampleModal10 {
     background: transparent;
 }
