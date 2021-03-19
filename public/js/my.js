@@ -1956,6 +1956,10 @@ $(document).ready(function() {
 	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
 	var name = $('#select_option').find(":selected").val();
 
+	var value = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+	value=='offer' ? $('#active').addClass('active'):'';
+
 	//console.log(name);
 
 	var artistCountry = $("#all_country").val();
