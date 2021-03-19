@@ -564,7 +564,6 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])); ?>
 
                  <?php if(session('errors')): ?>
-
                 <div class="alert alert-danger">
                     <?php echo $errors->first('sexology') ?>
                 </div>
