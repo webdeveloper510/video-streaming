@@ -14,12 +14,12 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          <tbody>
 
              <tr>
-                 <td><h1 style="margin-top: 10px; font-size:50px;"> {{$data['customer_issue']}}</h1></td>
+                 <td><h1 style="margin-top: 10px; font-size:50px;"> <?php echo e($data['customer_issue']); ?></h1></td>
                  
              </tr>
 
              <tr>
-                 <td><h1 style="margin-top: 10px;"> Email :-{{$data['customer_email']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;"> Email :-<?php echo e($data['customer_email']); ?></h1></td>
                  
              </tr>
 
@@ -28,7 +28,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p> <span>{{$data['customer_description']}}</span>, 
+                     <p>Hey <span><?php echo e($data['customer_description']); ?></span>, 
                     </p>
                 </td>
              </tr>
@@ -36,5 +36,8 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          </tbody>
 
     </table>
+
+
+
 </body>
-</html>
+</html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/email.blade.php ENDPATH**/ ?>

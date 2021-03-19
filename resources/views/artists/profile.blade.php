@@ -394,16 +394,7 @@ Your browser does not support the audio tag.
             <div class="modal-body">
               {!!Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true])!!}
                    {{Form::token()}}
-                   <label>Media Offering</label>
-                   <div class="row">
-                   
-                  <div class="col-md-6">
-              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
-                  </div>
-                  <div class="col-md-6">
-                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
-                  </div>
-                  </div>
+                  
                  {{Form::label('Title', 'Title')}} 
                   {{Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])}}
                   <br>
@@ -413,7 +404,37 @@ Your browser does not support the audio tag.
                   {{Form::label('Additional Request Price', 'Additional Request Price')}} 
                 {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])}}
                 <br>
-                      <label>Choose Category</label>
+                     
+                  <label>Duration(Minutes):</label>
+                  <div class="row">
+                  <div class="col-md-6">
+                  {{Form::label('Min', 'Min')}} 
+                  {{Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])}}
+                   </div>
+                   <div class="col-md-6">
+                  {{Form::label('Max', 'Max')}} 
+                  {{Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])}}
+                </div>
+                </div>
+                <br>
+                {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
+                {{Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])}}
+                <br>
+                  {{Form::label('Description', 'Description')}} 
+                {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
+                <br>
+                <label>Media Offering</label>
+                   <div class="row">
+                   
+                  <div class="col-md-6">
+              <input type="radio" class="select_media_pic" name="type" value="video"/><p>Video</p>
+                  </div>
+                  <div class="col-md-6">
+                  <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
+                  </div>
+                  </div>
+                  <br>
+                  <label>Choose Category</label>
                   <div class="video" style="display:none">
                   <select name="category[]"  class='form-control video'>
                           <option value="">Choose category</option>
@@ -435,24 +456,8 @@ Your browser does not support the audio tag.
                             @endforeach
                     </select>
                     </div>
-                  <label>Duration(Minutes):</label>
-                  <div class="row">
-                  <div class="col-md-6">
-                  {{Form::label('Min', 'Min')}} 
-                  {{Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])}}
-                   </div>
-                   <div class="col-md-6">
-                  {{Form::label('Max', 'Max')}} 
-                  {{Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])}}
-                </div>
-                </div>
-                <br>
-                {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
-                {{Form::number('delieveryspeed', '',['class'=>'form-control','id'=>'speed','placeholder'=>'Delievery Speed'])}}
-                <br>
-                  {{Form::label('Description', 'Description')}} 
-                {{Form::textarea('description',null,['class'=>'form-control','name'=>'description','id'=>'description','rows' => 5, 'cols' => 40])}}
-                <br>
+            
+                   <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
                   <select name="quality" class="form-control" id="quality">
@@ -476,8 +481,6 @@ Your browser does not support the audio tag.
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
                  
-            
-           
            
           
             </div>
@@ -534,7 +537,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <input type="hidden" value="{{isset($random[0]->id)}}" name="hid"/>
-           
+          
             <div class="col-md-12 pt-3">
             {{Form::label('Sexology', 'Sexology')}} 
                 {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])}}
@@ -679,7 +682,6 @@ Your browser does not support the audio tag.
                                   
                             </select>
                             </div>
-
                             <div class="audio" style="display:none">
                             <label>Category</label>
                                         <select name="category[]"  class='form-control my-5 video_category'>

@@ -2,7 +2,7 @@
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
-
+       
       <ul class="nav">
          
          <li class="nav-item dropdown ">
@@ -57,15 +57,7 @@
             </div>
             <div class="col-md-6 mt-2 ">
            
-              <div class="convert">
-            <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
-           <select name="convert"  class='form-control'>
-                    <option value="">Choose ...</option>
-                    <option value="1">480p  </option>
-                    <option value="2">HD 720p </option>
-                    <option value="3">Full HD 1080p  </option>
-            </select>
-            </div>
+             
             <div class="video" style="display:none">
             <select name="category[]"  class='form-control my-5'>
                     <option value="">Choose Category</option>
@@ -75,6 +67,15 @@
                         <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   
+            </select>
+            </div>
+            <div class="convert video">
+            <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
+           <select name="convert"  class='form-control'>
+                    <option value="">Choose ...</option>
+                    <option value="480">480p  </option>
+                    <option value="720">HD 720p </option>
+                    <option value="1080">Full HD 1080p  </option>
             </select>
             </div>
 
