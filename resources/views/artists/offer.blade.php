@@ -41,12 +41,14 @@
                 <div class="col-md-4 mt-5 ">
 
                 {{Form::label('Title', 'Title')}} 
-                    {{Form::text('title', '',['class'=>'form-control','placeholder'=>'Title'])}}
+                    {{Form::text('title', '',['class'=>'form-control title','table'=>'offer','placeholder'=>'Title'])}}
                     @if($errors->first('title'))
                     <div class="alert alert-danger">
                       <?php echo $errors->first('title') ?>
                     </div>
                     @endif
+                    <div class="alert alert-success" id="messagediv" style="display:none"></div>
+
                 </div>
            
                     <div class="col-md-4 mt-5 ">

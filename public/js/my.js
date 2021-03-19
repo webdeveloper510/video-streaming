@@ -1209,6 +1209,46 @@ $(document).on('keyup', '.checknameExist', function () {
 })
 
 
+/**-------------------------------------------------Check Title Exist---------------------------------------------------------------- */
+
+$(document).on('keyup', '.title', function () {
+
+
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/checktitleExist",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'title':$(this).val(),'table':$(this).attr('table')},
+
+		success: function(data){
+
+			//console.log(data);return false;
+			if(data==1){
+				$('#messagediv').show();
+				$('#messagediv').addClass('alert alert-danger').removeClass('alert-success');
+				$('#messagediv').html('Title Already Exist!')
+			}
+
+			else{
+
+				$('#messagediv').show();
+				$('#messagediv').addClass('alert alert-success').removeClass('alert-danger');
+				$('#messagediv').html('Title Available!');
+
+			}
+
+
+	
+			
+		}
+});
+
+})
+
+
 
 function updateRead(){
 
