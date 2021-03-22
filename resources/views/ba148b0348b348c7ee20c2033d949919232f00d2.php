@@ -41,14 +41,14 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingTwo">
+                        <div class="card-header" id="headingfour">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <b class="text-dark"> How do I know if my Customer/Artist invitations were accepted? </b>
                             </button>
                         </h5>
                         </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
                         <div class="card-body">
                         On the withdrawal page you can see if you have successfully invited artists and what status they have in relation to the requirements of the invitation bonus. Thepassive revenue of Customer token purchases is also displayed.
                         </div>
