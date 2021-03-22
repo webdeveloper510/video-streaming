@@ -1076,7 +1076,7 @@ public function getRespectedSub($data){
       $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
       $data['created_at'] = now();
-      $data['updated_at'] = now();
+      $data['updated_at'] = '';
        $data['by_created']=1;
        $data['quality'] = $data['quality'] ? $data['quality'] : '';
 
@@ -1575,7 +1575,8 @@ public function getRespectedSub($data){
         'userdescription' =>$data['userdescription'] ,
         'choice'=>$data['choice'],
         'userid'=>$data['userid'],
-        'status'=>'new'
+        'status'=>'new',
+        'updated_at'=>now()
         ]);
 
         return $return;
