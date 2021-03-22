@@ -728,6 +728,10 @@ public function cookie(){
 
   return view('cookie');
 }
+public function acceptable(){
+
+  return view('acceptable');
+}
 public function disclaimer(){
 
   return view('disclaimer');
