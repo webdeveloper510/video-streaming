@@ -7,6 +7,11 @@
 .col-md-4.mb-4.ass {
     margin-left: -28px;
 }
+span.togg{
+  padding: 1px 9px;
+    border-radius: 7px;
+    border: 1px solid white;
+}
   .notif {
     width: 300px;
     background: white;

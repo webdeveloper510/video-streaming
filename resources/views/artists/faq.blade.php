@@ -22,7 +22,12 @@
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                        Orders that are coming in are always in status “New Order” By clicking on the green box, you will get directly to the list of new orders.Orders that you have seen in detail by expanding the order in the list will get the status “In Process”By clicking on the orange box, you will get directly to the list of the orders in process.Orders for which you have less than 24 hours left get the status “Due” By clicking on the red box, you will get directly to the list of due orders.
+                        Orders that are coming in are always in status “New Order”<br>
+                         By clicking on the green box, you will get directly to the list of new orders.<br>
+                         Orders that you have seen in detail by expanding the order in the list will get the status “In Process”<br>
+                         By clicking on the orange box, you will get directly to the list of the orders in process.<br>
+                         Orders for which you have less than 24 hours left get the status “Due” <br>
+                         By clicking on the red box, you will get directly to the list of due orders.
                         </div>
                         </div>
                     </div>
