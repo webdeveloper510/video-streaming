@@ -334,6 +334,10 @@ class artist extends Controller
       return view('artists.profile',['collection_selection'=>$text,'getLevel'=>$getLevel,'random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
   }
+  public function faq(){
+
+    return view('artists.faq');
+  }
 
   public function earning(){
 

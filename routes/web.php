@@ -213,6 +213,8 @@ Route::get('legal-notice', 'AuthController@legal');
     Route::get('support-team', 'AuthController@support_team');
 
     Route::get('artist/offer', 'artist@offer');
+    
+    Route::get('artist/faq', 'artist@faq');
 
     Route::get('artistVideo/{id}','artist@VideoPage');
 
