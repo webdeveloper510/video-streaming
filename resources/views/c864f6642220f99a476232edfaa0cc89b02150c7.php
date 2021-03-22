@@ -22,7 +22,12 @@
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
-                        Orders that are coming in are always in status “New Order” By clicking on the green box, you will get directly to the list of new orders.Orders that you have seen in detail by expanding the order in the list will get the status “In Process”By clicking on the orange box, you will get directly to the list of the orders in process.Orders for which you have less than 24 hours left get the status “Due” By clicking on the red box, you will get directly to the list of due orders.
+                        Orders that are coming in are always in status “New Order”<br>
+                         By clicking on the green box, you will get directly to the list of new orders.<br>
+                         Orders that you have seen in detail by expanding the order in the list will get the status “In Process”<br>
+                         By clicking on the orange box, you will get directly to the list of the orders in process.<br>
+                         Orders for which you have less than 24 hours left get the status “Due” <br>
+                         By clicking on the red box, you will get directly to the list of due orders.
                         </div>
                         </div>
                     </div>
@@ -41,14 +46,14 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingTwo">
+                        <div class="card-header" id="headingfour">
                         <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseTwo">
                             <b class="text-dark"> How do I know if my Customer/Artist invitations were accepted? </b>
                             </button>
                         </h5>
                         </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
                         <div class="card-body">
                         On the withdrawal page you can see if you have successfully invited artists and what status they have in relation to the requirements of the invitation bonus. Thepassive revenue of Customer token purchases is also displayed.
                         </div>
@@ -83,6 +88,73 @@
                     <li>PAZ-Live</li>
                     </ul>
                 </div>
+                <h3>Additional links</h3>
+                <ul class="menufooter">
+              <li>
+              <a href="<?php echo e(url('/terms')); ?>"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+               <li><a href="<?php echo e(url('/acceptable')); ?>"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
+               <li><a href="<?php echo e(url('/privacy')); ?>"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+               <li><a href="<?php echo e(url('/dmca')); ?>"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
+             
+              <li><a href="<?php echo e(url('/cookie')); ?>"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
+            
+              <li><a href="<?php echo e(url('/disclaimer')); ?>"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
+              <li><a href="<?php echo e(url('/userWithdraw')); ?>"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
+              <li><a href="#" data-toggle="modal" data-target="#exampleModal2"><i class="fa fa-angle-right"></i> Contact Us</a></li>
+              <li><a href="<?php echo e(url('/legal-notice')); ?>"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
+                <!-- Modal -->
+                <div class="modal modal2" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header ">
+                      <?php echo Form::open(['id'=>'customer_issue','method' => 'post', 'files'=>true]); ?>
+
+               <?php echo e(Form::token()); ?>
+
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Email address</label>
+                          <input type="email" name="customer_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                          <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
+                        </div>
+                        
+                      <button type="button" class="close footerclose" data-dismiss="modal" aria-label="Close">X</button>
+                      </div>
+                      <div class="modal-body">
+                      <div class="row">
+                        <div class="col"></div>
+                         <div class="col-md-8 my-3">
+                            <div class="text-center">
+                                  <select class="form-select form-control" name="customer_issue" aria-label="Default select example" required>
+                                    <option selected> Select Menu</option>
+                                    <option value="Feature Request">Feature Request</option>
+                                    <option value="Functionality Question">Functionality Question</option>
+                                    <option value="Techincal Issue">Technical Issue</option>
+                                    <option value="General">General</option>
+                                    <option value="Delete Account">Delete Account</option>
+                                    <option value="Other">Other</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col"></div>
+                          </div>
+
+                        <label>Description</label>
+                        <textarea class="form-control" name="customer_description" placeholder="We would like to read your description..." id="floatingTextarea" required></textarea>
+                        
+                      </div>
+                      <div class="pb-3 pr-3 text-right">
+                      <div class="alert alert-success" style="display:none"></div>
+                      <button class="btn btn-primary" type="submit">Submit</button></div>
+                    
+                    </div>
+
+                    <?php echo e(Form::close()); ?>
+
+                    
+                    </div>
+                  </div>
+                </div>
+            </ul>
             </div>
         </div>
     </div>

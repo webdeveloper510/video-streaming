@@ -210,7 +210,7 @@
             </a>
           </li>
           <li class="nav-item <?php echo e($tab=='faq'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
-            <a class="nav-link" href="<?php echo e(url('/artist/support')); ?>">
+            <a class="nav-link" href="<?php echo e(url('/artist/faq')); ?>">
             <i class="fa fa-question-circle-o"></i>
               <p>FAQ's</p>
             </a>
