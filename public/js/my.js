@@ -1541,7 +1541,7 @@ $(document).ready(function(){
 	  // Delete id
 	  var deleteid = $(this).attr('data-id');
 	  var table = $(this).attr('table');
-	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this media file? <br/> Your Customer will lose access to it immediately!"
+	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to Item? <br/> Your Customer will lose access to it immediately!"
 
 	  //console.log(table);return false;
   

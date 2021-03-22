@@ -56,7 +56,6 @@
   <div class="tab-pane fade {{$collection_selection ? '' : 'show active'}}" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
-  
           <div class="container">
    <div class="row mb-5">
     @if($offerData)
@@ -134,11 +133,11 @@
 
    <div class="container">
     <div class="row mb-5">
-        <div class="col"></div>
+        <div class="col"> <h2>Collection</h2></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
             <!-- <button type="button" class="btn btn-primary bardot">Choose</button> -->
-      <select class="form-select form-control" id="change_section" aria-label="Default select example">
+      <select class="form-select form-control mt-3" id="change_section" aria-label="Default select example">
       <option selected value="all">All</option>
   <option  value="video">Video</option>
   <option value="audio">Audio</option>
@@ -150,7 +149,7 @@
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
-
+    
        <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
