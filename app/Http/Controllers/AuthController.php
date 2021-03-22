@@ -149,8 +149,6 @@ class AuthController extends Controller
 
           //   }
           //   else{
-
-
           //       $resultSubId=$this->model->getSubcategoryById($sub);
 
               
@@ -727,6 +725,10 @@ public function artistselling(){
 public function cookie(){
 
   return view('cookie');
+}
+public function acceptable(){
+
+  return view('acceptable');
 }
 public function disclaimer(){
 
