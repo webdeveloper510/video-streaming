@@ -11,17 +11,10 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
     <table style="background-color: #fff;text-align: center;">
 
-        <thead>
-            <tr>
-                <th>
-                <img src="<?php echo e(asset('images/email.jpg')); ?>"  alt="email-image" width="590px">
-                </th>
-            </tr>
-        </thead>
          <tbody>
 
              <tr>
-                 <td><h1 style="margin-top: 10px;"> Issue :-<?php echo e($data['customer_issue']); ?></h1></td>
+                 <td><h1 style="margin-top: 10px; font-size:50px;"> <?php echo e($data['customer_issue']); ?></h1></td>
                  
              </tr>
 
@@ -31,11 +24,11 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
 
              <tr>
-                  <h3>Discription</h3>
+                  <h3 style="color:#7b0000; font-size:30px;">Description</h3>
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span><?php echo e($data['customer_description']); ?></span>, 
+                     <p> <span><?php echo e($data['customer_description']); ?></span>, 
                     </p>
                 </td>
              </tr>
@@ -43,8 +36,5 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          </tbody>
 
     </table>
-
-
-
 </body>
 </html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/email.blade.php ENDPATH**/ ?>
