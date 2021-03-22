@@ -53,7 +53,7 @@
                                     <option selected> Select Menu</option>
                                     <option value="Feature Request">Feature Request</option>
                                     <option value="Functionality Question">Functionality Question</option>
-                                    <option value="Techincal Issue">Techincal Issue</option>
+                                    <option value="Techincal Issue">Technical Issue</option>
                                     <option value="General">General</option>
                                     <option value="Website Fees">Website Fees</option>
                                     <option value="Delete Account">Delete Account</option>

@@ -209,6 +209,12 @@
               <p>Support</p>
             </a>
           </li>
+          <li class="nav-item <?php echo e($tab=='faq'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
+            <a class="nav-link" href="<?php echo e(url('/artist/faq')); ?>">
+            <i class="fa fa-question-circle-o"></i>
+              <p>FAQ's</p>
+            </a>
+          </li>
           <li class="nav-item <?php echo e($tab=='logout'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/logout')); ?>">
             <i class="fa fa-power-off" aria-hidden="true"></i>

@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use Carbon\Carbon;
+use DB;
+
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,6 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         Commands\FooCommand::class,
+        Commands\cancelOrder::class,
     ];
 
     /**
