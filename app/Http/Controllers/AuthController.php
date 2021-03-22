@@ -149,8 +149,6 @@ class AuthController extends Controller
 
           //   }
           //   else{
-
-
           //       $resultSubId=$this->model->getSubcategoryById($sub);
 
               

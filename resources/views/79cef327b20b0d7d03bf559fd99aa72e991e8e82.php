@@ -28,7 +28,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span><?php echo e($data['customer_description']); ?></span>, 
+                     <p> <span><?php echo e($data['customer_description']); ?></span>, 
                     </p>
                 </td>
              </tr>
@@ -36,8 +36,5 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          </tbody>
 
     </table>
-
-
-
 </body>
 </html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/email.blade.php ENDPATH**/ ?>
