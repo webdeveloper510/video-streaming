@@ -118,6 +118,8 @@
                       </div>
                      </div>
 
+                     <input type="hidden" name="type" value="video"/>
+
                           <div class="col-md-6 ">
                             <div class="bar">
                         <div class="dropdown1 text-white">
@@ -203,6 +205,7 @@
                             @endforeach
                           </div>
                              </div>
+                         <input type="hidden" name="type" value="audio"/>
                        <div class="col-md-6">
                            <div class="dropdown1 text-white">
                            <h4>Price</h4>
@@ -307,6 +310,8 @@
                                     {{Form::checkbox('ass[]','Big')}}Big 
                                     <br>
                                     <br>
+                                    <input type="hidden" name="type" value="artists"/>
+
                                     <label>Body</label><br>
                                     {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
                                     {{Form::checkbox('weight[]','Normal')}}Normal <br>

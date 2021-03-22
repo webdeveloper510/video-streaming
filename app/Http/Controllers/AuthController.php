@@ -116,6 +116,9 @@ class AuthController extends Controller
            $data=Session::get('filterData');
 
 
+           //print_r($data);die;
+
+
            
             $recentSelected = Session::get('recentSearch');
 
@@ -124,50 +127,51 @@ class AuthController extends Controller
                unset($data['_token']);
 
                 //print_r($data);die;
+              
 
 
          $search_data = $this->model->getVedio($data);  // GET SUBCATEGORY ID AND DATA USING FILTER 
 
-
-        //  print_r($search_data);die;
+           //echo "<pre>";
+        
        
 
-          $sub=$search_data['subcategory'];
+          $search=$search_data['search'];
+
+         // print_r($search);die;
+
+          //   if(Session::get('subid')){
 
 
+          //       $sessionGet=Session::get('subid');
 
-            if(Session::get('subid')){
+          //       //    print_r($sessionGet);die;
 
-
-                $sessionGet=Session::get('subid');
-
-                //    print_r($sessionGet);die;
-
-            }
-            else{
+          //   }
+          //   else{
 
 
-                $resultSubId=$this->model->getSubcategoryById($sub);
+          //       $resultSubId=$this->model->getSubcategoryById($sub);
 
               
 
-                 Session::put('subid',$resultSubId);
+          //        Session::put('subid',$resultSubId);
 
-          }
-
-
+          // }
 
 
-          $search_data->forget('subcategory'); // Remove subcategory key from filter result data
 
-         //print_r($search_data);die;
+
+          $search_data->forget('search'); // Remove subcategory key from filter result data
+
+      //print_r($search);die;
 
             if($recentSelected && $session_type=='User'){
 
               $this->recentData($search_data);
 
         }
-         return view('/search',['video'=>$search_data,'subcategory'=>isset($sessionGet) ? $sessionGet : null]);
+         return view('/search',['search'=>$search,'video'=>$search_data,'subcategory'=>isset($sessionGet) ? $sessionGet : null]);
     }
 
 
