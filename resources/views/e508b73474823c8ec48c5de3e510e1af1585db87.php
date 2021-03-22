@@ -2,11 +2,43 @@
 <div class="seealldata1">
 
 <div class="container">
+<div class="choosebutton text-right pt-3">
+<button type="button" class="btn btn-primary bardot">Select</button>
+</div>
+<div class="choose1" style="display:none;">
+  <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+   <div class="row ">
+      <div class="col-md-2">
+           <h4><span class="count">0</span>Item  Selected</h4>
+      </div>
+      <div class="col-md-2">
+           <h4>Price : <span class="paz">0</span>PAZ</h4>
+      </div>
+      <div class="col-md-2">
+      <ul class="selected">
+            
+           </ul>
+      </div>
+    <div class="col-md-3 pt-3">
+             <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+    </div>
+    <div class="col-md-3 pt-3">
+           <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
+    </div>
+   </div>
+  </div>
+   <div class="modal" role="dialog" id="exampleModal" >
+    </div>
     <?php if($videos): ?>
    <div class="row pt-5">
    <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($flag!='offer'): ?>
        <div class="col-md-4 my-3">
+       <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
        <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
            <video class="borderhover" width="350px" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
@@ -16,17 +48,23 @@
         </a>
     </div>
     <?php else: ?>
-    <div class="col-md-4 showoffer1 mb-3">
+    <div class="col-md-4 showoffer1 mb-3" style="<?php echo e($vid->offer_status=='offline' ? 'display:none' : 'display:block'); ?>">
     <a href="<?php echo e(url('artistoffers/'.$vid->id)); ?>">
 
-      <div class="card" style="<?php echo e($vid->offer_status=='offline' ? 'display:none' : 'display:block'); ?>">
+      <div class="card" >
         <?php if($vid->type=='video'): ?>
+        <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
       <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
 
              Your browser does not support the video tag.
       </video>
       <?php else: ?>
+      <div class="checkall" style="display:none">
+          <form> 
+          <input type="checkbox" class="slct_video"></form></div>
       <img src="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>"/>
       <audio width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
@@ -104,6 +142,20 @@
     background: transparent;
     color: white;
     border:1px solid white;
+}
+.choose1 .row {
+   
+   color: #000 !important;
+}.choose1 {
+   border: 2px solid;
+   position: fixed;
+   bottom: 10px;
+   z-index: 9999999;
+   background: white;
+   width: 96% !important;
+   right: 13px !important;
+  
+   box-shadow: 0 6px 12px #00000042;
 }
 </style>
 

@@ -27,6 +27,7 @@ Route::get('disclaimer', 'AuthController@disclaimer');
 Route::get('privacy', 'AuthController@privacy');
 Route::get('dmca', 'AuthController@dmca');
 Route::get('cookie', 'AuthController@cookie');
+Route::get('acceptable', 'AuthController@acceptable');
 Route::get('terms', 'AuthController@terms');
 Route::get('accept', 'AuthController@accept');
 

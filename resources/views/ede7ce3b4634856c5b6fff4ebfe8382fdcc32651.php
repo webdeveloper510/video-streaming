@@ -90,7 +90,7 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
           <div class="artistoffer1">
-            <h4> Artist does not Create any Offer</h4>
+            <h4>No Offer available</h4>
           </div>
           <?php endif; ?>
    </div>
@@ -161,7 +161,7 @@
                 
           <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($detail->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($detail->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
@@ -213,7 +213,7 @@
 
         <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white"><?php echo e($aud->price); ?>/PAZ</h6>
+                  <h6 class="text-white"><?php echo e($aud->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white"><?php echo e($aud->duration); ?></h6>

@@ -5,8 +5,8 @@
 
 <div class="row mt-5 pt-5 text-center">
   
-<div class="titleheader col-md-12" style="<?php echo e($totalCollection > 0 ? 'display:none':'display:block'); ?>">
-     <p>Please complete the setup by uploading an overview media for your profile.</p>
+<div class="titleheader col-md-12" >
+     <h3><a href="<?php echo e(url('artist/Profile')); ?>" class="text-white">Please upload Media for your Profile Overview here....</a></h3>
 </div>
     <div class="col-md-3">
     <!-- <h3 class="text-center">Due</h3> -->
@@ -851,7 +851,7 @@ h5.customer1.text-center.pt-3.pl-3 {
     margin-bottom: 10px;
     color: white;
     background: #80ad12;
-    padding-top: 13px;
+    padding-bottom: 13px;
 }
 
 </style>
