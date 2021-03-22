@@ -11,11 +11,37 @@
   <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
+         <div class="pl-3"> <span class="profile-img text-white">
+            {{$login->nickname}}
+          
+            <div class="dropdown-menu dropdown-menu-right">
+                <!-- <button class="dropdown-item" type="button">
+                  <a href="{{url('/profile')}}">Edit Profile
+                  </a></button> -->
+                <button class="dropdown-item" type="button">
+                  <a href="{{url('/logout')}}">Logout</a></button>
+                  <!-- <button class="dropdown-item" type="button">
+                  <a href="{{url('/my-requests')}}">Projects</a></button> -->
+            </div>
+            <hr/ style="color:white;background: white;">
+            <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+           
+          </span>
+        </div>
+          
+        <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+        <a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
+        <a href="{{url('/seeall1/orders')}}"  class="nav-item nav-link">
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
+    @if($login && $latestOffer)
+    <div class="noti" style="{{$latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none' }}">
     </div>
+    @endif
+    </a>
+        <a href="{{url('/logout')}}"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+
+</div>
+
 
     <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
 
@@ -767,7 +793,7 @@ ul.nav.custom.search ul.subnav {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #7b0000;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -777,7 +803,7 @@ ul.nav.custom.search ul.subnav {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #d7d2d2;
   display: block;
   transition: 0.3s;
 }

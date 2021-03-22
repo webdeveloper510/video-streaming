@@ -19,13 +19,16 @@
           <?php echo e(Form::text('token', '',['class'=>'form-control token','placeholder'=>'Add Token'])); ?>
 
 
+          <strong class="bonusPAZ" style="color:black; font-size:14px"></strong>
+
                  <?php if($errors->first('token')): ?>
                 <div class="alert alert-danger">
                   <?php echo $errors->first('token') ?>
                 </div>
                 <?php endif; ?>
                  <div class="col-md-12 text-center pt-3">
-    <button class="btn btn-primary" style="line-height: 45px; min-width: 224px;" type="button" id="checkPrice">Calculate Token Price</button>
+               
+                     <button class="btn btn-primary" style="line-height: 45px; min-width: 224px;" type="button" id="checkPrice">Calculate Token Price</button>
              </div>
             </div>
     

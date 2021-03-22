@@ -210,9 +210,9 @@
             </a>
           </li>
           <li class="nav-item {{$tab=='faq'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
-            <a class="nav-link" href="{{url('/artist/faq')}}">
+            <a class="nav-link" href="{{url('/artist/support')}}">
             <i class="fa fa-question-circle-o"></i>
-              <p>FAQ</p>
+              <p>FAQ's</p>
             </a>
           </li>
           <li class="nav-item {{$tab=='logout'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
