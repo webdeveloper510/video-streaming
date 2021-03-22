@@ -874,7 +874,7 @@ public function getRespectedSub($data){
 
         $current = date('Y-m-d');
         $data = DB::table($table)
-        ->select(DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'));
+        ->select('id',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'));
        
 
        if($table=='offer'){
@@ -888,6 +888,8 @@ public function getRespectedSub($data){
         $data = $data->get()->toArray();
 
        }
+
+       print_r($data);die;
 
         return $data;
     }
