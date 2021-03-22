@@ -32,11 +32,11 @@ class customer_issue extends Mailable
     public function build()
     {
                 return $this->from('info@pornartistzone')
-                ->subject('Customer Request Issue')
+                ->subject('Request')
                 ->view('email')
                 ->with(
                 [
-                    'data' => $this->data,                    
+                    'data' => $this->data                    
                 ]);
                 
     }
