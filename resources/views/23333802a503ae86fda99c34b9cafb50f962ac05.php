@@ -42,7 +42,7 @@
         $GLOBALS['price'] = $offerdata->price;
         ?>
         <div class="container">
-        <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+        <video width="100%" height="100%" controls  controlsList="nodownload" disablePictureInPicture>
           <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>
