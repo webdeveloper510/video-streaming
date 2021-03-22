@@ -149,7 +149,7 @@
           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
           </p>
           <div class="reward1">
-        <h2>Get rewarded with 10% OFF on the first  Purchase!</h2>
+        <h2>Get 10% OFF YOUR FIRST TOKEN PURCHASE! LIMITED TIME ONLY!</h2>
       </div>
           <div class="col-md-12 text-center  ">
 
