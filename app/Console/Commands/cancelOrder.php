@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
+use DB;
 class cancelOrder extends Command
 {
     /**
@@ -38,6 +38,6 @@ class cancelOrder extends Command
     public function handle()
     {
         //return 0;
-        echo "hi i am amit";
+        return DB::table('cron')->insert(array('name'=>'amit'));
     }
 }
