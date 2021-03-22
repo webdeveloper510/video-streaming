@@ -22,27 +22,37 @@
     <div class="alert alert-success message" id="message" style="display:none" role="alert">
   A simple success alert—check it out!
 </div>
+
     
-    @if(!$video->isEmpty())
+    @if($video && $search=='searched')
+
  <div class="row mt-5 pt-5">
  <div class="col-md-12  text-right my-3">
  <button type="button" class="btn btn-primary bardot my-3">Select</button>
  </div>
  	  @foreach ($video as $vid)
- 	   @if($vid->type=='video')
+ 	   
             <div class="col-md-4 pt-3 searchvideo1">
             <a href="{{url('artist-video/'.$vid->id)}}">
 			  <div class="embed-responsive embed-responsive-16by9">
+        @if($vid->type=='video')
 				<video width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
               <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
-            </video>
+        </video>
+        @else
+        <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" width="100%"/>
+        <audio width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
+              <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
+                  Your browser does not support the video tag.
+        </audio>
+        @endif
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white">{{ $recnt->price }}/PAZ</h6>
+          <h6 class="text-white">{{ $vid->price }}/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white">{{ $vid->duration }}</h6>
           </div>
           </div>
 				</div>
@@ -59,54 +69,38 @@
 			@endif
 			@endforeach
   </div>
-  @else
+ 
   <div>
      <!-- <h1>Your specific taste is not served yet</h1>
      <a href="{{url('my-requests')}}"><button class="btn btn-warning text-white">
      Create Project
      </button></a> -->
   </div> 
-  @endif
-  <h3 class="text-white"> Your search -<span> jhgsdjhgsjdf</span> - Did not match any content.<br>
+  @else
+  <h3 class="text-white"> Your search -<span>hello</span> - Did not match any content.<br>
    Please update your search/filter options.</h3>
   <br/>
   <div class="popularvideo">
     <h3 class="text-white">Popular Video :</h3>
     <div class="row">
+    @foreach ($video as $vid)
      <div class="col-md-4 mb-3">
-     <video width="100%" height="300" >
-        <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
-      </video>
+     @if($vid->type=='video')
+				<video width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
+              <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+                  Your browser does not support the video tag.
+        </video>
+        @else
+        <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" width="100%"/>
+        <audio width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
+              <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
+                  Your browser does not support the video tag.
+        </audio>
+        @endif
+    </div>
+    @endforeach
       </div>
-      <div class="col-md-4 mb-3">
-      <video width="100%" height="300" >
-      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
-      </video>
-      </div>
-      <div class="col-md-4 mb-3">
-      <video width="100%" height="300" >
-      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
-      </video>
-      </div>
-      <div class="col-md-4 mb-3">
-      <video width="100%" height="300" >
-      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
-      </video>
-      </div>
-      <div class="col-md-4 mb-3">
-      <video width="100%" height="300" >
-      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
-      </video>
-      </div>
-      <div class="col-md-4 mb-3">
-      <video width="100%" height="300" >
-      <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4"> 
-      </video>
-      </div>
-    
-
-      </div>
- 
+      @endif
 
 </div>
 

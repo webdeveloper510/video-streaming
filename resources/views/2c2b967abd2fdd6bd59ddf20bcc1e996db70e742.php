@@ -22,8 +22,10 @@
     <div class="alert alert-success message" id="message" style="display:none" role="alert">
   A simple success alert—check it out!
 </div>
+
     
-    <?php if(!$video->isEmpty()): ?>
+    <?php if($video && $search=='searched'): ?>
+
  <div class="row mt-5 pt-5">
  <div class="col-md-12  text-right my-3">
  <button type="button" class="btn btn-primary bardot my-3">Select</button>
@@ -39,10 +41,10 @@
             </video>
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($recnt->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($vid->price); ?>/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">2:00</h6>
+          <h6 class="text-white"><?php echo e($vid->duration); ?></h6>
           </div>
           </div>
 				</div>
@@ -59,15 +61,32 @@
 			<?php endif; ?>
 			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
-  <?php else: ?>
+ 
   <div>
      <!-- <h1>Your specific taste is not served yet</h1>
      <a href="<?php echo e(url('my-requests')); ?>"><button class="btn btn-warning text-white">
      Create Project
      </button></a> -->
   </div> 
-  <?php endif; ?>
+  <?php else: ?>
+  <h3 class="text-white"> Your search -<span>hello</span> - Did not match any content.<br>
+   Please update your search/filter options.</h3>
   <br/>
+  <div class="popularvideo">
+    <h3 class="text-white">Popular Video :</h3>
+    <div class="row">
+    <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+     <div class="col-md-4 mb-3">
+     <video width="100%" height="300" >
+        <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
+      </video>
+    </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </div>
+      <?php endif; ?>
+
+</div>
+
 </div> 
 
 <div class="choose1" style="display:none;">
