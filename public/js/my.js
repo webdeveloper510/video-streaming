@@ -1625,6 +1625,7 @@ function addTohistory(type){
 $('.image').click(function(){
 	var image_type = $(this).attr('data-id');
 	$('#image_type').val(image_type);
+	//console.log(image_type);
 	$('.image_change').trigger('click');
 })
 
@@ -1666,6 +1667,8 @@ $('#filechange').submit(function(e){
 	e.preventDefault();
 
 var formData = new FormData($(this)[0]);
+
+$('.img-fluid').show();
 
 //console.log(formData);return false;
 

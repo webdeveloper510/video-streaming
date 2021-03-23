@@ -19,7 +19,7 @@
 
         <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
-        <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4'])); ?>
+        <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>
 
 
         <?php echo e(Form::close()); ?>
@@ -28,7 +28,7 @@
         </div>
         <div class="profileimg">
         <div class="overlayprofile">
-           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="200px" height="200px" class="img-fluid">
+           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
