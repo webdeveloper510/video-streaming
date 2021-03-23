@@ -11,27 +11,20 @@
   <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-         <div class="pl-3"> <span class="profile-img text-white">
+         <div class="pl-5"> 
+         <span class="profile-img text-white">
             <?php echo e($login->nickname); ?>
 
-          
-            <div class="dropdown-menu dropdown-menu-right">
-                <!-- <button class="dropdown-item" type="button">
-                  <a href="<?php echo e(url('/profile')); ?>">Edit Profile
-                  </a></button> -->
-                <button class="dropdown-item" type="button">
-                  <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
-                  <!-- <button class="dropdown-item" type="button">
-                  <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button> -->
-            </div>
             <hr/ style="color:white;background: white;">
             <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
            
           </span>
         </div>
-          
+          <br>
         <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+       <br>
         <a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
+         <br>
         <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
     <?php if($login && $latestOffer): ?>
@@ -39,6 +32,7 @@
     </div>
     <?php endif; ?>
     </a>
+    <br>
         <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
 
 </div>
