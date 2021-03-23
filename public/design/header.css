@@ -128,4 +128,10 @@ span.profile-img hr {
 .user-body {
   height: auto;
 }
+button.btn.btn-primary.seemore{
+  margin-top: -57px !important;
+  right: 25px !important;
+  min-width: 79px !important;
+  height: 30px !important;
+}
 }
