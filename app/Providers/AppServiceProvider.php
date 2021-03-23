@@ -60,8 +60,11 @@ class AppServiceProvider extends ServiceProvider
       
        
              $getLevel= isset($data) ? $model->getlevel(): '';
+
+            // print_r($getLevel);
              
-              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];            
+              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];  
+              //print_r($percentage);      die;    
 
             $view->with(array('subscribed_artist'=>$subscribed_artist,'latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
