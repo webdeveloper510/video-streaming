@@ -328,9 +328,6 @@ class artist extends Controller
 
       $allPlaylist =      $this->model->getAllPlaylist();
 
-      //   echo "<pre>";
-
-      // print_r($allArtistOffer);die;
 
       $contentLogin =   Session::get('User');
       

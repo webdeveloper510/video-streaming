@@ -1985,9 +1985,9 @@ $(document).ready(function() {
 			 { 'data': 'nickname' },
 			 { 'data': 'status' },
 			 { 
-				 'data': 'remaining_days',
+				 'data': 'dates_submision',
 				 render: function ( data, type, row ) {
-					return  data < 0 ? 'Expired': data+' Days';
+					return  data.remaining_days < 0 ? 'Expired': data+'(23:00)';
 			 }
 				 }
 		 ],

@@ -12,12 +12,18 @@
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
          <div class="pl-5"> 
+         @if(!$login)
+					  <a href="{{url('/register')}}" class="nav-item nav-link">Join Free</a>
+              <a href="{{url('/login')}}" class="nav-item nav-link"> Login</a>  
+           @endif 
+           @if($login)
          <span class="profile-img text-white">
             {{$login->nickname}}
             <hr/ style="color:white;background: white;">
             <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
            
           </span>
+          @endif
         </div>
           <br>
         <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
