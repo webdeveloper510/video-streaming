@@ -17,14 +17,14 @@
           {{Form::token()}}
         <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
-        {{ Form::submit('change!',['class'=>'btn btn-primary mb-4']) }}
+        {{ Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange']) }}
 
         {{ Form::close() }}
         </div>
         </div>
         <div class="profileimg">
         <div class="overlayprofile">
-           <img src=" {{asset('images/loaderartist.gif')}}" style="display:none" width="200px" height="200px" class="img-fluid">
+           <img src=" {{asset('images/loaderartist.gif')}}" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
         <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
         <div class="iconcamera" >
