@@ -59,20 +59,6 @@
                         </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                        <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <b class="text-dark">Where can I see that I am getting promoted? </b>
-                            </button>
-                        </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                        In the confirmed timeframe you are promoted on the landing page.Additionally, you are also promoted on the homepage of Customers.
-                        </div>
-                        </div>
-                    </div>
                     </div>
                    
                 </div>
@@ -99,58 +85,7 @@
               <li><a href="{{url('/cookie')}}"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
             
               <li><a href="{{url('/disclaimer')}}"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
-              <li><a href="{{url('/userWithdraw')}}"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
-              <li><a href="#" data-toggle="modal" data-target="#exampleModal2"><i class="fa fa-angle-right"></i> Contact Us</a></li>
               <li><a href="{{url('/legal-notice')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
-                <!-- Modal -->
-                <div class="modal modal2" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header ">
-                      {!!Form::open(['id'=>'customer_issue','method' => 'post', 'files'=>true])!!}
-               {{Form::token()}}
-                      <div class="form-group">
-                          <label for="exampleInputEmail1">Email address</label>
-                          <input type="email" name="customer_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                          <small id="emailHelp" class="form-text text-muted">We'll never share your email to the public.</small>
-                        </div>
-                        
-                      <button type="button" class="close footerclose" data-dismiss="modal" aria-label="Close">X</button>
-                      </div>
-                      <div class="modal-body">
-                      <div class="row">
-                        <div class="col"></div>
-                         <div class="col-md-8 my-3">
-                            <div class="text-center">
-                                  <select class="form-select form-control" name="customer_issue" aria-label="Default select example" required>
-                                    <option selected> Select Menu</option>
-                                    <option value="Feature Request">Feature Request</option>
-                                    <option value="Functionality Question">Functionality Question</option>
-                                    <option value="Techincal Issue">Technical Issue</option>
-                                    <option value="General">General</option>
-                                    <option value="Delete Account">Delete Account</option>
-                                    <option value="Other">Other</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="col"></div>
-                          </div>
-
-                        <label>Description</label>
-                        <textarea class="form-control" name="customer_description" placeholder="We would like to read your description..." id="floatingTextarea" required></textarea>
-                        
-                      </div>
-                      <div class="pb-3 pr-3 text-right">
-                      <div class="alert alert-success" style="display:none"></div>
-                      <button class="btn btn-primary" type="submit">Submit</button></div>
-                    
-                    </div>
-
-                    {{Form::close()}}
-                    
-                    </div>
-                  </div>
-                </div>
             </ul>
             </div>
         </div>
