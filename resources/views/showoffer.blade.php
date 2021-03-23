@@ -21,7 +21,7 @@
     <a href="{{url('artistoffers/'.$val->id)}}">
       <div class="card">
           @if($val->type=='video')
-	   <video width="100%" height="240" class="hoverVideo">
+	   <video width="100%" height="240" controls class="hoverVideo">
   <source src="{{url('storage/app/public/video/'.$val->media) }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
