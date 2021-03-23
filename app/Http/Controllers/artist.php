@@ -211,7 +211,7 @@ class artist extends Controller
     public function dashboard()
     {
 
-      print_r(Carbon::now()->toDateTimeString());die;
+      //print_r(Carbon::now()->toDateTimeString());die;
 
       $navbaractive = 'dashboard';
 
