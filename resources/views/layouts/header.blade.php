@@ -11,26 +11,19 @@
   <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-         <div class="pl-3"> <span class="profile-img text-white">
+         <div class="pl-5"> 
+         <span class="profile-img text-white">
             {{$login->nickname}}
-          
-            <div class="dropdown-menu dropdown-menu-right">
-                <!-- <button class="dropdown-item" type="button">
-                  <a href="{{url('/profile')}}">Edit Profile
-                  </a></button> -->
-                <button class="dropdown-item" type="button">
-                  <a href="{{url('/logout')}}">Logout</a></button>
-                  <!-- <button class="dropdown-item" type="button">
-                  <a href="{{url('/my-requests')}}">Projects</a></button> -->
-            </div>
             <hr/ style="color:white;background: white;">
             <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
            
           </span>
         </div>
-          
+          <br>
         <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+       <br>
         <a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
+         <br>
         <a href="{{url('/seeall1/orders')}}"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
     @if($login && $latestOffer)
@@ -38,6 +31,7 @@
     </div>
     @endif
     </a>
+    <br>
         <a href="{{url('/logout')}}"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
 
 </div>
