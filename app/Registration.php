@@ -221,12 +221,12 @@ public function uploadContentData($userdata){
         
 }
 
-public function updateStatusDue(){
+// public function updateStatusDue(){
 
-      return   DB::table('offer')->where(date('Y-m-d'),'DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY))')->update([
-          'status'=>'due'
-        ]);
-}
+//       return   DB::table('offer')->where(date('Y-m-d'),'DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY))')->update([
+//           'status'=>'due'
+//         ]);
+// }
 public function uploadDataFile($data){
     $session_data =   Session::get('User');
 
