@@ -439,9 +439,10 @@ $(document).on('click','.add_price',function(){
 	var total = $('#offer_pay').val();
 	var add_price = $('#additional').val()
 
-	
+	$('.add_price').attr('disabled', false);
 	//$(this).val())
 	if($(this).val()=='Yes'){
+		$(this).attr('disabled', true);
 			$('.extra_price').show();
 			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
 
@@ -456,6 +457,8 @@ $(document).on('click','.add_price',function(){
 	}
 	else{
 
+		
+		$(this).attr('disabled', true);
 		$('.extra_price').hide();
 		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
 		var total = parseInt(total)-parseInt(add_price)

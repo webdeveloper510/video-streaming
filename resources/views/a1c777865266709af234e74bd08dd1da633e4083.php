@@ -12,6 +12,11 @@
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
          <div class="pl-5"> 
+         <?php if(!$login): ?>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
+           <?php endif; ?> 
+           <?php if($login): ?>
          <span class="profile-img text-white">
             <?php echo e($login->nickname); ?>
 
@@ -19,6 +24,7 @@
             <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
            
           </span>
+          <?php endif; ?>
         </div>
           <br>
         <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
