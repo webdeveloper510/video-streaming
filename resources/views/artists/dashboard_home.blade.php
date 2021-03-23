@@ -171,9 +171,9 @@
                  {!!Form::open(['action' => 'AuthController@personal_info', 'method' => 'post'])!!}
                  {{Form::token()}}
              {{Form::label('First Name', 'First Name')}} 
-                {{Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name'])}}
+                {{Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])}}
                 {{Form::label('Country', 'Country')}} 
-                 <select name="country">
+                 <select name="country" required>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
                         <option value="American Samoa">American Samoa</option>
@@ -386,7 +386,7 @@
 </select>
                 {{Form::label('Date of Birth', 'Date of Birth')}} 
                 
-                <input type="date" name="dob" class="form-control" />
+                <input type="date" required name="dob" class="form-control" />
                 <br>
                 <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
                 <div class="text-right">
