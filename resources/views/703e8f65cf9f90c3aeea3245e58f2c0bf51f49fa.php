@@ -124,7 +124,7 @@
 </div>
 
 <div class="row">
-<div class="col-md-12">
+<!-- <div class="col-md-12">
          <div class="card" style="<?php echo e($existTimeFrame>=1 ? 'display:none': 'display:block'); ?>">
              <div class="week">
              <h5 class="card-title text-left pt-3 pl-3">We want to thank you for your early support!<br> You will be automatically promoted from us in the marked timeframe!</h5>
@@ -161,7 +161,7 @@
               </div>
             </div>
     </div>
-    </div>
+    </div> -->
     <div class="col-md-4">
     <div class="card" style=" height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
