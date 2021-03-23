@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Registration;
 use Session;
 use App\File;
+use Carbon\Carbon;
+
 //  use Stripe\Error\Card;
 
 //use Stripe;
@@ -208,6 +210,8 @@ class artist extends Controller
 
     public function dashboard()
     {
+
+      //print_r(Carbon::now()->toDateTimeString());die;
 
       $navbaractive = 'dashboard';
 
