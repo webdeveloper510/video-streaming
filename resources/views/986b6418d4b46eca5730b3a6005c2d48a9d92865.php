@@ -42,7 +42,7 @@
         $GLOBALS['price'] = $offerdata->price;
         ?>
         <div class="container">
-        <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+        <video width="100%" height="100%" controls  controlsList="nodownload" disablePictureInPicture>
           <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -90,13 +90,15 @@
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small>  <input type="radio" id="Yes" name="gender" value="Yes">
+        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small>
+        <input type="radio" id="Yes" class="add_price" name="gender"  value="Yes">
               <label for="male">Yes</label>
-              <input type="radio" id="No" name="gender" value="No">
-              <label for="female">No</label></h4>
+              <input type="radio" id="No" class="add_price" name="gender" value="No">
+              <label for="female">No</label><h4>  
+              <div class="extra_price">
         <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])); ?>
 
-
+        </div>
         <br>
         <strong id="change_text"></strong>
         <div class="text-right mt-5">

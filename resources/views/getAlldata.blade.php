@@ -40,7 +40,7 @@
           <form> 
           <input type="checkbox" class="slct_video"></form></div>
        <a href="{{url('artist-video/'.$vid->id)}}">
-           <video class="borderhover" width="350px" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
+           <video class="borderhover" width="350px" height="275px"  allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -56,7 +56,7 @@
         <div class="checkall" style="display:none">
           <form> 
           <input type="checkbox" class="slct_video"></form></div>
-      <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+      <video width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
 
              Your browser does not support the video tag.
@@ -66,7 +66,7 @@
           <form> 
           <input type="checkbox" class="slct_video"></form></div>
       <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"/>
-      <audio width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+      <audio width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
 
              Your browser does not support the video tag.
@@ -104,7 +104,7 @@
             <div class="borderhover">
             <a href="{{url('artist-video/'.$aud->id)}}">
                <img src="{{$aud->audio_pic ? url('storage/app/public/uploads/'.$aud->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'}}">
-           <audio width="350px" height="275px" controls controlsList="nodownload" disablePictureInPicture>
+           <audio width="350px" height="275px"  controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
             Your browser does not support the video tag.
           </audio>
