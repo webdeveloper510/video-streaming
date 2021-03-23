@@ -27,7 +27,6 @@
                   <option value="Functionality Question">Functionality Question</option>
                   <option value="Technical Issue">Technical Issue</option>
                   <option value="General">General</option>
-                  <option value="Website Fees">Website Fees</option>
                   <option value="Delete Account">Delete Account</option>
                   <option value="Other">Other</option>
               </select>
