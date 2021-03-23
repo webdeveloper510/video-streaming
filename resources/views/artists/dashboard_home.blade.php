@@ -616,11 +616,37 @@
                 <h5 class="card-title"> Date of Birth : {{$personal_info[0]->dob}} </h5><br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
+                   
                 <div class="text-right">
                 
                 {{ Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit']) }}
                 
-                <div style="display:none;">{{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}</div>
+                <div style="display:none;">
+                <div class="text-left">
+                        <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Apply
+                 </button></div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Password :</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      <input type="text" class="form-control" placeholder="Enter Password">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 {{Form::close()}}
               </div>
             </div>
