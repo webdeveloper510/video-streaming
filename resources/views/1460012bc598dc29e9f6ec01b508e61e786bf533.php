@@ -1405,6 +1405,9 @@ ul.nav.nav-tabs li a {
     color: white;
     font-weight: bolder;
 }
+.tab-content {
+    background: #7b0000;
+}
 .subnav{
   width:100%;
   z-index: 99;
