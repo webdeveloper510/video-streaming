@@ -47,8 +47,9 @@
           <div class="side">
         <ul class="mobile">
         <li class="profileimagemobile">
+       
          @if(array_key_exists(0,$artistProfile) && $artistProfile[0]->profilepicture)
-            <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
+           <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
           @else
  
     <div class="">
@@ -56,7 +57,7 @@
               <div class="profileImage"></div>
     </div>
    @endif
-
+   
    <span class="profile-img text-white text-center">
    <span class="nickname">{{$login->nickname}}</span>
    <!-- <button type="button" class="btn btn-link dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 0px;font-size: 16px;font-weight: 400;">
@@ -120,6 +121,12 @@
               <p>  <i class="fa fa-ticket" aria-hidden="true"></i>  Support</p>
             </a>
           </li>
+          <li class="nav-item {{$tab=='faq'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
+            <a class="nav-link" href="{{url('/artist/faq')}}">
+            <i class="fa fa-question-circle-o"></i>
+              <p>FAQ's</p>
+            </a>
+          </li>
           <li class="nav-item {{$tab=='logout'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/logout')}}">
            
@@ -148,8 +155,9 @@
 
 
        <div class="logo">
-       <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-       </div>
+       <a href="{{url('/artists/dashboard')}}"> <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
+        </a>
+    </div>
 
        <div class="right">
       <!-- <a class=" text-white " href="javascript:;" ><i class="fa fa-comment"></i></a> -->
