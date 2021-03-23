@@ -1988,7 +1988,7 @@ $(document).ready(function() {
 				 'data': 'dates_submision',
 				 render: function ( data, type, row ) {
 					// console.log(data);
-					return  row.remaining_days < 0 ? 'Expired': data+'(23:00)';
+					return  row.remaining_days < 0 ? 'Expired': data+'(24:00)';
 			 }
 				 }
 		 ],

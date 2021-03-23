@@ -587,8 +587,8 @@ class AuthController extends Controller
               }
 
        $this->validate($request,[
-        'image' => 'required|mimes:jpg,png,jpeg',
-        'cover_photo'=>'required|mimes:jpg,png,jpeg',
+        //'image' => 'required|mimes:jpg,png,jpeg',
+       // 'cover_photo'=>'required|mimes:jpg,png,jpeg',
         'aboutme'=>'required',
         'sexology'=>'required',
         'ass'=>'sometimes|required',
@@ -603,20 +603,20 @@ class AuthController extends Controller
 
     
   
-      if($request->image){
+    //  if($request->image){
 
-              $data=$request->all();  
-              $fileName = time().'_'.$request->image->getClientOriginalName();
-              $cover_photo = time().'_'.$request->cover_photo->getClientOriginalName();
-              $ext = $request->image->getClientOriginalExtension();
-              $filePath = $request->image->storeAs('uploads', $fileName, 'public');
-              $filePath1 = $request->image->storeAs('uploads', $cover_photo, 'public');
-              $data['image'] = '';
-              unset($data['image']);
-              unset($data['_token']);
-              $data['profilepicture']=$fileName;
-              $data['cover_photo']=$cover_photo;
-         if($filePath){          
+              // $data=$request->all();  
+              // $fileName = time().'_'.$request->image->getClientOriginalName();
+              // $cover_photo = time().'_'.$request->cover_photo->getClientOriginalName();
+              // $ext = $request->image->getClientOriginalExtension();
+              // $filePath = $request->image->storeAs('uploads', $fileName, 'public');
+              // $filePath1 = $request->image->storeAs('uploads', $cover_photo, 'public');
+              // $data['image'] = '';
+              // unset($data['image']);
+              // unset($data['_token']);
+              $data['profilepicture']='';
+              $data['cover_photo']='';
+         //if($filePath){          
               $update_data = $this->model->uploadContentData($data);
 
               return $update_data;
@@ -627,8 +627,7 @@ class AuthController extends Controller
               // {
               //     return redirect('/getContent#error')->with('error','Some Error Occure!');
               //  }
-        }
-      }
+        //}
   }
   public function providerContent(Request $request){
 
