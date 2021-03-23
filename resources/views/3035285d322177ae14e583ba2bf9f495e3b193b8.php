@@ -93,7 +93,7 @@ tr.shown td.details-control {
                        <th>Title</th>
                         <th >Media</th>
                         <th>Duration</th>
-                        <th>Delivery Time</th>
+                        <th>Delivery Before</th>
                         <th >Artist Name</th>
                         <th > Status</th>              
         </tr>
@@ -105,7 +105,7 @@ tr.shown td.details-control {
                         <th>Title</th>
                         <th>Media</th>
                         <th>Duration</th>
-                        <th>Delivery Time</th>
+                        <th>Delivery Before</th>
                         <th>Artist Name</th>
                         <th> Status</th>              
         </tr>
