@@ -42,7 +42,7 @@ class cancelOrder extends Command
     {
         //return 0;
         $data = DB::table('offer')
-        ->select('id',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
+        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
         ->get()->toArray();
 
         //print_r($data);die;
@@ -58,9 +58,33 @@ class cancelOrder extends Command
 
         }
 
-        return DB::table('offer')->whereIn('id',$ids)->update([
+        $update =  DB::table('offer')->whereIn('id',$ids)->update([
             'status'=>'due'
         ]);
+
+        if($update){
+            $data = array(
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            'artistid'=>$v->artistid,
+            'userid'=>$v->userid,
+            'message'=>'Your order' .$v->title.' has expired and your tokens have been returned',
+            'notificationfor'=>'user'
+            );
+
+            $insert_not = DB::table('notification')->insert($data);
+
+            if($insert_not){
+
+                    $tokens = DB::table('reserved_tokens')->where('Offermediaid',$v->id)->get()->toArray();
+                    $update = DB::table('users')->where('id',$v->userid)->update([
+                        'tokens' =>  DB::raw('tokens +'.$tokens[0]->tokens),            
+                      ]);
+
+                     return  DB::table('reserved_tokens')->where('Offermediaid',$v->id)->delete();
+            }
+
+        }
 
         //return DB::table('cron')->insert(array('name'=>'amit'));
     }
