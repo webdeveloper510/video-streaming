@@ -56,7 +56,7 @@
         <div class="checkall" style="display:none">
           <form> 
           <input type="checkbox" class="slct_video"></form></div>
-      <video width="100%" height="240" controls controlsList="nodownload" disablePictureInPicture>
+      <video width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
 
              Your browser does not support the video tag.
