@@ -621,6 +621,7 @@ class AuthController extends Controller
               // unset($data['image']);
               // unset($data['_token']);
               $data=$request->all();  
+              unset($data['_token']);
               $data['profilepicture']='';
               $data['cover_photo']='';
          //if($filePath){          
