@@ -71,6 +71,9 @@ class AuthController extends Controller
 
     public function register($id=null){
 
+      Session::forget('login_attempt');   
+
+
        Session::put('reffer_by',$id);
 
        
@@ -403,6 +406,9 @@ class AuthController extends Controller
 
       }
       public function home(){
+
+        Session::forget('login_attempt');   
+
 
 
          $Recentlydata= $this->model->getRecentlySearch();
