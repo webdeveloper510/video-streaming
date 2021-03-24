@@ -2668,10 +2668,7 @@ $(document).on('submit', '#updateUser', function (event) {
 
 $(document).on('submit', '#artist_info', function (event) {
 	event.preventDefault();
-	var form  = $('#artist_info');
-	var formData = new FormData($(form)[0]);
-	$('.loader').show();
-	$('.percentage').html('0');
+
 	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
@@ -2680,10 +2677,7 @@ $(document).on('submit', '#artist_info', function (event) {
 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   },
 
-			data: formData,
-
-			contentType: false,
-			processData: false,
+			data: $(this).serialize(),
 
 			xhr: function () {
 				var xhr = $.ajaxSettings.xhr();

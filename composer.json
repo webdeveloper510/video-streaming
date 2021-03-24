@@ -12,6 +12,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "illuminate/auth": "6.0.",
+        "jamesmills/laravel-timezone": "^1.9",
         "laravel/framework": "^7.24",
         "laravel/helpers": "^1.3",
         "laravel/lumen-framework": "^6.0",
