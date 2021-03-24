@@ -2678,26 +2678,6 @@ $(document).on('submit', '#artist_info', function (event) {
 		   },
 
 			data: $(this).serialize(),
-
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				if (xhr.upload) {
-					xhr.upload.addEventListener('progress', function(event) {
-						var percent = 0;
-						var position = event.loaded || event.position;
-						var total = event.total;
-						if (event.lengthComputable) {
-							percent = Math.ceil(position / total * 100);
-						}
-						$('#top_title').html('Uploding...'+percent+'%');
-						$('.percentage').html(percent+'%');
-						if(percent==100){
-							$('.loader').hide();
-						}
-					}, true);
-				}
-				return xhr;
-		},
 		
 
 			success: function(data){
