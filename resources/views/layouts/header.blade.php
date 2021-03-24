@@ -50,7 +50,7 @@
                   <div id="home" class="tab-pane fade1 in active">
                       <h3 style="color: #fff;">Video</h3>
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
               {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
@@ -69,7 +69,7 @@
 
                    <input type="hidden" name="type" value="video"/>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
@@ -139,7 +139,7 @@
                   <div id="menu1" class="tab-pane fade">
                     <h3 style="color: #fff;">Audio</h3>
                       <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
                     {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
@@ -155,7 +155,7 @@
                         </div>
                            </div>
                        <input type="hidden" name="type" value="audio"/>
-                     <div class="col-md-6">
+                     <div class="col-6">
                          <div class="dropdown1 text-white">
                          <h4>Price</h4>
 
@@ -207,7 +207,7 @@
                                 </div>
                               </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             
                          </div>
                           <div class="col-md-12 pr-5 text-right">
@@ -347,7 +347,7 @@
                   <div id="menu2" class="tab-pane fade1 in ">
                       <h3 style="color: #fff;">Offers</h3>
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white" id="video">
                          <h4>Categories </h4>
               {!!Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true])!!}
@@ -375,7 +375,7 @@
                     </div>
                    </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
@@ -442,7 +442,7 @@
                   
                       <div id="menu4" class="tab-pane fade1 in ">
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
               {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
@@ -459,7 +459,7 @@
                     </div>
                    </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
