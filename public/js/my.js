@@ -1,4 +1,7 @@
+var storage_url;
+
 var APP_URL= $('#base_url').attr('data-url');
+
 
 $('.rad_But').click(function(){
 	//console.log($(this).val());
@@ -87,7 +90,8 @@ $(document).ready(function(){
 
 	console.log('yess')
 
-	var storage_url = $('#storagePath').attr('url');
+	storage_url = $('#storagePath').attr('url');
+
 
 	var checked_radio = $('.user:checked').val();
 
@@ -1315,10 +1319,27 @@ function subscribe(id,setValue){
 });
 }
 
-function showPlaylistVedio(){
+function showPlaylistVedio(data){
 
-	//var videos = JSON.parse(data);
-	console.log(data);
+	var videos = JSON.parse(data);
+	console.log(videos);
+	var titles = videos.titles;
+	var videos_playlist = videos.videos;
+	$('.listname').html(videos.playlistname)
+	var split_title  = titles.split(',');
+	var videos_playlist  = videos_playlist.split(',');
+	var div= '';
+	$('.video_append').html('')
+	for(var i=0; i<=videos_playlist.length; i++){
+		var url = storage_url+'/video/'+videos_playlist[i];
+		if(i==0){
+		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
+		}
+	 div +=" <div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+videos.nickname+"</p> </div>"
+	}
+	$('.video_append').append(div);
+
+
 }
 
 /*--------------------------------------------Order Video-------------------------------------------------*/
