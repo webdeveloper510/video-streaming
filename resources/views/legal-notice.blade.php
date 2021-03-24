@@ -1,8 +1,9 @@
 
 @include('layout.cdn')
+<link rel="stylesheet" href="{{asset('design/header.css')}}" />
 <header>
 <div class="text-center">
-<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+ <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
 <h1 class="text-white mt-2"> Legal Notice</h1>
 </div>
 </header>

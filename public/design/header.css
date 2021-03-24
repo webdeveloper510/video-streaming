@@ -206,8 +206,8 @@ right:0px !important;
   display: Block;
 }
 ul.nav.custom.search {
-  height: 40px;
-  margin-left: 18px;
+  height: 20px;
+  margin-left: 0px;
   display: inline-block;
   margin-bottom: 12px;
 }
@@ -272,7 +272,7 @@ span.togg {
   background: #7b0000;
 }
 #search {
-  width: 280px;
+  min-width: 240px !important;
 }
 .online {
   background: #3390ff;
