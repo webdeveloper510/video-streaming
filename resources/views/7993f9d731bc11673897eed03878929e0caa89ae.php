@@ -1,5 +1,5 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+<!-- <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script> -->
 
 <link rel="stylesheet" href="<?php echo e(asset('design/play.css')); ?>" />
 <!-- end header -->
@@ -21,11 +21,11 @@
 		  <h3 class="tittle text-white">My Collection</h3>		  
 		</div>
         <div class="row pb-row">
-              <?php if($wishList): ?>
-              <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <?php if($videos): ?>
+              <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+    <source src="<?php echo e(url('storage/app/public/video/'.$val->videos)); ?>" type="video/mp4">
 				
              </video>
              <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
@@ -76,91 +76,28 @@
               </div>
               <div class="modal-body">
                <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-8 playlist_video_show">
                       <div class="videodata">
-                         <div class="">
-                              <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
-                                  <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-                                      
-                               </video>
-                         </div>
-                         <h3>Titlename</h3>
-                         <p>March 5,2021<p>
+          
+                     
 
                       </div>
                   </div>
                   <div class="col-md-4">
-                  <div class="videoinfo">
-                   <div class="playlistname">
-                       <h4>hello</h4>
-                       <p>1/5</p>
-                   </div>
+                    <div class="videoinfo">
+                      <div class="playlistname">
+                          <h4 class="listname">hello</h4>
+                          <p>1/5</p>
+                      </div>
        <!------------start list------------------>
-                   <div class="row">
-                   <div class="videolist col-4" >
-                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
-                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-                                      
-                     </video>
-                     </div>
-                     <div class="videonameq col-6">
-                          <h3>title</h3>
-                          <p>artistname</p>
-                     </div>
-                   </div>
-
-
-                   <div class="row">
-                   <div class="videolist col-4" >
-                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
-                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-                                      
-                     </video>
-                     </div>
-                     <div class="videonameq col-6">
-                          <h3>title</h3>
-                          <p>artistname</p>
-                     </div>
-                   </div>
-
-                   <div class="row">
-                   <div class="videolist col-4" >
-                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
-                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-                                      
-                     </video>
-                     </div>
-                     <div class="videonameq col-6">
-                          <h3>title</h3>
-                          <p>artistname</p>
-                     </div>
-                   </div>
-
-                   <div class="row">
-                   <div class="videolist col-4" >
-                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
-                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-                                      
-                     </video>
-                     </div>
-                     <div class="videonameq col-6">
-                          <h3>title</h3>
-                          <p>artistname</p>
-                     </div>
-                   </div>
-
-
-                   <div class="row">
-                   <div class="videolist col-4" >
-                   <video width="100px" height="100px" controls controlsList="nodownload" disablePictureInPicture>
-                       <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
-                                      
-                     </video>
-                     </div>
-                     <div class="videonameq col-6">
-                          <h3>title</h3>
-                          <p>artistname</p>
-                     </div>
+                   <div class="row video_append">
+                   <!-- <div class="videolist col-4" >
+                     
+                    </div> -->
+                        <div class="videonameq col-6">
+                              <h3>title</h3>
+                              <p>artistname</p>
+                        </div>
                    </div>
          <!------------end list------------------>
 
@@ -202,7 +139,7 @@
                 <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
-              <div class="videooverlay text-white" onclick="showPlaylistVedio()">
+              <div class="videooverlay text-white" onclick="showPlaylistVedio('<?php echo e(json_encode($playlist)); ?>')">
               
               <span class="fa-layers fa-fw fa-4x">
               <svg class="svg-inline--fa fa-play fa-w-14" data-fa-transform="shrink-1 right-6.5 down-4" data-fa-mask="fas fa-bars" aria-hidden="true" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><defs><clipPath id="clip-BI4jsYsO0ydT"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></clipPath><mask x="0" y="0" width="100%" height="100%" id="mask-NL2qReMfCV3W" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse"><rect x="0" y="0" width="100%" height="100%" fill="white"></rect><g transform="translate(224 256)"><g transform="translate(208, 128)  scale(0.9375, 0.9375)  rotate(0 0 0)"><path fill="black" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" transform="translate(-224 -256)"></path></g></g></mask></defs><rect fill="currentColor" clip-path="url(#clip-BI4jsYsO0ydT)" mask="url(#mask-NL2qReMfCV3W)" x="0" y="0" width="100%" height="100%"></rect></svg><!-- <i class="fas fa-play" data-fa-transform="shrink-1 right-6.5 down-4" data-fa-mask="fas fa-bars"></i> -->
@@ -286,20 +223,8 @@
 </div>
 </div>
 </div>
+</div>
 
-<script>
-  $(document).ready(function() {
- 
-  $("#owl-example").owlCarousel({
-    items:3
- loop:true,
-margin:10,
-autoPlay:true,
-nav:true,
-rewindNav:false
-  });
-});
- </script>
 
 <style>
 body{
