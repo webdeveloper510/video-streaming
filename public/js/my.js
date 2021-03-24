@@ -440,7 +440,9 @@ $(document).on('keyup change', '#change_duration', function () {
 
 $(document).on('click','.add_price',function(){
 
-	var total = $('#offer_pay').val();
+	//$data-id = $('#change_duration').attr('data-id');
+
+	var total = $('#change_duration').attr('data-id') * $('#change_duration').val();
 	var add_price = $('#additional').val()
 
 	$('.add_price').attr('disabled', false);
@@ -461,11 +463,12 @@ $(document).on('click','.add_price',function(){
 	}
 	else{
 
+
 		
 		$(this).attr('disabled', true);
 		$('.extra_price').hide();
-		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
-		var total = parseInt(total)-parseInt(add_price)
+		$('#offer_pay').val(total);
+		//var total = parseInt(total)-parseInt(add_price)
 		$('.price_add').html('');
 		$('#change_text').html('');
 

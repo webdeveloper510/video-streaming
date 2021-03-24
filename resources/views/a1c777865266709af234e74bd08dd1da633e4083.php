@@ -30,83 +30,9 @@
         
         
         </div>
-         <div class="pl-5"> 
-         <?php if(!$login): ?>
-					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
-              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
-           <?php endif; ?> 
-           <?php if($login): ?>
-         <span class="profile-img text-white">
-            <?php echo e($login->nickname); ?>
-
-            <hr/ style="color:white;background: white;">
-            <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
-           
-          </span>
-          <?php endif; ?>
-        </div>
-          <br>
-        <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
-       <br>
-        <a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
-         <br>
-        <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
-    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
-    <?php if($login && $latestOffer): ?>
-    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
-    </div>
-    <?php endif; ?>
-    </a>
-    <br>
-        <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
-
-</div>
 
 
-    <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
-
-    <div class="logomobile text-center">
-    <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
-					</a>
-     </div>
-     <div class="subscrive">
-       <ul>
-       <li class="nav-item">
-              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="<?php echo e($login ? '#' : url('/register')); ?>" ><i class="fa fa-address-card-o"></i></a>
-               
-               
-                <div class="col-md-4 subss" style="display:none;">
-                  <h3>Subscriptions</h3>
-                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
-                    <div class="row mb-3">
-                      <div class="col">
-                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
-                        </div>
-                                <div class="col-6 mt-3">
-                                <p><?php echo e($artist->nickname); ?></p>
-                                </div>
-                              <div class="col mt-3">
-                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
-                                      </div>
-                              </div>
-                    </div>
-                    </a>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                 
-                                   </div>
-                    </div>
-
-                    
-                </div>
-                
-              </li>
-       </ul>
-     </div>
-</div>
-
-<ul class="subnav" style="display: none">
+        <ul class="subnav" style="display: none">
                 <ul class="nav nav-tabs text-center">
                   <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                   <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
@@ -124,7 +50,7 @@
                   <div id="home" class="tab-pane fade1 in active">
                       <h3 style="color: #fff;">Video</h3>
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
               <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -146,7 +72,7 @@
 
                    <input type="hidden" name="type" value="video"/>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
@@ -218,7 +144,7 @@
                   <div id="menu1" class="tab-pane fade">
                     <h3 style="color: #fff;">Audio</h3>
                       <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
                     <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -236,7 +162,7 @@
                         </div>
                            </div>
                        <input type="hidden" name="type" value="audio"/>
-                     <div class="col-md-6">
+                     <div class="col-6">
                          <div class="dropdown1 text-white">
                          <h4>Price</h4>
 
@@ -288,7 +214,7 @@
                                 </div>
                               </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             
                          </div>
                           <div class="col-md-12 pr-5 text-right">
@@ -434,7 +360,7 @@
                   <div id="menu2" class="tab-pane fade1 in ">
                       <h3 style="color: #fff;">Offers</h3>
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white" id="video">
                          <h4>Categories </h4>
               <?php echo Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true]); ?>
@@ -466,7 +392,7 @@
                     </div>
                    </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
@@ -535,7 +461,7 @@
                   
                       <div id="menu4" class="tab-pane fade1 in ">
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
               <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -555,7 +481,7 @@
                     </div>
                    </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
@@ -619,6 +545,91 @@
                   </div>
                  
               </ul>
+
+
+
+            <hr>
+        <div class="mobilenav12">
+         <div class="pl-5"> 
+         <?php if(!$login): ?>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
+           <?php endif; ?> 
+           <?php if($login): ?>
+         <span class="profile-img text-white">
+            <?php echo e($login->nickname); ?>
+
+            <hr/ style="color:white;background: white;">
+            <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+           
+          </span>
+          <?php endif; ?>
+        </div>
+          <br>
+        <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+       <br>
+        <a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
+         <br>
+        <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
+    <?php if($login && $latestOffer): ?>
+    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
+    </div>
+    <?php endif; ?>
+    </a>
+    <br>
+    <a href="<?php echo e(url('notification/user')); ?>" class="nav-item nav-link"> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>  Notifications</a> 
+    <br>
+        <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+</div>
+
+</div>
+
+
+    <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
+
+    <div class="logomobile text-center">
+    <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
+					</a>
+     </div>
+     <div class="subscrive">
+       <ul>
+       <li class="nav-item">
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="<?php echo e($login ? '#' : url('/register')); ?>" ><i class="fa fa-address-card-o"></i></a>
+               
+               
+                <div class="col-md-4 subss" style="display:none;">
+                  <h3>Subscriptions</h3>
+                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
+                    <div class="row mb-3">
+                      <div class="col">
+                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p><?php echo e($artist->nickname); ?></p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
+                                      </div>
+                              </div>
+                    </div>
+                    </a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 
+                                   </div>
+                    </div>
+
+                    
+                </div>
+                
+              </li>
+       </ul>
+     </div>
+</div>
+
+
 
 
   <div class="header_bottom">
@@ -1318,178 +1329,11 @@
 
 </header>
 <style>
-.dropdown1.audio12.text-white {
-    height: 107px;
-    overflow-y: scroll;
-}
-.col-md-4.subss img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-ul.nav.custom.search ul.subnav {
-    width: 523px;
-}
-.noti-icon {
-    color: white;
-    border-radius: 50%;
-    height: 20px;
-    background: #ffa0ae;
-    border: 1px solid silver;
-    width: 20px;
-    padding-left: 5px;
-    position: absolute;
-    right: 16px;
-    top: 4px;
-}
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #7b0000;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #d7d2d2;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-.mobilebar {
-    display: none;
-}
-@media  screen and (max-width: 768px) {
-.header_bottom {
-    display: none;
-}
-.col-md-4.subss{
-  right:0px !important;
-}
-.mobilebar {
-    display: Block;
-}
-ul.nav.custom.search {
-    height: 40px;
-    margin-left: 18px;
-    display: inline-block;
-    margin-bottom: 12px;
-}
-li#options {
-    background: #fff;
-    height: 100%;
-    padding: 7px 8px 5px 8px;
-    height: 35px;
-    width: 40px;
-}
-ul.nav.nav-tabs li a {
-    color: white;
-    font-weight: bolder;
-}
-.tab-content {
-    background: #7b0000;
-}
-.subnav{
-  width:100%;
-  z-index: 99;
-}
-ul.nav.custom.search img {
-    margin-top: -12px;
-    margin-left: -33px;
-}
-}
-@media  screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-span.togg {
-    float: left;
-    margin-left: 11px;
-    margin-top: 9px;
-}
-
-.subscrive {
-    float: right;
-    margin-top: -51px;
-    font-size: 27px;
-}
-.mobilebar {
-    background: #7b0000;
-}
-#search {
-    width: 280px;
-}
-.online {
-    background: #3390ff;
-    height: 10px;
-    margin-left: 20px;
-    width: 10px;
-    border-radius: 50%;
-}
-.col-md-4.subss {
-    position: absolute;
-    background: white;
-    right: -82px;
-    top: 76px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    height: 100vh;
-    overflow-y: scroll;
-}
-.noti {
-    background: blue;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-}
-button.btn.btn-warning.text-white {
-    margin-bottom: auto;
-    margin-top: 8px;
-    height: 36px !important;
-    background-color: #ffbb11 !important;
-    margin-right: 10px;
-    border-bottom-right-radius: 6px !important;
-    border-top-right-radius: 6px !important;
-    border-radius: 6px;
-}
-.borderhover:hover {
-    border: 2px solid yellow;
-    padding-left: 32px;
-}
-
-.noti-icon p {
-    color: white;
-    font-weight: bold;
-    margin-top: -1px;
-}
 
 </style>
 <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenav").style.width = "100%";
 }
 
 function closeNav() {
