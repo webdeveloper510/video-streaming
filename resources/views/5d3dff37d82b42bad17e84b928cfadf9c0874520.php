@@ -578,6 +578,8 @@
     <?php endif; ?>
     </a>
     <br>
+    <a href="<?php echo e(url('notification/user')); ?>" class="nav-item nav-link"> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>  Notifications</a> 
+    <br>
         <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
 </div>
 
@@ -1327,6 +1329,7 @@
 
 </header>
 <style>
+<<<<<<< HEAD
 .dropdown1.audio12.text-white {
     height: 107px;
     overflow-y: scroll;
@@ -1512,6 +1515,8 @@ button.btn.btn-warning.text-white {
     font-weight: bold;
     margin-top: -1px;
 }
+=======
+>>>>>>> 65171a940eacd67ed28a15a732fd1b890022b5a3
 
 </style>
 <script>
