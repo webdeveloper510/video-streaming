@@ -1160,19 +1160,22 @@ public function notifyEmail(Request $req){
 
     $ids = Session::get('listid');
 
+    //print_r($ids);die;
+
    
 
     $playName = $this->model->getAllPlaylist();
 
-    // echo "<pre>";
 
-    // print_r($playName);die;
-
-      $wishList = $this->model->getWishlist();
+    $wishList = $this->model->getWishlist();
 
          
 
-    $videos = $this->model->getVideosbyList($ids);
+    $videos = $this->model->getVideosbyList();
+
+    // echo "<pre>";
+
+    // print_r($playName);die;
 
     $historyVideos = $this->model->getHistoryVideo();
 

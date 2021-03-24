@@ -1875,11 +1875,14 @@ public function getAllPlaylist(){
       $userid =  $session_data->id;
 
       $data = \DB::table("playlist")
-      ->select("playlist.id","playlist.playlistname",\DB::raw("GROUP_CONCAT(media.media) as videos"))
+      ->select("playlist.id","playlist.playlistname","playlist.created_at","contentprovider.nickname",\DB::raw("GROUP_CONCAT(media.media) as videos"),\DB::raw("GROUP_CONCAT(media.title) as titles"))
       ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+      ->leftjoin('contentprovider','contentprovider.id','=','media.contentProviderid')
       ->where('playlist.userid',$userid)
-      ->groupBy("playlist.id","playlist.playlistname")
+      ->groupBy("playlist.id","playlist.playlistname",'playlist.created_at','contentprovider.nickname')
       ->get();
+      //   echo "<pre>";
+      // print_r($data);die;
 
     return $data;
 }
@@ -1982,20 +1985,31 @@ public function insertWishlist($data,$uid){
   
 }
 
-public function getVideosbyList($id){
+public function getVideosbyList(){
 
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
 
-   $value=DB::table('playlist')->where(array('id'=>$id))->pluck('listvideo')->toArray();
+  $data = \DB::table("user_video")
+  ->select(DB::raw("media.media as videos"),"media.id","media.title")
+  ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,user_video.videoid)"),">",\DB::raw("'0'"))
+ // ->groupBy("playlist.id","playlist.playlistname","media.media")
+  ->where(array('user_video.userid'=> $userid,'user_video.type'=>'normal'))
+  ->get();
 
-   if($value){
+  return $data;
 
-          $ids = explode(',',$value[0]);
+  //  $value=DB::table('playlist')->where(array('id'=>$id))->pluck('listvideo')->toArray();
 
-          $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
+  //  if($value){
 
-         return $videos;
+  //         $ids = explode(',',$value[0]);
 
-       }
+  //         $videos = DB::table("media")->whereIn('id', $ids)->get()->toArray();
+
+  //        return $videos;
+
+  //      }
 
 }
 
