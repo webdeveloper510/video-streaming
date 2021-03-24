@@ -440,7 +440,9 @@ $(document).on('keyup change', '#change_duration', function () {
 
 $(document).on('click','.add_price',function(){
 
-	var total = $('#offer_pay').val();
+	//$data-id = $('#change_duration').attr('data-id');
+
+	var total = $('#change_duration').attr('data-id') * $('#change_duration').val();
 	var add_price = $('#additional').val()
 
 	$('.add_price').attr('disabled', false);
@@ -461,11 +463,12 @@ $(document).on('click','.add_price',function(){
 	}
 	else{
 
+
 		
 		$(this).attr('disabled', true);
 		$('.extra_price').hide();
-		$('#offer_pay').val(parseInt(total)-parseInt(add_price));
-		var total = parseInt(total)-parseInt(add_price)
+		$('#offer_pay').val(total);
+		//var total = parseInt(total)-parseInt(add_price)
 		$('.price_add').html('');
 		$('#change_text').html('');
 
@@ -2668,10 +2671,7 @@ $(document).on('submit', '#updateUser', function (event) {
 
 $(document).on('submit', '#artist_info', function (event) {
 	event.preventDefault();
-	var form  = $('#artist_info');
-	var formData = new FormData($(form)[0]);
-	$('.loader').show();
-	$('.percentage').html('0');
+
 	//console.log(formData);return false;
        $.ajax({
 			type: 'POST',
@@ -2680,30 +2680,7 @@ $(document).on('submit', '#artist_info', function (event) {
 			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 		   },
 
-			data: formData,
-
-			contentType: false,
-			processData: false,
-
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				if (xhr.upload) {
-					xhr.upload.addEventListener('progress', function(event) {
-						var percent = 0;
-						var position = event.loaded || event.position;
-						var total = event.total;
-						if (event.lengthComputable) {
-							percent = Math.ceil(position / total * 100);
-						}
-						$('#top_title').html('Uploding...'+percent+'%');
-						$('.percentage').html(percent+'%');
-						if(percent==100){
-							$('.loader').hide();
-						}
-					}, true);
-				}
-				return xhr;
-		},
+			data: $(this).serialize(),
 		
 
 			success: function(data){

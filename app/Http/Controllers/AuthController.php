@@ -71,6 +71,9 @@ class AuthController extends Controller
 
     public function register($id=null){
 
+      Session::forget('login_attempt');   
+
+
        Session::put('reffer_by',$id);
 
        
@@ -404,6 +407,9 @@ class AuthController extends Controller
       }
       public function home(){
 
+        Session::forget('login_attempt');   
+
+
 
          $Recentlydata= $this->model->getRecentlySearch();
 
@@ -614,10 +620,15 @@ class AuthController extends Controller
               // $data['image'] = '';
               // unset($data['image']);
               // unset($data['_token']);
+              $data=$request->all();  
+              unset($data['_token']);
               $data['profilepicture']='';
               $data['cover_photo']='';
+              //print_r($data);die;
          //if($filePath){          
               $update_data = $this->model->uploadContentData($data);
+
+              print_r($update_data);die;
 
               return $update_data;
               //   if($update_data){
