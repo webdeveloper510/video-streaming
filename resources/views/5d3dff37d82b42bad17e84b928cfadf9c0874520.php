@@ -1412,6 +1412,9 @@ ul.nav.nav-tabs li a {
   width:100%;
   z-index: 99;
 }
+footer {
+    padding: 60px 0 !important;
+}
 ul.nav.custom.search img {
     margin-top: -12px;
     margin-left: -33px;

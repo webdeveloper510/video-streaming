@@ -100,7 +100,7 @@
 						 <div class="col-md-8">
 						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 							</video>
 							<div class="report-op">
@@ -119,7 +119,7 @@
 					
 				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
 
-				   <audio controls>
+				   <audio >
 				   	<source src="<?php echo e(url('storage/app/public/audio/'.$video->media)); ?>" type="audio/mp3">
 				   </audio>
 				   <div class="report-op">
