@@ -627,6 +627,8 @@ class AuthController extends Controller
          //if($filePath){          
               $update_data = $this->model->uploadContentData($data);
 
+              print_r($update_data);
+
               return $update_data;
               //   if($update_data){
               //       return redirect('artists/dashboard');
