@@ -624,11 +624,11 @@ class AuthController extends Controller
               unset($data['_token']);
               $data['profilepicture']='';
               $data['cover_photo']='';
-              print_r($data);die;
+              //print_r($data);die;
          //if($filePath){          
               $update_data = $this->model->uploadContentData($data);
 
-              print_r($update_data);
+              print_r($update_data);die;
 
               return $update_data;
               //   if($update_data){
