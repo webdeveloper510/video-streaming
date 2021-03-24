@@ -30,83 +30,9 @@
         
         
         </div>
-         <div class="pl-5"> 
-         <?php if(!$login): ?>
-					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
-              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
-           <?php endif; ?> 
-           <?php if($login): ?>
-         <span class="profile-img text-white">
-            <?php echo e($login->nickname); ?>
-
-            <hr/ style="color:white;background: white;">
-            <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
-           
-          </span>
-          <?php endif; ?>
-        </div>
-          <br>
-        <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
-       <br>
-        <a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
-         <br>
-        <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
-    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
-    <?php if($login && $latestOffer): ?>
-    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
-    </div>
-    <?php endif; ?>
-    </a>
-    <br>
-        <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
-
-</div>
 
 
-    <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
-
-    <div class="logomobile text-center">
-    <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
-						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
-					</a>
-     </div>
-     <div class="subscrive">
-       <ul>
-       <li class="nav-item">
-              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="<?php echo e($login ? '#' : url('/register')); ?>" ><i class="fa fa-address-card-o"></i></a>
-               
-               
-                <div class="col-md-4 subss" style="display:none;">
-                  <h3>Subscriptions</h3>
-                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
-                    <div class="row mb-3">
-                      <div class="col">
-                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
-                        </div>
-                                <div class="col-6 mt-3">
-                                <p><?php echo e($artist->nickname); ?></p>
-                                </div>
-                              <div class="col mt-3">
-                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
-                                      </div>
-                              </div>
-                    </div>
-                    </a>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                 
-                                   </div>
-                    </div>
-
-                    
-                </div>
-                
-              </li>
-       </ul>
-     </div>
-</div>
-
-<ul class="subnav" style="display: none">
+        <ul class="subnav" style="display: none">
                 <ul class="nav nav-tabs text-center">
                   <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
                   <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
@@ -619,6 +545,89 @@
                   </div>
                  
               </ul>
+
+
+
+            <hr>
+        <div class="mobilenav12">
+         <div class="pl-5"> 
+         <?php if(!$login): ?>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
+           <?php endif; ?> 
+           <?php if($login): ?>
+         <span class="profile-img text-white">
+            <?php echo e($login->nickname); ?>
+
+            <hr/ style="color:white;background: white;">
+            <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+           
+          </span>
+          <?php endif; ?>
+        </div>
+          <br>
+        <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+       <br>
+        <a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
+         <br>
+        <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
+    <?php if($login && $latestOffer): ?>
+    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
+    </div>
+    <?php endif; ?>
+    </a>
+    <br>
+        <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+</div>
+
+</div>
+
+
+    <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
+
+    <div class="logomobile text-center">
+    <a href="<?php echo e(url('/')); ?>" class="navbar-brand">
+						<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
+					</a>
+     </div>
+     <div class="subscrive">
+       <ul>
+       <li class="nav-item">
+              <a class="nav-link text-white" onclick="$('.subss').toggle()" href="<?php echo e($login ? '#' : url('/register')); ?>" ><i class="fa fa-address-card-o"></i></a>
+               
+               
+                <div class="col-md-4 subss" style="display:none;">
+                  <h3>Subscriptions</h3>
+                  <?php $__currentLoopData = $subscribed_artist; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
+                    <div class="row mb-3">
+                      <div class="col">
+                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
+                        </div>
+                                <div class="col-6 mt-3">
+                                <p><?php echo e($artist->nickname); ?></p>
+                                </div>
+                              <div class="col mt-3">
+                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
+                                      </div>
+                              </div>
+                    </div>
+                    </a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 
+                                   </div>
+                    </div>
+
+                    
+                </div>
+                
+              </li>
+       </ul>
+     </div>
+</div>
+
+
 
 
   <div class="header_bottom">
@@ -1410,7 +1419,10 @@ ul.nav.nav-tabs li a {
 }
 .subnav{
   width:100%;
-  z-index: 99;
+  position:unset;
+}
+footer {
+    padding: 60px 0 !important;
 }
 footer {
     padding: 60px 0 !important;
@@ -1418,6 +1430,18 @@ footer {
 ul.nav.custom.search img {
     margin-top: -12px;
     margin-left: -33px;
+}
+.search_meu {
+    float: None;
+}
+.mobilenav12 {
+    padding-left: 35px;
+}
+li.link_click.active a {
+    color: yellow !important;
+}
+.logomobile.text-center a {
+    margin-left: -25px;
 }
 }
 @media  screen and (max-height: 450px) {
@@ -1492,7 +1516,7 @@ button.btn.btn-warning.text-white {
 </style>
 <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenav").style.width = "100%";
 }
 
 function closeNav() {
