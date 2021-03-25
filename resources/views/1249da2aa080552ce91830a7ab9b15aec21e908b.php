@@ -70,7 +70,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -168,7 +168,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>"  controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -339,7 +339,7 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
