@@ -677,7 +677,7 @@ $(document).on('click', '.addNow', function () {
 
 				success: function(data){
 
-					console.log(data);
+					console.log(data);return false;
 					
 					if(data.status==1){
 						$('.message').show();
