@@ -1236,7 +1236,7 @@ public function selectListname(Request $request){
 
           print_r($data);
 
-        if($data){
+        if($data==1 || $data=='1'){
 
           return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
 
