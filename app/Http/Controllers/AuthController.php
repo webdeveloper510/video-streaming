@@ -1234,7 +1234,7 @@ public function selectListname(Request $request){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
-          print_r($data);
+         // print_r($data);
 
         if($data==1 || $data=='1'){
 
