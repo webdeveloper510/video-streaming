@@ -128,11 +128,18 @@ span.profile-img hr {
 .user-body {
   height: auto;
 }
+.mobilenav12 .pl-5 {
+  font-size: 23px;
+}
 button.btn.btn-primary.seemore{
   margin-top: -57px !important;
   right: 25px !important;
   min-width: 79px !important;
   height: 30px !important;
+}
+span.profile-img hr {
+  height: 2px !important;
+  width: 150px;
 }
 }
 .dropdown1.audio12.text-white {
