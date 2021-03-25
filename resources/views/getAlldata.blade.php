@@ -2,7 +2,7 @@
 <div class="seealldata1">
 
 <div class="container">
-<div class="choosebutton text-right pt-3">
+<div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
 <button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 <div class="choose1" style="display:none;">
@@ -38,7 +38,7 @@
        <div class="col-md-4 my-3">
        <div class="checkall" style="display:none">
           <form> 
-          <input type="checkbox" class="slct_video"></form></div>
+          <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
        <a href="{{url('artist-video/'.$vid->id)}}">
            <video class="borderhover" width="350px" height="275px"  allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
@@ -55,7 +55,7 @@
         @if($vid->type=='video')
         <div class="checkall" style="display:none">
           <form> 
-          <input type="checkbox" class="slct_video"></form></div>
+          <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
       <video width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
 
@@ -64,7 +64,7 @@
       @else
       <div class="checkall" style="display:none">
           <form> 
-          <input type="checkbox" class="slct_video"></form></div>
+          <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
       <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"/>
       <audio width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">

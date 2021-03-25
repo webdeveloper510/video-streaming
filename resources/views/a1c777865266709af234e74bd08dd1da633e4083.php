@@ -11,7 +11,7 @@
   <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <div class="search_meu mt-5">
+          <div class="search_meu mt-1">
 				
         <ul class="nav custom search">
             <li id="options" onclick="mufunc()">
@@ -1181,10 +1181,10 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
+		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
     <div class="noti"></div></a>
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
-    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> My Orders
     <?php if($login && $latestOffer): ?>
     <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>

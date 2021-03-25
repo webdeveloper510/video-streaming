@@ -454,14 +454,17 @@ public function getArtists($flag){
       ->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
       //->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
       //->orWhere('contentprovider.id',$artid)
-      ->take(6)->get()->toArray();
+      ->inRandomOrder()->take(6)->get()->toArray();
 
-        return $ArtistTimeFrame;
+// echo "<pre>";
+//       print_r($artists);die;
+
+        return $artists;
      
     }
     else{
 
-      $artists=DB::table('contentprovider')->paginate(10);
+      $artists=DB::table('contentprovider')->paginate(30);
     }
   return $artists;
 }
@@ -1458,8 +1461,6 @@ public function getRespectedSub($data){
         $token = $checkTokn[0]->tokens;
 
         if($token > $vid['price']){
-
-
        
          $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
 
@@ -1599,6 +1600,8 @@ public function getRespectedSub($data){
 
     public function addToLibrary($lists){
 
+     // print_r($lists);die;
+
 
       $newData =array();
 
@@ -1622,7 +1625,15 @@ public function getRespectedSub($data){
         
         $lists['userid'] = $userid;
 
-        $ids[]  = $newData ;       
+        if(is_array($newData)){
+             $ids  = $newData ;
+        } 
+
+        else{
+          $ids  = $newData ;
+        }
+       
+       
 
         $return = 0;
 
@@ -1639,45 +1650,77 @@ public function getRespectedSub($data){
 
         if(count($data)>0){  
 
+                    $newArray = explode(",",$data[0]->listvideo);   
+          
+    
+                    $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
 
-                $newArray = explode(",",$data[0]->listvideo);   
+                      $result_array = array_unique($aunion);
+
+                        $newListid = implode(',',$result_array); 
+                    //print_r($newListid);die;
+                  
+
+                $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
+                'listvideo' =>$newListid  
+                ]);
+      
+     
        
- 
-                 $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
+         if(isset($update)){ 
+           
+          $price = 0;
+           
+         // print_r($ids);die;
 
-                  $result_array = array_unique($aunion);
+         for($i=0; $i<count($ids);$i++){
 
-                    $newListid = implode(',',$result_array);
+            $videoExist = DB::table('user_video')->whereRaw("find_in_set('".$ids[$i]."',videoid)")->count();
 
+            if($videoExist==0){
 
-             $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
-            'listvideo' =>$newListid  
-             ]);
+              $yes = true;
 
-         if($update){         
+                //echo "yes";
 
-                  $data = \DB::table("user_video")
-                  ->select("user_video.*")
-                  ->whereRaw("find_in_set('".$lists['videoid']."',user_video.videoid)")
-                  ->get();
-                        if(count($data)<1){
+                  $data_price = $this->selectDataById('id','media',$ids[$i]);
 
-                              $buyed = $this->buyVideo($lists);
+                  $price = $price + $data_price[0]->price;
 
+                  $new_video_ids[] = $ids[$i];
+               //$lists['videoid']= $newListid ;         
 
-                              $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
+        }
 
-                                            
-                              $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
+              
+         }  
+         
+                if($yes){
 
-                              $return = $status_succedd;
+                  //echo "yes";die;
 
-                        }
-                        else{
-                          $return = 'Already';
-                        }
+                  $lists['videoid']= implode(',',$new_video_ids) ; 
+                  $lists['price']=  $price; 
+                  
+                  $buyed = $this->buyVideo($lists);
+        
+                  $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;
+        
+                                
+                  $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple') : 0;
 
-         }
+                  $return = $status_succedd;
+
+                  //print_r($return);die;
+              }
+
+                  else{
+
+                    $return = 'Already';
+
+                  }
+           
+}
 
                 else
                 {
@@ -1687,6 +1730,8 @@ public function getRespectedSub($data){
         }
 
         else {
+
+          //echo "yes";die;
            $playlist['listvideo'] = $videoIds;
            $playlist['userid'] = $userid;
            $playlist['playlistname'] = $listname;
@@ -1699,15 +1744,61 @@ public function getRespectedSub($data){
 
           $insert  =DB::table('playlist')->insert($playlist);
 
-          $buyed = $this->buyVideo($lists);
 
-          $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
+          $price = 0;
+           
+          // print_r($ids);die;
+ 
+          for($i=0; $i<count($ids);$i++){
+ 
+             $videoExist = DB::table('user_video')->whereRaw("find_in_set('".$ids[$i]."',videoid)")->count();
+ 
+             if($videoExist==0){
+ 
+               $yes = true;
+ 
+                 //echo "yes";
+ 
+                   $data_price = $this->selectDataById('id','media',$ids[$i]);
+ 
+                   $price = $price + $data_price[0]->price;
+ 
+                   $new_video_ids[] = $ids[$i];
+                //$lists['videoid']= $newListid ;         
+ 
+         }
+ 
+               
+          }  
+          
+                 if($yes){
+ 
+                   //echo "yes";die;
+ 
+                   $lists['videoid']= implode(',',$new_video_ids) ; 
+                   $lists['price']=  $price; 
+                   
+                   $buyed = $this->buyVideo($lists);
+         
+                   $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;
+         
+                                 
+                   $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple') : 0;
+ 
+                   $return = $status_succedd;
+ 
+                   //print_r($return);die;
+               }
 
-          $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
+          // $buyed = $this->buyVideo($lists);
 
-          //print_r($status_succedd);
-          $return = $status_succedd;
-        }
+          // $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
+
+          // $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
+
+          // //print_r($status_succedd);
+          // $return = $status_succedd;
+      }
 
        
 
@@ -1715,7 +1806,7 @@ public function getRespectedSub($data){
 
     else{
 
-      $return = 'Insufficient Paz Tokens';
+      $return = 'insufficient';
     }
 
     //print_r($return);die;

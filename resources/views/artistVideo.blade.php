@@ -8,7 +8,7 @@
 				<div class="col-md-2">
 				   <div class="image area">
 				   	
-		 <img src="{{url('storage/app/public/uploads/'.$vedios[0]->profilepicture)}}">
+		           <img src="{{url('storage/app/public/uploads/'.$vedios[0]->profilepicture)}}">
 				   </div>
 				</div>
 				@foreach($vedios as $video)
@@ -98,9 +98,9 @@
 				  <div class="col"></div>
 						@if($video->type=='video')
 						 <div class="col-md-8">
-						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+						 <div class="lockicon" style="{{$buyed==1 ? 'display:none': 'display:block'}}"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%" {{$buyed==1 ? 'controls' : ''}} controlsList="nodownload" disablePictureInPicture>
 								<source src="{{url('storage/app/public/video/'.$video->media)}}" type="video/mp4">
 							</video>
 							<div class="report-op">

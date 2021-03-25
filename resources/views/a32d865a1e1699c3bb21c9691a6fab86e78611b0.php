@@ -8,7 +8,7 @@
 				<div class="col-md-2">
 				   <div class="image area">
 				   	
-		 <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
+		           <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
 				   </div>
 				</div>
 				<?php $__currentLoopData = $vedios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -98,9 +98,9 @@
 				  <div class="col"></div>
 						<?php if($video->type=='video'): ?>
 						 <div class="col-md-8">
-						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+						 <div class="lockicon" style="<?php echo e($buyed==1 ? 'display:none': 'display:block'); ?>"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%" <?php echo e($buyed==1 ? 'controls' : ''); ?> controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 							</video>
 							<div class="report-op">
@@ -119,7 +119,7 @@
 					
 				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
 
-				   <audio controls>
+				   <audio >
 				   	<source src="<?php echo e(url('storage/app/public/audio/'.$video->media)); ?>" type="audio/mp3">
 				   </audio>
 				   <div class="report-op">

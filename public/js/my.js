@@ -677,7 +677,7 @@ $(document).on('click', '.addNow', function () {
 
 				success: function(data){
 
-					console.log(data);return false;       
+					console.log(data);   
 					
 					if(data.status==1){
 						$('.message').show();
@@ -712,11 +712,10 @@ $(document).on('click', '.multipleAdd', function () {
 
 				console.log(data);
 
-					if(data.status==1){
-						
-							$('.message').show();
+					if(data.status==1){						
+							$('#success_message').show();
 
-							$('.message').html(data.messge);
+							$('#success_message').html(data.messge);
 							setTimeout(function(){ 
 								location.reload();
 							}, 2000);
@@ -984,10 +983,11 @@ $(document).on('click','.slct_video',function(){
 
 				success: function(data){
 
-					 //console.log(data);
-					 $('.choose1 .selected').html('');
+					 console.log(data);
+
+					 //$('.choose1 .selected').html('');
 					 
-					 $('.choose1 .selected').append("<li>"+data.result[0].title+"<span class='price'>"+data.result[0].price+"PAZ</span><button id="+data.result[0].id+" class='removeSession btn btn-info'>X</button> </li>")
+					// $('.choose1 .selected').append("<li>"+data.result[0].title+"<span class='price'>"+data.result[0].price+"PAZ</span><button id="+data.result[0].id+" class='removeSession btn btn-info'>X</button> </li>")
 					
 					
 				}
