@@ -42,6 +42,12 @@
 </style>
   <div class="outer_slider">
   <div class="container my-4">
+       <div class="col-md-12">
+       <video class="hoverVideo" width="100%"   controls allowfullscreen >
+                  <source src="<?php echo e(asset('images/landingpage.mp4')); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+             </div>
           <div class="slider_tittle">
               <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
               <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
