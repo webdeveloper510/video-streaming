@@ -426,6 +426,8 @@ class AuthController extends Controller
 
            $artists=$this->model->getArtists($paginate='No');
 
+          // print_r($artists);die;
+
            $offersVideos = $this->model->getallOffer($paginate='No');
 
            $popularVideos = $this->model->PopularVideos($paginate='No','video');
@@ -1268,7 +1270,7 @@ public function selectMultiple(Request $req){
 
         $idsData = $req->all();
 
-        //print_r($idsData);die;
+      
        
 
      $multipleIds = Session::get('SessionmultipleIds');
@@ -1317,17 +1319,17 @@ public function selectMultiple(Request $req){
 
 $multipleIds = Session::get('SessionmultipleIds');
 
+
+
 $cartVideo = $this->model->getVideoWhereIn($multipleIds);
+
+  // print_r($cartVideo);die;
 
        return response()->json($cartVideo);
 
 }
 
 public function addMultipleVideo(Request $req){
-
-
-  
-
 
 
           $multipleIds = Session::get('SessionmultipleIds');
@@ -1427,8 +1429,8 @@ public function addmMltiple(Request $req){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
-       
-
+      
+        //print_r($data);
       
         $response =array();
         if($data ==='Insufficient Paz Tokens'){
@@ -1439,7 +1441,7 @@ public function addmMltiple(Request $req){
             
         }
 
-        else if($data){
+        else if($data==1 || $data=='1'){
 
           $response['status'] =1;
           $response['messge'] = 'Video Add Successfully!';
@@ -1448,12 +1450,24 @@ public function addmMltiple(Request $req){
 
         }
 
+        else if($data=='Already'){
+
+          $response['status'] =1;
+          $response['messge'] = 'Already Buyed!';
+
+          
+
+        }
+
+
         else{
 
           $response['status'] = 1;
           $response['messge'] = 'Some Error Occure!';
             
         }
+
+        //print_r($response);die;
 
         //print_r($response);
 
@@ -1498,6 +1512,9 @@ public function seeall($flag){
             return redirect('/getArtists');
 
     }
+
+// echo "<pre>";
+//     print_r($videos);die;
 
     return view('getAlldata',['flag'=>$flag,'videos'=>isset($videos) ? $videos : '','audio'=>isset($audios) ? $audios : '']);
      
