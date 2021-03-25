@@ -1236,14 +1236,17 @@ public function selectListname(Request $request){
 
           print_r($data);
 
-        if($data=='Insufficient Paz Tokens'){
+        if($data==1 || $data=='1'){
 
-            return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+          return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
+
         }
 
-        else if($data==1){
+        else if($data=='insufficient'){
 
-           return response()->json(array('status'=>1, 'messge'=>'Video Add Successfully!'));
+          return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+
+
 
         }
 
