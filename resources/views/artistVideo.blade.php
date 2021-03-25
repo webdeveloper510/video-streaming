@@ -8,7 +8,7 @@
 				<div class="col-md-2">
 				   <div class="image area">
 				   	
-		 <img src="{{url('storage/app/public/uploads/'.$vedios[0]->profilepicture)}}">
+		           <img src="{{url('storage/app/public/uploads/'.$vedios[0]->profilepicture)}}">
 				   </div>
 				</div>
 				@foreach($vedios as $video)
