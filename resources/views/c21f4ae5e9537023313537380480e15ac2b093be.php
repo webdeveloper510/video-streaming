@@ -45,7 +45,7 @@
      <div class="row">
         <div class="col"></div>
           <div class="col-md-8 mb-3">
-          <video class="hoverVideo" width="100%" autoplay  controls allowfullscreen >
+          <video class="hoverVideo" width="100%" autoplay loop  controls allowfullscreen >
                   <source src="<?php echo e(asset('images/landingpage.mp4')); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
