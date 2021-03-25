@@ -166,6 +166,8 @@ class artist extends Controller
     }
 
     public function artistVideo($vedioid){
+
+       $buyed = $this->model->selectDataById('mediaid','payment_token',$vedioid);
       
           $allVedios = $this->model->getVideo($vedioid);
           // echo "<pre>";
@@ -177,7 +179,7 @@ class artist extends Controller
           $count=$arrayId ? count($arrayId) : '';
           $category_data = $this->model->getCategory();
   
-       return view('artistVideo',['vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
+       return view('artistVideo',['buyed'=>count($buyed),'vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
     }
 
 
