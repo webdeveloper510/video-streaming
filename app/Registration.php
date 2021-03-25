@@ -1715,7 +1715,7 @@ public function getRespectedSub($data){
 
     else{
 
-      $return = 'Insufficient Paz Tokens';
+      $return = 'insufficient';
     }
 
     //print_r($return);die;

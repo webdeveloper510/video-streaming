@@ -1236,7 +1236,7 @@ public function selectListname(Request $request){
 
           print_r($data);
 
-        if($data=='Insufficient Paz Tokens'){
+        if($data=='insufficient'){
 
             return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
         }
