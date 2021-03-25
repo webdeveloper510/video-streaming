@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Registration;
 
+use App\Http\Controllers\DateTime;
+
+use App\Http\Controllers\Timezone;
+
+
+
 use Session;
 
 use App\File;
@@ -408,6 +414,11 @@ class AuthController extends Controller
       public function home(){
 
         Session::forget('login_attempt');   
+
+
+      //$time = Timezone::convertToLocal('2020-12-01 02:54:21');
+
+      //print_r($time);die;
 
 
 
@@ -1219,7 +1230,7 @@ public function selectListname(Request $request){
 
         $addTolibrary = $req->all();
 
-        //print_r($addTolibrary);die;
+        print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
