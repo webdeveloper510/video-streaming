@@ -42,7 +42,7 @@
 </style>
   <div class="outer_slider">
   <div class="container my-4">
-       <div class="col-md-12">
+       <div class="col-md-12 mb-3">
        <video class="hoverVideo" width="100%"   controls allowfullscreen >
                   <source src="<?php echo e(asset('images/landingpage.mp4')); ?>" type="video/mp4">
                   Your browser does not support the video tag.
