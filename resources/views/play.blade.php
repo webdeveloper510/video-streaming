@@ -24,13 +24,11 @@
               @if($videos)
               @foreach($videos as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
     <source src="{{url('storage/app/public/video/'.$val->videos)}}" type="video/mp4">
 				
              </video>
-             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
+           
             </div>
             @endforeach
             @else
@@ -166,14 +164,12 @@
               @if($wishList)
               @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
              </video>
              
-				   	<div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
+				  
               
 				  
             </div>
@@ -200,14 +196,12 @@
         @if($history)
               @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
 
                <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
              </video>
-             <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
+            
             </div>
             @endforeach
             @else

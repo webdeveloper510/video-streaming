@@ -12,7 +12,7 @@
             </div>
             <hr>
             
-            <ul class="footer-menu">
+            <ul class="footer-menu pb-3">
               <li style="border-left-color: red;
                   border-left-style: solid;
                   border-left-width: 1px;">

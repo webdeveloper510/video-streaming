@@ -50,7 +50,7 @@
                   <div id="home" class="tab-pane fade1 in active">
                       <h3 style="color: #fff;">Video</h3>
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
               <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -72,7 +72,7 @@
 
                    <input type="hidden" name="type" value="video"/>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
@@ -144,7 +144,7 @@
                   <div id="menu1" class="tab-pane fade">
                     <h3 style="color: #fff;">Audio</h3>
                       <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
                     <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -162,7 +162,7 @@
                         </div>
                            </div>
                        <input type="hidden" name="type" value="audio"/>
-                     <div class="col-md-6">
+                     <div class="col-6">
                          <div class="dropdown1 text-white">
                          <h4>Price</h4>
 
@@ -214,7 +214,7 @@
                                 </div>
                               </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             
                          </div>
                           <div class="col-md-12 pr-5 text-right">
@@ -360,7 +360,7 @@
                   <div id="menu2" class="tab-pane fade1 in ">
                       <h3 style="color: #fff;">Offers</h3>
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white" id="video">
                          <h4>Categories </h4>
               <?php echo Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true]); ?>
@@ -392,7 +392,7 @@
                     </div>
                    </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
@@ -461,7 +461,7 @@
                   
                       <div id="menu4" class="tab-pane fade1 in ">
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-6">
                     <div class="dropdown12 text-white">
                          <h4>Categories </h4>
               <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
@@ -481,7 +481,7 @@
                     </div>
                    </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-6 ">
                           <div class="bar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
@@ -1181,10 +1181,10 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
+		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
     <div class="noti"></div></a>
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
-    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> My Orders
     <?php if($login && $latestOffer): ?>
     <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>
