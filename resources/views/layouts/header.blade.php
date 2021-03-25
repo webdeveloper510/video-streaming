@@ -1132,10 +1132,10 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
+		<a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
     <div class="noti"></div></a>
     <a href="{{url('/seeall1/orders')}}"  class="nav-item nav-link">
-    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> My Orders
     @if($login && $latestOffer)
     <div class="noti" style="{{$latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none' }}">
     </div>
