@@ -1230,11 +1230,11 @@ public function selectListname(Request $request){
 
         $addTolibrary = $req->all();
 
-        print_r($addTolibrary);die;
+        //print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
-       // print_r($data);die;
+          print_r($data);die;
 
         if($data=='Insufficient Paz Tokens'){
 

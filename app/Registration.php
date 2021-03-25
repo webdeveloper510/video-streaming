@@ -1598,6 +1598,8 @@ public function getRespectedSub($data){
     }
 
     public function addToLibrary($lists){
+
+
       $newData =array();
 
         $session_data =   Session::get('User');
@@ -1635,54 +1637,52 @@ public function getRespectedSub($data){
    
       if($tokens < $tokensData[0]->tokens){
 
-        if(count($data)>0){
+        if(count($data)>0){  
 
 
-        $newArray = explode(",",$data[0]->listvideo);   
+                $newArray = explode(",",$data[0]->listvideo);   
        
  
-   $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
+                 $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
 
-      $result_array = array_unique($aunion);
+                  $result_array = array_unique($aunion);
 
-        $newListid = implode(',',$result_array);
+                    $newListid = implode(',',$result_array);
 
-        //print_r($newListid);die;
 
-     $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
+             $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
             'listvideo' =>$newListid  
-          ]);
+             ]);
 
-         if(isset($update)){         
+         if($update){         
 
-              $data = \DB::table("user_video")
-              ->select("user_video.*")
-              ->whereRaw("find_in_set('".$lists['videoid']."',user_video.videoid)")
-              ->get();
-                  if(count($data)<1){
+                  $data = \DB::table("user_video")
+                  ->select("user_video.*")
+                  ->whereRaw("find_in_set('".$lists['videoid']."',user_video.videoid)")
+                  ->get();
+                        if(count($data)<1){
 
-                        $buyed = $this->buyVideo($lists);
+                              $buyed = $this->buyVideo($lists);
 
 
-                        $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
+                              $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id']): 0;
 
-                                      
-                        $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
+                                            
+                              $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
 
-                        $return = $status_succedd;
+                              $return = $status_succedd;
 
-            }
-            else{
-              $return = 'Already';
-            }
+                        }
+                        else{
+                          $return = 'Already';
+                        }
 
          }
 
-         else
-         {
-           //echo "yes";die;
-           $return =   false;
-         }  
+                else
+                {
+                  $return =   false;
+                }  
 
         }
 
