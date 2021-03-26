@@ -41,7 +41,17 @@
 }
 </style>
   <div class="outer_slider">
-  <div class="container my-4">
+    <div class="container my-4">
+     <div class="row">
+        <div class="col"></div>
+          <div class="col-md-8 mb-3">
+          <video class="hoverVideo" width="100%" autoplay loop  controls allowfullscreen >
+                  <source src="{{asset('images/landingpage.mp4')}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+             </div>
+             <div class="col"></div>
+             </div>
           <div class="slider_tittle">
               <h3 class="tittle"><a href="{{url('seeall/artists')}}">Artists</a></h3>
               <a href="{{url('seeall/artists')}}"><button class="btn btn-primary seemore" type="button">See All</button></a>

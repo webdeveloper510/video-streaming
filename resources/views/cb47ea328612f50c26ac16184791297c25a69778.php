@@ -8,7 +8,7 @@
 				<div class="col-md-2">
 				   <div class="image area">
 				   	
-		 <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
+		           <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
 				   </div>
 				</div>
 				<?php $__currentLoopData = $vedios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -98,9 +98,9 @@
 				  <div class="col"></div>
 						<?php if($video->type=='video'): ?>
 						 <div class="col-md-8">
-						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+						 <div class="lockicon" style="<?php echo e($buyed==1 ? 'display:none': 'display:block'); ?>"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%" <?php echo e($buyed==1 ? 'controls' : ''); ?> controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 							</video>
 							<div class="report-op">
@@ -241,6 +241,30 @@
 	
 </div>  
 
+	<div class="modal " tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<p>You have not enough PAZ Token!</p>
+			<label>Add PAZ Token :</label>
+			<input type="number" class="form-control">
+			<div class="text-right">
+               <button class="btn btn-primary" type="button">Calculate Token Price </button>
+
+			</div>
+		</div>
+		<div class="modal-footer text-center">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+		</div>
+	</div>
+	</div>
 
 <script>
 	var type = "<?php echo e($GLOBALS['type']); ?>";
@@ -261,7 +285,7 @@
     display: flex;
     margin: 0 auto;
     text-align: center;
-    z-index: 9;
+    z-index: 0;
 }
 
 .lockicon i {

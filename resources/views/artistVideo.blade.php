@@ -241,6 +241,30 @@
 	
 </div>  
 
+	<div class="modal " tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body">
+			<p>You have not enough PAZ Token!</p>
+			<label>Add PAZ Token :</label>
+			<input type="number" class="form-control">
+			<div class="text-right">
+               <button class="btn btn-primary" type="button">Calculate Token Price </button>
+
+			</div>
+		</div>
+		<div class="modal-footer text-center">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+		</div>
+	</div>
+	</div>
 
 <script>
 	var type = "{{$GLOBALS['type']}}";
@@ -261,7 +285,7 @@
     display: flex;
     margin: 0 auto;
     text-align: center;
-    z-index: 9;
+    z-index: 0;
 }
 
 .lockicon i {

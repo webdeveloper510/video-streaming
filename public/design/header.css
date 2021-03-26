@@ -229,9 +229,6 @@ ul.nav.nav-tabs li a {
   color: white;
   font-weight: bolder;
 }
-.tab-content {
-  background: #7b0000;
-}
 .subnav{
 width:100%;
 position:unset;
@@ -292,7 +289,7 @@ span.togg {
   position: absolute;
   background: white;
   right: -82px;
-  top: 76px;
+  top: 62px;
   text-align: center;
   padding: 20px;
   border-radius: 10px;
