@@ -17,7 +17,9 @@
 					
 						<button class="btn btn-primary" type="button" id="checkPrice">Calculate Token Price</button>
 				</div>
-				</div>
+				<p class="text-center"> Or</p>
+				<a href="{{url('/addToken')}}" class="text-white">Go to Add Token Page</a>
+							</div>
 
 				<div class="col-md-12 text-center pt-3" style="display: none;">
 				{{ Form::submit('Pay!',['class'=>'btn btn-primary']) }}
