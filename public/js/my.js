@@ -677,10 +677,19 @@ $(document).on('click', '.addNow', function () {
 
 				success: function(data){				
 					if(data.status==1){
-						console.log('yes');
-						$('.message').show();
+							if(data.messge=='Insufficient Paz Tokens!'){
+									$('.insuffiecient').show();
+							}
 
-						$('.message').html(data.messge);
+							else{
+
+								console.log('yes');
+								$('.message').show();
+		
+								$('.message').html(data.messge);
+
+							}
+					
 
 					}
 
