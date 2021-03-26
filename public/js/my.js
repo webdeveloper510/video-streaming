@@ -675,11 +675,9 @@ $(document).on('click', '.addNow', function () {
 
 				data: {"videoid": videoid, 'price':token, 'art_id':artist},
 
-				success: function(data){
-
-					console.log(data);   
-					
+				success: function(data){				
 					if(data.status==1){
+						console.log('yes');
 						$('.message').show();
 
 						$('.message').html(data.messge);

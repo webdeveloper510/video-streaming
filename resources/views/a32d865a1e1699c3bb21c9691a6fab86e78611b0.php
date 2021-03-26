@@ -98,7 +98,7 @@
 				  <div class="col"></div>
 						<?php if($video->type=='video'): ?>
 						 <div class="col-md-8">
-						 <div class="lockicon" style="<?php echo e($buyed==1 ? 'display:none': 'display:block'); ?>"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+						 <div class="lockicon" style="<?php echo e($buyed>0 ? 'display:none': 'display:block'); ?>"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
 							<video width="100%" height="100%" <?php echo e($buyed==1 ? 'controls' : ''); ?> controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">

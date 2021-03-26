@@ -167,11 +167,11 @@ class artist extends Controller
 
     public function artistVideo($vedioid){
 
-       $buyed = $this->model->selectDataById('mediaid','payment_token',$vedioid);
+       $buyed = $this->model->checkVideoBuyed($vedioid);
       
           $allVedios = $this->model->getVideo($vedioid);
           // echo "<pre>";
-          // print_r($allVedios);die;
+          // print_r($buyed);die;
 
          $all_play_lists = $this->model->getPlaylist();
 
