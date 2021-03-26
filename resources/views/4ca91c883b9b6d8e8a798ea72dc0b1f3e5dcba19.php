@@ -16,7 +16,7 @@
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('ADD', 'Token')); ?> 
                   <select class="custom-select mb-3">
-                    <option selected>Select Token</option>
+                    <option selected>Select Token Amount</option>
                     <option value="200">200 Tokens $14USD</option>
                     <option value="500">500 Tokens $35 USD</option>
                     <option value="1000">1000 Tokens $69.50 USD (10 Bonus Tokens)</option>
