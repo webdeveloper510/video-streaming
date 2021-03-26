@@ -41,12 +41,22 @@
 }
 </style>
   <div class="outer_slider">
+<<<<<<< HEAD
   <div class="container my-4">
        <div class="col-md-12 mb-3">
        <video class="hoverVideo" width="100%"   controls allowfullscreen >
+=======
+    <div class="container my-4">
+     <div class="row">
+        <div class="col"></div>
+          <div class="col-md-8 mb-3">
+          <video class="hoverVideo" width="100%" autoplay loop  controls allowfullscreen >
+>>>>>>> ebf2bc1af46fa433981c00b9dbfa28d029823534
                   <source src="<?php echo e(asset('images/landingpage.mp4')); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+             </div>
+             <div class="col"></div>
              </div>
           <div class="slider_tittle">
               <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
