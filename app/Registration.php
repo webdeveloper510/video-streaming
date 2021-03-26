@@ -1600,7 +1600,7 @@ public function getRespectedSub($data){
 
     public function addToLibrary($lists){
 
-     // print_r($lists);die;
+    
 
 
       $newData =array();
@@ -1630,15 +1630,17 @@ public function getRespectedSub($data){
         } 
 
         else{
-          $ids  = $newData ;
+          $ids[]  = $newData ;
         }
        
+      
        
 
         $return = 0;
 
           $tokensData = $this->selectDataById('id','users',$userid);
 
+          
 
           //print_r($tokensData);die;
    
@@ -1731,6 +1733,8 @@ public function getRespectedSub($data){
 
         else {
 
+          //print_r('yes');die;
+
           //echo "yes";die;
            $playlist['listvideo'] = $videoIds;
            $playlist['userid'] = $userid;
@@ -1741,6 +1745,8 @@ public function getRespectedSub($data){
             $playlist['updated_at'] = now();
 
             //print_r($playlist);die;
+
+            
 
           $insert  =DB::table('playlist')->insert($playlist);
 
@@ -2102,6 +2108,11 @@ public function getVideosbyList(){
 
   //      }
 
+}
+
+public function checkVideoBuyed($id){
+
+      return DB::table('user_video')->where(array('type'=>'normal','videoid'=>$id))->get();
 }
 
 public function addToHistory($data){

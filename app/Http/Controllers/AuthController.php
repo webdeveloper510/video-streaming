@@ -864,7 +864,7 @@ public function privacy(){
  if ($validator->passes()) { 
   
 
-    $stripe = Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    $stripe = Stripe\Stripe::setApiKey('sk_test_ChfSSXaILXyDtixAjzFD4sYx');
     try {
          $token = \Stripe\Token::create([
               'card' => [
@@ -877,7 +877,11 @@ public function privacy(){
 
       $input = $request->all();
 
+     
+
       $userData = $this->model->getUserData($userId);
+
+      
 
               // if($userData[0]->reffered_by!=0){
 
@@ -892,6 +896,8 @@ public function privacy(){
             
 
        $customerId = isset($userData[0]->customer_id) ? $userData[0]->customer_id : '';
+
+      
 
        if($customerId){
 
@@ -956,6 +962,8 @@ public function createCustomer($data,$userdata,$token){
 
 public function createCharge($data,$cusid,$uid,$userdata){
 
+  //print_r($cusid);die;
+
 
     $charge = \Stripe\Charge::create([
       'customer' => $cusid, 
@@ -964,7 +972,7 @@ public function createCharge($data,$cusid,$uid,$userdata){
       'description' => 'wallet',
       ]);
 
-    //print_r($charge);die;
+   // print_r($charge);die;
     if((array)$charge){
 
 
@@ -979,6 +987,8 @@ public function createCharge($data,$cusid,$uid,$userdata){
 
           if($userdata[0]->reffered_by!=0){
 
+           // print_r($data);die;
+
            // echo "hello";die;
       $amount = $input['fees'];
       $passive_amount = $amount*10/100;
@@ -989,7 +999,7 @@ public function createCharge($data,$cusid,$uid,$userdata){
                
           }
 
-            return $bonus_inserted_done;
+            return $bonus_inserted_done ? $bonus_inserted_done : $charge;
 
         }
 
@@ -1236,7 +1246,7 @@ public function selectListname(Request $request){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
-         // print_r($data);
+         //print_r($data);die;
 
         if($data==1 || $data=='1'){
 

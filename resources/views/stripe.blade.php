@@ -20,15 +20,15 @@
 </div>
 <div class="col-md-4 cvc required mb-3">
 <label >CVV</label>
-<input autocomplete="off" class="form-control card-cvc" placeholder="ex. 311" size="4" type="text" name="cvvNumber">
+<input autocomplete="off" class="form-control card-cvc" placeholder="ex. 311" pattern="\d{3}" maxlength="3"  size="4" type="text" name="cvvNumber">
 </div>
 <div class="col-md-4 expiration required">
-<label>Expiration</label>
-<input class="form-control card-expiry-month" placeholder="MM" size="4" type="text" name="ccExpiryMonth">
+<label>Expiration Month</label>
+<input class="form-control card-expiry-month" placeholder="MM" size="4" pattern="\d{2}" maxlength="2"  type="text" name="ccExpiryMonth">
 </div>
 <div class="col-md-4 expiration required">
- <label>Year</label>
-<input class="form-control card-expiry-year" placeholder="YYYY" size="4" type="text" name="ccExpiryYear">
+ <label>Expiration Year</label>
+<input class="form-control card-expiry-year" placeholder="YYYY" size="4" pattern="\d{4}" maxlength="4" type="text" name="ccExpiryYear">
 <input class="form-control price" placeholder="YYYY" size="4" type="hidden" name="amount" value="300">
 </div>
 <input type="hidden" id="fees" value="" name = "fees"/>
