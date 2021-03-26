@@ -43,14 +43,25 @@ class AppServiceProvider extends ServiceProvider
 
                $data=Session::get('User');
 
+               ///print_r($data);die;
+
                $isActive = true;
 
              $userId = isset($data) ? $data->id : '';
 
+             $id = Session::get('offer_artist_id');
 
-             $offer = $model->getallOffers();
+             //echo $id;die;
 
-              Session::put('offer_artist_id',$offer->id);
+             $offer = $model->getallOffers($id);
+
+            // print_r($offer);die;
+
+            //  echo $id;
+
+          
+
+              //Session::put('offer_artist_id',$offer->id);
 
             $tokens = $model->getUserData($userId);
 

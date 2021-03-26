@@ -46,8 +46,8 @@
            <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
       <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
       <div class="alert alert-success" id="success_message" style="display: none" role="alert">
-          A simple success alert—check it out!
         </div>
+       
   </div>
       </div>
       

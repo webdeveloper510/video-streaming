@@ -77,6 +77,9 @@
 	  <div class="alert alert-success message" role="alert" style="display: none">
         A simple success alert—check it out!
    </div>
+   <div class="insuffiecient modal" style="display:none;">
+             <?php echo $__env->make('messagePopup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        </div>
   </div>
       </div>
     
@@ -261,7 +264,7 @@
     display: flex;
     margin: 0 auto;
     text-align: center;
-    z-index: 9;
+    z-index: 0;
 }
 
 .lockicon i {

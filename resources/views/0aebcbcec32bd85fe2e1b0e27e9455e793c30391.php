@@ -2,7 +2,7 @@
 <div class="seealldata1">
 
 <div class="container">
-<div class="choosebutton text-right pt-3">
+<div class="choosebutton text-right pt-3" style="<?php echo e($flag=='offer' ? 'display:none' : 'display:block'); ?>"> 
 <button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 <div class="choose1" style="display:none;">
