@@ -1577,6 +1577,7 @@ public function getRespectedSub($data){
         'choice'=>$data['choice'],
         'userid'=>$data['userid'],
         'status'=>'new',
+        'is_seen'=>'no',
         'updated_at'=>now()
         ]);
 
@@ -2272,17 +2273,20 @@ public function getallOffer($flag){
   }
 }
 
-public function getallOffers(){
+public function getallOffers($id){
+
+  //echo $id;
 
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
 
   // $batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('by_created', '=' , 1)->first();
-   $batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('userid', '=' , $userid)->first();
-// echo "<prE>";
-//    print_r($batch_data);die;
+   //$batch_data = DB::table('offer')->orderBy('id', 'DESC')->where('userid', '=' , $userid)->first();
+
+   return DB::table('offer')->where('id',$id)->get()->toArray();
+
  
-   return $batch_data;
+   //return $batch_data;
 
 
 }
@@ -2475,7 +2479,8 @@ public function buyofferVideo($data,$offer){
 
          //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
-          $return = $done;
+         //print_r($done);die;
+          $return = $done=='1' || $done=='0' ? 1 : 0;
     }
 
     else{

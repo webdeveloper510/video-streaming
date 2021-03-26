@@ -1638,11 +1638,18 @@ public function readNotification(Request $request){
 
         $data = json_decode($request->allinfo);
 
+        //print_r($data);die;
+
         $offerInfo = (array)$data;
+
+
+          //print_r($offerInfo['id']);die;
+        Session::put('offer_artist_id',$offerInfo['id']);
 
         $offerInfo['created_at'] = now();
         $offerInfo['updated_at'] = now();
         $offerInfo['status'] = 'new';
+        $offerInfo['is_seen'] = 'no';
         $offerInfo['choice'] = $request->duration;
         $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additioal Requests' ;
 
@@ -1652,7 +1659,7 @@ public function readNotification(Request $request){
         //print_r($requestData);die;
 
 
-          if($requestData==1){
+          if($requestData==1 || $requestData=='1'){
 
             return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
 
