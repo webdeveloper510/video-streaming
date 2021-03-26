@@ -451,7 +451,7 @@
 
 .leveltext.text-white {
     display: none;
-    width: 151px !important;
+    width: 161px !important;
     position: absolute;
     top: 33px;
 }
@@ -459,7 +459,7 @@
     padding-top: 7px !important;
 }
 .progress:hover .leveltext.text-white {
-    display: BLOCK;
+    display: block;
 }
 .wid {
     width: 160px !important ;
