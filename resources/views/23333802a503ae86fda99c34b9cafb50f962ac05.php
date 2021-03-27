@@ -120,7 +120,7 @@
         </style>
 
 
-            <div class="modal" tabindex="-1" style="display:none;">
+            <div class="modal successfull" tabindex="-1" style="display:none;">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
