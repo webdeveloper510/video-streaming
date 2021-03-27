@@ -1,7 +1,8 @@
+
 @include('layouts.header')
 
 <link rel="stylesheet" href="{{asset('design/initial.css')}}" />
-
+<?php   include(app_path().'/include/includetop.php');?>
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 
@@ -45,7 +46,7 @@
      <div class="row">
         <div class="col"></div>
           <div class="col-md-8 mb-3">
-          <video class="hoverVideo" width="100%" autoplay loop  controls allowfullscreen >
+          <video class="hoverVideo" width="100%" autoplay loop  allowfullscreen >
                   <source src="{{asset('images/landingpage.mp4')}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -666,8 +667,9 @@ rewindNav:false
   });
 });
  </script-->
- @include('layouts.footer')
 
+ @include('layouts.footer')
+ <?php include(app_path().'/include/includebottom.php');?>
 
 
 <!--script type="text/javascript">
