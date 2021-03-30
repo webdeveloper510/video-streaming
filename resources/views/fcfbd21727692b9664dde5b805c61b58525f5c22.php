@@ -672,13 +672,4 @@ rewindNav:false
  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  <?php include(app_path().'/include/includebottom.php');?>
 
-
-<!--script type="text/javascript">
-  $ (window).ready (function () {
-  setTimeout (function () {
-    $ ('#modal-subscribe').modal ("show")
-  }, 1000)
-})
-</script-->
-
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>
