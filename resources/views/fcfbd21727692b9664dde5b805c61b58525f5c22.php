@@ -2,7 +2,7 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
-<?php   include(app_path().'/include/includetop.php');?>
+<?php   include(app_path().'/include/includetop.php')?>
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 

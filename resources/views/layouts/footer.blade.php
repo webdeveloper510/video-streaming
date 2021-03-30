@@ -1,5 +1,5 @@
 
-
+ <?php include(app_path().'/include/includebottom.php');?>
 
 <!--footer -->
 <footer class="footer_style_2">
