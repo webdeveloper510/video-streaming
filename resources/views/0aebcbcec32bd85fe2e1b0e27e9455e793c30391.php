@@ -132,17 +132,21 @@
 .borderhover:hover {
     border:2px solid yellow;
     padding:0px !important;
-
 }
 .seealldata1{
     background:black;
     color:white;
 }
+
 .card {
     background: transparent;
     color: white;
     border:1px solid white;
 }
+.card:hover{
+  border:1px solid yellow;
+}
+
 .choose1 .row {
    
    color: #000 !important;
