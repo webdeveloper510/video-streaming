@@ -671,12 +671,3 @@ rewindNav:false
  @include('layouts.footer')
  <?php include(app_path().'/include/includebottom.php');?>
 
-
-<!--script type="text/javascript">
-  $ (window).ready (function () {
-  setTimeout (function () {
-    $ ('#modal-subscribe').modal ("show")
-  }, 1000)
-})
-</script-->
-
