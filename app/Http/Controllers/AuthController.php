@@ -65,7 +65,7 @@ class AuthController extends Controller
 
 
        
-       $this->model= new Registration();
+       $this->model= new Registration();     
 
 
 
