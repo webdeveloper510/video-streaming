@@ -65,7 +65,7 @@ class AuthController extends Controller
 
 
        
-       $this->model= new Registration();
+       $this->model= new Registration();     
 
 
 
@@ -122,7 +122,7 @@ class AuthController extends Controller
             return redirect('artists/dashboard');
        }
 
-           $data=Session::get('filterData');
+           $data=Session::get('filterData');     
 
 
            //print_r($data);die;
