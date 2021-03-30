@@ -16,7 +16,7 @@ if(strpos($out2, "<video")||strpos($out2, "<audio")||strpos($out2, "<source")){
   var url = "{{ URL::to('/')}}";
   $.ajax({
     type: "POST",
-    url: url+"/app/include/enable.php",
+    url: "http://localhost/laravel/video-streaming/app/include/enable.php",
 	data:{},
 	success:function(data){
 		console.log(data);
@@ -50,7 +50,7 @@ if(strpos($out2, "<video")||strpos($out2, "<audio")||strpos($out2, "<source")){
     $_SESSION['x'.$matches['2']]=0;
     $_SESSION['defa'.$matches['2']] = md5(time()."Defa Protector");
     $_SESSION['file'.$_SESSION['defat']] = md5('Defa').base64_encode(base64_encode($matches['2']));
-    return $matches[1] .  $rootURL."/app/defavid.php?window=".$_SESSION['window']."&defat=".$_SESSION['defat'];
+    return $matches[1] .  "http://localhost/laravel/video-streaming/app/defavid.php?window=".$_SESSION['window']."&defat=".$_SESSION['defat'];
   }
   $mes = preg_replace_callback("/(<video[^>]*src *= *[\"']?)([^\"']*)/i", getURL, $out2);
   $mes = preg_replace_callback("/(<source[^>]*src *= *[\"']?)([^\"']*)/i", getURL, $mes);
