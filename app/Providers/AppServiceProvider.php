@@ -37,8 +37,12 @@ class AppServiceProvider extends ServiceProvider
              $array = $model->getNotification();
 
              $notification = $array['notifications'];
+           
 
               $count = $array['count'];
+
+              // echo "<pre>";
+              // print_r($count);die;
 
 
                $data=Session::get('User');
