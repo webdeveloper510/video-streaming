@@ -17,7 +17,7 @@ if(strpos($out2, "<video")||strpos($out2, "<audio")||strpos($out2, "<source")){
 
   $.ajax({
     type: "POST",
-    url: APP_URL+"app/include/enable.php",
+    url: APP_URL+"/app/include/enable.php",
 	data:{},
 	success:function(data){
 		console.log(data);
@@ -35,7 +35,7 @@ if(strpos($out2, "<video")||strpos($out2, "<audio")||strpos($out2, "<source")){
   }
   function getURL($matches) {
 
-   
+  // echo "url";
 	
     global $rootURL;
 
@@ -51,7 +51,9 @@ if(strpos($out2, "<video")||strpos($out2, "<audio")||strpos($out2, "<source")){
     $_SESSION['x'.$matches['2']]=0;
     $_SESSION['defa'.$matches['2']] = md5(time()."Defa Protector");
     $_SESSION['file'.$_SESSION['defat']] = md5('Defa').base64_encode(base64_encode($matches['2']));
-    return $matches[1] .  "https://pornartistzone.com/developing-streaming/app/defavid.php?window=".$_SESSION['window']."&defat=".$_SESSION['defat'];
+    //echo 'amit'.$_SESSION['defat'];
+    //echo 'amit12'.$_SESSION['window'];
+    return $matches[1] .  "app/defavid.php?window=".$_SESSION['window']."&defat=".$_SESSION['defat'];
   }
   $mes = preg_replace_callback("/(<video[^>]*src *= *[\"']?)([^\"']*)/i", getURL, $out2);
   $mes = preg_replace_callback("/(<source[^>]*src *= *[\"']?)([^\"']*)/i", getURL, $mes);

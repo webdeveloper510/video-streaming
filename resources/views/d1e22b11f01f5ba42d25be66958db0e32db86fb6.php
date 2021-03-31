@@ -2,7 +2,7 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
-<?php   include(app_path().'/include/includetop.php')?>
+<?php   // include(app_path().'/include/includetop.php')?>
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 
@@ -669,6 +669,6 @@ rewindNav:false
  </script-->
 
  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
- <?php include(app_path().'/include/includebottom.php');?>
+ <?php //include(app_path().'/include/includebottom.php');?>
 
 <?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>

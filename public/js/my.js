@@ -1270,13 +1270,8 @@ $(document).on('keyup', '.title', function () {
 
 function updateRead(){
 
-	//alert('dd');
-
 	var ids = $('#notids').val();
-
-	//console.log(ids);return false;
 	
-
 	$.ajax({
 		type: 'POST',
 		url:APP_URL+"/readNotification",
@@ -1288,10 +1283,10 @@ function updateRead(){
 
 		success: function(data){
 
-			console.log(data);
-			if(data==1){
-			  $('#bold').removeClass("bold");
-			}
+				console.log(data);
+				if(data==1){
+				$('#bold').removeClass("bold");
+				}
 
 	
 			
@@ -1340,7 +1335,7 @@ function showPlaylistVedio(data){
 	var videos_playlist  = videos_playlist.split(',');
 	var div= '';
 	$('.video_append').html('')
-	for(var i=0; i<=videos_playlist.length; i++){
+	for(var i=0; i<videos_playlist.length; i++){
 		var url = storage_url+'/video/'+videos_playlist[i];
 		if(i==0){
 		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")

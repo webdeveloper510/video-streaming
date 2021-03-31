@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
 
                $data=Session::get('User');
 
-               ///print_r($data);die;
+
 
                $isActive = true;
 
@@ -51,14 +51,12 @@ class AppServiceProvider extends ServiceProvider
 
              $id = Session::get('offer_artist_id');
 
-             //echo $id;die;
 
              $offer = $model->getallOffers($id);
 
-            // print_r($offer);die;
+              $library = $model->libraryNotification();
 
-            //  echo $id;
-
+              //print_r($library);die;
           
 
               //Session::put('offer_artist_id',$offer->id);
@@ -77,7 +75,7 @@ class AppServiceProvider extends ServiceProvider
               $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];  
               //print_r($percentage);      die;    
 
-            $view->with(array('subscribed_artist'=>$subscribed_artist,'latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
+            $view->with(array('addedLibrary'=>$library,'subscribed_artist'=>$subscribed_artist,'latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
 
     }

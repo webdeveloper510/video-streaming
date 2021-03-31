@@ -8,15 +8,22 @@ $window = addslashes(strip_tags($_GET['window']));
 $md5defa = md5('Defa');
 $t = (int)$_GET['defat'];
 
+
+
 $filedefa = str_replace($md5defa,'',$_SESSION['file'.$t]);
+
 //print_r($_SESSION['file'.$t]);die;
 $file = str_replace("https://","http://",base64_decode(base64_decode($filedefa)));
 
+
+
 $defa = str_replace("https://","http://",base64_decode(base64_decode($filedefa)));
+
+//print_r($defa);
 $defaurl = get_headers($file, 1);
 
 $url = $defaurl["Location"];
-//print_r($defaurl);die;
+//print_r($defaurl);
 //$url = 'http://localhost/laravel/video-streaming/app/defavid.php?window=681a0a8021b288adb3d97d7748b05e19&defat=85';
 if($url!=$file&&$url!=""){
     $file = $url;
@@ -43,6 +50,7 @@ function isMobile() {
 if(isset($_SESSION['jsenable'.$window])){
 	if($header==200&&$header2['Accept']!=""&&$_SESSION['x'.$defa.$t]==0&&isMobile()||isset($_SERVER['HTTP_RANGE'])){
 
+            // echo "hmm a";
         $_SESSION['x'.$defa.$t] = $_SESSION['x'.$defa.$t] + 1;
 //Written By Juthawong Naisanguansee at Ampare Engine
         if(isset($_SERVER['HTTP_RANGE'])){
