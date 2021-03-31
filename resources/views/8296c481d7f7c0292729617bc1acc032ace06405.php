@@ -45,7 +45,7 @@
  	Add to Wishlist
  </button>
 
-<button  type="button" style="cursor:pointer;" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<button  type="button" style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>" class="btn-primary library" <?php echo e($buyed==1 ? 'disabled ':''); ?> data-toggle="modal" data-target="#exampleModal">Add To Library</button>
 <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
