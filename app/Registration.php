@@ -784,20 +784,20 @@ public function getRespectedSub($data){
       $userid=  $session_data->id;
       
       $data = \DB::table("offer")
-      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("contentprovider","contentprovider.id","=","offer.artistid")
       ->join('reserved_tokens','reserved_tokens.Offermediaid','=','offer.id')
       ->where('offer.userid',$userid)
-      ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","offer.status","contentprovider.nickname");
+      ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","offer.status","contentprovider.nickname");
      
-       
       if ($sts) {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }
 
-
+    // echo "<pre>";
+    // print_r($data->get());die;
       
          return $data->get();
     }
@@ -1581,6 +1581,22 @@ public function getRespectedSub($data){
         'updated_at'=>now()
         ]);
 
+        if($return){
+
+          $array= array(
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            'artistid'=>$data['artistid'],
+            'userid'=>$data['userid'],
+            'message'=>$data['title'].'has been ordered',
+            'notificationfor'=>'artist',
+            'mediaid'=>''
+
+          );
+
+          $return  = $this->insertNotification($array);
+      }
+
         return $return;
 
 
@@ -1588,13 +1604,22 @@ public function getRespectedSub($data){
 
     public function insertOffer($data){
 
-      // echo "insert";
-
-      // print_r($data);die;
-
 
 
       $insert  = DB::table('offer')->insert($data);
+
+          $array= array(
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            'artistid'=>$data['artistid'],
+            'userid'=>$data['userid'],
+            'message'=>$data['title'].'has been ordered',
+            'notificationfor'=>'artist',
+            'mediaid'=>''
+
+          );
+
+      $return  = $this->insertNotification($array);
 
       return $insert;
     }
@@ -1684,9 +1709,9 @@ public function getRespectedSub($data){
                   $data_price = $this->selectDataById('id','media',$ids[$i]);
 
                   $price = $price + $data_price[0]->price;
+                  $titles[] = $data_price[0]->title;
 
-                  $new_video_ids[] = $ids[$i];
-               //$lists['videoid']= $newListid ;         
+                  $new_video_ids[] = $ids[$i];       
 
         }
 
@@ -1698,6 +1723,7 @@ public function getRespectedSub($data){
                   //echo "yes";die;
 
                   $lists['videoid']= implode(',',$new_video_ids) ; 
+                  $titles= implode(',',$titles) ; 
                   $lists['price']=  $price; 
                   
                   $buyed = $this->buyVideo($lists);
@@ -1705,7 +1731,7 @@ public function getRespectedSub($data){
                   $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;
         
                                 
-                  $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple') : 0;
+                  $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple',$titles) : 0;
 
                   $return = $status_succedd;
 
@@ -1764,6 +1790,7 @@ public function getRespectedSub($data){
                    $data_price = $this->selectDataById('id','media',$ids[$i]);
  
                    $price = $price + $data_price[0]->price;
+                   $titles[] =  $data_price[0]->title;
  
                    $new_video_ids[] = $ids[$i];
                 //$lists['videoid']= $newListid ;         
@@ -1778,6 +1805,7 @@ public function getRespectedSub($data){
                    //echo "yes";die;
  
                    $lists['videoid']= implode(',',$new_video_ids) ; 
+                   $titles= implode(',',$titles) ; 
                    $lists['price']=  $price; 
                    
                    $buyed = $this->buyVideo($lists);
@@ -1785,7 +1813,7 @@ public function getRespectedSub($data){
                    $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;
          
                                  
-                   $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple') : 0;
+                   $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple',$titles) : 0;
  
                    $return = $status_succedd;
  
@@ -1815,7 +1843,7 @@ public function getRespectedSub($data){
     return $return;
   }
 
-  public function insertPaymentStatus($uid,$artid,$vid,$paz,$from){
+  public function insertPaymentStatus($uid,$artid,$vid,$paz,$from,$title){
 
     //echo $uid.$artid.$vid.$paz;die;
 
@@ -1832,24 +1860,25 @@ public function getRespectedSub($data){
 
     $insert_payment  = DB::table('payment_token')->insert($payment);
 
-    if($insert_payment){
+    if($title!=''){
           $array= array(
             'created_at'=>now(),
             'updated_at'=>now(),
             'artistid'=>$artid,
             'userid'=>$uid,
-            'message'=>'You Have added Video',
-            'notificationfor'=>'addedVideo'
+            'message'=>$title.'has been added to your library',
+            'notificationfor'=>'addedVideo',
+            'mediaid'=>$vid
 
           );
 
 
-          $notification = DB::table('notification')->insert($array);
+          $insert_payment = $this->insertNotification($array);
     }
 
     //print_r($insert_payment);die;
   
-    return $notification;
+    return $insert_payment;
 
   }
 
@@ -2532,7 +2561,7 @@ public function addonContentProvider($data){
         
       ]);
 
-      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens,'order') : 0;
+      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens,'order','') : 0;
   
     }
 
@@ -2698,7 +2727,7 @@ public function showSubscribeArtists(){
   ->leftJoin ('offer','offer.artistid','=','subscriber.artistid')
   ->select('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
   ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
-  ->where(['offer.by_created'=>1,'offer.is_seen'=>'no'])
+  ->where(['offer.by_created'=>1])
   ->orderBy('offer.id', 'DESC')
   ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
   ->get();
@@ -2870,14 +2899,62 @@ public function customer_issue($data){
 
     public function deleteoffer($data){
 
-     return DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
+      $session_data =   Session::get('User');
+
+      $userid =  $session_data->id;
+
+     $done = DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
+
+     if($done){
+
+      $array= array(
+        'created_at'=>now(),
+        'updated_at'=>now(),
+        'artistid'=>$userid,
+        'userid'=>'',
+        'message'=>'offer has been deleted From the Artist',
+        'notificationfor'=>'user',
+        'mediaid'=>''
+
+      );
+
+
+      $done = $this->insertNotification($array);
+
+    }
+
+    return $done;
 
 
     }
 
     public function deleteCollection($data){
 
-              return DB::table('media')->where('id',$data['id'])->delete();
+      $session_data =   Session::get('User');
+
+      $userid =  $session_data->id;
+
+        $deleted = DB::table('media')->where('id',$data['id'])->delete();
+
+              if($deleted){
+
+                $array= array(
+                  'created_at'=>now(),
+                  'updated_at'=>now(),
+                  'artistid'=>$userid,
+                  'userid'=>'',
+                  'message'=>'Media has been deleted From the Artist',
+                  'notificationfor'=>'user',
+                  'mediaid'=>''
+      
+                );
+      
+      
+                $deleted = $this->insertNotification($array);
+
+              }
+
+              return $deleted;
     }
 
     public function getRandomData(){

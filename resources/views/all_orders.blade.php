@@ -1,4 +1,6 @@
 @include('layouts.header')
+
+<link rel="stylesheet" href="{{asset('design/header.css')}}" />
   <style>
    
 .tab {

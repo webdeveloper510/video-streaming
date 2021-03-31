@@ -1708,7 +1708,11 @@ public function readNotification(Request $request){
 
       public function seeOrder(){
 
-        $artistOfferId =   Session::get('offer_artist_id');
+       // $artistOfferId =   Session::get('offer_artist_id');
+       $session_data =   Session::get('User');
+   
+
+       $userid =  $session_data->id;
 
         //print_r( $artistOfferId);die;
 
@@ -1718,7 +1722,7 @@ public function readNotification(Request $request){
           'is_seen'=>'yes'
         );
 
-        $this->model->UpdateData('offer','id',$data,$artistOfferId);
+        //$this->model->UpdateData('offer','userid',$data,$userid);
 
             return view('all_orders');
 
@@ -1772,6 +1776,16 @@ public function readNotification(Request $request){
 
 
         return count($value) > 0 ? 1 : 0;
+      }
+
+      public function updateNoti(Request $req){
+
+
+            $this->model->UpdateData('media','contentProviderid',array('is_seen'=>1),$req->id);
+
+            $this->model->UpdateData('offer','artistid',array('is_seen'=>'yes'),$req->id);
+
+                //print_r($req->all());
       }
 
 }

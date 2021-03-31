@@ -88,7 +88,7 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
-	console.log('yess')
+	//console.log('yess')
 
 	storage_url = $('#storagePath').attr('url');
 
@@ -160,7 +160,14 @@ $(document).ready(function(){
 				 'data':           null,
 				 'defaultContent': ''
 			 },
-			 { 'data': 'title' },
+			 { 
+				 'data': 'title',
+
+				//  render : function(data, type, row) {
+				// 	return row.is_seen=='no' ? '<div class="noti">'+data+'</div>' : data
+				//}   
+				
+				},
 			 { 'data': 'type' },
 			 { 'data': 'choice' },
 			 { 
@@ -2746,6 +2753,29 @@ $(document).on('submit', '#customer_issue', function (event) {
 	});
 
 });
+
+
+function removeBadge(id){
+	
+	//console.log(id);
+
+	$.ajax({
+		type: 'POST',
+		url:APP_URL+"/removeBadge",
+		 headers: {
+		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	   },
+
+		data: {'id':id},		
+
+		success: function(data){
+
+			console.log(data);
+
+
+		}
+});
+}
 
 
 
