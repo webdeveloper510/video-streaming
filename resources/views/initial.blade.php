@@ -2,7 +2,7 @@
 @include('layouts.header')
 
 <link rel="stylesheet" href="{{asset('design/initial.css')}}" />
-<?php   include(app_path().'/include/includetop.php')?>
+<?php  // include(app_path().'/include/includetop.php')?>
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 
@@ -670,5 +670,5 @@ rewindNav:false
  </script-->
 
  @include('layouts.footer')
- <?php include(app_path().'/include/includebottom.php');?>
+ <?php //include(app_path().'/include/includebottom.php');?>
 
