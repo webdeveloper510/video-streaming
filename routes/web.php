@@ -152,6 +152,7 @@ Route::get('artistoffers/{id}', 'AuthController@artistoffers');
 Route::post('contentProvider', 'AuthController@contentProvider1');
 
 Route::post('contentPostLogin', 'AuthController@contentPostLogin');
+Route::post('removeBadge', 'AuthController@updateNoti');
 
 Route::post('postContent', 'AuthController@providerContent');
 
