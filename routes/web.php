@@ -35,7 +35,7 @@ Route::get('login', 'AuthController@login');
 
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
-Route::get('play', 'AuthController@play')->middleware('authentication');
+Route::get('play/{id}', 'AuthController@play')->middleware('authentication');
 
 Route::get('listname', 'AuthController@listname')->middleware('authentication');
 

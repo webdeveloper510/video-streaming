@@ -1601,19 +1601,14 @@ public function getRespectedSub($data){
 
     public function addToLibrary($lists){
 
-    
-
-
       $newData =array();
 
         $session_data =   Session::get('User');
-
-       
+   
 
         $userid =  $session_data->id;
 
         $tokens = $lists['price'];
-
     
          $listname = Session::get('listname');
 
@@ -1837,9 +1832,24 @@ public function getRespectedSub($data){
 
     $insert_payment  = DB::table('payment_token')->insert($payment);
 
+    if($insert_payment){
+          $array= array(
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            'artistid'=>$artid,
+            'userid'=>$uid,
+            'message'=>'You Have added Video',
+            'notificationfor'=>'addedVideo'
+
+          );
+
+
+          $notification = DB::table('notification')->insert($array);
+    }
+
     //print_r($insert_payment);die;
   
-    return $insert_payment;
+    return $notification;
 
   }
 
@@ -1855,6 +1865,16 @@ public function getRespectedSub($data){
 
     return $update ? 1 : 0;
 
+  }
+
+
+  public function libraryNotification(){
+
+    $session_data =   Session::get('User');
+
+    $userid =  $session_data->id;
+
+    return DB::table('notification')->where(array('userid'=>$userid,'notificationfor'=>'addedVideo'))->orderBy('id', 'DESC')->first();
   }
 
   public function month_PAZ(){
@@ -2113,7 +2133,10 @@ public function getVideosbyList(){
 
 public function checkVideoBuyed($id){
 
-      return DB::table('user_video')->where(array('type'=>'normal','videoid'=>$id))->get();
+      return DB::table('user_video')
+      ->whereRaw("FIND_IN_SET(?, videoid) > 0", [$id])
+      ->where('type','normal')
+      ->get()->toArray();
 }
 
 public function addToHistory($data){

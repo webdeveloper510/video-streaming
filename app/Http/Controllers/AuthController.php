@@ -1190,7 +1190,9 @@ public function notifyEmail(Request $req){
       return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
   
 }
-   public function play(){
+   public function play($id){
+
+    $update = $this->model->UpdateData('notification','id',array('read'=>1),$id);
 
     $ids = Session::get('listid');
 
