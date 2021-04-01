@@ -482,8 +482,8 @@ Your browser does not support the audio tag.
                     </select>
                 </div>
                 <br>
-                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
-                   <label>Choose Image</label>        
+                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+                   <label class="thumbnail1"></label>        
                  <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:red;"></span>

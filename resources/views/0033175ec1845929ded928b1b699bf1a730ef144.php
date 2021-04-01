@@ -70,7 +70,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <video width="100%"  controls controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -92,7 +92,7 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
-         <h4><?php echo e($offer->price); ?>PAZ/min </h4>
+         <h4><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/min </h4>
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
@@ -168,14 +168,14 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>"  controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
             </video>
             <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white" ><?php echo e($detail->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                  <h6 class="text-white" ><?php echo e($detail->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
@@ -223,7 +223,7 @@
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
-    <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>">
+    <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>" width="100%">
 
 <audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>" disablePictureInPicture>
 
@@ -339,7 +339,7 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
@@ -482,8 +482,8 @@ Your browser does not support the audio tag.
                     </select>
                 </div>
                 <br>
-                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
-                   <label>Choose Image</label>        
+                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+                   <label class="thumbnail1"></label>        
                  <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:red;"></span>

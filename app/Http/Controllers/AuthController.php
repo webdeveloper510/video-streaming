@@ -661,7 +661,7 @@ class AuthController extends Controller
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
       //'category'=>'required', 
-      'audio_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
+      'thumbnail_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
   if ($validator->fails())
@@ -669,12 +669,11 @@ class AuthController extends Controller
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-       // print_r($request->all());die;
       if($request->media){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
-              $audio_pics = $request->audio_pic ? time().'_'.$request->audio_pic->getClientOriginalName():'';
-              $request->audio_pic ? $request->audio_pic->storeAs('uploads',$audio_pics,'public'): '';
+              $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
+              $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
                  $size=$request->media->getSize();
@@ -683,6 +682,7 @@ class AuthController extends Controller
               $data['media']=$fileName;
 
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
+              unset($data['thumbnail_pic']);
               $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
               $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
@@ -1663,7 +1663,7 @@ public function readNotification(Request $request){
 
           if($requestData==1 || $requestData=='1'){
 
-            return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
+            return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));      
 
           }
 

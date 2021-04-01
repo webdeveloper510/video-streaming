@@ -1527,8 +1527,7 @@ public function getRespectedSub($data){
 
         $getOffer = $this->selectDataById('id','offer',$video['id']);
 
-        //print_r($getOffer);die;
-        $video_id = $video['id'];
+       $video_id = $video['id'];
       unset($video['id']);
       unset($video['nickname']);
       unset($video['category']);
@@ -1547,25 +1546,6 @@ public function getRespectedSub($data){
       $insert = DB::table('user_video')->insert($video_data);
 
       return $insert ? 1 : 0;
-
-        // if($insert==1){
-
-        //       $return = DB::table('users')->where(array('id'=>$uid))->update([
-        //       'tokens' =>  DB::raw('tokens -'.$price)
-        //       ]);
-        //       if($return){
-        //         $return = DB::table('contentprovider')->where(array('id'=>$artistId))->update([
-        //           'token' =>  DB::raw('token +'.$price)
-        //           ]);
-        //       }
-        //       return $return;
-        // }
-
-        // else{
-        //   return 0;
-        // }
-
-
       
     }
 
@@ -1625,7 +1605,7 @@ public function getRespectedSub($data){
 
       $return  = $this->insertNotification($array);
 
-      return $insert;
+      return $insert ? 1 : 0;
     }
 
     public function addToLibrary($lists){
@@ -2731,14 +2711,16 @@ public function showSubscribeArtists(){
   $subscribedArtist = DB::table('subscriber')
   ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
   ->leftJoin ('offer','offer.artistid','=','subscriber.artistid')
+  //->leftJoin ('media','media.contentProviderid','=','subscriber.artistid')
   ->select('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
   ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
   ->where(['offer.by_created'=>1])
   ->orderBy('offer.id', 'DESC')
+ //s ->limit(1)
   ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
   ->get();
     // echo "<pre>";
-    //   print_r($subscribedArtist);die;
+    //   print_r($subscribedArtist );die;
      return $subscribedArtist;
 
 }

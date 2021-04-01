@@ -165,14 +165,15 @@
                   <?php echo $errors->first('media') ?>
                 </div>
                 <?php endif; ?>
-                <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
-                <label>Choose Image</label>
-                <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
+                <label class="thumbnail"></label>
+                <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:yellow;"></span>
             </div>
                 
                <br>
+               
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.

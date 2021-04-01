@@ -60,7 +60,7 @@
                     <div class="col-md-12">
                     <div class="artistoffer row">
                       <div class="col-md-2">
-                      <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                      <video width="100%" poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                               <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                               
                               Your browser does not support the video tag.
@@ -161,7 +161,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div></div>
                <a href="{{url('artist-video/'.$detail->id)}}">
-            <video class="hoverVideo" id="detail_{{$detail->id}}" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_{{$detail->id}}" poster="{{url('storage/app/public/uploads/'.$detail->audio_pic) }}" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.

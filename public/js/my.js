@@ -299,25 +299,19 @@ function playVideo(a){
 			}
 }
 $(document).ready(function() {
-
-  
-
         $('.rad_But').each(function() {
             if ($(this).is(':checked') == true) {
                 $(this).val()=='male' ? $('.hide').hide() : $('.hide').show();
             }
-        });
-
-	
-
+     });
 
 	var id1= $(".media1:checked").attr('class').split(' ');
 
-
-	  var notId= $(".media1:not(:checked)").attr('class').split(' ');
+	var notId= $(".media1:not(:checked)").attr('class').split(' ');
 	  
-			$('#'+id1[1]).show();
-			$('#'+notId[1]).hide();
+		$('#'+id1[1]).show();
+
+		$('#'+notId[1]).hide();
 
   	
        
@@ -2109,7 +2103,7 @@ function getPaz(a){
 
 $(document).on('click','.select_media_pic',function(){
 
-		
+	    $('.thumbnail').show();
 			var value = $(this).val();
 			
 
@@ -2117,19 +2111,16 @@ $(document).on('click','.select_media_pic',function(){
 
 					$('.media_label').text('Upload Sample Audio (~30s)');
 					$('.media_label12').text('Audio');
-					$('.audio_picture').show();
+					$('.thumbnail1').text('Audio Thumbnail');
 					$('.convert').hide();
 					$('.audio').show();
 					$('.video').hide()
 
 			}
 			else{
-
-				$('.audio_picture').hide();
-
+					
 				$('.media_label12').text('Video');
-
-
+				$('.thumbnail1').text('Video Thumbnail');
 				$('.media_label').text('Upload Sample Video (~30s)');
 				$('.audio').hide()
 				$('.convert').show();
@@ -2414,9 +2405,6 @@ if ($("#myForm").length > 0) {
 	},
         success: function( response ) {
 
-			//console.log(response);return false;
-
-			
 			if(response.errors){
 
 				jQuery.each(response.errors, function(key, value){

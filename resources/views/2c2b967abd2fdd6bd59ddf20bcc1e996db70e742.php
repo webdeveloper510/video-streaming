@@ -31,14 +31,22 @@
  <button type="button" class="btn btn-primary bardot my-3">Select</button>
  </div>
  	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
- 	   <?php if($vid->type=='video'): ?>
+ 	   
             <div class="col-md-4 pt-3 searchvideo1">
             <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
 			  <div class="embed-responsive embed-responsive-16by9">
+        <?php if($vid->type=='video'): ?>
 				<video width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
               <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
-            </video>
+        </video>
+        <?php else: ?>
+        <img src="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" width="100%"/>
+        <audio width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
+                  Your browser does not support the video tag.
+        </audio>
+        <?php endif; ?>
             <div class="pricetime">
           <div class="text-left">
           <h6 class="text-white"><?php echo e($vid->price); ?>/PAZ</h6>
@@ -77,9 +85,18 @@
     <div class="row">
     <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <div class="col-md-4 mb-3">
-     <video width="100%" height="300" >
-        <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
-      </video>
+     <?php if($vid->type=='video'): ?>
+				<video width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+        </video>
+        <?php else: ?>
+        <img src="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" width="100%"/>
+        <audio width="320" height="240"  controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
+                  Your browser does not support the video tag.
+        </audio>
+        <?php endif; ?>
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>

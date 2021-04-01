@@ -382,10 +382,7 @@ class artist extends Controller
 
   public function createOffer(Request $req){
 
-    
-
-
-          $validator = \Validator::make($req->all(), [
+              $validator = \Validator::make($req->all(), [
             'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
             'title'=>'required',
             'offer_status'=>'required',
@@ -398,7 +395,7 @@ class artist extends Controller
             'price'=>'required|max:50000',
             'min'=>'required|min:1',
             'max'=>'required|gt:min',
-            'audio_pic'=>$req->type=='audio' ? 'required|mimes:jpg,png,jpeg':''
+            'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
 
         ]);
 
@@ -417,8 +414,8 @@ class artist extends Controller
             $data=$req->all();
               $fileName = time().'_'.$req->media->getClientOriginalName();
               $ext =$req->media->getClientOriginalExtension();
-              $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():'';
-              $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'): '';
+              $audio_pics = $req->thumbnail_pic ? time().'_'.$req->thumbnail_pic->getClientOriginalName():'';
+              $req->thumbnail_pic ? $req->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
 
               unset($data['_token']);
@@ -427,11 +424,11 @@ class artist extends Controller
               $data['categoryid']=$req->category[0] ? $req->category[0] : $req->category[1];
               $data['type']=  $data['type'];
               $data['audio_pic'] = $audio_pics;
+              unset($data['thumbnail_pic']);
                 if($filePath){
 
                 $createOffer = $this->model->createOffer($data);
 
-               // print_r($createOffer);die;
                   if($createOffer==1){
                     return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
                     }
