@@ -866,7 +866,9 @@ h5.customer1.text-center.pt-3.pl-3 {
     background: #80ad12;
     padding-bottom: 13px;
 }
-
+.card .card-header {
+    z-index: 0 !important;
+}
 </style>
 
 @include('artists.dashboard_footer')
