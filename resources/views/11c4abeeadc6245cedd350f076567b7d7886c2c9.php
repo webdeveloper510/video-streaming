@@ -173,6 +173,13 @@
             </div>
                 
                <br>
+               <div class="col-md-12 mt-3 text-white ">
+                <label>Video Thumbnail</label>
+                <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+            <br>
               <video width="200" id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.

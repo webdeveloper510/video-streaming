@@ -94,14 +94,10 @@
                 {{Form::file('media',['class'=>'form-control file_input'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
-            <div class="col-md-12 mt-3 text-white audio_picture">   
-            <label>Video Thumbnail</label>        
-                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
-                <span id="filename" style="color:yellow;"></span>
-            </div>
-            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
-            <label>Choose Image</label>        
-                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
+            
+            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+            <label class="thumbnail1"></label>        
+                 {{Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
