@@ -38,8 +38,11 @@
                     <option value="2">Credit Cards</option>
                     <option value="3">Apple Pay</option>
                   </select>
+                  <div class="text-center">
+                     <button class="btn btn-primary" type="button"> Buy </button>
+                  </div>
 
-          {{Form::text('token', '',['class'=>'form-control token','placeholder'=>'Add Token'])}}
+          <!-- {{Form::text('token', '',['class'=>'form-control token','placeholder'=>'Add Token'])}}
 
           <strong class="bonusPAZ" style="color:black; font-size:14px"></strong>
 
@@ -56,12 +59,11 @@
     
              <div class="col-md-12 text-center pt-3" style="display: none;">
             {{ Form::submit('Pay!',['class'=>'btn btn-primary']) }}
-             </div>
+             </div> -->
+            </div>
             
              <div class="col"></div>
-             <!-- <div class="col-md-6  calculate text-center">
-                        
-             </div> -->
+            
     
      </div>
   </div>

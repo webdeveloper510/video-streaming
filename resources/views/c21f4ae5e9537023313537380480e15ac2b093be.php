@@ -1,7 +1,8 @@
+
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
-
+<?php   // include(app_path().'/include/includetop.php')?>
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 
@@ -50,9 +51,14 @@
      <div class="row">
         <div class="col"></div>
           <div class="col-md-8 mb-3">
+<<<<<<< HEAD
           <video class="hoverVideo" width="100%" autoplay loop  controls allowfullscreen >
 >>>>>>> ebf2bc1af46fa433981c00b9dbfa28d029823534
                   <source src="<?php echo e(asset('images/landingpage.mp4')); ?>" type="video/mp4">
+=======
+          <video class="hoverVideo" width="100%" autoplay loop  allowfullscreen >
+                  <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
+>>>>>>> a48bf5286702961ee28616619e93f7b7869f23b2
                   Your browser does not support the video tag.
                 </video>
              </div>
@@ -672,16 +678,8 @@ rewindNav:false
   });
 });
  </script-->
+
  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
-
-<!--script type="text/javascript">
-  $ (window).ready (function () {
-  setTimeout (function () {
-    $ ('#modal-subscribe').modal ("show")
-  }, 1000)
-})
-</script-->
+ <?php //include(app_path().'/include/includebottom.php');?>
 
 <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
