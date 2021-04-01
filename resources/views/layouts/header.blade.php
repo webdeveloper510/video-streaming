@@ -73,7 +73,7 @@
                    <input type="hidden" name="type" value="video"/>
 
                         <div class="col-6 ">
-                          <div class="bar">
+                          <div class="bar rightbar">
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
                           
@@ -109,18 +109,20 @@
                         </label><br>
                     
                       </div>
-                        <div class="collapse pt-4" id="collapseExample1">
+                        <div class="collapse pt-4" id="collapseExample1" Style="display:block;">
               @include('popup') 
             </div>
                     </div>
                   </div>
                     
-                   
+                  <div class="col-md-6 text-left ">
+                        <p class="text-white"><input type="checkbox"> Save Filter options</p>
+                        </div>
                       
-                  <div class="col-md-12 text-right pr-5">
+                  <div class="col-md-6 text-right pr-5">
             
              
-       <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+       <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
         {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
             </div>
             <div class="col-md-6">
@@ -139,7 +141,7 @@
                     <!-- -------------------------- 2nd Tab  Start--------------------------->
 
 
-                  <div id="menu1" class="tab-pane fade">
+                  <div id="menu1" class="tab-pane fade1 ">
                     <h3 style="color: #fff;">Audio</h3>
                       <div class="row">
                     <div class="col-6">
@@ -213,8 +215,11 @@
                         <div class="col-6">
                             
                          </div>
-                          <div class="col-md-12 pr-5 text-right">
-                          <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" >
+                         <div class="col-md-6 text-left ">
+                        <p class="text-white"><input type="checkbox"> Save Filter options</p>
+                        </div>
+                          <div class="col-md-6 pr-5 text-right">
+                          <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
                      {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                     {{ Form::close() }}
                    </div> 
@@ -226,7 +231,7 @@
                       <!-- -------------------------- 3rd Tab  Start--------------------------->
 
                 
-                  <div id="menu4" class="tab-pane fade">
+                  <div id="menu4" class="tab-pane fade1">
                     <h3 style="color: #fff;">Artists</h3>
                     <div class="row">
                            {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
@@ -379,7 +384,7 @@
                    </div>
 
                         <div class="col-6 ">
-                          <div class="bar">
+                          <div class="bar rightbar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
                           <label class=""> 
@@ -414,18 +419,20 @@
                       </div>
 
                      
-                        <div class="collapse pt-4" id="collapseExample2">
+                        <div class="collapse pt-4" id="collapseExample2" style="display:block;">
               @include('popup') 
             </div>
                     </div>
                   </div>
                     
-                   
+                  <div class="col-md-6 text-left ">
+                        <p class="text-white"><input type="checkbox"> Save Filter options</p>
+                        </div>
                       
-                  <div class="col-md-12 text-right pr-5">
+                  <div class="col-md-6 text-right pr-5">
 
              
-       <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+       <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
         {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
             </div>
             <div class="col-md-6">
@@ -668,7 +675,7 @@
                      <input type="hidden" name="type" value="video"/>
 
                           <div class="col-md-6 ">
-                            <div class="bar">
+                            <div class="bar rightbar">
                         <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
@@ -704,24 +711,23 @@
                           </label><br>
                       
                         </div>
-                          <div class="collapse pt-4" id="collapseExample1">
+                          <div class="collapse pt-4" id="collapseExample1" style="display:block;" >
                 @include('popup') 
               </div>
                       </div>
                     </div>
                       
                      
-                        
-                    <div class="col-md-12 text-right pr-5">
+                        <div class="col-md-6 text-left ">
+                        <p class="text-white"><input type="checkbox"> Save Filter options</p>
+                        </div>
+                    <div class="col-md-6 text-right pr-5">
               
                
-         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+         <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
           {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
               </div>
-              <div class="col-md-6">
-                       
-            
-            </div>
+
                      
                        
                          {{ Form::close() }}
@@ -805,11 +811,11 @@
                                   </div>
                                 </div>
                           </div>
-                          <div class="col-md-6">
-                              
-                           </div>
-                            <div class="col-md-12 pr-5 text-right">
-                            <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" >
+                           <div class="col-md-6 text-left ">
+                        <p class="text-white"><input type="checkbox"> Save Filter options</p>
+                        </div>
+                            <div class="col-md-6 pr-5 text-right">
+                            <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
                        {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
                       {{ Form::close() }}
                      </div> 
@@ -974,7 +980,7 @@
                      </div>
 
                           <div class="col-md-6 ">
-                            <div class="bar">
+                            <div class="bar rightbar">
                                <div class="dropdown1 text-white">
                            <h4 >Media</h4>
                             <label class=""> 
@@ -1015,12 +1021,15 @@
                       </div>
                     </div>
                       
+                    <div class="col-md-6 text-left ">
+                        <p class="text-white"><input type="checkbox"> Save Filter options</p>
+                        </div>
                      
                         
-                    <div class="col-md-12 text-right pr-5">
+                    <div class="col-md-6 text-right pr-5">
 
                
-         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+         <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
           {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
               </div>
               <div class="col-md-6">
@@ -1293,6 +1302,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+
 </script>
  @if($errors->all())
   <script type="text/javascript">
