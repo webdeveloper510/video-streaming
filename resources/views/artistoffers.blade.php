@@ -61,7 +61,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p>{{$offerdata->price}} PAZ/Minute</p>
+              <p>{{$offerdata->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>

@@ -33,7 +33,7 @@
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3 class="paz_price">{{$video->price}}PAZ</h3>
+					  <h3 class="paz_price">{{$video->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -69,7 +69,7 @@
       	</span>
       </div>
       <div class="text-center mt-4">
-      <h2>Token:{{ $GLOBALS['paz'] }} PAZ</h2>
+      <h2>Token:{{ $GLOBALS['paz'] }} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h2>
       <input type="hidden" id="vidid" name="videoid" value="{{$GLOBALS['videoid']}}">
       <input type="hidden" class="token" name="token" value="{{ $GLOBALS['paz'] }}">
       <input type="hidden" class="art_id" name="art_id" value="{{ $GLOBALS['artistid'] }}">
