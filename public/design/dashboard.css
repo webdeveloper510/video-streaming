@@ -284,8 +284,20 @@ li.profileimagemobile hr {
 .logo img {
     position: absolute;
     top: 6px;
+    left: 38%;
 }
 ul.subnav {
     width:100%;
+}
+.secondtextbody {
+    background: white;
+    color: black;
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+    right: 0;
+    margin-top: -3px !important;
+    z-index: 99999999999 !important;
+    display: none;
 }
 }
