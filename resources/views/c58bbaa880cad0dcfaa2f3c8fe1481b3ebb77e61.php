@@ -115,13 +115,13 @@
 }
 
 .noti {
-  background: blue;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 15px;
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 22px;
 }
  </style>
 </div>
