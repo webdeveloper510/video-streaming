@@ -242,6 +242,16 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 li.nav-item a p {
     color: white;
 }
+section.background1{
+    margin-top: 0px !important;
+}
+.custom-file-label{
+    z-index: 0 !important;
+}
+li.nav-item.dropdown {
+    display: block;
+    margin: 0px auto;
+}
 .mobile-bar {
     display: block !important;
 }

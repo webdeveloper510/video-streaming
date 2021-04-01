@@ -8,7 +8,7 @@
 <div class="titleheader col-md-12" >
      <h3><a href="{{url('artist/Profile')}}" class="text-white">Please upload Media for your Profile Overview here....</a></h3>
 </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
     <!-- <h3 class="text-center">Due</h3> -->
     <a href="{{url('artist/requests/due')}}">
     <div class="columesdashboard">
@@ -64,7 +64,7 @@
             </a>  
     </div>
          
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
     <!-- <h3 class="text-center">In Process</h3> -->
     <a href="{{url('artist/requests/process')}}">
     <div class="columesdashboard1">
@@ -88,7 +88,7 @@
             </div>  
             </a> 
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2 ">
     <!-- <h3 class="text-center">Project</h3> -->
     <a href="{{url('artist/requests/new')}}">
     <div class="columesdashboard2">
@@ -113,7 +113,7 @@
             </a>
     </div>
    
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
    <a href="{{url('artist/Profile/collection')}}">
     <div class="columesdashboard3">
            <h1>{{$totalCollection ? $totalCollection : 0}}</h1>
