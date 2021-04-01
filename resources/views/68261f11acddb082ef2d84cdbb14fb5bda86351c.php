@@ -1,6 +1,4 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<!-- <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script> -->
-
 <link rel="stylesheet" href="<?php echo e(asset('design/play.css')); ?>" />
 <!-- end header -->
 
@@ -155,14 +153,19 @@
 
 	<div class="col-md-12 uploa_outer" id="wishlist">
 		  <div class="slider_tittle" >
-		  <h3 class="tittle">Wishlist</h3>		  
+		  <h3 class="tittle">Wishlist</h3>		 
+      <div class="text-right">
+      <button class="btn btn-primary" type="button"> Select </button> 
 		</div>
         <div class="row pb-row">
               <?php if($wishList): ?>
               <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
+            <div class="checkboxall">
+              <input type="checkbox" style="display:none;"> 
+            </div>
              <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
-    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
+                 <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4">
 				
              </video>
              
