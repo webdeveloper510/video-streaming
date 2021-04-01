@@ -47,7 +47,7 @@
         <div class="col"></div>
           <div class="col-md-8 mb-3">
           <video class="hoverVideo" width="100%" autoplay loop  allowfullscreen >
-                  <source src="{{asset('images/landingpage.mp4')}}" type="video/mp4">
+                  <source src="{{asset('images/landingpage1.mp4')}}" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
              </div>

@@ -1,7 +1,10 @@
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+
+
+
 <link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 
 
@@ -1181,8 +1184,8 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
-    <div class="noti"></div></a>
+		<a href="<?php echo e(url('/play/'.$addedLibrary->id)); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
+    <div class="noti" style="<?php echo e($addedLibrary->read==0 ? 'display:block' : 'display:none'); ?>"></div></a>
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> My Orders
     <?php if($login && $latestOffer): ?>
@@ -1257,7 +1260,7 @@
                
                <!-- <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div--> 
                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
-               <div class="noti" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"></div>
+               <div class="noti" style="<?php echo e($count > 0 || $addedLibrary->read==0 ? 'display: block' : 'display: none'); ?>"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -1304,7 +1307,7 @@
                                 <p><?php echo e($artist->nickname); ?></p>
                                 </div>
                               <div class="col mt-3">
-                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
+                                  <div class="online" style="<?php echo e($artist->is_seen=='no' ? 'display:block' :'display:none'); ?>">
                                       </div>
                               </div>
                     </div>
