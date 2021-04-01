@@ -1050,7 +1050,8 @@ public function getRespectedSub($data){
 
     public function insertNotification($data){
 
-      return DB::table('notification')->insert($data);
+       $done = DB::table('notification')->insert($data);
+      return $done ? 1 : 0;
 
     }
 
@@ -1545,7 +1546,7 @@ public function getRespectedSub($data){
 
       $insert = DB::table('user_video')->insert($video_data);
 
-      return $insert;
+      return $insert ? 1 : 0;
 
         // if($insert==1){
 
@@ -1592,7 +1593,7 @@ public function getRespectedSub($data){
             'artistid'=>$data['artistid'],
             'userid'=>$data['userid'],
             'message'=>$data['title'].'has been ordered',
-            'notificationfor'=>'artist',
+            'notificationfor'=>'user',
             'mediaid'=>''
 
           );
@@ -1617,7 +1618,7 @@ public function getRespectedSub($data){
             'artistid'=>$data['artistid'],
             'userid'=>$data['userid'],
             'message'=>$data['title'].'has been ordered',
-            'notificationfor'=>'artist',
+            'notificationfor'=>'user',
             'mediaid'=>''
 
           );
@@ -2535,7 +2536,7 @@ public function buyofferVideo($data,$offer){
          //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
          //print_r($done);die;
-          $return = $done=='1' || $done=='0' ? 1 : 0;
+          $return = $done!='' ? 1 : 0;
     }
 
     else{
@@ -2619,7 +2620,9 @@ public function insertReservedTable($data,$vid)
 
     );
 
-    return DB::table('reserved_tokens')->insert($data);
+     $done = DB::table('reserved_tokens')->insert($data);
+
+     return $done ? 1 : 0;
 
 
   }
@@ -2753,7 +2756,7 @@ public function insertSubscriber($uid,$data){
 
         $insert = DB::table('subscriber')->insert($subscriber);
 
-        return $insert;
+        return $insert ? 1 : 0;
 
 }
 
@@ -2787,7 +2790,9 @@ public function insert_ticket_table($data){
         $data['updated_at']=now();
         $data['artistid']=$userid;
 
-        return DB::table('ticket')->insert($data);
+         $done = DB::table('ticket')->insert($data);
+
+         return $done ? 1 : 0 ;
 
 }
 
@@ -2897,7 +2902,9 @@ public function customer_issue($data){
           $data['created_at']=now();
           $data['updated_at']=now();
 
-          return DB::table('customer_issue')->insert($data);
+           $done = DB::table('customer_issue')->insert($data);
+
+           return $done ? 1 : 0;
 }
 
     public function deleteoffer($data){
