@@ -535,7 +535,7 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>   
-          <div class="col-md-12 mt-2 convert">
+          <!-- <div class="col-md-12 mt-2 convert">
            <?php echo e(Form::label('quality:', 'quality:')); ?> 
            <select name="convert"  class='form-control'>
                 <option value="">Choose ...</option>
@@ -543,15 +543,15 @@ Your browser does not support the audio tag.
                <option  value="<?php echo e($q->quality); ?>" <?php echo e(($random[0]->convert)==$q->quality ? 'selected' : ''); ?>><?php echo e($q->quality); ?>px </option>
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
-            </div>
+            </div> -->
           <div class="col-md-12 mt-3 text-white">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input file_input'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
-            <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">
-            <?php echo e(Form::label('Choose Media', 'Choose Picture',['class'=>'custom-file-label '])); ?> 
+            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
+            <?php echo e(Form::label('', '',['class'=>'custom-file-label thumbnail1'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
