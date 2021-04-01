@@ -99,6 +99,12 @@
 
                 <span id="filename" style="color:yellow;"></span>
             </div>
+            <div class="col-md-12 mt-3 text-white audio_picture">   
+            <label>Video Thumbnail</label>        
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+
+                <span id="filename" style="color:yellow;"></span>
+            </div>
             <div class="col-md-12 mt-3 text-white audio_picture" style="display:none;">   
             <label>Choose Image</label>        
                  <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
