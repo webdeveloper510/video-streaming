@@ -105,5 +105,8 @@ div#accordion .card-header {
 ul.menufooter a {
     color: black;
 }
+button.btn.btn-link {
+    font-size: 20px;
+}
 </style>
 @include('artists.dashboard_footer')
