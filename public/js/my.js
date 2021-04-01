@@ -2111,7 +2111,7 @@ $(document).on('click','.select_media_pic',function(){
 
 					$('.media_label').text('Upload Sample Audio (~30s)');
 					$('.media_label12').text('Audio');
-					$('.thumbnail1').text('Audio Thumbnail');
+					$('.thumbnail1').text('Image Upload');
 					$('.convert').hide();
 					$('.audio').show();
 					$('.video').hide()
