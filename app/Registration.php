@@ -1605,7 +1605,7 @@ public function getRespectedSub($data){
 
       $return  = $this->insertNotification($array);
 
-      return $insert;
+      return $insert ? 1 : 0;
     }
 
     public function addToLibrary($lists){
