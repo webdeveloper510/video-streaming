@@ -60,7 +60,7 @@
                     <div class="col-md-12">
                     <div class="artistoffer row">
                       <div class="col-md-2">
-                      <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                      <video width="100%" poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                               <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                               
                               Your browser does not support the video tag.
@@ -163,7 +163,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -347,7 +347,7 @@
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%" Controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>

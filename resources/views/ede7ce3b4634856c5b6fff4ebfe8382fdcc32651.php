@@ -115,13 +115,13 @@
 }
 
 .noti {
-  background: blue;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 15px;
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 22px;
 }
  </style>
 </div>
@@ -347,7 +347,7 @@
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%" Controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
