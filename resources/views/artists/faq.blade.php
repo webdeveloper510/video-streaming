@@ -7,7 +7,8 @@
         </div>
         <div class="row">
            
-            <div class="col-md-8">
+            <div class="col-md-12">
+            
                 <div class="faqtext">
                 <h1>FAQ's</h1>
                 <div id="accordion">
@@ -64,7 +65,9 @@
                 </div>
                 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
+                <div class="row">
+                <div class="col-md-6">
                 <div class="upcoming">
                     <h3>Upcoming Features</h3>
                     <ul>
@@ -74,6 +77,8 @@
                     <li>PAZ-Live</li>
                     </ul>
                 </div>
+                </div>
+                <div class="col-md-6">
                 <h3>Additional links</h3>
                 <ul class="menufooter">
               <li>
@@ -87,6 +92,8 @@
               <li><a href="{{url('/disclaimer')}}"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
               <li><a href="{{url('/legal-notice')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
             </ul>
+            </div>
+            </div>
             </div>
         </div>
     </div>

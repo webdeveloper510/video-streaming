@@ -66,6 +66,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
+                <button class="btn btn-outline-danger" type="button">Delete this Playlist</button>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -76,6 +77,7 @@
                       <div class="videodata">         
 
                       </div>
+                      <button class="btn btn-outline-danger" type="button">Remove From Playlist</button>
                   </div>
                   <div class="col-md-4">
                     <div class="videoinfo">
