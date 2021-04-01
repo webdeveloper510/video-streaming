@@ -64,7 +64,9 @@
                               <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                               
                               Your browser does not support the video tag.
-                          </video>
+                        </video>
+                        
+               <div class="noti" style="<?php echo e($offer->is_seen=='no' ? 'display:block':'display:none'); ?>"></div>
                
                     </div>
        
@@ -111,6 +113,16 @@
 .text-center.Artistxyz {
     padding: 30px;
 }
+
+.noti {
+  background: blue;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
  </style>
 </div>
 
@@ -156,6 +168,8 @@
                 
                 Your browser does not support the video tag.
             </video>
+
+            <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
                 </a>
               
                 
@@ -207,6 +221,7 @@
         <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
+        <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
 
         </a>
 
@@ -371,7 +386,15 @@
 
 </div>
 </div>
+<script>
+    var artistid="<?php echo e($artistid); ?>";
+    setTimeout(function(){ 
+        removeBadge(artistid);
+     }, 10000);
+</script>
 <style>
+
+
 .fa-lock{
   font-size:30px;
 }

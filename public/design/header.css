@@ -206,6 +206,9 @@ margin-left: 50px;
 .header_bottom {
   display: none;
 }
+.tab-content {
+  background: #7b0000 !important;
+}
 .col-md-4.subss{
 right:0px !important;
 }
@@ -231,6 +234,7 @@ ul.nav.nav-tabs li a {
 }
 .subnav{
 width:100%;
+margin-top: 11px;
 position:unset;
 }
 footer {
