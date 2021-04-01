@@ -1375,7 +1375,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
 			success: function(data){
 
-			// console.log(data);return false;
+			 //console.log(data);return false;
 
 					if(data.status==1){
 						 $('.successfull').show();
@@ -2756,7 +2756,7 @@ $(document).on('submit', '#customer_issue', function (event) {
 
 
 function removeBadge(id){
-	
+
 	//console.log(id);
 
 	$.ajax({
