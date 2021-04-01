@@ -86,7 +86,7 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
-         <h4>{{$offer->price}}PAZ/min </h4>
+         <h4>{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/min </h4>
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
@@ -217,7 +217,7 @@
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="{{url('artistVideo/'.$aud->id)}}">
-    <img src="{{$aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')}}">
+    <img src="{{$aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')}}" width="100%">
 
 <audio controls controlsList="nodownload" id="audio_{{$aud->id}}" disablePictureInPicture>
 
