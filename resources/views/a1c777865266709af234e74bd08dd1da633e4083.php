@@ -1313,7 +1313,7 @@
                                 <p><?php echo e($artist->nickname); ?></p>
                                 </div>
                               <div class="col mt-3">
-                                  <div class="online" style="<?php echo e($artist->is_seen=='no' ? 'display:block' :'display:none'); ?>">
+                                  <div class="online" style="<?php echo e($artist->is_seen==0 ? 'display:block' :'display:none'); ?>">
                                       </div>
                               </div>
                     </div>

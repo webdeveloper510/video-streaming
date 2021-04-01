@@ -2711,14 +2711,17 @@ public function showSubscribeArtists(){
   $subscribedArtist = DB::table('subscriber')
   ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
   ->leftJoin ('offer','offer.artistid','=','subscriber.artistid')
-  ->select('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+  //->leftJoin ('media','media.contentProviderid','=','subscriber.artistid')
+  ->select('contentprovider.nickname',\DB::raw("GROUP_CONCAT(media.is_seen) as seen"),'contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+  
   ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
   ->where(['offer.by_created'=>1])
   ->orderBy('offer.id', 'DESC')
+ //s ->limit(1)
   ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
   ->get();
-    // echo "<pre>";
-    //   print_r($subscribedArtist);die;
+    echo "<pre>";
+      print_r($subscribedArtist );die;
      return $subscribedArtist;
 
 }
