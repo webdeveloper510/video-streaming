@@ -1,6 +1,4 @@
 @include('layouts.header')
-<!-- <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script> -->
-
 <link rel="stylesheet" href="{{asset('design/play.css')}}" />
 <!-- end header -->
 
@@ -155,14 +153,19 @@
 
 	<div class="col-md-12 uploa_outer" id="wishlist">
 		  <div class="slider_tittle" >
-		  <h3 class="tittle">Wishlist</h3>		  
+		  <h3 class="tittle">Wishlist</h3>		 
+      <div class="text-right">
+      <button class="btn btn-primary" type="button"> Select </button> 
 		</div>
         <div class="row pb-row">
               @if($wishList)
               @foreach($wishList as $indx=> $val)
             <div class="col-md-3 pb-video">
+            <div class="checkboxall">
+              <input type="checkbox" style="display:none;"> 
+            </div>
              <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
-    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
+                 <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4">
 				
              </video>
              
