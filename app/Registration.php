@@ -1335,6 +1335,8 @@ public function getRespectedSub($data){
 
     public function getCountofNotification($where){
 
+      //print_r($where);
+
       $count = DB::table('notification')->where($where)->count();
 
       return $count;
@@ -1398,6 +1400,7 @@ public function getRespectedSub($data){
         ->join('profiletable','profiletable.userid','=','notification.userid')
          ->select('notification.*', 'users.*','profiletable.profilepicture')
          ->where('notification.notificationfor',$user)
+         ->orWhere('notification.notificationfor','addedVideo')
          ->get()->toArray();
       }
       else{
