@@ -105,5 +105,8 @@ div#accordion .card-header {
 ul.menufooter a {
     color: black;
 }
+button.btn.btn-link {
+    font-size: 20px;
+}
 </style>
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/faq.blade.php ENDPATH**/ ?>
