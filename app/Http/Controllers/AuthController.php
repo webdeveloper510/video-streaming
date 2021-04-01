@@ -1663,7 +1663,7 @@ public function readNotification(Request $request){
 
           if($requestData==1 || $requestData=='1'){
 
-            return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));
+            return response()->json(array('status'=>1, 'message'=>'Order Created Successfully!'));      
 
           }
 

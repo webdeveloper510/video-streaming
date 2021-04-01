@@ -1527,8 +1527,7 @@ public function getRespectedSub($data){
 
         $getOffer = $this->selectDataById('id','offer',$video['id']);
 
-        //print_r($getOffer);die;
-        $video_id = $video['id'];
+       $video_id = $video['id'];
       unset($video['id']);
       unset($video['nickname']);
       unset($video['category']);
@@ -1547,25 +1546,6 @@ public function getRespectedSub($data){
       $insert = DB::table('user_video')->insert($video_data);
 
       return $insert ? 1 : 0;
-
-        // if($insert==1){
-
-        //       $return = DB::table('users')->where(array('id'=>$uid))->update([
-        //       'tokens' =>  DB::raw('tokens -'.$price)
-        //       ]);
-        //       if($return){
-        //         $return = DB::table('contentprovider')->where(array('id'=>$artistId))->update([
-        //           'token' =>  DB::raw('token +'.$price)
-        //           ]);
-        //       }
-        //       return $return;
-        // }
-
-        // else{
-        //   return 0;
-        // }
-
-
       
     }
 
