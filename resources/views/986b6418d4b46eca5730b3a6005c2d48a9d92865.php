@@ -61,7 +61,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p><?php echo e($offerdata->price); ?> PAZ/Minute</p>
+              <p><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>
@@ -90,7 +90,7 @@
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small>
+        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>)</small>
         <input type="radio" id="Yes" class="add_price" name="gender"  value="Yes">
               <label for="male">Yes</label>
               <input type="radio" id="No" class="add_price" name="gender" value="No">
@@ -120,7 +120,7 @@
         </style>
 
 
-            <div class="modal" tabindex="-1" style="display:none;">
+            <div class="modal successfull" tabindex="-1" style="display:none;">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
