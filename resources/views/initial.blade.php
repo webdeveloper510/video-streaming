@@ -216,7 +216,7 @@
           </video>
           <div class="pricetime">
               <div class="text-left">
-                <h6 class="text-white">{{ $recnt->price }}PAZ</h6>
+                <h6 class="text-white">{{ $recnt->price }}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
               </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
@@ -286,7 +286,7 @@
                 </video>
                 <div class="pricetime">
                 <div class="text-left">
-          <h6 class="text-white">{{ $pop->price }}PAZ</h6>
+          <h6 class="text-white">{{ $pop->price }}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_{{$pop->id}}">{{ $pop->duration ? $pop->duration :'' }}</h6>
@@ -408,7 +408,7 @@
             </a>
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white">{{ $audio->price}}/PAZ</h6>
+          <h6 class="text-white">{{ $audio->price}}/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="audio_dur{{$audio->id}}">{{ $audio->duration ? $audio->duration :'' }}</h6>

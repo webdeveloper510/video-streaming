@@ -212,7 +212,7 @@
           <form> 
           <input type="checkbox" class="slct_video"></form></div>
             <a href="{{url('artist-video/'.$aud->id)}}">
-            <img src="{{asset('images/logos/voice.jpg')}}">
+            <img width="100%" src="{{asset('images/logos/voice.jpg')}}">
 
         <audio controls controlsList="nodownload" disablePictureInPicture>
 
