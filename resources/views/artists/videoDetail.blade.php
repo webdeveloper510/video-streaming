@@ -65,7 +65,6 @@
 				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
 						<ul style="display:none;" class="reporting">
 						 <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
-						 <li>You can not download this video.</li>
 						</ul>
 				   </div>
 				</div>
@@ -76,7 +75,7 @@
           
        
 	    <!-- Modal -->
-		<div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="reportvideoLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header ">
