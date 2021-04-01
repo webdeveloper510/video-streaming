@@ -113,7 +113,7 @@
                   </div>
                     
                   <div class="col-md-6">
-                       <h4><input type="checkbox">Save filter options</h4>
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                       
                   <div class="col-md-6 text-right pr-5">
@@ -210,7 +210,7 @@
                               </div>
                         </div>
                         <div class="col-md-6">
-                       <h4><input type="checkbox">Save filter options</h4>
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                           <div class="col-md-6 pr-5 text-right">
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
@@ -421,7 +421,7 @@
                     
                    
                      <div class="col-md-6">
-                       <h4><input type="checkbox">Save filter options</h4>
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                   <div class="col-md-6 text-right pr-5">
 
@@ -712,7 +712,7 @@
                     </div>
                       
                     <div class="col-md-6">
-                       <h4><input type="checkbox">Save filter options</h4>
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                         
                     <div class="col-md-6 text-right pr-5">
@@ -809,7 +809,7 @@
                                 </div>
                           </div>
                           <div class="col-md-6">
-                       <h4><input type="checkbox">Save filter options</h4>
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                             <div class="col-md-6 pr-5 text-right">
                             <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
@@ -1019,7 +1019,7 @@
                     </div>
                       
                     <div class="col-md-6">
-                       <h4><input type="checkbox">Save filter options</h4>
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                         
                     <div class="col-md-6 text-right pr-5">
