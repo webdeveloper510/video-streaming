@@ -884,7 +884,9 @@ h5.customer1.text-center.pt-3.pl-3 {
     background: #80ad12;
     padding-bottom: 13px;
 }
-
+.card .card-header {
+    z-index: 0 !important;
+}
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>
