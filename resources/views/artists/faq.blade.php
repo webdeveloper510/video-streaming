@@ -11,68 +11,57 @@
             
                 <div class="faqtext">
                 <h1>FAQ's</h1>
-            
-                 
-                        <div id="accordion">
-                        <div class="row">
-                        <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <b class="text-dark"> How does status of orders change?</b>
-                                        </button>
-                                    </h5>
-                                    </div>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                           <b class="text-dark"> How does status of orders change?</b>
+                            </button>
+                        </h5>
+                        </div>
 
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-                                    Orders that are coming in are always in status “New Order”<br>
-                                    By clicking on the green box, you will get directly to the list of new orders.<br>
-                                    Orders that you have seen in detail by expanding the order in the list will get the status “In Process”<br>
-                                    By clicking on the orange box, you will get directly to the list of the orders in process.<br>
-                                    Orders for which you have less than 24 hours left get the status “Due” <br>
-                                    By clicking on the red box, you will get directly to the list of due orders.
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <b class="text-dark">Where can I look up detailed information about my earnings?</b>
-                                    </button>
-                                </h5>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                You can click on the earnings box in the dashboard where you will get a detailed earnings list.
-                                </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header" id="headingfour">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseTwo">
-                                    <b class="text-dark"> How do I know if my Customer/Artist invitations were accepted? </b>
-                                    </button>
-                                </h5>
-                                </div>
-                                <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
-                                <div class="card-body">
-                                On the withdrawal page you can see if you have successfully invited artists and what status they have in relation to the requirements of the invitation bonus. Thepassive revenue of Customer token purchases is also displayed.
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                            </div>
-                        
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                        Orders that are coming in are always in status “New Order”<br>
+                         By clicking on the green box, you will get directly to the list of new orders.<br>
+                         Orders that you have seen in detail by expanding the order in the list will get the status “In Process”<br>
+                         By clicking on the orange box, you will get directly to the list of the orders in process.<br>
+                         Orders for which you have less than 24 hours left get the status “Due” <br>
+                         By clicking on the red box, you will get directly to the list of due orders.
+                        </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <b class="text-dark">Where can I look up detailed information about my earnings?</b>
+                            </button>
+                        </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                        You can click on the earnings box in the dashboard where you will get a detailed earnings list.
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingfour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapseTwo">
+                            <b class="text-dark"> How do I know if my Customer/Artist invitations were accepted? </b>
+                            </button>
+                        </h5>
+                        </div>
+                        <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+                        <div class="card-body">
+                        On the withdrawal page you can see if you have successfully invited artists and what status they have in relation to the requirements of the invitation bonus. Thepassive revenue of Customer token purchases is also displayed.
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                   
                 </div>
                 
             </div>
