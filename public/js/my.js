@@ -88,7 +88,6 @@ $(document).on('change','#exampleFormControlSelect1',function(){
 
 $(document).ready(function(){
 
-	//console.log('yess')
 
 	storage_url = $('#storagePath').attr('url');
 
@@ -97,7 +96,9 @@ $(document).ready(function(){
 
    checked_radio == 'contentprovider' ? $('.discount').hide() : $('.discount').show()
 
+	var notiVala = $('.checkNotivalue').val();
 
+	console.log(notiVala);
 
 
 	function format3(d){
@@ -676,7 +677,8 @@ $(document).on('click', '.addNow', function () {
 
 				data: {"videoid": videoid, 'price':token, 'art_id':artist},
 
-				success: function(data){				
+				success: function(data){	
+					//console.log(data);return false;			
 					if(data.status==1){
 							if(data.messge=='Insufficient Paz Tokens!'){
 									$('.insuffiecient').show();
@@ -688,6 +690,10 @@ $(document).on('click', '.addNow', function () {
 								$('.message').show();
 		
 								$('.message').html(data.messge);
+
+								setTimeout(function(){
+									location.reload()
+								},3000);
 
 							}
 					
@@ -1334,6 +1340,7 @@ function showPlaylistVedio(data){
 	$('.listname').html(videos.playlistname)
 	var split_title  = titles.split(',');
 	var videos_playlist  = videos_playlist.split(',');
+	var name  = videos.names.split(',');
 	var div= '';
 	$('.video_append').html('')
 	for(var i=0; i<videos_playlist.length; i++){
@@ -1341,7 +1348,7 @@ function showPlaylistVedio(data){
 		if(i==0){
 		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
 		}
-	 div +=" <div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+videos.nickname+"</p> </div>"
+	 div +=" <div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div>"
 	}
 	$('.video_append').append(div);
 

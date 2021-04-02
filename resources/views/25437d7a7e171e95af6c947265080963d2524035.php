@@ -8,7 +8,7 @@
 <div class="titleheader col-md-12" >
      <h3><a href="<?php echo e(url('artist/Profile')); ?>" class="text-white">Please upload Media for your Profile Overview here....</a></h3>
 </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
     <!-- <h3 class="text-center">Due</h3> -->
     <a href="<?php echo e(url('artist/requests/due')); ?>">
     <div class="columesdashboard">
@@ -64,7 +64,7 @@
             </a>  
     </div>
          
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
     <!-- <h3 class="text-center">In Process</h3> -->
     <a href="<?php echo e(url('artist/requests/process')); ?>">
     <div class="columesdashboard1">
@@ -88,7 +88,7 @@
             </div>  
             </a> 
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2 ">
     <!-- <h3 class="text-center">Project</h3> -->
     <a href="<?php echo e(url('artist/requests/new')); ?>">
     <div class="columesdashboard2">
@@ -113,7 +113,7 @@
             </a>
     </div>
    
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
    <a href="<?php echo e(url('artist/Profile/collection')); ?>">
     <div class="columesdashboard3">
            <h1><?php echo e($totalCollection ? $totalCollection : 0); ?></h1>
@@ -884,7 +884,9 @@ h5.customer1.text-center.pt-3.pl-3 {
     background: #80ad12;
     padding-bottom: 13px;
 }
-
+.card .card-header {
+    z-index: 0 !important;
+}
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard_home.blade.php ENDPATH**/ ?>

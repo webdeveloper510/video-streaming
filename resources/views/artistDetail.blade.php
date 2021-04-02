@@ -36,9 +36,9 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
-    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers<div id="offerSelected" ></div></a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
+    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection<div id="mediaSelected"></div></a>
     <!-- <a class="nav-link tabss " id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="false"><i class="fa fa-newspaper-o"> </i> feed</a>
      -->
   </div>
@@ -66,9 +66,9 @@
                               Your browser does not support the video tag.
                         </video>
                         
-               <div class="noti" style="{{$offer->is_seen=='no' ? 'display:block':'display:none'}}"></div>
-               
+               <div class="noti" style="{{$offer->notificationseen=='0' && $offer->notiType=='offer'? 'display:block':'display:none'}}"></div>
                     </div>
+
        
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="{{url('artistoffers/'.$offer->id)}}">
@@ -121,6 +121,13 @@
     top: 12px;
     right: 22px;
 }
+.noti1 {
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+
+}
  </style>
 </div>
 
@@ -167,8 +174,9 @@
                 Your browser does not support the video tag.
             </video>
 
-            <div class="noti" style="{{$detail->is_seen==0 ? 'display:block' : 'display:none'}}"></div>
+            <div class="noti" style="{{$detail->notification=='media' && $detail->is_seen=='0' ? 'display:block' : 'display:none'}}"></div>
                 </a>
+
               
                 
           <div class="pricetime">
@@ -219,7 +227,8 @@
         <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
-        <div class="noti" style="{{$aud->is_seen==0 ? 'display:block' : 'display:none'}}"></div>
+        <div class="noti" style="{{$aud->notification=='media' && $aud->is_seen=='0' ? 'display:block' : 'display:none'}}"></div>
+        <input type='hidden' class='checkNotivalue' value="{{$detail->is_seen=='0' && $detail->notification=='media' ? 'media':''}}"/>
 
         </a>
 

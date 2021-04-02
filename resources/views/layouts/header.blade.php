@@ -590,7 +590,7 @@
                                 <p>{{$artist->nickname}}</p>
                                 </div>
                               <div class="col mt-3">
-                                  <div class="online" style="{{$artist->by_created==1 ? 'display:block' :'display:none' }}">
+                                  <div class="online" style="{{$artist->is_seen=='no' || $artist->mediaseen=='0' ? 'display:block' :'display:none' }}">
                                       </div>
                               </div>
                     </div>
