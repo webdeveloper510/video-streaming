@@ -405,16 +405,37 @@ public function uploadContentProvider($contentdata){
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
       unset($contentdata['radio']);
-    //$duration=$contentdata['hour'].':'.$contentdata['minutes'].':'.$contentdata['seconds'];
-   // $timeArr = explode(':', $duration);
-    // $contentdata['duration']= ($timeArr[0]*3600 ) + ($timeArr[1]*60) + ($timeArr[2]);
        $contentdata['duration']='';
-    //  unset($contentdata['hour']);
-    //  unset($contentdata['minutes']);
-    //  unset($contentdata['seconds']);
+
     $contentdata['created_at']= now();
     $contentdata['updated_at']= now();
-    $inserted_data =  DB::table('media')->insert($contentdata);
+     $inserted_data =  DB::table('media')->insertGetId($contentdata);
+      if($inserted_data){
+
+        $count  = $this->selectDataById('artistid','media_seen_notification',$contentid);
+
+          if(count($count) > 0){
+                $data = array(
+                  'is_seen'=>'0',
+                  'mediaid'=>$inserted_data
+                );
+
+            $update = $this->UpdateData('media_seen_notification','artistid',$data,$contentid);
+
+          }
+        // $array = array(
+        //   'created_at'=>now(),
+        //   'updated_at'=>now(),
+        //   'artistid'=>$userid,
+        //   'userid'=>0,
+        //   'message'=>'CM',
+        //   'notificationfor'=>'created Media',
+        // );
+    
+        //$inserted_data = $this->insertNotification($array);
+
+      }
+   
     return $inserted_data ? '1':'0';
 }
 
@@ -1094,6 +1115,21 @@ public function getRespectedSub($data){
 
 
         $insert = DB::table('offer')->insert($data);
+
+        if($insert){
+
+              $array = array(
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'artistid'=>$userid,
+                'userid'=>0,
+                'message'=>'CO',
+                'notificationfor'=>'created offer',
+              );
+
+          $insert = $this->insertNotification($array);
+
+      }        
 
 
         return $insert ? 1 :0;
@@ -2648,6 +2684,8 @@ public function updateSubscriberCount($uid,$data,$tableData){
 
           $update = $this->unsubscribe($ids,$uid,$data,$count);
 
+          
+
           return $update;
     }
 
@@ -2661,10 +2699,33 @@ public function updateSubscriberCount($uid,$data,$tableData){
                     'userid' => DB::raw("CONCAT(userid,',".$uid."')"),
                     'count' =>  DB::raw('count +'.$count),
                     ]);
+
+                    $this->insertInMedia_update($data['id'],$uid);
             
                   return $update;
             }
         }
+
+}
+
+
+public function insertInMedia_update($artistid,$userid){
+
+          $data = array(
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            'userid'=>$userid,
+            'artistid'=>$artistid,
+            'mediaid'=>0,
+          );
+
+          DB::table('media_seen_notification')->insert($data);
+}
+
+
+public function deleteFromMediaUpdate($id){
+
+        DB::table('media_seen_notification')-where('userid',$id)->delete();
 
 }
 
@@ -2682,6 +2743,8 @@ public function unsubscribe($allIds,$userid,$postData,$count){
         'userid' =>implode(',',$allIds),
         'count' =>  DB::raw('count -'.$count)
       ]);
+
+      $this->deleteFromMediaUpdate($userid);
 
     return $update;
 
@@ -2710,14 +2773,16 @@ public function showSubscribeArtists(){
 
   $subscribedArtist = DB::table('subscriber')
   ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
-  ->leftJoin ('offer','offer.artistid','=','subscriber.artistid')
-  //->leftJoin ('media','media.contentProviderid','=','subscriber.artistid')
-  ->select('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+  ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
+  ->leftJoin('offer', function($query) {
+    $query->on('offer.artistid','=','subscriber.artistid')
+        ->whereRaw('offer.id IN (select MAX(a2.id) from offer as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
+})
+  ->select('contentprovider.nickname','media_seen_notification.is_seen as mediaseen','contentprovider.profilepicture','offer.is_seen','subscriber.artistid')
   ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
-  ->where(['offer.by_created'=>1])
-  ->orderBy('offer.id', 'DESC')
- //s ->limit(1)
-  ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+   ->where(['offer.by_created'=>1])
+  //->orderBy('offer.id', 'DESC')
+ // ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
   ->get();
     // echo "<pre>";
     //   print_r($subscribedArtist );die;
@@ -2737,6 +2802,8 @@ public function insertSubscriber($uid,$data){
         );
 
         $insert = DB::table('subscriber')->insert($subscriber);
+
+        $this->insertInMedia_update($data['id'],$uid);
 
         return $insert ? 1 : 0;
 

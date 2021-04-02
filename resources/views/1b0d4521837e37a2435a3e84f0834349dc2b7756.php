@@ -221,7 +221,7 @@
         <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
-        <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
+        <div class="noti" style="<?php echo e($aud->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
 
         </a>
 

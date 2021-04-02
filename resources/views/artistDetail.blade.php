@@ -219,7 +219,7 @@
         <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
-        <div class="noti" style="{{$detail->is_seen==0 ? 'display:block' : 'display:none'}}"></div>
+        <div class="noti" style="{{$aud->is_seen==0 ? 'display:block' : 'display:none'}}"></div>
 
         </a>
 
