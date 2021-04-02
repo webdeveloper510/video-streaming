@@ -6,14 +6,16 @@
             <div class="container">
           <div class="overlay1">
       <div class="container profile ">
-        <h1 class="text-center">Add PAZ Token</h1>
+       
         <div class="Coupon text-center">
           <h2> 10% OFF Coupon active</h2>
 
           </div>
+          <h1 class="text-center">Add PAZ Token</h1>
           <div class="row align-items-center text-white">
           <div class="col"></div>
             <div class="col-md-6 mt-2 ">
+
             <?php echo e(Form::label('ADD', 'Token')); ?> 
                   <select class="custom-select mb-3">
                     <option selected>Select Token Amount</option>
