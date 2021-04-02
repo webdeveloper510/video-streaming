@@ -79,6 +79,8 @@ class artist extends Controller
          $allArtistsVideo =     $this->model->getArtistDetail($artistid,'video');
          
          $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
+
+         $value = $this->selectDataById('artistid','media_seen_notification',$artistid);
         //   echo "<pre>";
         //  print_r($allArtistsAudio);die;
 
@@ -103,7 +105,7 @@ class artist extends Controller
          
          
 
-         return view('artistDetail',['artistid'=>$artistid,'countSub'=>$subscriber,'cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
+         return view('artistDetail',['seenData'=>$value,'artistid'=>$artistid,'countSub'=>$subscriber,'cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
          
 
       

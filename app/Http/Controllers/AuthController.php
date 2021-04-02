@@ -676,7 +676,7 @@ class AuthController extends Controller
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
-                 $size=$request->media->getSize();
+                 $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
               $data['media']=$fileName;
