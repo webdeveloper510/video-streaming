@@ -2,7 +2,7 @@
 <div class="seealldata1">
 
 <div class="container">
-<div class="choosebutton text-right pt-3">
+<div class="choosebutton text-right pt-3" style="<?php echo e($flag=='offer' ? 'display:none' : 'display:block'); ?>"> 
 <button type="button" class="btn btn-primary bardot">Select</button>
 </div>
 <div class="choose1" style="display:none;">
@@ -38,7 +38,7 @@
        <div class="col-md-4 my-3">
        <div class="checkall" style="display:none">
           <form> 
-          <input type="checkbox" class="slct_video"></form></div>
+          <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
        <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
            <video class="borderhover" width="350px" height="275px"  allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
@@ -55,7 +55,7 @@
         <?php if($vid->type=='video'): ?>
         <div class="checkall" style="display:none">
           <form> 
-          <input type="checkbox" class="slct_video"></form></div>
+          <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
       <video width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
 
@@ -64,7 +64,7 @@
       <?php else: ?>
       <div class="checkall" style="display:none">
           <form> 
-          <input type="checkbox" class="slct_video"></form></div>
+          <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
       <img src="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>"/>
       <audio width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
@@ -132,17 +132,21 @@
 .borderhover:hover {
     border:2px solid yellow;
     padding:0px !important;
-
 }
 .seealldata1{
     background:black;
     color:white;
 }
+
 .card {
     background: transparent;
     color: white;
     border:1px solid white;
 }
+.card:hover{
+  border:1px solid yellow;
+}
+
 .choose1 .row {
    
    color: #000 !important;
