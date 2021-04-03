@@ -96,9 +96,6 @@ $(document).ready(function(){
 
    checked_radio == 'contentprovider' ? $('.discount').hide() : $('.discount').show()
 
-	var notiVala = $('.checkNotivalue').val();
-
-	console.log(notiVala);
 
 
 	function format3(d){
@@ -2530,7 +2527,7 @@ if ($("#create_offer").length > 0) {
 	},
 	success: function(data){
 
-		//console.log(data);return false;
+		console.log(data);return false;
 
 		if(data.errors){
 

@@ -415,13 +415,8 @@ public function uploadContentProvider($contentdata){
         $count  = $this->selectDataById('artistid','media_seen_notification',$contentid);
 
           if(count($count) > 0){
-                $data = array(
-                  'is_seen'=>'0',
-                  'mediaid'=>$inserted_data,
-                  'type'=>'media'
-                );
 
-            $update = $this->UpdateData('media_seen_notification','artistid',$data,$contentid);
+            $done = $this->updateDataInMedia($userid,$inserted_data,'media');
 
           }
         // $array = array(
@@ -497,7 +492,7 @@ public function getArtistDetail($artid,$type){
       $artistsDetail = DB::table('contentprovider')
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','media.id')
-       ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.mediaid','media_seen_notification.type as notification')
+       ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.userid','media_seen_notification.mediaid','media_seen_notification.type as notification')
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
@@ -1141,16 +1136,18 @@ public function getRespectedSub($data){
                 'notificationfor'=>'created offer',
               );
 
-              $count  = $this->selectDataById('artistid','media_seen_notification',$contentid);
+              $count  = $this->selectDataById('artistid','media_seen_notification',$userid);
+
+              //print_r($count);die;
 
               if(count($count) > 0){
-                    $data = array(
-                      'is_seen'=>'0',
-                      'mediaid'=>$inserted_data,
-                      'type'=>'offer'
-                    );
+
+               $done = $this->updateDataInMedia($userid,$insert,'offer');
+                
+
+                   
     
-                $update = $this->UpdateData('media_seen_notification','artistid',$data,$userid);
+                //$update = $this->UpdateData('media_seen_notification','artistid',$data,$userid);
     
               }
 
@@ -1160,6 +1157,18 @@ public function getRespectedSub($data){
 
 
         return $insert ? 1 :0;
+
+    }
+
+    public function updateDataInMedia($aid,$insert,$type){
+
+            $data = array(
+              'is_seen'=>'0',
+              'mediaid'=>$insert,
+              'type'=>'offer'
+            );
+
+       return  DB::table('media_seen_notification')->where(array('artistid'=>$aid,'type'=>$type))->update($data);
 
     }
 
@@ -2744,7 +2753,11 @@ public function showSubscribeArtists(){
 
   $subscribedArtist = DB::table('subscriber')
   ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
-  ->leftjoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
+  ->leftJoin('media_seen_notification', function($query) {
+       $query->on('media_seen_notification.artistid','=','subscriber.artistid')
+        // ->whereRaw('media_seen_notification.id IN (select MAX(a2.id) from media_seen_notification as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
+        ->where(['media_seen_notification.is_seen'=>0]);
+     })
   ->distinct('contentprovider.nickname')
  // ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
 //   ->leftJoin('offer', function($query) {
