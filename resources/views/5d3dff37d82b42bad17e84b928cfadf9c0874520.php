@@ -1,7 +1,7 @@
 <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 
 
@@ -11,11 +11,584 @@
   <div class="mobilebar">
     <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Clients</a>
-          <a href="#">Contact</a>
+          <div class="search_meu mt-1">
+				
+        <ul class="nav custom search">
+            <li id="options" onclick="mufunc()">
+              <a href="#"><img width="30px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
+             
+          
+            <li id="search">
+            <form action="" method="get">
+            
+                <input type="text" name="search_text" id="search_text" placeholder="Search"/>
+
+                <input type="button" name="search_button" id="search_button"></a>
+            </form>
+            </li>
+          </ul>
+        
+        
+        </div>
+
+
+        <ul class="subnav" style="display: none">
+                <ul class="nav nav-tabs text-center">
+                  <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
+                  <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
+                  <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
+                  <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
+                  </ul>
+                   
+
+                   <!-- --------------------------Tab Content --------------------------->
+
+
+
+
+                  <div class="tab-content">
+                  <div id="home" class="tab-pane fade1 in active">
+                      <h3 style="color: #fff;">Video</h3>
+                  <div class="row">
+                  <div class="col-6">
+                    <div class="dropdown12 text-white">
+                         <h4>Categories </h4>
+              <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                <?php echo e(Form::token()); ?>
+
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='video'): ?>
+                 <label class=""> 
+                   <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                   <?php echo e($cat->category); ?> 
+                 </label><br>
+                           <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
+                    </div>
+                   </div>
+
+                   <input type="hidden" name="type" value="video"/>
+
+                        <div class="col-6 ">
+                          <div class="bar rightbar">
+                      <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+                          
+                          <label class="">
+                     
+
+                        <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
+                        
+                          </label><br>
+                          <label class="text-white">
+                        <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
+                            <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                          </label><br>
+                          <label class="">
+                             <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
+                       <!--      orm::checkbox('price','desc')}}Higest   -->
+                          
+                          </label>
+                     
+                      </div>
+
+                      <div class="dropdown1 text-white">
+                         <h4 >Duration</h4>
+                          <label class=""> 
+                             <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
+                       <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                         
+                          </label><br>
+                          <label class="">
+                             <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                        <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                          
+                        </label><br>
+                    
+                      </div>
+                        <div class="collapse pt-4" id="collapseExample1" style="display:block;">
+              <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+            </div>
+                    </div>
+                  </div>
+                    
+                  <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
+                      
+                  <div class="col-md-6 text-right pr-5">
+            
+             
+       <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
+        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
+            </div>
+            <div class="col-md-6">
+                     
+          
+          </div>
+                   
+                     
+                       <?php echo e(Form::close()); ?>
+
+                    
+                  
+                   </div>
+                  </div>
+
+
+                    <!-- -------------------------- 2nd Tab  Start--------------------------->
+
+
+                  <div id="menu1" class="tab-pane fade">
+                    <h3 style="color: #fff;">Audio</h3>
+                      <div class="row">
+                    <div class="col-6">
+                    <div class="dropdown12 text-white">
+                         <h4>Categories </h4>
+                    <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                    <?php echo e(Form::token()); ?>
+
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='audio'): ?>
+                 <label class="">
+                   <?php echo e(Form::checkbox('catid[]', $cat->id)); ?><?php echo e($cat->category); ?> 
+                        
+                          </label><br>
+                           <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
+                           </div>
+                       <input type="hidden" name="type" value="audio"/>
+                     <div class="col-6">
+                         <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+
+                          <label class="">
+          
+
+                     
+                          
+                          </label><br>
+                          <label class="">  
+                        <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
+                    
+                          </label><br>
+                          <label class=""> 
+                        <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
+                           
+                          
+                          </label>
+                     
+                      </div>
+                    
+                           <div class="dropdown1 audio12 text-white">
+                         <h4 >Duration</h4>
+                          <label>  
+                         <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
+
+                          </label><br>
+                          <label >
+                      <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+            
+                        
+                        </label>
+                        <!-- Modal -->
+                        <div class="collapse pt-4" id="audio123">
+                                      <div class="row">
+                                      <div class="col-md-12 mb-4">
+                                               <label>Gender</label><br>
+                                                  <?php echo e(Form::checkbox('gender[]','Male')); ?>Male <br>
+                                                  <?php echo e(Form::checkbox('gender[]','Female')); ?>Female <br>
+                                                 <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans 
+                                                </div>
+                                            <div class="col-md-12 mb-4">
+                                            <label>Sexology</label><br>
+                                                <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero <br>
+                                               <?php echo e(Form::checkbox('sexology[]','Homo')); ?>Homo <br>
+                                                 <?php echo e(Form::checkbox('sexology[]','Bisexual')); ?>Bisexual 
+                                             </div>
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
+                          <div class="col-md-6 pr-5 text-right">
+                          <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
+                     <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                    <?php echo e(Form::close()); ?>
+
+                   </div> 
+                          </div>
+                         
+                    </div>
+                    
+
+                      <!-- -------------------------- 3rd Tab  Start--------------------------->
+
+                
+                  <div id="menu4" class="tab-pane fade">
+                    <h3 style="color: #fff;">Artists</h3>
+                    <div class="row">
+                           <?php echo Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true]); ?>
+
+                    <?php echo e(Form::token()); ?>
+
+                        <div class="col-md-12">
+                           <div class="scroll12">
+                             
+                          
+                        <div class="row text-left text-white mt-3 red">
+                                <div class="col-md-4 mb-4  das">
+                                  <label>Gender</label><br>
+                                  <?php echo e(Form::checkbox('gender[]','Male')); ?>Male <br>
+                                  <?php echo e(Form::checkbox('gender[]','Female')); ?>Female <br>
+                                  <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans 
+                                </div>
+                                <div class="col-md-4 mb-4 logy">
+                                  <label>Sexology</label><br>
+                                  <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero <br>
+                                  <?php echo e(Form::checkbox('sexology[]','Homo')); ?>Homo <br>
+                                  <?php echo e(Form::checkbox('sexology[]','Bisexual')); ?>Bisexual 
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <label>Tits size</label><br>
+                                  <?php echo e(Form::checkbox('titssize[]','Small')); ?>Small <br>
+                                  <?php echo e(Form::checkbox('titssize[]','Normal')); ?>Normal <br>
+                                  <?php echo e(Form::checkbox('titssize[]','Big')); ?>Big 
+                                </div>
+                                 <div class="col-md-4 mb-4 ">
+                                  <label>Ass</label><br>
+                                   <?php echo e(Form::checkbox('ass[]','Small')); ?>Small <br>
+                                  <?php echo e(Form::checkbox('ass[]','Normal')); ?>Normal <br>
+                                 
+                                  <?php echo e(Form::checkbox('ass[]','Big')); ?>Big 
+                                  <br>
+                                  <br>
+                                  <input type="hidden" name="type" value="artists"/>
+
+                                  <label>Body</label><br>
+                                  <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
+                                  <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
+                                  <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
+                                  <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
+                                </div>
+                                <div class="col-md-4 mb-4 logy">
+                                    <label>Privy part</label><br>
+                                  <?php echo e(Form::checkbox('privy[]','Shaved')); ?>Shaved <br>
+                                  <?php echo e(Form::checkbox('privy[]','Unshaved')); ?>Unshaved <br>
+                                            <br>
+                                            <br>
+                                    <label>Height</label><br>
+                                  <?php echo e(Form::checkbox('height[]','<140cm')); ?><140cm <br>
+                                  <?php echo e(Form::checkbox('height[]','140-160cm')); ?>140-160cm <br>
+                                  <?php echo e(Form::checkbox('height[]','160-180cm')); ?>160-180cm <br>
+                                  <?php echo e(Form::checkbox('height[]','180cm<')); ?>180cm< <br>
+                                </div>
+                                 <div class="col-md-4 mb-4">
+                                  <label>Eyes/lenses</label><br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','blue')); ?>Blue <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','brown')); ?>Brown <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','brown-green')); ?>Brown-green<br> 
+                                  <?php echo e(Form::checkbox('eyecolor[]','golden')); ?>Golden <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','gray')); ?>Gray <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','green')); ?>Green<br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','red')); ?>Red <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','white')); ?>White <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','yellow')); ?>Yellow <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','indigo')); ?>Indigo <br>
+                                  <?php echo e(Form::checkbox('eyecolor[]','violet')); ?>Violet <br>
+                                </div>
+                                      <div class="col-md-4 mb-4 ">
+                                  <label>Hair color</label><br>
+                                  <?php echo e(Form::checkbox('haircolor[]','blue')); ?>Blue <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','brown')); ?>Brown <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','black')); ?>Black<br> 
+                                  <?php echo e(Form::checkbox('haircolor[]','blonde')); ?>Blonde <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','gray')); ?>Gray <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','green')); ?>Green<br>
+                                  <?php echo e(Form::checkbox('haircolor[]','red')); ?>Red <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','white')); ?>White <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','yellow')); ?>Yellow <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','silver')); ?>Silver <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','indigo')); ?>Indigo <br>
+                                  <?php echo e(Form::checkbox('haircolor[]','violet')); ?>Violet <br>
+                                </div>
+                               
+                                 <div class="col-md-4 mb-4 logy">
+                                    <label>Hair Length</label><br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Very short')); ?>Very short <br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Short')); ?>Short <br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Long')); ?>Long <br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
+                                </div>
+                                 <div class="col-md-4 mb-4">
+                                 
+                                </div>
+                                
+                            </div>
+                      </div>
+                           </div>
+                        <div class="col-md-12 text-right mt-3 pr-5">
+            
+              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
+         
+                     
+          
+          </div>
+                   
+                     
+                       <?php echo e(Form::close()); ?>
+
+                   </div> 
+                 </div>
+
+
+
+                       <!-- -------------------------- 4th Tab  Start--------------------------->
+
+
+
+
+
+                  <div id="menu2" class="tab-pane fade1 in ">
+                      <h3 style="color: #fff;">Offers</h3>
+                  <div class="row">
+                  <div class="col-6">
+                    <div class="dropdown12 text-white" id="video">
+                         <h4>Categories </h4>
+              <?php echo Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true]); ?>
+
+                <?php echo e(Form::token()); ?>
+
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='video'): ?>
+                 <label class=""> 
+                   <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                   <?php echo e($cat->category); ?> 
+                 </label><br>
+                           <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
+                    </div>
+                    <div class="dropdown12 text-white" id="audio" style="display:none">
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='audio'): ?>
+                 <label class=""> 
+                   <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                   <?php echo e($cat->category); ?> 
+                 </label><br>
+                           <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
+                    </div>
+                   </div>
+
+                        <div class="col-6 ">
+                          <div class="bar rightbar">
+                             <div class="dropdown1 text-white">
+                         <h4 >Media</h4>
+                          <label class=""> 
+
+                             <?php echo e(Form::radio('type', 'audio', false ,['class'=>'media audio'])); ?> Audio
+                       <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                         
+                          </label><br>
+                          <label class="">
+                             <?php echo e(Form::radio('type', 'video', true ,['class'=>'media video'])); ?> Video 
+                             
+                        <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                          
+                        </label><br>
+                    
+                      </div>
+                      <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+                          
+                
+    
+                          <label class="text-white">
+                        <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
+                            <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                          </label><br>
+                          <label class="">
+                             <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
+                       <!--       <?php echo e(Form::checkbox('price','desc')); ?>Higest   -->
+                          
+                          </label>
+                     
+                      </div>
+
+                     
+                        <div class="collapse pt-4" id="collapseExample2">
+              <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+            </div>
+                    </div>
+                  </div>
+                    
+                   
+                     <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
+                  <div class="col-md-6 text-right pr-5">
+
+             
+       <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
+        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
+            </div>
+            <div class="col-md-6">
+                     
+          
+          </div>
+                   
+                     
+                       <?php echo e(Form::close()); ?>
+
+                    
+                  
+                   </div>
+                  </div>
+
+                    <!-- -------------------------- 5th Tab  Start--------------------------->
+
+                  
+                      <div id="menu4" class="tab-pane fade1 in ">
+                  <div class="row">
+                  <div class="col-6">
+                    <div class="dropdown12 text-white">
+                         <h4>Categories </h4>
+              <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
+
+                <?php echo e(Form::token()); ?>
+
+                          <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <?php if($cat->type=='video'): ?>
+                 <label class=""> 
+                   <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
+
+                   <?php echo e($cat->category); ?> 
+                 </label><br>
+                           <?php endif; ?>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
+                    </div>
+                   </div>
+
+                        <div class="col-6 ">
+                          <div class="bar rightbar">
+                      <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+                          
+                          <label class="">
+                       
+
+                        <!--    <?php echo e(Form::checkbox('price','free')); ?>Free   -->
+                        
+                          </label><br>
+                          <label class="text-white">
+                        <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
+                            <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                          </label><br>
+                          <label class="">
+                             <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
+                       <!--       <?php echo e(Form::checkbox('price','desc')); ?>Higest   -->
+                          
+                          </label>
+                     
+                      </div>
+
+                      <div class="dropdown1 text-white">
+                         <h4 >Duration</h4>
+                          <label class=""> 
+                             <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
+                       <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                         
+                          </label><br>
+                          <label class="">
+                             <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
+                      
+                          
+                        </label><br>
+                    
+                      </div>
+                        <div class="collapse pt-4" id="collapseExample1" style="display:block;">
+              <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+            </div>
+                    </div>
+                  </div>
+                    
+                   
+                      
+                  <div class="col-md-12 text-right pr-5">
+            
+              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+
+                     </div>
+            <div class="col-md-6">
+                     
+          
+          </div>
+                   
+                     
+                       <?php echo e(Form::close()); ?>
+
+                    
+                  
+                   </div>
+                  </div>
+                 
+              </ul>
+
+
+
+            <hr>
+        <div class="mobilenav12">
+         <div class="pl-5"> 
+         <?php if(!$login): ?>
+					  <a href="<?php echo e(url('/register')); ?>" class="nav-item nav-link">Join Free</a>
+              <a href="<?php echo e(url('/login')); ?>" class="nav-item nav-link"> Login</a>  
+           <?php endif; ?> 
+           <?php if($login): ?>
+         <span class="profile-img text-white">
+            <?php echo e($login->nickname); ?>
+
+            <hr/ style="color:white;background: white;">
+            <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+           
+          </span>
+          <?php endif; ?>
+        </div>
+          <br>
+        <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+       <br>
+        <a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
+         <br>
+        <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> Orders
+    <?php if($login && $latestOffer): ?>
+    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>
+    <?php endif; ?>
+    </a>
+    <br>
+    <a href="<?php echo e(url('notification/user')); ?>" class="nav-item nav-link"> <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>  Notifications</a> 
+    <br>
+        <a href="<?php echo e(url('/logout')); ?>"> <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a>
+</div>
+
+</div>
+
 
     <span style="font-size:30px;cursor:pointer" class="togg" onclick="openNav()">&#9776;</span>
 
@@ -124,7 +697,7 @@
                      <input type="hidden" name="type" value="video"/>
 
                           <div class="col-md-6 ">
-                            <div class="bar">
+                            <div class="bar rightbar">
                         <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
@@ -160,18 +733,20 @@
                           </label><br>
                       
                         </div>
-                          <div class="collapse pt-4" id="collapseExample1">
+                          <div class="collapse pt-4" id="collapseExample1" style="display:block;">
                 <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
               </div>
                       </div>
                     </div>
                       
-                     
+                    <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
                         
-                    <div class="col-md-12 text-right pr-5">
+                    <div class="col-md-6 text-right pr-5">
               
                
-         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" >
+         <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
           <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
               </div>
@@ -266,10 +841,10 @@
                                 </div>
                           </div>
                           <div class="col-md-6">
-                              
-                           </div>
-                            <div class="col-md-12 pr-5 text-right">
-                            <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" >
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
+                            <div class="col-md-6 pr-5 text-right">
+                            <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
                       <?php echo e(Form::close()); ?>
@@ -444,7 +1019,7 @@
                      </div>
 
                           <div class="col-md-6 ">
-                            <div class="bar">
+                            <div class="bar rightbar">
                                <div class="dropdown1 text-white">
                            <h4 >Media</h4>
                             <label class=""> 
@@ -485,12 +1060,14 @@
                       </div>
                     </div>
                       
-                     
+                    <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
                         
-                    <div class="col-md-12 text-right pr-5">
+                    <div class="col-md-6 text-right pr-5">
 
                
-         <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" >
+         <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
           <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
 
               </div>
@@ -533,7 +1110,7 @@
                      </div>
 
                           <div class="col-md-6 ">
-                            <div class="bar">
+                            <div class="bar rightbar">
                         <div class="dropdown1 text-white">
                            <h4>Price</h4>
                             
@@ -569,7 +1146,7 @@
                           </label><br>
                       
                         </div>
-                          <div class="collapse pt-4" id="collapseExample1">
+                          <div class="collapse pt-4" id="collapseExample1" style="display:block;">
                 <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
               </div>
                       </div>
@@ -612,12 +1189,12 @@
 					<div class="collapse navbar-collapse" id="navbarCollapse">
 						<div class="navbar-nav">
 					
-		<a href="<?php echo e(url('/play')); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i>
-    <div class="noti"></div></a>
+		<a href="<?php echo e(url('/play/'.$addedLibrary->id)); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
+    <div class="noti" style="<?php echo e($addedLibrary->read==0 ? 'display:block' : 'display:none'); ?>"></div></a>
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
-    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i>
+    <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> My Orders
     <?php if($login && $latestOffer): ?>
-    <div class="noti" style="<?php echo e($latestOffer->userid == $login->id && $latestOffer->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
+    <div class="noti" style="<?php echo e($latestOffer[0]->userid == $login->id && $latestOffer[0]->is_seen=='no' ? 'display: block' : 'display: none'); ?>">
     </div>
     <?php endif; ?>
     </a>
@@ -688,7 +1265,7 @@
                
                <!-- <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div--> 
                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
-               <div class="noti" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"></div>
+               <div class="noti" style="<?php echo e($count > 0 || $addedLibrary->read==0 ? 'display: block' : 'display: none'); ?>"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
@@ -735,7 +1312,7 @@
                                 <p><?php echo e($artist->nickname); ?></p>
                                 </div>
                               <div class="col mt-3">
-                                  <div class="online" style="<?php echo e($artist->by_created==1 ? 'display:block' :'display:none'); ?>">
+                                  <div class="online" style="<?php echo e($artist->is_seen=='no' || $artist->mediaseen=='0' ? 'display:block' :'display:none'); ?>">
                                       </div>
                               </div>
                     </div>
@@ -760,6 +1337,7 @@
 
 </header>
 <style>
+<<<<<<< HEAD
 .dropdown1.audio12.text-white {
     height: 107px;
     overflow-y: scroll;
@@ -791,7 +1369,7 @@ ul.nav.custom.search ul.subnav {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #7b0000;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -801,7 +1379,7 @@ ul.nav.custom.search ul.subnav {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #d7d2d2;
   display: block;
   transition: 0.3s;
 }
@@ -824,8 +1402,57 @@ ul.nav.custom.search ul.subnav {
 .header_bottom {
     display: none;
 }
+.col-md-4.subss{
+  right:0px !important;
+}
 .mobilebar {
     display: Block;
+}
+ul.nav.custom.search {
+    height: 40px;
+    margin-left: 18px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+li#options {
+    background: #fff;
+    height: 100%;
+    padding: 7px 8px 5px 8px;
+    height: 35px;
+    width: 40px;
+}
+ul.nav.nav-tabs li a {
+    color: white;
+    font-weight: bolder;
+}
+.tab-content {
+    background: #7b0000;
+}
+.subnav{
+  width:100%;
+  position:unset;
+}
+footer {
+    padding: 60px 0 !important;
+}
+footer {
+    padding: 60px 0 !important;
+}
+ul.nav.custom.search img {
+    margin-top: -12px;
+    margin-left: -33px;
+}
+.search_meu {
+    float: None;
+}
+.mobilenav12 {
+    padding-left: 35px;
+}
+li.link_click.active a {
+    color: yellow !important;
+}
+.logomobile.text-center a {
+    margin-left: -25px;
 }
 }
 @media  screen and (max-height: 450px) {
@@ -896,11 +1523,13 @@ button.btn.btn-warning.text-white {
     font-weight: bold;
     margin-top: -1px;
 }
+=======
+>>>>>>> 65171a940eacd67ed28a15a732fd1b890022b5a3
 
 </style>
 <script>
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("mySidenav").style.width = "100%";
 }
 
 function closeNav() {

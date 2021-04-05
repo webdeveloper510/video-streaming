@@ -8,7 +8,7 @@
 				<div class="col-md-2">
 				   <div class="image area">
 				   	
-		 <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
+		           <img src="<?php echo e(url('storage/app/public/uploads/'.$vedios[0]->profilepicture)); ?>">
 				   </div>
 				</div>
 				<?php $__currentLoopData = $vedios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $video): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -33,7 +33,7 @@
 				</div>
 				<div class="col-md-2">
 				   <div class="content-price">
-					  <h3 class="paz_price"><?php echo e($video->price); ?>PAZ</h3>
+					  <h3 class="paz_price"><?php echo e($video->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h3>
 				   </div>
 				</div>
 				<div class="col-md-3">
@@ -45,7 +45,7 @@
  	Add to Wishlist
  </button>
 
-<button  type="button" style="cursor:pointer;" class="btn-primary library" data-toggle="modal" data-target="#exampleModal">Add To Library</button>
+<button  type="button" style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>" class="btn-primary library" <?php echo e($buyed==1 ? 'disabled ':''); ?> data-toggle="modal" data-target="#exampleModal">Add To Library</button>
 <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -69,7 +69,7 @@
       	</span>
       </div>
       <div class="text-center mt-4">
-      <h2>Token:<?php echo e($GLOBALS['paz']); ?> PAZ</h2>
+      <h2>Token:<?php echo e($GLOBALS['paz']); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h2>
       <input type="hidden" id="vidid" name="videoid" value="<?php echo e($GLOBALS['videoid']); ?>">
       <input type="hidden" class="token" name="token" value="<?php echo e($GLOBALS['paz']); ?>">
       <input type="hidden" class="art_id" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
@@ -77,6 +77,9 @@
 	  <div class="alert alert-success message" role="alert" style="display: none">
         A simple success alert—check it out!
    </div>
+   <div class="insuffiecient modal" style="display:none;">
+             <?php echo $__env->make('messagePopup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        </div>
   </div>
       </div>
     
@@ -98,9 +101,9 @@
 				  <div class="col"></div>
 						<?php if($video->type=='video'): ?>
 						 <div class="col-md-8">
-						 <div class="lockicon"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
+						 <div class="lockicon" style="<?php echo e($buyed>0 ? 'display:none': 'display:block'); ?>"><i class="fa fa-lock" style="font-size:48px;color:yellow"></i></div>
 					
-							<video width="100%" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+							<video width="100%" height="100%" <?php echo e($buyed==1 ? 'controls' : ''); ?> controlsList="nodownload" disablePictureInPicture>
 								<source src="<?php echo e(url('storage/app/public/video/'.$video->media)); ?>" type="video/mp4">
 							</video>
 							<div class="report-op">
@@ -119,7 +122,7 @@
 					
 				   <img src="https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg" class="img-fluid">
 
-				   <audio controls>
+				   <audio >
 				   	<source src="<?php echo e(url('storage/app/public/audio/'.$video->media)); ?>" type="audio/mp3">
 				   </audio>
 				   <div class="report-op">
@@ -261,7 +264,7 @@
     display: flex;
     margin: 0 auto;
     text-align: center;
-    z-index: 9;
+    z-index: 0;
 }
 
 .lockicon i {

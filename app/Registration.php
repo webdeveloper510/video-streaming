@@ -415,8 +415,17 @@ public function uploadContentProvider($contentdata){
         $count  = $this->selectDataById('artistid','media_seen_notification',$contentid);
 
           if(count($count) > 0){
+<<<<<<< HEAD
+                $data = array(
+                  'is_seen'=>'0',
+                  'mediaid'=>$inserted_data
+                );
+
+            $update = $this->UpdateData('media_seen_notification','artistid',$data,$contentid);
+=======
 
             $done = $this->updateDataInMedia($userid,$inserted_data,'media');
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
 
           }
         // $array = array(
@@ -1150,6 +1159,21 @@ public function getRespectedSub($data){
                 //$update = $this->UpdateData('media_seen_notification','artistid',$data,$userid);
     
               }
+
+          $insert = $this->insertNotification($array);
+
+      }        
+
+        if($insert){
+
+              $array = array(
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'artistid'=>$userid,
+                'userid'=>0,
+                'message'=>'CO',
+                'notificationfor'=>'created offer',
+              );
 
           $insert = $this->insertNotification($array);
 
@@ -2722,9 +2746,13 @@ public function unsubscribe($allIds,$userid,$postData,$count){
         'count' =>  DB::raw('count -'.$count)
       ]);
 
+<<<<<<< HEAD
+      $this->deleteFromMediaUpdate($userid);
+=======
       $data = $this->selectDataById('userid','media_seen_notification',$userid);
 
       count($data) > 0 ? $this->deleteFromMediaUpdate($userid): '';
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
 
     return $update;
 
@@ -2753,6 +2781,18 @@ public function showSubscribeArtists(){
 
   $subscribedArtist = DB::table('subscriber')
   ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
+<<<<<<< HEAD
+  ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
+  ->leftJoin('offer', function($query) {
+    $query->on('offer.artistid','=','subscriber.artistid')
+        ->whereRaw('offer.id IN (select MAX(a2.id) from offer as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
+})
+  ->select('contentprovider.nickname','media_seen_notification.is_seen as mediaseen','contentprovider.profilepicture','offer.is_seen','subscriber.artistid')
+  ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
+   ->where(['offer.by_created'=>1])
+  //->orderBy('offer.id', 'DESC')
+ // ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+=======
   ->leftJoin('media_seen_notification', function($query) {
        $query->on('media_seen_notification.artistid','=','subscriber.artistid')
         // ->whereRaw('media_seen_notification.id IN (select MAX(a2.id) from media_seen_notification as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
@@ -2771,6 +2811,7 @@ public function showSubscribeArtists(){
 // })
   ->select('contentprovider.nickname','media_seen_notification.is_seen as mediaseen','contentprovider.profilepicture','subscriber.artistid')
   ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
   ->get();
     // echo "<pre>";
     //   print_r($subscribedArtist );die;

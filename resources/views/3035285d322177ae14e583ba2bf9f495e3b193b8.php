@@ -1,4 +1,6 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+<link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
   <style>
    
 .tab {
@@ -93,7 +95,7 @@ tr.shown td.details-control {
                        <th>Title</th>
                         <th >Media</th>
                         <th>Duration</th>
-                        <th>Delivery Time</th>
+                        <th>Delivery Before</th>
                         <th >Artist Name</th>
                         <th > Status</th>              
         </tr>
@@ -105,7 +107,7 @@ tr.shown td.details-control {
                         <th>Title</th>
                         <th>Media</th>
                         <th>Duration</th>
-                        <th>Delivery Time</th>
+                        <th>Delivery Before</th>
                         <th>Artist Name</th>
                         <th> Status</th>              
         </tr>

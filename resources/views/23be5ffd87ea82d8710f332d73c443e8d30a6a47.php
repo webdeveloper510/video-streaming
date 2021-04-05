@@ -21,6 +21,7 @@
       <?php if($earn->pay_from=='multiple' || $earn->pay_from=='single'): ?>
           <?php 
             $type = explode(',', $earn->mediaType);
+            //print_r($type);
           ?>
     <tr>
       <td scope="row"><?php echo e($earn->nickname); ?></td>

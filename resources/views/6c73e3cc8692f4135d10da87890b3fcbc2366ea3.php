@@ -1,5 +1,5 @@
 
-
+ <?php include(app_path().'/include/includebottom.php');?>
 
 <!--footer -->
 <footer class="footer_style_2">
@@ -12,7 +12,7 @@
             </div>
             <hr>
             
-            <ul class="footer-menu">
+            <ul class="footer-menu pb-3">
               <li style="border-left-color: red;
                   border-left-style: solid;
                   border-left-width: 1px;">
@@ -53,9 +53,8 @@
                                     <option selected> Select Menu</option>
                                     <option value="Feature Request">Feature Request</option>
                                     <option value="Functionality Question">Functionality Question</option>
-                                    <option value="Techincal Issue">Techincal Issue</option>
+                                    <option value="Techincal Issue">Technical Issue</option>
                                     <option value="General">General</option>
-                                    <option value="Website Fees">Website Fees</option>
                                     <option value="Delete Account">Delete Account</option>
                                     <option value="Other">Other</option>
                                   </select>

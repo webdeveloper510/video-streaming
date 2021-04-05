@@ -60,11 +60,13 @@
                     <div class="col-md-12">
                     <div class="artistoffer row">
                       <div class="col-md-2">
-                      <video width="100%" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                      <video width="100%" poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
                               <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                               
                               Your browser does not support the video tag.
-                          </video>
+                        </video>
+                        
+               <div class="noti" style="<?php echo e($offer->is_seen=='no' ? 'display:block':'display:none'); ?>"></div>
                
                     </div>
        
@@ -111,6 +113,16 @@
 .text-center.Artistxyz {
     padding: 30px;
 }
+
+.noti {
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 22px;
+}
  </style>
 </div>
 
@@ -151,11 +163,13 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div></div>
                <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
+            <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
             </video>
+
+            <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
                 </a>
               
                 
@@ -200,13 +214,14 @@
           <form> 
           <input type="checkbox" class="slct_video"></form></div>
             <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
-            <img src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+            <img width="100%" src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
 
         <audio controls controlsList="nodownload" disablePictureInPicture>
 
         <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
+        <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
 
         </a>
 
@@ -332,7 +347,7 @@
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%" Controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
@@ -371,7 +386,15 @@
 
 </div>
 </div>
+<script>
+    var artistid="<?php echo e($artistid); ?>";
+    setTimeout(function(){ 
+        removeBadge(artistid);
+     }, 10000);
+</script>
 <style>
+
+
 .fa-lock{
   font-size:30px;
 }

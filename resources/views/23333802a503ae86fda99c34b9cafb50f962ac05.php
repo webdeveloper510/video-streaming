@@ -42,7 +42,7 @@
         $GLOBALS['price'] = $offerdata->price;
         ?>
         <div class="container">
-        <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+        <video width="100%" height="100%" controls  controlsList="nodownload" disablePictureInPicture>
           <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>
@@ -61,7 +61,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p><?php echo e($offerdata->price); ?> PAZ/Minute</p>
+              <p><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>
@@ -90,7 +90,7 @@
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?>PAZ)</small>
+        <h4>Additional Request <small>(Price: <?php echo e($GLOBALS['add_price']); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>)</small>
         <input type="radio" id="Yes" class="add_price" name="gender"  value="Yes">
               <label for="male">Yes</label>
               <input type="radio" id="No" class="add_price" name="gender" value="No">
@@ -118,5 +118,30 @@
             padding: 30px;
         }
         </style>
-          
+
+
+            <div class="modal successfull" tabindex="-1" style="display:none;">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Order Status</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   <h2 class="text-center"> Order Successful!</h2>
+                   <p> You can check your order status anything in - My Order</p>
+
+                   <p><input type="checkbox" aria-label="Checkbox for following text input"> Do not show again</p>
+
+                  </div>
+                  <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistoffers.blade.php ENDPATH**/ ?>
