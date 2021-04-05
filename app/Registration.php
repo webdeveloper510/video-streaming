@@ -1728,7 +1728,7 @@ public function getRespectedSub($data){
       $tokensData = $this->selectDataById('id','users',$userid);   
           
         $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
-        print_r($data);die;
+        //print_r($data);die;
       if($tokens < $tokensData[0]->tokens){               
 
                if(count($data)>0){ 
@@ -1767,7 +1767,7 @@ public function getRespectedSub($data){
                   
                   
 
-                  //$created = $this->createPlayListUser($playlist);  
+                  $created = $this->createPlayListUser($playlist);  
 
                   $return  = $this->checkIdInUserVideo($tokensData,$ids,$lists);  
 
