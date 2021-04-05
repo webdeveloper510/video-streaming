@@ -1408,7 +1408,7 @@ function showPlaylistVedio(data){
 		if(i==0){
 		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
 		}
-	 div +=" <div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div>"
+	 div +="<div class='row lists12'><div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div></div>"
 	}
 	$('.video_append').append(div);
 

@@ -88,15 +88,18 @@
                           <p>1/5</p>
                       </div>
        <!------------start list------------------>
-                   <div class="row video_append">
-                   <!-- <div class="videolist col-4" >
+                    <div class="video_append">
+                   
                      
-                    </div> -->
-                        <div class="videonameq col-6">
-                              <h3>title</h3>
-                              <p>artistname</p>
-                        </div>
-                   </div>
+                        <!-- <div class="videolist col-4" >
+                          
+                          </div> -->
+                          <div class="videonameq col-6">
+                                <h3>title</h3>
+                                <p>artistname</p>
+                          </div>
+            
+                  </div>
          <!------------end list------------------>
 
                    </div>
@@ -255,6 +258,9 @@ body{
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+button.addNow {
+    cursor: pointer;
 }
 ul.reporting {
     background: white;
