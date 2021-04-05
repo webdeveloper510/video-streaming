@@ -1306,7 +1306,7 @@
                     <a href="<?php echo e(url('artistDetail/'.$artist->artistid)); ?>">
                     <div class="row mb-3">
                       <div class="col">
-                        <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>" class="img-fluid">
+                        <img src="<?php echo e($artist->profilepicture ? url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy.png')); ?>" class="img-fluid">
                         </div>
                                 <div class="col-6 mt-3">
                                 <p><?php echo e($artist->nickname); ?></p>
