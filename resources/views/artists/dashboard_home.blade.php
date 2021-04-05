@@ -869,6 +869,13 @@ h5.customer1.text-center.pt-3.pl-3 {
 .card .card-header {
     z-index: 0 !important;
 }
+
+@media only screen and (max-width: 768px) {
+
+.row.mt-5.pt-5.text-center {
+    margin: 0px !important;
+}
+}
 </style>
 
 @include('artists.dashboard_footer')
