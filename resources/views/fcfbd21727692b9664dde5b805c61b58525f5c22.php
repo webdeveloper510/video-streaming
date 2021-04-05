@@ -1,6 +1,9 @@
+
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
+<?php  // include(app_path().'/include/includetop.php')?>
+
 
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
@@ -41,7 +44,18 @@
 }
 </style>
   <div class="outer_slider">
-  <div class="container my-4">
+
+    <div class="container my-4">
+     <div class="row">
+        <div class="col"></div>
+          <div class="col-md-8 mb-3">
+          <video class="hoverVideo" width="100%" autoplay loop  allowfullscreen >
+                  <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+             </div>
+             <div class="col"></div>
+             </div>
           <div class="slider_tittle">
               <h3 class="tittle"><a href="<?php echo e(url('seeall/artists')); ?>">Artists</a></h3>
               <a href="<?php echo e(url('seeall/artists')); ?>"><button class="btn btn-primary seemore" type="button">See All</button></a>
@@ -106,7 +120,7 @@
           </p>
           <!-- <p>   <i class="fa fa-check" style="font-size:24px"></i>Commit now and get promoted for free
           </p> -->
-          <div class="reward mt-4">
+          <div class="reward mt-2">
         <h2>Get rewarded with 100 PAZ Tokens!</h2>
       </div>
          <div class="col-md-12 text-center mt-2">
@@ -149,7 +163,7 @@
           <p><i class="fa fa-check" style="font-size:24px"></i>  Enjoy Reduced Advertising
           </p>
           <div class="reward1">
-        <h2>Get rewarded with 10% OFF on the first  Purchase!</h2>
+        <h2>Get 10% OFF YOUR FIRST TOKEN PURCHASE! LIMITED TIME ONLY!</h2>
       </div>
           <div class="col-md-12 text-center  ">
 
@@ -201,9 +215,9 @@
             Your browser does not support the video tag.
           </video>
           <div class="pricetime">
-          <div class="text-left">
-          <h6 class="text-white"><?php echo e($recnt->price); ?>PAZ</h6>
-          </div>
+              <div class="text-left">
+                <h6 class="text-white"><?php echo e($recnt->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+              </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
           <?php if($recnt->duration==''): ?>
@@ -272,7 +286,7 @@
                 </video>
                 <div class="pricetime">
                 <div class="text-left">
-          <h6 class="text-white"><?php echo e($pop->price); ?>PAZ</h6>
+          <h6 class="text-white"><?php echo e($pop->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
@@ -289,7 +303,7 @@
     <?php endif; ?>
           </div>
 </div>
-                <h5 class="mt-4"><?php echo e($pop->title); ?></h5>
+                <h5 class="mt-1"><?php echo e($pop->title); ?></h5>
                 </a>
             </div> 
          
@@ -394,7 +408,7 @@
             </a>
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white"><?php echo e($audio->price); ?>/PAZ</h6>
+          <h6 class="text-white"><?php echo e($audio->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
           </div>
           <div class="text-right">
           <h6 class="text-white" id="audio_dur<?php echo e($audio->id); ?>"><?php echo e($audio->duration ? $audio->duration :''); ?></h6>
@@ -656,16 +670,8 @@ rewindNav:false
   });
 });
  </script-->
+
  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
-
-
-<!--script type="text/javascript">
-  $ (window).ready (function () {
-  setTimeout (function () {
-    $ ('#modal-subscribe').modal ("show")
-  }, 1000)
-})
-</script-->
+ <?php //include(app_path().'/include/includebottom.php');?>
 
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>

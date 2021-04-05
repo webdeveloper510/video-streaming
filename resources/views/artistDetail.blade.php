@@ -66,7 +66,7 @@
                               Your browser does not support the video tag.
                         </video>
                         
-               <div class="noti" style="{{$offer->notificationseen=='0' && $offer->notiType=='offer'? 'display:block':'display:none'}}"></div>
+               <div class="noti" style="{{$offer->notificationseen=='0' && $offer->userid==$login->id && $offer->notiType=='offer'? 'display:block':'display:none'}}"></div>
                @if($offer->notificationseen=='0' && $offer->notiType=='media') 
         <script>
                   $('#mediaSelected').show();

@@ -80,16 +80,15 @@ class artist extends Controller
          
          $allArtistsAudio=      $this->model->getArtistDetail($artistid,'audio');
 
-    
-
-         $media_ids = $this->model->getSeen_noti_media($artistid);
-       
+         $value = $this->model->selectDataById('artistid','media_seen_notification',$artistid);
+        //   echo "<pre>";
+        //  print_r($allArtistsAudio);die;
 
          $allArtistOffer =      $this->model->getArtistOffer($artistid,'customer');
 
         //  echo '<pre>';
 
-        //  print_r($allArtistsAudio);die;
+        //  print_r($allArtistOffer);die;
 
          $subscriber =  $this->model->count_subscriber($artistid);
 
@@ -106,7 +105,7 @@ class artist extends Controller
          
          
 
-         return view('artistDetail',['mediaSeen'=>$media_ids,'seenData'=>$value,'artistid'=>$artistid,'countSub'=>$subscriber,'cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
+         return view('artistDetail',['seenData'=>$value,'artistid'=>$artistid,'countSub'=>$subscriber,'cartVideo'=>'','details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'artist'=>$onlyArtistDetail,'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [],'category'=> $category_data, 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[],'isSubscribed'=>$isSubscribe]);
          
 
       

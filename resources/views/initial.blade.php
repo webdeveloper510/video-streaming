@@ -2,7 +2,9 @@
 @include('layouts.header')
 
 <link rel="stylesheet" href="{{asset('design/initial.css')}}" />
-<?php   // include(app_path().'/include/includetop.php')?>
+<?php  // include(app_path().'/include/includetop.php')?>
+
+
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 
@@ -42,6 +44,7 @@
 }
 </style>
   <div class="outer_slider">
+
     <div class="container my-4">
      <div class="row">
         <div class="col"></div>

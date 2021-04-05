@@ -7,9 +7,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="alert alert-success message" style="display: none" role="alert">
-          A simple success alert—check it out!
-        </div>
       <div class="modal-body text-left">
       	
       <h3>Choose Playlist</h3>
@@ -48,6 +45,9 @@
            <h3>Total Price : <span class="total"><?php echo e($total_sum); ?></span>PAZ</h3>
            <input type="hidden" id="art_id" value="<?php echo e($cartVideo ? $cartVideo[0]->contentProviderid : ''); ?>"/>
       <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+      <div class="alert alert-success" id="success_message" style="display: none" role="alert">
+        </div>
+       
   </div>
       </div>
       

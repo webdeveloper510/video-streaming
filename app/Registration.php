@@ -1155,6 +1155,21 @@ public function getRespectedSub($data){
 
       }        
 
+        if($insert){
+
+              $array = array(
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'artistid'=>$userid,
+                'userid'=>0,
+                'message'=>'CO',
+                'notificationfor'=>'created offer',
+              );
+
+          $insert = $this->insertNotification($array);
+
+      }        
+
 
         return $insert ? 1 :0;
 
@@ -1165,7 +1180,7 @@ public function getRespectedSub($data){
             $data = array(
               'is_seen'=>'0',
               'mediaid'=>$insert,
-              'type'=>'offer'
+              'type'=>$type
             );
 
        return  DB::table('media_seen_notification')->where(array('artistid'=>$aid,'type'=>$type))->update($data);

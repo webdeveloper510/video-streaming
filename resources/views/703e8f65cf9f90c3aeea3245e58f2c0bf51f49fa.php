@@ -8,7 +8,7 @@
 <div class="titleheader col-md-12" >
      <h3><a href="<?php echo e(url('artist/Profile')); ?>" class="text-white">Please upload Media for your Profile Overview here....</a></h3>
 </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
     <!-- <h3 class="text-center">Due</h3> -->
     <a href="<?php echo e(url('artist/requests/due')); ?>">
     <div class="columesdashboard">
@@ -64,7 +64,7 @@
             </a>  
     </div>
          
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
     <!-- <h3 class="text-center">In Process</h3> -->
     <a href="<?php echo e(url('artist/requests/process')); ?>">
     <div class="columesdashboard1">
@@ -88,7 +88,7 @@
             </div>  
             </a> 
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2 ">
     <!-- <h3 class="text-center">Project</h3> -->
     <a href="<?php echo e(url('artist/requests/new')); ?>">
     <div class="columesdashboard2">
@@ -113,7 +113,7 @@
             </a>
     </div>
    
-    <div class="col-md-3">
+    <div class="col-md-3 mb-2">
    <a href="<?php echo e(url('artist/Profile/collection')); ?>">
     <div class="columesdashboard3">
            <h1><?php echo e($totalCollection ? $totalCollection : 0); ?></h1>
@@ -124,7 +124,7 @@
 </div>
 
 <div class="row">
-<div class="col-md-12">
+<!-- <div class="col-md-12">
          <div class="card" style="<?php echo e($existTimeFrame>=1 ? 'display:none': 'display:block'); ?>">
              <div class="week">
              <h5 class="card-title text-left pt-3 pl-3">We want to thank you for your early support!<br> You will be automatically promoted from us in the marked timeframe!</h5>
@@ -161,7 +161,7 @@
               </div>
             </div>
     </div>
-    </div>
+    </div> -->
     <div class="col-md-4">
     <div class="card" style=" height: 420px;">
              <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
@@ -173,10 +173,10 @@
                  <?php echo e(Form::token()); ?>
 
              <?php echo e(Form::label('First Name', 'First Name')); ?> 
-                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name'])); ?>
+                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])); ?>
 
                 <?php echo e(Form::label('Country', 'Country')); ?> 
-                 <select name="country">
+                 <select name="country" required>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
                         <option value="American Samoa">American Samoa</option>
@@ -389,7 +389,7 @@
 </select>
                 <?php echo e(Form::label('Date of Birth', 'Date of Birth')); ?> 
                 
-                <input type="date" name="dob" class="form-control" />
+                <input type="date" required name="dob" class="form-control" />
                 <br>
                 <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
                 <div class="text-right">
@@ -623,12 +623,39 @@
                 <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
+                   
                 <div class="text-right">
                 
                 <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
                 
-                <div style="display:none;"><?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?></div>
+                <div style="display:none;">
+                <div class="text-left">
+                        <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Apply
+                 </button></div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Password :</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      <input type="text" class="form-control" placeholder="Enter Password">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <?php echo e(Form::close()); ?>
 
               </div>
@@ -800,6 +827,7 @@
     border: 3px solid #ed1c24;
     padding: 30px 18px;
     background: #ed1c24;
+    border-radius: 16px;
     color: white;
 }
 label.error {
@@ -816,6 +844,7 @@ label.error {
     border: 3px solid #ff7f27;
     padding: 30px 18px;
     background: #ff7f27;
+    border-radius: 16px;
     color: white;
     
 }
@@ -830,6 +859,7 @@ img.img-fliud.logodownload {
 .columesdashboard2 {
     border: 3px solid #22b14c;
     padding: 30px 18px;
+    border-radius: 16px;
     background: #22b14c;
     color: white;
 }
@@ -838,6 +868,7 @@ img.img-fliud.logodownload {
     border: 3px solid #b97a57;
     padding: 30px 18px;
     background: #b97a57;
+    border-radius: 16px;
     color: white;
 }
 h5.customer1.text-center.pt-3.pl-3 {
@@ -853,7 +884,9 @@ h5.customer1.text-center.pt-3.pl-3 {
     background: #80ad12;
     padding-bottom: 13px;
 }
-
+.card .card-header {
+    z-index: 0 !important;
+}
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/dashboard_home.blade.php ENDPATH**/ ?>
