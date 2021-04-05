@@ -125,8 +125,10 @@
         <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $playlist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php 
               $videos = explode(',',$playlist->videos);
-              print_r($videos);
+             
               $count = count($videos);
+
+              print_r($count);
               
             ?>
       
