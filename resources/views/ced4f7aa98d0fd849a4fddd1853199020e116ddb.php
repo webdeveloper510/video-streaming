@@ -145,6 +145,9 @@
   label {
     color: white;
 }
+.sn{
+    width:200% !important;
+}
 .mt-5 p {
     font-size: 22px !important;
     padding-right: 18px;
