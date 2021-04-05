@@ -5283,6 +5283,9 @@ li.n-2 {
     width: 98%;	
     overflow-y: scroll;	
 }
+h5.select_list {
+    cursor: pointer;
+}
 .dropdown12 h4 {
     color: #ffffff !important;
     font-weight: 600 !important;
