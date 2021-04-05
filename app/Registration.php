@@ -1707,7 +1707,7 @@ public function getRespectedSub($data){
 
         $lists['playlistname'] = $listname;
 
-        print_r($lists);die;
+        
 
         $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
       //print_r($newData);die;
@@ -1728,7 +1728,7 @@ public function getRespectedSub($data){
       $tokensData = $this->selectDataById('id','users',$userid);   
           
         $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
-
+        print_r($data);die;
       if($tokens < $tokensData[0]->tokens){               
 
                if(count($data)>0){ 
