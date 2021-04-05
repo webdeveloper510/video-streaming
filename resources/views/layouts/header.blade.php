@@ -30,14 +30,21 @@
         
         
         </div>
-
-
+     
         <ul class="subnav" style="display: none">
                 <ul class="nav nav-tabs text-center">
-                  <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
-                  <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
-                  <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
-                  <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
+                  <li class="active link_click nav-item" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" href="#home">Video</a>
+                  </li>
+                  <li class="link_click nav-item" role="presentation">
+                  <a class="nav-link " id="menu1-tab" data-toggle="tab"  role="tab" aria-controls="menu1" aria-selected="true" href="#menu1">Audio</a>
+                  </li>
+                  <li class="link_click nav-item" role="presentation">
+                  <a class="nav-link " id="menu4-tab" data-toggle="tab"  role="tab" aria-controls="menu4" aria-selected="true" href="#menu4">Artists</a>
+                  </li>
+                  <li  class="link_click nav-item" role="presentation" >
+                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Offers</a>
+                  </li>
                   </ul>
                    
 
@@ -47,7 +54,7 @@
 
 
                   <div class="tab-content">
-                  <div id="home" class="tab-pane fade1 in active">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                       <h3 style="color: #fff;">Video</h3>
                   <div class="row">
                   <div class="col-6">
@@ -138,7 +145,7 @@
                     <!-- -------------------------- 2nd Tab  Start--------------------------->
 
 
-                  <div id="menu1" class="tab-pane fade">
+                  <div class="tab-pane fade " id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
                     <h3 style="color: #fff;">Audio</h3>
                       <div class="row">
                     <div class="col-6">
@@ -225,7 +232,7 @@
                       <!-- -------------------------- 3rd Tab  Start--------------------------->
 
                 
-                  <div id="menu4" class="tab-pane fade">
+                  <div  class="tab-pane fade " id="menu4" role="tabpanel" aria-labelledby="menu4-tab">
                     <h3 style="color: #fff;">Artists</h3>
                     <div class="row">
                            {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
@@ -346,7 +353,7 @@
 
 
 
-                  <div id="menu2" class="tab-pane fade1 in ">
+                  <div class="tab-pane fade " id="menu2" role="tabpanel" aria-labelledby="menu2-tab">
                       <h3 style="color: #fff;">Offers</h3>
                   <div class="row">
                   <div class="col-6">
@@ -444,7 +451,7 @@
                     <!-- -------------------------- 5th Tab  Start--------------------------->
 
                   
-                      <div id="menu4" class="tab-pane fade1 in ">
+                      <div class="tab-pane fade " id="menu4" role="tabpanel" aria-labelledby="menu4-tab">
                   <div class="row">
                   <div class="col-6">
                     <div class="dropdown12 text-white">
@@ -632,498 +639,506 @@
               <li id="options" onclick="mufunc()">
                 <a href="#"><img width="30px" src="{{asset('images/logos/filter.png')}}"></a></li>
                 <ul class="subnav" style="display: none">
-                  <ul class="nav nav-tabs text-center">
-                    <li class="active link_click"><a data-toggle="tab" href="#home">Video</a></li>
-                    <li class="link_click"><a data-toggle="tab" href="#menu1">Audio</a></li>
-                    <li class="link_click"><a data-toggle="tab" href="#menu4">Artists</a></li>
-                    <li  class="link_click" ><a data-toggle="tab" href="#menu2">Offers</a></li>
-                    </ul>
-                     
+                <ul class="nav nav-tabs text-center">
+                  <li class="active link_click nav-item" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" href="#home">Video</a>
+                  </li>
+                  <li class="link_click nav-item" role="presentation">
+                  <a class="nav-link " id="menu1-tab" data-toggle="tab"  role="tab" aria-controls="menu1" aria-selected="true" href="#menu1">Audio</a>
+                  </li>
+                  <li class="link_click nav-item" role="presentation">
+                  <a class="nav-link " id="menu4-tab" data-toggle="tab"  role="tab" aria-controls="menu4" aria-selected="true" href="#menu4">Artists</a>
+                  </li>
+                  <li  class="link_click nav-item" role="presentation" >
+                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Offers</a>
+                  </li>
+                  </ul>
+                   
 
-                     <!-- --------------------------Tab Content --------------------------->
+                   <!-- --------------------------Tab Content --------------------------->
 
 
 
 
-                    <div class="tab-content">
-                    <div id="home" class="tab-pane fade1 in active">
-                        <h3 style="color: #fff;">Video</h3>
-                    <div class="row">
-                    <div class="col-md-6">
-                      <div class="dropdown12 text-white">
-                           <h4>Categories </h4>
-                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                  {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='video')
-                   <label class=""> 
-                     {{Form::checkbox('catid[]', $cat->id)}}
-                     {{$cat->category}} 
-                   </label><br>
-                             @endif
-                            @endforeach
-                          
-                      </div>
-                     </div>
-
-                     <input type="hidden" name="type" value="video"/>
-
-                          <div class="col-md-6 ">
-                            <div class="bar rightbar">
-                        <div class="dropdown1 text-white">
-                           <h4>Price</h4>
-                            
-                            <label class="">
-                       
-
-                          <!--    {{Form::checkbox('price','free')}}Free   -->
-                          
-                            </label><br>
-                            <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
-                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
-                         <!--      orm::checkbox('price','desc')}}Higest   -->
-                            
-                            </label>
-                       
-                        </div>
-
-                        <div class="dropdown1 text-white">
-                           <h4 >Duration</h4>
-                            <label class=""> 
-                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
-                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
-                           
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
-                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
-                            
-                          </label><br>
-                      
-                        </div>
-                          <div class="collapse pt-4" id="collapseExample1" style="display:block;">
-                @include('popup') 
-              </div>
-                      </div>
-                    </div>
-                      
-                    <div class="col-md-6">
-                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
-                      </div>
+                  <div class="tab-content">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                      <h3 style="color: #fff;">Video</h3>
+                  <div class="row">
+                  <div class="col-6">
+                    <div class="dropdown12 text-white">
+                         <h4>Categories </h4>
+              {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                {{Form::token()}}
+                          @foreach($category as $cat)
+                          @if($cat->type=='video')
+                 <label class=""> 
+                   {{Form::checkbox('catid[]', $cat->id)}}
+                   {{$cat->category}} 
+                 </label><br>
+                           @endif
+                          @endforeach
                         
-                    <div class="col-md-6 text-right pr-5">
-              
-               
-         <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
-          {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-              </div>
-              <div class="col-md-6">
-                       
-            
-            </div>
-                     
-                       
-                         {{ Form::close() }}
-                      
-                    
-                     </div>
                     </div>
-
-
-                      <!-- -------------------------- 2nd Tab  Start--------------------------->
-
-
-                    <div id="menu1" class="tab-pane fade">
-                      <h3 style="color: #fff;">Audio</h3>
-                        <div class="row">
-                      <div class="col-md-6">
-                      <div class="dropdown12 text-white">
-                           <h4>Categories </h4>
-                      {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                      {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='audio')
-                   <label class="">
-                     {{Form::checkbox('catid[]', $cat->id)}}{{$cat->category}} 
-                          
-                            </label><br>
-                             @endif
-                            @endforeach
-                          </div>
-                             </div>
-                         <input type="hidden" name="type" value="audio"/>
-                       <div class="col-md-6">
-                           <div class="dropdown1 text-white">
-                           <h4>Price</h4>
-  
-                            <label class="">
-            
-
-                       
-                            
-                            </label><br>
-                            <label class="">  
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
-                      
-                            </label><br>
-                            <label class=""> 
-                          {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
-                             
-                            
-                            </label>
-                       
-                        </div>
-                      
-                             <div class="dropdown1 audio12 text-white">
-                           <h4 >Duration</h4>
-                            <label>  
-                           {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
-  
-                            </label><br>
-                            <label >
-                        {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
-              
-                          
-                          </label>
-                          <!-- Modal -->
-                          <div class="collapse pt-4" id="audio123">
-                                        <div class="row">
-                                        <div class="col-md-12 mb-4">
-                                                 <label>Gender</label><br>
-                                                    {{Form::checkbox('gender[]','Male')}}Male <br>
-                                                    {{Form::checkbox('gender[]','Female')}}Female <br>
-                                                   {{Form::checkbox('gender[]','Trans')}}Trans 
-                                                  </div>
-                                              <div class="col-md-12 mb-4">
-                                              <label>Sexology</label><br>
-                                                  {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
-                                                 {{Form::checkbox('sexology[]','Homo')}}Homo <br>
-                                                   {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
-                                               </div>
-                                        </div>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="col-md-6">
-                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
-                      </div>
-                            <div class="col-md-6 pr-5 text-right">
-                            <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
-                       {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-                      {{ Form::close() }}
-                     </div> 
-                            </div>
-                           
-                      </div>
-                      
-
-                        <!-- -------------------------- 3rd Tab  Start--------------------------->
-
-                  
-                    <div id="menu4" class="tab-pane fade">
-                      <h3 style="color: #fff;">Artists</h3>
-                      <div class="row">
-                             {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
-                      {{Form::token()}}
-                          <div class="col-md-12">
-                             <div class="scroll12">
-                               
-                            
-                          <div class="row text-left text-white mt-3 red">
-                                  <div class="col-md-4 mb-4  das">
-                                    <label>Gender</label><br>
-                                    {{Form::checkbox('gender[]','Male')}}Male <br>
-                                    {{Form::checkbox('gender[]','Female')}}Female <br>
-                                    {{Form::checkbox('gender[]','Trans')}}Trans 
-                                  </div>
-                                  <div class="col-md-4 mb-4 logy">
-                                    <label>Sexology</label><br>
-                                    {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
-                                    {{Form::checkbox('sexology[]','Homo')}}Homo <br>
-                                    {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
-                                  </div>
-                                  <div class="col-md-4 mb-4">
-                                      <label>Tits size</label><br>
-                                    {{Form::checkbox('titssize[]','Small')}}Small <br>
-                                    {{Form::checkbox('titssize[]','Normal')}}Normal <br>
-                                    {{Form::checkbox('titssize[]','Big')}}Big 
-                                  </div>
-                                   <div class="col-md-4 mb-4 ">
-                                    <label>Ass</label><br>
-                                     {{Form::checkbox('ass[]','Small')}}Small <br>
-                                    {{Form::checkbox('ass[]','Normal')}}Normal <br>
-                                   
-                                    {{Form::checkbox('ass[]','Big')}}Big 
-                                    <br>
-                                    <br>
-                                    <input type="hidden" name="type" value="artists"/>
-
-                                    <label>Body</label><br>
-                                    {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
-                                    {{Form::checkbox('weight[]','Normal')}}Normal <br>
-                                    {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
-                                    {{Form::checkbox('weight[]','Chubby')}}Chubby 
-                                  </div>
-                                  <div class="col-md-4 mb-4 logy">
-                                      <label>Privy part</label><br>
-                                    {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
-                                    {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
-                                              <br>
-                                              <br>
-                                      <label>Height</label><br>
-                                    {{Form::checkbox('height[]','<140cm')}}<140cm <br>
-                                    {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
-                                    {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
-                                    {{Form::checkbox('height[]','180cm<')}}180cm< <br>
-                                  </div>
-                                   <div class="col-md-4 mb-4">
-                                    <label>Eyes/lenses</label><br>
-                                    {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
-                                    {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
-                                    {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 
-                                    {{Form::checkbox('eyecolor[]','golden')}}Golden <br>
-                                    {{Form::checkbox('eyecolor[]','gray')}}Gray <br>
-                                    {{Form::checkbox('eyecolor[]','green')}}Green<br>
-                                    {{Form::checkbox('eyecolor[]','red')}}Red <br>
-                                    {{Form::checkbox('eyecolor[]','white')}}White <br>
-                                    {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br>
-                                    {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
-                                    {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
-                                  </div>
-                                        <div class="col-md-4 mb-4 ">
-                                    <label>Hair color</label><br>
-                                    {{Form::checkbox('haircolor[]','blue')}}Blue <br>
-                                    {{Form::checkbox('haircolor[]','brown')}}Brown <br>
-                                    {{Form::checkbox('haircolor[]','black')}}Black<br> 
-                                    {{Form::checkbox('haircolor[]','blonde')}}Blonde <br>
-                                    {{Form::checkbox('haircolor[]','gray')}}Gray <br>
-                                    {{Form::checkbox('haircolor[]','green')}}Green<br>
-                                    {{Form::checkbox('haircolor[]','red')}}Red <br>
-                                    {{Form::checkbox('haircolor[]','white')}}White <br>
-                                    {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
-                                    {{Form::checkbox('haircolor[]','silver')}}Silver <br>
-                                    {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
-                                    {{Form::checkbox('haircolor[]','violet')}}Violet <br>
-                                  </div>
-                                 
-                                   <div class="col-md-4 mb-4 logy">
-                                      <label>Hair Length</label><br>
-                                    {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
-                                    {{Form::checkbox('hairlength[]','Short')}}Short <br>
-                                    {{Form::checkbox('hairlength[]','Long')}}Long <br>
-                                    {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
-                                  </div>
-                                   <div class="col-md-4 mb-4">
-                                   
-                                  </div>
-                                  
-                              </div>
-                        </div>
-                             </div>
-                          <div class="col-md-12 text-right mt-3 pr-5">
-              
-                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-           
-                       
-            
-            </div>
-                     
-                       
-                         {{ Form::close() }}
-                     </div> 
                    </div>
 
+                   <input type="hidden" name="type" value="video"/>
 
-
-                         <!-- -------------------------- 4th Tab  Start--------------------------->
-
-
-
-
-
-                    <div id="menu2" class="tab-pane fade1 in ">
-                        <h3 style="color: #fff;">Offers</h3>
-                    <div class="row">
-                    <div class="col-md-6">
-                      <div class="dropdown12 text-white" id="video">
-                           <h4>Categories </h4>
-                {!!Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true])!!}
-                  {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='video')
-                   <label class=""> 
-                     {{Form::checkbox('catid[]', $cat->id)}}
-                     {{$cat->category}} 
-                   </label><br>
-                             @endif
-                            @endforeach
+                        <div class="col-6 ">
+                          <div class="bar rightbar">
+                      <div class="dropdown1 text-white">
+                         <h4>Price</h4>
                           
-                      </div>
-                      <div class="dropdown12 text-white" id="audio" style="display:none">
-                            @foreach($category as $cat)
-                            @if($cat->type=='audio')
-                   <label class=""> 
-                     {{Form::checkbox('catid[]', $cat->id)}}
-                     {{$cat->category}} 
-                   </label><br>
-                             @endif
-                            @endforeach
-                          
-                      </div>
-                     </div>
+                          <label class="">
+                     
 
-                          <div class="col-md-6 ">
-                            <div class="bar rightbar">
-                               <div class="dropdown1 text-white">
-                           <h4 >Media</h4>
-                            <label class=""> 
-
-                               {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
-                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
-                           
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('type', 'video', true ,['class'=>'media video'])}} Video 
-                               
-                          <!--  {{Form::checkbox('duration','desc')}}Longest  -->
-                            
+                        <!--    {{Form::checkbox('price','free')}}Free   -->
+                        
                           </label><br>
-                      
-                        </div>
-                        <div class="dropdown1 text-white">
-                           <h4>Price</h4>
-                            
-                  
-      
-                            <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
-                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
-                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
-                            
-                            </label>
-                       
-                        </div>
-
-                       
-                          <div class="collapse pt-4" id="collapseExample2">
-                @include('popup') 
-              </div>
+                          <label class="text-white">
+                        {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
+                            <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                          </label><br>
+                          <label class="">
+                             {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                       <!--      orm::checkbox('price','desc')}}Higest   -->
+                          
+                          </label>
+                     
                       </div>
+
+                      <div class="dropdown1 text-white">
+                         <h4 >Duration</h4>
+                          <label class=""> 
+                             {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
+                       <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                         
+                          </label><br>
+                          <label class="">
+                             {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                        <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                          
+                        </label><br>
+                    
+                      </div>
+                        <div class="collapse pt-4" id="collapseExample1" style="display:block;">
+              @include('popup') 
+            </div>
                     </div>
-                      
-                    <div class="col-md-6">
+                  </div>
+                    
+                  <div class="col-md-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
-                        
-                    <div class="col-md-6 text-right pr-5">
-
-               
-         <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
-          {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-              </div>
-              <div class="col-md-6">
-                       
+                      
+                  <div class="col-md-6 text-right pr-5">
             
+             
+       <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
+        {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
             </div>
+            <div class="col-md-6">
                      
-                       
-                         {{ Form::close() }}
-                      
-                    
-                     </div>
-                    </div>
-
-                      <!-- -------------------------- 5th Tab  Start--------------------------->
-
-                    
-                        <div id="menu4" class="tab-pane fade1 in ">
-                    <div class="row">
-                    <div class="col-md-6">
-                      <div class="dropdown12 text-white">
-                           <h4>Categories </h4>
-                {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
-                  {{Form::token()}}
-                            @foreach($category as $cat)
-                            @if($cat->type=='video')
-                   <label class=""> 
-                     {{Form::checkbox('catid[]', $cat->id)}}
-                     {{$cat->category}} 
-                   </label><br>
-                             @endif
-                            @endforeach
-                          
-                      </div>
-                     </div>
-
-                          <div class="col-md-6 ">
-                            <div class="bar rightbar">
-                        <div class="dropdown1 text-white">
-                           <h4>Price</h4>
-                            
-                            <label class="">
-                         
-
-                          <!--    {{Form::checkbox('price','free')}}Free   -->
-                          
-                            </label><br>
-                            <label class="text-white">
-                          {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
-                              <!--  {{Form::checkbox('price','asc')}}lowest   -->
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
-                         <!--       {{Form::checkbox('price','desc')}}Higest   -->
-                            
-                            </label>
-                       
-                        </div>
-
-                        <div class="dropdown1 text-white">
-                           <h4 >Duration</h4>
-                            <label class=""> 
-                               {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
-                         <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
-                           
-                            </label><br>
-                            <label class="">
-                               {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
-                        
-                            
-                          </label><br>
-                      
-                        </div>
-                          <div class="collapse pt-4" id="collapseExample1" style="display:block;">
-                @include('popup') 
-              </div>
-                      </div>
-                    </div>
-                      
-                     
-                        
-                    <div class="col-md-12 text-right pr-5">
-              
-                {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
-                       </div>
-              <div class="col-md-6">
-                       
-            
-            </div>
-                     
-                       
-                         {{ Form::close() }}
-                      
-                    
-                     </div>
-                    </div>
+          
+          </div>
                    
-                </ul>
+                     
+                       {{ Form::close() }}
+                    
+                  
+                   </div>
+                  </div>
+
+
+                    <!-- -------------------------- 2nd Tab  Start--------------------------->
+
+
+                  <div class="tab-pane fade " id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
+                    <h3 style="color: #fff;">Audio</h3>
+                      <div class="row">
+                    <div class="col-6">
+                    <div class="dropdown12 text-white">
+                         <h4>Categories </h4>
+                    {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                    {{Form::token()}}
+                          @foreach($category as $cat)
+                          @if($cat->type=='audio')
+                 <label class="">
+                   {{Form::checkbox('catid[]', $cat->id)}}{{$cat->category}} 
+                        
+                          </label><br>
+                           @endif
+                          @endforeach
+                        </div>
+                           </div>
+                       <input type="hidden" name="type" value="audio"/>
+                     <div class="col-6">
+                         <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+
+                          <label class="">
+          
+
+                     
+                          
+                          </label><br>
+                          <label class="">  
+                        {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
+                    
+                          </label><br>
+                          <label class=""> 
+                        {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                           
+                          
+                          </label>
+                     
+                      </div>
+                    
+                           <div class="dropdown1 audio12 text-white">
+                         <h4 >Duration</h4>
+                          <label>  
+                         {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
+
+                          </label><br>
+                          <label >
+                      {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+            
+                        
+                        </label>
+                        <!-- Modal -->
+                        <div class="collapse pt-4" id="audio123">
+                                      <div class="row">
+                                      <div class="col-md-12 mb-4">
+                                               <label>Gender</label><br>
+                                                  {{Form::checkbox('gender[]','Male')}}Male <br>
+                                                  {{Form::checkbox('gender[]','Female')}}Female <br>
+                                                 {{Form::checkbox('gender[]','Trans')}}Trans 
+                                                </div>
+                                            <div class="col-md-12 mb-4">
+                                            <label>Sexology</label><br>
+                                                {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
+                                               {{Form::checkbox('sexology[]','Homo')}}Homo <br>
+                                                 {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
+                                             </div>
+                                      </div>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
+                          <div class="col-md-6 pr-5 text-right">
+                          <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
+                     {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+                    {{ Form::close() }}
+                   </div> 
+                          </div>
+                         
+                    </div>
+                    
+
+                      <!-- -------------------------- 3rd Tab  Start--------------------------->
+
+                
+                  <div  class="tab-pane fade " id="menu4" role="tabpanel" aria-labelledby="menu4-tab">
+                    <h3 style="color: #fff;">Artists</h3>
+                    <div class="row">
+                           {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
+                    {{Form::token()}}
+                        <div class="col-md-12">
+                           <div class="scroll12">
+                             
+                          
+                        <div class="row text-left text-white mt-3 red">
+                                <div class="col-md-4 mb-4  das">
+                                  <label>Gender</label><br>
+                                  {{Form::checkbox('gender[]','Male')}}Male <br>
+                                  {{Form::checkbox('gender[]','Female')}}Female <br>
+                                  {{Form::checkbox('gender[]','Trans')}}Trans 
+                                </div>
+                                <div class="col-md-4 mb-4 logy">
+                                  <label>Sexology</label><br>
+                                  {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
+                                  {{Form::checkbox('sexology[]','Homo')}}Homo <br>
+                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <label>Tits size</label><br>
+                                  {{Form::checkbox('titssize[]','Small')}}Small <br>
+                                  {{Form::checkbox('titssize[]','Normal')}}Normal <br>
+                                  {{Form::checkbox('titssize[]','Big')}}Big 
+                                </div>
+                                 <div class="col-md-4 mb-4 ">
+                                  <label>Ass</label><br>
+                                   {{Form::checkbox('ass[]','Small')}}Small <br>
+                                  {{Form::checkbox('ass[]','Normal')}}Normal <br>
+                                 
+                                  {{Form::checkbox('ass[]','Big')}}Big 
+                                  <br>
+                                  <br>
+                                  <input type="hidden" name="type" value="artists"/>
+
+                                  <label>Body</label><br>
+                                  {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
+                                  {{Form::checkbox('weight[]','Normal')}}Normal <br>
+                                  {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
+                                  {{Form::checkbox('weight[]','Chubby')}}Chubby 
+                                </div>
+                                <div class="col-md-4 mb-4 logy">
+                                    <label>Privy part</label><br>
+                                  {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
+                                  {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
+                                            <br>
+                                            <br>
+                                    <label>Height</label><br>
+                                  {{Form::checkbox('height[]','<140cm')}}<140cm <br>
+                                  {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
+                                  {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
+                                  {{Form::checkbox('height[]','180cm<')}}180cm< <br>
+                                </div>
+                                 <div class="col-md-4 mb-4">
+                                  <label>Eyes/lenses</label><br>
+                                  {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
+                                  {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
+                                  {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> 
+                                  {{Form::checkbox('eyecolor[]','golden')}}Golden <br>
+                                  {{Form::checkbox('eyecolor[]','gray')}}Gray <br>
+                                  {{Form::checkbox('eyecolor[]','green')}}Green<br>
+                                  {{Form::checkbox('eyecolor[]','red')}}Red <br>
+                                  {{Form::checkbox('eyecolor[]','white')}}White <br>
+                                  {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br>
+                                  {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
+                                  {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
+                                </div>
+                                      <div class="col-md-4 mb-4 ">
+                                  <label>Hair color</label><br>
+                                  {{Form::checkbox('haircolor[]','blue')}}Blue <br>
+                                  {{Form::checkbox('haircolor[]','brown')}}Brown <br>
+                                  {{Form::checkbox('haircolor[]','black')}}Black<br> 
+                                  {{Form::checkbox('haircolor[]','blonde')}}Blonde <br>
+                                  {{Form::checkbox('haircolor[]','gray')}}Gray <br>
+                                  {{Form::checkbox('haircolor[]','green')}}Green<br>
+                                  {{Form::checkbox('haircolor[]','red')}}Red <br>
+                                  {{Form::checkbox('haircolor[]','white')}}White <br>
+                                  {{Form::checkbox('haircolor[]','yellow')}}Yellow <br>
+                                  {{Form::checkbox('haircolor[]','silver')}}Silver <br>
+                                  {{Form::checkbox('haircolor[]','indigo')}}Indigo <br>
+                                  {{Form::checkbox('haircolor[]','violet')}}Violet <br>
+                                </div>
+                               
+                                 <div class="col-md-4 mb-4 logy">
+                                    <label>Hair Length</label><br>
+                                  {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
+                                  {{Form::checkbox('hairlength[]','Short')}}Short <br>
+                                  {{Form::checkbox('hairlength[]','Long')}}Long <br>
+                                  {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
+                                </div>
+                                 <div class="col-md-4 mb-4">
+                                 
+                                </div>
+                                
+                            </div>
+                      </div>
+                           </div>
+                        <div class="col-md-12 text-right mt-3 pr-5">
+            
+              {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+         
+                     
+          
+          </div>
+                   
+                     
+                       {{ Form::close() }}
+                   </div> 
+                 </div>
+
+
+
+                       <!-- -------------------------- 4th Tab  Start--------------------------->
+
+
+
+
+
+                  <div class="tab-pane fade " id="menu2" role="tabpanel" aria-labelledby="menu2-tab">
+                      <h3 style="color: #fff;">Offers</h3>
+                  <div class="row">
+                  <div class="col-6">
+                    <div class="dropdown12 text-white" id="video">
+                         <h4>Categories </h4>
+              {!!Form::open(['action' => 'AuthController@showOffer', 'method' => 'post', 'files'=>true])!!}
+                {{Form::token()}}
+                          @foreach($category as $cat)
+                          @if($cat->type=='video')
+                 <label class=""> 
+                   {{Form::checkbox('catid[]', $cat->id)}}
+                   {{$cat->category}} 
+                 </label><br>
+                           @endif
+                          @endforeach
+                        
+                    </div>
+                    <div class="dropdown12 text-white" id="audio" style="display:none">
+                          @foreach($category as $cat)
+                          @if($cat->type=='audio')
+                 <label class=""> 
+                   {{Form::checkbox('catid[]', $cat->id)}}
+                   {{$cat->category}} 
+                 </label><br>
+                           @endif
+                          @endforeach
+                        
+                    </div>
+                   </div>
+
+                        <div class="col-6 ">
+                          <div class="bar rightbar">
+                             <div class="dropdown1 text-white">
+                         <h4 >Media</h4>
+                          <label class=""> 
+
+                             {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
+                       <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                         
+                          </label><br>
+                          <label class="">
+                             {{Form::radio('type', 'video', true ,['class'=>'media video'])}} Video 
+                             
+                        <!--  {{Form::checkbox('duration','desc')}}Longest  -->
+                          
+                        </label><br>
+                    
+                      </div>
+                      <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+                          
+                
+    
+                          <label class="text-white">
+                        {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
+                            <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                          </label><br>
+                          <label class="">
+                             {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                       <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                          
+                          </label>
+                     
+                      </div>
+
+                     
+                        <div class="collapse pt-4" id="collapseExample2">
+              @include('popup') 
+            </div>
+                    </div>
+                  </div>
+                    
+                   
+                     <div class="col-md-6">
+                       <h4 class="text-white"><input type="checkbox">Save filter options</h4>
+                      </div>
+                  <div class="col-md-6 text-right pr-5">
+
+             
+       <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
+        {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+            </div>
+            <div class="col-md-6">
+                     
+          
+          </div>
+                   
+                     
+                       {{ Form::close() }}
+                    
+                  
+                   </div>
+                  </div>
+
+                    <!-- -------------------------- 5th Tab  Start--------------------------->
+
+                  
+                      <div class="tab-pane fade " id="menu4" role="tabpanel" aria-labelledby="menu4-tab">
+                  <div class="row">
+                  <div class="col-6">
+                    <div class="dropdown12 text-white">
+                         <h4>Categories </h4>
+              {!!Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true])!!}
+                {{Form::token()}}
+                          @foreach($category as $cat)
+                          @if($cat->type=='video')
+                 <label class=""> 
+                   {{Form::checkbox('catid[]', $cat->id)}}
+                   {{$cat->category}} 
+                 </label><br>
+                           @endif
+                          @endforeach
+                        
+                    </div>
+                   </div>
+
+                        <div class="col-6 ">
+                          <div class="bar rightbar">
+                      <div class="dropdown1 text-white">
+                         <h4>Price</h4>
+                          
+                          <label class="">
+                       
+
+                        <!--    {{Form::checkbox('price','free')}}Free   -->
+                        
+                          </label><br>
+                          <label class="text-white">
+                        {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
+                            <!--  {{Form::checkbox('price','asc')}}lowest   -->
+                          </label><br>
+                          <label class="">
+                             {{Form::radio('price', 'desc', false ,['class'=>'user'])}} Highest
+                       <!--       {{Form::checkbox('price','desc')}}Higest   -->
+                          
+                          </label>
+                     
+                      </div>
+
+                      <div class="dropdown1 text-white">
+                         <h4 >Duration</h4>
+                          <label class=""> 
+                             {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
+                       <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
+                         
+                          </label><br>
+                          <label class="">
+                             {{Form::radio('duration', 'desc', false ,['class'=>'user'])}} Longest
+                      
+                          
+                        </label><br>
+                    
+                      </div>
+                        <div class="collapse pt-4" id="collapseExample1" style="display:block;">
+              @include('popup') 
+            </div>
+                    </div>
+                  </div>
+                    
+                   
+                      
+                  <div class="col-md-12 text-right pr-5">
+            
+              {{ Form::submit('Apply!',['class'=>'btn btn-primary mb-4']) }}
+                     </div>
+            <div class="col-md-6">
+                     
+          
+          </div>
+                   
+                     
+                       {{ Form::close() }}
+                    
+                  
+                   </div>
+                  </div>
+                 
+              </ul>
             
               <li id="search">
               <form action="" method="get">
@@ -1288,7 +1303,6 @@
 
 </header>
 <style>
-<<<<<<< HEAD
 .dropdown1.audio12.text-white {
     height: 107px;
     overflow-y: scroll;
@@ -1474,8 +1488,6 @@ button.btn.btn-warning.text-white {
     font-weight: bold;
     margin-top: -1px;
 }
-=======
->>>>>>> 65171a940eacd67ed28a15a732fd1b890022b5a3
 
 </style>
 <script>
