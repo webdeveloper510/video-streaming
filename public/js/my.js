@@ -36,6 +36,8 @@ $(document).on('click', '.show_list', function () {
 
 $(document).on('click','.select_list',function(){
 
+	
+
 		var listname= $(this).text();
 		$(this).parent().find('.select_list').removeClass('active');
 		$(this).addClass('active');
@@ -600,9 +602,11 @@ $(document).on('click', '.create_list', function () {
 					
 					if(data.status==1){
 
-						alert('List Created Successfully!');
+						$("<h5 class='select_list'>"+data.listname+"</h5>").insertBefore('.before');
 
-						location.reload();
+						//alert('List Created Successfully!');
+
+						//location.reload();
 						// $('.message').show();
 						// // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
 						//  $('.message').html(data.message);

@@ -1421,7 +1421,7 @@ public function new(){
 public function createList(Request $request){
 
 
-          $yes = $this->model->createList($request);
+      $yes = $this->model->createList($request);
 
    $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!','listname'=>$request->listname)) :response()->json(array('status'=>0, 'message'=>'Some Error Occure'));
 
