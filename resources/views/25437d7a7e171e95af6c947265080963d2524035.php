@@ -827,6 +827,7 @@
     border: 3px solid #ed1c24;
     padding: 30px 18px;
     background: #ed1c24;
+    border-radius: 16px;
     color: white;
 }
 label.error {
@@ -843,6 +844,7 @@ label.error {
     border: 3px solid #ff7f27;
     padding: 30px 18px;
     background: #ff7f27;
+    border-radius: 16px;
     color: white;
     
 }
@@ -857,6 +859,7 @@ img.img-fliud.logodownload {
 .columesdashboard2 {
     border: 3px solid #22b14c;
     padding: 30px 18px;
+    border-radius: 16px;
     background: #22b14c;
     color: white;
 }
@@ -865,6 +868,7 @@ img.img-fliud.logodownload {
     border: 3px solid #b97a57;
     padding: 30px 18px;
     background: #b97a57;
+    border-radius: 16px;
     color: white;
 }
 h5.customer1.text-center.pt-3.pl-3 {
