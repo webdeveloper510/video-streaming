@@ -1244,7 +1244,7 @@ public function selectListname(Request $request){
 
         $addTolibrary = $req->all();
 
-        print_r($addTolibrary);die;
+        //print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 

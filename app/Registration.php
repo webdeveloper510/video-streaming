@@ -1707,6 +1707,8 @@ public function getRespectedSub($data){
 
         $lists['playlistname'] = $listname;
 
+        print_r($lists);die;
+
         $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
       //print_r($newData);die;
         $videoIds = (is_array($newData)) ? implode(',',$newData):$newData;      
