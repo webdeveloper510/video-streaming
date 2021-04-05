@@ -113,12 +113,17 @@ button.btn.btn-link {
 }
 .card-body.ques {
     font-size: 15px;
+    padding-left: 50px;
 }
 @media only screen and (max-width: 768px) {
 button.btn.btn-link.btn-block.text-left.ques1 {
     white-space: initial;
     font-size: 17px;
     padding: 3px;
+}
+.card-body.ques {
+    font-size: 15px;
+    padding-left: 0px;
 }
 }
 </style>

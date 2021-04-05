@@ -887,6 +887,13 @@ h5.customer1.text-center.pt-3.pl-3 {
 .card .card-header {
     z-index: 0 !important;
 }
+
+@media  only screen and (max-width: 768px) {
+
+.row.mt-5.pt-5.text-center {
+    margin: 0px !important;
+}
+}
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/dashboard_home.blade.php ENDPATH**/ ?>
