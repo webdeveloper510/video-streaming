@@ -2,7 +2,9 @@
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
-<?php   // include(app_path().'/include/includetop.php')?>
+<?php  // include(app_path().'/include/includetop.php')?>
+
+
 
   <!------------ --------------------------Popup on login success ----------------------------------------->
 
@@ -42,6 +44,7 @@
 }
 </style>
   <div class="outer_slider">
+
     <div class="container my-4">
      <div class="row">
         <div class="col"></div>

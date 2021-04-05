@@ -89,7 +89,7 @@
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>PAZ/min</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min</h4>    
         </div>
         <hr>
       
@@ -240,11 +240,7 @@
         <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
-<<<<<<< HEAD
-        <div class="noti" style="<?php echo e($aud->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
-=======
         <div class="noti" style="<?php echo e($aud->notification=='media' && $aud->userid==$login->id && $aud->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
->>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
 
         </a>
            <?php if($aud->is_seen=='0' &&  $aud->userid==$login->id && $aud->notification=='media'): ?> 

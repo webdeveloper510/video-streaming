@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
               $count = $array['count'];
 
               // echo "<pre>";
-              // print_r($count);die;
+              // print_r($notification);die;
 
 
                $data=Session::get('User');

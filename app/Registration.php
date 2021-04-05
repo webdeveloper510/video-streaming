@@ -1313,7 +1313,7 @@ public function getRespectedSub($data){
               'read'=>0,
               'artistid'=>0,
               'userid'=>$userid,
-              'message'=>'You`ve got a new Job-Request from'.$value[0]->nickname,
+              'message'=>'You`ve got a new Job-Request from'." ".$value[0]->nickname,
               'notificationfor'=>'artist'
             );
 
@@ -1876,7 +1876,7 @@ public function getRespectedSub($data){
             'updated_at'=>now(),
             'artistid'=>$artid,
             'userid'=>$uid,
-            'message'=>$title.'has been added to your library',
+            'message'=>$title." ".'has been added to your library',
             'notificationfor'=>'addedVideo',
             'mediaid'=>$vid
 
@@ -2771,7 +2771,7 @@ public function showSubscribeArtists(){
   ->leftJoin('media_seen_notification', function($query) {
        $query->on('media_seen_notification.artistid','=','subscriber.artistid')
         // ->whereRaw('media_seen_notification.id IN (select MAX(a2.id) from media_seen_notification as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
-        ->where(['media_seen_notification.is_seen'=>0]);
+        ->where(['media_seen_notification.is_seen'=>0,'media_seen_notification.userid'=>$userid]);
      })
   ->distinct('contentprovider.nickname')
  // ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')

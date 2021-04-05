@@ -1226,7 +1226,7 @@
                 <br>
                 @if($notification)
       @foreach($notification as $val)
-    @if($val->notificationfor=='user')
+    @if($val->notificationfor=='user' || $val->notificationfor=='addedVideo')
         <?php 
           $GLOBALS['ids'][] = $val->id;
         ?>
