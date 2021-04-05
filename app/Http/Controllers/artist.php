@@ -88,7 +88,7 @@ class artist extends Controller
 
         //  echo '<pre>';
 
-        //  print_r($allArtistOffer);die;
+        //  print_r($allArtistsVideo);die;
 
          $subscriber =  $this->model->count_subscriber($artistid);
 
@@ -118,30 +118,30 @@ class artist extends Controller
             $data=$req->all();
 
           
-            $arrayId=Session::get('ids');
+            // $arrayId=Session::get('ids');
 
-            if($arrayId){
+            // if($arrayId){
           
-                    if(!in_array($data['id'], $arrayId)){
+            //         if(!in_array($data['id'], $arrayId)){
                         
-                        $arrayId[] =$data['id'];
+            //             $arrayId[] =$data['id'];
 
-                        Session::put('ids',$arrayId);
-                    }
+            //             Session::put('ids',$arrayId);
+            //         }
 
-            }
-            else{
+            // }
+            // else{
               
-                 $arr = array();
-                 $arr[]=$data['id'];
-                 Session::put('ids',$arr);
-            }
+            //      $arr = array();
+            //      $arr[]=$data['id'];
+            //      Session::put('ids',$arr);
+            // }
             
-              $arrayId=Session::get('ids');
-               $insert = $this->model->addWishlist($arrayId);
+            //   $arrayId=Session::get('ids');
+               $insert = $this->model->addWishlist($data);
 
-              if($insert==1){
-                return count($arrayId);
+              if($insert=='1'){
+                return 1;
               }
 
 
@@ -173,19 +173,22 @@ class artist extends Controller
 
     public function artistVideo($vedioid){
 
-       $buyed = $this->model->checkVideoBuyed($vedioid);
+       $wishlistCheck = $this->model->checkVideoBuyed('wishlist','',$vedioid);
+       $buyed = $this->model->checkVideoBuyed('playlist','normal',$vedioid);
       
           $allVedios = $this->model->getVideo($vedioid);
-          // echo "<pre>";
-          // print_r($buyed);die;
+     
 
          $all_play_lists = $this->model->getPlaylist();
+
+          //      echo "<pre>";
+          //  print_r($allVedios);die;
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
           $category_data = $this->model->getCategory();
   
-       return view('artistVideo',['buyed'=>count($buyed),'vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
+       return view('artistVideo',['wishlist'=>count($wishlistCheck),'buyed'=>count($buyed),'vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
     }
 
 
@@ -806,7 +809,7 @@ class artist extends Controller
      // print_r($socialAudio);die;
       $socialImage = $this->model->getSocialInfo('image');
 
-      $news_show = $this->selectDataById('is_news','users','yes');
+      $news_show = $this->model->selectDataById('is_news','users','yes');
 
 
     return view('artists.support1',['news'=>$news_show,'social_video'=>$socialVideo,'social_audio'=>$socialAudio,'social_image'=>$socialImage]);

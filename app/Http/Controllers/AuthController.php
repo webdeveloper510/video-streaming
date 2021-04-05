@@ -1244,7 +1244,7 @@ public function selectListname(Request $request){
 
         $addTolibrary = $req->all();
 
-        print_r($addTolibrary);die;
+        //print_r($addTolibrary);die;
 
         $data = $this->model->addToLibrary($addTolibrary);
 
@@ -1275,6 +1275,26 @@ public function selectListname(Request $request){
         }
 
 
+}
+
+
+public function editPlaylist(Request $req){
+
+  $listname = array(
+    'listname'=>$req->listname
+  );
+
+  $updated = $this->model->UpdateData('listname','id',$listname,$req->id);
+
+  if($updated){
+    return response()->json(array('status'=>1, 'listname'=>$req->listname));
+  }
+
+  else{
+    return response()->json(array('status'=>0, 'messge'=>'Some Error Occure!'));
+  }
+
+          print_r($req->all());
 }
 
 
@@ -1401,7 +1421,7 @@ public function new(){
 public function createList(Request $request){
 
 
-          $yes = $this->model->createList($request);
+      $yes = $this->model->createList($request);
 
    $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!','listname'=>$request->listname)) :response()->json(array('status'=>0, 'message'=>'Some Error Occure'));
 

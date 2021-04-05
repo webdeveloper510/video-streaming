@@ -13,8 +13,19 @@ button.addNow {
 }
 button.close{
     top:19px;
-    bottom: unset;
+    bottom: unset !important;
 }
+p.aedit.text-right {
+    float: right;
+    cursor: pointer;
+}
+button.alert.alert-primary.btn-sm.saveBtn {
+    padding: 6px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+
 .image.area img {
     width: 100%;
     width: 115px;

@@ -113,6 +113,8 @@ Route::post('request', 'AuthController@addRequest');
 
 Route::post('update_Status', 'AuthController@update_due_Status');
 
+Route::post('editPlaylist', 'AuthController@editPlaylist');
+
 Route::post('duration', 'AuthController@duration');
 
 
@@ -177,9 +179,9 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
 Route::post('createList', 'AuthController@createList');
 
-Route::get('supportlogin', 'AuthController@supportlogin');
+Route::get('paz-Team-Login', 'AuthController@supportlogin');
 
-Route::get('report-media', 'AuthController@report_media');
+Route::get('Reported-items', 'AuthController@report_media');
 Route::get('legal-notice', 'AuthController@legal');
 
    /*-------------------End Web Site Route----------------------*/
@@ -208,7 +210,7 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/support', 'artist@support');
     
-    Route::get('showMedia', 'artist@showSocialMedia');
+    Route::get('Social-Media-Download', 'artist@showSocialMedia');
     
     Route::get('artist/offers/{id}', 'artist@offerpage');
     Route::get('support-team', 'AuthController@support_team');

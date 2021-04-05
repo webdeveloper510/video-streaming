@@ -36,6 +36,8 @@ $(document).on('click', '.show_list', function () {
 
 $(document).on('click','.select_list',function(){
 
+	
+
 		var listname= $(this).text();
 		$(this).parent().find('.select_list').removeClass('active');
 		$(this).addClass('active');
@@ -600,9 +602,11 @@ $(document).on('click', '.create_list', function () {
 					
 					if(data.status==1){
 
-						alert('List Created Successfully!');
+						$("<h5 class='select_list'>"+data.listname+"</h5>").insertBefore('.before');
 
-						location.reload();
+						//alert('List Created Successfully!');
+
+						//location.reload();
 						// $('.message').show();
 						// // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
 						//  $('.message').html(data.message);
@@ -675,7 +679,8 @@ $(document).on('click', '.addNow', function () {
 				data: {"videoid": videoid, 'price':token, 'art_id':artist},
 
 				success: function(data){	
-					console.log(data);return false;			
+					//console.log(data);
+					//return false;			
 					if(data.status==1){
 							if(data.messge=='Insufficient Paz Tokens!'){
 									$('.insuffiecient').show();
@@ -1050,6 +1055,67 @@ $(document).on('click', '.addTowishlist', function () {
 
 });
 
+$(document).on('click', '.aedit', function (event) {
+	$(this).prev('.saveBtn').show();
+	//$('.aedit').on('click',function(){
+		//console.log('ssss');
+			$(this).prev().prev('.select_list').replaceWith(function (i, text) {
+					return $("<input>", {
+						type: "text",
+						value: text,
+						name:'edit',
+						class:'input_val'
+						//id: this.id
+			    })
+		
+		
+	
+			});
+	
+	
+	})
+
+	function savePlaylist(a){
+		  var value = $(a).prev('.input_val').val();
+		  var id = $(a).attr('data-id');
+
+		  $.ajax({
+			type: 'POST',
+			url:APP_URL+"/editPlaylist",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+	
+			data: {'listname':value, 'id':id},
+	
+			success: function(data){
+	
+				console.log(data);
+	
+				if(data.status==1){	
+						$(a).prev('.input_val').replaceWith(function (i, text) {
+							return $("<h5>", {
+								type: "text",
+								text: data.listname,
+								class:'select_list'
+								//id: this.id
+						})				
+						
+					});
+					$(a).hide();
+					
+			}	
+			
+			else{
+				console.log('ee')
+			}
+				
+		}
+	});
+		
+
+	}
+
 
 /**-----------------------------------------------Add Tip To Artist------------------------------------------- */
 $(document).on('click', '#addTip', function () {
@@ -1329,11 +1395,12 @@ function subscribe(id,setValue){
 }
 
 function showPlaylistVedio(data){
-
+	//console.log(videos)
 	var videos = JSON.parse(data);
 	console.log(videos);
 	var titles = videos.titles;
 	var videos_playlist = videos.videos;
+	
 	$('.listname').html(videos.playlistname)
 	var split_title  = titles.split(',');
 	var videos_playlist  = videos_playlist.split(',');
@@ -1345,7 +1412,7 @@ function showPlaylistVedio(data){
 		if(i==0){
 		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
 		}
-	 div +=" <div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div>"
+	 div +="<div class='row lists12'><div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div></div>"
 	}
 	$('.video_append').append(div);
 
@@ -2527,7 +2594,7 @@ if ($("#create_offer").length > 0) {
 	},
 	success: function(data){
 
-		console.log(data);return false;
+		//console.log(data);return false;
 
 		if(data.errors){
 
@@ -2569,6 +2636,8 @@ if ($("#create_offer").length > 0) {
     }
   })
 }
+
+
 
 $("#edit").on('click', function () {
     var inf = $(".replace");

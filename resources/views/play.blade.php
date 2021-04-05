@@ -22,7 +22,7 @@
               @if($videos)
               @foreach($videos as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%" controls  controlsList="nodownload" disablePictureInPicture>
     <source src="{{url('storage/app/public/video/'.$val->videos)}}" type="video/mp4">
 				
              </video>
@@ -88,15 +88,18 @@
                           <p>1/5</p>
                       </div>
        <!------------start list------------------>
-                   <div class="row video_append">
-                   <!-- <div class="videolist col-4" >
+                    <div class="video_append">
+                   
                      
-                    </div> -->
-                        <div class="videonameq col-6">
-                              <h3>title</h3>
-                              <p>artistname</p>
-                        </div>
-                   </div>
+                        <!-- <div class="videolist col-4" >
+                          
+                          </div> -->
+                          <div class="videonameq col-6">
+                                <h3>title</h3>
+                                <p>artistname</p>
+                          </div>
+            
+                  </div>
          <!------------end list------------------>
 
                    </div>
@@ -125,8 +128,12 @@
         @foreach($listname as $playlist)
         <?php 
               $videos = explode(',',$playlist->videos);
+
               //print_r($videos);
+             
               $count = count($videos);
+
+             // print_r($count);
               
             ?>
       
@@ -200,7 +207,7 @@
         @if($history)
               @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%" controlsList="nodownload" disablePictureInPicture>
 
                <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
@@ -220,7 +227,7 @@
 </div>
 </div>
 </div>
-
+</div>
 
 <style>
 body{
@@ -251,6 +258,9 @@ body{
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+button.addNow {
+    cursor: pointer;
 }
 ul.reporting {
     background: white;
