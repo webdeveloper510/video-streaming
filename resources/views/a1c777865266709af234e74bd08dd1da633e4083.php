@@ -1275,7 +1275,7 @@
                 <br>
                 <?php if($notification): ?>
       <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($val->notificationfor=='user'): ?>
+    <?php if($val->notificationfor=='user' || $val->notificationfor=='addedVideo'): ?>
         <?php 
           $GLOBALS['ids'][] = $val->id;
         ?>

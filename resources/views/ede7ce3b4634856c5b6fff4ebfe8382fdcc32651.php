@@ -36,9 +36,9 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
-    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers<div id="offerSelected" class="noti1" style="display:none;"></div></a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
+    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection<div id="mediaSelected" class="noti1" style="display:none;">  </div></a>
     <!-- <a class="nav-link tabss " id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="false"><i class="fa fa-newspaper-o"> </i> feed</a>
      -->
   </div>
@@ -66,9 +66,15 @@
                               Your browser does not support the video tag.
                         </video>
                         
-               <div class="noti" style="<?php echo e($offer->is_seen=='no' ? 'display:block':'display:none'); ?>"></div>
-               
+               <div class="noti" style="<?php echo e($offer->notificationseen=='0' && $offer->userid==$login->id && $offer->notiType=='offer'? 'display:block':'display:none'); ?>"></div>
+               <?php if($offer->notificationseen=='0' && $offer->notiType=='media'): ?> 
+        <script>
+                  $('#mediaSelected').show();
+
+        </script>
+          <?php endif; ?>
                     </div>
+
        
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
@@ -83,7 +89,7 @@
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>PAZ/min</h4>
+         <h4><?php echo e($offer->price); ?>PAZ/min</h4>    
         </div>
         <hr>
       
@@ -122,6 +128,13 @@
     position: absolute;
     top: 12px;
     right: 22px;
+}
+.noti1 {
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+
 }
  </style>
 </div>
@@ -169,9 +182,15 @@
                 Your browser does not support the video tag.
             </video>
 
-            <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
+            <div class="noti" style="<?php echo e($detail->notification=='media' && $detail->userid==$login->id && $detail->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
                 </a>
-              
+
+          <?php if($detail->is_seen=='0' && $detail->userid==$login->id && $detail->notification=='media'): ?> 
+        <script>
+                  $('#mediaSelected').show();
+
+               </script>
+          <?php endif; ?>
                 
           <div class="pricetime">
           <div class="text-left">
@@ -221,11 +240,15 @@
         <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
-        <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
+        <div class="noti" style="<?php echo e($aud->notification=='media' && $aud->userid==$login->id && $aud->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
 
         </a>
+           <?php if($aud->is_seen=='0' &&  $aud->userid==$login->id && $aud->notification=='media'): ?> 
+        <script>
+                  $('#mediaSelected').show();
 
-
+               </script>
+          <?php endif; ?>
         <div class="pricetime">
                   <div class="text-left">
                   <h6 class="text-white"><?php echo e($aud->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>

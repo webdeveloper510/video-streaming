@@ -87,7 +87,7 @@
         </div>
        
         <div class="col-md-2">
-         <h4>{{$offer->price}}PAZ/min</h4>
+         <h4>{{$offer->price}}PAZ/min</h4>    
         </div>
         <hr>
       
