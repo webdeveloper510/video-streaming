@@ -63,11 +63,13 @@
       	<h5 class="select_list">{{$val->listname}} </h5><button data-id="{{$val->id}}" class="alert alert-primary btn-sm saveBtn" onclick="savePlaylist(this)" style="display:none;">Save</button>
 		   <p  class="aedit text-right">edit</p><br>
       	@endforeach
+		  <div class="before">
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
+</div>
       </div>
       <div class="text-center mt-4">
       <h2>Token:{{ $GLOBALS['paz'] }} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h2>
