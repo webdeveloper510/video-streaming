@@ -1278,6 +1278,26 @@ public function selectListname(Request $request){
 }
 
 
+public function editPlaylist(Request $req){
+
+  $listname = array(
+    'listname'=>$req->listname
+  );
+
+  $updated = $this->model->UpdateData('listname','id',$listname,$req->id);
+
+  if($updated){
+    return response()->json(array('status'=>1, 'listname'=>$req->listname));
+  }
+
+  else{
+    return response()->json(array('status'=>0, 'messge'=>'Some Error Occure!'));
+  }
+
+          print_r($req->all());
+}
+
+
 public function selectMultiple(Request $req){
 
         $idsData = $req->all();

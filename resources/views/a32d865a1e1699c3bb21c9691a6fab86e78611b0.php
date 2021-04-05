@@ -60,7 +60,7 @@
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
       	<?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      	<h5 class="select_list"><?php echo e($val->listname); ?> </h5> <a href="" class="aedit">edit</a><br>
+      	<h5 class="select_list"><?php echo e($val->listname); ?> </h5><button data-id="<?php echo e($val->id); ?>" class="alert alert-primary btn-sm saveBtn" onclick="savePlaylist(this)" style="display:none;">Save</button> <p  class="aedit">edit</a><br>
       	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">

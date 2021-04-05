@@ -1051,6 +1051,67 @@ $(document).on('click', '.addTowishlist', function () {
 
 });
 
+$(document).on('click', '.aedit', function (event) {
+	$(this).prev('.saveBtn').show();
+	//$('.aedit').on('click',function(){
+		//console.log('ssss');
+			$(this).prev().prev('.select_list').replaceWith(function (i, text) {
+					return $("<input>", {
+						type: "text",
+						value: text,
+						name:'edit',
+						class:'input_val'
+						//id: this.id
+			    })
+		
+		
+	
+			});
+	
+	
+	})
+
+	function savePlaylist(a){
+		  var value = $(a).prev('.input_val').val();
+		  var id = $(a).attr('data-id');
+
+		  $.ajax({
+			type: 'POST',
+			url:APP_URL+"/editPlaylist",
+			 headers: {
+			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		   },
+	
+			data: {'listname':value, 'id':id},
+	
+			success: function(data){
+	
+				console.log(data);
+	
+				if(data.status==1){	
+						$(a).prev('.input_val').replaceWith(function (i, text) {
+							return $("<h5>", {
+								type: "text",
+								text: data.listname,
+								class:'select_list'
+								//id: this.id
+						})				
+						
+					});
+					$(a).hide();
+					
+			}	
+			
+			else{
+				console.log('ee')
+			}
+				
+		}
+	});
+		
+
+	}
+
 
 /**-----------------------------------------------Add Tip To Artist------------------------------------------- */
 $(document).on('click', '#addTip', function () {
@@ -2528,7 +2589,7 @@ if ($("#create_offer").length > 0) {
 	},
 	success: function(data){
 
-		console.log(data);return false;
+		//console.log(data);return false;
 
 		if(data.errors){
 
@@ -2570,6 +2631,8 @@ if ($("#create_offer").length > 0) {
     }
   })
 }
+
+
 
 $("#edit").on('click', function () {
     var inf = $(".replace");
