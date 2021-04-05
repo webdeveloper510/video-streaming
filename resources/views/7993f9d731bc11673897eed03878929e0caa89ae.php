@@ -88,15 +88,18 @@
                           <p>1/5</p>
                       </div>
        <!------------start list------------------>
-                   <div class="row video_append">
-                   <!-- <div class="videolist col-4" >
+                    <div class="video_append">
+                   
                      
-                    </div> -->
-                        <div class="videonameq col-6">
-                              <h3>title</h3>
-                              <p>artistname</p>
-                        </div>
-                   </div>
+                        <!-- <div class="videolist col-4" >
+                          
+                          </div> -->
+                          <div class="videonameq col-6">
+                                <h3>title</h3>
+                                <p>artistname</p>
+                          </div>
+            
+                  </div>
          <!------------end list------------------>
 
                    </div>
@@ -125,8 +128,12 @@
         <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $playlist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php 
               $videos = explode(',',$playlist->videos);
+
               //print_r($videos);
+             
               $count = count($videos);
+
+             // print_r($count);
               
             ?>
       
