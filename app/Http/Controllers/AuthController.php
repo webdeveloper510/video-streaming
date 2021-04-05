@@ -1209,9 +1209,9 @@ public function notifyEmail(Request $req){
 
     $videos = $this->model->getVideosbyList();
 
-    echo "<pre>";
+    // echo "<pre>";
 
-    print_r($playName);die;
+    // print_r($playName);die;
 
     $historyVideos = $this->model->getHistoryVideo();
 
