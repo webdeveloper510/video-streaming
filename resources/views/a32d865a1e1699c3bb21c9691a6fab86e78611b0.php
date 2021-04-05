@@ -42,7 +42,8 @@
               
  <button type="button" style="cursor:pointer;" id="<?php echo e($video->id); ?>" class="addToCart">
  	 	
- 	Add to Wishlist
+ 	<?php echo e($wishlist > 0 ? 'Added' : 'Add To Wishlist'); ?>
+
  </button>
 
 <button  type="button" style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>" class="btn-primary library" <?php echo e($buyed==1 ? 'disabled ':''); ?> data-toggle="modal" data-target="#exampleModal">Add To Library</button>
@@ -317,18 +318,21 @@ ul.reporting {
 </style>
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
-	
+	//alert('gee');
+	var text = $(this).text();
+	//console.log(text);
     e.preventDefault();
     $.ajax({
         type: "POST",
         url: "<?php echo e(url('ajax-request')); ?>",
         data: { 
-            id: $(this).attr('id'), // < note use of 'this' here
-             "_token": "<?php echo e(csrf_token()); ?>", 
+            'id': $(this).attr('id'),
+			'text':text=='Added' ? 'remove' : 'added',
+             '_token': "<?php echo e(csrf_token()); ?>", 
         },
         success: function(result) {
-        	$('.addToCart').text('Added');
-           // $('.itemCount').text(result);
+			console.log(result);
+        	$('.addToCart').text(text=='Added' ? 'Add To Wishlist' : 'Added');
         },
         error: function(result) {
             alert('error');
