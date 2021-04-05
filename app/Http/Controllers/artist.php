@@ -176,10 +176,12 @@ class artist extends Controller
        $buyed = $this->model->checkVideoBuyed($vedioid);
       
           $allVedios = $this->model->getVideo($vedioid);
-          // echo "<pre>";
-          // print_r($buyed);die;
+     
 
          $all_play_lists = $this->model->getPlaylist();
+
+               echo "<pre>";
+           print_r($all_play_lists);die;
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
