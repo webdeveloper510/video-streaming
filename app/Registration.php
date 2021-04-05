@@ -1313,7 +1313,7 @@ public function getRespectedSub($data){
               'read'=>0,
               'artistid'=>0,
               'userid'=>$userid,
-              'message'=>'You`ve got a new Job-Request from'.$value[0]->nickname,
+              'message'=>'You`ve got a new Job-Request from'." ".$value[0]->nickname,
               'notificationfor'=>'artist'
             );
 
@@ -1876,7 +1876,7 @@ public function getRespectedSub($data){
             'updated_at'=>now(),
             'artistid'=>$artid,
             'userid'=>$uid,
-            'message'=>$title.'has been added to your library',
+            'message'=>$title." ".'has been added to your library',
             'notificationfor'=>'addedVideo',
             'mediaid'=>$vid
 
