@@ -1391,11 +1391,12 @@ function subscribe(id,setValue){
 }
 
 function showPlaylistVedio(data){
-
+	//console.log(videos)
 	var videos = JSON.parse(data);
 	console.log(videos);
 	var titles = videos.titles;
 	var videos_playlist = videos.videos;
+	
 	$('.listname').html(videos.playlistname)
 	var split_title  = titles.split(',');
 	var videos_playlist  = videos_playlist.split(',');
