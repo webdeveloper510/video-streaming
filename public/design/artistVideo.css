@@ -11,7 +11,10 @@ button.addNow {
     justify-content: flex-end;
     padding-top: 20px;
 }
-
+button.close{
+    top:19px;
+    bottom: unset;
+}
 .image.area img {
     width: 100%;
     width: 115px;
