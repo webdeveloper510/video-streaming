@@ -113,6 +113,8 @@ Route::post('request', 'AuthController@addRequest');
 
 Route::post('update_Status', 'AuthController@update_due_Status');
 
+Route::post('editPlaylist', 'AuthController@editPlaylist');
+
 Route::post('duration', 'AuthController@duration');
 
 
