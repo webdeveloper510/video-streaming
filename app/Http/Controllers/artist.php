@@ -89,7 +89,7 @@ class artist extends Controller
 
         //  echo '<pre>';
 
-        //  print_r($allArtistsAudio);die;
+        //  print_r($allArtistOffer);die;
 
          $subscriber =  $this->model->count_subscriber($artistid);
 
