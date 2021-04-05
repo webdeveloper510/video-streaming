@@ -2771,7 +2771,7 @@ public function showSubscribeArtists(){
   ->leftJoin('media_seen_notification', function($query) {
        $query->on('media_seen_notification.artistid','=','subscriber.artistid')
         // ->whereRaw('media_seen_notification.id IN (select MAX(a2.id) from media_seen_notification as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
-        ->where(['media_seen_notification.is_seen'=>0]);
+        ->where(['media_seen_notification.is_seen'=>0,'media_seen_notification.userid'=>$userid]);
      })
   ->distinct('contentprovider.nickname')
  // ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
