@@ -22,7 +22,7 @@
               @if($videos)
               @foreach($videos as $indx=> $val)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%" controls  controlsList="nodownload" disablePictureInPicture>
     <source src="{{url('storage/app/public/video/'.$val->videos)}}" type="video/mp4">
 				
              </video>
@@ -207,7 +207,7 @@
         @if($history)
               @foreach($history as $indx => $histories)
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%" controlsList="nodownload" disablePictureInPicture>
 
                <source src="{{url('storage/app/public/video/'.$histories->media)}}" type="video/mp4">
 				
@@ -227,7 +227,7 @@
 </div>
 </div>
 </div>
-
+</div>
 
 <style>
 body{

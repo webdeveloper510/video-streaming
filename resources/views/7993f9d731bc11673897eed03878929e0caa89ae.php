@@ -22,7 +22,7 @@
               <?php if($videos): ?>
               <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%" controls  controlsList="nodownload" disablePictureInPicture>
     <source src="<?php echo e(url('storage/app/public/video/'.$val->videos)); ?>" type="video/mp4">
 				
              </video>
@@ -207,7 +207,7 @@
         <?php if($history): ?>
               <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="col-md-3 pb-video">
-             <video width="100%" height="100%"  controlsList="nodownload" disablePictureInPicture>
+             <video width="100%" height="100%" controlsList="nodownload" disablePictureInPicture>
 
                <source src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>" type="video/mp4">
 				
@@ -227,7 +227,7 @@
 </div>
 </div>
 </div>
-
+</div>
 
 <style>
 body{
@@ -258,6 +258,9 @@ body{
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+button.addNow {
+    cursor: pointer;
 }
 ul.reporting {
     background: white;

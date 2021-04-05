@@ -2083,13 +2083,16 @@ public function getPlaylistById($id){
 
 public function addWishlist($data1){
 
-    //print_r($data1);die;
+   //print_r($data1);die;
 
   unset($data1['_token']);
 
   $session_data =   Session::get('User');
 
   $userid =  $session_data->id;
+  $text = $data1['text'];
+
+  unset($data1['text']);
 
  $data = $this->selectSingleById('userid','wishlist',$userid);
 
@@ -2103,7 +2106,7 @@ public function addWishlist($data1){
     $result_array = array_unique($aunion);
  }
  
- $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid) : $this->insertWishlist($data1,$userid);
+ $returnData = count($data) >0 ? $this->updateWishlist(implode(',',$result_array),$userid,$data1,$text,$newArray) : $this->insertWishlist($data1,$userid);
  //print_r($returnData);die;
  return $returnData;
 
@@ -2118,11 +2121,27 @@ public function selectSingleById($key,$table,$where){
 
 }
 
-public function updateWishlist($data,$uid){
+public function updateWishlist($data,$uid,$data1,$bool,$arrayid){
 
-      $update = DB::table('wishlist')->where(array('userid'=>$uid))
+  if($bool=='remove'){
+
+    $index = array_search($data1['id'], $arrayid);
+
+    unset($arrayid[$index]);
+
+    $ids= implode(',',$arrayid);
+
+  // print_r($ids1);die;
+
+  }
+  else{
+    $ids = $data;
+  }
+
+
+        $update = DB::table('wishlist')->where(array('userid'=>$uid))
       ->update([
-            'videoid' => $data//DB::raw("CONCAT(videoid,',".$data[0]."')"),
+            'videoid' => $ids ? $ids : ''//DB::raw("CONCAT(videoid,',".$data[0]."')"),
           ]);
 
       return $update;
@@ -2138,7 +2157,7 @@ public function insertWishlist($data,$uid){
         );
               $insert = DB::table('wishlist')->insert($array);
 
-              return $insert;
+              return $insert ? 1 : 0;
 
   
 }
@@ -2171,16 +2190,25 @@ public function getVideosbyList(){
 
 }
 
-public function checkVideoBuyed($id){
+public function checkVideoBuyed($table,$type,$id){
 
   $session_data =   Session::get('User');
   $userid =  $session_data->id;
-
-      return DB::table('user_video')
+      if($type=='normal'){
+       $data = DB::table('user_video')
       ->whereRaw("FIND_IN_SET(?, videoid) > 0", [$id])
       ->where('type','normal')
-      ->where('userid',$userid)
-      ->get()->toArray();
+      ->where('userid',$userid);
+     }
+
+     else{
+
+      $data = DB::table('wishlist')
+      ->whereRaw("FIND_IN_SET(?, videoid) > 0", [$id])
+      ->where('userid',$userid);
+
+     }
+     return $data->get()->toArray();
 }
 
 public function addToHistory($data){
