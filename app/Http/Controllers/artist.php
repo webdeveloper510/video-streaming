@@ -180,8 +180,8 @@ class artist extends Controller
 
          $all_play_lists = $this->model->getPlaylist();
 
-          //      echo "<pre>";
-          //  print_r($all_play_lists);die;
+               echo "<pre>";
+           print_r($allVedios);die;
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
