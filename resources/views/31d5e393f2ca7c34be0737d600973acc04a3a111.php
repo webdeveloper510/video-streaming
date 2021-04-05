@@ -1,4 +1,4 @@
-@include('artists.dashboard')
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="faq mt-5 pt-4">
     <div class="container">
@@ -82,15 +82,15 @@
                 <h3>Additional links</h3>
                 <ul class="menufooter">
               <li>
-              <a href="{{url('/terms')}}"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-               <li><a href="{{url('/acceptable')}}"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
-               <li><a href="{{url('/privacy')}}"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-               <li><a href="{{url('/dmca')}}"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
+              <a href="<?php echo e(url('/terms')); ?>"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+               <li><a href="<?php echo e(url('/acceptable')); ?>"><i class="fa fa-angle-right"></i> Acceptable Use Policy</a></li>
+               <li><a href="<?php echo e(url('/privacy')); ?>"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+               <li><a href="<?php echo e(url('/dmca')); ?>"><i class="fa fa-angle-right"></i> DMCA Policy</a></li>
              
-              <li><a href="{{url('/cookie')}}"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
+              <li><a href="<?php echo e(url('/cookie')); ?>"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
             
-              <li><a href="{{url('/disclaimer')}}"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
-              <li><a href="{{url('/legal-notice')}}"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
+              <li><a href="<?php echo e(url('/disclaimer')); ?>"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
+              <li><a href="<?php echo e(url('/legal-notice')); ?>"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
             </ul>
             </div>
             </div>
@@ -112,4 +112,4 @@ button.btn.btn-link {
     font-size: 15px;
 }
 </style>
-@include('artists.dashboard_footer')
+<?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/faq.blade.php ENDPATH**/ ?>
