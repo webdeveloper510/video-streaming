@@ -415,12 +415,17 @@ public function uploadContentProvider($contentdata){
         $count  = $this->selectDataById('artistid','media_seen_notification',$contentid);
 
           if(count($count) > 0){
+<<<<<<< HEAD
                 $data = array(
                   'is_seen'=>'0',
                   'mediaid'=>$inserted_data
                 );
 
             $update = $this->UpdateData('media_seen_notification','artistid',$data,$contentid);
+=======
+
+            $done = $this->updateDataInMedia($userid,$inserted_data,'media');
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
 
           }
         // $array = array(
@@ -495,7 +500,8 @@ public function getArtistDetail($artid,$type){
 
       $artistsDetail = DB::table('contentprovider')
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
-       ->select('contentprovider.*', 'media.*')
+       ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','media.id')
+       ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.userid','media_seen_notification.mediaid','media_seen_notification.type as notification')
        ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
@@ -517,6 +523,22 @@ public function getArtistDetail($artid,$type){
 
        return $data;
 
+  }
+
+  public function UpdateMediaNotification($artid){
+    $session_data =   Session::get('User');
+    $user = $session_data->id;
+        return DB::table('media_seen_notification')->where(array('userid'=>$user,'artistid'=>$artid))->update([
+            'is_seen'=>1
+        ]);
+  }
+
+  public function UpdateOFFERnOTI($artid){
+    $session_data =   Session::get('User');
+    $user = $session_data->id;
+      return DB::table('offer')->where(array('userid'=>$user,'artistid'=>$artid))->update([
+            'is_seen'=>'yes'
+        ]);
   }
 
 
@@ -580,15 +602,11 @@ public function getArtistDetail($artid,$type){
 
   public function getArtistOffer($artistId,$user){
 
-    
-
-    //echo $artistId;die;
-
     $offer=DB::table('offer')
     ->leftjoin('category', 'category.id', '=','offer.categoryid')
     ->leftjoin('subscriber','subscriber.artistid','=','offer.artistid')
-     ->select('offer.*', 'category.category','subscriber.count');
-   
+    ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','offer.id')
+     ->select('offer.*', 'category.category','subscriber.count','media_seen_notification.is_seen as notificationseen','media_seen_notification.type as notiType');  
 
      if($user=='customer'){
 
@@ -1101,7 +1119,7 @@ public function getRespectedSub($data){
       $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
       $data['created_at'] = now();
-      $data['updated_at'] = '';
+      $data['updated_at'] = now();
        $data['by_created']=1;
        $data['quality'] = $data['quality'] ? $data['quality'] : '';
 
@@ -1114,7 +1132,37 @@ public function getRespectedSub($data){
       //print_r($data);die;
 
 
-        $insert = DB::table('offer')->insert($data);
+        $insert = DB::table('offer')->insertGetId($data);
+
+        if($insert){
+
+              $array = array(
+                'created_at'=>now(),
+                'updated_at'=>now(),
+                'artistid'=>$userid,
+                'userid'=>0,
+                'message'=>'CO',
+                'notificationfor'=>'created offer',
+              );
+
+              $count  = $this->selectDataById('artistid','media_seen_notification',$userid);
+
+              //print_r($count);die;
+
+              if(count($count) > 0){
+
+               $done = $this->updateDataInMedia($userid,$insert,'offer');
+                
+
+                   
+    
+                //$update = $this->UpdateData('media_seen_notification','artistid',$data,$userid);
+    
+              }
+
+          $insert = $this->insertNotification($array);
+
+      }        
 
         if($insert){
 
@@ -1133,6 +1181,18 @@ public function getRespectedSub($data){
 
 
         return $insert ? 1 :0;
+
+    }
+
+    public function updateDataInMedia($aid,$insert,$type){
+
+            $data = array(
+              'is_seen'=>'0',
+              'mediaid'=>$insert,
+              'type'=>'offer'
+            );
+
+       return  DB::table('media_seen_notification')->where(array('artistid'=>$aid,'type'=>$type))->update($data);
 
     }
 
@@ -1513,10 +1573,7 @@ public function getRespectedSub($data){
 
     }
 
-    public function updateUserVideo($uid,$video,$tok,$type){
-
-         
-     // print_r($video);die;
+    public function updateUserVideo($uid,$video,$tok,$type){         
 
       if(isset($video['choice'])){
 
@@ -1524,19 +1581,16 @@ public function getRespectedSub($data){
 
           $getOffer = $this->selectDataById('id','offer',$videoId);
 
-          //print_r($getOffer);die;
 
           unset($video['id']);
           unset($video['nickname']);
           unset($video['category']);
           unset($video['count']);
 
-            //print_r($getOffer);die;
 
 
           $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
-         // $insert  = DB::table('offer')->insert($video);
 
             $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
             ->update([
@@ -1557,6 +1611,8 @@ public function getRespectedSub($data){
     }
 
     public function insertUserVideo($uid,$video,$tok,$type){
+
+    
 
       //print_r($video);die;
       if(isset($video['userdescription'])){
@@ -1579,6 +1635,8 @@ public function getRespectedSub($data){
       $video_data['videoid'] = isset($video['videoid']) ? $video['videoid'] : $video_id;
       $video_data['type'] = $type;
 
+      //echo "buy";
+  
       $insert = DB::table('user_video')->insert($video_data);
 
       return $insert ? 1 : 0;
@@ -1648,8 +1706,7 @@ public function getRespectedSub($data){
 
       $newData =array();
 
-        $session_data =   Session::get('User');
-   
+        $session_data =   Session::get('User');   
 
         $userid =  $session_data->id;
 
@@ -1660,9 +1717,8 @@ public function getRespectedSub($data){
         $lists['playlistname'] = $listname;
 
         $newData = array_key_exists("videoid",$lists) ? $lists['videoid'] : Session::get('SessionmultipleIds');
-
-        $videoIds = (is_array($newData)) ? implode(',',$newData):'';
-      
+      //print_r($newData);die;
+        $videoIds = (is_array($newData)) ? implode(',',$newData):$newData;      
         
         $lists['userid'] = $userid;
 
@@ -1672,196 +1728,139 @@ public function getRespectedSub($data){
 
         else{
           $ids[]  = $newData ;
-        }
+        }      
        
-      
-       
-
         $return = 0;
 
-          $tokensData = $this->selectDataById('id','users',$userid);
-
+      $tokensData = $this->selectDataById('id','users',$userid);   
           
+        $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
 
-          //print_r($tokensData);die;
-   
-          
-    $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->get()->toArray();
+      if($tokens < $tokensData[0]->tokens){               
 
-   
-      if($tokens < $tokensData[0]->tokens){
-
-        if(count($data)>0){  
-
-                    $newArray = explode(",",$data[0]->listvideo);   
-          
-    
-                    $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
-
-                      $result_array = array_unique($aunion);
-
-                        $newListid = implode(',',$result_array); 
-                    //print_r($newListid);die;
-                  
-
-                $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
-                'listvideo' =>$newListid  
-                ]);
-      
-     
-       
-         if(isset($update)){ 
-           
-          $price = 0;
-           
-         // print_r($ids);die;
-
-         for($i=0; $i<count($ids);$i++){
-
-            $videoExist = DB::table('user_video')->whereRaw("find_in_set('".$ids[$i]."',videoid)")->count();
-
-            if($videoExist==0){
-
-              $yes = true;
-
-                //echo "yes";
-
-                  $data_price = $this->selectDataById('id','media',$ids[$i]);
-
-                  $price = $price + $data_price[0]->price;
-                  $titles[] = $data_price[0]->title;
-
-                  $new_video_ids[] = $ids[$i];       
-
-        }
-
+               if(count($data)>0){ 
+                        $newArray = explode(",",$data[0]->listvideo);   
               
-         }  
-         
-                if($yes){
-
-                  //echo "yes";die;
-
-                  $lists['videoid']= implode(',',$new_video_ids) ; 
-                  $titles= implode(',',$titles) ; 
-                  $lists['price']=  $price; 
-                  
-                  $buyed = $this->buyVideo($lists);
         
-                  $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;
-        
-                                
-                  $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple',$titles) : 0;
+                        $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
 
-                  $return = $status_succedd;
+                         $result_array = array_unique($aunion);
 
-                  //print_r($return);die;
-              }
+                          $newListid = implode(',',$result_array); 
 
-                  else{
+                          $update = $this->updateInPlayList($userid,$listname,$newListid);        
+                
+                           if(isset($update)){                  
+                          
+                            $return  = $this->checkIdInUserVideo($tokensData,$ids,$lists);  
 
-                    $return = 'Already';
+                          }
 
-                  }
-           
-}
+                          else
+                          {
+                            $return =   false;
+                          }  
 
-                else
-                {
-                  $return =   false;
-                }  
-
-        }
-
-        else {
-
-          //print_r('yes');die;
-
-          //echo "yes";die;
-           $playlist['listvideo'] = $videoIds;
-           $playlist['userid'] = $userid;
-           $playlist['playlistname'] = $listname;
-
-            $tokens = $tokensData[0]->tokens;
-            $playlist['created_at'] = now();
-            $playlist['updated_at'] = now();
-
-            //print_r($playlist);die;
-
-            
-
-          $insert  =DB::table('playlist')->insert($playlist);
-
-
-          $price = 0;
-           
-          // print_r($ids);die;
- 
-          for($i=0; $i<count($ids);$i++){
- 
-             $videoExist = DB::table('user_video')->whereRaw("find_in_set('".$ids[$i]."',videoid)")->count();
- 
-             if($videoExist==0){
- 
-               $yes = true;
- 
-                 //echo "yes";
- 
-                   $data_price = $this->selectDataById('id','media',$ids[$i]);
- 
-                   $price = $price + $data_price[0]->price;
-                   $titles[] =  $data_price[0]->title;
- 
-                   $new_video_ids[] = $ids[$i];
-                //$lists['videoid']= $newListid ;         
- 
-         }
- 
-               
-          }  
-          
-                 if($yes){
- 
-                   //echo "yes";die;
- 
-                   $lists['videoid']= implode(',',$new_video_ids) ; 
-                   $titles= implode(',',$titles) ; 
-                   $lists['price']=  $price; 
-                   
-                   $buyed = $this->buyVideo($lists);
-         
-                   $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;
-         
-                                 
-                   $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple',$titles) : 0;
- 
-                   $return = $status_succedd;
- 
-                   //print_r($return);die;
-               }
-
-          // $buyed = $this->buyVideo($lists);
-
-          // $returnData = $buyed ? $this->reduceTokens($tokensData,$userid,$tokens,$lists['art_id'])  : 0 ;
-
-          // $status_succedd = $returnData ? $this->insertPaymentStatus($userid,$lists['art_id'],$videoIds ? $videoIds : $ids[0],$tokens, $videoIds ? 'multiple' : 'single') : 0;
-
-          // //print_r($status_succedd);
-          // $return = $status_succedd;
       }
 
+                else {
+                  $playlist['listvideo'] = $videoIds;
+                  $playlist['userid'] = $userid;
+                  $playlist['playlistname'] = $listname;
+
+                  $tokens = $tokensData[0]->tokens;
+                  $playlist['created_at'] = now();
+                  $playlist['updated_at'] = now();   
+                  
+                  
+
+                  //$created = $this->createPlayListUser($playlist);  
+
+                  $return  = $this->checkIdInUserVideo($tokensData,$ids,$lists);  
+
+              }
+
        
 
-    }
+  }
 
     else{
 
       $return = 'insufficient';
     }
 
-    //print_r($return);die;
     return $return;
   }
+
+  public function createPlayListUser($playlist){
+
+       $insert  = DB::table('playlist')->insert($playlist);
+
+    return $insert;
+
+  }
+
+  public function updateInPlayList($userid,$listname,$newListid){
+        
+    return $update = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$listname))->update([
+      'listvideo' =>$newListid  
+      ]);
+
+  }
+
+  public function checkIdInUserVideo($tokensData,$ids,$lists){   
+
+    $session_data =   Session::get('User');   
+
+    $userid =  $session_data->id;
+               
+    $price = 0;   
+    
+    for($i=0; $i<count($ids);$i++){
+
+        $videoExist = DB::table('user_video')
+        ->whereRaw("find_in_set('".$ids[$i]."',videoid)")
+        ->where('userid',$userid)
+        ->count();
+       // print_r($videoExist);die;
+        if($videoExist==0){
+          $yes = true; 
+
+          $data_price = $this->selectDataById('id','media',$ids[$i]);
+
+            $price = $price + $data_price[0]->price;
+            $titles[] = $data_price[0]->title;
+             $new_video_ids[] = $ids[$i];       
+
+        }
+
+
+   }    
+
+          if($yes){
+            $lists['videoid']= implode(',',$new_video_ids) ; 
+            $titles= implode(',',$titles) ; 
+            $lists['price']=  $price;  
+
+            $buyed = $this->buyVideo($lists);
+  
+            $reduce  = $buyed  ? $this->reduceTokens($tokensData,$userid,$price,$lists['art_id']): 0;  
+                          
+            $status_succedd = $reduce  ? $this->insertPaymentStatus($userid,$lists['art_id'],count($new_video_ids > 1) ? $lists['videoid'] : $lists['videoid'],$price, count($new_video_ids == 1) ? 'single' : 'multiple',$titles) : 0;
+
+            $return = $status_succedd;
+         }
+
+          else{
+            $return = 'Already';
+          }
+
+         // print_r($return);die;
+
+          return $return;
+
+
+}
 
   public function insertPaymentStatus($uid,$artid,$vid,$paz,$from,$title){
 
@@ -1898,7 +1897,7 @@ public function getRespectedSub($data){
 
     //print_r($insert_payment);die;
   
-    return $insert_payment;
+    return $insert_payment ? 1 : 0;
 
   }
 
@@ -2042,14 +2041,13 @@ public function getAllPlaylist(){
       $userid =  $session_data->id;
 
       $data = \DB::table("playlist")
-      ->select("playlist.id","playlist.playlistname","playlist.created_at","contentprovider.nickname",\DB::raw("GROUP_CONCAT(media.media) as videos"),\DB::raw("GROUP_CONCAT(media.title) as titles"))
-      ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
-      ->leftjoin('contentprovider','contentprovider.id','=','media.contentProviderid')
+      ->select("playlist.id","playlist.playlistname","playlist.created_at",\DB::raw("GROUP_CONCAT(media.media) as videos"),\DB::raw("GROUP_CONCAT(contentprovider.nickname) as names"),\DB::raw("GROUP_CONCAT(media.title) as titles"))
+      ->join("media",\DB::raw("FIND_IN_SET(media.id,playlist.listvideo)"),">",\DB::raw("'0'"))
+      ->join('contentprovider','contentprovider.id','=','media.contentProviderid')
       ->where('playlist.userid',$userid)
-      ->groupBy("playlist.id","playlist.playlistname",'playlist.created_at','contentprovider.nickname')
+      ->groupBy("playlist.id","playlist.playlistname",'playlist.created_at')
       ->get();
-      //   echo "<pre>";
-      // print_r($data);die;
+     
 
     return $data;
 }
@@ -2182,9 +2180,13 @@ public function getVideosbyList(){
 
 public function checkVideoBuyed($id){
 
+  $session_data =   Session::get('User');
+  $userid =  $session_data->id;
+
       return DB::table('user_video')
       ->whereRaw("FIND_IN_SET(?, videoid) > 0", [$id])
       ->where('type','normal')
+      ->where('userid',$userid)
       ->get()->toArray();
 }
 
@@ -2744,7 +2746,13 @@ public function unsubscribe($allIds,$userid,$postData,$count){
         'count' =>  DB::raw('count -'.$count)
       ]);
 
+<<<<<<< HEAD
       $this->deleteFromMediaUpdate($userid);
+=======
+      $data = $this->selectDataById('userid','media_seen_notification',$userid);
+
+      count($data) > 0 ? $this->deleteFromMediaUpdate($userid): '';
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
 
     return $update;
 
@@ -2773,6 +2781,7 @@ public function showSubscribeArtists(){
 
   $subscribedArtist = DB::table('subscriber')
   ->leftJoin ('contentprovider','contentprovider.id','=','subscriber.artistid')
+<<<<<<< HEAD
   ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
   ->leftJoin('offer', function($query) {
     $query->on('offer.artistid','=','subscriber.artistid')
@@ -2783,10 +2792,36 @@ public function showSubscribeArtists(){
    ->where(['offer.by_created'=>1])
   //->orderBy('offer.id', 'DESC')
  // ->groupBy('contentprovider.nickname','contentprovider.profilepicture','offer.by_created','subscriber.artistid')
+=======
+  ->leftJoin('media_seen_notification', function($query) {
+       $query->on('media_seen_notification.artistid','=','subscriber.artistid')
+        // ->whereRaw('media_seen_notification.id IN (select MAX(a2.id) from media_seen_notification as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
+        ->where(['media_seen_notification.is_seen'=>0]);
+     })
+  ->distinct('contentprovider.nickname')
+ // ->leftJoin('media_seen_notification','media_seen_notification.artistid','=','subscriber.artistid')
+//   ->leftJoin('offer', function($query) {
+//     $query->on('offer.artistid','=','subscriber.artistid')
+//         ->whereRaw('offer.id IN (select MAX(a2.id) from offer as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)')
+//         ->where(['offer.by_created'=>1,'offer.offer_status'=>'online']);
+// })
+// ->leftJoin('media_seen_notification', function($query) {
+//   $query->on('media_seen_notification.artistid','=','subscriber.artistid')
+//       ->whereRaw('media_seen_notification.id IN (select MAX(a2.id) from media_seen_notification as a2 join subscriber as u2 on u2.artistid = a2.artistid group by u2.artistid)');
+// })
+  ->select('contentprovider.nickname','media_seen_notification.is_seen as mediaseen','contentprovider.profilepicture','subscriber.artistid')
+  ->whereRaw('FIND_IN_SET(?,subscriber.userid)',[$userid])
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
   ->get();
     // echo "<pre>";
     //   print_r($subscribedArtist );die;
      return $subscribedArtist;
+
+}
+
+public function getSeen_noti_media($id){
+
+  return DB::table('media_seen_notification')->select(array('mediaid', 'is_seen'))->get()->toArray();
 
 }
 

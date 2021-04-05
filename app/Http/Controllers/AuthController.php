@@ -1190,7 +1190,7 @@ public function notifyEmail(Request $req){
       return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
   
 }
-   public function play($id){
+   public function play($id=null){
 
     $update = $this->model->UpdateData('notification','id',array('read'=>1),$id);
 
@@ -1248,7 +1248,7 @@ public function selectListname(Request $request){
 
         $data = $this->model->addToLibrary($addTolibrary);
 
-         //print_r($data);die;
+       
 
         if($data==1 || $data=='1'){
 
@@ -1781,9 +1781,9 @@ public function readNotification(Request $request){
       public function updateNoti(Request $req){
 
 
-            $this->model->UpdateData('media','contentProviderid',array('is_seen'=>1),$req->id);
+            $this->model->UpdateMediaNotification($req->id);
 
-            $this->model->UpdateData('offer','artistid',array('is_seen'=>'yes'),$req->id);
+            $this->model->UpdateOFFERnOTI($req->id);
 
                 //print_r($req->all());
       }

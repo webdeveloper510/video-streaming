@@ -36,9 +36,9 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist" >
-    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers<div id="offerSelected" class="noti1" style="display:none;"></div></a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
+    <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection<div id="mediaSelected" class="noti1" style="display:none;">  </div></a>
     <!-- <a class="nav-link tabss " id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="false"><i class="fa fa-newspaper-o"> </i> feed</a>
      -->
   </div>
@@ -66,9 +66,15 @@
                               Your browser does not support the video tag.
                         </video>
                         
-               <div class="noti" style="<?php echo e($offer->is_seen=='no' ? 'display:block':'display:none'); ?>"></div>
-               
+               <div class="noti" style="<?php echo e($offer->notificationseen=='0' && $offer->notiType=='offer'? 'display:block':'display:none'); ?>"></div>
+               <?php if($offer->notificationseen=='0' && $offer->notiType=='media'): ?> 
+        <script>
+                  $('#mediaSelected').show();
+
+        </script>
+          <?php endif; ?>
                     </div>
+
        
         <div class="col-md-8 pl-5 showoffer">
         <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
@@ -115,13 +121,20 @@
 }
 
 .noti {
-  background: blue;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  right: 15px;
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 12px;
+    right: 22px;
+}
+.noti1 {
+    background: blue;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+
 }
  </style>
 </div>
@@ -169,9 +182,15 @@
                 Your browser does not support the video tag.
             </video>
 
-            <div class="noti" style="<?php echo e($detail->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
+            <div class="noti" style="<?php echo e($detail->notification=='media' && $detail->userid==$login->id && $detail->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
                 </a>
-              
+
+          <?php if($detail->is_seen=='0' && $detail->userid==$login->id && $detail->notification=='media'): ?> 
+        <script>
+                  $('#mediaSelected').show();
+
+               </script>
+          <?php endif; ?>
                 
           <div class="pricetime">
           <div class="text-left">
@@ -221,11 +240,19 @@
         <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
         Your browser does not support the audio tag.
         </audio>
+<<<<<<< HEAD
         <div class="noti" style="<?php echo e($aud->is_seen==0 ? 'display:block' : 'display:none'); ?>"></div>
+=======
+        <div class="noti" style="<?php echo e($aud->notification=='media' && $aud->userid==$login->id && $aud->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
+>>>>>>> c204c2c66fc6865799eb4c3dad1929b4c5a00e73
 
         </a>
+           <?php if($aud->is_seen=='0' &&  $aud->userid==$login->id && $aud->notification=='media'): ?> 
+        <script>
+                  $('#mediaSelected').show();
 
-
+               </script>
+          <?php endif; ?>
         <div class="pricetime">
                   <div class="text-left">
                   <h6 class="text-white"><?php echo e($aud->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
@@ -347,7 +374,7 @@
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-            <video width="100%" class="hoverVideo" height="100%"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" height="100%" Controls controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
