@@ -60,7 +60,8 @@
       <h3>Choose Playlist</h3>
       <div class="Playlist1">
       	@foreach($listname as $index=>$val)
-      	<h5 class="select_list">{{$val->listname}} </h5><button data-id="{{$val->id}}" class="alert alert-primary btn-sm saveBtn" onclick="savePlaylist(this)" style="display:none;">Save</button> <p  class="aedit">edit</a><br>
+      	<h5 class="select_list">{{$val->listname}} </h5><button data-id="{{$val->id}}" class="alert alert-primary btn-sm saveBtn" onclick="savePlaylist(this)" style="display:none;">Save</button>
+		   <p  class="aedit text-right">edit</p><br>
       	@endforeach
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">
