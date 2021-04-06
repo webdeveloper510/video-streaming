@@ -166,7 +166,7 @@
                 </div>
                 <?php endif; ?>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
-                <label class="thumbnail"></label>
+                <label class="thumbnail1"> Image Upload</label>
                 <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:yellow;"></span>
@@ -235,6 +235,10 @@
 }
 .radiobtn{
   display:inline-flex;
+}
+.alert.alert-success {
+    width: 50%;
+    margin-top: 25%;
 }
 
 label.error {
