@@ -120,12 +120,12 @@
             <div class="col text-center pt-3">
             <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary disable_this'])); ?>
 
-            <div class="alert alert-success" id="success" style="display:none">
+            <div class="alert alert-success sn" id="success" style="display:none">
     
     </div>
 
   
-    <div class="alert alert-danger" id="error" style="display:none">
+    <div class="alert alert-danger sn" id="error" style="display:none">
 
     </div>
      </div>
@@ -144,6 +144,9 @@
   }
   label {
     color: white;
+}
+.sn{
+    width:200% !important;
 }
 .mt-5 p {
     font-size: 22px !important;
