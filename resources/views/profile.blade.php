@@ -26,18 +26,7 @@
           {{Form::token()}}
       <div class="container profile ">
         <h1 class="text-center">USER PROFILE DETAILS</h1>
-
-          <div class="row">
-            <div class="col"></div>
-            <div class="col-md-6">
-                <iframe
-                    src="https://www.yoti.com/connect/d701d238-c88a-4faf-b59e-6db9d285acd5"
-                    title="Iframe Example"></iframe>
-            </div>
-            <div class="col"></div>
-        </div>
-
-          <!-- <div class="row align-items-center text-white">
+          <div class="row align-items-center text-white">
             <div class="col-md-6 mt-5 ">
             {{Form::label('Email', 'E-Mail Address')}} 
                 {{Form::text('backupemail', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
@@ -152,7 +141,7 @@
                 </div>
                 @endif
             </div> -->
-           <!-- <div class="col-md-12 mt-4">
+           <div class="col-md-12 mt-4">
             {{Form::label('ABOUT ME', 'ABOUT ME')}} 
                 {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
                  @if($errors->first('aboutme'))
@@ -164,8 +153,7 @@
               <div class="col-md-12 text-center pt-3">
             {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
           </div>
-     --> -->
-     
+    
      </div>
   {{ Form::close() }}
   </div>
