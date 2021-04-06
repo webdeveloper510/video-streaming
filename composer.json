@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.4",
         "laravelcollective/html": "^6.2",
-        "stripe/stripe-php": "^7.61"
+        "stripe/stripe-php": "^7.61",
+        "yoti/yoti-php-sdk": "3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

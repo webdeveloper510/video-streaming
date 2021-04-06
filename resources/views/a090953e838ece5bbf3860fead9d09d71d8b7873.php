@@ -105,6 +105,12 @@ button.close.footerclose {
   div#exampleModal10 {
     background: transparent;
 }
+i.fa.fa-instagram {
+    font-size: 25px;
+}
+i.fa.fa-facebook-f {
+    font-size: 25px;
+}
 </style>
 
     <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
