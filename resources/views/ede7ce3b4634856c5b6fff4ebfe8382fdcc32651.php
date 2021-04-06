@@ -374,9 +374,7 @@
                       <source src="<?php echo e(isset($details[0]->media) ? url('storage/app/public/video/'.$details[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
                   </video>
-                  <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
-  <span class="tooltiptext">You can not download this video</span>
-</div>
+                 
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
             </div>

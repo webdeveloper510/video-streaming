@@ -111,6 +111,9 @@ i.fa.fa-instagram {
 i.fa.fa-facebook-f {
     font-size: 25px;
 }
+footer {
+    min-height: 270px;
+}
 </style>
 
     <?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
