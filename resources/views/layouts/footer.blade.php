@@ -84,6 +84,11 @@
       <div class="cprt">
       <p>BETA Version 1.0</p>
         <p>PAZ LLC © Copyrights 2021 Design by PAZ LLC</p>
+        <br>
+       <a style="color: white !important;" href=""><i class="fa fa-facebook-f"></i></a>&nbsp; &nbsp;
+       <a style="color: white !important;" href=""><i class="fa fa-instagram"></i></a> &nbsp; &nbsp;
+       <a href=""> <img src="{{asset('images/xpurity.png')}}" class="img-fliud" width="25px" height="25px"></a>&nbsp; &nbsp;
+       <a href=""> <img src="{{asset('images/images.png')}}" class="img-fliud" width="25px" height="25px"></a> 
       </div>
     </div>
   </div>
@@ -96,6 +101,15 @@ button.close.footerclose {
 }
   div#exampleModal10 {
     background: transparent;
+}
+i.fa.fa-instagram {
+    font-size: 25px;
+}
+i.fa.fa-facebook-f {
+    font-size: 25px;
+}
+footer {
+    min-height: 270px;
 }
 </style>
 

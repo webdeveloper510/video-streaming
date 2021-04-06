@@ -3,10 +3,10 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-          <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
+          <img src="{{ $details[0]->cover_photo ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/paz_logo_high_quality__.png') }}" width="100%" height="500px">
         </div>
         <div class="profileimg">
-        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
+        <img src="{{ $details[0]->profilepicture ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')}}" width="200px" height="200px">
         </div>
         <div class="artistdetail11 mb-5">
             <h3>{{isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname}}  
