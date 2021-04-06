@@ -66,6 +66,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
+                <button class="btn btn-outline-danger ml-5" type="button">Delete this Playlist</button>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -76,6 +77,9 @@
                       <div class="videodata">         
 
                       </div>
+                      <div class="text-right">
+                      <button class="btn btn-outline-danger" type="button">Remove From Playlist</button>
+                  </div>
                   </div>
                   <div class="col-md-4">
                     <div class="videoinfo">
@@ -84,15 +88,18 @@
                           <p>1/5</p>
                       </div>
        <!------------start list------------------>
-                   <div class="row video_append">
-                   <!-- <div class="videolist col-4" >
+                    <div class="video_append">
+                   
                      
-                    </div> -->
-                        <div class="videonameq col-6">
-                              <h3>title</h3>
-                              <p>artistname</p>
-                        </div>
-                   </div>
+                        <!-- <div class="videolist col-4" >
+                          
+                          </div> -->
+                          <div class="videonameq col-6">
+                                <h3>title</h3>
+                                <p>artistname</p>
+                          </div>
+            
+                  </div>
          <!------------end list------------------>
 
                    </div>
@@ -121,8 +128,12 @@
         <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $playlist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php 
               $videos = explode(',',$playlist->videos);
+
               //print_r($videos);
+             
               $count = count($videos);
+
+             // print_r($count);
               
             ?>
       
@@ -247,6 +258,9 @@ body{
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+button.addNow {
+    cursor: pointer;
 }
 ul.reporting {
     background: white;
