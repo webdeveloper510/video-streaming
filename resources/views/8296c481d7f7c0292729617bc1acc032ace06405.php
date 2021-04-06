@@ -42,7 +42,8 @@
               
  <button type="button" style="cursor:pointer;" id="<?php echo e($video->id); ?>" class="addToCart">
  	 	
- 	Add to Wishlist
+ 	<?php echo e($wishlist > 0 ? 'Added' : 'Add To Wishlist'); ?>
+
  </button>
 
 <button  type="button" style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>" class="btn-primary library" <?php echo e($buyed==1 ? 'disabled ':''); ?> data-toggle="modal" data-target="#exampleModal">Add To Library</button>
@@ -63,11 +64,13 @@
       	<h5 class="select_list"><?php echo e($val->listname); ?> </h5><button data-id="<?php echo e($val->id); ?>" class="alert alert-primary btn-sm saveBtn" onclick="savePlaylist(this)" style="display:none;">Save</button>
 		   <p  class="aedit text-right">edit</p><br>
       	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+		  <div class="before">
       	<a href="#" class="show_list">Create New Playlist +</a>
       	<span class="create_playlistt" style="display: none">
       		<input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
       		<button class="create_list btn btn-primary" type="button">Create</button>
       	</span>
+</div>
       </div>
       <div class="text-center mt-4">
       <h2>Token:<?php echo e($GLOBALS['paz']); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h2>
@@ -317,18 +320,21 @@ ul.reporting {
 </style>
 <script type="text/javascript">
 $(".addToCart").click(function(e) {
-	
+	//alert('gee');
+	var text = $(this).text();
+	//console.log(text);
     e.preventDefault();
     $.ajax({
         type: "POST",
         url: "<?php echo e(url('ajax-request')); ?>",
         data: { 
-            id: $(this).attr('id'), // < note use of 'this' here
-             "_token": "<?php echo e(csrf_token()); ?>", 
+            'id': $(this).attr('id'),
+			'text':text=='Added' ? 'remove' : 'added',
+             '_token': "<?php echo e(csrf_token()); ?>", 
         },
         success: function(result) {
-        	$('.addToCart').text('Added');
-           // $('.itemCount').text(result);
+			console.log(result);
+        	$('.addToCart').text(text=='Added' ? 'Add To Wishlist' : 'Added');
         },
         error: function(result) {
             alert('error');
