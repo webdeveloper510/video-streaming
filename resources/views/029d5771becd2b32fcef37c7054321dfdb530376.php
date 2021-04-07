@@ -30,10 +30,10 @@
                 <!---------------------- First Step Form-------------------->
                 <div class="row">
                     <div class="col"></div>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <iframe
                             src="https://www.yoti.com/connect/d701d238-c88a-4faf-b59e-6db9d285acd5"
-                            title="Iframe Example"></iframe>
+                            title="Iframe Example" width="100%"></iframe>
                     </div>
                     <div class="col"></div>
                 </div>
