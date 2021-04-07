@@ -261,6 +261,9 @@ body{
 }
 .row.lists12:hover {
     border: 2px dashed red;
+}
+.row.lists12 {
+
     margin: 15px;
     padding: 7px;
 }
