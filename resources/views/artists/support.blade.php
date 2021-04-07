@@ -33,13 +33,7 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-md-8">
-                    {
-                        !!Form::open([
-                            'id' => 'technical_functiong',
-                            'method' => 'post',
-                            'files' => true
-                        ])!!
-                    }
+                   {!!Form::open(['id' => 'technical_functiong','method' => 'post','files' => true])!!}
                     {{Form::token()}}
                     <div class="ticketstext">
                         <label>Subject</label>
