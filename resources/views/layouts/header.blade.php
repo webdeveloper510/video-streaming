@@ -101,6 +101,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -201,13 +202,13 @@
                         <div class="collapse pt-4" id="audio123">
                                       <div class="row">
                                       <div class="col-md-12 mb-4">
-                                               <label>Gender</label><br>
+                                               <h4>Gender</h4><br>
                                                   {{Form::checkbox('gender[]','Male')}}Male <br>
                                                   {{Form::checkbox('gender[]','Female')}}Female <br>
                                                  {{Form::checkbox('gender[]','Trans')}}Trans 
                                                 </div>
                                             <div class="col-md-12 mb-4">
-                                            <label>Sexology</label><br>
+                                            <h4>Sexology</h4><br>
                                                 {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                                {{Form::checkbox('sexology[]','Homo')}}Homo <br>
                                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
@@ -388,6 +389,7 @@
                           <div class="bar rightbar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
+                         <br>
                           <label class=""> 
 
                              {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
@@ -405,7 +407,7 @@
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
                           
-                
+                          <br>
     
                           <label class="text-white">
                         {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
@@ -495,6 +497,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -708,6 +711,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -995,6 +999,7 @@
                           <div class="bar rightbar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
+                         <br>
                           <label class=""> 
 
                              {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
@@ -1012,7 +1017,7 @@
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
                           
-                
+                           <br>
     
                           <label class="text-white">
                         {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
@@ -1102,6 +1107,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
