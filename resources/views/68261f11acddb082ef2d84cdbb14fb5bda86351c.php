@@ -259,6 +259,11 @@ body{
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+.row.lists12:hover {
+    border: 2px dashed red;
+    margin: 15px;
+    padding: 7px;
+}
 button.addNow {
     cursor: pointer;
 }
