@@ -149,8 +149,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h3>
-                                                        PAZ-Support</h3>
+                                                    <h3 class="p-0">PAZ-Support</h3>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="chat1">
