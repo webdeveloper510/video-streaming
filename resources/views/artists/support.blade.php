@@ -156,7 +156,7 @@
                                                         <div class="input-group mb-3">
                                                             <input type="text" class="form-control" placeholder="Message">
                                                                 <div class="input-group-append">
-                                                                    <button class="btn btn-outline-secondary" type="button">
+                                                                    <button class="btn btn-outline-secondary form-control" type="button">
                                                                         <i class="material-icons">send</i>
                                                                     </button>
                                                                 </div>
@@ -195,6 +195,9 @@
                 ul#pills-tab {
                     background: #7b0000;
                     color: white !important;
+                }
+                button.btn.btn-outline-secondary.form-control {
+                    margin: 0 !important;
                 }
                 label.error {
                     background: red;
