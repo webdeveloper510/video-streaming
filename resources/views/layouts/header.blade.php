@@ -1309,7 +1309,7 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
@@ -1320,13 +1320,13 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red; 
+  background: #ccc9c9; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: red; 
+  background: #ccc9c9; 
 }
 .col-md-4.subss img {
     width: 60px;
