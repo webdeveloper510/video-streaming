@@ -1,9 +1,9 @@
  <div class="row text-left text-white mt-3 red">
                               <div class="col-md-12 mb-4  das">
                                     <h4 class="text-white m-0">Gender</h4><br>
-                                    <label>{{Form::checkbox('gender[]','Male')}}Male</label> <br>
-                                    <label>{{Form::checkbox('gender[]','Female')}}Female</label> <br>
-                                    <label> {{Form::checkbox('gender[]','Trans')}}Trans </label>
+                                    <label>{{Form::radio('gender[]','Male')}}Male</label> <br>
+                                    <label>{{Form::radio('gender[]','Female')}}Female</label> <br>
+                                    <label> {{Form::radio('gender[]','Trans')}}Trans </label>
                                   </div>
                                   <div class="col-md-12 mb-4 logy das">
                                     <h4 class="text-white m-0">Sexology</h4><br>
