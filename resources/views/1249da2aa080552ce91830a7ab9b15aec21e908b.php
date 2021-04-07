@@ -232,7 +232,7 @@ Your browser does not support the audio tag.
 </audio>
 <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white"><?php echo e($aud->price); ?>/PAZ</h6>
+                  <h6 class="text-white"><?php echo e($aud->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="aud_dur_<?php echo e($aud->id); ?>"><?php echo e($aud->duration ? $aud->duration :''); ?></h6>
@@ -776,7 +776,8 @@ video:hover {
 }
 .pricetime .text-left h6 {
     background: black;
-    padding: 5px;
+    padding: 4px;
+    font-size: 16px;
     color: yellow !important;
 }
 .pricetime {
