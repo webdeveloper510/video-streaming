@@ -11,6 +11,20 @@
                                     <label> {{Form::checkbox('sexology[]','Homo')}}Homo </label><br>
                                     <label>{{Form::checkbox('sexology[]','Bisexual')}}Bisexual </label>
                                   </div>
+                                    <div class="col-md-12 mb-4">
+                                    <h4 class="text-white m-0">Body</h4><br>
+                                    <label> {{Form::checkbox('weight[]','Less than Average')}}Thin  </label><br>
+                                    <label> {{Form::checkbox('weight[]','Normal')}}Normal  </label><br>
+                                     <label>{{Form::checkbox('weight[]','Muscular')}}Muscular </label><br> 
+                                    <label> {{Form::checkbox('weight[]','Chubby')}}Chubby </label>
+                                    <br>
+                                              <br>
+                                      <h4 class="text-white m-0">Height</h4><br>
+                                      <label> {{Form::checkbox('height[]','<140cm')}}<140cm   </label><br>
+                                      <label> {{Form::checkbox('height[]','140-160cm')}}140-160cm </label><br>
+                                      <label>{{Form::checkbox('height[]','160-180cm')}}160-180cm </label><br>
+                                      <label>{{Form::checkbox('height[]','180cm<')}}180cm< </label> <br>
+                                  </div>
                                   <div class="col-md-12 mb-4 das">
                                       <h4 class="text-white m-0">Tits size</h4><br>
                                       <label> {{Form::checkbox('titssize[]','Small')}}Small </label><br>
@@ -30,13 +44,7 @@
                                       <h4 class="text-white m-0">Privy part</h4><br>
                                       <label>{{Form::checkbox('privy[]','Shaved')}}Shaved </label><br>
                                       <label> {{Form::checkbox('privy[]','Unshaved')}}Unshaved </label><br>
-                                              <br>
-                                              <br>
-                                      <h4 class="text-white m-0">Height</h4><br>
-                                      <label> {{Form::checkbox('height[]','<140cm')}}<140cm   </label><br>
-                                      <label> {{Form::checkbox('height[]','140-160cm')}}140-160cm </label><br>
-                                      <label>{{Form::checkbox('height[]','160-180cm')}}160-180cm </label><br>
-                                      <label>{{Form::checkbox('height[]','180cm<')}}180cm< </label> <br>
+                                          
                                   </div>
                                    <div class="col-md-12 mb-4">
                                     <h4 class="text-white m-0">Eyes/lenses</h4><br>
@@ -75,13 +83,7 @@
                                      <label>{{Form::checkbox('hairlength[]','Long')}}Long  </label><br>
                                      <label>{{Form::checkbox('hairlength[]','Very Long')}}Very Long  </label><br>
                                   </div>
-                                   <div class="col-md-12 mb-4">
-                                    <h4 class="text-white m-0">Body</h4><br>
-                                    <label> {{Form::checkbox('weight[]','Less than Average')}}Thin  </label><br>
-                                    <label> {{Form::checkbox('weight[]','Normal')}}Normal  </label><br>
-                                     <label>{{Form::checkbox('weight[]','Muscular')}}Muscular </label><br> 
-                                    <label> {{Form::checkbox('weight[]','Chubby')}}Chubby </label>
-                                  </div>
+                                 
                                   <!--div class="col-md-12 mb-4">
                                    <h4 class="text-white m-0">Age</h4><br>
                                     {{Form::checkbox('age[]','18-24')}}18-24 <br>

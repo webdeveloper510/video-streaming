@@ -313,10 +313,13 @@ ul.reporting {
     display: inline-block;
     width: 100%;
 }
-.pb-video {
+.pb-video video {
     border: 1px solid #e6e6e6;
     padding: 5px;
     margin-top: 16px;
+}
+.pb-video{
+  border:none !important;
 }
 h3.tittle {
     color: #ffffff;
