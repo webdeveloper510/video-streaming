@@ -114,7 +114,7 @@
                 class="percentage" style="color:green;font-weight: bold;"></span> </div> <div
                 class="col-md-12 text-center pt-3"> {{ Form::submit('Submit!',['class'=>'btn
                 btn-primary']) }} </div> -->
-                -->
+            
                 {{ Form::close() }}
             </div>
         </div>
@@ -125,6 +125,7 @@
     section.background1 {
 
         height: auto;
+        width: 100%;
         position: absolute;
     }
     label {

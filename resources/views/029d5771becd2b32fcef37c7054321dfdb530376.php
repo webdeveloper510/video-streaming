@@ -132,7 +132,7 @@
                 class="percentage" style="color:green;font-weight: bold;"></span> </div> <div
                 class="col-md-12 text-center pt-3"> <?php echo e(Form::submit('Submit!',['class'=>'btn
                 btn-primary'])); ?> </div> -->
-                -->
+            
                 <?php echo e(Form::close()); ?>
 
             </div>
@@ -144,6 +144,7 @@
     section.background1 {
 
         height: auto;
+        width: 100%;
         position: absolute;
     }
     label {
