@@ -112,7 +112,7 @@ i.fa.fa-facebook-f {
     font-size: 25px;
 }
 footer {
-    min-height: 270px;
+    min-height: 300px;
 }
 </style>
 
