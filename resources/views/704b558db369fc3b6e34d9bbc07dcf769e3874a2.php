@@ -2,6 +2,19 @@
 
 <!--?php echo HTML::assets('style.css');?!-->
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="header py-3">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="60%" alt="CoolBrand">
+
+      <h3 style="font-family: 'Alfa Slab One', cursive;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
+       <div class=" row my-4">
+          <div class="col-6 text-center">
+             <a href="<?php echo e(url('/register')); ?>"><button type="button" class="btn btn-primary">Join Fee</button></a>
+          </div>
+          <div class="col-6 text-center">
+             <a href="<?php echo e(url('/login')); ?>"><button type="button" class="btn btn-primary">Login</button></a>
+          </div>
+       </div>
+ </div>
 <section class="background1">
  
     <div class="container pt-5 pb-5">
@@ -142,7 +155,16 @@
   .alert-danger {
     margin-top: 10px;
 }
-
+header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: 0px auto;
+}
 .alert-success {
     margin-top: 10px;
 }
