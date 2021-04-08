@@ -233,6 +233,8 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/my-offer', 'artist@myoffer');
 
+    Route::get('artist/age-verification', 'artist@ageVerify');
+
     Route::get('artist/requests/{text?}', 'artist@showRequest')->middleware('contentAuth');
 
     Route::get('artist/getRequests/{text}/{status?}', 'artist@getRequests')->middleware('contentAuth');

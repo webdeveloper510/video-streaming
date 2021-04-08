@@ -577,7 +577,7 @@
             <?php echo e($login->nickname); ?>
 
             <hr/ style="color:white;background: white;">
-            <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+            <b style="color:yellow;"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="color:yellow;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
            
           </span>
           <?php endif; ?>
@@ -1276,7 +1276,7 @@
         <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button> -->
   </div>
    <hr/ style="color:white;background: white;">
-  <b><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b style="color:yellow;"><?php echo e($userProfile ? $userProfile[0]->tokens: ''); ?></b>    <b style="color:yellow;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="<?php echo e(url('/addToken')); ?>"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
