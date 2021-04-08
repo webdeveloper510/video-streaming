@@ -1937,7 +1937,7 @@ function format ( d , type) {
 	'<div class="alert alert-success" id="success" style="display:none">'+
     '</div>'+
 	'<div class="">'+
-	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deleiver</button>'+
+	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deliver Now</button>'+
 	'</div>'+
 	'</div>'+
 	'</div>'+
