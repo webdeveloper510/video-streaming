@@ -10,17 +10,7 @@
 
 
  <?php if(session('success')): ?>
- <div class="header">
- <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" alt="CoolBrand">
-       <div class="container">
-          <div class="col-6 text-center">
-             <a href=""><button type="button" class="btn btn-primary">Join Fee</button></a>
-          </div>
-          <div class="col-6 text-center">
-             <a href=""><button type="button" class="btn btn-primary">Login</button></a>
-          </div>
-       </div>
- </div>
+ 
 
 <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -57,10 +47,25 @@
 </style>
   <div class="outer_slider">
 
-    <div class="container my-4">
+    <style>
+ header#default_header {
+    display: none;
+}
+</style>
+ <div class="header">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100%" alt="CoolBrand">
+       <div class=" row">
+          <div class="col-6 text-center">
+             <a href=""><button type="button" class="btn btn-primary">Join Fee</button></a>
+          </div>
+          <div class="col-6 text-center">
+             <a href=""><button type="button" class="btn btn-primary">Login</button></a>
+          </div>
+       </div>
+ </div>
      <div class="row">
         <div class="col"></div>
-          <div class="col-md-8 mb-3">
+          <div class="col-md-10 mb-3">
           <video class="hoverVideo" width="100%" autoplay loop  allowfullscreen >
                   <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
                   Your browser does not support the video tag.

@@ -114,6 +114,9 @@ i.fa.fa-facebook-f {
 footer {
     min-height: 300px;
 }
+ul.footer-menu.pb-3 li a {
+    color: white;
+}
 </style>
 
     <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layouts/footer.blade.php ENDPATH**/ ?>

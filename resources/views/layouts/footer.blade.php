@@ -111,6 +111,9 @@ i.fa.fa-facebook-f {
 footer {
     min-height: 300px;
 }
+ul.footer-menu.pb-3 li a {
+    color: white;
+}
 </style>
 
     
