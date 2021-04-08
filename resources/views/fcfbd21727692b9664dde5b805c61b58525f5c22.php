@@ -1,6 +1,7 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
 <?php  // include(app_path().'/include/includetop.php')?>
 
@@ -72,12 +73,12 @@
  <div class="header py-3">
  <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="60%" alt="CoolBrand">
 
-      <h3 style="font-family: 'Alfa Slab One', cursive;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
+      <h3 style="    font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
        <div class=" row my-4">
-          <div class="col-6 text-center">
+          <div class="col-md-6 mb-3 text-center">
              <a href="<?php echo e(url('/register')); ?>"><button type="button" class="btn btn-success free">Join Fee</button></a>
           </div>
-          <div class="col-6 text-center">
+          <div class="col-md-6 text-center">
              <a href="<?php echo e(url('/login')); ?>"><button type="button" class="btn btn-primary freelog">Login</button></a>
           </div>
        </div>
