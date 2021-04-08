@@ -1198,8 +1198,7 @@ header .right_bt .btn {
 	color: #666 !important;
 }
 
-#navbar_menu ul ul li:last-child>a,
-#navbar_menu ul ul li.last-item>a {}
+
 
 #navbar_menu ul ul li:hover>a,
 #navbar_menu ul ul li a:hover {
@@ -5515,7 +5514,7 @@ i.fa.fa-shopping-cart {
 		background: #7b0000;
 	}
 	footer {
-		min-height: 400px;
+		min-height: 400px !important;
 	}
 	#search {
 		width: auto !important;
