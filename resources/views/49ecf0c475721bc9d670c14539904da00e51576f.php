@@ -25,6 +25,7 @@
   <link href="<?php echo e(asset('artistdashboard//css/material-dashboard.css?v=2.1.2')); ?>" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
+  <script src="https://www.yoti.com/share/client/"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
 
@@ -439,6 +440,30 @@
       </nav>
       <div class="container">
       <style>
+      /* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ccc9c9; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc9c9; 
+}
+.btn-group.login-btn.text-right a button {
+    font-size: 12px !important;
+}
 .levlv {
     width: auto;
     color: #fff;
@@ -463,6 +488,11 @@
 }
 .wid {
     width: 160px !important ;
+}
+@media  only screen and (max-width: 768px) {
+.alert.alert-success {
+    margin-top: -4%;
+}
 }
 </style>
       <!-- End Navbar --><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/dashboard.blade.php ENDPATH**/ ?>

@@ -17,7 +17,7 @@ function closeNav() {
 
  
    <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>
-
+   <script src="https://www.yoti.com/share/client/"></script>
 
   <!-- <script src="{{asset('artistdashboard/js/core/bootstrap-material-design.min.js')}}"></script> -->
 
