@@ -130,7 +130,7 @@
             
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
-        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
             </div>
             <div class="col-md-6">
@@ -228,7 +228,7 @@
                       </div>
                           <div class="col-md-6 pr-5 text-right">
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
-                     <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+                     <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
                     <?php echo e(Form::close()); ?>
 
@@ -345,7 +345,7 @@
                            </div>
                         <div class="col-md-12 text-right mt-3 pr-5">
             
-              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
          
                      
@@ -451,7 +451,7 @@
 
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
-        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
             </div>
             <div class="col-md-6">
@@ -539,7 +539,7 @@
                       
                   <div class="col-md-12 text-right pr-5">
             
-              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
                      </div>
             <div class="col-md-6">
@@ -762,7 +762,7 @@
             
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
-        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
             </div>
             <div class="col-md-6">
@@ -860,7 +860,7 @@
                       </div>
                           <div class="col-md-6 pr-5 text-right">
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
-                     <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+                     <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
                     <?php echo e(Form::close()); ?>
 
@@ -977,7 +977,7 @@
                            </div>
                         <div class="col-md-12 text-right mt-3 pr-5">
             
-              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
          
                      
@@ -1083,7 +1083,7 @@
 
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
-        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
             </div>
             <div class="col-md-6">
@@ -1171,7 +1171,7 @@
                       
                   <div class="col-md-12 text-right pr-5">
             
-              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
+              <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mt-4'])); ?>
 
                      </div>
             <div class="col-md-6">
@@ -1355,6 +1355,27 @@
 .dropdown1.audio12.text-white {
     height: 107px;
     overflow-y: scroll;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: red; 
 }
 .col-md-4.subss img {
     width: 60px;

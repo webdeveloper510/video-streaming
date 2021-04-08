@@ -13,9 +13,6 @@
     <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab" aria-controls="pills-video" aria-selected="true">Video Files</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-audio-tab" data-toggle="pill" href="#pills-audio" role="tab" aria-controls="pills-audio" aria-selected="false">Audio Files</a>
-  </li>
-  <li class="nav-item" role="presentation">
     <a class="nav-link" id="pills-images-tab" data-toggle="pill" href="#pills-images" role="tab" aria-controls="pills-images" aria-selected="false">Images</a>
   </li>
  
@@ -80,8 +77,8 @@
 
 
   
-  <!--------- tickets tab------------------------------------------>
-
+  <!-- ------- tickets tab---------------------------------------- -->
+<!-- 
   <div class="tab-pane fade" id="pills-audio" role="tabpanel" aria-labelledby="pills-audio-tab">
   <div class="container-fluid">
   <div class="row">
@@ -137,7 +134,7 @@
 </div>
 </div>
 
-</div>
+</div> -->
 
 <div class="tab-pane fade " id="pills-images" role="tabpanel" aria-labelledby="pills-images-tab">
 <div class="container-fluid">

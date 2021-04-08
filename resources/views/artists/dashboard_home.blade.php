@@ -742,8 +742,6 @@
                   <br>
                   <input type="radio" id="video" name="gender" value="Video">
                   <label for="male">Video</label>
-                  <input type="radio" id="audio" name="gender" value="audio">
-                  <label for="audio">Audio</label>
                   <input type="radio" id="image" name="gender" value="image">
                   <label for="image">Image</label>
                     <div class="linksonit mb-3">

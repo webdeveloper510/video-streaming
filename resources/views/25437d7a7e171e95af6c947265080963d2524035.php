@@ -754,8 +754,6 @@
                   <br>
                   <input type="radio" id="video" name="gender" value="Video">
                   <label for="male">Video</label>
-                  <input type="radio" id="audio" name="gender" value="audio">
-                  <label for="audio">Audio</label>
                   <input type="radio" id="image" name="gender" value="image">
                   <label for="image">Image</label>
                     <div class="linksonit mb-3">
@@ -886,6 +884,13 @@ h5.customer1.text-center.pt-3.pl-3 {
 }
 .card .card-header {
     z-index: 0 !important;
+}
+
+@media  only screen and (max-width: 768px) {
+
+.row.mt-5.pt-5.text-center {
+    margin: 0px !important;
+}
 }
 </style>
 
