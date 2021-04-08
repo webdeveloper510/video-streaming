@@ -1,6 +1,6 @@
 
  <section class="background1">
- @include('layouts.header')
+ <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
  <div id="yoti"></div>
 
@@ -36,4 +36,4 @@
 
 </style>
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/profile.blade.php ENDPATH**/ ?>

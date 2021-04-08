@@ -95,4 +95,4 @@
    
   </body>
 </html>
-<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/layout/cdn.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/layout/cdn.blade.php ENDPATH**/ ?>

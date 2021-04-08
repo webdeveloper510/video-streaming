@@ -1,6 +1,6 @@
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-<link rel="stylesheet" href="{{asset('design/header.css')}}" />
+<link rel="stylesheet" href="<?php echo e(asset('design/header.css')); ?>" />
   <style>
    
 .tab {
@@ -70,7 +70,7 @@ tr.shown td.details-control {
 
 
 
-<div id="Paris" class="tabcontent mb-5" style="display:block">
+<div id="Paris" class="tabcontent" style="display:block">
 <div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
@@ -79,9 +79,9 @@ tr.shown td.details-control {
                 <div class="dropreq text-right">
                 <select class="custom-select col-md-4" id="select_option" onchange="filterproject(this)">
                     <option >All</option>
-                    <option value="new" {{($box) == 'new' ? 'selected' : '' }}>New</option>
-                    <option value="process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
-                    <option value="due" {{($box) == 'due' ? 'selected' : '' }}>Due</option>
+                    <option value="new" <?php echo e(($box) == 'new' ? 'selected' : ''); ?>>New</option>
+                    <option value="process" <?php echo e(($box) == 'process' ? 'selected' : ''); ?>>In Process</option>
+                    <option value="due" <?php echo e(($box) == 'due' ? 'selected' : ''); ?>>Due</option>
                   </select>
                 </div>
                 <div class="table-responsive">
@@ -151,19 +151,24 @@ please remain patient. Thank You!</p>
         </button>
       </div>
       <div class="modal-body">
-         {!!Form::open(['action' => 'artist@addDescription', 'method' => 'post', 'files'=>true])!!}
-          {{Form::token()}}
-          {{Form::label('Your Description', 'Your Description')}} 
-                {{Form::textarea('Description',null,['class'=>'form-control', 'rows' => 4, 'cols' => 40])}}
+         <?php echo Form::open(['action' => 'artist@addDescription', 'method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?>
+
+          <?php echo e(Form::label('Your Description', 'Your Description')); ?> 
+                <?php echo e(Form::textarea('Description',null,['class'=>'form-control', 'rows' => 4, 'cols' => 40])); ?>
+
 
        <input type="hidden" name="reqId" value="" id="reqid">
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
+          <?php echo e(Form::submit('Update!',['class'=>'btn btn-primary'])); ?>
+
       </div>
-         {{ Form::close() }}
+         <?php echo e(Form::close()); ?>
+
     </div>
   </div>
 </div>
@@ -239,7 +244,9 @@ please remain patient. Thank You!</p>
   <style type="text/css">
     
     button.btn.btn-warning.text-white.mr-3.mt-2 {
+    height: 36px !important;
     padding-top: 3px !important;
+    background-color: #ffbb11 !important;
 }
   </style>
   <script>
@@ -257,5 +264,5 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-  @include('layouts.footer')
-</html>
+  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/all_orders.blade.php ENDPATH**/ ?>

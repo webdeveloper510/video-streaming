@@ -1966,7 +1966,7 @@ function format ( d , type) {
 	'<div class="col">'+
 	'<table>'+
 	'<tr>'+
-	'<td> <p>Categories :</p>'+
+	'<td> <p>Category :</p>'+
 	'<p class="category">'+d.category_name+'</p>'+
 	'</td>'+
 	'<td> <p class="quality">Quality :</p>'+
