@@ -1973,7 +1973,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'p</p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward">'+d.total_price+'PAZ</td></tr>'+
+	'<tr><td>Reward:<span class="Reward">'+d.total_price+'PAZ</span></td></tr>'+
 	'<tr>'+
 	'</table>'+
 	'<div class="">'+
