@@ -455,6 +455,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ccc9c9; 
 }
+.btn-group.login-btn.text-right a button {
+    font-size: 12px !important;
+}
 .levlv {
     width: auto;
     color: #fff;
