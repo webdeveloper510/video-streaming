@@ -65,10 +65,10 @@
       <h3 style="font-family: 'Alfa Slab One', cursive;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
        <div class=" row my-4">
           <div class="col-6 text-center">
-             <a href=""><button type="button" class="btn btn-primary">Join Fee</button></a>
+             <a href="{{url('/register')}}"><button type="button" class="btn btn-primary">Join Fee</button></a>
           </div>
           <div class="col-6 text-center">
-             <a href=""><button type="button" class="btn btn-primary">Login</button></a>
+             <a href="{{url('/login')}}"><button type="button" class="btn btn-primary">Login</button></a>
           </div>
        </div>
  </div>
