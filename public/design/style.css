@@ -5514,6 +5514,9 @@ i.fa.fa-shopping-cart {
 		left: -34px;
 		background: #7b0000;
 	}
+	footer {
+		min-height: 400px;
+	}
 	#search {
 		width: auto !important;
 	}
