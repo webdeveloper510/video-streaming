@@ -113,7 +113,16 @@
     a.ffff {
         color: blue;
     }
-
+    header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: 0px auto;
+}
   </style>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
