@@ -101,6 +101,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -119,11 +120,11 @@
                     </div>
                   </div>
                     
-                  <div class="col-md-6">
+                  <div class="col-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                       
-                  <div class="col-md-6 text-right pr-5">
+                  <div class="col-6 text-right pr-5">
             
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
@@ -201,13 +202,13 @@
                         <div class="collapse pt-4" id="audio123">
                                       <div class="row">
                                       <div class="col-md-12 mb-4">
-                                               <label>Gender</label><br>
+                                               <h4>Gender</h4><br>
                                                   {{Form::checkbox('gender[]','Male')}}Male <br>
                                                   {{Form::checkbox('gender[]','Female')}}Female <br>
                                                  {{Form::checkbox('gender[]','Trans')}}Trans 
                                                 </div>
                                             <div class="col-md-12 mb-4">
-                                            <label>Sexology</label><br>
+                                            <h4>Sexology</h4><br>
                                                 {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                                {{Form::checkbox('sexology[]','Homo')}}Homo <br>
                                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
@@ -216,10 +217,10 @@
                                 </div>
                               </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
-                          <div class="col-md-6 pr-5 text-right">
+                          <div class="col-6 pr-5 text-right">
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
                      {{ Form::submit('Apply!',['class'=>'btn btn-primary mt-4']) }}
                     {{ Form::close() }}
@@ -241,26 +242,40 @@
                            <div class="scroll12">
                              
                           
-                        <div class="row text-left text-white mt-3 red">
-                                <div class="col-md-4 mb-4  das">
+                           <div class="row text-left text-white mt-3 red">
+                                <div class="col-4 mb-4  das">
                                   <label>Gender</label><br>
-                                  {{Form::checkbox('gender[]','Male')}}Male <br>
-                                  {{Form::checkbox('gender[]','Female')}}Female <br>
-                                  {{Form::checkbox('gender[]','Trans')}}Trans 
+                                  {{Form::radio('gender[]','Male')}}Male <br>
+                                  {{Form::radio('gender[]','Female')}}Female <br>
+                                  {{Form::radio('gender[]','Trans')}}Trans 
                                 </div>
-                                <div class="col-md-4 mb-4 logy">
+                                <div class="col-4 mb-4 logy">
                                   <label>Sexology</label><br>
                                   {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                   {{Form::checkbox('sexology[]','Homo')}}Homo <br>
-                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
+                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual <br>
+                                  <br>
+                                  <label>Body</label><br>
+                                  {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
+                                  {{Form::checkbox('weight[]','Normal')}}Normal <br>
+                                  {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
+                                  {{Form::checkbox('weight[]','Chubby')}}Chubby 
+                                  <br>
+                                            <br>
+                                    <label>Height</label><br>
+                                  {{Form::checkbox('height[]','<140cm')}}<140cm <br>
+                                  {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
+                                  {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
+                                  {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                 </div>
-                                <div class="col-md-4 mb-4">
+                                </div>
+                                <div class="col-4 mb-4">
                                     <label>Tits size</label><br>
                                   {{Form::checkbox('titssize[]','Small')}}Small <br>
                                   {{Form::checkbox('titssize[]','Normal')}}Normal <br>
                                   {{Form::checkbox('titssize[]','Big')}}Big 
                                 </div>
-                                 <div class="col-md-4 mb-4 ">
+                                 <div class="col-4 mb-4 ">
                                   <label>Ass</label><br>
                                    {{Form::checkbox('ass[]','Small')}}Small <br>
                                   {{Form::checkbox('ass[]','Normal')}}Normal <br>
@@ -270,25 +285,14 @@
                                   <br>
                                   <input type="hidden" name="type" value="artists"/>
 
-                                  <label>Body</label><br>
-                                  {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
-                                  {{Form::checkbox('weight[]','Normal')}}Normal <br>
-                                  {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
-                                  {{Form::checkbox('weight[]','Chubby')}}Chubby 
-                                </div>
-                                <div class="col-md-4 mb-4 logy">
+                                  
+                                <div class="col-4 mb-4 logy">
                                     <label>Privy part</label><br>
                                   {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
                                   {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
-                                            <br>
-                                            <br>
-                                    <label>Height</label><br>
-                                  {{Form::checkbox('height[]','<140cm')}}<140cm <br>
-                                  {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
-                                  {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
-                                  {{Form::checkbox('height[]','180cm<')}}180cm< <br>
+                                       
                                 </div>
-                                 <div class="col-md-4 mb-4">
+                                 <div class="col-4 mb-4">
                                   <label>Eyes/lenses</label><br>
                                   {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                   {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
@@ -302,7 +306,7 @@
                                   {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                   {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                 </div>
-                                      <div class="col-md-4 mb-4 ">
+                                      <div class="col-4 mb-4 ">
                                   <label>Hair color</label><br>
                                   {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                   {{Form::checkbox('haircolor[]','brown')}}Brown <br>
@@ -318,7 +322,7 @@
                                   {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                 </div>
                                
-                                 <div class="col-md-4 mb-4 logy">
+                                 <div class="col-4 mb-4 logy">
                                     <label>Hair Length</label><br>
                                   {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
                                   {{Form::checkbox('hairlength[]','Short')}}Short <br>
@@ -388,6 +392,7 @@
                           <div class="bar rightbar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
+                         <br>
                           <label class=""> 
 
                              {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
@@ -405,7 +410,7 @@
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
                           
-                
+                          <br>
     
                           <label class="text-white">
                         {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
@@ -427,10 +432,10 @@
                   </div>
                     
                    
-                     <div class="col-md-6">
+                     <div class="col-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
-                  <div class="col-md-6 text-right pr-5">
+                  <div class="col-6 text-right pr-5">
 
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
@@ -495,6 +500,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -708,6 +714,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -849,25 +856,39 @@
                              
                           
                         <div class="row text-left text-white mt-3 red">
-                                <div class="col-md-4 mb-4  das">
+                                <div class="col-4 mb-4  das">
                                   <label>Gender</label><br>
-                                  {{Form::checkbox('gender[]','Male')}}Male <br>
-                                  {{Form::checkbox('gender[]','Female')}}Female <br>
-                                  {{Form::checkbox('gender[]','Trans')}}Trans 
+                                  {{Form::radio('gender[]','Male')}}Male <br>
+                                  {{Form::radio('gender[]','Female')}}Female <br>
+                                  {{Form::radio('gender[]','Trans')}}Trans 
                                 </div>
-                                <div class="col-md-4 mb-4 logy">
+                                <div class="col-4 mb-4 logy">
                                   <label>Sexology</label><br>
                                   {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
                                   {{Form::checkbox('sexology[]','Homo')}}Homo <br>
-                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
+                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual <br>
+                                  <br>
+                                  <label>Body</label><br>
+                                  {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
+                                  {{Form::checkbox('weight[]','Normal')}}Normal <br>
+                                  {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
+                                  {{Form::checkbox('weight[]','Chubby')}}Chubby 
+                                  <br>
+                                            <br>
+                                    <label>Height</label><br>
+                                  {{Form::checkbox('height[]','<140cm')}}<140cm <br>
+                                  {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
+                                  {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
+                                  {{Form::checkbox('height[]','180cm<')}}180cm< <br>
                                 </div>
-                                <div class="col-md-4 mb-4">
+                                </div>
+                                <div class="col-4 mb-4">
                                     <label>Tits size</label><br>
                                   {{Form::checkbox('titssize[]','Small')}}Small <br>
                                   {{Form::checkbox('titssize[]','Normal')}}Normal <br>
                                   {{Form::checkbox('titssize[]','Big')}}Big 
                                 </div>
-                                 <div class="col-md-4 mb-4 ">
+                                 <div class="col-4 mb-4 ">
                                   <label>Ass</label><br>
                                    {{Form::checkbox('ass[]','Small')}}Small <br>
                                   {{Form::checkbox('ass[]','Normal')}}Normal <br>
@@ -877,25 +898,14 @@
                                   <br>
                                   <input type="hidden" name="type" value="artists"/>
 
-                                  <label>Body</label><br>
-                                  {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
-                                  {{Form::checkbox('weight[]','Normal')}}Normal <br>
-                                  {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
-                                  {{Form::checkbox('weight[]','Chubby')}}Chubby 
-                                </div>
-                                <div class="col-md-4 mb-4 logy">
+                                  
+                                <div class="col-4 mb-4 logy">
                                     <label>Privy part</label><br>
                                   {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
                                   {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
-                                            <br>
-                                            <br>
-                                    <label>Height</label><br>
-                                  {{Form::checkbox('height[]','<140cm')}}<140cm <br>
-                                  {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
-                                  {{Form::checkbox('height[]','160-180cm')}}160-180cm <br>
-                                  {{Form::checkbox('height[]','180cm<')}}180cm< <br>
+                                       
                                 </div>
-                                 <div class="col-md-4 mb-4">
+                                 <div class="col-4 mb-4">
                                   <label>Eyes/lenses</label><br>
                                   {{Form::checkbox('eyecolor[]','blue')}}Blue <br>
                                   {{Form::checkbox('eyecolor[]','brown')}}Brown <br>
@@ -909,7 +919,7 @@
                                   {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br>
                                   {{Form::checkbox('eyecolor[]','violet')}}Violet <br>
                                 </div>
-                                      <div class="col-md-4 mb-4 ">
+                                      <div class="col-4 mb-4 ">
                                   <label>Hair color</label><br>
                                   {{Form::checkbox('haircolor[]','blue')}}Blue <br>
                                   {{Form::checkbox('haircolor[]','brown')}}Brown <br>
@@ -925,7 +935,7 @@
                                   {{Form::checkbox('haircolor[]','violet')}}Violet <br>
                                 </div>
                                
-                                 <div class="col-md-4 mb-4 logy">
+                                 <div class="col-4 mb-4 logy">
                                     <label>Hair Length</label><br>
                                   {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
                                   {{Form::checkbox('hairlength[]','Short')}}Short <br>
@@ -995,6 +1005,7 @@
                           <div class="bar rightbar">
                              <div class="dropdown1 text-white">
                          <h4 >Media</h4>
+                         <br>
                           <label class=""> 
 
                              {{Form::radio('type', 'audio', false ,['class'=>'media audio'])}} Audio
@@ -1012,7 +1023,7 @@
                       <div class="dropdown1 text-white">
                          <h4>Price</h4>
                           
-                
+                           <br>
     
                           <label class="text-white">
                         {{Form::radio('price', 'asc', false ,['class'=>'user'])}} Lowest
@@ -1102,6 +1113,7 @@
 
                       <div class="dropdown1 text-white">
                          <h4 >Duration</h4>
+                         <br>
                           <label class=""> 
                              {{Form::radio('duration', 'asc', false ,['class'=>'user'])}} Shortest
                        <!--   {{Form::checkbox('duration','asc')}}Shortest  -->
@@ -1309,7 +1321,7 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
@@ -1320,13 +1332,13 @@
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red; 
+  background: #ccc9c9; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: red; 
+  background: #ccc9c9; 
 }
 .col-md-4.subss img {
     width: 60px;
@@ -1435,7 +1447,8 @@ ul.nav.custom.search img {
     padding-left: 35px;
 }
 li.link_click.active a {
-    color: yellow !important;
+    color: gold !important;
+    padding-right: 75px;
 }
 .logomobile.text-center a {
     margin-left: -25px;

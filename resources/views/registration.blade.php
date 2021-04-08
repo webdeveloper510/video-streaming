@@ -2,6 +2,9 @@
 
 <!--?php echo HTML::assets('style.css');?!-->
 @include('layouts.header')
+<div class="header py-3">
+ <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand"></a>
+ </div>
 <section class="background1">
  
     <div class="container pt-5 pb-5">
@@ -96,15 +99,15 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
-              <label>I accept <a class="text-white" style="border-bottom-color: initial;
+            
+              <label>   {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}} I accept <a class="text-white" style="border-bottom-color: initial;
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;" href="{{url('/terms')}}">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="{{url('/privacy')}}">Privacy Policy</a> </label> <br>
 
-               {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}<br>
-               <span class="discount">{{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')}}</span>
+<label>{{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}</label><br>
+<span class="discount"> <label> {{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}I would like to receive Discounts and News from PAZ</label></span>
                 
               </div>
 
@@ -129,7 +132,16 @@
   .alert-danger {
     margin-top: 10px;
 }
-
+header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: -8px auto;
+}
 .alert-success {
     margin-top: 10px;
 }

@@ -196,7 +196,8 @@ button.btn.btn-link.dropdown-toggle.text-white {
 }
 button.btn.btn-warning.text-white.mr-3.mt-2 {
     height: 36px !important;
-    padding-top: 10px !important;
+    width: 160px;
+    padding-top: 10px ;
     background-color: #ffbb11 !important;
 }
 .dropdown1.text-white {

@@ -1,6 +1,7 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>" />
 <?php  // include(app_path().'/include/includetop.php')?>
 
@@ -10,6 +11,8 @@
 
 
  <?php if(session('success')): ?>
+ 
+
 <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -45,10 +48,48 @@
 </style>
   <div class="outer_slider">
 
-    <div class="container my-4">
+    <style>
+ header#default_header {
+    display: none;
+}
+.header {
+    background: black;
+}
+.freelog{
+  padding: 13px;
+    font-size: 18px;
+
+}
+.free{
+  padding: 13px;
+    font-size: 18px;
+
+}
+.header img {
+    display: block;
+    margin: 0px auto;
+    border: 2px solid gold;
+}
+.container.my-4.row {
+    margin: 0 auto;
+}
+</style>
+ <div class="header py-3">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="60%" alt="CoolBrand">
+
+      <h3 style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
+       <div class="container row my-4">
+          <div class="col-md-6 mb-3 text-center">
+             <a href="<?php echo e(url('/register')); ?>"><button type="button" class="btn btn-success free form-control">Join Free</button></a>
+          </div>
+          <div class="col-md-6 text-center">
+             <a href="<?php echo e(url('/login')); ?>"><button type="button" class="btn btn-primary  form-control freelog">Login</button></a>
+          </div>
+       </div>
+ </div>
      <div class="row">
         <div class="col"></div>
-          <div class="col-md-8 mb-3">
+          <div class="col-md-10 mb-3">
           <video class="hoverVideo" width="100%" autoplay loop  allowfullscreen >
                   <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
                   Your browser does not support the video tag.

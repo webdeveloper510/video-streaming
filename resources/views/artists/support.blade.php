@@ -33,13 +33,7 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-md-8">
-                    {
-                        !!Form::open([
-                            'id' => 'technical_functiong',
-                            'method' => 'post',
-                            'files' => true
-                        ])!!
-                    }
+                   {!!Form::open(['id' => 'technical_functiong','method' => 'post','files' => true])!!}
                     {{Form::token()}}
                     <div class="ticketstext">
                         <label>Subject</label>
@@ -147,23 +141,17 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h3>
-                                                        PAZ-Support</h3>
+                                                    <h3 class="p-0">PAZ-Support</h3>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="chat1">
                                                         <!-- <p>hello</p> -->
 
                                                         <div class="input-group mb-3">
-                                                            <input
-                                                                type="text"
-                                                                class="form-control"
-                                                                placeholder="Message"
-                                                                aria-label="Recipient's username"
-                                                                aria-describedby="button-addon2">
+                                                            <input type="text" class="form-control" placeholder="Message">
                                                                 <div class="input-group-append">
-                                                                    <button class="btn btn-outline-secondary" type="button">
-                                                                        <i class="material-icons" id="button-addon2">send</i>
+                                                                    <button class="btn btn-outline-secondary form-control" type="button">
+                                                                        <i class="material-icons">send</i>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -201,6 +189,9 @@
                 ul#pills-tab {
                     background: #7b0000;
                     color: white !important;
+                }
+                button.btn.btn-outline-secondary.form-control {
+                    margin: 0 !important;
                 }
                 label.error {
                     background: red;

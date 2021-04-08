@@ -1915,7 +1915,7 @@ function format ( d , type) {
 	'</td>'+
 	'</tr>'+
 	'<tr><td>Reward:</td><td class="Reward">'+d.price+'PAZ</td></tr>'+
-	'<tr><td>'+
+	'<tr><td colspan="2">'+
 	'<div class="col-md-12">'+
 	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
 	'<label>'+file+
@@ -1937,7 +1937,7 @@ function format ( d , type) {
 	'<div class="alert alert-success" id="success" style="display:none">'+
     '</div>'+
 	'<div class="">'+
-	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deleiver</button>'+
+	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deliver Now</button>'+
 	'</div>'+
 	'</div>'+
 	'</div>'+
@@ -1966,14 +1966,14 @@ function format ( d , type) {
 	'<div class="col">'+
 	'<table>'+
 	'<tr>'+
-	'<td> <p>Categories :</p>'+
+	'<td> <p>Category :</p>'+
 	'<p class="category">'+d.category_name+'</p>'+
 	'</td>'+
 	'<td> <p class="quality">Quality :</p>'+
 	'<p>'+d.quality+'p</p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward">'+d.total_price+'PAZ</td></tr>'+
+	'<tr><td>Reward:<span class="Reward">'+d.total_price+'PAZ</span></td></tr>'+
 	'<tr>'+
 	'</table>'+
 	'<div class="">'+

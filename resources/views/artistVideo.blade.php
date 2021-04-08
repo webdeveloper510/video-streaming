@@ -230,6 +230,64 @@
                                                         </div>
                                                         <div class="col"></div>
                                                     </div>
+				   <audio >
+				   	<source src="{{url('storage/app/public/audio/'.$video->media)}}" type="audio/mp3">
+				   </audio>
+				   <div class="report-op">
+				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
+						<ul style="display:none;" class="reporting">
+						 <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
+						 
+						</ul>
+				   </div>
+					</div>
+				   @endif
+				   <div class="col"></div>
+				 </div>
+				</div>
+			 </div>
+		  </div>
+	   </div>
+	</section>
+          
+       
+	    <!-- Modal -->
+		<div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header ">
+                      <div class="row" style="width: 100%;">
+                        <div class="col"></div>
+                         <div class="col-md-8 my-3">
+                            <div class="text-center">
+                                <select class="form-select form-control " aria-label="Default select example">
+                                  <option selected> Select Menu</option>
+                                  <option value="1">Harmful </option>
+                                  <option value="2">Underage</option>
+                                  <option value="3">Misleading </option>
+                                  <option value="7">Other</option>
+                                </select>
+                              </div>
+                          </div>
+                          <div class="col"></div>
+                          </div>
+                        
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+                      </div>
+                      <div class="modal-body">
+                      
+
+                        <label>Description</label>
+                        <textarea class="form-control"minlength="50" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                      </div>
+                      <div class="pb-3 pr-3 text-right">
+                      <button class="btn btn-primary" type="button">Submit</button></div>
+                    
+                    </div>
+                    
+                    </div>
+                  </div>
+                </div>
 
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                                                 </div>
@@ -326,6 +384,39 @@
                                     text-align: center;
                                     z-index: 0;
                                 }
+.lockicon i {
+    position: absolute;
+    top: 42%;
+    display: block;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.report-op {
+    position: absolute;
+    top: 6px;
+    right: 33px;
+    cursor: pointer;
+	z-index: 1000;
+}
+.content-cart .addToCart:hover {
+    background: #0062cc !important;
+    border: 1px solid #0062cc !important;
+}
+ul.reporting {
+    background: #efefef;
+    width: 241px;
+    margin-left: 50%;
+	position: absolute;
+    box-shadow: 0 3px 6px #00000026;
+    padding: 8px 6px 8px;
+    text-align: left;
+    font-size: 13px;
+}
+.artistaudiopage {
+    margin: 1px auto;
+    padding: 4px;
+}
 
                                 .lockicon i {
                                     position: absolute;

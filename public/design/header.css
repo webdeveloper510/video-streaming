@@ -102,6 +102,12 @@ span.togg{
 .row.text-left.text-white.mt-3.red {
     width: 98%;
 }
+span.togg {
+  padding: 1px 9px;
+  border-radius: 7px;
+  color: white !important;
+  border: none !important;
+}
 .price::placeholder { 
   color: red;
   opacity: 1;

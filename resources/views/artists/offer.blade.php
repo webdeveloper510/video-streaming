@@ -289,5 +289,6 @@ input.select_media_pic {
     border: 1px solid #fff;
     color: #fff ;
 }
+
 </style>
- @include('artists.dashboard_footer');
+ @include('artists.dashboard_footer')

@@ -1,5 +1,9 @@
 
 @include('layouts.header')
+<div class="header py-3">
+ <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand">
+ 
+ </a></div>
 <section class="background1 ">
 
     <div class="container pt-5 pb-5">
@@ -107,7 +111,16 @@
     a.ffff {
         color: blue;
     }
-
+    header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: -8px auto;
+}
   </style>
   @include('layouts.footer')
 

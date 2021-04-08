@@ -62,5 +62,5 @@ $GLOBALS['price'] = $offerdata->price;
   A simple success alert—check it out!
 </div>
 </div>
-	
+
 @include('artists.dashboard_footer')
