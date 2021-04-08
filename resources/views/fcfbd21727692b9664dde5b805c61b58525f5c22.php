@@ -51,18 +51,16 @@
  header#default_header {
     display: none;
 }
-
 .header {
-    background: white;
+    background: #881114;
 }
-
 .header img {
     display: block;
     margin: 0px auto;
 }
 </style>
  <div class="header py-3">
- <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100%" alt="CoolBrand">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="80%" alt="CoolBrand">
        <div class=" row my-4">
           <div class="col-6 text-center">
              <a href=""><button type="button" class="btn btn-primary">Join Fee</button></a>
