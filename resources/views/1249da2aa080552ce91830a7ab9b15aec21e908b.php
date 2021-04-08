@@ -92,7 +92,7 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
-         <h4><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/min </h4>
+         <h4 style="color:yellow !important"><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/min </h4>
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
@@ -232,7 +232,7 @@ Your browser does not support the audio tag.
 </audio>
 <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-yellow"><?php echo e($aud->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                  <h6 class="text-white"><?php echo e($aud->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="aud_dur_<?php echo e($aud->id); ?>"><?php echo e($aud->duration ? $aud->duration :''); ?></h6>
