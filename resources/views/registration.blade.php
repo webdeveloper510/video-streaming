@@ -3,7 +3,7 @@
 <!--?php echo HTML::assets('style.css');?!-->
 @include('layouts.header')
 <div class="header py-3">
- <img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand">
+ <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand"></a>
  </div>
 <section class="background1">
  
