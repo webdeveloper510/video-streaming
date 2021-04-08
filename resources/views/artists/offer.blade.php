@@ -290,4 +290,4 @@ input.select_media_pic {
     color: #fff ;
 }
 </style>
- @include('artists.dashboard_footer');
+ @include('artists.dashboard_footer')
