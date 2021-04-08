@@ -1915,7 +1915,7 @@ function format ( d , type) {
 	'</td>'+
 	'</tr>'+
 	'<tr><td>Reward:</td><td class="Reward">'+d.price+'PAZ</td></tr>'+
-	'<tr><td>'+
+	'<tr><td colspan="2">'+
 	'<div class="col-md-12">'+
 	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
 	'<label>'+file+
