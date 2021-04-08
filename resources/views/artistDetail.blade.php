@@ -512,6 +512,15 @@ ul.selected li {
     margin-top: -149px;
     border-radius: 50%;
 }
+ul.reporting {
+    background: #efefef;
+    width: 241px;
+    margin-left: 50%;
+    box-shadow: 0 3px 6px #00000026;
+    padding: 8px 6px 8px;
+    text-align: left;
+    font-size: 13px;
+}
 .report-op {
     position: absolute;
     top: 6px;
@@ -567,4 +576,10 @@ ul.selected li {
                     </div>
                   </div>
                 </div>
+                <script>
+                function showop(){
+	//alert("asas");
+	$(".reporting").toggle();
+}
+</script>
 @include('layouts.footer')
