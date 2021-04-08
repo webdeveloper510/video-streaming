@@ -464,5 +464,10 @@
 .wid {
     width: 160px !important ;
 }
+@media  only screen and (max-width: 768px) {
+.alert.alert-success {
+    margin-top: -4%;
+}
+}
 </style>
       <!-- End Navbar --><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/dashboard.blade.php ENDPATH**/ ?>
