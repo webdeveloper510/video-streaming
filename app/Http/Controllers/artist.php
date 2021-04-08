@@ -111,6 +111,13 @@ class artist extends Controller
       
   }
 
+  public function ageVerify(){
+
+    $tab='artist_info';
+
+        return view('artists/verification',['tab'=>$tab]);
+
+  }
   
 
     public function cartSbmit(Request $req){
@@ -234,7 +241,7 @@ class artist extends Controller
 
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
-        return redirect('artist/edit');
+        return redirect('artist/age-verification');
 
       }
 
