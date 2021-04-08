@@ -107,7 +107,16 @@
     a.ffff {
         color: blue;
     }
-
+    header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: 0px auto;
+}
   </style>
   @include('layouts.footer')
 

@@ -129,7 +129,16 @@
   .alert-danger {
     margin-top: 10px;
 }
-
+header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: 0px auto;
+}
 .alert-success {
     margin-top: 10px;
 }
