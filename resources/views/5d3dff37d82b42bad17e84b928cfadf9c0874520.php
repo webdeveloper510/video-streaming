@@ -1491,6 +1491,7 @@ ul.nav.custom.search img {
 }
 li.link_click.active a {
     color: gold !important;
+    padding-right: 75px;
 }
 .logomobile.text-center a {
     margin-left: -25px;
