@@ -51,10 +51,19 @@
  header#default_header {
     display: none;
 }
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: 0px auto;
+}
 </style>
- <div class="header">
- <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100%" alt="CoolBrand">
-       <div class=" row">
+ <div class="header py-3">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="80%" alt="CoolBrand">
+
+      <h3 style="font-family: 'Alfa Slab One', cursive;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
+       <div class=" row my-4">
           <div class="col-6 text-center">
              <a href=""><button type="button" class="btn btn-primary">Join Fee</button></a>
           </div>
