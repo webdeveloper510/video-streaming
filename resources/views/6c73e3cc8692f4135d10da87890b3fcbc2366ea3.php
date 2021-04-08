@@ -89,9 +89,9 @@
         <p>PAZ LLC © Copyrights 2021 Design by PAZ LLC</p>
         <br>
      
-       <a href="https://www.instagram.com/pazllcofficial/"> <img src="<?php echo e(asset('images/insta.png')); ?>" class="img-fliud" width="25px" height="25px"></a> &nbsp; &nbsp;
-      <a href="https://xpurity.co/pazofficial"> <img src="<?php echo e(asset('images/xpurity.png')); ?>" class="img-fliud" width="25px" height="25px"></a>&nbsp; &nbsp;
-       <a href="https://sharesome.com/pazofficial/"> <img src="<?php echo e(asset('images/images.png')); ?>" class="img-fliud" width="25px" height="25px"></a> 
+       <a href="https://www.instagram.com/pazllcofficial/" target="_blank"> <img src="<?php echo e(asset('images/insta.png')); ?>" class="img-fliud" width="25px" height="25px"></a> &nbsp; &nbsp;
+      <a href="https://xpurity.co/pazofficial" target="_blank"> <img src="<?php echo e(asset('images/xpurity.png')); ?>" class="img-fliud" width="25px" height="25px"></a>&nbsp; &nbsp;
+       <a href="https://sharesome.com/pazofficial/" target="_blank"> <img src="<?php echo e(asset('images/images.png')); ?>" class="img-fliud" width="25px" height="25px"></a> 
       </div>
     </div>
   </div>
