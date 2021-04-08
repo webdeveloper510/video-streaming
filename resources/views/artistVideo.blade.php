@@ -173,7 +173,7 @@
                       
 
                         <label>Description</label>
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                        <textarea class="form-control"minlength="50" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                       </div>
                       <div class="pb-3 pr-3 text-right">
                       <button class="btn btn-primary" type="button">Submit</button></div>
