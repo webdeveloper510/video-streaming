@@ -68,6 +68,7 @@
 .header img {
     display: block;
     margin: 0px auto;
+    border: 2px solid gold;
 }
 .container.my-4.row {
     margin: 0 auto;
