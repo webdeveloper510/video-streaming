@@ -422,7 +422,7 @@
    <span class="nickname">{{$login->nickname}}</span>
   
    <hr style="color:white;background: white;">
-  <b>{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b style="    color: yellow !important;">{{isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''}} </b>    <b style="color: yellow !important;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
  </span>
   
