@@ -519,6 +519,7 @@ ul.reporting {
     box-shadow: 0 3px 6px #00000026;
     padding: 8px 6px 8px;
     text-align: left;
+    position: absolute;
     font-size: 13px;
 }
 .report-op {
