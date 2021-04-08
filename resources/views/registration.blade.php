@@ -3,7 +3,7 @@
 <!--?php echo HTML::assets('style.css');?!-->
 @include('layouts.header')
 <div class="header py-3">
- <img src="{{asset('images/logos/good_quality_logo.png')}}" width="60px" alt="CoolBrand">
+ <img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand">
  </div>
 <section class="background1">
  
@@ -140,7 +140,7 @@ header#default_header {
 }
 .header img {
     display: block;
-    margin: 0px auto;
+    margin: -8px auto;
 }
 .alert-success {
     margin-top: 10px;

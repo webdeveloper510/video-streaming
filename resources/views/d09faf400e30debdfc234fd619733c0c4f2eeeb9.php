@@ -1,7 +1,7 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="header py-3">
- <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="60px" alt="CoolBrand">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100px" alt="CoolBrand">
  </div>
 <section class="background1 ">
 
@@ -124,7 +124,7 @@
 }
 .header img {
     display: block;
-    margin: 0px auto;
+    margin: -8px auto;
 }
   </style>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
