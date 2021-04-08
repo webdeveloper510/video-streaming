@@ -47,15 +47,23 @@
 </style>
   <div class="outer_slider">
 
-    <div class="container my-4">
     <style>
  header#default_header {
     display: none;
 }
+
+.header {
+    background: white;
+}
+
+.header img {
+    display: block;
+    margin: 0px auto;
+}
 </style>
- <div class="header">
- <img src="{{asset('images/logos/good_quality_logo.png')}}" alt="CoolBrand">
-       <div class="container">
+ <div class="header py-3">
+ <img src="{{asset('images/logos/good_quality_logo.png')}}" width="100%" alt="CoolBrand">
+       <div class=" row my-4">
           <div class="col-6 text-center">
              <a href=""><button type="button" class="btn btn-primary">Join Fee</button></a>
           </div>
