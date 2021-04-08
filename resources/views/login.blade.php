@@ -1,17 +1,7 @@
 
 @include('layouts.header')
 <div class="header py-3">
- <img src="{{asset('images/logos/good_quality_logo.png')}}" width="60%" alt="CoolBrand">
-
-      <h3 style="font-family: 'Alfa Slab One', cursive;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
-       <div class=" row my-4">
-          <div class="col-6 text-center">
-             <a href="{{url('/register')}}"><button type="button" class="btn btn-primary">Join Fee</button></a>
-          </div>
-          <div class="col-6 text-center">
-             <a href="{{url('/login')}}"><button type="button" class="btn btn-primary">Login</button></a>
-          </div>
-       </div>
+ <img src="{{asset('images/logos/good_quality_logo.png')}}" width="60px" alt="CoolBrand">
  </div>
 <section class="background1 ">
 
