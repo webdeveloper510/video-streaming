@@ -512,6 +512,13 @@ ul.selected li {
     margin-top: -149px;
     border-radius: 50%;
 }
+.report-op {
+    position: absolute;
+    top: 6px;
+    right: 33px;
+    cursor: pointer;
+	z-index: 1000;
+}
 .close {
      margin-top: 7px;
 }
