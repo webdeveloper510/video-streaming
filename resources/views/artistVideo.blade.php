@@ -157,12 +157,9 @@
                             <div class="text-center">
                                 <select class="form-select form-control " aria-label="Default select example">
                                   <option selected> Select Menu</option>
-                                  <option value="1">Feature Request</option>
-                                  <option value="2">Functionality Question</option>
-                                  <option value="3">Techincal Issue</option>
-                                  <option value="4">General</option>
-                                  <option value="5">Website Fees</option>
-                                  <option value="6">Delete Account</option>
+                                  <option value="1">Harmful </option>
+                                  <option value="2">Underage</option>
+                                  <option value="3">Misleading </option>
                                   <option value="7">Other</option>
                                 </select>
                               </div>
