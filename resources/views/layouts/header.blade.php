@@ -552,7 +552,7 @@
          <span class="profile-img text-white">
             {{$login->nickname}}
             <hr/ style="color:white;background: white;">
-            <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+            <b style="color:yellow;">{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="color:yellow;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
            
           </span>
           @endif
@@ -1227,7 +1227,7 @@
         <a href="{{url('/my-requests')}}">Projects</a></button> -->
   </div>
    <hr/ style="color:white;background: white;">
-  <b>{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b style="color:yellow;">{{$userProfile ? $userProfile[0]->tokens: ''}}</b>    <b style="color:yellow;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
    <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i></a>
  </span>
   
