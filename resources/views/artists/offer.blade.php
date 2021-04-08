@@ -289,11 +289,6 @@ input.select_media_pic {
     border: 1px solid #fff;
     color: #fff ;
 }
-button.btn.btn-warning.text-white.mr-3.mt-2 {
-    height: 36px !important;
-    font-size: 12px !important;
-    padding-top: 3px !important;
-    background-color: #ffbb11 !important;
-}
+
 </style>
  @include('artists.dashboard_footer')
