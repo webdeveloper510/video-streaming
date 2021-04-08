@@ -41,6 +41,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
 
   <script src="{{asset('js/jquery.min.js')}}"></script>
+
+ 
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script  src="{{asset('js/datatables.min.js')}}"></script>
 
@@ -52,7 +54,7 @@
 
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-
+ <script src="https://www.yoti.com/share/client/"></script>
 
 <!-- <script src="{{asset('js/bootstrap.min.js')}}"></script> -->
 
