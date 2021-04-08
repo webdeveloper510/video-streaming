@@ -61,7 +61,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p>{{$offerdata->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/Minute</p>
+              <p style="color:yellow !important;">{{$offerdata->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>
@@ -88,7 +88,7 @@
           {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>1,'placeholder'=>'Duration'])}}
         </div>
         @endforeach
-        <h4>Additional Request <small>(Price: {{$GLOBALS['add_price']}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>)</small>
+        <h4>Additional Request <small>(Price: <span style="color:yellow !important;"> {{$GLOBALS['add_price']}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>)</small>
         <input type="radio" id="Yes" class="add_price" name="gender"  value="Yes">
               <label for="male">Yes</label>
               <input type="radio" id="No" class="add_price" name="gender" value="No">
