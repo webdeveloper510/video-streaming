@@ -73,7 +73,7 @@
  <div class="header py-3">
  <img src="{{asset('images/logos/good_quality_logo.png')}}" width="60%" alt="CoolBrand">
 
-      <h3 style="    font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
+      <h3 style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
        <div class=" row my-4">
           <div class="col-md-6 mb-3 text-center">
              <a href="{{url('/register')}}"><button type="button" class="btn btn-success free">Join Fee</button></a>
