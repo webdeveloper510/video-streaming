@@ -291,6 +291,7 @@ ul.reporting {
     background: #efefef;
     width: 241px;
     margin-left: 50%;
+	position: absolute;
     box-shadow: 0 3px 6px #00000026;
     padding: 8px 6px 8px;
     text-align: left;
