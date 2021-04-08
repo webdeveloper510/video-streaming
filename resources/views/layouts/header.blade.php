@@ -120,11 +120,11 @@
                     </div>
                   </div>
                     
-                  <div class="col-md-6">
+                  <div class="col-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
                       
-                  <div class="col-md-6 text-right pr-5">
+                  <div class="col-6 text-right pr-5">
             
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1"value=" Advance Filter option  &#8594;" > -->
@@ -217,10 +217,10 @@
                                 </div>
                               </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
-                          <div class="col-md-6 pr-5 text-right">
+                          <div class="col-6 pr-5 text-right">
                           <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" href="#audio123" data-toggle="collapse"   aria-controls="audio123"  aria-expanded="false"  aria-controls="collapseExample1" value=" Advance Filter option  &#8594;" > -->
                      {{ Form::submit('Apply!',['class'=>'btn btn-primary mt-4']) }}
                     {{ Form::close() }}
@@ -429,10 +429,10 @@
                   </div>
                     
                    
-                     <div class="col-md-6">
+                     <div class="col-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
-                  <div class="col-md-6 text-right pr-5">
+                  <div class="col-6 text-right pr-5">
 
              
        <!-- <input type="button" class="btn btn-primary section_advance mb-4 mr-3" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2"value=" Advance Filter option  &#8594;" > -->
@@ -1441,7 +1441,7 @@ ul.nav.custom.search img {
     padding-left: 35px;
 }
 li.link_click.active a {
-    color: yellow !important;
+    color: gold !important;
 }
 .logomobile.text-center a {
     margin-left: -25px;
