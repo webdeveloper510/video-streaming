@@ -226,7 +226,7 @@ Your browser does not support the audio tag.
 </audio>
 <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white">{{$aud->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                  <h6 class="text-yellow">{{$aud->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white" id="aud_dur_{{$aud->id}}">{{ $aud->duration ? $aud->duration :'' }}</h6>
