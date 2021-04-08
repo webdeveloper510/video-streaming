@@ -99,15 +99,15 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
-              <label>I accept <a class="text-white" style="border-bottom-color: initial;
+            
+              <label>   {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}} I accept <a class="text-white" style="border-bottom-color: initial;
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;" href="{{url('/terms')}}">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="{{url('/privacy')}}">Privacy Policy</a> </label> <br>
 
-               {{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}<br>
-               <span class="discount">{{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')}}</span>
+<label>{{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}</label><br>
+<label><span class="discount">{{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')}}</span></label>
                 
               </div>
 

@@ -109,16 +109,15 @@
           <div class="row justify-content-start mt-4">
             <div class="col">
               <div class="form-check">
-              <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?>
-
-              <label>I accept <a class="text-white" style="border-bottom-color: initial;
+            
+              <label>   <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?> I accept <a class="text-white" style="border-bottom-color: initial;
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;" href="<?php echo e(url('/terms')); ?>">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="<?php echo e(url('/privacy')); ?>">Privacy Policy</a> </label> <br>
 
-               <?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?><br>
-               <span class="discount"><?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?></span>
+<label><?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?></label><br>
+<label><span class="discount"><?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I would like to receive Discounts and News from PAZ')); ?></span></label>
                 
               </div>
 
