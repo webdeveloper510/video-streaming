@@ -263,11 +263,7 @@ tr.shown td.details-control {
   </body>
   <style type="text/css">
     
-    button.btn.btn-warning.text-white.mr-3.mt-2 {
-    height: 36px !important;
-    padding-top: 3px !important;
-    background-color: #ffbb11 !important;
-}
+
   </style>
   <script>
 function openCity(evt, cityName) {

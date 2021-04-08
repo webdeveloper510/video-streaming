@@ -62,10 +62,5 @@ $GLOBALS['price'] = $offerdata->price;
   A simple success alert—check it out!
 </div>
 </div>
-	<style>
- .btn-group.login-btn.text-right a button {
-    font-size: 12px !important;
-    padding: 5px 21px;
-}
-</style>
+
 @include('artists.dashboard_footer')
