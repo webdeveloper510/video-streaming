@@ -68,13 +68,14 @@
 .header img {
     display: block;
     margin: 0px auto;
+    border: 2px solid gold;
 }
 .container.my-4.row {
     margin: 0 auto;
 }
 </style>
  <div class="header py-3">
- <img style="border:2px solid golden;" src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="60%" alt="CoolBrand">
+ <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="60%" alt="CoolBrand">
 
       <h3 style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;"> THE ART OF PORN IS FINALLY VALUED </h3>
        <div class="container row my-4">
