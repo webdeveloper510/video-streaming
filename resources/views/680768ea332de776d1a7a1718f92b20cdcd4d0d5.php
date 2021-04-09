@@ -1,4 +1,4 @@
-@include('artists.dashboard') < body onload = "createCaptcha()" > <section class=" support">
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> < body onload = "createCaptcha()" > <section class=" support">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <a
@@ -33,8 +33,10 @@
             <div class="row">
                 <div class="col"></div>
                 <div class="col-md-8">
-                   {!!Form::open(['id' => 'technical_functiong','method' => 'post','files' => true])!!}
-                    {{Form::token()}}
+                   <?php echo Form::open(['id' => 'technical_functiong','method' => 'post','files' => true]); ?>
+
+                    <?php echo e(Form::token()); ?>
+
                     <div class="ticketstext">
                         <label>Subject</label>
                         <select name="technical_issue" class="custom-select">
@@ -79,7 +81,7 @@
                                     </div>
                                     <div class="text-right">
                                         <div class="loader col-6" style="display:none">
-                                            <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                                            <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
                                             <span class="percentage" style="color:green;font-weight: bold;"></span>
                                         </div>
                                         <button type="submit" class="btn btn-light">Submit</button>
@@ -90,7 +92,8 @@
                                 </div>
 
                             </div>
-                            {{ Form::close() }}
+                            <?php echo e(Form::close()); ?>
+
                         </div>
                         <div class="col"></div>
                     </div>
@@ -109,11 +112,11 @@
 
                             <div class="opentickettext">
                                 <div class="row">
-                                    @foreach($tickets as $ticket)
+                                    <?php $__currentLoopData = $tickets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ticket): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-9">
                                         <a href="#" data-toggle="modal" data-target="#chat">
-                                            <h3>#34567893 - {{$ticket->technical_issue}}</h3>
-                                            <p>Last Updated: {{$ticket->created_at}}</p>
+                                            <h3>#34567893 - <?php echo e($ticket->technical_issue); ?></h3>
+                                            <p>Last Updated: <?php echo e($ticket->created_at); ?></p>
                                         </a>
                                     </div>
 
@@ -127,7 +130,7 @@
                                             style="display:none;">Close</button>
                                     </div>
 
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                     <!-- Button trigger modal -->
 
@@ -266,4 +269,4 @@
                 }
             </script>
 
-            @include('artists.dashboard_footer');
+            <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/support.blade.php ENDPATH**/ ?>
