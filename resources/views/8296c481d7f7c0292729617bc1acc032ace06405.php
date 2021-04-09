@@ -366,7 +366,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <?php endif; ?>
+                                
                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             </div>
