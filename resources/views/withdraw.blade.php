@@ -12,7 +12,7 @@
       @if($level_system)
       @foreach($level_system as $key=>$val) 
           @if($val['level']==$levelData[0]->level_name)
-         <h3> PAZ Service Fee :20%</h3>
+         <h3> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ </b> Service Fee :20%</h3>
          <h3> {{$val['level']}} <small>(you save)</small>: {{$val['fee']}}%</h3>
          <hr>
          <h3>Current Fee : <span>{{20-$val['fee']}}%</span></h3>
@@ -32,7 +32,7 @@
            <div class="row">
           <div class="col-md-4">
     
-           <div class="amount">Enter PAZ Amount <br>
+           <div class="amount">Enter <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> Amount <br>
               <input type="number"  min="0" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
          <input type="hidden" id="fees" value="{{$levelData ? $levelData[0]->fees : 0}}"/>
@@ -90,7 +90,7 @@
     <tr>
       
       <th scope="col">lvl3</th>
-      <th scope="col">20k PAZ earned </th>
+      <th scope="col">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
@@ -127,7 +127,7 @@
     <tr>
       <th scope="col">Artists invited</th>
       <th scope="col">lvl3</th>
-      <th scope="col">20k PAZ earned </th>
+      <th scope="col">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
