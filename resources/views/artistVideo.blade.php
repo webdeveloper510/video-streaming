@@ -361,7 +361,8 @@
                                         </div>
                                     </div>
                                 </section>
-                                @endif @endforeach
+                                @endif
+                                 @endforeach
 
                             </div>
 
