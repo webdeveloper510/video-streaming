@@ -27,7 +27,7 @@
       <td scope="row"><?php echo e($earn->nickname); ?></td>
        <td><?php echo e(is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type); ?></td>
       <td><?php echo e($earn->mediaTitle); ?></td>
-      <td><?php echo e($earn->tokens); ?>PAZ</td>
+      <td style="color:gold"><?php echo e($earn->tokens); ?><b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></td>
       <td><?php echo e(date('m/ d/ Y  (H:i)', strtotime($earn->created_at))); ?></td>
     </tr>
     <?php endif; ?>
@@ -36,7 +36,7 @@
       <td scope="row"><?php echo e($earn->nickname); ?></td>
        <td ><?php echo e('order-'.$earn->types); ?></td>
       <td><?php echo e($earn->Offertitles); ?></td>
-      <td><?php echo e($earn->tokens); ?> PAZ</td>
+      <td style="color:gold;"><?php echo e($earn->tokens); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ </b></td>
       <td><?php echo e(date('m/ d/ Y  (H:i)', strtotime($earn->created_at))); ?></td>
     </tr>
     <?php endif; ?>

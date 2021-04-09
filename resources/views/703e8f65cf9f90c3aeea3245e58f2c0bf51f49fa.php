@@ -682,13 +682,13 @@
              <hr>
               <div class="card-body text-center">
                 <h4 class="card-title">Today:</h4>
-                <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
+                <h5 style="color:gold;"><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h5>
                 <br>
                 <h4 class="card-title">This Month:</h4>
-                <h5><?php echo e($month_paz[0]->total_token ? $month_paz[0]->total_token : 0); ?> PAZ</h5>
+                <h5 style="color:gold;"><?php echo e($month_paz[0]->total_token ? $month_paz[0]->total_token : 0); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h5>
                 <br>
                 <h4 class="card-title">This Year:</h4>
-                <h5><?php echo e($year_PAZ[0]->total_token ? $year_PAZ[0]->total_token : 0); ?> PAZ</h5>
+                <h5 style="color:gold;"><?php echo e($year_PAZ[0]->total_token ? $year_PAZ[0]->total_token : 0); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h5>
               </div>
             </div>
             </a>

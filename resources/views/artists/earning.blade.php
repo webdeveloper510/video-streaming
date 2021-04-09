@@ -27,7 +27,7 @@
       <td scope="row">{{$earn->nickname}}</td>
        <td>{{is_array($type) ? 'collection-'.$type[0].','.'collection-'.$type[1] : $type}}</td>
       <td>{{$earn->mediaTitle}}</td>
-      <td>{{$earn->tokens}}PAZ</td>
+      <td style="color:gold">{{$earn->tokens}}<b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></td>
       <td>{{date('m/ d/ Y  (H:i)', strtotime($earn->created_at))}}</td>
     </tr>
     @endif
@@ -36,7 +36,7 @@
       <td scope="row">{{$earn->nickname}}</td>
        <td >{{'order-'.$earn->types}}</td>
       <td>{{$earn->Offertitles}}</td>
-      <td>{{$earn->tokens}} PAZ</td>
+      <td style="color:gold;">{{$earn->tokens}} <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ </b></td>
       <td>{{date('m/ d/ Y  (H:i)', strtotime($earn->created_at))}}</td>
     </tr>
     @endif
