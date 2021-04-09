@@ -137,7 +137,7 @@ $(document).ready(function(){
 		'<p>'+d.quality+'p</p>'+
 		'</td>'+
 		'</tr>'+
-		'<tr><td>Paid:</td><td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+		'<tr><td colspan="2">Paid: <span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
 		'<tr>'+
 		'</table>'+
 		'<div class="mt-3">'+
@@ -1914,7 +1914,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'p </p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+	'<tr><td colspan="2">Reward:<span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
 	'<tr><td colspan="2">'+
 	'<div class="col-md-12">'+
 	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
@@ -1973,7 +1973,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'p</p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:<td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+	'<tr><td colspan="2">Reward:<span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
 	'<tr>'+
 	'</table>'+
 	'<div class="">'+
