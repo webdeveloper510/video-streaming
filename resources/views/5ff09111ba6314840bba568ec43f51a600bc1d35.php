@@ -41,6 +41,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.css" />
 
   <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+
+ 
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
 
