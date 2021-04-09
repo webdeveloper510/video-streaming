@@ -405,7 +405,7 @@
         </tr>
             <tr>
             	<th>Price</th>
-            	<td> {{$offer->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>
+            	<td> <span style="color:gold;">{{$offer->price}}  <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/Minute </td>
               </tr>
 	      </table>
 	         </div>

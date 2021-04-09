@@ -7,7 +7,7 @@ try{
 
 $token = $_GET['token'];
 
-if(@include_once('./vendor/autoload.php')) {
+if(include('./vendor/autoload.php')) {
     echo realpath('profile.php');
     echo get_include_path();
   echo 'ccc';

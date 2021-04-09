@@ -298,7 +298,7 @@
                             .choose1 {
                                 background: white;
                                 position: fixed;
-                                width: 89%;
+                                width: 50%;
                                 bottom: 10px;
                                 z-index: 1;
                             }
@@ -344,6 +344,13 @@
                             h3.tittle {
                                 color: #ffffff;
                             }
+                            input.slct_video {
+                            position: absolute;
+                            right: 2px;
+                            top: 5px;
+                            width: 20px;
+                            height: 20px;
+                        }
                             .row.pb-row {
                                 background: black;
                                 color: white !important;
