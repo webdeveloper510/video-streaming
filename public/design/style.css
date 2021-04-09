@@ -3411,7 +3411,7 @@ footer hr {
 }
 ul.footer-menu li {
     display: inline;
-    padding-left: 2%;
+    padding-left: 1%;
     padding-right: 1%;
     border-right-color: red;
     border-right-style: solid;
