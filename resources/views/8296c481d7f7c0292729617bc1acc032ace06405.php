@@ -207,54 +207,8 @@
                                         </div>
                                     </section>
 
-                                    <!-- Modal -->
-                                    <div
-                                        class="modal modal2"
-                                        id="reportvideo"
-                                        tabindex="-1"
-                                        aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header ">
-                                                    <div class="row" style="width: 100%;">
-                                                        <div class="col"></div>
-                                                        <div class="col-md-8 my-3">
-                                                            <div class="text-center">
-                                                                <select class="form-select form-control " aria-label="Default select example">
-                                                                    <option selected="selected">
-                                                                        Select Menu</option>
-                                                                    <option value="1">Feature Request</option>
-                                                                    <option value="2">Functionality Question</option>
-                                                                    <option value="3">Techincal Issue</option>
-                                                                    <option value="4">General</option>
-                                                                    <option value="5">Website Fees</option>
-                                                                    <option value="6">Delete Account</option>
-                                                                    <option value="7">Other</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col"></div>
-                                                    </div>
-				   <audio >
-				   	<source src="<?php echo e(url('storage/app/public/audio/'.$video->media)); ?>" type="audio/mp3">
-				   </audio>
-				   <div class="report-op">
-				   		<i class="fa fa-ellipsis-v" onclick="showop()"></i>
-						<ul style="display:none;" class="reporting">
-						 <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
-						 
-						</ul>
-				   </div>
-					</div>
-				   <?php endif; ?>
-				   <div class="col"></div>
-				 </div>
-				</div>
-			 </div>
-		  </div>
-	   </div>
-	</section>
+                                   
+				 
           
        
 	    <!-- Modal -->
@@ -347,7 +301,7 @@
                                         </div>
                                     </div>
                                 </section>
-                              
+                                  <?php endif; ?>
                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             </div>
