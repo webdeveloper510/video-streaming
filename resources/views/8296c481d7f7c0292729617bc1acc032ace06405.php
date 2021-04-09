@@ -1,4 +1,5 @@
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> < link rel = "stylesheet" href = "<?php echo e(asset('design/artistVideo.css')); ?>" /> <div class="inner-page">
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+<link rel = "stylesheet" href = "<?php echo e(asset('design/artistVideo.css')); ?>" /> <div class="inner-page">
     <section>
         <div class="container-fluid">
             <div class="main-cnt-sec">
@@ -366,7 +367,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                
+                                <?php endif; ?>
                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             </div>
