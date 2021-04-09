@@ -627,7 +627,7 @@
                 <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
                 
-                <div style="display:none;">
+                <div style="display:none;  padding-top: 13%;">
                 <div class="text-left">
                         <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
                     </div>
