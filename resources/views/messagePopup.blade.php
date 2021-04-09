@@ -4,27 +4,35 @@
  <div class="popup-content">
  <p>You have not enough PAZ Token!</p>
 			<label class="text-left">Add PAZ Token :</label>
-			{{Form::text('token', '',['class'=>'form-control token ','placeholder'=>'Add Token'])}}
+			{{Form::label('ADD', 'Token')}} 
+                  <select class="custom-select mb-3">
+                    <option selected>Select Token Amount</option>
+                    <option value="200">200 Tokens $14USD</option>
+                    <option value="500">500 Tokens $35 USD</option>
+                    <option value="1000">1000 Tokens $69.50 USD (10 Bonus Tokens)</option>
+                    <option value="1500">1500 Tokens $103.50 USD (30 Bonus Tokens)</option>
+                    <option value="2000">2000 Tokens $137 USD (60 Bonus Tokens)</option>
+                    <option value="2500">2500 Tokens $170 USD (100 Bonus Tokens)</option>
+                    <option value="3000">3000 Tokens $202.50 USD (150 Bonus Tokens)</option>
+                    <option value="3500">3500 Tokens $234.50 USD (210 Bonus Tokens)</option>
+                    <option value="4000">4000 Tokens $266 USD (280 Bonus Tokens)</option>
+                    <option value="4500">4500 Tokens $297 USD (360 Bonus Tokens)</option>
+                    <option value="5000">5000 Tokens $327.50 USD (450 Bonus Tokens)</option>
+                    <option value="10000">10000 Tokens $650 USD (1000 Bonus Tokens)</option>
+                  </select>
 
-				<strong class="bonusPAZ" style="color:black; font-size:14px"></strong>
 
-					@if($errors->first('token'))
-					<div class="alert alert-danger">
-						<?php echo $errors->first('token') ?>
-					</div>
-					@endif
-					<div class="col-md-12 text-center pt-3">
-					
-						<button class="btn btn-primary" type="button" id="checkPrice">Calculate Token Price</button>
-				</div>
-			
-							</div>
-
-				<div class="col-md-12 text-center pt-3" style="display: none;">
-				{{ Form::submit('Pay!',['class'=>'btn btn-primary']) }}
-				</div>
+                  <select class="custom-select mb-3">
+                    <option selected>Choose Payment Options</option>
+                    <option value="1">Paypal</option>
+                    <option value="2">Credit Cards</option>
+                    <option value="3">Apple Pay</option>
+                  </select>
+                  <div class="text-center">
+                     <button class="btn btn-primary" type="button"> Buy </button>
+                  </div>
    <!--popup's close button-->
-    <button class="close">Close</button>    
+    <button class="close">X</button>    
 </div>
 </div>
 <style>
