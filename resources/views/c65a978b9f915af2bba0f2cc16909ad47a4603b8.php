@@ -12,7 +12,7 @@
       <?php if($level_system): ?>
       <?php $__currentLoopData = $level_system; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
           <?php if($val['level']==$levelData[0]->level_name): ?>
-         <h3> PAZ Service Fee :20%</h3>
+         <h3> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ </b> Service Fee :20%</h3>
          <h3> <?php echo e($val['level']); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-$val['fee']); ?>%</span></h3>
@@ -32,7 +32,7 @@
            <div class="row">
           <div class="col-md-4">
     
-           <div class="amount">Enter PAZ Amount <br>
+           <div class="amount">Enter <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> Amount <br>
               <input type="number"  min="0" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>
          <input type="hidden" id="fees" value="<?php echo e($levelData ? $levelData[0]->fees : 0); ?>"/>
@@ -90,7 +90,7 @@
     <tr>
       
       <th scope="col">lvl3</th>
-      <th scope="col">20k PAZ earned </th>
+      <th scope="col"><span style="color:gold">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
@@ -127,7 +127,7 @@
     <tr>
       <th scope="col">Artists invited</th>
       <th scope="col">lvl3</th>
-      <th scope="col">20k PAZ earned </th>
+      <th scope="col"><span style="color:gold">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
