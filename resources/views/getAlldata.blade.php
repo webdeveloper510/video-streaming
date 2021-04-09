@@ -136,7 +136,11 @@
     background:black;
     color:white;
 }
-
+.Playlist1 {
+    max-height: 216px;
+    overflow-y: scroll;
+    padding-top: 10px;
+}
 .card {
     background: transparent;
     color: white;
