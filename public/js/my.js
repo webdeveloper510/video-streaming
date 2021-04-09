@@ -137,10 +137,10 @@ $(document).ready(function(){
 		'<p>'+d.quality+'p</p>'+
 		'</td>'+
 		'</tr>'+
-		'<tr><td>Paid:</td><td class="Reward" style="color: yellow !important;">'+d.tokens+'<span style="color: yellow !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+		'<tr><td>Paid:</td><td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
 		'<tr>'+
 		'</table>'+
-		'<div class="">'+
+		'<div class="mt-3">'+
 		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button" class="btn btn-outline-success"'+disable+'>Cancel Order</button>'+
 		'</div>'+
 		'</div>'+
@@ -1914,7 +1914,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'p </p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward">'+d.price+'PAZ</td></tr>'+
+	'<tr><td>Reward:</td><td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
 	'<tr><td colspan="2">'+
 	'<div class="col-md-12">'+
 	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
@@ -1973,7 +1973,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'p</p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:<span class="Reward">'+d.total_price+'PAZ</span></td></tr>'+
+	'<tr><td>Reward:<td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
 	'<tr>'+
 	'</table>'+
 	'<div class="">'+
