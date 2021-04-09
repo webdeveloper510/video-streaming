@@ -1,11 +1,10 @@
 <?php
-// require_once './vendor/autoload.php';
-// 
-
-
+use Yoti\Profile;
 try{
 
 include('./vendor/autoload.php');
+
+
 
 $oneTimeUseToken = $_GET['token'];
 
@@ -24,7 +23,7 @@ $profile = $activityDetails->getProfile();
 
 $emailAddress = $profile->getEmailAddress()->getValue();
 
-print_r($applicationName);die;
+print_r($emailAddress);die;
 
 }
 

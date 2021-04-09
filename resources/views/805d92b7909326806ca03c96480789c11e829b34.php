@@ -1,5 +1,9 @@
 
 <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="header py-3">
+ <a href="<?php echo e(url('/')); ?>"><img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100px" alt="CoolBrand">
+ 
+ </a></div>
 <section class="background1 ">
 
     <div class="container pt-5 pb-5">
@@ -113,7 +117,16 @@
     a.ffff {
         color: blue;
     }
-
+    header#default_header {
+    display: none;
+}
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: -8px auto;
+}
   </style>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
