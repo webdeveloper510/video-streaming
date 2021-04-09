@@ -1,4 +1,5 @@
-@include('layouts.header') < link rel = "stylesheet" href = "{{asset('design/play.css')}}" />
+@include('layouts.header')
+ <link rel = "stylesheet" href = "{{asset('design/play.css')}}" />
 <!-- end header -->
 
 <div class="row pb-row">
