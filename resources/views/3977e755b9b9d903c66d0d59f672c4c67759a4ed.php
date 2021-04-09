@@ -151,9 +151,13 @@
                                                         <!-- <p>hello</p> -->
 
                                                         <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                       <label style="border: 1px solid #b8def9;padding: 5px 6px;color: white; background: #b8def9;"> <i style="    font-size: 24px;" class="fa fa-paperclip"></i> </label>
+                                                        <input type="file" class="custom-file-input">
+                                                            </div>
                                                             <input type="text" class="form-control" placeholder="Message">
                                                                 <div class="input-group-append">
-                                                                    <button class="btn btn-outline-secondary form-control" type="button">
+                                                                    <button class="btn btn-primary form-control" type="button">
                                                                         <i class="material-icons">send</i>
                                                                     </button>
                                                                 </div>
@@ -181,6 +185,9 @@
             </section>
 
             <style>
+            .input-group-prepend {
+                width: 7%;
+            }
                 section.support {
                     margin-top: 10%;
                 }
@@ -193,7 +200,7 @@
                     background: #7b0000;
                     color: white !important;
                 }
-                button.btn.btn-outline-secondary.form-control {
+                button.btn.btn-primary.form-control {
                     margin: 0 !important;
                 }
                 label.error {
