@@ -49,7 +49,7 @@
         </tr>
             <tr>
             	<th>Price</th>
-            	<td> {{$val->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ/Minute</span> </td>
+            	<td> {{$val->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>
               </tr>
 	      </table>
 	    
