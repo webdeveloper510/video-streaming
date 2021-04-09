@@ -778,7 +778,7 @@ video:hover {
     background: black;
     padding: 4px;
     font-size: 16px;
-    color: yellow !important;
+    color: gold !important;
 }
 .pricetime {
     position: relative;
