@@ -102,6 +102,10 @@ button.close.footerclose {
     right: 6px;
     top: 7px;
 }
+ul.footer-menu.pb-3 {
+    display: flex;
+    justify-content: center;
+}
   div#exampleModal10 {
     background: transparent;
 }
