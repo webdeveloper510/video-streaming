@@ -4,20 +4,18 @@
 
 
 try{
-
-$token = $_GET['token'];
+$oneTimeUseToken = $_GET['token'];
 include('./vendor/autoload.php');
-$client = new \Yoti\YotiClient('a134bb6d-b208-42b3-b777-9d1a627c3efd', '/home/personalattentio/public_html/developing-streaming/yoti/keys/verify.pem');
 
-$activityDetails = $client->getActivityDetails($token);
+$client = new \Yoti\YotiClient('3c6b5f75-5e38-44b3-b50d-33e8925adcae', '/home/personalattentio/public_html/developing-streaming/yoti/keys/verify.pem');
 
-print_r($activityDetails);
+$activityDetails = $client->getActivityDetails($oneTimeUseToken);
 
 $profile = $activityDetails->getProfile();
 
-$fullName = $profile->getFullName()->getValue();
+$emailAddress = $profile->getEmailAddress()->getValue();
 
-print_r($fullName);die;
+print_r($emailAddress);die;
 
 }
 
