@@ -384,9 +384,7 @@
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
 </select>
-                {{Form::label('Date of Birth', 'Date of Birth')}} 
-                
-                <input type="date" required name="dob" class="form-control" />
+              
                 <br>
                 <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
                 <div class="text-right">

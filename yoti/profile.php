@@ -15,7 +15,9 @@ $activityDetails = $client->getActivityDetails($token);
 
 $profile = $activityDetails->getProfile();
 
-print_r($profile);die;
+$fullName = $profile->getFullName()->getValue();
+
+print_r($fullName);die;
 
 
 
