@@ -85,3 +85,73 @@ Stack trace:
 [08-Apr-2021 19:27:41 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/personalattentio/public_html/yoti/profile.php on line 40
 [08-Apr-2021 19:28:13 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/personalattentio/public_html/yoti/profile.php on line 41
 [08-Apr-2021 19:28:29 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/personalattentio/public_html/yoti/profile.php on line 41
+[08-Apr-2021 23:58:58 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[08-Apr-2021 23:59:23 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:00:51 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:03:40 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:05:47 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:08:37 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:08:56 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:09:48 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:10:48 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75
+[09-Apr-2021 00:11:19 UTC] PHP Fatal error:  Uncaught Yoti\Exception\PemFileException: PEM file was not found. in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php:75
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php(94): Yoti\Util\PemFile::fromFilePath('https://pornart...')
+#1 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(61): Yoti\Util\PemFile::resolveFromString('https://pornart...')
+#2 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(3): Yoti\YotiClient->__construct('a134bb6d-b208-4...', 'https://pornart...')
+#3 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Util/PemFile.php on line 75

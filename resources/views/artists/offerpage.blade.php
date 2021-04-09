@@ -36,7 +36,7 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Price</h3>
-      <p>{{$offerdata->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/minute</p>
+      <p style="color:yellow !important">{{$offerdata->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/minute</p>
   </div>
   <div class="col">
       <h3>Quality</h3>

@@ -302,5 +302,6 @@ input.select_media_pic {
     border: 1px solid #fff;
     color: #fff ;
 }
+
 </style>
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/offer.blade.php ENDPATH**/ ?>
