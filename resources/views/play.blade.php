@@ -20,9 +20,40 @@
             <div class="slider_tittle">
                 <h3 class="tittle text-white">My Collection</h3>
             </div>
+            <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
+                                        <button type="button" class="btn btn-primary bardot">Select</button>
+                                        </div>
+                                        <div class="choose1" style="display:none;">
+                                        <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                        <div class="row ">
+                                            <div class="col">
+                                                <h4><span class="count">0</span>Item  Selected</h4>
+                                            </div>
+                                            <div class="col">
+                                                <h4>Price : <span class="paz">0</span>PAZ</h4>
+                                            </div>
+                                            <div class="col">
+                                            <ul class="selected">
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="col pt-3">
+                                                    <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+                                            </div>
+                                           
+                                        </div>
+                                        </div>
+                                        <div class="modal" role="dialog" id="exampleModal" >
+                                            </div>
+                                     </div>
             <div class="row pb-row">
                 @if($videos) @foreach($videos as $indx=> $val)
                 <div class="col-md-3 pb-video">
+                <div class="checkall" style="display:none">
+                                                <form> 
+                                                <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
                     <video
                         width="100%"
                         height="100%"
@@ -165,40 +196,11 @@
                                 <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
-                                    <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
-                                        <button type="button" class="btn btn-primary bardot">Select</button>
-                                        </div>
-                                        <div class="choose1" style="display:none;">
-                                        <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                        <div class="row ">
-                                            <div class="col">
-                                                <h4><span class="count">0</span>Item  Selected</h4>
-                                            </div>
-                                            <div class="col">
-                                                <h4>Price : <span class="paz">0</span>PAZ</h4>
-                                            </div>
-                                            <div class="col">
-                                            <ul class="selected">
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col pt-3">
-                                                    <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
-                                            </div>
-                                           
-                                        </div>
-                                        </div>
-                                        <div class="modal" role="dialog" id="exampleModal" >
-                                            </div>
-                                     </div>
+                                  
                                     <div class="row pb-row">
                                         @if($wishList) @foreach($wishList as $indx=> $val)
                                         <div class="col-md-3 pb-video">
-                                        <div class="checkall" style="display:none">
-                                                <form> 
-                                                <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                                      
                                                 <video
                                                     width="100%"
                                                     height="100%"
