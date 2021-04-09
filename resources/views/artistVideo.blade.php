@@ -1,4 +1,5 @@
-@include('layouts.header') < link rel = "stylesheet" href = "{{asset('design/artistVideo.css')}}" /> <div class="inner-page">
+@include('layouts.header') 
+<link rel = "stylesheet" href = "{{asset('design/artistVideo.css')}}" /> <div class="inner-page">
     <section>
         <div class="container-fluid">
             <div class="main-cnt-sec">
@@ -361,7 +362,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                
+                                @endif
                                  @endforeach
 
                             </div>
