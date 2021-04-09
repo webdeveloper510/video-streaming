@@ -1,5 +1,5 @@
-@include('layouts.header')
- <link rel = "stylesheet" href = "{{asset('design/play.css')}}" />
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+ <link rel = "stylesheet" href = "<?php echo e(asset('design/play.css')); ?>" />
 <!-- end header -->
 
 <div class="row pb-row">
@@ -21,7 +21,7 @@
                 <h3 class="tittle text-white">My Collection</h3>
             </div>
             <div class="row pb-row">
-                @if($videos) @foreach($videos as $indx=> $val)
+                <?php if($videos): ?> <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-3 pb-video">
                     <video
                         width="100%"
@@ -30,16 +30,16 @@
                         controlsList="nodownload"
                         disablePictureInPicture="disablePictureInPicture">
                         <source
-                            src="{{url('storage/app/public/video/'.$val->videos)}}"
+                            src="<?php echo e(url('storage/app/public/video/'.$val->videos)); ?>"
                             type="video/mp4"></video>
 
                     </div>
-                    @endforeach @else
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>
                     <div class="playwish ">
                         <h4 class="text-white">Collection Empty</h4>
 
                     </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -53,8 +53,8 @@
                         <!-- <form> <div class="form-group"> <label for="exampleFormControlSelect1">
                         Select Playlist</label> <select class="form-control" name="playlist"
                         id="exampleFormControlSelect1"> <option value="">Choose..</option>
-                        @foreach($listname as $val) <option
-                        value="{{$val->id}}">{{$val->playlistname}}</option> @endforeach </select>
+                        <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <option
+                        value="<?php echo e($val->id); ?>"><?php echo e($val->playlistname); ?></option> <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> </select>
                         </div> </form> -->
 
                         <!-- Modal -->
@@ -120,7 +120,7 @@
 
                     <div class="row pb-row">
 
-                        @foreach($listname as $playlist)
+                        <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $playlist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php 
               $videos = explode(',',$playlist->videos);
 
@@ -136,26 +136,26 @@
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
 
                                 <video width="320" height="240">
-                                    <source src="{{url('storage/app/public/video/'.$videos[0])}}" type="video/mp4">
+                                    <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <div
                                         class="videooverlay text-white"
-                                        onclick="showPlaylistVedio('{{json_encode($playlist)}}')">
+                                        onclick="showPlaylistVedio('<?php echo e(json_encode($playlist)); ?>')">
 
                                         <img
-                                            src="{{asset('images/playlisticon.png')}}"
+                                            src="<?php echo e(asset('images/playlisticon.png')); ?>"
                                             class="img-fluid"
                                             width="200px"
                                             height="200px">
-                                            <h2 class="text-white pl-5">{{$count}}</h2>
-                                            <p class="text-white">{{$playlist->playlistname}}</p>
+                                            <h2 class="text-white pl-5"><?php echo e($count); ?></h2>
+                                            <p class="text-white"><?php echo e($playlist->playlistname); ?></p>
 
                                         </div>
                                     </a>
 
                                 </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <br/>
                             </div>
 
@@ -165,7 +165,7 @@
                                 <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
-                                    <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
+                                    <div class="choosebutton text-right pt-3" style="<?php echo e($flag=='offer' ? 'display:none' : 'display:block'); ?>"> 
                                         <button type="button" class="btn btn-primary bardot">Select</button>
                                         </div>
                                         <div class="choose1" style="display:none;">
@@ -194,26 +194,26 @@
                                             </div>
                                      </div>
                                     <div class="row pb-row">
-                                        @if($wishList) @foreach($wishList as $indx=> $val)
+                                        <?php if($wishList): ?> <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <div class="col-md-3 pb-video">
                                         <div class="checkall" style="display:none">
                                                 <form> 
-                                                <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                                                <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
                                                 <video
                                                     width="100%"
                                                     height="100%"
                                                     controlsList="nodownload"
                                                     disablePictureInPicture="disablePictureInPicture">
-                                                    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4"></video>
+                                                    <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4"></video>
 
                                                 </div>
 
-                                                @endforeach @else
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>
                                                 <div class="playwish playhistory col-md-12 py-4">
                                                     <h4>Wishlist Empty</h4>
 
                                                 </div>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
                                             <br/>
                                         </div>
@@ -226,7 +226,7 @@
                                             </div>
                                             <div class="row pb-row">
 
-                                                @if($history) @foreach($history as $indx => $histories)
+                                                <?php if($history): ?> <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <div class="col-md-3 pb-video">
                                                     <video
                                                         width="100%"
@@ -235,16 +235,16 @@
                                                         disablePictureInPicture="disablePictureInPicture">
 
                                                         <source
-                                                            src="{{url('storage/app/public/video/'.$histories->media)}}"
+                                                            src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>"
                                                             type="video/mp4"></video>
 
                                                     </div>
-                                                    @endforeach @else
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
 
                                                     </div>
-                                                    @endif
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -298,7 +298,7 @@
                             .choose1 {
                                 background: white;
                                 position: fixed;
-                                width: 50%;
+                                width: 89%;
                                 bottom: 10px;
                                 z-index: 1;
                             }
@@ -344,13 +344,6 @@
                             h3.tittle {
                                 color: #ffffff;
                             }
-                            input.slct_video {
-                            position: absolute;
-                            right: 2px;
-                            top: 5px;
-                            width: 20px;
-                            height: 20px;
-                        }
                             .row.pb-row {
                                 background: black;
                                 color: white !important;
@@ -376,4 +369,4 @@
                             }
                         </script>
                         <!--footer -->
-                        @include('layouts.footer')
+                        <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/play.blade.php ENDPATH**/ ?>
