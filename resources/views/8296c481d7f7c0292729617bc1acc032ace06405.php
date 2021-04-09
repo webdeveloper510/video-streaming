@@ -288,33 +288,13 @@
                       </div>
                       <div class="pb-3 pr-3 text-right">
                       <button class="btn btn-primary" type="button">Submit</button></div>
-                    
                     </div>
                     
                     </div>
                   </div>
                 </div>
 
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <label>Description</label>
-                                                    <textarea
-                                                        class="form-control"
-                                                        placeholder="Leave a comment here"
-                                                        id="floatingTextarea"></textarea>
-                                                </div>
-                                                <div class="pb-3 pr-3 text-right">
-                                                    <button class="btn btn-primary" type="button">Submit</button>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
+                                                
                                 <section class="published">
                                     <div class="container-fluid">
                                         <div class="pubcontainer">
