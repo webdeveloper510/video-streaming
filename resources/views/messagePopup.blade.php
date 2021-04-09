@@ -3,6 +3,10 @@
 <!--Creates the popup content-->
  <div class="popup-content">
  <p>You have not enough PAZ Token!</p>
+ <div class="Coupon text-center">
+          <h2> 10% OFF Coupon active</h2>
+
+          </div>
 			<label class="text-left">Add PAZ Token :</label>
 			{{Form::label('ADD', 'Token')}} 
                   <select class="custom-select mb-3">
@@ -56,7 +60,12 @@ button.close {
 .popup-overlay.active{
 visibility:visible;
 }
-
+.Coupon.text-center h2 {
+    background: #7b0000;
+    color: white;
+    padding: 13px 0px;
+    clip-path: polygon(100% 0%, 97% 50%, 100% 100%, 0 100%, 3% 50%, 0 0);
+}
 .popup-content.active {
 visibility:visible;
 }

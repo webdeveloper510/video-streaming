@@ -186,3 +186,4 @@ Stack trace:
 #1 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(12): Yoti\YotiClient->getActivityDetails(NULL)
 #2 {main}
   thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Profile/Service.php on line 60
+[09-Apr-2021 19:46:51 UTC] PHP Parse error:  syntax error, unexpected 'c6b5f75' (T_STRING), expecting ',' or ')' in /home/personalattentio/public_html/developing-streaming/yoti/profile.php on line 10

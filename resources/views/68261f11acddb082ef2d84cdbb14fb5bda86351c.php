@@ -165,15 +165,40 @@
                                 <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
-                                        <button class="btn btn-primary" type="button">
-                                            Select
-                                        </button>
-                                    </div>
+                                    <div class="choosebutton text-right pt-3" style="<?php echo e($flag=='offer' ? 'display:none' : 'display:block'); ?>"> 
+                                        <button type="button" class="btn btn-primary bardot">Select</button>
+                                        </div>
+                                        <div class="choose1" style="display:none;">
+                                        <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                        <div class="row ">
+                                            <div class="col">
+                                                <h4><span class="count">0</span>Item  Selected</h4>
+                                            </div>
+                                            <div class="col">
+                                                <h4>Price : <span class="paz">0</span>PAZ</h4>
+                                            </div>
+                                            <div class="col">
+                                            <ul class="selected">
+                                                    
+                                                </ul>
+                                            </div>
+                                            <div class="col pt-3">
+                                                    <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+                                            </div>
+                                           
+                                        </div>
+                                        </div>
+                                        <div class="modal" role="dialog" id="exampleModal" >
+                                            </div>
+                                     </div>
                                     <div class="row pb-row">
                                         <?php if($wishList): ?> <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <div class="col-md-3 pb-video">
-                                            <div class="checkboxall">
-                                                <input type="checkbox" style="display:none;"></div>
+                                        <div class="checkall" style="display:none">
+                                                <form> 
+                                                <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
                                                 <video
                                                     width="100%"
                                                     height="100%"
@@ -270,6 +295,13 @@
                             .owl-carousel {
                                 display: block !important;
                             }
+                            .choose1 {
+                                background: white;
+                                position: fixed;
+                                width: 50%;
+                                bottom: 10px;
+                                z-index: 1;
+                            }
                             select.form-select.form-control.col-md-4 {
                                 float: right;
                                 margin-top: 22px;
@@ -312,6 +344,13 @@
                             h3.tittle {
                                 color: #ffffff;
                             }
+                            input.slct_video {
+                            position: absolute;
+                            right: 2px;
+                            top: 5px;
+                            width: 20px;
+                            height: 20px;
+                        }
                             .row.pb-row {
                                 background: black;
                                 color: white !important;
