@@ -13,7 +13,7 @@ $client = new \Yoti\YotiClient('a134bb6d-b208-42b3-b777-9d1a627c3efd', '/home/pe
 
 $activityDetails = $client->getActivityDetails($token);
 
-print_r($activityDetails);die;
+print_r($activityDetails);
 
 $profile = $activityDetails->getProfile();
 
