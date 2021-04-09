@@ -173,3 +173,9 @@ Stack trace:
 #1 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(14): Yoti\YotiClient->getActivityDetails(NULL)
 #2 {main}
   thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Profile/Service.php on line 60
+[09-Apr-2021 18:18:55 UTC] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Yoti\Profile\Service::getActivityDetails() must be of the type string, null given, called in /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php on line 97 and defined in /home/personalattentio/public_html/developing-streaming/yoti/src/Profile/Service.php:60
+Stack trace:
+#0 /home/personalattentio/public_html/developing-streaming/yoti/src/YotiClient.php(97): Yoti\Profile\Service->getActivityDetails(NULL)
+#1 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(14): Yoti\YotiClient->getActivityDetails(NULL)
+#2 {main}
+  thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Profile/Service.php on line 60

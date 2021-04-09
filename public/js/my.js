@@ -137,7 +137,7 @@ $(document).ready(function(){
 		'<p>'+d.quality+'p</p>'+
 		'</td>'+
 		'</tr>'+
-		'<tr><td>Paid:</td><td class="Reward">'+d.tokens+'PAZ</td></tr>'+
+		'<tr><td>Paid:</td><td class="Reward" style="color: yellow !important;">'+d.tokens+'<span style="color: yellow !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
 		'<tr>'+
 		'</table>'+
 		'<div class="">'+
