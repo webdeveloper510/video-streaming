@@ -86,7 +86,7 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
-         <h4 ><span style="color:yellow !important">{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
+         <h4 ><span style="color:gold !important">{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
@@ -742,7 +742,7 @@ video:hover {
     background: black;
     padding: 4px;
     font-size: 16px;
-    color: yellow !important;
+    color: gold !important;
 }
 .pricetime {
     position: relative;
