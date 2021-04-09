@@ -187,3 +187,5 @@ Stack trace:
 #2 {main}
   thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Profile/Service.php on line 60
 [09-Apr-2021 19:46:51 UTC] PHP Parse error:  syntax error, unexpected 'c6b5f75' (T_STRING), expecting ',' or ')' in /home/personalattentio/public_html/developing-streaming/yoti/profile.php on line 10
+[09-Apr-2021 20:49:17 UTC] PHP Warning:  The use statement with non-compound name 'Yoti' has no effect in /home/personalattentio/public_html/developing-streaming/yoti/profile.php on line 3
+[09-Apr-2021 21:10:26 UTC] PHP Warning:  The use statement with non-compound name 'Yoti' has no effect in /home/personalattentio/public_html/developing-streaming/yoti/profile.php on line 3
