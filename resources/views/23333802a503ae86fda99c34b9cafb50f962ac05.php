@@ -61,7 +61,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p style="color:gold !important;"><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/Minute</p>
+              <p> <span  style="color:gold !important;"><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>

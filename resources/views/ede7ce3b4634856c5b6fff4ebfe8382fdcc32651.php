@@ -89,7 +89,7 @@
         </div>
        
         <div class="col-md-2">
-         <h4><?php echo e($offer->price); ?>PAZ/min</h4>    
+         <h4 style="color:gold;"><?php echo e($offer->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/min</h4>    
         </div>
         <hr>
       
@@ -251,7 +251,7 @@
           <?php endif; ?>
         <div class="pricetime">
                   <div class="text-left">
-                  <h6 class="text-white"><?php echo e($aud->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                  <h6 style="color:yellow !important;"><?php echo e($aud->price); ?>/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                   </div>
                   <div class="text-right">
                   <h6 class="text-white"><?php echo e($aud->duration); ?></h6>

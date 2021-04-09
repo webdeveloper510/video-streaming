@@ -179,3 +179,4 @@ Stack trace:
 #1 /home/personalattentio/public_html/developing-streaming/yoti/profile.php(14): Yoti\YotiClient->getActivityDetails(NULL)
 #2 {main}
   thrown in /home/personalattentio/public_html/developing-streaming/yoti/src/Profile/Service.php on line 60
+[09-Apr-2021 18:59:00 UTC] PHP Warning:  realpath() expects exactly 1 parameter, 0 given in /home/personalattentio/public_html/developing-streaming/yoti/profile.php on line 11
