@@ -24,9 +24,9 @@
                     <button type="button" class="btn btn-primary bardot">Select</button>
                     </div>
                     <div class="choose1" style="display:none;">
-                    <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
+                    <button type="button" class="close choose1" data-dismiss="choose1" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
                     <div class="row ">
                         <div class="col">
                             <h4><span class="count">0</span>Item  Selected</h4>
@@ -38,12 +38,12 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
                         </div>
                         
                     </div>
                     </div>
-                    <div class="modal" role="dialog" id="playlist" >
+                    <div class="modal" role="dialog" id="playlist" aria-hidden="false">
 
                     <div class="modal-dialog">
                             <div class="modal-content">
@@ -54,22 +54,39 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p>Modal body text goes here.</p>
+                                <h3> Create New Playlist</h3>
+                                <div class="Playlist1">
+                                    @foreach($listname as $val)
+                                    <h5 class="select_list">{{$val->listname}} </h5><br>
+                                    @endforeach
+                                
+
+                                </div>
+
+                                <a href="#" class="show_list">Create New Playlist +</a>
+                                <span class="create_playlistt" style="display: none">
+                                        <input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+                                        <button class="create_list btn btn-primary" type="button">Create</button>
+                                    </span>
+                                <div class="text-center mt-4">
+                                    <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
+                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <div class="alert alert-success" id="success_message" style="display: none" role="alert">
+                                    </div>
+                                
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                                
+                                </div>
                             </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     <div class="row pb-row">
                         @if($videos) @foreach($videos as $indx=> $val)
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
-                                                        <form> 
-                                                        <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                             <form> 
+                              <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
                             <video
                                 width="100%"
                                 height="100%"
