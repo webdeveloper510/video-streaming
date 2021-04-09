@@ -173,23 +173,21 @@
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
                                         <div class="row ">
-                                            <div class="col-md-2">
+                                            <div class="col">
                                                 <h4><span class="count">0</span>Item  Selected</h4>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col">
                                                 <h4>Price : <span class="paz">0</span>PAZ</h4>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col">
                                             <ul class="selected">
                                                     
                                                 </ul>
                                             </div>
-                                            <div class="col-md-3 pt-3">
+                                            <div class="col pt-3">
                                                     <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
                                             </div>
-                                            <div class="col-md-3 pt-3">
-                                                <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
-                                            </div>
+                                           
                                         </div>
                                         </div>
                                         <div class="modal" role="dialog" id="exampleModal" >
@@ -297,6 +295,13 @@
                             .owl-carousel {
                                 display: block !important;
                             }
+                            .choose1 {
+                                background: white;
+                                position: fixed;
+                                width: 50%;
+                                bottom: 10px;
+                                z-index: 1;
+                            }
                             select.form-select.form-control.col-md-4 {
                                 float: right;
                                 margin-top: 22px;
@@ -339,6 +344,13 @@
                             h3.tittle {
                                 color: #ffffff;
                             }
+                            input.slct_video {
+                            position: absolute;
+                            right: 2px;
+                            top: 5px;
+                            width: 20px;
+                            height: 20px;
+                        }
                             .row.pb-row {
                                 background: black;
                                 color: white !important;
