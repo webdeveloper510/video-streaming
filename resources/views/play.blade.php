@@ -302,7 +302,7 @@
                                 position: fixed;
                                 width: 50%;
                                 bottom: 10px;
-                                z-index: 1;
+                                z-index: 2;
                             }
                             select.form-select.form-control.col-md-4 {
                                 float: right;
@@ -350,6 +350,7 @@
                             position: absolute;
                             right: 2px;
                             top: 5px;
+                            z-index: 1;
                             width: 20px;
                             height: 20px;
                         }
