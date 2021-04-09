@@ -1516,7 +1516,11 @@ button.btn.btn-warning.text-white {
     border: 2px solid yellow;
     padding-left: 32px;
 }
-
+.Playlist1 {
+    max-height: 216px;
+    overflow-y: scroll;
+    padding-top: 10px;
+}
 .noti-icon p {
     color: white;
     font-weight: bold;
