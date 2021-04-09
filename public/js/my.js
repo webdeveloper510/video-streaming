@@ -1410,9 +1410,9 @@ function showPlaylistVedio(data){
 	for(var i=0; i<videos_playlist.length; i++){
 		var url = storage_url+'/video/'+videos_playlist[i];
 		if(i==0){
-		$('.videodata').html("<video width='100%'   controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
+		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
 		}
-	 div +="<div class='row lists12'><div class='videolist col-6'><video width='100px' height='100px' controls controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div></div>"
+	 div +="<div class='row lists12'><div class='videolist col-6'><video width='150px' height='100px' controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div></div>"
 	}
 	$('.video_append').append(div);
 
