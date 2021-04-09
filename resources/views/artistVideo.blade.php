@@ -362,7 +362,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                @endif
+                              
                                  @endforeach
 
                             </div>
