@@ -87,7 +87,7 @@
         </div>
        
         <div class="col-md-2">
-         <h4 style="color:gold;">{{$offer->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>/min</h4>    
+         <h4 > <span style="color:gold;">{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span>/min</h4>    
         </div>
         <hr>
       
