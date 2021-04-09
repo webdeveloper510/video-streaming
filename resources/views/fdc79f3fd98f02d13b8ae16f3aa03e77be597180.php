@@ -116,6 +116,7 @@ footer {
 }
 ul.footer-menu.pb-3 li a {
     color: white;
+    font-size:12px !important;
 }
 </style>
 
