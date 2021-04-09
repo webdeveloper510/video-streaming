@@ -21,59 +21,75 @@
                 <h3 class="tittle text-white">My Collection</h3>
             </div>
             <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
-                                        <button type="button" class="btn btn-primary bardot">Select</button>
-                                        </div>
-                                        <div class="choose1" style="display:none;">
-                                        <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                                </button>
-                                        <div class="row ">
-                                            <div class="col">
-                                                <h4><span class="count">0</span>Item  Selected</h4>
-                                            </div>
-                                            <div class="col">
-                                                <h4>Price : <span class="paz">0</span>PAZ</h4>
-                                            </div>
-                                            <div class="col">
-                                            <ul class="selected">
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col pt-3">
-                                                    <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
-                                            </div>
-                                           
-                                        </div>
-                                        </div>
-                                        <div class="modal" role="dialog" id="exampleModal" >
-                                            </div>
-                                     </div>
-            <div class="row pb-row">
-                @if($videos) @foreach($videos as $indx=> $val)
-                <div class="col-md-3 pb-video">
-                <div class="checkall" style="display:none">
-                                                <form> 
-                                                <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
-                    <video
-                        width="100%"
-                        height="100%"
-                        controls="controls"
-                        controlsList="nodownload"
-                        disablePictureInPicture="disablePictureInPicture">
-                        <source
-                            src="{{url('storage/app/public/video/'.$val->videos)}}"
-                            type="video/mp4"></video>
-
+                    <button type="button" class="btn btn-primary bardot">Select</button>
                     </div>
-                    @endforeach @else
-                    <div class="playwish ">
-                        <h4 class="text-white">Collection Empty</h4>
-
+                    <div class="choose1" style="display:none;">
+                    <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                    <div class="row ">
+                        <div class="col">
+                            <h4><span class="count">0</span>Item  Selected</h4>
+                        </div>
+                        
+                        <div class="col">
+                        <ul class="selected">
+                                
+                            </ul>
+                        </div>
+                        <div class="col pt-3">
+                                <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                        </div>
+                        
                     </div>
-                    @endif
+                    </div>
+                    <div class="modal" role="dialog" id="playlist" >
+
+                    <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Create Playlist</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row pb-row">
+                        @if($videos) @foreach($videos as $indx=> $val)
+                        <div class="col-md-3 pb-video">
+                        <div class="checkall" style="display:none">
+                                                        <form> 
+                                                        <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                            <video
+                                width="100%"
+                                height="100%"
+                                controls="controls"
+                                controlsList="nodownload"
+                                disablePictureInPicture="disablePictureInPicture">
+                                <source
+                                    src="{{url('storage/app/public/video/'.$val->videos)}}"
+                                    type="video/mp4"></video>
+
+                            </div>
+                            @endforeach @else
+                            <div class="playwish ">
+                                <h4 class="text-white">Collection Empty</h4>
+
+                            </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
         <!-- -------------------------- Play List Start--------------------------->
 
         <div class="inner-page">
