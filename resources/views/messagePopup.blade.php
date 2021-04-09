@@ -29,7 +29,7 @@
                     <option value="3">Apple Pay</option>
                   </select>
                   <div class="text-center">
-                     <button class="btn btn-primary" type="button"> Pay Now </button>
+                     <button class="btn btn-primary" type="button"> Buy </button>
                   </div>
    <!--popup's close button-->
     <button class="close">X</button>    
