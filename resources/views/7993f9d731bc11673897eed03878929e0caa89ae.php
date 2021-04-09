@@ -24,7 +24,7 @@
                     <button type="button" class="btn btn-primary bardot">Select</button>
                     </div>
                     <div class="choose1" style="display:none;">
-                    <button type="button" class="close" data-dismiss="choose1" aria-label="Close">
+                    <button type="button" class="close choose1" data-dismiss="choose1" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                     <div class="row ">
