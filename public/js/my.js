@@ -2476,6 +2476,8 @@ if ($("#myForm").length > 0) {
 	},
         success: function( response ) {
 
+			console.log(response);return false;
+
 			if(response.errors){
 
 				jQuery.each(response.errors, function(key, value){

@@ -215,6 +215,23 @@ section.background1 {
 
 }
 </style>
+
        
 @include('artists.dashboard_footer')
+ 
 
+<script>
+$('form').transloadit({
+   
+      wait: true,
+      triggerUploadOnFileSelection: true,
+      params: {
+        auth: {
+          // To avoid tampering use signatures:
+          // https://transloadit.com/docs/api/#authentication
+          key: '1d655f1b2ca54bcf89a68e3b03fcf6ab',
+        },
+        template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
+      }
+    });
+</script>
