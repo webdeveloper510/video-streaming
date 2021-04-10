@@ -40,7 +40,7 @@
           <form> 
           <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
        <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
-           <video class="borderhover" width="350px" height="275px"  allowfullscreen controlsList="nodownload" disablePictureInPicture>
+           <video class="borderhover" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" width="350px" height="275px"  allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -56,7 +56,7 @@
         <div class="checkall" style="display:none">
           <form> 
           <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
-      <video width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
+      <video width="100%" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
 
              Your browser does not support the video tag.
@@ -66,7 +66,7 @@
           <form> 
           <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
       <img src="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>"/>
-      <audio width="100%" height="240"  controlsList="nodownload" disablePictureInPicture>
+      <audio width="100%" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>"  controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
 
              Your browser does not support the video tag.
@@ -104,7 +104,7 @@
             <div class="borderhover">
             <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
                <img src="<?php echo e($aud->audio_pic ? url('storage/app/public/uploads/'.$aud->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'); ?>">
-           <audio width="350px" height="275px"  controlsList="nodownload" disablePictureInPicture>
+           <audio width="350px" height="275px" poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
             Your browser does not support the video tag.
           </audio>

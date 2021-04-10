@@ -90,7 +90,7 @@
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        <h4>Additional Request <small>(Price: <span style="color:gold !important;"> <?php echo e($GLOBALS['add_price']); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>)</small>
+        <h4>Additional Request <small>(Price: <span style="color:gold !important; font-size:16px;"> <?php echo e($GLOBALS['add_price']); ?> </span><b style="font-size:16px;font-family: 'Alfa Slab One', cursive;color:gold !important;font-weight: 400;">PAZ</b>)</small>
         <input type="radio" id="Yes" class="add_price" name="gender"  value="Yes">
               <label for="male">Yes</label>
               <input type="radio" id="No" class="add_price" name="gender" value="No">

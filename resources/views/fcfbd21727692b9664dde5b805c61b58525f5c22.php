@@ -251,7 +251,7 @@
             <div class="col-md-4 hover" >
             <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
             
-          <video class="hoverVideo" id="recently_<?php echo e($recnt->id); ?>" width="100%" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+          <video class="hoverVideo" poster="<?php echo e(url('storage/app/public/uploads/'.$recnt->audio_pic)); ?>" id="recently_<?php echo e($recnt->id); ?>" width="100%" height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$recnt->media)); ?>" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -321,7 +321,7 @@
            
             <div class="col-md-4 hover">
                 <a  id="anchor_<?php echo e($pop->id); ?>" href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
-                <video class="hoverVideo" id="video_<?php echo e($pop->id); ?>" width="100%"  height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
+                <video class="hoverVideo" poster="<?php echo e(url('storage/app/public/uploads/'.$pop->audio_pic)); ?>" id="video_<?php echo e($pop->id); ?>" width="100%"  height="275px" controls="false" allowfullscreen controlsList="nodownload" disablePictureInPicture>
                   <source src="<?php echo e(url('storage/app/public/video/'.$pop->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
@@ -384,7 +384,7 @@
             <div class="col-md-4 showoffer1 mb-3">
     <a href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
       <div class="card">
-      <video width="100%"  height="275px"  controlsList="nodownload" disablePictureInPicture>
+      <video width="100%"  height="275px" poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"  controlsList="nodownload" disablePictureInPicture>
             <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
 
              Your browser does not support the video tag.
