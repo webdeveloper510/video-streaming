@@ -70,7 +70,7 @@ tr.shown td.details-control {
 
 
 
-<div id="Paris" class="tabcontent" style="display:block">
+<div id="Paris" class="tabcontent mb-5" style="display:block">
 <div class="row">
             <div class="col-md-12">
                    <div class="alert alert-success text-center" style="display: none" id="messge" role="alert">
@@ -244,9 +244,7 @@ please remain patient. Thank You!</p>
   <style type="text/css">
     
     button.btn.btn-warning.text-white.mr-3.mt-2 {
-    height: 36px !important;
     padding-top: 3px !important;
-    background-color: #ffbb11 !important;
 }
   </style>
   <script>
@@ -264,5 +262,5 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
-  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/all_orders.blade.php ENDPATH**/ ?>

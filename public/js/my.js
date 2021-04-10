@@ -131,13 +131,13 @@ $(document).ready(function(){
 		'<table>'+
 		'<tr>'+
 		'<td> <p>Categories :</p>'+
-		'<p class="category">'+d.catgories+'</p>'+
+		'<p class="category">'+d.catgory+'</p>'+
 		'</td>'+
 		'<td> <p class="quality">Quality :</p>'+
 		'<p>'+d.quality+'p</p>'+
 		'</td>'+
 		'</tr>'+
-		'<tr><td>Paid:</td><td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+		'<tr><td colspan="2">Paid: <span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
 		'<tr>'+
 		'</table>'+
 		'<div class="mt-3">'+
@@ -1876,7 +1876,7 @@ function format ( d , type) {
 
 	var disabled = d.remaining_days > 0 ? 'disabled' : ''
 
-	var file = d.type=='video' ? 'Uplaod Video' : 'Upload Audio';
+	var file = d.type=='video' ? 'Upload Video' : 'Upload Audio';
 
 	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
 
@@ -1908,13 +1908,13 @@ function format ( d , type) {
 	'<table>'+
 	'<tr>'+
 	'<td> <p>Categories :</p>'+
-	'<p class="category">'+d.catgories+'</p>'+
+	'<p class="category">'+d.catgory+'</p>'+
 	'</td>'+
 	'<td> <p class="quality">Quality :</p>'+
 	'<p>'+d.quality+'p </p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:</td><td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+	'<tr><td colspan="2">Reward:<span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
 	'<tr><td colspan="2">'+
 	'<div class="col-md-12">'+
 	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
@@ -1973,7 +1973,7 @@ function format ( d , type) {
 	'<p>'+d.quality+'p</p>'+
 	'</td>'+
 	'</tr>'+
-	'<tr><td>Reward:<td class="Reward" style="color: gold !important;">'+d.tokens+'<span style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </span></td></tr>'+
+	'<tr><td colspan="2">Reward:<span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
 	'<tr>'+
 	'</table>'+
 	'<div class="">'+

@@ -8,7 +8,7 @@
        
           <div class="col-md-12">
             <div class="main-heading left_text text-center">
-              <h2>Additional links</h2>
+              <h6 class="text-white">Additional links</h6>
             </div>
             <hr>
             
@@ -99,6 +99,10 @@ button.close.footerclose {
     right: 6px;
     top: 7px;
 }
+ul.footer-menu.pb-3 {
+    display: flex;
+    justify-content: center;
+}
   div#exampleModal10 {
     background: transparent;
 }
@@ -113,6 +117,7 @@ footer {
 }
 ul.footer-menu.pb-3 li a {
     color: white;
+    font-size:10px !important;
 }
 </style>
 

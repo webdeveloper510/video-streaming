@@ -59,6 +59,7 @@ a.aedit {
 .content-price h3 {
     color: #36B1E9;
     font-size: 22px;
+    font-family: 'Roboto';
 }
 
 
@@ -293,7 +294,7 @@ span.itemCount {
 }
 
 .content-price h3 {
-   
+    font-family: 'Roboto';
      font-size: 38px; 
    
 }
@@ -363,7 +364,7 @@ span.itemCount {
 }
 
 .content-price h3 {
-   
+    font-family: 'Roboto';
      font-size: 38px; 
    
 }
