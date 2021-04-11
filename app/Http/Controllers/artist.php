@@ -753,7 +753,7 @@ class artist extends Controller
   public function socialUpload(Request $req){
 
     $this->validate($req,[
-      'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm',
+      'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm,jpg,png',
      // 'description'=>'required|max:2000',
      // 'username'=>'required|max:30',   
   ]
