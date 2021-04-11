@@ -2251,7 +2251,7 @@ if ($("#social_media").length > 0) {
                     return xhr;
                 },
                 success: function (response) {
-                    console.log(response);return false;
+                   // console.log(response);return false;
                     if (response.status == 1) {
                         $('#success').show();
                         $('#success').html(response.messge);

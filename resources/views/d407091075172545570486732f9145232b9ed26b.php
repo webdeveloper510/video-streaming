@@ -49,7 +49,7 @@
                              Your browser does not support the video tag.
                   </video>
                   <div class="text-right Delete">
-                      <button class="btn btn-outline-primary" type="button">Download</button>
+                  <a href="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" download><button class="btn btn-outline-primary" type="button">Download</button></a>
                   </div>
                 </div>
                 <hr>
