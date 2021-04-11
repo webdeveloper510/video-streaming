@@ -2462,7 +2462,7 @@ if ($("#myForm").length > 0) {
                 success: function (response) {
 
                     console.log(response);
-                    return false;
+                    //return false;
 
                     if (response.errors) {
 
@@ -2661,6 +2661,10 @@ $('#cancel').click(function () {
             }
         })
     });
+	$(this)
+	.hide();
+	$('.apply').hide()
+	$('#edit').show()
 })
 
 function seconds_to_min_sec(seconds, id, vidid) {
