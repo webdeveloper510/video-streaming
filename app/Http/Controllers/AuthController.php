@@ -1386,7 +1386,7 @@ public function addMultipleVideo(Request $req){
      
        }
 
-       //print_r($multipleIds);
+     //  print_r($multipleIds);
 
         $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 

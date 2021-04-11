@@ -759,10 +759,11 @@ class artist extends Controller
   ]
     );
 
-    //print_r($req->all());die;
+   // print_r($req->all());die;
 
     if($req->media){
       $data=$req->all();
+      unset($data['gender']);
         $fileName = time().'_'.$req->media->getClientOriginalName();
         $ext =$req->media->getClientOriginalExtension();
         $filePath= ($ext=='mp3') ? $req->media->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media->storeAs('video', $fileName, 'public'): $req->media->storeAs('uploads', $fileName, 'public'));

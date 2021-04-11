@@ -575,16 +575,9 @@ $(document).on('click', '.create_list', function () {
         },
 
         success: function (data) {
-
-            //console.log(data);return false;
-
             if (data.status == 1) {
 
                 $("<h5 class='select_list'>" + data.listname + "</h5>").insertBefore('.before');
-
-                // alert('List Created Successfully!'); location.reload(); $('.message').show();
-                // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
-                // $('.message').html(data.message); $('.list').val('');
 
             } else {
                 $('.message').show();
@@ -762,10 +755,7 @@ function addMultiple(check, id) {
 
             if (id != '') {
                 console.log('id h');
-                //$('.media_div').find('#'+id).trigger("click");
             }
-
-            //console.log(data);
 
             $('#exampleModal').html(data);
 
@@ -2263,7 +2253,7 @@ if ($("#social_media").length > 0) {
                     return xhr;
                 },
                 success: function (response) {
-                    //console.log(response);return false;
+                    console.log(response);return false;
                     if (response.status == 1) {
                         $('#success').show();
                         $('#success').html(response.messge);
