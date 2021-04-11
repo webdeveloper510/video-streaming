@@ -30,9 +30,6 @@
                 <div class="col-md-8">
                     <div class="delete1">
                        <h3> <?php echo e($info->nickname); ?></h3>
-                       <div class="text-right artistname">
-                          <button class="btn btn-outline-succes" type="button">Delete</button>
-                       </div>
 
                        </div>
                     <div class="post">
@@ -52,7 +49,7 @@
                              Your browser does not support the video tag.
                   </video>
                   <div class="text-right Delete">
-                      <button class="btn btn-outline-primary" type="button">Delete</button>
+                  <a href="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" download><button class="btn btn-outline-primary" type="button">Download</button></a>
                   </div>
                 </div>
                 <hr>
@@ -148,9 +145,7 @@
              <div class="delete1">
                
                 <h3> <?php echo e($info->nickname); ?></h3>
-                <div class="text-right artistname">
-                   <button class="btn btn-outline-succes" type="button">Delete</button>
-                </div>
+              
              </div>
              <div class="post">
                   <h3>Description for the Post :</h3>

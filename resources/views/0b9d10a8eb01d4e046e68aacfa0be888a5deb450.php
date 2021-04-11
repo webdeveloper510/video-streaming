@@ -2,7 +2,6 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -42,9 +41,9 @@
     </div>
   </div-->
       <div class="text-center mt-4">
-           <h3>Total Price : <span class="total"><?php echo e($total_sum); ?></span>PAZ</h3>
+           <h3>Value : <span class="total"><?php echo e($total_sum); ?></span>PAZ</h3>
            <input type="hidden" id="art_id" value="<?php echo e($cartVideo ? $cartVideo[0]->contentProviderid : ''); ?>"/>
-      <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+      <button type="button" class="multipleAdd btn btn-primary">Pay NOW</button>
       <div class="alert alert-success" id="success_message" style="display: none" role="alert">
         </div>
        

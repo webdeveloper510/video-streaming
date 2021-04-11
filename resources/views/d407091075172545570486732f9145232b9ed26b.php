@@ -1,8 +1,8 @@
 
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
 <div class="text-center">
-<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 <h1 class="text-white mt-2"> Social Media Download </h1>
 </div>
 </header>
@@ -23,18 +23,18 @@
        
       <div class="row">
 
-        @foreach($social_video as $info)
+        <?php $__currentLoopData = $social_video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
           <div class="col-md-12 mb-3 px-3">
             <div class="row">
                 <div class="col-md-8">
                     <div class="delete1">
-                       <h3> {{$info->nickname}}</h3>
+                       <h3> <?php echo e($info->nickname); ?></h3>
 
                        </div>
                     <div class="post">
                          <h3>Description for the Post :</h3>
-                         <p>{{$info->description}}</p>
+                         <p><?php echo e($info->description); ?></p>
                          <div class="text-right mr-3">
                              <button class="btn btn-outline-primary" type="button">Copy</button>
                          </div>
@@ -45,19 +45,19 @@
               <div class="soc">
                 <div class="mp4">
                   <video width="50%" controls>
-                  <source src="{{url('storage/app/public/video/'.$info->media) }}" type="video/mp4">
+                  <source src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>" type="video/mp4">
                              Your browser does not support the video tag.
                   </video>
                   <div class="text-right Delete">
-                  <a href="{{url('storage/app/public/video/'.$info->media) }}" download><button class="btn btn-outline-primary" type="button">Download</button></a>
+                      <button class="btn btn-outline-primary" type="button">Download</button>
                   </div>
                 </div>
                 <hr>
                 <div class="accounts">
                       <h3> Social Accounts :</h3>
-                      <h5> Instagram {{$info->username}}</h5>
+                      <h5> Instagram <?php echo e($info->username); ?></h5>
                       <br>
-                      <h5> Twitter {{$info->username}}</h5>
+                      <h5> Twitter <?php echo e($info->username); ?></h5>
                       <div class="text-right m-3 ">
                            <button class="btn btn-primary" type="button">Copy</button>
                       </div>
@@ -67,7 +67,7 @@
          </div>
      </div>
      </div>
- @endforeach
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 </div>
 
@@ -80,14 +80,14 @@
   <div class="container-fluid">
   <div class="row">
  
-  @foreach($social_audio as $info)
+  <?php $__currentLoopData = $social_audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   
    <div class="col-md-12">
      <div class="row">
          <div class="col-md-8">
              <div class="delete1">
                
-                <h3> {{$info->nickname}}</h3>
+                <h3> <?php echo e($info->nickname); ?></h3>
                 <div class="text-right artistname">
                    <button class="btn btn-outline-succes" type="button">Delete</button>
                 </div>
@@ -95,7 +95,7 @@
              <div class="post">
                   <h3>Description for the Post :</h3>
                  
-                  <p>{{$info->description}}</p>
+                  <p><?php echo e($info->description); ?></p>
                   <div class="text-right mr-3">
                       <button class="btn btn-outline-primary" type="button">Copy</button>
                   </div>
@@ -105,7 +105,7 @@
               <div class="soc">
                 <div class="mp4">
                   <audio  width="50%" controls>
-                  <source src="{{url('storage/app/public/audio/'.$info->media) }}" type="audio/mp3">
+                  <source src="<?php echo e(url('storage/app/public/audio/'.$info->media)); ?>" type="audio/mp3">
                              Your browser does not support the video tag.
                   </audio >
                   <div class="text-right Delete">
@@ -115,9 +115,9 @@
                 <hr>
                 <div class="accounts">
                       <h3> Social Accounts :</h3>
-                      <h5> Instagram {{$info->username}}</h5>
+                      <h5> Instagram <?php echo e($info->username); ?></h5>
                       <br>
-                      <h5> Twitter {{$info->username}}</h5>
+                      <h5> Twitter <?php echo e($info->username); ?></h5>
                       <div class="text-right m-3">
                            <button class="btn btn-primary" type="button">Copy</button>
                       </div>
@@ -127,7 +127,7 @@
          </div>
      </div>
  </div>
- @endforeach
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 </div>
 
@@ -137,20 +137,20 @@
 <div class="container-fluid">
   <div class="row">
  
-  @foreach($social_image as $info)
+  <?php $__currentLoopData = $social_image; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   
    <div class="col-md-12">
      <div class="row">
          <div class="col-md-8">
              <div class="delete1">
                
-                <h3> {{$info->nickname}}</h3>
+                <h3> <?php echo e($info->nickname); ?></h3>
               
              </div>
              <div class="post">
                   <h3>Description for the Post :</h3>
                  
-                  <p>{{$info->description}}</p>
+                  <p><?php echo e($info->description); ?></p>
                   <div class="text-right mr-3">
                       <button class="btn btn-outline-primary" type="button">Copy</button>
                   </div>
@@ -160,7 +160,7 @@
               <div class="soc">
                 <div class="mp4">
                   
-                  <img src="{{url('storage/app/public/uploads/'.$info->media) }}" class="img-fluid">
+                  <img src="<?php echo e(url('storage/app/public/uploads/'.$info->media)); ?>" class="img-fluid">
                          
                   <div class="text-right Delete">
                       <button class="btn btn-outline-primary" type="button">Delete</button>
@@ -169,9 +169,9 @@
                 <hr>
                 <div class="accounts">
                       <h3> Social Accounts :</h3>
-                      <h5> Instagram {{$info->username}}</h5>
+                      <h5> Instagram <?php echo e($info->username); ?></h5>
                       <br>
-                      <h5> Twitter {{$info->username}}</h5>
+                      <h5> Twitter <?php echo e($info->username); ?></h5>
                       <div class="text-right m-3">
                            <button class="btn btn-primary" type="button">Copy</button>
                       </div>
@@ -181,7 +181,7 @@
          </div>
      </div>
  </div>
- @endforeach
+ <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </div>
 </div>
 
@@ -259,5 +259,6 @@ header {
 }
   </style>
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/support1.blade.php ENDPATH**/ ?>
