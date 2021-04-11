@@ -2659,6 +2659,10 @@ $('#cancel').click(function () {
             }
         })
     });
+	$(this)
+	.hide();
+	$('.apply').hide()
+	$('#edit').show()
 })
 
 function seconds_to_min_sec(seconds, id, vidid) {

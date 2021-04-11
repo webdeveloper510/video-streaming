@@ -90,7 +90,7 @@
     <tr>
       
       <th scope="col">lvl3</th>
-      <th scope="col"><span style="color:gold">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> earned </th>
+      <th scope="col"><span style="color:gold;font-size: 16px;">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
@@ -127,7 +127,7 @@
     <tr>
       <th scope="col">Artists invited</th>
       <th scope="col">lvl3</th>
-      <th scope="col"><span style="color:gold">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span> earned </th>
+      <th scope="col"><span style="color:gold;font-size: 16px;">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
