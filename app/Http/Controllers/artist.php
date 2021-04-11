@@ -773,7 +773,7 @@ class artist extends Controller
         $data['username'] = $data['username'] ? $data['username'] : '';
         $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
 
-        
+          //print_r($data);die;
           if($filePath){
 
           $insert = $this->model->uploadSocialMedia($data);
