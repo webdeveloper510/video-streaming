@@ -43,9 +43,11 @@
                                     type="button"
                                     style="cursor:pointer;"
                                     id="{{$video->id}}"
-                                    class="addToCart">
+                                    class="addToCart"
+                                    style="{{$wishlist > 0 ? 'color:blue' : 'color:red'}}"
+                                    >
 
-                                    {{$wishlist > 0 ? 'Added' : 'Add To Wishlist' }}
+                                    {{$wishlist > 0 ? 'Remove Video From Playlist' : 'Add To Wishlist' }}
                                 </button>
 
                                 <button
@@ -422,7 +424,7 @@ ul.reporting {
                                             $('.addToCart').text(
                                                 text == 'Added'
                                                     ? 'Add To Wishlist'
-                                                    : 'Added'
+                                                    : 'Remove Media From Playlist'
                                             );
                                         },
                                         error: function (result) {
