@@ -1,2870 +1,2837 @@
 var storage_url;
 
-var APP_URL= $('#base_url').attr('data-url');
+var APP_URL = $('#base_url').attr('data-url');
 
-
-$('.rad_But').click(function(){
-	//console.log($(this).val());
-	if($(this).val()=='male'){
-		$('.hide').hide();
-	}
-	else{
-		$('.hide').show();
-	}
+$('.rad_But').click(function () {
+    //console.log($(this).val());
+    if ($(this).val() == 'male') {
+        $('.hide').hide();
+    } else {
+        $('.hide').show();
+    }
 })
-
 
 $(document).on('click', '.user', function () {
 
-	$(this).val()=='users' ? $('.discount').show() : $('.discount').hide();
+    $(this).val() == 'users'
+        ? $('.discount').show()
+        : $('.discount').hide();
 
-    if($(this).hasClass("imChecked")){
+    if ($(this).hasClass("imChecked")) {
 
-      $(this).prop('checked', false);
-       $(this).removeClass("imChecked");
-    }
-
-    else{
-     $(this).prop('checked', true);
-       $(this).addClass("imChecked");
+        $(this).prop('checked', false);
+        $(this).removeClass("imChecked");
+    } else {
+        $(this).prop('checked', true);
+        $(this).addClass("imChecked");
     }
 
 })
 $(document).on('click', '.show_list', function () {
-	$('.create_playlistt').show();
+    $('.create_playlistt').show();
 })
 
-$(document).on('click','.select_list',function(){
+$(document).on('click', '.select_list', function () {
 
-	
+    var listname = $(this).text();
+    $(this)
+        .parent()
+        .find('.select_list')
+        .removeClass('active');
+    $(this).addClass('active');
+    //console.log(listname);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/selectListname",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-		var listname= $(this).text();
-		$(this).parent().find('.select_list').removeClass('active');
-		$(this).addClass('active');
-	//console.log(listname);return false;
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/selectListname",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+        data: {
+            "listname": listname
+        },
 
-				data: {"listname": listname},
+        success: function (data) {
 
-				success: function(data){
+            console.log(data);
 
-					console.log(data);
-
-					
-				}
-		});
-
-})
-
-$(document).on('change','#exampleFormControlSelect1',function(){
-
-		var listid= $(this).val();
-	//console.log(listid);return false;
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/showLists",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
-
-				data: {"id": listid},
-
-				success: function(data){
-
-				window.location.href = APP_URL+'/play';
-
-
-					
-				}
-		});
+        }
+    });
 
 })
 
+$(document).on('change', '#exampleFormControlSelect1', function () {
 
+    var listid = $(this).val();
+    //console.log(listid);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/showLists",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
+        data: {
+            "id": listid
+        },
 
-$(document).ready(function(){
+        success: function (data) {
 
+            window.location.href = APP_URL + '/play';
 
-	storage_url = $('#storagePath').attr('url');
+        }
+    });
 
+})
 
-	var checked_radio = $('.user:checked').val();
+$(document).ready(function () {
 
-   checked_radio == 'contentprovider' ? $('.discount').hide() : $('.discount').show()
+    storage_url = $('#storagePath').attr('url');
 
+    var checked_radio = $('.user:checked').val();
 
+    checked_radio == 'contentprovider'
+        ? $('.discount').hide()
+        : $('.discount').show()
 
-	function format3(d){
+    function format3(d) {
 
-		//console.log(d);return false;
-		var disable = d.remaining_days > 0 ? 'disabled' : ''
+        //console.log(d);return false;
+        var disable = d.remaining_days > 0
+            ? 'disabled'
+            : ''
 
-		var original_media = d.deliever_media;
+        var original_media = d.deliever_media;
 
-		var folder = d.type=='video' ? 'video' :'audio';
+        var folder = d.type == 'video'
+            ? 'video'
+            : 'audio';
 
-		var existMedia = d.deliever_media ? storage_url+'/'+folder+'/'+original_media :'';
+        var existMedia = d.deliever_media
+            ? storage_url + '/' + folder + '/' + original_media
+            : '';
 
-		
+        return '<div class="offer"><div class="row"><div class="col"><div class="descriptions"' +
+                '><h3 class="description">Description :</h3><p>' + d.description + '</p></div><' +
+                '/div><div class="col"><h3 class="look">Additional Request :</h3><p>' + d.userdescription +
+                '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
+                'ry">' + d.catgory + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
+                'p</p></td></tr><tr><td colspan="2">Paid: <span class="Reward" style="color: go' +
+                'ld !important;">' + d.tokens + '<b style="color: gold !important;font-family: ' +
+                'Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr></table><div cl' +
+                'ass="mt-3"><a href=' + existMedia + ' id="hash" download></a><button type="but' +
+                'ton"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&' +
+                'nbsp;<button type="button" class="btn btn-outline-success"' + disable + '>Canc' +
+                'el Order</button></div></div></div></div>';
+    }
 
-	
-
-		return '<div class="offer">'+
-		'<div class="row">'+
-		  '<div class="col">'+
-				'<div class="descriptions">'+
-				'<h3 class="description">Description :</h3>'+
-				'<p>'+ d.description +'</p>'+
-				'</div>'+
-		  '</div>'+
-			'<div class="col">'+
-			'<h3 class="look">Additional Request :</h3>'+
-			'<p>'+d.userdescription+'</p>'+
-			'</div>'+
-		'<div class="col">'+
-		'<table>'+
-		'<tr>'+
-		'<td> <p>Categories :</p>'+
-		'<p class="category">'+d.catgory+'</p>'+
-		'</td>'+
-		'<td> <p class="quality">Quality :</p>'+
-		'<p>'+d.quality+'p</p>'+
-		'</td>'+
-		'</tr>'+
-		'<tr><td colspan="2">Paid: <span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
-		'<tr>'+
-		'</table>'+
-		'<div class="mt-3">'+
-		'<a href='+existMedia+' id="hash" download></a><button type="button"class="btn btn-primary" onclick="download1(this)">Download</button>&nbsp;&nbsp;<button type="button" class="btn btn-outline-success"'+disable+'>Cancel Order</button>'+
-		'</div>'+
-		'</div>'+
-		'</div>'+
-		'</div>';
-	}
-
-
-	
-	//console.log('yes');
+    //console.log('yes');
     var table2 = $('#example2').DataTable({
-		'ajax': APP_URL+'/customer_orders/orders',
-		'columns': [
-			 {
-				 'className':      'details-control',
-				 'orderable':      false,
-				 'data':           null,
-				 'defaultContent': ''
-			 },
-			 { 
-				 'data': 'title',
+        'ajax': APP_URL + '/customer_orders/orders',
+        'columns': [
+            {
+                'className': 'details-control',
+                'orderable': false,
+                'data': null,
+                'defaultContent': ''
+            }, {
+                'data': 'title',
 
-				//  render : function(data, type, row) {
-				// 	return row.is_seen=='no' ? '<div class="noti">'+data+'</div>' : data
-				//}   
-				
-				},
-			 { 'data': 'type' },
-			 { 'data': 'choice' },
-			 { 
-				'data': 'remaining_days',
-				render: function ( data, type, row ) {
-				   return  data < 0 ? 'Expired': data+' Days';
-			}
-				},
-			
-			 { 'data': 'nickname' },
-			 { 'data': 'status' }
-		 ],
-	 } );
-	 
-	
-		 // Add event listener for opening and closing details
-	 $('#example2 tbody').on('click', 'td.details-control', function(){
-		 var tr = $(this).closest('tr');
-		 var row = table2.row( tr );
-	
-		 if(row.child.isShown()){
-			 // This row is already open - close it
-			 row.child.hide();
-			 tr.removeClass('shown');
-		 } else {
-			 // Open this row
-			 row.child(format3(row.data())).show();
-			 tr.addClass('shown');
-		 }
-	 });
-	
-	 // Handle click on "Expand All" button
-	 $('#btn-show-all-children1').on('click', function(){
-		 // Enumerate all rows
-		 table2.rows().every(function(){
-			 // If row has details collapsed
-			 if(!this.child.isShown()){
-				 // Open this row
-				 this.child(format3(this.data())).show();
-				 $(this.node()).addClass('shown');
-			 }
-		 });
-	 });
-	
-	 // Handle click on "Collapse All" button
-	 $('#btn-hide-all-children1').on('click', function(){
-		 // Enumerate all rows
-		 table2.rows().every(function(){
-			 // If row has details expanded
-			 if(this.child.isShown()){
-				 // Collapse row details
-				 this.child.hide();
-				 $(this.node()).removeClass('shown');
-			 }
-		 });
-	 });
+                // render : function(data, type, row) { 	return row.is_seen=='no' ? '<div
+                // class="noti">'+data+'</div>' : data }
 
-  var firstName = $('.firstName').text();
-   var intials = $('.firstName').text().charAt(0);
-   var profileImage = $('.profileImage').text(intials);
+            }, {
+                'data': 'type'
+            }, {
+                'data': 'choice'
+            }, {
+                'data': 'remaining_days',
+                render: function (data, type, row) {
+                    return data < 0
+                        ? 'Expired'
+                        : data + ' Days';
+                }
+            }, {
+                'data': 'nickname'
+            }, {
+                'data': 'status'
+            }
+        ]
+    });
 
-	$(".hoverVideo").hover(function(){
+    // Add event listener for opening and closing details
+    $('#example2 tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table2.row(tr);
 
-		//alert('hhh');
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row
+                .child
+                .hide();
+            tr.removeClass('shown');
+        } else {
+            // Open this row
+            row
+                .child(format3(row.data()))
+                .show();
+            tr.addClass('shown');
+        }
+    });
 
-		playVideo(this);
-				
-		}, function(){
-			pause(this);
-	});
+    // Handle click on "Expand All" button
+    $('#btn-show-all-children1').on('click', function () {
+        // Enumerate all rows
+        table2
+            .rows()
+            .every(function () {
+                // If row has details collapsed
+                if (!this.child.isShown()) {
+                    // Open this row
+                    this
+                        .child(format3(this.data()))
+                        .show();
+                    $(this.node()).addClass('shown');
+                }
+            });
+    });
 
-	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+    // Handle click on "Collapse All" button
+    $('#btn-hide-all-children1').on('click', function () {
+        // Enumerate all rows
+        table2
+            .rows()
+            .every(function () {
+                // If row has details expanded
+                if (this.child.isShown()) {
+                    // Collapse row details
+                    this
+                        .child
+                        .hide();
+                    $(this.node()).removeClass('shown');
+                }
+            });
+    });
+
+    var firstName = $('.firstName').text();
+    var intials = $('.firstName')
+        .text()
+        .charAt(0);
+    var profileImage = $('.profileImage').text(intials);
+
+    $(".hoverVideo").hover(function () {
+        playVideo(this);
+
+
+    }, function () {
+        pause(this);
+    });
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
         localStorage.setItem('activeTab', $(e.target).attr('href'));
     });
     var activeTab = localStorage.getItem('activeTab');
-    if(activeTab){
+    if (activeTab) {
         $('#myTab a[href="' + activeTab + '"]').tab('show');
     }
-  
+
 });
-function pause(a){
-	var video = a;
-	video.currentTime=0;
-	video.pause();
+function pause(a) {
+    var video = a;
+    video.currentTime = 0;
+    video.pause();
 }
 
-function download1(a){
-	var anchor = $(a).prev().attr('href');
-	if(anchor)
-	{
-		$('#hash')[0].click();
-	}
-	else{
-		$("#download").addClass('show');
-	}
+function download1(a) {
+    var anchor = $(a)
+        .prev()
+        .attr('href');
+    if (anchor) {
+        $('#hash')[0].click();
+    } else {
+        $("#download").addClass('show');
+    }
 
 }
-function playVideo(a){
+function playVideo(a) {
 
-	var starttime = 0;  // start at 7 seconds
-    var endtime = 10;    // stop at 17 seconds
+    var starttime = 0; // start at 7 seconds
+    var endtime = 10; // stop at 17 seconds
 
     var video = a;
 
-		//console.log(a);return false;
-	//console.log(video[0].duration);return false;
+    //console.log(a);return false; console.log(video[0].duration);return false;
 
-	a.autoplay = true;
-	a.muted = true; 
+    a.autoplay = true;
+    a.muted = true;
 
-	//console.log(video);return false;
+    //console.log(video);return false;
 
-    a.addEventListener("timeupdate", function() {
-		console.log(this.currentTime);
-       if (this.currentTime >= endtime) {
-		 
-		   a.currentTime = starttime;
-			playVideo();
+    a.addEventListener("timeupdate", function () {
+        console.log(this.currentTime);
+        if (this.currentTime >= endtime) {
+
+            a.currentTime = starttime;
+            playVideo();
         }
     }, false);
 
-			//suppose that video src has been already set properly
-			a.load();
-			a.play();    //must call this otherwise can't seek on some browsers, e.g. Firefox 4
-			try {
-				a.currentTime = starttime;
-			} catch (ex) {
-				//handle exceptions here
-			}
+    //suppose that video src has been already set properly
+    a.load();
+    a.play(); //must call this otherwise can't seek on some browsers, e.g. Firefox 4
+    try {
+        a.currentTime = starttime;
+    } catch (ex) {
+        //handle exceptions here
+    }
 }
-$(document).ready(function() {
-        $('.rad_But').each(function() {
-            if ($(this).is(':checked') == true) {
-                $(this).val()=='male' ? $('.hide').hide() : $('.hide').show();
-            }
-     });
-
-	var id1= $(".media1:checked").attr('class').split(' ');
-
-	var notId= $(".media1:not(:checked)").attr('class').split(' ');
-	  
-		$('#'+id1[1]).show();
-
-		$('#'+notId[1]).hide();
-
-  	
-       
+$(document).ready(function () {
+    $('.rad_But').each(function () {
+        if ($(this).is(':checked') == true) {
+            $(this).val() == 'male'
+                ? $('.hide').hide()
+                : $('.hide').show();
+        }
     });
 
- function mufunc(){
+    var id1 = $(".media1:checked")
+        .attr('class')
+        .split(' ');
 
- 	 //console.log($('.subnav').get(0).style.opacity);
-	 if($('.subnav').get(0).style.display=='' || $('.subnav').get(0).style.opacity==0){
+    var notId = $(".media1:not(:checked)")
+        .attr('class')
+        .split(' ');
 
- 	 	$('.subnav').css({'top':'100%', 'display':'block', 'opacity':'1'})
- 	 }
- 	 else {
-	 	$('.subnav').css({'top':'100%', 'display':'none', 'opacity':'0'})
- 	 }
-	 
-    
-        //$('.subnav').attr('style') ?  : $('.subnav').css({'top':'100%', 'opacity':'1'})
+    $('#' + id1[1]).show();
 
- }
+    $('#' + notId[1]).hide();
 
- $("#selectCategory").change(function(){
+});
 
-					
-		var getUserID = $(this).val();
+function mufunc() {
 
-		//console.log(getUserID);return false;
+    //console.log($('.subnav').get(0).style.opacity);
+    if ($('.subnav').get(0).style.display == '' || $('.subnav').get(0).style.opacity == 0) {
 
-		if(getUserID != '')
-		{
+        $('.subnav').css({'top': '100%', 'display': 'block', 'opacity': '1'})
+    } else {
+        $('.subnav').css({'top': '100%', 'display': 'none', 'opacity': '0'})
+    }
 
-			$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/postId",
-				dataType: "json",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    // $('.subnav').attr('style') ?  : $('.subnav').css({'top':'100%',
+    // 'opacity':'1'})
 
-				data: {"id": getUserID},
+}
 
-				success: function(data){
-					//console.log(data);return false;
-					if(data.status!=0){
+$("#selectCategory").change(function () {
 
-						console.log('yes');
+    var getUserID = $(this).val();
 
-					 $('#subCategory').empty();
+    //console.log(getUserID);return false;
 
-					 $('#subCategory').append('<option>Choose Subcategory</option>');
-		                   
-					 $.each(data, function(key, value) {
-		               $('#subCategory')
-		              .append($("<option></option>")
-		                .attr("value",value.id)
-		                .text(value.subcategory)); 
-                       });
-					}
+    if (getUserID != '') {
 
-					else{
-						//console.log('cc');
-						 $('#subCategory').empty();
+        $.ajax({
+            type: 'POST',
+            url: APP_URL + "/postId",
+            dataType: "json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
 
-						 $('#subCategory').append('<option>Choose Subcategory</option>');
-					}
-					
-				}
-			});
-		}   
-		else
-		{
-			console.log('no');
-		}
-		});
+            data: {
+                "id": getUserID
+            },
+
+            success: function (data) {
+                //console.log(data);return false;
+                if (data.status != 0) {
+
+                    console.log('yes');
+
+                    $('#subCategory').empty();
+
+                    $('#subCategory').append('<option>Choose Subcategory</option>');
+
+                    $.each(data, function (key, value) {
+                        $('#subCategory').append(
+                            $("<option></option>").attr("value", value.id).text(value.subcategory)
+                        );
+                    });
+                } else {
+                    //console.log('cc');
+                    $('#subCategory').empty();
+
+                    $('#subCategory').append('<option>Choose Subcategory</option>');
+                }
+
+            }
+        });
+    } else {
+        console.log('no');
+    }
+});
 
 $(document).on('change', '.file_input', function () {
 
-	var id = $(this).attr('id');
+    var id = $(this).attr('id');
 
-	id ? readURL(this,true) : readURL(this,false);
+    id
+        ? readURL(this, true)
+        : readURL(this, false);
 })
 
 $(document).on('change', '.chooseImage', function () {
 
-
-	//alert('he;p');return false;
-	readURL1(this);
+    //alert('he;p');return false;
+    readURL1(this);
 })
 
-function readURL1(input){
+function readURL1(input) {
 
-	var filepath = input.value;
+    var filepath = input.value;
 
-	var extension1 = filepath.split('.')[1];
+    var extension1 = filepath.split('.')[1];
 
-	var ext = $.trim(extension1);
+    var ext = $.trim(extension1);
 
+    if (ext == 'jpg' || ext == 'jpeg' || ext == 'png') {
 
-	if(ext=='jpg' || ext=='jpeg' || ext=='png'){
+        input.nextElementSibling.textContent = input
+            .files[0]
+            .name;
 
-		input.nextElementSibling.textContent = input.files[0].name;
+    } else {
 
-
-
-	}
-
-	else{
-		
-		input.nextElementSibling.textContent = 'Please Select Image';
-	}
+        input.nextElementSibling.textContent = 'Please Select Image';
+    }
 
 }
 
 $(document).on('keyup change', '#change_duration', function () {
-	var pay_price = $(this).attr('data-id') * $(this).val(); 
-	if($(".add_price:checked").val()=='Yes'){
-		var pay_price = $(this).attr('data-id') * $(this).val() + parseInt($('#additional').val())
-	}
-	else{
-		var pay_price = $(this).attr('data-id') * $(this).val();
-	}
-	$('#offer_pay').val(pay_price);
-	$('#change_text').html("You will Pay:" + pay_price + " "+"PAZ");
+    var pay_price = $(this).attr('data-id') * $(this).val();
+    if ($(".add_price:checked").val() == 'Yes') {
+        var pay_price = $(this).attr('data-id') * $(this).val() + parseInt(
+            $('#additional').val()
+        )
+    } else {
+        var pay_price = $(this).attr('data-id') * $(this).val();
+    }
+    $('#offer_pay').val(pay_price);
+    $('#change_text').html("You will Pay:" + pay_price + " PAZ");
 
-	//console.log(pay_price);     
+    //console.log(pay_price);
 });
 
-$(document).on('click','.add_price',function(){
+$(document).on('click', '.add_price', function () {
 
-	//$data-id = $('#change_duration').attr('data-id');
+    //$data-id = $('#change_duration').attr('data-id');
 
-	var total = $('#change_duration').attr('data-id') * $('#change_duration').val();
-	var add_price = $('#additional').val()
+    var total = $('#change_duration').attr('data-id') * $('#change_duration').val();
+    var add_price = $('#additional').val()
 
-	$('.add_price').attr('disabled', false);
-	//$(this).val())
-	if($(this).val()=='Yes'){
-		$(this).attr('disabled', true);
-			$('.extra_price').show();
-			$('#offer_pay').val(parseInt(total)+parseInt(add_price));
+    $('.add_price').attr('disabled', false);
+    //$(this).val())
+    if ($(this).val() == 'Yes') {
+        $(this).attr('disabled', true);
+        $('.extra_price').show();
+        $('#offer_pay').val(parseInt(total) + parseInt(add_price));
 
-			//$('.price_add').html('');
-			$('#change_text').html('');
-			var total = parseInt(total)+parseInt(add_price)
-			//$('.price_add').html('');
-			$('#change_text').html('');
-			$('#change_text').html("You will Pay:" + total + " "+"PAZ");
+        //$('.price_add').html('');
+        $('#change_text').html('');
+        var total = parseInt(total) + parseInt(add_price)
+        //$('.price_add').html('');
+        $('#change_text').html('');
+        $('#change_text').html("You will Pay:" + total + " PAZ");
 
+    } else {
 
-	}
-	else{
+        $(this).attr('disabled', true);
+        $('.extra_price').hide();
+        $('#offer_pay').val(total);
+        //var total = parseInt(total)-parseInt(add_price)
+        $('.price_add').html('');
+        $('#change_text').html('');
 
+        $('#change_text').html("You will Pay:" + total + " PAZ");
 
-		
-		$(this).attr('disabled', true);
-		$('.extra_price').hide();
-		$('#offer_pay').val(total);
-		//var total = parseInt(total)-parseInt(add_price)
-		$('.price_add').html('');
-		$('#change_text').html('');
+    }
 
-		$('#change_text').html("You will Pay:" + total + " "+"PAZ");
-
-
-
-	}
-
-
-$(this).off('click');
+    $(this).off('click');
 
 })
 
-
-$(document).on('click','.additional_price',function(){
-	alert('hello');
+$(document).on('click', '.additional_price', function () {
+    alert('hello');
 })
-function readURL(input,bool) {
+function readURL(input, bool) {
 
-	var radio_checked = $(".select_media_pic:checked").val();
+    var radio_checked = $(".select_media_pic:checked").val();
 
-	var filepath = input.value;
+    var filepath = input.value;
 
-	var extension = filepath.split('.')[1];
+    var extension = filepath.split('.')[1];
 
+    if (bool) {
 
-	if(bool){
+        input.nextElementSibling.textContent = input
+            .files[0]
+            .name;
 
-		input.nextElementSibling.textContent = input.files[0].name;
+        return false;
 
-		return false;
+    }
 
-	}
+    if (extension != 'mp3' && radio_checked != 'video') {
 
-	  if(extension!='mp3' && radio_checked!='video'){
+        $('.disable_this').prop('disabled', true);
 
-		$('.disable_this').prop('disabled', true);
+        input.nextElementSibling.textContent = 'Please Select Audio File';
 
-		input.nextElementSibling.textContent = 'Please Select Audio File';
+        return false;
 
-		return false;
+    } else if (extension != 'mp4' && radio_checked != 'audio') {
 
-	}
+        $('.disable_this').prop('disabled', true);
 
-	else if(extension!='mp4' && radio_checked!='audio'){
+        input.nextElementSibling.textContent = 'Please Select Video File';
 
-		$('.disable_this').prop('disabled', true);
+        //document.getElementById('filename').textContent='Please Select Video File';
 
+        return false;
 
-		input.nextElementSibling.textContent = 'Please Select Video File';
-
-		//document.getElementById('filename').textContent='Please Select Video File';
-
-		   return false;
-
-	}
-
-	else{
-		$('.disable_this').prop('disabled', false);
-		input.nextElementSibling.textContent = input.files[0].name;
-		//document.getElementById('filename').textContent=input.files[0].name;
-	}
+    } else {
+        $('.disable_this').prop('disabled', false);
+        input.nextElementSibling.textContent = input
+            .files[0]
+            .name;
+        //document.getElementById('filename').textContent=input.files[0].name;
+    }
 
 }
 
-
-
 $(document).on('click', '#checkPrice', function () {
-	//alert('hello');return false;
-	var token= $('.token').val();
-	//console.log(token);
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/checkprice",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    //alert('hello');return false;
+    var token = $('.token').val();
+    //console.log(token);
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/checkprice",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				data: {"token": token},
+        data: {
+            "token": token
+        },
 
-				success: function(data){
-						//console.log(data);
+        success: function (data) {
+            //console.log(data);
 
-						if(data.status==1){
+            if (data.status == 1) {
 
-							$('#stripeDiv').show();
+                $('#stripeDiv').show();
 
-						var beforePrice= parseInt(data.token)/20;
-						var afterPrice=beforePrice * (data.fee/100);
-						var bonus = parseFloat(1000*(40/100))- parseFloat(1000*(data.fee/100));
-						var credit = 2.9;
-						var total= parseFloat(beforePrice)+ parseFloat(afterPrice);
-						$('.calculate').html('');
-						$('.bonusPAZ').html('Bonus PAZ :' +bonus+ 'PAZ');
-						$('.calculate').append("<table  class='table text-white'><tr><th>Price:</th><td>" +beforePrice+"</td></tr><tr class='text-white'><th>Fee:</th><td>"+data.fee+"%"+"</td></tr><tr><th>Total:</th><td>"+total.toFixed(2)+"</td></tr></table>")
-						$('.amount').text('$'+total.toFixed(2));
-						$('.price').val(total.toFixed(2));
-						$('#fees').val(afterPrice);
-						$('#tokens').val(data.token);
-						}
+                var beforePrice = parseInt(data.token) / 20;
+                var afterPrice = beforePrice * (data.fee / 100);
+                var bonus = parseFloat(1000 * (40 / 100)) - parseFloat(1000 * (data.fee / 100));
+                var credit = 2.9;
+                var total = parseFloat(beforePrice) + parseFloat(afterPrice);
+                $('.calculate').html('');
+                $('.bonusPAZ').html('Bonus PAZ :' + bonus + 'PAZ');
+                $('.calculate').append(
+                    "<table  class='table text-white'><tr><th>Price:</th><td>" + beforePrice + "</t" +
+                    "d></tr><tr class='text-white'><th>Fee:</th><td>" + data.fee + "%</td></tr><tr>" +
+                    "<th>Total:</th><td>" + total.toFixed(2) + "</td></tr></table>"
+                )
+                $('.amount').text('$' + total.toFixed(2));
+                $('.price').val(total.toFixed(2));
+                $('#fees').val(afterPrice);
+                $('#tokens').val(data.token);
+            } else {
+                //console.log('te');
+            }
 
-						else{
-							//console.log('te');
-						}
-					
-				}
-		});
+        }
+    });
 
 });
 
-
-
 $(document).on('click', '.create_list', function () {
-	var listname= $('.list').val();
+    var listname = $('.list').val();
 
-	//console.log(listname);return false;
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/createList",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    //console.log(listname);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/createList",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				data: {"listname": listname},
+        data: {
+            "listname": listname
+        },
 
-				success: function(data){
+        success: function (data) {
 
-					//console.log(data);return false;
-					
-					if(data.status==1){
+            //console.log(data);return false;
 
-						$("<h5 class='select_list'>"+data.listname+"</h5>").insertBefore('.before');
+            if (data.status == 1) {
 
-						//alert('List Created Successfully!');
+                $("<h5 class='select_list'>" + data.listname + "</h5>").insertBefore('.before');
 
-						//location.reload();
-						// $('.message').show();
-						// // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
-						//  $('.message').html(data.message);
-						 //$('.list').val('');
+                // alert('List Created Successfully!'); location.reload(); $('.message').show();
+                // $('.Playlist1').append("<h5 class='select_list'>"+data.listname+"</h5>");
+                // $('.message').html(data.message); $('.list').val('');
 
-					}
+            } else {
+                $('.message').show();
 
-					else{
-							$('.message').show();
+                $('.message').html(data.message);
+            }
 
-						$('.message').html(data.message);
-					}
-
-						
-					
-				}
-		});
+        }
+    });
 
 });
 
 $(document).on('click', '.send_time', function () {
 
-	$(this).addClass('btn btn-success').removeClass('btn-info');
+    $(this)
+        .addClass('btn btn-success')
+        .removeClass('btn-info');
 
-			$('#timeframe').val($(this).val());
+    $('#timeframe').val($(this).val());
 })
 
 $(document).on('click', '#timeFrame', function () {
-	var timeframe= $('#timeframe').val();
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/insertTime",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    var timeframe = $('#timeframe').val();
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/insertTime",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				data: {"timeframe": timeframe},
+        data: {
+            "timeframe": timeframe
+        },
 
-				success: function(data){
+        success: function (data) {
 
-					//console.log(data);return false;
+            //console.log(data);return false;
 
-					if(data==1){
+            if (data == 1) {
 
-						location.reload();
-					}
+                location.reload();
+            } else {
+                alert('Some Error Occure');
+            }
 
-					else{
-						alert('Some Error Occure');
-					}
-
-						
-					
-				}
-		});
+        }
+    });
 
 });
 
 $(document).on('click', '.addNow', function () {
-	var token= $('.token').val();
-	var videoid= $('#vidid').val();
-	var artist= $('.art_id').val();
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addToLibrary",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    var token = $('.token').val();
+    var videoid = $('#vidid').val();
+    var artist = $('.art_id').val();
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/addToLibrary",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				data: {"videoid": videoid, 'price':token, 'art_id':artist},
+        data: {
+            "videoid": videoid,
+            'price': token,
+            'art_id': artist
+        },
 
-				success: function(data){	
-					//console.log(data);
-					//return false;			
-					if(data.status==1){
-							if(data.messge=='Insufficient Paz Tokens!'){
-									$('.insuffiecient').show();
-							}
+        success: function (data) {
+            //console.log(data); return false;
+            if (data.status == 1) {
+                if (data.messge == 'Insufficient Paz Tokens!') {
+                    $('.insuffiecient').show();
+                } else {
 
-							else{
+                    console.log('yes');
+                    $('.message').show();
 
-								console.log('yes');
-								$('.message').show();
-		
-								$('.message').html(data.messge);
+                    $('.message').html(data.messge);
 
-								setTimeout(function(){
-									location.reload()
-								},3000);
+                    setTimeout(function () {
+                        location.reload()
+                    }, 3000);
 
-							}
-					
+                }
 
-					}
+            }
 
-
-						
-					
-				}
-		});
+        }
+    });
 
 });
 
 $(document).on('click', '.multipleAdd', function () {
 
-	var token= $('.total').text();
-	var artistId= $('#art_id').val();
-	
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addmMltiple",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    var token = $('.total').text();
+    var artistId = $('#art_id').val();
 
-				data: {'price':token,'art_id':artistId},
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/addmMltiple",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				success: function(data){
+        data: {
+            'price': token,
+            'art_id': artistId
+        },
 
-				console.log(data);
+        success: function (data) {
 
-					if(data.status==1){						
-							$('#success_message').show();
+            console.log(data);
 
-							$('#success_message').html(data.messge);
-							setTimeout(function(){ 
-								location.reload();
-							}, 2000);
+            if (data.status == 1) {
+                $('#success_message').show();
 
-					}
+                $('#success_message').html(data.messge);
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
 
-					
-				}
-		});
+            }
+
+        }
+    });
 
 });
 
 $(document).on('click', '.library', function () {
 
-		addMultiple('true',id='');
-
-	
+    addMultiple('true', id = '');
 
 });
 
 $(document).on('click', '.removeSession', function () {
 
-	
+    //alert('helo');return false;
 
-	//alert('helo');return false;
+    var id = $(this).attr('id');
 
-	var id = $(this).attr('id');
+    addMultiple('false', id);
 
-
-
-		addMultiple('false',id);
-
-		$(this).parent().remove();
+    $(this)
+        .parent()
+        .remove();
 
 });
 
+function addMultiple(check, id) {
 
+    if (check == 'false') {
 
-function addMultiple(check,id){
+        var remove = 'yes';
+    } else {
+        var remove = 'No';
+    }
 
-	if(check=='false'){
+    //console.log('yes');return false;
 
-		var remove = 'yes';
-	}
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/addMultipleVideo",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-	else{
-		var remove = 'No';
-	}
+        data: {
+            'isRemove': remove,
+            'id': id
+        },
 
-	//console.log('yes');return false;
+        success: function (data) {
 
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addMultipleVideo",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+            console.log(data);
 
-				data: {'isRemove':remove,'id':id},
+            if (id != '') {
+                console.log('id h');
+                //$('.media_div').find('#'+id).trigger("click");
+            }
 
-				success: function(data){
+            //console.log(data);
 
-					console.log(data);
+            $('#exampleModal').html(data);
 
-					if(id!=''){
-						console.log('id h');
-						//$('.media_div').find('#'+id).trigger("click");
-					}
+            if ($('.total').text() == 0) {
 
-					//console.log(data);
+                console.log('yes');
 
-					$('#exampleModal').html(data);
-					
-						if($('.total').text()==0){
+                $('.close').trigger('click');
+            }
 
-							console.log('yes');
-
-							$('.close').trigger('click');
-						}
-
-					
-
-
-
-						
-					
-				}
-		});
+        }
+    });
 
 }
-
 
 $(document).on('click', '.section_advance', function () {
 
-	$(this).parent().parent().find('.bar').hasClass('rightbar') ? $(this).parent().parent().find('.bar').removeClass('rightbar') : $(this).parent().parent().find('.bar').addClass('rightbar')
-	
+    $(this)
+        .parent()
+        .parent()
+        .find('.bar')
+        .hasClass('rightbar')
+            ? $(this)
+                .parent()
+                .parent()
+                .find('.bar')
+                .removeClass('rightbar')
+            : $(this)
+                .parent()
+                .parent()
+                .find('.bar')
+                .addClass('rightbar')
+
 })
 
 $(document).on('click', '.link_click', function () {
-	 if($(this).hasClass('active')){
+    if ($(this).hasClass('active')) {} else {
 
-}
-else{
-
-	$(this).parent().find('li').removeClass('active');
-	$(this).addClass('active');
-}
+        $(this)
+            .parent()
+            .find('li')
+            .removeClass('active');
+        $(this).addClass('active');
+    }
 })
 
+$(document).on('click', '.media', function () {
 
-  $(document).on('click', '.media', function () {
+    var clas = $(this)
+        .attr('class')
+        .split(' ');
 
-  	var clas = $(this).attr('class').split(' ');
+    var notId = $(".media:not(:checked)")
+        .attr('class')
+        .split(' ');
 
-  	var notId= $(".media:not(:checked)").attr('class').split(' ');
-  	 
-    $('#'+clas[1]).show();
-  	$('#'+notId[1]).hide();
+    $('#' + clas[1]).show();
+    $('#' + notId[1]).hide();
 
+});
 
-  });
+$(document).on('click', '.media1', function () {
 
-    $(document).on('click', '.media1', function () {
+    var clas1 = $(this)
+        .attr('class')
+        .split(' ');
 
-  			
-			 var clas1 = $(this).attr('class').split(' ');
-			 
-			 clas1[1]=='audio1' ? $('.quality').hide():$('.quality').show();
+    clas1[1] == 'audio1'
+        ? $('.quality').hide()
+        : $('.quality').show();
 
-			var notId1= $(".media1:not(:checked)").attr('class').split(' ');
+    var notId1 = $(".media1:not(:checked)")
+        .attr('class')
+        .split(' ');
 
-			$('#'+clas1[1]).show();
+    $('#' + clas1[1]).show();
 
-			$('#'+notId1[1]).hide();
-  })
+    $('#' + notId1[1]).hide();
+})
 
- $('.action').click(function(){
+$('.action').click(function () {
 
-  		var value = $(this).val();
+    var value = $(this).val();
 
-  		var key = $(this).attr('data-key');
+    var key = $(this).attr('data-key');
 
-  		var userid = $(this).attr('user-id');
+    var userid = $(this).attr('user-id');
 
-  
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/updateStatus",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-  		$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/updateStatus",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+        data: {
+            "status": value,
+            "key": key,
+            "userid": userid
+        },
 
-				data: {"status": value, "key": key, "userid":userid},
+        success: function (data) {
 
-				success: function(data){
+            //console.log(data);return false;
 
-					//console.log(data);return false;
-						
-						if(data.status==1){
+            if (data.status == 1) {
 
-								$('#messge').show().html(data.messge);
+                $('#messge')
+                    .show()
+                    .html(data.messge);
 
-								setTimeout(function(){ 
+                setTimeout(function () {
 
-									location.reload();
+                    location.reload();
 
-								}, 2000);
+                }, 2000);
 
-						}
-					
-				}
-		});
+            }
 
-  })
+        }
+    });
 
-function getId(id){
+})
 
-	$('#reqid').val(id);
+function getId(id) {
 
-}
-
-
-function getofferid(id,desc,userid){
-
-
-	$(".description").val(desc);
-
-	$('#offerid').val(id);
-	$('#userid').val(userid);
-
-}
-
-function editdesc(id,desc){
-
-$(".description").val(desc);
-
-$('#offerid').val(id);
+    $('#reqid').val(id);
 
 }
 
-function showDiv(){
-	$('.notif').toggle();
+function getofferid(id, desc, userid) {
+
+    $(".description").val(desc);
+
+    $('#offerid').val(id);
+    $('#userid').val(userid);
+
 }
 
-/*------------Select Multiple Video By  Choose--------------------------------------*/
+function editdesc(id, desc) {
+
+    $(".description").val(desc);
+
+    $('#offerid').val(id);
+
+}
+
+function showDiv() {
+    $('.notif').toggle();
+}
+
+/* ------------Select Multiple Video By 
+ * Choose--------------------------------------
+ */
 
 $(document).on('click', '.bardot', function () {
-	// $('.choose1').show();
-	 $('.checkall').show();
+    // $('.choose1').show();
+    $('.checkall').show();
 
-	});
+});
 
-$(document).on('click','.slct_video',function(){
-	//console.log("asas");
-	 var price = $(this).attr('data-id');
+$(document).on('click', '.slct_video', function () {
+    //console.log("asas");
+    var price = $(this).attr('data-id');
 
-	 	var id = $(this).attr('id');
-		 $("#"+id).toggleClass("selected");
-	   var count = $('.count').text();
+    var id = $(this).attr('id');
+    $("#" + id).toggleClass("selected");
+    var count = $('.count').text();
 
-	   var tokens = $('.paz').text();
+    var tokens = $('.paz').text();
 
-	   	 if($(this).prop("checked") == true){
+    if ($(this).prop("checked") == true) {
 
-                var Ischeck = true;
+        var Ischeck = true;
 
-		      var newCount = parseInt(count)+1;
+        var newCount = parseInt(count) + 1;
 
-		     var newPaz = parseInt(tokens)+parseInt(price);
+        var newPaz = parseInt(tokens) + parseInt(price);
 
-		        $('.paz').text(newPaz);
+        $('.paz').text(newPaz);
 
-		        $('.count').text(newCount);
+        $('.count').text(newCount);
 
-		          $('.choose1').show();
-            }
+        $('.choose1').show();
+    } else {
+        var Ischeck = false;
 
-            else{
-            var Ischeck = false;
+        var newCount = parseInt(count) - 1;
 
-		 	var newCount = parseInt(count)-1;
+        $('.count').text(newCount);
 
-		 	$('.count').text(newCount);
+        var newPaz = parseInt(tokens) - parseInt(price);
+        $('.paz').text(newPaz);
 
-		 	 var newPaz = parseInt(tokens)-parseInt(price);
-			 $('.paz').text(newPaz);
-			 
-            }
+    }
 
-            newCount==0 ? $('.choose1').hide() : $('.choose1').show();
-		
+    newCount == 0
+        ? $('.choose1').hide()
+        : $('.choose1').show();
 
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/selectMultiple",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
+        data: {
+            "price": price,
+            "id": id,
+            "isCheck": Ischeck
+        },
 
+        success: function (data) {
 
-  		$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/selectMultiple",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+            console.log(data);
 
-				data: {"price": price, "id": id, "isCheck":Ischeck},
+            // $('.choose1 .selected').html(''); $('.choose1
+            // .selected').append("<li>"+data.result[0].title+"<span
+            // class='price'>"+data.result[0].price+"PAZ</span><button
+            // id="+data.result[0].id+" class='removeSession btn btn-info'>X</button>
+            // </li>")
 
-				success: function(data){
-
-					 console.log(data);
-
-					 //$('.choose1 .selected').html('');
-					 
-					// $('.choose1 .selected').append("<li>"+data.result[0].title+"<span class='price'>"+data.result[0].price+"PAZ</span><button id="+data.result[0].id+" class='removeSession btn btn-info'>X</button> </li>")
-					
-					
-				}
-		});
+        }
+    });
 
 })
 
+$(document).on('click', '.off', function () {
 
-$(document).on('click','.off',function(){
+    //alert('hello');return false;
 
-	//alert('hello');return false;
-
-		$('.media_div').find('.slct_video:checked').trigger("click");
-		 $('.media_div').find('.checkall').css("display",'none');
+    $('.media_div')
+        .find('.slct_video:checked')
+        .trigger("click");
+    $('.media_div')
+        .find('.checkall')
+        .css("display", 'none');
 })
 
 $(document).on('click', '.addTowishlist', function () {
 
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addToWish",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/addToWish",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				data: {},
+        data: {},
 
-				success: function(data){
+        success: function (data) {
 
-					//console.log(data);return false;
+            //console.log(data);return false;
 
-					if(data.status==1){
-						$('html,body').animate({
-							scrollTop: $("#message").offset().top
-						}, 'slow');
-						$('.message#message').show();
+            if (data.status == 1) {
+                $('html,body').animate({
+                    scrollTop: $("#message")
+                        .offset()
+                        .top
+                }, 'slow');
+                $('.message#message').show();
 
-						$('.message').html(data.message);	
-					}
+                $('.message').html(data.message);
+            }
 
-
-
-
-
-						
-					
-				}
-		});
+        }
+    });
 
 });
 
 $(document).on('click', '.aedit', function (event) {
-	$(this).prev('.saveBtn').show();
-	//$('.aedit').on('click',function(){
-		//console.log('ssss');
-			$(this).prev().prev('.select_list').replaceWith(function (i, text) {
-					return $("<input>", {
-						type: "text",
-						value: text,
-						name:'edit',
-						class:'input_val'
-						//id: this.id
-			    })
-		
-		
-	
-			});
-	
-	
-	})
+    $(this)
+        .prev('.saveBtn')
+        .show();
+    //$('.aedit').on('click',function(){ console.log('ssss');
+    $(this)
+        .prev()
+        .prev('.select_list')
+        .replaceWith(function (i, text) {
+            return $("<input>", {
+                type: "text",
+                value: text,
+                name: 'edit',
+                class: 'input_val'
+                //id: this.id
+            })
 
-	function savePlaylist(a){
-		  var value = $(a).prev('.input_val').val();
-		  var id = $(a).attr('data-id');
+        });
 
-		  $.ajax({
-			type: 'POST',
-			url:APP_URL+"/editPlaylist",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-	
-			data: {'listname':value, 'id':id},
-	
-			success: function(data){
-	
-				console.log(data);
-	
-				if(data.status==1){	
-						$(a).prev('.input_val').replaceWith(function (i, text) {
-							return $("<h5>", {
-								type: "text",
-								text: data.listname,
-								class:'select_list'
-								//id: this.id
-						})				
-						
-					});
-					$(a).hide();
-					
-			}	
-			
-			else{
-				console.log('ee')
-			}
-				
-		}
-	});
-		
+})
 
-	}
+function savePlaylist(a) {
+    var value = $(a)
+        .prev('.input_val')
+        .val();
+    var id = $(a).attr('data-id');
 
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/editPlaylist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+            'listname': value,
+            'id': id
+        },
+
+        success: function (data) {
+
+            console.log(data);
+
+            if (data.status == 1) {
+                $(a)
+                    .prev('.input_val')
+                    .replaceWith(function (i, text) {
+                        return $("<h5>", {
+                            type: "text",
+                            text: data.listname,
+                            class: 'select_list'
+                            //id: this.id
+                        })
+
+                    });
+                $(a).hide();
+
+            } else {
+                console.log('ee')
+            }
+
+        }
+    });
+
+}
 
 /**-----------------------------------------------Add Tip To Artist------------------------------------------- */
 $(document).on('click', '#addTip', function () {
 
-	var paz = $("#paz_amount").val();
-	var total_paz = $("#total_paz").text();
-	var artistId = $(this).attr('data-id');
+    var paz = $("#paz_amount").val();
+    var total_paz = $("#total_paz").text();
+    var artistId = $(this).attr('data-id');
 
-	//console.log(artistId);return false;
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/sendToTip",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
+    //console.log(artistId);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/sendToTip",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-		data: {'price':paz, 'artistid':artistId, 'total_paz':total_paz},
+        data: {
+            'price': paz,
+            'artistid': artistId,
+            'total_paz': total_paz
+        },
 
-		success: function(data){
+        success: function (data) {
 
-			//console.log(data);return false;
+            //console.log(data);return false;
 
-			if(data.status){
+            if (data.status) {
 
-				alert(data.message);
+                alert(data.message);
 
-				location.reload();
-				
-			}			
-			
-		}
-});
+                location.reload();
+
+            }
+
+        }
+    });
 
 })
-/*-------------------------------------------------Forget Password Link----------------------------------------------------*/
+/* -------------------------------------------------Forget Password
+ * Link----------------------------------------------------
+ */
 $(document).on('click', '#forgetLink', function () {
 
-	$('.close_popup').trigger('click');
+    $('.close_popup').trigger('click');
 
-	var email = $('#email').val();
+    var email = $('#email').val();
 
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/resetPassword",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/resetPassword",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-				data: {'email':email},
+        data: {
+            'email': email
+        },
 
-				success: function(data){
+        success: function (data) {
 
-					if(data==1){
+            if (data == 1) {
 
-						$('.show_message').show();
-						
-						
-						$('.show_message').html('Please check email inbox/spam folder');
-					}
+                $('.show_message').show();
 
+                $('.show_message').html('Please check email inbox/spam folder');
+            }
 
-
-
-
-
-						
-					
-				}
-		});
+        }
+    });
 
 });
 
+function editVideoinfo(data) {
+    var json_info = JSON.parse(data);
+    var type = json_info.type;
+    $('.video_title').val(json_info.title)
+    $('#mediaid').val(json_info.id)
+    $('#type').val(json_info.type)
+    $('.' + type).show();
+    $('.video_price').val(json_info.price)
+    $('.video_quality')
+        .val(json_info.convert)
+        .attr("selected", "selected");
 
-function editVideoinfo(data){
-	var json_info = JSON.parse(data);
-	var type =json_info.type;
-	$('.video_title').val(json_info.title)
-	$('#mediaid').val(json_info.id)
-	$('#type').val(json_info.type)
-	$('.'+type).show();
-	$('.video_price').val(json_info.price)
-	$('.video_quality').val(json_info.convert).attr("selected","selected");
-	
-	$('.video_category').val(json_info.catid).attr("selected","selected");
-	$('.video_description').val(json_info.description)
-	
+    $('.video_category')
+        .val(json_info.catid)
+        .attr("selected", "selected");
+    $('.video_description').val(json_info.description)
+
 }
-
-
 
 $(document).on('click', '#withdrawmoney', function () {
 
-	var amount = $('#real_amount').val();
+    var amount = $('#real_amount').val();
 
-	
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/draw_money",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-	$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/draw_money",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+        data: {
+            'amount': amount
+        },
 
-				data: {'amount':amount},
+        success: function (data) {
 
-				success: function(data){
+            console.log(data);
 
-					console.log(data);
-						
-					
-				}
-		});
+        }
+    });
 
 });
 
+function copy(url) {
 
-
-function copy(url){
-	
-	var tempInput = document.createElement("input");
-	tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-	tempInput.value = url;
-	document.body.appendChild(tempInput);
-	tempInput.select();
-	document.execCommand("copy");
-	console.log("Copied the text:", tempInput.value);
-	document.body.removeChild(tempInput);
-	document.getElementById('myBtn').innerHTML = 'Copied';
+    var tempInput = document.createElement("input");
+    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
+    tempInput.value = url;
+    document
+        .body
+        .appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    console.log("Copied the text:", tempInput.value);
+    document
+        .body
+        .removeChild(tempInput);
+    document
+        .getElementById('myBtn')
+        .innerHTML = 'Copied';
 
 }
 
-/*--------------------------------------------check Name Exist-------------------------------------------------*/
-
+/* --------------------------------------------check Name
+ * Exist-------------------------------------------------
+ */
 
 $(document).on('keyup', '.checknameExist', function () {
 
-	
+    var redioChecked = $('.user:checked').val();
 
-	var redioChecked = $('.user:checked').val();
+    //console.log(redioChecked);
 
-	//console.log(redioChecked);
+    var id = $(this).attr('data-id');
 
-	var id = $(this).attr('data-id');
+    //console.log(redioChecked);return false;
 
-	//console.log(redioChecked);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/checknameExist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/checknameExist",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
+        data: {
+            'nickname': $(this).val(),
+            'name': $(this).attr('name'),
+            'table': redioChecked
+        },
 
-		data: {'nickname':$(this).val(),'name':$(this).attr('name'),'table':redioChecked},
+        success: function (data) {
+            if (data == 1) {
+                $('#' + id).show();
+                $('#' + id)
+                    .addClass('alert alert-danger')
+                    .removeClass('alert-success');
+                $('#' + id).html(
+                    id == 'email'
+                        ? 'Email Already Exist'
+                        : 'User Already Exist!'
+                );
+            } else {
 
-		success: function(data){
-			if(data==1){
-				$('#'+id).show();
-				$('#'+id).addClass('alert alert-danger').removeClass('alert-success');
-				$('#'+id).html(id=='email'?'Email Already Exist':'User Already Exist!');
-			}
+                $('#' + id).show();
 
-			else{
+                $('#' + id)
+                    .addClass('alert alert-success')
+                    .removeClass('alert-danger');
 
-				$('#'+id).show();
-				
-				$('#'+id).addClass('alert alert-success').removeClass('alert-danger');
+                $('#' + id).html(
+                    id == 'email'
+                        ? 'Email Available!'
+                        : 'User Available'
+                );
 
-				$('#'+id).html(id=='email' ? 'Email Available!':'User Available');
+            }
 
-			}
-
-
-	
-			
-		}
-});
+        }
+    });
 
 })
-
 
 /**-------------------------------------------------Check Title Exist---------------------------------------------------------------- */
 
 $(document).on('keyup', '.title', function () {
 
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/checktitleExist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/checktitleExist",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
+        data: {
+            'title': $(this).val(),
+            'table': $(this).attr('table')
+        },
 
-		data: {'title':$(this).val(),'table':$(this).attr('table')},
+        success: function (data) {
 
-		success: function(data){
+            //console.log(data);return false;
+            if (data == 1) {
+                $('#messagediv').show();
+                $('#messagediv')
+                    .addClass('alert alert-danger')
+                    .removeClass('alert-success');
+                $('#messagediv').html('Title Already Exist!')
+            } else {
 
-			//console.log(data);return false;
-			if(data==1){
-				$('#messagediv').show();
-				$('#messagediv').addClass('alert alert-danger').removeClass('alert-success');
-				$('#messagediv').html('Title Already Exist!')
-			}
+                $('#messagediv').show();
+                $('#messagediv')
+                    .addClass('alert alert-success')
+                    .removeClass('alert-danger');
+                $('#messagediv').html('Title Available!');
 
-			else{
+            }
 
-				$('#messagediv').show();
-				$('#messagediv').addClass('alert alert-success').removeClass('alert-danger');
-				$('#messagediv').html('Title Available!');
-
-			}
-
-
-	
-			
-		}
-});
+        }
+    });
 
 })
 
+function updateRead() {
 
+    var ids = $('#notids').val();
 
-function updateRead(){
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/readNotification",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-	var ids = $('#notids').val();
-	
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/readNotification",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
+        data: {
+            'id': ids
+        },
 
-		data: {'id':ids},
+        success: function (data) {
 
-		success: function(data){
+            console.log(data);
+            if (data == 1) {
+                $('#bold').removeClass("bold");
+            }
 
-				console.log(data);
-				if(data==1){
-				$('#bold').removeClass("bold");
-				}
-
-	
-			
-		}
-});
+        }
+    });
 
 }
 
-/*-------------------------------Subscribe To Artist----------------------------------------------------*/
+/* -------------------------------Subscribe To
+ * Artist----------------------------------------------------
+ */
 
-function subscribe(id,setValue){
-	
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/subscribe",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
+function subscribe(id, setValue) {
 
-		data: {'id':id, 'bool':setValue},
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/subscribe",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-		success: function(data){
+        data: {
+            'id': id,
+            'bool': setValue
+        },
 
-			if(setValue && data.status==1){
-				$('#subscribe').hide();
-				$('#unsubscribe').show();
-			}
-			else if(!setValue && data.status==1){
-				$('#subscribe').show();
-				$('#unsubscribe').hide();
-			}
-	
-			
-		}
-});
+        success: function (data) {
+
+            if (setValue && data.status == 1) {
+                $('#subscribe').hide();
+                $('#unsubscribe').show();
+            } else if (!setValue && data.status == 1) {
+                $('#subscribe').show();
+                $('#unsubscribe').hide();
+            }
+
+        }
+    });
 }
 
-function showPlaylistVedio(data){
-	//console.log(videos)
-	var videos = JSON.parse(data);
-	console.log(videos);
-	var titles = videos.titles;
-	var videos_playlist = videos.videos;
-	
-	$('.listname').html(videos.playlistname)
-	var split_title  = titles.split(',');
-	var videos_playlist  = videos_playlist.split(',');
-	var name  = videos.names.split(',');
-	var div= '';
-	$('.video_append').html('')
-	for(var i=0; i<videos_playlist.length; i++){
-		var url = storage_url+'/video/'+videos_playlist[i];
-		if(i==0){
-		$('.videodata').html("<video width='100%'  controls controlsList='nodownload' disablePictureInPicture><source id='firstvideo' src='"+url+"' type='video/mp4'></video><h3 class='firsttitle'>"+split_title[i]+"</h3><p>March 5,2021<p>")
-		}
-	 div +="<div class='row lists12'><div class='videolist col-6'><video width='150px' height='100px' controlsList='nodownload' disablePictureInPicture><source src='"+url+"' type='video/mp4'></video></div><div class='videonameq col-6'><h3>"+split_title[i]+"</h3><p>"+name[i]+"</p> </div></div>"
-	}
-	$('.video_append').append(div);
+function showPlaylistVedio(data) {
+    //console.log(videos)
+    var videos = JSON.parse(data);
+    console.log(videos);
+    var titles = videos.titles;
+    var videos_playlist = videos.videos;
 
+    $('.listname').html(videos.playlistname)
+    var split_title = titles.split(',');
+    var videos_playlist = videos_playlist.split(',');
+    var name = videos
+        .names
+        .split(',');
+    var div = '';
+    $('.video_append').html('')
+    for (var i = 0; i < videos_playlist.length; i++) {
+        var url = storage_url + '/video/' + videos_playlist[i];
+        if (i == 0) {
+            $('.videodata').html(
+                "<video width='100%'  controls controlsList='nodownload' disablePictureInPictur" +
+                "e><source id='firstvideo' src='" + url + "' type='video/mp4'></video><h3 class" +
+                "='firsttitle'>" + split_title[i] + "</h3><p>March 5,2021<p>"
+            )
+        }
+        div += "<div class='row lists12'><div class='videolist col-6'><video width='150px' hei" +
+                "ght='100px' controlsList='nodownload' disablePictureInPicture><source src='" +
+                url + "' type='video/mp4'></video></div><div class='videonameq col-6'><h3>" +
+                split_title[i] + "</h3><p>" + name[i] + "</p> </div></div>"
+    }
+    $('.video_append').append(div);
 
 }
 
-/*--------------------------------------------Order Video-------------------------------------------------*/
+/* --------------------------------------------Order
+ * Video-------------------------------------------------
+ */
 
-$(document).on('click','.off',function(){
+$(document).on('click', '.off', function () {
 
-	$('.media_div').find('.slct_video:checked').trigger("click");
-	 $('.media_div').find('.checkall').css("display",'none');
+    $('.media_div')
+        .find('.slct_video:checked')
+        .trigger("click");
+    $('.media_div')
+        .find('.checkall')
+        .css("display", 'none');
 })
 
 $(document).on('submit', '#form_sub', function (event) {
-	event.preventDefault();
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/orderVideo",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
+    event.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/orderVideo",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-			data: $(this).serialize(),
+        data: $(this).serialize(),
 
-			success: function(data){
+        success: function (data) {
 
-			 //console.log(data);return false;
+            //console.log(data);return false;
 
-					if(data.status==1){
-						 $('.successfull').show();
-						// $('.show_alert').html(data.message);
-						setTimeout(function(){
-							location.reload()
-						},2000);
-					}	
-					
-					else{
+            if (data.status == 1) {
+                $('.successfull').show();
+                // $('.show_alert').html(data.message);
+                setTimeout(function () {
+                    location.reload()
+                }, 2000);
+            } else {
 
-						$('.show_alert').show();
-						$('.show_alert').html(data.message);
-						setTimeout(function(){
-							location.reload()
-						},2000);
-					}
-				
-			}
-	});
+                $('.show_alert').show();
+                $('.show_alert').html(data.message);
+                setTimeout(function () {
+                    location.reload()
+                }, 2000);
+            }
+
+        }
+    });
 
 });
 /**-------------------------------------------------------Edit Offer Data-------------------------------------------------------------------- */
 
-
 $(document).on('submit', '#edit_form', function (event) {
-	event.preventDefault();
-	var formData = new FormData($(this)[0]);
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/edit_offer",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/edit_offer",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-			data: formData,
-			processData: false,
-			contentType: false,
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				if (xhr.upload) {
-					xhr.upload.addEventListener('progress', function(event) {
-						var percent = 0;
-						var position = event.loaded || event.position;
-						var total = event.total;
-						if (event.lengthComputable) {
-							percent = Math.ceil(position / total * 100);
-						}
-						$('.percentage').html(percent+'%');
-						if(percent==100){
-							$('.loader').hide();
-						}
-					}, true);
-				}
-				return xhr;
-		},
+        data: formData,
+        processData: false,
+        contentType: false,
+        xhr: function () {
+            var xhr = $
+                .ajaxSettings
+                .xhr();
+            if (xhr.upload) {
+                xhr
+                    .upload
+                    .addEventListener('progress', function (event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        $('.percentage').html(percent + '%');
+                        if (percent == 100) {
+                            $('.loader').hide();
+                        }
+                    }, true);
+            }
+            return xhr;
+        },
 
-			success: function(data){
+        success: function (data) {
 
-				//sconsole.log(data);return false;
+            //sconsole.log(data);return false;
 
-				if(data.status==1){
-					$('.alert-success').show();
-					$('.alert-success').html(data.message);
-					$('#close').trigger('click'); 
-					 setTimeout(function(){ 
-						$('#close').trigger('click'); 
-						loadingmessage();
-						location.reload();
-					  }, 1000);
-				}
+            if (data.status == 1) {
+                $('.alert-success').show();
+                $('.alert-success').html(data.message);
+                $('#close').trigger('click');
+                setTimeout(function () {
+                    $('#close').trigger('click');
+                    loadingmessage();
+                    location.reload();
+                }, 1000);
+            } else {
 
-				else{
+                $('.alert-danger').show();
+                $('.alert-danger').html(data.message);
 
-					$('.alert-danger').show();
-					$('.alert-danger').html(data.message);
-					
-				}
+            }
 
-
-			}
-	});
+        }
+    });
 
 });
 
-
-function loadingmessage(){
-	alert('Offer Update Successfully!');
+function loadingmessage() {
+    alert('Offer Update Successfully!');
 }
-
 
 $(document).on('submit', '#edit_profile_info', function (event) {
-	event.preventDefault();
-	var formData = new FormData($(this)[0]);
-	$('.loader').show();
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/edit_info",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $('.loader').show();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/edit_info",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-			data: formData,
-			processData: false,
-			contentType: false,
-			xhr: function () {
-				var xhr = $.ajaxSettings.xhr();
-				if (xhr.upload) {
-					xhr.upload.addEventListener('progress', function(event) {
-						var percent = 0;
-						var position = event.loaded || event.position;
-						var total = event.total;
-						if (event.lengthComputable) {
-							percent = Math.ceil(position / total * 100);
-						}
-						$('.percentage').html(percent+'%');
-						if(percent==100){
-							$('.loader').hide();
-						}
-					}, true);
-				}
-				return xhr;
-		},
+        data: formData,
+        processData: false,
+        contentType: false,
+        xhr: function () {
+            var xhr = $
+                .ajaxSettings
+                .xhr();
+            if (xhr.upload) {
+                xhr
+                    .upload
+                    .addEventListener('progress', function (event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        $('.percentage').html(percent + '%');
+                        if (percent == 100) {
+                            $('.loader').hide();
+                        }
+                    }, true);
+            }
+            return xhr;
+        },
 
-			success: function(data){
+        success: function (data) {
 
-				console.log(data);
+            console.log(data);
 
-				if(data.status==1){
-					// $('.alert-success').show();
-					// $('.alert-success').html(data.message);
-					$('.popup_close').trigger('click');
-						location.reload();
-				}
+            if (data.status == 1) {
+                // $('.alert-success').show(); $('.alert-success').html(data.message);
+                $('.popup_close').trigger('click');
+                location.reload();
+            } else {
 
-				else{
+                $('.alert-danger').show();
+                $('.alert-danger').html(data.message);
 
-					$('.alert-danger').show();
-					$('.alert-danger').html(data.message);
-					
-				}
+            }
 
-
-			}
-	});
+        }
+    });
 
 });
 
-
-/*------------------------------------------------------Edit Video Info------------------------------------------*/
-
+/* ------------------------------------------------------Edit Video
+ * Info------------------------------------------
+ */
 
 $(document).on('submit', '#edit_Video_info', function (event) {
-	event.preventDefault();
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/artist/editVedio",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
+    event.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/artist/editVedio",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-			data: $(this).serialize(),
-			success: function(data){
+        data: $(this).serialize(),
+        success: function (data) {
 
-				console.log(data);
+            console.log(data);
 
-				if(data==1){
-					 $('.alert-success').show();
-					 $('.alert-success').html('Update Successfully!');
-					 setTimeout(function(){
-						 location.reload()
-					 },2000)
-					//$('.close').trigger('click');
-					//location.reload();
-				}
+            if (data == 1) {
+                $('.alert-success').show();
+                $('.alert-success').html('Update Successfully!');
+                setTimeout(function () {
+                    location.reload()
+                }, 2000)
+                //$('.close').trigger('click'); location.reload();
+            } else {
 
-				else{
+                $('.alert-danger').show();
+                $('.alert-danger').html(data.message);
 
-					$('.alert-danger').show();
-					$('.alert-danger').html(data.message);
-					
-				}
+            }
 
-
-			}
-	});
+        }
+    });
 
 });
 
+$(document).ready(function () {
 
+    // Delete
+    $('.delete').click(function () {
 
-$(document).ready(function(){
+        // Delete id
+        var deleteid = $(this).attr('data-id');
+        var table = $(this).attr('table');
+        var message = table == 'offer'
+            ? "Do you really want to delete this Offer?"
+            : "Do you really want to delete this Item? <br/> Your Customer will lose access t" +
+                    "o it immediately!"
 
-	// Delete 
-	$('.delete').click(function(){
-	
-	  // Delete id
-	  var deleteid = $(this).attr('data-id');
-	  var table = $(this).attr('table');
-	  var message = table=='offer' ? "Do you really want to delete this Offer?" : "Do you really want to delete this Item? <br/> Your Customer will lose access to it immediately!"
+        //console.log(table);return false; Confirm box
+        bootbox.confirm({
+            message: message,
+            buttons: {
 
-	  //console.log(table);return false;
-  
-	  // Confirm box
-	  bootbox.confirm({
-	message:message, 
-	buttons: { 
+                confirm: {
+                    label: 'delete',
+                    className: 'btn btn-danger'
 
-	confirm: {
-		 label: 'delete',
-		  className: 'btn btn-danger' 
+                },
+                cancel: {
+                    label: 'cancel',
+                    className: 'btn btn-light'
+                }
+            },
+            callback: function (result) {
 
-	}, 
-	  cancel: { 
-		label: 'cancel',
-		 className: 'btn btn-light'
-		 }
-},
-	callback: function (result) {
-   
-		 if(result){
-		   // AJAX Request
-		   $.ajax({
-			type: 'POST',
-			url:APP_URL+"/delete_offer",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-			 data: { id:deleteid,table:table },
-			 success: function(response){
+                if (result) {
+                    // AJAX Request
+                    $.ajax({
+                        type: 'POST',
+                        url: APP_URL + "/delete_offer",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        data: {
+                            id: deleteid,
+                            table: table
+                        },
+                        success: function (response) {
 
+                            console.log(response);
+                            if (response == 1) {
 
-				console.log(response);
-				if(response==1){
+                                $(this)
+                                    .parent()
+                                    .parent()
+                                    .parent()
+                                    .remove();
 
-					$(this).parent().parent().parent().remove();
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 1000);
 
-						setTimeout(function(){ 
-							location.reload();
-						 }, 1000);
+                            } else {
 
-				}
+                                location.reload();
+                            }
 
-				else{
+                        }
+                    });
+                }
+            }
+        });
+    });
+});
 
-					location.reload();
-				}
-  
-			 }
-		   });
-		 }
-		}
-	  });
-	});
-	});
+function addTohistory(type) {
+    var id = $('#vidid').val();
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/addTohistory",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-function addTohistory(type){
-	var id = $('#vidid').val();
-		$.ajax({
-				type: 'POST',
-			    url:APP_URL+"/addTohistory",
-				 headers: {
-                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-               },
+        data: {
+            'id': id,
+            'types': type
+        },
 
-				data: {'id':id, 'types':type},
+        success: function (data) {
+            //console.log(data);
 
-				success: function(data){	
-					//console.log(data);
-
-				}
-		});
+        }
+    });
 
 }
 
-
-
-$('.image').click(function(){
-	var image_type = $(this).attr('data-id');
-	$('#image_type').val(image_type);
-	//console.log(image_type);
-	$('.image_change').trigger('click');
+$('.image').click(function () {
+    var image_type = $(this).attr('data-id');
+    $('#image_type').val(image_type);
+    //console.log(image_type);
+    $('.image_change').trigger('click');
 })
 
-$(document).on('change','#change_section',function(){
+$(document).on('change', '#change_section', function () {
 
-	var value = $(this).val();
-		console.log(value);
-		if(value=='all'){
+    var value = $(this).val();
+    console.log(value);
+    if (value == 'all') {
 
-			$('.filter_div').show();
+        $('.filter_div').show();
 
-		}
-		else{
-			$('.container .filter_div').each(function(i, obj) {
-				var hide_div = $(this).attr('id');
+    } else {
+        $('.container .filter_div').each(function (i, obj) {
+            var hide_div = $(this).attr('id');
 
-				console.log(hide_div);
-				
-				$('.container').find('#'+hide_div).hide()
-				$('.container').find('#'+value).show();
-				//console.log($(this).attr('id'));
-				//test
-			});
-}
-	
+            console.log(hide_div);
+
+            $('.container')
+                .find('#' + hide_div)
+                .hide()
+            $('.container')
+                .find('#' + value)
+                .show();
+            //console.log($(this).attr('id')); test
+        });
+    }
 
 })
 
-function imageUpdate(data){
+function imageUpdate(data) {
 
-
-	$('#imageChange').click();
-
+    $('#imageChange').click();
 
 }
 
-$('#filechange').submit(function(e){
-	//console.log('abc');
-	e.preventDefault();
+$('#filechange').submit(function (e) {
+    //console.log('abc');
+    e.preventDefault();
 
-var formData = new FormData($(this)[0]);
+    var formData = new FormData($(this)[0]);
 
-$('.img-fluid').show();
+    $('.img-fluid').show();
 
-//console.log(formData);return false;
+    //console.log(formData);return false;
 
-$.ajax({
-	type: 'POST',
-	url:APP_URL+"/change_image",
-	 headers: {
-	 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-   },
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/change_image",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-	data: formData,
-	processData: false,
-	contentType: false,
+        data: formData,
+        processData: false,
+        contentType: false,
 
-	success: function(data1){
+        success: function (data1) {
 
-		console.log(data1);
+            console.log(data1);
 
-		if(data1.status==1){
-			location.reload();
-		}
+            if (data1.status == 1) {
+                location.reload();
+            }
 
-	
-
-
-	}
-});
+        }
+    });
 });
 
-function edit_offer(data){
-		var json_info = JSON.parse(data);
-		var url = 'http://localhost/laravel/video-streaming/storage/app/public/video/';
-		var src= url+json_info.media;
-		//console.log(json_info);return false;
-		$('#title').val(json_info.title);
-		$("input[value='" + json_info.type + "']").prop('checked', true);
-		$('#offerid').val(json_info.id);
-		$('#min').val(json_info.min);
-		$('#max').val(json_info.max);
-		$('#additional_price').val(json_info.additional_price);
-		$('#video').attr('src',src);
-		$('#file_url').val(json_info.media);
-		$('#price').val(json_info.price);
-		$('#speed').val(json_info.delieveryspeed);
-		$('#description').val(json_info.description);
-		$('.'+json_info.type).show();
-		$('#select_status').val(json_info.offer_status).attr("selected","selected");
-		$('#quality').val(json_info.quality).attr("selected","selected");
+function edit_offer(data) {
+    var json_info = JSON.parse(data);
+    var url = 'http://localhost/laravel/video-streaming/storage/app/public/video/';
+    var src = url + json_info.media;
+    //console.log(json_info);return false;
+    $('#title').val(json_info.title);
+    $("input[value='" + json_info.type + "']").prop('checked', true);
+    $('#offerid').val(json_info.id);
+    $('#min').val(json_info.min);
+    $('#max').val(json_info.max);
+    $('#additional_price').val(json_info.additional_price);
+    $('#video').attr('src', src);
+    $('#file_url').val(json_info.media);
+    $('#price').val(json_info.price);
+    $('#speed').val(json_info.delieveryspeed);
+    $('#description').val(json_info.description);
+    $('.' + json_info.type).show();
+    $('#select_status')
+        .val(json_info.offer_status)
+        .attr("selected", "selected");
+    $('#quality')
+        .val(json_info.quality)
+        .attr("selected", "selected");
 
-		$('.'+json_info.type).val(json_info.categoryid).attr("selected","selected");;
-	//alert('helo');
-	//$('#myModal').modal('show');
+    $('.' + json_info.type)
+        .val(json_info.categoryid)
+        .attr("selected", "selected");;
+    //alert('helo'); $('#myModal').modal('show');
 }
 
+function change_other_info(data) {
 
-function change_other_info(data){
+    var json_info = JSON.parse(data);
 
-	var json_info = JSON.parse(data);
-
-	$('#aboutme').val(json_info.aboutme);
-	$('#weight').val(json_info.weight).attr("selected","selected");
-	$('#height').val(json_info.height).attr("selected","selected");
-	$('#sexology').val(json_info.sexology).attr("selected","selected");
-	$('#haircolor').val(json_info.haircolor).attr("selected","selected");
-	$('#eyecolor').val(json_info.eyecolor).attr("selected","selected");
-	$('#privy').val(json_info.privy).attr("selected","selected");
-	$('#hairlength').val(json_info.hairlength).attr("selected","selected");
+    $('#aboutme').val(json_info.aboutme);
+    $('#weight')
+        .val(json_info.weight)
+        .attr("selected", "selected");
+    $('#height')
+        .val(json_info.height)
+        .attr("selected", "selected");
+    $('#sexology')
+        .val(json_info.sexology)
+        .attr("selected", "selected");
+    $('#haircolor')
+        .val(json_info.haircolor)
+        .attr("selected", "selected");
+    $('#eyecolor')
+        .val(json_info.eyecolor)
+        .attr("selected", "selected");
+    $('#privy')
+        .val(json_info.privy)
+        .attr("selected", "selected");
+    $('#hairlength')
+        .val(json_info.hairlength)
+        .attr("selected", "selected");
 }
-
 
 /**------------------------------------------------------Filter Projects ------------------------------------------------- */
 
-function filterproject(data){
+function filterproject(data) {
 
-	var value = data.value;
+    var value = data.value;
 
-	var dataset = $('.filteration_table tbody').find('tr ');
+    var dataset = $('.filteration_table tbody').find('tr ');
 
-	//console.log(dataset);return false;
-  
+    //console.log(dataset);return false;
+
     dataset.show();
-    
-    dataset.filter(function(index, item) {
-		//console.log($(item).find('td:eq(5)').text().indexOf());return false;
-      return $(item).find('td:eq(5)').text().indexOf(value) === -1;
-    }).hide();
 
+    dataset
+        .filter(function (index, item) {
+            //console.log($(item).find('td:eq(5)').text().indexOf());return false;
+            return $(item)
+                .find('td:eq(5)')
+                .text()
+                .indexOf(value) === -1;
+        })
+        .hide();
 
 }
 
 $(document).on('keyup change', '#calculate_tokens', function () {
-	
-	var amount = parseInt($(this).val())/20;
-	var fees = (parseFloat(amount)*$("#fees").val())/100;
-	$('#real_amount').val(parseFloat(amount)-parseFloat(fees));
-	//$('.show_fees').text("After Calculate Service Fees" +" "+$("#fees").val())
+
+    var amount = parseInt($(this).val()) / 20;
+    var fees = (parseFloat(amount) * $("#fees").val()) / 100;
+    $('#real_amount').val(parseFloat(amount) - parseFloat(fees));
+    //$('.show_fees').text("After Calculate Service Fees" +" "+$("#fees").val())
 
 })
-
-
-
 
 /**--------------------------------------------------Data Table Js---------------------------------------------------------- */
 
 /* Formatting function for row details - modify as you need */
-function format ( d , type) {
+function format(d, type) {
 
-	var disabled = d.remaining_days > 0 ? 'disabled' : ''
+    var disabled = d.remaining_days > 0
+        ? 'disabled'
+        : ''
 
-	var file = d.type=='video' ? 'Upload Video' : 'Upload Audio';
+    var file = d.type == 'video'
+        ? 'Upload Video'
+        : 'Upload Audio';
 
-	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
+    var html = d.type == 'audio'
+        ? '<label>Upload Image</label><input type="file" name="audio_pic"/>'
+        : '';
 
-	//console.log(d);return false;
-
-	// var hair = d.haircolor.split(',');
-	// var privy = d.privy.split(',');
-	// var lense = d.eyecolor.split(',');
-
-   //console.log(type);
-
-	// `d` is the original data object for the row
-	if(type=='offer')
-	{
-	updateStatus(d.id,type);
-    return '<div class="offer">'+
-	'<div class="row">'+
-	  '<div class="col">'+
-			'<div class="descriptions">'+
-			'<h3 class="description">Description :</h3>'+
-			'<p>'+ d.description +'</p>'+
-			'</div>'+
-	  '</div>'+
-		'<div class="col">'+
-		'<h3 class="look">Additional Request :</h3>'+
-		'<p>'+d.userdescription+'</p>'+
-		'</div>'+
-	'<div class="col">'+
-	'<table>'+
-	'<tr>'+
-	'<td> <p>Categories :</p>'+
-	'<p class="category">'+d.catgory+'</p>'+
-	'</td>'+
-	'<td> <p class="quality">Quality :</p>'+
-	'<p>'+d.quality+'p </p>'+
-	'</td>'+
-	'</tr>'+
-	'<tr><td colspan="2">Reward:<span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
-	'<tr><td colspan="2">'+
-	'<div class="col-md-12">'+
-	'<form class="uploadOffer" method="post" enctype="multipart/form-data">'+
-	'<label>'+file+
-	'</label>'+
-	'<input type="file" name="media">'+
-	  html+
-	'<div>'+
-	'<input type="hidden" name="offerid" value='+d.id+'>'+
-	'<input type="hidden" name="userid" value='+d.userid+'>'+
-	'<input type="hidden" name="artistid" value='+d.artistid+'>'+
-	'<div class="loader col-6" style="display:none">'+
-	'<span style="color:green; font-weight: bold;">Uploading...</span><img src="http://localhost/laravel/video-streaming/public/images/loading2.gif" width="50px" height="50px"/>'+
-	'<span class="percentage" style="color:green;font-weight: bold;"></span>'+
-  '</div>'+
-	'</form>'+
-	'</div>'+
-	'</td></tr>'+
-	'</table>'+
-	'<div class="alert alert-success" id="success" style="display:none">'+
-    '</div>'+
-	'<div class="">'+
-	'<button type="submit"class="btn btn-primary" onclick="formsubmit(this)"'+disabled+'>Deliver Now</button>'+
-	'</div>'+
-	'</div>'+
-	'</div>'+
-	'</div>';
-   }
-
-   else{
-	updateStatus(d.id,type);
-	return '<div class="project">'+
-	'<div class="row">'+
-	  '<div class="col">'+
-			'<div class="descriptions">'+
-			'<h3 class="description">Description :</h3>'+
-			'<p>'+d.description+'</p>'+
-			'</div>'+
-	  '</div>'+
-		'<div class="col">'+
-		'<h3>Look :</h3>'+
-		'<p style="color:red;">Hair Color'+'</p>'+
-		'<span>'+d.haircolor+'</span>'+
-		'<p style="color:red;">Eye Color'+'</p>'+
-		 '<span>'+d.eyecolor+'</span>'+
-		'<p style="color:red;">Privy'+'</p>'+
-		'<span>'+d.privy+'</span>'+
-		'</div>'+
-	'<div class="col">'+
-	'<table>'+
-	'<tr>'+
-	'<td> <p>Category :</p>'+
-	'<p class="category">'+d.category_name+'</p>'+
-	'</td>'+
-	'<td> <p class="quality">Quality :</p>'+
-	'<p>'+d.quality+'p</p>'+
-	'</td>'+
-	'</tr>'+
-	'<tr><td colspan="2">Reward:<span class="Reward" style="color: gold !important;">'+d.tokens+'<b style="color: gold !important;font-family: Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr>'+
-	'<tr>'+
-	'</table>'+
-	'<div class="">'+
-	'<button type="button"class="btn btn-primary">Upload Content</button>'+
-	'</div>'+
-	'</div>'+
-	'</div>'+
-	'</div>';
-   }
+    // console.log(d);return false; var hair = d.haircolor.split(','); var privy =
+    // d.privy.split(','); var lense = d.eyecolor.split(','); console.log(type); `d`
+    // is the original data object for the row
+    if (type == 'offer') {
+        updateStatus(d.id, type);
+        return '<div class="offer"><div class="row"><div class="col"><div class="descriptions"' +
+                '><h3 class="description">Description :</h3><p>' + d.description + '</p></div><' +
+                '/div><div class="col"><h3 class="look">Additional Request :</h3><p>' + d.userdescription +
+                '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
+                'ry">' + d.catgory + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
+                'p </p></td></tr><tr><td colspan="2">Reward:<span class="Reward" style="color: ' +
+                'gold !important;">' + d.tokens + '<b style="color: gold !important;font-family' +
+                ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr><td colspan="' +
+                '2"><div class="col-md-12"><form class="uploadOffer" method="post" enctype="mul' +
+                'tipart/form-data"><label>' + file +
+                '</label><input type="file" name="media">' + html + '<div><input type="hidden" ' +
+                'name="offerid" value=' + d.id + '><input type="hidden" name="userid" value=' +
+                d.userid + '><input type="hidden" name="artistid" value=' + d.artistid + '><div' +
+                ' class="loader col-6" style="display:none"><span style="color:green; font-weig' +
+                'ht: bold;">Uploading...</span><img src="http://localhost/laravel/video-streami' +
+                'ng/public/images/loading2.gif" width="50px" height="50px"/><span class="percen' +
+                'tage" style="color:green;font-weight: bold;"></span></div></form></div></td></' +
+                'tr></table><div class="alert alert-success" id="success" style="display:none">' +
+                '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
+                'submit(this)"' + disabled + '>Deliver Now</button></div></div></div></div>';
+    } else {
+        updateStatus(d.id, type);
+        return '<div class="project"><div class="row"><div class="col"><div class="description' +
+                's"><h3 class="description">Description :</h3><p>' + d.description + '</p></div' +
+                '></div><div class="col"><h3>Look :</h3><p style="color:red;">Hair Color</p><sp' +
+                'an>' + d.haircolor + '</span><p style="color:red;">Eye Color</p><span>' + d.eyecolor +
+                '</span><p style="color:red;">Privy</p><span>' + d.privy + '</span></div><div c' +
+                'lass="col"><table><tr><td> <p>Category :</p><p class="category">' + d.category_name +
+                '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality + 'p</p></td></' +
+                'tr><tr><td colspan="2">Reward:<span class="Reward" style="color: gold !importa' +
+                'nt;">' + d.tokens + '<b style="color: gold !important;font-family: Alfa Slab O' +
+                'ne;font-weight: 400;"> PAZ </b></span></td></tr><tr></table><div class=""><but' +
+                'ton type="button"class="btn btn-primary">Upload Content</button></div></div></' +
+                'div></div>';
+    }
 }
 
+function formsubmit(scop) {
 
+    var form = $('.uploadOffer');
+    var formdata = new FormData(form[0]);
 
-function formsubmit(scop){
+    $('.loader').show();
+    $('.percentage').html('0');
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/deleiver",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: formdata,
+        processData: false,
+        contentType: false,
+        xhr: function () {
+            var xhr = $
+                .ajaxSettings
+                .xhr();
+            if (xhr.upload) {
+                xhr
+                    .upload
+                    .addEventListener('progress', function (event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        $('.percentage').html(percent + '%');
+                        if (percent == 100) {
+                            $('.loader').hide();
+                        }
+                    }, true);
+            }
+            return xhr;
+        },
 
-		var form = $('.uploadOffer');
-		var formdata = new FormData(form[0]);
-		
-		$('.loader').show();
-		$('.percentage').html('0');
-		//console.log(formData);return false;
-		   $.ajax({
-				type: 'POST',
-				url:APP_URL+"/deleiver",
-				 headers: {
-				 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-			   },				
-				data: formdata,
-				processData: false,
-				contentType: false,
-				xhr: function () {
-					var xhr = $.ajaxSettings.xhr();
-					if (xhr.upload) {
-						xhr.upload.addEventListener('progress', function(event) {
-							var percent = 0;
-							var position = event.loaded || event.position;
-							var total = event.total;
-							if (event.lengthComputable) {
-								percent = Math.ceil(position / total * 100);
-							}
-							$('.percentage').html(percent+'%');
-							if(percent==100){
-								$('.loader').hide();
-							}
-						}, true);
-					}
-					return xhr;
-			},
-	
-				success: function(data){
+        success: function (data) {
 
-					//console.log(data);return false;
+            //console.log(data);return false;
 
-					if(data==1){
+            if (data == 1) {
 
-						$('#success').show();
+                $('#success').show();
 
-						$('#success').html('Content Uploaded');
+                $('#success').html('Content Uploaded');
 
-						setTimeout(function(){
-							location.reload();
-						},2000)
-					}
+                setTimeout(function () {
+                    location.reload();
+                }, 2000)
+            } else {
 
-					else{
+                alert('Some Error');
 
-						alert('Some Error');
+            }
 
+        }
 
-					}
-
-					
-				}
-
-		});
-
-	
+    });
 
 }
 
+$(document).ready(function () {
 
+    /**-----------------------------------------------------For Orders----------------------------------------------------------- */
+    var name = $('#select_option')
+        .find(":selected")
+        .val();
 
-$(document).ready(function() {
+    var value = window
+        .location
+        .href
+        .substring(window.location.href.lastIndexOf('/') + 1);
 
-	/**-----------------------------------------------------For Orders----------------------------------------------------------- */
-	var name = $('#select_option').find(":selected").val();
+    value == 'offer'
+        ? $('#active').addClass('active')
+        : '';
 
-	var value = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+    //console.log(name);
 
-	value=='offer' ? $('#active').addClass('active'):'';
+    var artistCountry = $("#all_country").val();
 
-	//console.log(name);
+    $('#countries')
+        .val(artistCountry)
+        .attr("selected", "selected");
 
-	var artistCountry = $("#all_country").val();
+    //console.log(name);
 
-	$('#countries').val(artistCountry).attr("selected","selected");
+    var table1 = $('#example1').DataTable({
+        'ajax': name != 'All'
+            ? APP_URL + '/artist/getRequests/orders/' + name
+            : APP_URL + '/artist/getRequests/orders',
+        'columns': [
+            {
+                'className': 'details-control',
+                'orderable': false,
+                'data': null,
+                'defaultContent': ''
+            }, {
+                'data': 'title'
+            }, {
+                'data': 'type'
+            }, {
+                'data': 'choice'
+            }, {
+                'data': 'nickname'
+            }, {
+                'data': 'status'
+            }, {
+                'data': 'dates_submision',
+                render: function (data, type, row) {
+                    // console.log(data);
+                    return row.remaining_days < 0
+                        ? 'Expired'
+                        : data + '(24:00)';
+                }
+            }
+        ],
+        //  'order': [[1, 'asc']]
+    });
 
-     //console.log(name);
-		
-	var table1 = $('#example1').DataTable({
-		'ajax': name!='All' ? APP_URL+'/artist/getRequests/orders/'+name : APP_URL+'/artist/getRequests/orders',
-		'columns': [
-			 {
-				 'className':      'details-control',
-				 'orderable':      false,
-				 'data':           null,
-				 'defaultContent': ''
-			 },
-			 { 'data': 'title' },
-			 { 'data': 'type' },
-			 { 'data': 'choice' },
-			
-			 { 'data': 'nickname' },
-			 { 'data': 'status' },
-			 { 
-				 'data': 'dates_submision',
-				 render: function ( data, type, row ) {
-					// console.log(data);
-					return  row.remaining_days < 0 ? 'Expired': data+'(24:00)';
-			 }
-				 }
-		 ],
-	   //  'order': [[1, 'asc']]
-	 } );
-	 
- 
-		 // Add event listener for opening and closing details
-	 $('#example1 tbody').on('click', 'td.details-control', function(){
-		 var tr = $(this).closest('tr');
-		 var row = table1.row( tr );
- 
-		 if(row.child.isShown()){
-			 // This row is already open - close it
-			 row.child.hide();
-			 tr.removeClass('shown');
-		 } else {
-			 // Open this row
-			 row.child(format(row.data(),'offer')).show();
-			 tr.addClass('shown');
-		 }
-	 });
- 
-	 // Handle click on "Expand All" button
-	 $('#btn-show-all-children1').on('click', function(){
-		 // Enumerate all rows
-		 table1.rows().every(function(){
-			 // If row has details collapsed
-			 if(!this.child.isShown()){
-				 // Open this row
-				 this.child(format(this.data(),'offer')).show();
-				 $(this.node()).addClass('shown');
-			 }
-		 });
-	 });
- 
-	 // Handle click on "Collapse All" button
-	 $('#btn-hide-all-children1').on('click', function(){
-		 // Enumerate all rows
-		 table1.rows().every(function(){
-			 // If row has details expanded
-			 if(this.child.isShown()){
-				 // Collapse row details
-				 this.child.hide();
-				 $(this.node()).removeClass('shown');
-			 }
-		 });
-	 });
+    // Add event listener for opening and closing details
+    $('#example1 tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table1.row(tr);
 
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row
+                .child
+                .hide();
+            tr.removeClass('shown');
+        } else {
+            // Open this row
+            row
+                .child(format(row.data(), 'offer'))
+                .show();
+            tr.addClass('shown');
+        }
+    });
 
-	 
-	
+    // Handle click on "Expand All" button
+    $('#btn-show-all-children1').on('click', function () {
+        // Enumerate all rows
+        table1
+            .rows()
+            .every(function () {
+                // If row has details collapsed
+                if (!this.child.isShown()) {
+                    // Open this row
+                    this
+                        .child(format(this.data(), 'offer'))
+                        .show();
+                    $(this.node()).addClass('shown');
+                }
+            });
+    });
+
+    // Handle click on "Collapse All" button
+    $('#btn-hide-all-children1').on('click', function () {
+        // Enumerate all rows
+        table1
+            .rows()
+            .every(function () {
+                // If row has details expanded
+                if (this.child.isShown()) {
+                    // Collapse row details
+                    this
+                        .child
+                        .hide();
+                    $(this.node()).removeClass('shown');
+                }
+            });
+    });
 
 });
 
+function updateStatus(id, type) {
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/update_Status",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
-function updateStatus(id,type){
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/update_Status",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
+        data: {
+            'id': id,
+            'type': type
+        },
 
-		data: {'id':id, 'type':type},
+        success: function (data) {
+            console.log(data);
 
-		success: function(data){	
-			console.log(data);
-
-		}
-});
+        }
+    });
 }
 
-function getPaz(a){
-	$('.set_paz').val(a);
-	//console.log(a);
+function getPaz(a) {
+    $('.set_paz').val(a);
+    //console.log(a);
 }
 
+$(document).on('click', '.select_media_pic', function () {
 
-$(document).on('click','.select_media_pic',function(){
+    $('.thumbnail').show();
+    var value = $(this).val();
 
-	    $('.thumbnail').show();
-			var value = $(this).val();
-			
+    if (value == 'audio') {
 
-			if(value=='audio'){
+        $('.media_label').text('Upload Sample Audio (~30s)');
+        $('.media_label12').text('Audio');
+        $('.thumbnail1').text('Image Upload');
+        $('.convert').hide();
+        $('.audio').show();
+        $('.video').hide()
 
-					$('.media_label').text('Upload Sample Audio (~30s)');
-					$('.media_label12').text('Audio');
-					$('.thumbnail1').text('Image Upload');
-					$('.convert').hide();
-					$('.audio').show();
-					$('.video').hide()
+    } else {
 
-			}
-			else{
-					
-				$('.media_label12').text('Video');
-				$('.thumbnail1').text('Video Thumbnail');
-				$('.media_label').text('Upload Sample Video (~30s)');
-				$('.audio').hide()
-				$('.convert').show();
-				$('.video').show()
-			}
+        $('.media_label12').text('Video');
+        $('.thumbnail1').text('Video Thumbnail');
+        $('.media_label').text('Upload Sample Video (~30s)');
+        $('.audio').hide()
+        $('.convert').show();
+        $('.video').show()
+    }
 })
-
-
-
 
 /** -------------------------------------------------Upload New Offer ---------------------------------------------------------*/
 
-$(function() {
-    $('a[data-toggle="tab"]').on('click', function(e) {
-		//alert('console');return false;
-        window.localStorage.setItem('activeTab', $(e.target).attr('href'));
+$(function () {
+    $('a[data-toggle="tab"]').on('click', function (e) {
+        //alert('console');return false;
+        window
+            .localStorage
+            .setItem('activeTab', $(e.target).attr('href'));
     });
-    var activeTab = window.localStorage.getItem('activeTab');
+    var activeTab = window
+        .localStorage
+        .getItem('activeTab');
     if (activeTab) {
         $('#nav-tab a[href="' + activeTab + '"]').tab('show');
-        window.localStorage.removeItem("activeTab");
+        window
+            .localStorage
+            .removeItem("activeTab");
     }
 });
 
-
-
-/*--------------------------------------Customers Orders----------------------------------------*/
-
+/* --------------------------------------Customers
+ * Orders----------------------------------------
+ */
 
 if ($("#social_media").length > 0) {
     $("#social_media").validate({
-      
-    rules: {
-      media: {
-        required: true,
-      },
-    },
-    messages: {
-		media: {
-        required: "Please Enter Media",
-        maxlength: "Enter Media"
-      },
-  
-    },
-    submitHandler: function(form) {
-		//event.preventDefault();
-		var form  =  $("#social_media");
-		var formData = new FormData($(form)[0]);
-		
-		$('.loader').show();
-		$('.percentage').html('0');
-     $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-      $.ajax({
-		url:APP_URL+"/uploadSocial",
-        type: "POST",
-		data: formData,
-		processData: false,
-		contentType: false,
-		xhr: function () {
-			var xhr = $.ajaxSettings.xhr();
-			if (xhr.upload) {
-				xhr.upload.addEventListener('progress', function(event) {
-					var percent = 0;
-					var position = event.loaded || event.position;
-					var total = event.total;
-					if (event.lengthComputable) {
-						percent = Math.ceil(position / total * 100);
-					}
-					$('#top_title').html('Uploding...'+percent+'%');
-					$('.percentage').html(percent+'%');
-					if(percent==100){
-						$('.loader').hide();
-					}
-				}, true);
-			}
-			return xhr;
-	},
-        success: function( response ) {
-			//console.log(response);return false;
-				if(response.status==1){
-					$('#success').show();
-					$('#success').html(response.messge);
 
-					setTimeout(function(){
-						location.reload();
-					},2000)
-					   
-			   }
+        rules: {
+            media: {
+                required: true
+            }
+        },
+        messages: {
+            media: {
+                required: "Please Enter Media",
+                maxlength: "Enter Media"
+            }
+        },
+        submitHandler: function (form) {
+            //event.preventDefault();
+            var form = $("#social_media");
+            var formData = new FormData($(form)[0]);
 
-			   else{
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/uploadSocial",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (response) {
+                    //console.log(response);return false;
+                    if (response.status == 1) {
+                        $('#success').show();
+                        $('#success').html(response.messge);
 
-				   $('#success').show();
-				   $('#success').html(response.messge);
-				   
-			   }
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000)
+
+                    } else {
+
+                        $('#success').show();
+                        $('#success').html(response.messge);
+
+                    }
+                }
+            });
         }
-      });
-    }
-  })
+    })
 }
 
 /**---------------------------------------Suport Functyiong------------------------------------- */
 
-
 if ($("#technical_functiong").length > 0) {
     $("#technical_functiong").validate({
-      
-		rules: {
-			technical_issue: {
-			required: true,
-		},
 
-		description: {
-			required: true,
-			maxlength: 2000
-		},
-		match_recaptcha:{
-			required: true,
-			equalTo: "#recaptcha"
-		}
-		},
-			messages: {
-				technical_issue: {
-				required: "Please Select Issue",
-			},
+        rules: {
+            technical_issue: {
+                required: true
+            },
 
-			  match_recaptcha: "Please Match Recaptcha",
-			
+            description: {
+                required: true,
+                maxlength: 2000
+            },
+            match_recaptcha: {
+                required: true,
+                equalTo: "#recaptcha"
+            }
+        },
+        messages: {
+            technical_issue: {
+                required: "Please Select Issue"
+            },
 
-			  description: {
-				required: "Please Add Description",
-				maxlength:'Character may be less than 2000'
-			},
-		
-			},
-    submitHandler: function(form) {
-		//event.preventDefault();
-		var form  =  $("#technical_functiong");
-		var formData = new FormData($(form)[0]);
-		
-		$('.loader').show();
-		$('.percentage').html('0');
-     $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-      $.ajax({
-		url:APP_URL+"/artist/insert_support",
-        type: "POST",
-		data: formData,
-		processData: false,
-		contentType: false,
-		xhr: function () {
-			var xhr = $.ajaxSettings.xhr();
-			if (xhr.upload) {
-				xhr.upload.addEventListener('progress', function(event) {
-					var percent = 0;
-					var position = event.loaded || event.position;
-					var total = event.total;
-					if (event.lengthComputable) {
-						percent = Math.ceil(position / total * 100);
-					}
-					$('#top_title').html('Uploding...'+percent+'%');
-					$('.percentage').html(percent+'%');
-					if(percent==100){
-						$('.loader').hide();
-					}
-				}, true);
-			}
-			return xhr;
-	},
-        success: function( response ) {
+            match_recaptcha: "Please Match Recaptcha",
 
-		//	console.log(response);return false;
+            description: {
+                required: "Please Add Description",
+                maxlength: 'Character may be less than 2000'
+            }
+        },
+        submitHandler: function (form) {
+            //event.preventDefault();
+            var form = $("#technical_functiong");
+            var formData = new FormData($(form)[0]);
 
-			if(response==1){
-						 $('#success').show();
-						 $('#success').html('Ticket Created Successfully!');
-	
-						 setTimeout(function(){
-							 location.reload();
-						 },2000);
-							
-					}
-	
-					else{
-	
-						$('#error').show();
-						$('#error').html('Some Error');
-						
-					}
-       }
-      });
-    }
-  })
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/artist/insert_support",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (response) {
+
+                    //	console.log(response);return false;
+
+                    if (response == 1) {
+                        $('#success').show();
+                        $('#success').html('Ticket Created Successfully!');
+
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+
+                    } else {
+
+                        $('#error').show();
+                        $('#error').html('Some Error');
+
+                    }
+                }
+            });
+        }
+    })
 }
-
-
-
 
 if ($("#myForm").length > 0) {
     $("#myForm").validate({
-      
-		rules: {
-			title: {
-			required: true,
-			maxlength: 30
-		},
-		convert: {
-			required: true,
-			
-		 },
-		 category: {
-			required: true,
-		 },
-		 description: {
-			required: true,
-			maxlength: 2000
-		},
-		},
-			messages: {
-				title: {
-				required: "Please Add Title",
-				maxlength:'Character may be less than 30'
 
-			},
-			category: {
-				required: "Choose Quality",
-			  },
+        rules: {
+            title: {
+                required: true,
+                maxlength: 30
+            },
+            convert: {
+                required: true
+            },
+            category: {
+                required: true
+            },
+            description: {
+                required: true,
+                maxlength: 2000
+            }
+        },
+        messages: {
+            title: {
+                required: "Please Add Title",
+                maxlength: 'Character may be less than 30'
 
-			  convert: {
-				required: "Choose Category",
-			  },
+            },
+            category: {
+                required: "Choose Quality"
+            },
 
-			  description: {
-				required: "Please Add Description",
-				maxlength:'Character may be less than 2000'
-			},
-		
-			},
-    submitHandler: function(form) {
-		//event.preventDefault();
-		var form  =  $("#myForm");
-		var formData = new FormData($(form)[0]);
-		
-		$('.loader').show();
-		$('.percentage').html('0');
-     $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-      $.ajax({
-		url:APP_URL+"/postContent",
-        type: "POST",
-		data: formData,
-		processData: false,
-		contentType: false,
-		xhr: function () {
-			var xhr = $.ajaxSettings.xhr();
-			if (xhr.upload) {
-				xhr.upload.addEventListener('progress', function(event) {
-					var percent = 0;
-					var position = event.loaded || event.position;
-					var total = event.total;
-					if (event.lengthComputable) {
-						percent = Math.ceil(position / total * 100);
-					}
-					$('#top_title').html('Uploding...'+percent+'%');
-					$('.percentage').html(percent+'%');
-					if(percent==100){
-						$('.loader').hide();
-					}
-				}, true);
-			}
-			return xhr;
-	},
-        success: function( response ) {
+            convert: {
+                required: "Choose Category"
+            },
 
-			console.log(response);return false;
+            description: {
+                required: "Please Add Description",
+                maxlength: 'Character may be less than 2000'
+            }
+        },
+        submitHandler: function (form) {
+            //event.preventDefault();
+            var form = $("#myForm");
+            var formData = new FormData($(form)[0]);
 
-			if(response.errors){
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/postContent",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (response) {
 
-				jQuery.each(response.errors, function(key, value){
-					jQuery('.alert-danger').show();
-					jQuery('.alert-danger').append('<p>'+value+'</p>');
-				});
-			}
-			else{
-				$('.loader').hide();
-				//$('.percentage').hide();
-				if(response.status==1){
-					 $('#success').show();
-					 $('#success').html(response.messge);
+                    console.log(response);
+                    //return false;
 
-					 setTimeout(function(){
-						 location.reload();
-					 },2000);
+                    if (response.errors) {
 
-					// location.reload();
-					//$('.popup_close').trigger('click');
-						
-				}
+                        jQuery.each(response.errors, function (key, value) {
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').append('<p>' + value + '</p>');
+                        });
+                    } else {
+                        $('.loader').hide();
+                        //$('.percentage').hide();
+                        if (response.status == 1) {
+                            $('#success').show();
+                            $('#success').html(response.messge);
 
-				else{
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
 
-					$('#error').show();
-					$('#error').html(response.messge);
-					
-				}
+                            // location.reload(); $('.popup_close').trigger('click');
 
+                        } else {
 
-			}
+                            $('#error').show();
+                            $('#error').html(response.messge);
+
+                        }
+
+                    }
+                }
+            });
         }
-      });
-    }
-  })
+    })
 }
-
 
 if ($("#create_offer").length > 0) {
     $("#create_offer").validate({
-      
-		rules: {
-			title: {
-			required: true,
-			maxlength: 30
-		},
-		quality: {
-			required: true,
-			
-		 },
-		 category: {
-			required: true,
-		 },
-		 description: {
-			required: true,
-			maxlength: 2000
-		},
-		},
-			messages: {
-				title: {
-				required: "Please Add Title",
-				maxlength:'Character may be less than 30'
 
-			},
-			quality: {
-				required: "Choose Quality",
-			  },
+        rules: {
+            title: {
+                required: true,
+                maxlength: 30
+            },
+            quality: {
+                required: true
+            },
+            category: {
+                required: true
+            },
+            description: {
+                required: true,
+                maxlength: 2000
+            }
+        },
+        messages: {
+            title: {
+                required: "Please Add Title",
+                maxlength: 'Character may be less than 30'
 
-			  category: {
-				required: "Choose Category",
-			  },
+            },
+            quality: {
+                required: "Choose Quality"
+            },
 
-			  description: {
-				required: "Please Add Description",
-				maxlength:'Character may be less than 2000'
-			},
-		
-			},
-    submitHandler: function(form) {
-		//event.preventDefault();
-		var form  =  $("#create_offer");
-		var formData = new FormData($(form)[0]);
-		
-		$('.loader').show();
-		$('.percentage').html('0');
-     $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-      $.ajax({
-		url:APP_URL+"/createOffer",
-        type: "POST",
-		data: formData,
-		processData: false,
-		contentType: false,
-		xhr: function () {
-			var xhr = $.ajaxSettings.xhr();
-			if (xhr.upload) {
-				xhr.upload.addEventListener('progress', function(event) {
-					var percent = 0;
-					var position = event.loaded || event.position;
-					var total = event.total;
-					if (event.lengthComputable) {
-						percent = Math.ceil(position / total * 100);
-					}
-					$('#top_title').html('Uploding...'+percent+'%');
-					$('.percentage').html(percent+'%');
-					if(percent==100){
-						$('.loader').hide();
-					}
-				}, true);
-			}
-			return xhr;
-	},
-	success: function(data){
+            category: {
+                required: "Choose Category"
+            },
 
-		//console.log(data);return false;
+            description: {
+                required: "Please Add Description",
+                maxlength: 'Character may be less than 2000'
+            }
+        },
+        submitHandler: function (form) {
+            //event.preventDefault();
+            var form = $("#create_offer");
+            var formData = new FormData($(form)[0]);
 
-		if(data.errors){
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/createOffer",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (data) {
 
-		jQuery.each(data.errors, function(key, value){
-			jQuery('.alert-danger').show();
-			jQuery('.alert-danger').append('<p>'+value+'</p>');
-		});
-	}
+                    //console.log(data);return false;
 
-	else{
+                    if (data.errors) {
 
-		$('.loader').hide();
-		//console.log(data);return false;
+                        jQuery.each(data.errors, function (key, value) {
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').append('<p>' + value + '</p>');
+                        });
+                    } else {
 
-		if(data.status==1){
-			 $('#success').show();
-			 $('#success').html(data.messge);
+                        $('.loader').hide();
+                        //console.log(data);return false;
 
-			 setTimeout(function(){
-				 location.reload()
-			 },2000);
+                        if (data.status == 1) {
+                            $('#success').show();
+                            $('#success').html(data.messge);
 
-			 //location.reload();
-			//$('.popup_close').trigger('click');
-				
-		}
+                            setTimeout(function () {
+                                location.reload()
+                            }, 2000);
 
-		else{
+                            //location.reload(); $('.popup_close').trigger('click');
 
-			$('#error').show();
-			$('#error').html(data.messge);
-			
-		}
+                        } else {
 
+                            $('#error').show();
+                            $('#error').html(data.messge);
 
-	}
+                        }
+
+                    }
+                }
+            });
+        }
+    })
 }
-      });
-    }
-  })
-}
-
-
 
 $("#edit").on('click', function () {
     var inf = $(".replace");
     inf.each(function () {
         $(this).replaceWith(function (i, text) {
-			
-					if(this.id=='country'){
-						$('#'+this.id).hide();
-						$('.'+this.id).show();
-						return;
-					}
-					else{
-				return $("<input>", {
-					type: "text",
-					value: text,
-					name:this.id
-					//id: this.id
-            })
-		}
-	
+
+            if (this.id == 'country') {
+                $('#' + this.id).hide();
+                $('.' + this.id).show();
+                return;
+            } else {
+                return $("<input>", {
+                    type: "text",
+                    value: text,
+                    name: this.id,
+                    class: 'replace'
+                    //id: this.id
+                })
+            }
 
         });
 
     });
-	$(this).hide();
-	$(this).next().show();
+    $(this).hide();
+    $(this)
+        .next()
+        .show();
 
 });
 
-function seconds_to_min_sec(seconds,id,vidid) {
+$('#cancel').click(function () {
+    //alert('hello');
+    $('.replace').each(function () {
+        $(this).replaceWith(function (i, text) {
+            if (this.class == 'country') {
+                $('.' + this.class).hide();
+                $('#' + this.class).show();
+                return;
+            } else {
+                return $("<span />", {
+                    text: this.value,
+                    class: this.class
+                    //id: this.id
+                })
+            }
+        })
+    });
+})
 
-	//console.log(seconds);return false;
+function seconds_to_min_sec(seconds, id, vidid) {
 
+    //console.log(seconds);return false;
 
-	var minutes = Math.floor(seconds / 60);
-	var hours = Math.floor(seconds / 3600);
-	var seconds = seconds - minutes * 60;
-	//console.log(hours);return false;
-	var duration =  parseInt(minutes) ==0 ? '0' + ':'  + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-	//console.log(duration);return false;
-	var hours_sys = hours==0 ? '0' + ':' + duration : hours + ":" + duration;
-	//console.log(hours_sys);return false;
-	$(id).html(hours_sys);
-	$.ajax({
-	type: 'POST',
-	url:APP_URL+"/duration",
-	headers: {
-  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  },
-	  data: {'duration':hours_sys, 'id':vidid},
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(seconds / 3600);
+    var seconds = seconds - minutes * 60;
+    //console.log(hours);return false;
+    var duration = parseInt(minutes) == 0
+        ? '0:' + parseInt(seconds)
+        : minutes + ":" + parseInt(seconds);
+    //console.log(duration);return false;
+    var hours_sys = hours == 0
+        ? '0:' + duration
+        : hours + ":" + duration;
+    //console.log(hours_sys);return false;
+    $(id).html(hours_sys);
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/duration",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+            'duration': hours_sys,
+            'id': vidid
+        },
 
-  success: function(data){
+        success: function (data) {
 
-	  console.log(data);return false;
+            console.log(data);
+            return false;
 
+        }
+    });
 
-  }
-});
-
-  }
-
-$(document).on('submit', '#updateUser', function (event) {
-	event.preventDefault();
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/updateArtist",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-
-			data: $(this).serialize(),
-		
-
-			success: function(data){
-
-				//console.log(data);return false;
-
-				if(data==1){
-
-					location.reload();
-						
-				}
-
-				else{
-
-					location.reload();
-					
-				}
-
-
-			}
-	});
-
-});
-
-
-
-
-/*---------------------------------------------------Edit Artist Personal Info-----------------------------------*/
-
-$(document).on('submit', '#artist_info', function (event) {
-	event.preventDefault();
-
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/contentProvider",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-
-			data: $(this).serialize(),
-		
-
-			success: function(data){
-
-				//console.log(data);return false;
-
-				if(data==1){
-
-					window.location.href = APP_URL+'/artists/dashboard';
-						
-				}
-
-				else{
-
-					location.reload();       
-					
-				}
-
-
-			}
-	});
-
-});
-
-
-/*------------------------------------------------------Customer Issue --------------------------------------------------------*/
-
-$(document).on('submit', '#customer_issue', function (event) {
-	event.preventDefault();
-	$('.close').trigger('click');
-	//console.log(formData);return false;
-       $.ajax({
-			type: 'POST',
-			url:APP_URL+"/customer_issue",
-			 headers: {
-			 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		   },
-
-			data: $(this).serialize(),		
-
-			success: function(data){
-
-				console.log(data);
-
-				if(data==1){
-
-					//alert('done');
-
-					
-						
-				}
-
-				else{
-
-					location.reload();       
-					
-				}
-
-
-			}
-	});
-
-});
-
-
-function removeBadge(id){
-
-	//console.log(id);
-
-	$.ajax({
-		type: 'POST',
-		url:APP_URL+"/removeBadge",
-		 headers: {
-		 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	   },
-
-		data: {'id':id},		
-
-		success: function(data){
-
-			console.log(data);
-
-
-		}
-});
 }
 
+$(document).on('submit', '#updateUser', function (event) {
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/updateArtist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
+        data: $(this).serialize(),
 
+        success: function (data) {
 
+            //console.log(data);return false;
 
-/*------------------------------------------Add Active Class-----------------------------------------------*/
+            if (data == 1) {
+
+                location.reload();
+
+            } else {
+
+                location.reload();
+
+            }
+
+        }
+    });
+
+});
+
+/* ---------------------------------------------------Edit Artist Personal
+ * Info-----------------------------------
+ */
+
+$(document).on('submit', '#artist_info', function (event) {
+    event.preventDefault();
+
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/contentProvider",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            //console.log(data);return false;
+
+            if (data == 1) {
+
+                window.location.href = APP_URL + '/artists/dashboard';
+
+            } else {
+
+                location.reload();
+
+            }
+
+        }
+    });
+
+});
+
+/* ------------------------------------------------------Customer Issue
+ * --------------------------------------------------------
+ */
+
+$(document).on('submit', '#customer_issue', function (event) {
+    event.preventDefault();
+    $('.close').trigger('click');
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/customer_issue",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            console.log(data);
+
+            if (data == 1) {
+
+                //alert('done');
+
+            } else {
+
+                location.reload();
+
+            }
+
+        }
+    });
+
+});
+
+function removeBadge(id) {
+
+    //console.log(id);
+
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/removeBadge",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+            'id': id
+        },
+
+        success: function (data) {
+
+            console.log(data);
+
+        }
+    });
+}
+
+/* ------------------------------------------Add Active
+ * Class-----------------------------------------------
+ */
 
 // $('.nav-item').click(function(){
-// 	$(this).parent('.nav').find('.nav-item').removeClass('active');
-// 	$(this).addClass('active');
-// })
-
-
-
-// $(document).on('click', '.showoffer', function () {
-
-// 	$('#nav-tab').find('.tabss').removeClass('active');
-
-// 	//alert('hello');
-
-// 	$('#nav-tab').find('#nav-offer-tab').addClass('active').trigger('classChange');
-
-// 	$('#nav-offer-tab').trigger('click');
-
-
-
-
-// })
-
+// $(this).parent('.nav').find('.nav-item').removeClass('active');
+// $(this).addClass('active'); }) $(document).on('click', '.showoffer', function
+// () { 	$('#nav-tab').find('.tabss').removeClass('active');  alert('hello');
+// $('#nav-tab').find('#nav-offer-tab').addClass('active').trigger('classChange');
+// $('#nav-offer-tab').trigger('click'); })

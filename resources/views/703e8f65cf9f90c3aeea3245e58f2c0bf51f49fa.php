@@ -629,7 +629,7 @@
                 
                 <div style="display:none;  padding-top: 13%;">
                 <div class="text-left">
-                        <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
+                        <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
                     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Apply
                  </button></div>

@@ -26,6 +26,10 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="<?php echo e(asset('artistdashboard/css/demo/demo.css')); ?>" rel="stylesheet" />
   <script src="https://www.yoti.com/share/client/"></script>
+  
+
+ 
+
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
 
@@ -427,7 +431,7 @@
    <span class="nickname"><?php echo e($login->nickname); ?></span>
   
    <hr style="color:white;background: white;">
-  <b style="    color: yellow !important;"><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="color: yellow !important;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
+  <b style="    color: gold !important;"><?php echo e(isset($artistProfile[0]->token) ? $artistProfile[0]->token : ''); ?> </b>    <b style="color: gold !important;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b>
 
  </span>
   
