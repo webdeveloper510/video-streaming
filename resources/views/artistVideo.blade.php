@@ -44,7 +44,8 @@
                                     style="cursor:pointer;"
                                     id="{{$video->id}}"
                                     class="addToCart"
-                                    style="{{$wishlist > 0 ? 'color:blue' : 'color:red'}}"
+                                    text-data="{{$wishlist > 0 ? 'removed' : 'added'}}"
+                                    style="{{$wishlist > 0 ? 'color:blue; background-color:blue' : 'color:red;background-color:red'}}"
                                     >
 
                                     {{$wishlist > 0 ? 'Remove Video From Playlist' : 'Add To Wishlist' }}
@@ -406,26 +407,30 @@ ul.reporting {
                             <script type="text/javascript">
                                 $(".addToCart").click(function (e) {
                                     //alert('gee');
-                                    var text = $(this).text();
-                                    //console.log(text);
+                                    var text = $(this).attr('text-data');
+                                    //console.log(text);return false;
                                     e.preventDefault();
                                     $.ajax({
                                         type: "POST",
                                         url: "{{url('ajax-request')}}",
                                         data: {
                                             'id': $(this).attr('id'),
-                                            'text': text == 'Added'
+                                            'text': text == 'removed'
                                                 ? 'remove'
                                                 : 'added',
                                             '_token': "{{ csrf_token() }}"
                                         },
                                         success: function (result) {
                                             console.log(result);
+                                            var new_text = text=='removed' ? 'added'  : 'removed'
+                                            console.log(new_text);
                                             $('.addToCart').text(
-                                                text == 'Added'
+                                                text == 'removed'
                                                     ? 'Add To Wishlist'
                                                     : 'Remove Media From Playlist'
                                             );
+                                            $('.addToCart').attr('text-data',new_text)
+                                            
                                         },
                                         error: function (result) {
                                             alert('error');
