@@ -131,7 +131,7 @@ $(document).ready(function(){
 		'<table>'+
 		'<tr>'+
 		'<td> <p>Categories :</p>'+
-		'<p class="category">'+d.catgories+'</p>'+
+		'<p class="category">'+d.catgory+'</p>'+
 		'</td>'+
 		'<td> <p class="quality">Quality :</p>'+
 		'<p>'+d.quality+'p</p>'+
@@ -1876,7 +1876,7 @@ function format ( d , type) {
 
 	var disabled = d.remaining_days > 0 ? 'disabled' : ''
 
-	var file = d.type=='video' ? 'Uplaod Video' : 'Upload Audio';
+	var file = d.type=='video' ? 'Upload Video' : 'Upload Audio';
 
 	var html = d.type=='audio' ? '<label>Upload Image</label><input type="file" name="audio_pic"/>' : '';
 
@@ -1908,7 +1908,7 @@ function format ( d , type) {
 	'<table>'+
 	'<tr>'+
 	'<td> <p>Categories :</p>'+
-	'<p class="category">'+d.catgories+'</p>'+
+	'<p class="category">'+d.catgory+'</p>'+
 	'</td>'+
 	'<td> <p class="quality">Quality :</p>'+
 	'<p>'+d.quality+'p </p>'+
@@ -2475,6 +2475,8 @@ if ($("#myForm").length > 0) {
 			return xhr;
 	},
         success: function( response ) {
+
+			console.log(response);return false;
 
 			if(response.errors){
 

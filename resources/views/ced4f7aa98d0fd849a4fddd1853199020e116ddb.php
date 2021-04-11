@@ -224,7 +224,23 @@ section.background1 {
 
 }
 </style>
+
        
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+ 
 
-<?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
+<script>
+$('form').transloadit({
+   
+      wait: true,
+      triggerUploadOnFileSelection: true,
+      params: {
+        auth: {
+          // To avoid tampering use signatures:
+          // https://transloadit.com/docs/api/#authentication
+          key: '1d655f1b2ca54bcf89a68e3b03fcf6ab',
+        },
+        template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
+      }
+    });
+</script><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
