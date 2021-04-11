@@ -43,9 +43,12 @@
                                     type="button"
                                     style="cursor:pointer;"
                                     id="<?php echo e($video->id); ?>"
-                                    class="addToCart">
+                                    class="addToCart"
+                                    text-data="<?php echo e($wishlist > 0 ? 'removed' : 'added'); ?>"
+                                    style="<?php echo e($wishlist > 0 ? 'color:blue; background-color:blue' : 'color:red;background-color:red'); ?>"
+                                    >
 
-                                    <?php echo e($wishlist > 0 ? 'Added' : 'Add To Wishlist'); ?>
+                                    <?php echo e($wishlist > 0 ? 'Remove Video From Playlist' : 'Add To Wishlist'); ?>
 
                                 </button>
 
@@ -409,26 +412,30 @@ ul.reporting {
                             <script type="text/javascript">
                                 $(".addToCart").click(function (e) {
                                     //alert('gee');
-                                    var text = $(this).text();
-                                    //console.log(text);
+                                    var text = $(this).attr('text-data');
+                                    //console.log(text);return false;
                                     e.preventDefault();
                                     $.ajax({
                                         type: "POST",
                                         url: "<?php echo e(url('ajax-request')); ?>",
                                         data: {
                                             'id': $(this).attr('id'),
-                                            'text': text == 'Added'
+                                            'text': text == 'removed'
                                                 ? 'remove'
                                                 : 'added',
                                             '_token': "<?php echo e(csrf_token()); ?>"
                                         },
                                         success: function (result) {
                                             console.log(result);
+                                            var new_text = text=='removed' ? 'added'  : 'removed'
+                                            console.log(new_text);
                                             $('.addToCart').text(
-                                                text == 'Added'
+                                                text == 'removed'
                                                     ? 'Add To Wishlist'
-                                                    : 'Added'
+                                                    : 'Remove Media From Playlist'
                                             );
+                                            $('.addToCart').attr('text-data',new_text)
+                                            
                                         },
                                         error: function (result) {
                                             alert('error');
