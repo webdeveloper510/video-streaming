@@ -220,7 +220,7 @@ section.background1 {
 @include('artists.dashboard_footer')
  
 
-<script>
+<!-- <script>
 $('form').transloadit({
    
       wait: true,
@@ -234,4 +234,4 @@ $('form').transloadit({
         template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
       }
     });
-</script>
+</script> -->

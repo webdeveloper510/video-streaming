@@ -229,7 +229,7 @@ section.background1 {
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  
 
-<script>
+<!-- <script>
 $('form').transloadit({
    
       wait: true,
@@ -243,4 +243,4 @@ $('form').transloadit({
         template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
       }
     });
-</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
+</script> --><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
