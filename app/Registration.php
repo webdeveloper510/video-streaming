@@ -406,9 +406,6 @@ public function uploadContentProvider($contentdata){
       unset($contentdata['subcategory']);
       unset($contentdata['radio']);
        $contentdata['duration']='';
-
-    $contentdata['created_at']= now();
-    $contentdata['updated_at']= now();
      $inserted_data =  DB::table('media')->insertGetId($contentdata);
       if($inserted_data){
 
@@ -1049,10 +1046,12 @@ public function getRespectedSub($data){
 
          
            $update = array(
+               'created_at'=>$data['created_at'],
+               'updated_at'=>$data['updated_at'],
               'title'=>$data['title'],
               'price'=>$data['price'],
               'description'=>$data['description'],
-              'categoryid'=>$data['category'][0] ? $data['category'][0] : $data['category'][1],
+              'categoryid'=>$data['type']=='video' ? $data['video_cat'] : $data['audio_cat'],
               'min'=>$data['min'],
               'max'=>$data['max'],
               'type'=>$data['type'],
@@ -1061,10 +1060,11 @@ public function getRespectedSub($data){
               'delieveryspeed'=>$data['delieveryspeed'],
               'quality'=>$data['quality'],
               'media'=>$data['media'],
+              'audio_pic'=>$data['thumbnail']  
            );
-           //print_r($update);die;
 
-           $update = $this->UpdateData('offer','id',$update,$data['offerid']);
+
+          $update = $this->UpdateData('offer','id',$update,$data['offerid']);
            
 
            return $update ? 1 : 0;
@@ -1109,8 +1109,6 @@ public function getRespectedSub($data){
 
       $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
-      $data['created_at'] = now();
-      $data['updated_at'] = now();
        $data['by_created']=1;
        $data['quality'] = $data['quality'] ? $data['quality'] : '';
 

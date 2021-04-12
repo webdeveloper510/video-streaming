@@ -403,7 +403,8 @@ Your browser does not support the audio tag.
                   {{Form::label('Additional Request Price', 'Additional Request Price')}} 
                 {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])}}
                 <br>
-                     
+                <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">
@@ -435,7 +436,7 @@ Your browser does not support the audio tag.
                   <br>
                   <label>Choose Category</label>
                   <div class="video" style="display:none">
-                  <select name="category[]"  class='form-control video'>
+                  <select name="video_cat"  class='form-control video'>
                           <option value="">Choose category</option>
                           @foreach($category as $cat)
                           @if($cat->type=='video')
@@ -446,7 +447,7 @@ Your browser does not support the audio tag.
                   </div>
                   <br>
                   <div class="audio" style="display:none">
-                    <select name="category[]"  class='form-control audio'>
+                    <select name="audio_cat"  class='form-control audio'>
                             <option value="">Choose category</option>
                             @foreach($category as $cat)
                                   @if($cat->type=='audio')
@@ -466,6 +467,15 @@ Your browser does not support the audio tag.
                             <option value="1080">Full HD 1080p  </option>
                     </select>
                 </div>
+                <br>
+            <label>Offer Status</label>
+            
+            <select name="offer_status" id="select_status" class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
                 <br>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
                    <label class="thumbnail1"></label>        

@@ -1519,7 +1519,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
-            //sconsole.log(data);return false;
+           // console.log(data);
 
             if (data.status == 1) {
                 $('.alert-success').show();
@@ -1643,6 +1643,15 @@ $(document).on('submit', '#edit_Video_info', function (event) {
 
 $(document).ready(function () {
 
+   /**-------------------------------------- Get Currnt Date and Time ------------------------------------------------------------------- */
+   var today = new Date();
+   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   var dateTime = date+' '+time;
+   $('.created_at').val(dateTime)
+   $('.updated_at').val(dateTime)
+
+   //console.log(dateTime)
     // Delete
     $('.delete').click(function () {
 
