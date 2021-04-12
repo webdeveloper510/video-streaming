@@ -41,8 +41,8 @@
 
                     <div class="ticketstext">
                         <label>Subject</label>
-                        <select name="technical_issue" class="custom-select">
-                            <option selected="selected">Select menu</option>
+                        <select name="technical_issue" class="form-control">
+                            <option value="">Select menu</option>
                             <option value="Feature Request">Feature Request</option>
                             <option value="Functionality Question">Functionality Question</option>
                             <option value="Technical Issue">Technical Issue</option>

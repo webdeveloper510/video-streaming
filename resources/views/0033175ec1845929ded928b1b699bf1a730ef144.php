@@ -70,7 +70,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <video width="100%"   controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -168,7 +168,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hover" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -225,7 +225,7 @@
      <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
     <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>" width="100%">
 
-<audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>" disablePictureInPicture>
+<audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>"   poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" disablePictureInPicture>
 
 <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
 Your browser does not support the audio tag.
@@ -339,13 +339,13 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
           <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); ?>" width="100%;">
-          <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
           <?php endif; ?>
