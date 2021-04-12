@@ -551,7 +551,7 @@ class artist extends Controller
        $thumbnail = $req->file ? time().'_'.$req->audio_pic->getClientOriginalName() : '';
 
       $filePath = $req->file ? $req->file->storeAs('video', $fileName, 'public') : '';
-      $thumb = $req->file ? $req->file->storeAs('uploads', $thumbnail, 'public') : '';
+      $thumb = $req->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
       $req['media'] = $fileName ? $fileName : $req['file_url'];
       $req['thumbnail'] = $thumbnail ;
