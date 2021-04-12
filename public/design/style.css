@@ -5514,7 +5514,7 @@ i.fa.fa-shopping-cart {
 		background: #7b0000;
 	}
 	ul.footer-menu.pb-3 {
-		display: unset;
+		display: unset !important;
 		justify-content: unset;
 	}
 	footer {
