@@ -7,6 +7,7 @@ use App\File;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\artistSupport;
+use App\Mail\artist_email_support;
 //  use Stripe\Error\Card;
 
 //use Stripe;
@@ -235,6 +236,8 @@ class artist extends Controller
       $navbaractive = 'dashboard';
 
       $contentType =   Session::get('User');
+
+      //print_r($contentType);die;
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
@@ -946,8 +949,10 @@ class artist extends Controller
         
           $insert = $this->model->insert_ticket_table($data);
           if($insert){
-
-            Mail::to('artist@pornartistzone.com')->send(new artistSupport($req->all()));
+            $contentType =   Session::get('User');
+            $fetch = $this->model->selectDataById('id','contentprovider',$contentType->id);
+            Mail::to('artist@pornartistzone.com','saurav@codenomad.net')->send(new artistSupport($req->all(),$contentType->nickname));
+            Mail::to($fetch[0]->email)->send(new artist_email_support($req->all(),$contentType->nickname));
  
 
             return $insert;

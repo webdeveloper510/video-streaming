@@ -30,7 +30,11 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
                 </tr>
                 <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Description <span>{{$data['description']}}</span>,
+                     <h4>Description ,
+                         
+</h4>
+                                <p>
+                                {{$data['description']}}
                                 </p>
                 </td>
              </tr>
