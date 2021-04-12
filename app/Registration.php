@@ -791,13 +791,15 @@ public function getRespectedSub($data){
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
       ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
-     
-      //print_r($data);die;
+    
        
       if ($sts) {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }
+
+    // echo "<pre>";
+    // print_r($data->get());die;
 
 
       
@@ -860,7 +862,9 @@ public function getRespectedSub($data){
 
       $userid=  $session_data->id;
 
-      $value=DB::table($table)->where(array('status'=>'process'));
+      $value=DB::table($table)->where('status','process')
+        ->where('userid','!=',0);
+      
 
       if($table=='offer'){
         $val = $value->where('artistid',$userid)->count();
