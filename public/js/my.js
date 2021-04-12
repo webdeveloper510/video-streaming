@@ -2163,6 +2163,7 @@ function getPaz(a) {
 $(document).on('click', '.select_media_pic', function () {
 
     $('.thumbnail').show();
+    $('.file').show();
     var value = $(this).val();
 
     if (value == 'audio') {
