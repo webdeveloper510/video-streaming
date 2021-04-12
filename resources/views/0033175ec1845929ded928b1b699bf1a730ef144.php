@@ -5,9 +5,9 @@
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
         <div class="overlayartist text-center">
-           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid cover_loader" style="display:none">
+           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid" style="display:none">
         </div>
-  <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
+           <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -28,7 +28,7 @@
         </div>
         <div class="profileimg">
         <div class="overlayprofile">
-           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid profile_loader">
+           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
         <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >

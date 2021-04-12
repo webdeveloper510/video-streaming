@@ -1735,6 +1735,7 @@ function addTohistory(type) {
 
 $('.image').click(function () {
     var image_type = $(this).attr('data-id');
+    $(this).parent().parent().find('.img-fluid').show();
     $('#image_type').val(image_type);
     //console.log(image_type);
     $('.image_change').trigger('click');
