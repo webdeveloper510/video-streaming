@@ -25,11 +25,11 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                <h2>>Hi «Firstname/Artistname»</h2><br>
+                <h2>>Hi<span>{{$name}}</span></h2><br>
                 <p>  We have received your ticket.</p><br>
                 <p>  Thanks for getting in touch!</p><br>
                 <p>  We'll aim to get back to you within one business day. Our PAZ support team is available any time (holidays excluded) from Monday to Friday.</p><br>
-                <p>   In the meantime, you can read our FAQ’s here:https://pornartistzone.com/artist/faq</p><br>
+                <p>   In the meantime, you can read our FAQ’s here:<a href="https://pornartistzone.com/artist/faq">https://pornartistzone.com/artist/faq</a></p><br>
                 <p>   For anything else, our PAZ support team will get back to you as soon as possible.</p><br>
                 <p>  Have a great day.</p>
                  </td>
