@@ -1,4 +1,45 @@
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> < link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
+<?php if(!$login): ?>
+            <style>
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 15% !important;
+                }
+            </style>
+            <div class="outer_slider">
+
+                <style>
+                  .header_bottom {
+                            display: none;
+                        }
+                    .header {
+                        background: black;
+                    }
+                    .freelog {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
+                    .free {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
+                    .header img {
+                        display: block;
+                        margin: 0 auto;
+                        border: 2px solid gold;
+                    }
+                    .container.my-4.row {
+                        margin: 0 auto;
+                    }
+                </style>
+             <?php endif; ?>
+
+
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+<link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
     href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap"
     rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>"/>
@@ -106,8 +147,7 @@
                             <video
                                 class="hoverVideo"
                                 width="100%"
-                                autoplay="autoplay"
-                                loop="loop"
+                                muted
                                 allowfullscreen="allowfullscreen">
                                 <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
                                     Your browser does not support the video tag.
@@ -540,6 +580,7 @@
                                         src="<?php echo e($audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'); ?>">
                                         <audio
                                             controlsList="nodownload"
+                                            poster="<?php echo e(url('storage/app/public/uploads/'.$audio->audio_pic)); ?>"
                                             id="audio_<?php echo e($audio->id); ?>"
                                             disablePictureInPicture="disablePictureInPicture">
                                             <source
