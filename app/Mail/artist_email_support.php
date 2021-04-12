@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class artistSupport extends Mailable
+class artist_email_support extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
@@ -31,17 +31,14 @@ class artistSupport extends Mailable
      */
     public function build()
     {
-        return $this->from('info@pornartistzone')
-        ->subject('Artist Issue')
-       ->view(array('artists/artistSupportEmail'))
+        return $this->from('artist@pornartistzone')
+        ->subject('Your Issue')
+       ->view(array('artists/email_artist'))
        ->with(
          [
                'data' => $this->data,
                'name'=>$this->name
                
-         ])->attach($this->data['file']->getRealPath(),
-         ['as'=>$this->data['file']->getClientOriginalName(),
-         'mime'=>$this->data['file']->getClientMimeType(),
          ]);
     }
 }
