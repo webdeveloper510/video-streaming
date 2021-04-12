@@ -820,7 +820,7 @@
                                 <div class="col-6">
                                 <div class="form-group">
                                 <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                  <label class="custom-file-label" for="inputGroupFile01"></label>
                                   </div>
                                   </div>
                                   <div class="col-6">
@@ -834,7 +834,7 @@
                                 <div class="col-6">
                                 <div class="form-group">
                                 <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                       <label class="custom-file-label" for="inputGroupFile01"> </label>
                                   </div>
                                   </div>
                                   <div class="col-6">
