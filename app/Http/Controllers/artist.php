@@ -950,7 +950,7 @@ class artist extends Controller
           if($insert){
             $contentType =   Session::get('User');
 
-            Mail::to('artist@pornartistzone.com',$contentType->email)->send(new artistSupport($req->all(),$contentType->nickname));
+            Mail::to('artist@pornartistzone.com','saurav@codenomad.net')->send(new artistSupport($req->all(),$contentType->nickname));
  
 
             return $insert;
