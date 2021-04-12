@@ -636,7 +636,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                      <input type="text" class="form-control" placeholder="Enter Password">
+                      <input type="password" class="form-control" placeholder="Enter Password">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
