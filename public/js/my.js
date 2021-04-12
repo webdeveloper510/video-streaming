@@ -510,6 +510,18 @@ function readURL(input, bool) {
 
 }
 
+$(document).on('click', '.radioBtn', function () {
+	var id = $(this).attr('id');
+	$('.'+id).show();
+	if(id==video){
+		$('.image').hide();
+	}
+	else{
+		$('.video').hide();
+	}
+})
+
+
 $(document).on('click', '#checkPrice', function () {
     //alert('hello');return false;
     var token = $('.token').val();
@@ -2349,7 +2361,7 @@ if ($("#technical_functiong").length > 0) {
                 },
                 success: function (response) {
 
-                    //	console.log(response);return false;
+                    	console.log(response);
 
                     if (response == 1) {
                         $('#success').show();
@@ -2634,6 +2646,8 @@ $("#edit").on('click', function () {
         .show();
 
 });
+
+
 
 $('#cancel').click(function () {
     //alert('hello');

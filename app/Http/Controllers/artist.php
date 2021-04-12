@@ -905,8 +905,6 @@ class artist extends Controller
   public function insertData(Request $req){
 
    // print_r($req->all());die;
-
-
       $data=$req->all();
         $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
         $ext =$req->file ? $req->file->getClientOriginalExtension():'';
@@ -927,8 +925,15 @@ class artist extends Controller
 
         
           $insert = $this->model->insert_ticket_table($data);
+          if($insert){
 
-          return $insert;
+            Mail::to('artist@pornartistzone.com')->send(new customer_issue($req->all()));
+ 
+
+            return $insert;
+
+          }
+
           //print_r($insert);die;
             
         }
