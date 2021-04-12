@@ -1,4 +1,5 @@
-<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> < link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+<link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
     href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap"
     rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('design/initial.css')); ?>"/>

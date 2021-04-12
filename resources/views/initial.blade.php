@@ -1,4 +1,5 @@
-@include('layouts.header') < link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
+@include('layouts.header') 
+<link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
     href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap"
     rel="stylesheet">
     <link rel="stylesheet" href="{{asset('design/initial.css')}}"/>
