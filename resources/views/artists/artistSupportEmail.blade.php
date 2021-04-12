@@ -25,12 +25,13 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Email <span>{{$data['email']}}</span>,
-                                 <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
+                     <h4>Email <span>{{$data['email']}}</span></h4>
                 </td>
+                </tr>
+                <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
                      <p>Description <span>{{$data['description']}}</span>,
-                                 <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
+                                </p>
                 </td>
              </tr>
              <tr>

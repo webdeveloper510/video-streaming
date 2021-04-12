@@ -26,9 +26,9 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
                 <h2>Hi <span> Customername</span></h2>
-                <p>Thanks for getting in touch!</p>
-                  <p>We'll aim to get back to you within two business days. Our PAZ support team is available any time (holidays excluded) from Monday to Friday.</p>
-                  <p>Have a great day.</p> 
+                <p>Thanks for getting in touch!</p><br>
+                  <p>We'll aim to get back to you within two business days. Our PAZ support team is available any time (holidays excluded) from Monday to Friday.</p><br>
+                  <p>Have a great day.</p> <br>
                   <p>Ps: Please do not respond to this email. </p>
                   <p>-----------------</p>
                   <p>Your PAZ team</p>
