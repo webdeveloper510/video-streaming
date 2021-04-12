@@ -51,7 +51,7 @@ button.btn-primary:hover {
         @foreach($cart as $index=>$carts)
         <tr>
            <th scope="row">{{$index+1}}</th>
-           <td class="text-center"><video width="200px" height="100px" controls="">
+           <td class="text-center"><video width="200px" poster="{{url('storage/app/public/uploads/'.$carts->audio_pic) }}" height="100px" controls="">
              <source src="{{url('storage/app/public/video/'.$carts->media)}}" type="">
            </video></td>
            <td>{{$carts->price}}</td>
