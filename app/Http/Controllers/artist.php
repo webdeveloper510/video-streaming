@@ -5,6 +5,7 @@ use App\Registration;
 use Session;
 use App\File;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\artistSupport;
 //  use Stripe\Error\Card;
 
