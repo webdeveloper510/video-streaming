@@ -170,9 +170,10 @@
              <div class="card-body pb-1">
                  {!!Form::open(['action' => 'AuthController@personal_info', 'method' => 'post'])!!}
                  {{Form::token()}}
-             {{Form::label('First Name', 'First Name')}} 
-                {{Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])}}
+             {{Form::label('First Name', 'First Name')}} <br>
+                {{Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])}}  <br>
                 {{Form::label('Country', 'Country')}} 
+                <br>
                  <select name="country" required>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -387,6 +388,7 @@
               
                 <br>
                 <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
+                <br>
                 <div class="text-right">
                 {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
               </div>
