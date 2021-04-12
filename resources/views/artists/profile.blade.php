@@ -66,7 +66,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <video width="100%"   controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"  poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -162,7 +162,7 @@
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
                <a href="{{url('artistVideo/'.$detail->id)}}">
-            <video width="100%" class="hover"  id="collection_{{$detail->id}}"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hover" poster="{{url('storage/app/public/uploads/'.$detail->audio_pic) }}"  id="collection_{{$detail->id}}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -219,7 +219,7 @@
      <a href="{{url('artistVideo/'.$aud->id)}}">
     <img src="{{$aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')}}" width="100%">
 
-<audio controls controlsList="nodownload" id="audio_{{$aud->id}}" disablePictureInPicture>
+<audio controls controlsList="nodownload" id="audio_{{$aud->id}}"   poster="{{url('storage/app/public/uploads/'.$aud->audio_pic) }}" disablePictureInPicture>
 
 <source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
 Your browser does not support the audio tag.
@@ -333,13 +333,13 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           @if(isset($random[0]->type)&&$random[0]->type=='video')
-            <video width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  poster="{{url('storage/app/public/uploads/'.$random->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
                       <source src="{{isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
           @else
           <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}" width="100%;">
-          <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+          <audio  poster="{{url('storage/app/public/uploads/'.$random->audio_pic) }}" width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">          
           </audio>
           @endif
