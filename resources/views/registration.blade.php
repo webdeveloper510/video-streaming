@@ -1,7 +1,7 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
-@include('layouts.header')
+@include('layout.cdn')
 <div class="header py-3">
  <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand"></a>
  </div>
