@@ -1,4 +1,6 @@
-<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> < body onload = "createCaptcha()" > <section class=" support">
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+<body onload = "createCaptcha()"> 
+<section class=" support">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <a
@@ -10,7 +12,7 @@
                 aria-controls="pills-home"
                 aria-selected="true">Open Ticket</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
             <a
                 class="nav-link"
                 id="pills-profile-tab"
@@ -19,7 +21,7 @@
                 role="tab"
                 aria-controls="pills-profile"
                 aria-selected="false">Tickets</a>
-        </li>
+        </li> -->
 
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -226,6 +228,7 @@
             <script>
                 var code;
                 function createCaptcha() {
+                    //alert('ddd');
                     //clear the contents of captcha div first
                     document
                         .getElementById('captcha')
