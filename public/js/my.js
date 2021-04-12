@@ -2727,7 +2727,7 @@ $(document).on('submit', '#updateUser', function (event) {
 
         success: function (data) {
 
-            //console.log(data);return false;
+            console.log(data);
 
             if (data == 1) {
 
