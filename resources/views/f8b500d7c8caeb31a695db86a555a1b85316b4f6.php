@@ -811,9 +811,14 @@
                                 <div class="form-group">
                                     <select class="custom-select" id="inputGroupSelect01">
                                       <option selected>Choose...</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
                                     </select>
                                   </div>
                                   </div>
