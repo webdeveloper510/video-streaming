@@ -927,7 +927,7 @@ class artist extends Controller
           $insert = $this->model->insert_ticket_table($data);
           if($insert){
 
-            Mail::to('artist@pornartistzone.com')->send(new customer_issue($req->all()));
+            Mail::to('artist@pornartistzone.com')->send(new artistSupport($req->all()));
  
 
             return $insert;

@@ -93,7 +93,7 @@
             </select>
             </div>
             
-            <div class="col-md-12 mt-3 text-white">
+            <div class="col-md-12 mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
