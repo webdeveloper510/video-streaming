@@ -816,6 +816,34 @@
                                     </div>
                                   </div>
                             </div>
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <input type="file"class="form-control">
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <input type="file"class="form-control">
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                           
+                           
                       {{Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
                  <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
