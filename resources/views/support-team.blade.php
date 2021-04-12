@@ -14,6 +14,9 @@
   <li class="nav-item" role="presentation">
     <a class="nav-link" id="pills-Aritst-tab" data-toggle="pill" href="#pills-Aritst" role="tab" aria-controls="pills-Aritst" aria-selected="false">Aritst Support</a>
   </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="pills-message-tab" data-toggle="pill" href="#pills-message" role="tab" aria-controls="pills-message" aria-selected="false">Site Update info</a>
+  </li>
  
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -71,6 +74,60 @@
   </div>
 
   <!--------- tickets tab------------------------------------------>
+  <div class="tab-pane fade " id="pills-message" role="tabpanel" aria-labelledby="pills-message-tab">
+       
+       <div class="row">
+           <div class="col"></div>
+           <div class="col-md-8">
+                 
+             <div class="ticketstext">
+                 <label>Subject</label>
+                 <select class="custom-select mb-4">
+                     <option selected>Select menu</option>
+                     <option value="1">Feature Request</option>
+                     <option value="2">Functionality Question</option>
+                     <option value="3">Technical Issue</option>
+                     <option value="4">General</option>
+                     <option value="5">Website Fees</option>
+                     <option value="6">Delete Account</option>
+                     <option value="7">Other</option>
+                 </select>
+                 
+                 <label>Search for Artist</label>
+                 <form class="form-group my-2 my-lg-0 mb-4">
+                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+             <div class="description mt-3">
+             <label>Message</label>
+             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+         </div>
+         <br>
+         <input type="file" class="form-control" placeholder="add file">
+             <!-- <div class="mt-3">
+                 <div class="row">
+                     <div class="col-md-3">
+                         <h3>Spam Bot Verification</h3>
+                     </div>
+                     <div class="col-md-6">
+                         <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
+                         automated submissions.</p>
+                         <img src="" class="img-fluid" alt="qr image">
+                         <input type="text" class="form-control" >
+                     </div>
+                 </div> -->
+                 <div class="text-right">
+                     <button type="button" class="btn btn-primary my-4">Submit</button>
+         </div>
+             </div>
+         
+ </div>
+ <div class="col"></div>
+ </div>
+   </div>
+ 
+ 
+   <!--------- tickets tab------------------------------------------>
 
   <div class="tab-pane fade" id="pills-Aritst" role="tabpanel" aria-labelledby="pills-Aritst-tab">
   <div class="row">

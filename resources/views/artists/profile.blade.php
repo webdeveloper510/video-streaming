@@ -473,7 +473,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
                 <input type="hidden" name="offerid" id="offerid" value="">
-                <label class="media_label"></label>
+                <label class="label12"></label><br>
                   <input type="file" name="file" class="file_input" value=""/>
                   <span id="filename" style="color:red;"></span>
                   
@@ -526,7 +526,8 @@ Your browser does not support the audio tag.
             </select>
             </div> -->
           <div class="col-md-12 mt-3 text-white">
-            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])}} 
+            {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])}}
+            <br> 
                 {{Form::file('media',['class'=>'custom-file-input file_input'])}}
                 <span id="filename" style="color:#767605;"></span>
             </div>
