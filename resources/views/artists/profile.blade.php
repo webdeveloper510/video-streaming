@@ -743,6 +743,10 @@ video:hover {
     color: white !important;
     padding: 7px;
 }
+.overlayprofile img {
+    display: flex;
+    margin: -10% 4%;
+}
 @media only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
