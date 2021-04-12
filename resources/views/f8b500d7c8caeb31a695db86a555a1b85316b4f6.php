@@ -629,9 +629,9 @@
                 
                 <div style="display:none;  padding-top: 13%;">
                 <div class="text-left">
-                        <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
+                        <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Apply
+                    <button type="button" class="btn btn-primary btn-sm apply" data-toggle="modal" data-target="#exampleModal">Apply
                  </button></div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -750,15 +750,23 @@
               <div class="col-md-4">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
-                  <input type="radio" id="video" name="gender" value="Video">
+                  <input type="radio" id="video" name="gender" class="radioBtn" value="Video">
                   <label for="male">Video</label>
-                  <input type="radio" id="image" name="gender" value="image">
+                  <input type="radio" id="image" name="gender" class="radioBtn" value="image">
                   <label for="image">Image</label>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
-                        <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
+                            <div class="video" style="display:none;">
+                             <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
 
-                        <span id="filename" style="color:red;"></span>
+                             <span id="filename" style="color:red;"></span>
+                            </div>
+                            <div class="image" style="display:none;">
+                             <?php echo e(Form::file('media',['class'=>'custom-file-input chooseImage','id'=>'social1'])); ?>
+
+                             <span id="filename" style="color:red;"></span>
+                            </div>
+                      
                           <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])); ?>
 
                           <!-- <div class="alert alert-danger d-none"><?php echo e($errors->first('media') ?  $errors->first('media') : ''); ?></div> -->
@@ -782,6 +790,40 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                       <div class="linksonit mb-3">
+                        <div class="amout">
+                        <div class="form-group col-5">
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>Choose...</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                            </select>
+                          </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
                       <?php echo e(Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])); ?>
 
                  <div class="alert alert-danger d-none"><?php echo e($errors->first('username') ?  $errors->first('username') : ''); ?></div>
