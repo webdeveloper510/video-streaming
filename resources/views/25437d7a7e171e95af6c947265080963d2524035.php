@@ -172,10 +172,10 @@
 
                  <?php echo e(Form::token()); ?>
 
-             <?php echo e(Form::label('First Name', 'First Name')); ?> 
-                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])); ?>
-
+             <?php echo e(Form::label('First Name', 'First Name')); ?> <br>
+                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])); ?>  <br>
                 <?php echo e(Form::label('Country', 'Country')); ?> 
+                <br>
                  <select name="country" required>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -390,6 +390,7 @@
               
                 <br>
                 <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
+                <br>
                 <div class="text-right">
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm'])); ?>
 
@@ -618,7 +619,7 @@
                         <option value="Zambia">Zambia</option>
 </select>
               <br>
-                <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
+                <br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                    
@@ -627,7 +628,7 @@
                 <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
                 
-                <div style="display:none;  padding-top: 13%;">
+                <div style="display:none;  padding-top: 15%;">
                 <div class="text-left">
                         <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
