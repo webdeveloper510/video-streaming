@@ -807,12 +807,24 @@ class artist extends Controller
     
     $userid =  $session_data->id;
 
-        unset($req['_token']);
+    $artist = $this->model->selectDataById('id','contentprovider',$userid);
 
-           $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
+    if($artist[0]->password==md5($req->password)){
+          print_r($req->all());
+          unset($req['_token']);
+          unset($req['password']);
 
+          $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
 
-              return $updateInfo;
+          $return = 1;
+    }
+    else{
+
+            $return = 0;
+    }
+
+ 
+              return $return;
 
   }
 
