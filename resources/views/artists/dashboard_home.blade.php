@@ -611,7 +611,7 @@
                         <option value="Zambia">Zambia</option>
 </select>
               <br>
-                <h5 class="card-title"> Date of Birth : {{$personal_info[0]->dob}} </h5><br>
+                <br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email">{{$personal_info[0]->email}}</span></h5>
                    
@@ -619,7 +619,7 @@
                 
                 {{ Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit']) }}
                 
-                <div style="display:none;  padding-top: 13%;">
+                <div style="display:none;  padding-top: 15%;">
                 <div class="text-left">
                         <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
