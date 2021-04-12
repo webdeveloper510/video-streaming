@@ -117,9 +117,9 @@
     a.ffff {
         color: blue;
     }
-    header#default_header {
-    display: none;
-}
+    .header_bottom {
+                            display: none;
+                        }
 .header {
     background: #881114;
 }
