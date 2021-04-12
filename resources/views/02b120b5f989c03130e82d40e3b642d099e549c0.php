@@ -176,7 +176,8 @@
                 
                <br>
                
-              <video width="200" id="video_choose" controls style="display:none;">
+               
+              <video width="200"   id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.
              </video>
