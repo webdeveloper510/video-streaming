@@ -811,7 +811,7 @@ class artist extends Controller
     $artist = $this->model->selectDataById('id','contentprovider',$userid);
 
     if($artist[0]->password==md5($req->password)){
-          print_r($req->all());
+         // print_r($req->all());
           unset($req['_token']);
           unset($req['password']);
 
