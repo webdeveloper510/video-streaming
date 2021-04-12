@@ -988,6 +988,9 @@ h5.customer1.text-center.pt-3.pl-3 {
     margin: 0px !important;
 }
 }
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
 
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/dashboard_home.blade.php ENDPATH**/ ?>

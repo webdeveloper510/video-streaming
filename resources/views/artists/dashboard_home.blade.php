@@ -972,6 +972,9 @@ h5.customer1.text-center.pt-3.pl-3 {
     margin: 0px !important;
 }
 }
+::-webkit-scrollbar {
+    display: none;
+}
 </style>
 
 @include('artists.dashboard_footer')
