@@ -790,6 +790,45 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                       <div class="linksonit mb-3">
+                        <div class="amout">
+                        <div class="form-group col-5">
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option selected>Choose...</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                            </select>
+                          </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
                       <?php echo e(Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])); ?>
 
                  <div class="alert alert-danger d-none"><?php echo e($errors->first('username') ?  $errors->first('username') : ''); ?></div>

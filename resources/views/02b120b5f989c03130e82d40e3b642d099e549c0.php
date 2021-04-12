@@ -154,6 +154,7 @@
                 </div>
                 <?php endif; ?>
             <br>
+            <div class="file" style="display:none">
             <label class="media_label"></label>
 
  <br>
@@ -165,6 +166,7 @@
                   <?php echo $errors->first('media') ?>
                 </div>
                 <?php endif; ?>
+</div>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
                 <label class="thumbnail1"> Image Upload</label>
                 <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>

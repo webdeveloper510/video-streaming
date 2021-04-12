@@ -544,7 +544,7 @@ Your browser does not support the audio tag.
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div> -->
-          <div class="col-md-12 mt-3 text-white">
+          <div class="col-md-12 mt-3 text-white file">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
