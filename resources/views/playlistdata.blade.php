@@ -3,7 +3,7 @@
 <div class="row">
       @foreach($playlist as $lists)
        <div class="col-md-4">
-           <video width="350px" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
+           <video width="350px" poster="{{url('storage/app/public/uploads/'.$lists->audio_pic) }}" height="275px" controls allowfullscreen controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$lists->videos) }}" type="video/mp4">
                     Your browser does not support the video tag.
            </video>

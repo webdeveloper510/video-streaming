@@ -67,7 +67,7 @@
                         <div class="col-md-4">
                             <div class="soc">
                                 <div class="mp4">
-                                    <video width="50%" controls="controls">
+                                    <video width="50%" poster="{{url('storage/app/public/uploads/'.$info->audio_pic) }}" controls="controls">
                                         <source
                                             src="{{url('storage/app/public/video/'.$info->media) }}"
                                             type="video/mp4">

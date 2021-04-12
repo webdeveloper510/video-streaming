@@ -145,6 +145,7 @@
                                                     <video
                                                         width="100%"
                                                         height="100%"
+                                                        poster="{{url('storage/app/public/uploads/'.$video->audio_pic) }}"
                                                         {{$buyed==1 ? 'controls' : ''}}
                                                         controlsList="nodownload"
                                                         disablePictureInPicture="disablePictureInPicture">

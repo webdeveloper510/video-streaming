@@ -31,7 +31,7 @@ class artistSupport extends Mailable
      */
     public function build()
     {
-        return $this->from('info@pornartistzone')
+        $send = $this->from('info@pornartistzone')
         ->subject('Artist Issue')
        ->view(array('artists/artistSupportEmail'))
        ->with(
@@ -39,9 +39,14 @@ class artistSupport extends Mailable
                'data' => $this->data,
                'name'=>$this->name
                
-         ])->attach($this->data['file']->getRealPath(),
-         ['as'=>$this->data['file']->getClientOriginalName(),
-         'mime'=>$this->data['file']->getClientMimeType(),
          ]);
+                if($this->data['file']){
+                    $send->attach($this->data['file']->getRealPath(),
+                    ['as'=>$this->data['file']->getClientOriginalName(),
+                    'mime'=>$this->data['file']->getClientMimeType(),
+                    ]);
+                }
+
+                return $send;
     }
 }
