@@ -20,30 +20,20 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
         </thead>
          <tbody>
              <tr>
-                 <td><h1 style="margin-top: 10px;">Welcome  {{$data['nickname']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;">{{$data['technical_issue']}}</h1></td>
                  
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Hey <span>{{$data['nickname']}}</span>, Thank you for visiting our website. We are currently in development process.
-                We will notify you as soon as we are ready.
-               If you have any questions, concerns or other inquiries please reach out to us using:
+                     <p>Email <span>{{$data['email']}}</span>,
+                                 <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
+                </td>
+                <td style="padding-left: 15%;padding-right: 15%;">
+                     <p>Description <span>{{$data['description']}}</span>,
                                  <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
                 </td>
              </tr>
              <tr>
-                 <td> 
-                    <a href="{{url('/verify/'.base64_encode($id).'/'.base64_encode($type))}}">
-                     <button type="button" style="margin-top: 12px;
-                     color: #fff;
-                     padding: 7px;
-                     background-color: #0062cc;
-                     border-color: #005cbf;
-                     font-size: 17px;
-                     border-radius: 5px;
-                     margin-bottom: 20px;">Verify Email Address</button>
-                 </a>
-                </td>
              </tr>
          </tbody>
 

@@ -12,7 +12,7 @@
                 aria-controls="pills-home"
                 aria-selected="true">Open Ticket</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
             <a
                 class="nav-link"
                 id="pills-profile-tab"
@@ -21,7 +21,7 @@
                 role="tab"
                 aria-controls="pills-profile"
                 aria-selected="false">Tickets</a>
-        </li>
+        </li> -->
 
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -59,6 +59,7 @@
                                 rows="3"></textarea>
                         </div>
                         <br>
+                        <input type="hidden" name="email" value="<?php echo e($data[0]->email); ?>"/>
                             <input type="file" name="file" class="form-control" placeholder="add file">
                                 <input type="hidden" name="recaptcha" value="" id="recaptcha"/>
                                 <div class="mt-3">
