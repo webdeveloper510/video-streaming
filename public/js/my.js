@@ -2353,7 +2353,7 @@ if ($("#technical_functiong").length > 0) {
                                 if (event.lengthComputable) {
                                     percent = Math.ceil(position / total * 100);
                                 }
-                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('#top_title').html('Uploading...' + percent + '%');
                                 $('.percentage').html(percent + '%');
                                 if (percent == 100) {
                                     $('.loader').hide();
