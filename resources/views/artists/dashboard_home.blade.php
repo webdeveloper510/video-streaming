@@ -621,9 +621,9 @@
                 
                 <div style="display:none;  padding-top: 13%;">
                 <div class="text-left">
-                        <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
+                        <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Apply
+                    <button type="button" class="btn btn-primary btn-sm apply" data-toggle="modal" data-target="#exampleModal">Apply
                  </button></div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

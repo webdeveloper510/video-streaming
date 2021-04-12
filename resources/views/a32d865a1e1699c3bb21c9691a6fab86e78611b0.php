@@ -43,16 +43,19 @@
                                     type="button"
                                     style="cursor:pointer;"
                                     id="<?php echo e($video->id); ?>"
-                                    class="addToCart">
+                                    class="addToCart"
+                                    text-data="<?php echo e($wishlist > 0 ? 'removed' : 'added'); ?>"
+                                    style="<?php echo e($wishlist > 0 ? 'color:blue; background-color:blue' : 'color:red;background-color:red'); ?>"
+                                    >
 
-                                    <?php echo e($wishlist > 0 ? 'Added' : 'Add To Wishlist'); ?>
+                                    <?php echo e($wishlist > 0 ? 'Remove Video From Playlist' : 'Add To Wishlist'); ?>
 
                                 </button>
 
                                 <button
                                     type="button"
                                     style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>"
-                                    class="btn-primary library"
+                                    class="btn-primary"
                                     <?php echo e($buyed==1 ? 'disabled ':''); ?>
 
                                     data-toggle="modal"
@@ -66,7 +69,6 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Create Playlist</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -101,7 +103,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="text-center mt-4">
-                                                        <h2>Token:<span style="color:gold"><?php echo e($GLOBALS['paz']); ?>
+                                                        <h2>Value:<span style="color:gold"><?php echo e($GLOBALS['paz']); ?>
 
                                                             <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>
                                                         </h2>
@@ -112,7 +114,7 @@
                                                                     class="art_id"
                                                                     name="art_id"
                                                                     value="<?php echo e($GLOBALS['artistid']); ?>">
-                                                                    <button type="button" class="addNow">ADD NOW</button>
+                                                                    <button type="button" class="addNow">Pay NOW</button>
                                                                     <div class="alert alert-success message" role="alert" style="display: none">
                                                                         A simple success alert—check it out!
                                                                     </div>
@@ -409,26 +411,30 @@ ul.reporting {
                             <script type="text/javascript">
                                 $(".addToCart").click(function (e) {
                                     //alert('gee');
-                                    var text = $(this).text();
-                                    //console.log(text);
+                                    var text = $(this).attr('text-data');
+                                    //console.log(text);return false;
                                     e.preventDefault();
                                     $.ajax({
                                         type: "POST",
                                         url: "<?php echo e(url('ajax-request')); ?>",
                                         data: {
                                             'id': $(this).attr('id'),
-                                            'text': text == 'Added'
+                                            'text': text == 'removed'
                                                 ? 'remove'
                                                 : 'added',
                                             '_token': "<?php echo e(csrf_token()); ?>"
                                         },
                                         success: function (result) {
                                             console.log(result);
+                                            var new_text = text=='removed' ? 'added'  : 'removed'
+                                            console.log(new_text);
                                             $('.addToCart').text(
-                                                text == 'Added'
+                                                text == 'removed'
                                                     ? 'Add To Wishlist'
-                                                    : 'Added'
+                                                    : 'Remove Media From Playlist'
                                             );
+                                            $('.addToCart').attr('text-data',new_text)
+                                            
                                         },
                                         error: function (result) {
                                             alert('error');

@@ -387,9 +387,7 @@
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
 </select>
-                <?php echo e(Form::label('Date of Birth', 'Date of Birth')); ?> 
-                
-                <input type="date" required name="dob" class="form-control" />
+              
                 <br>
                 <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
                 <div class="text-right">
@@ -629,11 +627,11 @@
                 <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
                 
-                <div style="display:none;">
+                <div style="display:none;  padding-top: 13%;">
                 <div class="text-left">
-                        <button class="btn btn-outline-primary btn-sm " style="float:left" type="button"> Cancel</button>
+                        <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Apply
+                    <button type="button" class="btn btn-primary btn-sm apply" data-toggle="modal" data-target="#exampleModal">Apply
                  </button></div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -684,13 +682,13 @@
              <hr>
               <div class="card-body text-center">
                 <h4 class="card-title">Today:</h4>
-                <h5><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> PAZ</h5>
+                <h5 style="color:gold;"><?php echo e($today_paz ? $today_paz[0]->tokens:0); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h5>
                 <br>
                 <h4 class="card-title">This Month:</h4>
-                <h5><?php echo e($month_paz[0]->total_token ? $month_paz[0]->total_token : 0); ?> PAZ</h5>
+                <h5 style="color:gold;"><?php echo e($month_paz[0]->total_token ? $month_paz[0]->total_token : 0); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h5>
                 <br>
                 <h4 class="card-title">This Year:</h4>
-                <h5><?php echo e($year_PAZ[0]->total_token ? $year_PAZ[0]->total_token : 0); ?> PAZ</h5>
+                <h5 style="color:gold;"><?php echo e($year_PAZ[0]->total_token ? $year_PAZ[0]->total_token : 0); ?> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h5>
               </div>
             </div>
             </a>
