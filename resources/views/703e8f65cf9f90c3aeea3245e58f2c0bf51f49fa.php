@@ -861,8 +861,7 @@
                             </div>
                            
                            
-                      <?php echo e(Form::textarea('username',null,['class'=>'form-control','rows' => 4,'aria-label'=>'With textarea'])); ?>
-
+                    
                  <div class="alert alert-danger d-none"><?php echo e($errors->first('username') ?  $errors->first('username') : ''); ?></div>
                  <div class="text-right"><?php echo e(Form::submit('Save',['class'=>'btn btn-primary btn-sm'])); ?></div>
                     </div>
@@ -964,6 +963,7 @@ h5.customer1.text-center.pt-3.pl-3 {
 }
 .col-md-4.tagging {
     border: 2px solid red;
+    border-top:none;
 }
 
 .col-md-4.promote {
