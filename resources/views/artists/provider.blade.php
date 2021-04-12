@@ -101,6 +101,8 @@
                 <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
+            <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
             <div class="col-md-6 mt-3">
             {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])}}
