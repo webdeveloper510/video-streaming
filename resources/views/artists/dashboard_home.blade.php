@@ -738,14 +738,21 @@
               <div class="col-md-4">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
-                  <input type="radio" id="video" name="gender" value="Video">
+                  <input type="radio" id="video" name="gender" class="radioBtn" value="Video">
                   <label for="male">Video</label>
-                  <input type="radio" id="image" name="gender" value="image">
+                  <input type="radio" id="image" name="gender" class="radioBtn" value="image">
                   <label for="image">Image</label>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
-                        {{Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])}}
-                        <span id="filename" style="color:red;"></span>
+                            <div class="video" style="display:none;">
+                             {{Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])}}
+                             <span id="filename" style="color:red;"></span>
+                            </div>
+                            <div class="image" style="display:none;">
+                             {{Form::file('media',['class'=>'custom-file-input chooseImage','id'=>'social1'])}}
+                             <span id="filename" style="color:red;"></span>
+                            </div>
+                      
                           {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])}}
                           <!-- <div class="alert alert-danger d-none">{{$errors->first('media') ?  $errors->first('media') : ''}}</div> -->
                           <small>Upload social media friendly content here</small>
