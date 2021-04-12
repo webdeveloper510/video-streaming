@@ -636,7 +636,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                      <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                      <input type="password" autocomplete="off"  class="form-control" name="password" placeholder="Enter Password">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
