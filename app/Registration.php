@@ -1058,11 +1058,11 @@ public function getRespectedSub($data){
               'delieveryspeed'=>$data['delieveryspeed'],
               'quality'=>$data['quality'],
               'media'=>$data['media'],
-              'audio_pic'=>$data['thumbnail']
+              'audio_pic'=>$data['thumbnail']  
            );
-           //print_r($update);die;
 
-           $update = $this->UpdateData('offer','id',$update,$data['offerid']);
+
+          $update = $this->UpdateData('offer','id',$update,$data['offerid']);
            
 
            return $update ? 1 : 0;
