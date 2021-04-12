@@ -846,7 +846,7 @@
                             </div>
                            
                            
-                      {{Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
+                      {{Form::textarea('username',null,['class'=>'form-control','rows' => 4,'aria-label'=>'With textarea'])}}
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
                  <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
                     </div>
