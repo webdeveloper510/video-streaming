@@ -175,8 +175,11 @@
             </div>
                 
                <br>
+               <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
                
-              <video width="200" id="video_choose" controls style="display:none;">
+               
+              <video width="200"   id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.
              </video>
