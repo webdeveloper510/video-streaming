@@ -905,6 +905,16 @@ label.error {
     color: white;
     
 }
+.amountmedia {
+    height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.amountmedia {
+    height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 .edit12 {
     margin-top: 30%;
 }
