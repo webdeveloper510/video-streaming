@@ -11,14 +11,16 @@ class artistSupport extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
+    public $name;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data,$name)
     {
         $this->data = $data;
+        $this->name = $name;
         //
     }
 
@@ -35,8 +37,7 @@ class artistSupport extends Mailable
        ->with(
          [
                'data' => $this->data,
-               'id'=>$this->userId,
-               'type'=>$this->type
+               'name'=>$this->name
                
          ])->attach($this->data['file']->getRealPath(),
          ['as'=>$this->data['file']->getClientOriginalName(),
