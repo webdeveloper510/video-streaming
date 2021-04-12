@@ -770,6 +770,7 @@
                         {{Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                         <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
                         </div>
+                        {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
                   </div>
 
                <div class="col-md-4 tagging">
@@ -817,6 +818,7 @@
                             </div>
                       {{Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
+                 {{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}
                     </div>
                 </div>
 
@@ -827,7 +829,7 @@
             </div>
             <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
-                  {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
+                  <!-- {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }} -->
                     <!-- <button class="btn btn-primary btn-sm" type="button">Submit</button> -->
                   </div>
               </div>
@@ -913,7 +915,17 @@ h5.customer1.text-center.pt-3.pl-3 {
 .card .card-header {
     z-index: 0 !important;
 }
+.col-md-4.tagging {
+    border: 2px solid red;
+}
 
+.col-md-4.promote {
+    border-bottom: 2px solid red;
+}
+
+.col-md-4.Descriptions {
+    border-bottom: 2px solid red;
+}
 @media only screen and (max-width: 768px) {
 
 .row.mt-5.pt-5.text-center {
