@@ -92,7 +92,7 @@
         <div class="col-md-2 text-center">
         
         <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
-         <h4 ><span style="color:yellow !important"><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
+         <h4 ><span style="color:gold !important"><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
@@ -489,7 +489,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
                 <input type="hidden" name="offerid" id="offerid" value="">
-                <label class="media_label"></label>
+                <label class="label12"></label><br>
                   <input type="file" name="file" class="file_input" value=""/>
                   <span id="filename" style="color:red;"></span>
                   
@@ -545,7 +545,9 @@ Your browser does not support the audio tag.
             </select>
             </div> -->
           <div class="col-md-12 mt-3 text-white">
-            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label media_label'])); ?> 
+            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
+
+            <br> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input file_input'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
