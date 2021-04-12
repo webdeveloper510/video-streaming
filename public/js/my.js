@@ -2731,10 +2731,12 @@ $(document).on('submit', '#updateUser', function (event) {
 
             if (data == 1) {
 
+                alert('Edit Successfully!');
+
                 location.reload();
 
             } else {
-
+                alert('Password Wrong')
                 location.reload();
 
             }
