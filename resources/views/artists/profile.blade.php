@@ -403,7 +403,8 @@ Your browser does not support the audio tag.
                   {{Form::label('Additional Request Price', 'Additional Request Price')}} 
                 {{Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])}}
                 <br>
-                     
+                <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">

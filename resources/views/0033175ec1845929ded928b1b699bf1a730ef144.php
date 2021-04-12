@@ -414,7 +414,8 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
-                     
+                <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">
@@ -779,6 +780,10 @@ video:hover {
     float: right;
     color: white !important;
     padding: 7px;
+}
+.overlayprofile img {
+    display: flex;
+    margin: -10% 4%;
 }
 @media  only screen and (max-width: 768px) {
 .coverimg img {

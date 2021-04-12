@@ -91,6 +91,7 @@
                                 width="100%"
                                 height="100%"
                                 controls="controls"
+                                poster="<?php echo e(url('storage/app/public/uploads/'.$val->audio_pic)); ?>"
                                 controlsList="nodownload"
                                 disablePictureInPicture="disablePictureInPicture">
                                 <source
@@ -199,7 +200,7 @@
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
 
-                                <video width="320" height="240">
+                                <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$videos[0]->audio_pic)); ?>">
                                     <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
@@ -237,6 +238,7 @@
                                                 <video
                                                     width="100%"
                                                     height="100%"
+                                                    poster="<?php echo e(url('storage/app/public/uploads/'.$val->audio_pic)); ?>"
                                                     controlsList="nodownload"
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4"></video>
@@ -266,6 +268,7 @@
                                                     <video
                                                         width="100%"
                                                         height="100%"
+                                                        poster="<?php echo e(url('storage/app/public/uploads/'.$histories->audio_pic)); ?>"
                                                         controlsList="nodownload"
                                                         disablePictureInPicture="disablePictureInPicture">
 
