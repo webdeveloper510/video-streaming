@@ -57,6 +57,7 @@
                                 rows="3"></textarea>
                         </div>
                         <br>
+                        <input type="hidden" name="email" value="{{$data[0]->email}}"/>
                             <input type="file" name="file" class="form-control" placeholder="add file">
                                 <input type="hidden" name="recaptcha" value="" id="recaptcha"/>
                                 <div class="mt-3">
