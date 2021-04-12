@@ -1,3 +1,43 @@
+@if(!$login)
+            <style>
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 15% !important;
+                }
+            </style>
+            <div class="outer_slider">
+
+                <style>
+                  .header_bottom {
+                            display: none;
+                        }
+                    .header {
+                        background: black;
+                    }
+                    .freelog {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
+                    .free {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
+                    .header img {
+                        display: block;
+                        margin: 0 auto;
+                        border: 2px solid gold;
+                    }
+                    .container.my-4.row {
+                        margin: 0 auto;
+                    }
+                </style>
+             @endif
+
+
 @include('layouts.header') 
 <link rel = "preconnect" href = "https://fonts.gstatic.com" > <link
     href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap"
