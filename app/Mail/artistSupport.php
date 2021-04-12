@@ -31,7 +31,7 @@ class artistSupport extends Mailable
     {
         return $this->from('info@pornartistzone')
         ->subject('Artist Issue')
-       ->view('artistSupport')
+       ->view('artists/artistSupportEmail')
        ->with(
          [
                'data' => $this->data,

@@ -1776,7 +1776,7 @@ $('#filechange').submit(function (e) {
 
     var formData = new FormData($(this)[0]);
 
-    $('.img-fluid').show();
+    //$('.img-fluid').show();
 
     //console.log(formData);return false;
 
@@ -1793,7 +1793,7 @@ $('#filechange').submit(function (e) {
 
         success: function (data1) {
 
-            console.log(data1);
+            //console.log(data1);
 
             if (data1.status == 1) {
                 location.reload();
