@@ -1,5 +1,8 @@
- @include('layouts.header')
-
+@include('layout.cdn')
+<div class="header py-3">
+ <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand">
+ 
+ </a></div>
  <div class="container">
    <div class="row mb-5 mt-5">
    	<div class="col"></div>
@@ -23,4 +26,11 @@
 button.btn.btn-primary:hover {
     background: #0062cc;
 }
- </style>
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: -8px auto;
+}
+  </style>

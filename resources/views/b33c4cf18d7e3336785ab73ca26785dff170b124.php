@@ -1,5 +1,8 @@
- <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<div class="header py-3">
+ <a href="<?php echo e(url('/')); ?>"><img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100px" alt="CoolBrand">
+ 
+ </a></div>
  <div class="container">
    <div class="row mb-5 mt-5">
    	<div class="col"></div>
@@ -23,4 +26,11 @@
 button.btn.btn-primary:hover {
     background: #0062cc;
 }
- </style><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/emailVerifySuccess.blade.php ENDPATH**/ ?>
+.header {
+    background: #881114;
+}
+.header img {
+    display: block;
+    margin: -8px auto;
+}
+  </style><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/emailVerifySuccess.blade.php ENDPATH**/ ?>
