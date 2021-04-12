@@ -17,10 +17,16 @@ $GLOBALS['artistid'] = $offerdata->artistid;
 $GLOBALS['price'] = $offerdata->price;
 ?>
 <div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-md-7">
 <video width="100%" poster="{{url('storage/app/public/uploads/'.$offerdata->audio_pic) }}" height="340" controls controlsList="nodownload" disablePictureInPicture>
   <source src="{{url('storage/app/public/video/'.$offerdata->media) }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+<div>
+<div class="col"></div>
+</div>
 </div>
 <h4>Description</h4>
 <p>{{$offerdata->description}}</p>
