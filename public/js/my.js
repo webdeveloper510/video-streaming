@@ -2369,7 +2369,7 @@ if ($("#technical_functiong").length > 0) {
 
                     if (response == 1) {
                         $('#success').show();
-                        $('#success').html('Ticket Created Successfully!');
+                        $('#success').html('Ticket Created Successfully! <br> We will reach out to you Email shortly');
 
                         setTimeout(function () {
                             location.reload();
