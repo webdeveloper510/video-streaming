@@ -770,7 +770,7 @@
                         {{Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                         <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
                         </div>
-                        {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
+                        <div class="text-right"> {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}</div>
                   </div>
 
                <div class="col-md-4 tagging">
@@ -818,7 +818,7 @@
                             </div>
                       {{Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
-                 {{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}
+                 <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
                     </div>
                 </div>
 
