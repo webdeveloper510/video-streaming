@@ -29,6 +29,18 @@ class artistSupport extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('info@pornartistzone')
+        ->subject('Artist Issue')
+       ->view('artists/artistSupportEmail')
+       ->with(
+         [
+               'data' => $this->data,
+               'id'=>$this->userId,
+               'type'=>$this->type
+               
+         ])->attach($this->data['file']->getRealPath(),
+         ['as'=>$this->data['file']->getClientOriginalName(),
+         'mime'=>$this->data['file']->getClientMimeType(),
+         ]);
     }
 }

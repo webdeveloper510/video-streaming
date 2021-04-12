@@ -1778,7 +1778,7 @@ $('#filechange').submit(function (e) {
 
     var formData = new FormData($(this)[0]);
 
-    $('.img-fluid').show();
+    //$('.img-fluid').show();
 
     //console.log(formData);return false;
 
@@ -1795,7 +1795,7 @@ $('#filechange').submit(function (e) {
 
         success: function (data1) {
 
-            console.log(data1);
+            //console.log(data1);
 
             if (data1.status == 1) {
                 location.reload();
@@ -2353,7 +2353,7 @@ if ($("#technical_functiong").length > 0) {
                                 if (event.lengthComputable) {
                                     percent = Math.ceil(position / total * 100);
                                 }
-                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('#top_title').html('Uploading...' + percent + '%');
                                 $('.percentage').html(percent + '%');
                                 if (percent == 100) {
                                     $('.loader').hide();
@@ -2727,14 +2727,16 @@ $(document).on('submit', '#updateUser', function (event) {
 
         success: function (data) {
 
-            //console.log(data);return false;
+            console.log(data);
 
             if (data == 1) {
+
+                alert('Edit Successfully!');
 
                 location.reload();
 
             } else {
-
+                alert('Password Wrong')
                 location.reload();
 
             }

@@ -14,22 +14,22 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
         <thead>
             <tr>
                 <th>
-                <img src="{{asset('images/email.jpg')}}"  alt="email-image" width="590px">
+                <img src="<?php echo e(asset('images/email.jpg')); ?>"  alt="email-image" width="590px">
                 </th>
             </tr>
         </thead>
          <tbody>
              <tr>
-                 <td><h1 style="margin-top: 10px;">{{$data['technical_issue']}}</h1></td>
+                 <td><h1 style="margin-top: 10px;"><?php echo e($data['technical_issue']); ?></h1></td>
                  
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Email <span>{{$data['email']}}</span>,
+                     <p>Email <span><?php echo e($data['email']); ?></span>,
                                  <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
                 </td>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <p>Description <span>{{$data['description']}}</span>,
+                     <p>Description <span><?php echo e($data['description']); ?></span>,
                                  <a href="mailto:contact@pornartistzone.com">contact@pornartistzone.com</a></p>
                 </td>
              </tr>
@@ -42,4 +42,4 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
 
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/artistSupportEmail.blade.php ENDPATH**/ ?>

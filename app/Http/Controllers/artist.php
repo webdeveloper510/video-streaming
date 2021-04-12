@@ -5,7 +5,8 @@ use App\Registration;
 use Session;
 use App\File;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\artistSupport;
 //  use Stripe\Error\Card;
 
 //use Stripe;
@@ -716,11 +717,17 @@ class artist extends Controller
 
     $session_data =   Session::get('User');
 
+   
+
     $userid=$session_data->id;
+
+    $artistData = $this->model->selectDataById('id','contentprovider',$userid);
+
+    //print_r($artistData);die;
 
     $value = $this->model->selectDataById('artistid','ticket',$userid);
 
-    return view('artists/support',['tab'=>$tab,'tickets'=>$value]);
+    return view('artists/support',['data'=>$artistData,'tab'=>$tab,'tickets'=>$value]);
   }
 
 
@@ -801,12 +808,24 @@ class artist extends Controller
     
     $userid =  $session_data->id;
 
-        unset($req['_token']);
+    $artist = $this->model->selectDataById('id','contentprovider',$userid);
 
-           $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
+    if($artist[0]->password==md5($req->password)){
+         // print_r($req->all());
+          unset($req['_token']);
+          unset($req['password']);
 
+          $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
 
-              return $updateInfo;
+          $return = 1;
+    }
+    else{
+
+            $return = 0;
+    }
+
+ 
+              return $return;
 
   }
 
@@ -918,6 +937,7 @@ class artist extends Controller
         unset($data['recaptcha']);
         unset($data['match_recaptcha']);
         unset($data['file']);
+        unset($data['email']);
         $data['issue_file']=$fileName;
         $data['description'] = $data['description'];
         $data['technical_issue'] = $data['technical_issue'];
