@@ -1,6 +1,6 @@
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <div class="header py-3">
- <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand">
+ <a href="<?php echo e(url('/')); ?>"><img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" width="100px" alt="CoolBrand">
  
  </a></div>
  <div class="container">
@@ -12,7 +12,7 @@
         	<h1>Thank You! </h1>
             <h3> Email Verified Please click Log in </h3>
 
-            <a href="{{url('/login')}}"><button type="button" class="btn btn-primary">Login</button></a>
+            <a href="<?php echo e(url('/login')); ?>"><button type="button" class="btn btn-primary">Login</button></a>
         </div>
       </div>
       <div class="col"></div>
@@ -33,4 +33,4 @@ button.btn.btn-primary:hover {
     display: block;
     margin: -8px auto;
 }
-  </style>
+  </style><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/emailVerifySuccess.blade.php ENDPATH**/ ?>

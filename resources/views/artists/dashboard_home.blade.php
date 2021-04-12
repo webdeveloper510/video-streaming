@@ -737,7 +737,7 @@
                                    <span id="res_message"></span>
                               </div>
                         </div>
-              <div class="col-md-4">
+              <div class="col-md-4 promote">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
                   <input type="radio" id="video" name="gender" class="radioBtn" value="Video">
@@ -762,7 +762,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 Descriptions">
                       <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
                       <br>
                         <div class="linksonit mb-3">
@@ -770,9 +770,10 @@
                         {{Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                         <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
                         </div>
+                        <div class="text-right"> {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}</div>
                   </div>
 
-               <div class="col-md-4">
+               <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                       <div class="linksonit mb-3">
@@ -815,8 +816,38 @@
                                     </div>
                                   </div>
                             </div>
-                      {{Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
+                            <div class="amountmedia">
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                  <label class="custom-file-label" for="inputGroupFile01"></label>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                       <label class="custom-file-label" for="inputGroupFile01"> </label>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
+                 <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
                     </div>
                 </div>
 
@@ -827,7 +858,7 @@
             </div>
             <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
-                  {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
+                  <!-- {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }} -->
                     <!-- <button class="btn btn-primary btn-sm" type="button">Submit</button> -->
                   </div>
               </div>
@@ -874,6 +905,16 @@ label.error {
     color: white;
     
 }
+.amountmedia {
+    height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.amountmedia {
+    height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 .edit12 {
     margin-top: 30%;
 }
@@ -913,12 +954,26 @@ h5.customer1.text-center.pt-3.pl-3 {
 .card .card-header {
     z-index: 0 !important;
 }
+.col-md-4.tagging {
+    border: 2px solid red;
+    border-top:none;
+}
 
+.col-md-4.promote {
+    border-bottom: 2px solid red;
+}
+
+.col-md-4.Descriptions {
+    border-bottom: 2px solid red;
+}
 @media only screen and (max-width: 768px) {
 
 .row.mt-5.pt-5.text-center {
     margin: 0px !important;
 }
+}
+::-webkit-scrollbar {
+    display: none;
 }
 </style>
 
