@@ -580,6 +580,7 @@
                                         src="<?php echo e($audio->audio_pic ? url('storage/app/public/uploads/'.$audio->audio_pic): 'https://pornartistzone.com/developing-streaming/public/images/logos/voice.jpg'); ?>">
                                         <audio
                                             controlsList="nodownload"
+                                            poster="<?php echo e(url('storage/app/public/uploads/'.$audio->audio_pic)); ?>"
                                             id="audio_<?php echo e($audio->id); ?>"
                                             disablePictureInPicture="disablePictureInPicture">
                                             <source

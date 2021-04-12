@@ -941,7 +941,7 @@ class artist extends Controller
         unset($data['match_recaptcha']);
         unset($data['file']);
         unset($data['email']);
-        $data['issue_file']=$fileName;
+        $data['issue_file']=$fileName ? $fileName : '';
         $data['description'] = $data['description'];
         $data['technical_issue'] = $data['technical_issue'];
         $data['type'] = $data['type'] ? $data['type'] : '';
@@ -951,7 +951,7 @@ class artist extends Controller
           if($insert){
             $contentType =   Session::get('User');
             $fetch = $this->model->selectDataById('id','contentprovider',$contentType->id);
-            Mail::to('artist@pornartistzone.com','saurav@codenomad.net')->send(new artistSupport($req->all(),$contentType->nickname));
+            Mail::to('artist@pornartistzone.com')->send(new artistSupport($req->all(),$contentType->nickname));
             Mail::to($fetch[0]->email)->send(new artist_email_support($req->all(),$contentType->nickname));
  
 

@@ -25,14 +25,15 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <h4>Email <span><?php echo e($data['email']); ?></span></h4>
+                     <h3>Email <span><?php echo e($data['email']); ?></span></h3>
                 </td>
                 </tr>
                 <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
-                     <h4>Description ,
+                     <h3>Description ,
                          
-</h4>
+                                     </h3>
+                                     <br>
                                 <p>
                                 <?php echo e($data['description']); ?>
 
