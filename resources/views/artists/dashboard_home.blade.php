@@ -816,6 +816,7 @@
                                     </div>
                                   </div>
                             </div>
+                            <div class="amountmedia">
                             <div class="row">
                                 <div class="col-6">
                                 <div class="form-group">
@@ -844,9 +845,7 @@
                                     </div>
                                   </div>
                             </div>
-                           
-                           
-                    
+                        </div>
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
                  <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
                     </div>
