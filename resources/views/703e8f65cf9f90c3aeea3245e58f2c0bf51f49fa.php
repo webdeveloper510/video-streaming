@@ -748,7 +748,7 @@
                                    <span id="res_message"></span>
                               </div>
                         </div>
-              <div class="col-md-4">
+              <div class="col-md-4 promote">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
                   <input type="radio" id="video" name="gender" class="radioBtn" value="Video">
@@ -776,7 +776,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 Descriptions">
                       <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
                       <br>
                         <div class="linksonit mb-3">
@@ -787,7 +787,7 @@
                         </div>
                   </div>
 
-               <div class="col-md-4">
+               <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                       <div class="linksonit mb-3">
