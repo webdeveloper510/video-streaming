@@ -241,7 +241,9 @@ class artist extends Controller
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
+      $social_names = $this->model->selectDataById('artistid','social_username',$contentType->id);
 
+       // print_r($social_names);die;
 
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
@@ -327,7 +329,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -786,16 +788,16 @@ class artist extends Controller
         //$data['username'] = $data['username'] ? $data['username'] : '';
         $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
         //print_r($data);die;
-         $social_account = $data['username'] ? implode(',',$data['social_plateform']) : '';
-         //print_r($social_account);die;
-         $username = $data['username'] ? implode(',',$data['username']) : '';
-         $data['social_plateform'] = $social_account;
-         $data['username'] = $username;
+        //  $social_account = $data['username'] ? implode(',',$data['social_plateform']) : '';
+        //  //print_r($social_account);die;
+        //  $username = $data['username'] ? implode(',',$data['username']) : '';
+        //  $data['social_plateform'] = $social_account;
+        //  $data['username'] = $username;
        
           if($filePath){
 
           $insert = $this->model->uploadSocialMedia($data);
-          
+
             if($insert){
                 return response()->json(array('status'=>1, 'messge'=>'Media Uploaded!'));
               }
@@ -961,15 +963,36 @@ class artist extends Controller
             $fetch = $this->model->selectDataById('id','contentprovider',$contentType->id);
             Mail::to('artist@pornartistzone.com')->send(new artistSupport($req->all(),$contentType->nickname));
             Mail::to($fetch[0]->email)->send(new artist_email_support($req->all(),$contentType->nickname));
- 
-
-            return $insert;
+             return $insert;
 
           }
 
           //print_r($insert);die;
             
         }
+        public function saveUsername(Request $req){
+
+              $plateform = $req->social_plateform;
+
+              $username = $req->username;
+
+              $plateform = implode(',',$plateform);
+
+              $username = implode(',',$username);
+
+            $req['username'] =  $plateform;
+
+            $req['social_plateform'] =  $username;
+
+            //print_r($req->all());
+
+            $success = $this->model->saveUsername($req->all());
+
+            return $success ? 1 : 0;
+
+        }
+
+        
 
 
   }
