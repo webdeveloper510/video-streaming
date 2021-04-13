@@ -7,7 +7,7 @@
         <div class="overlayartist text-center">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid" style="display:none">
         </div>
-  <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
+           <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -47,8 +47,8 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
-    <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+    <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
    
   </div>
@@ -57,7 +57,7 @@
 
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
-  <div class="tab-pane fade <?php echo e($collection_selection ? '' : 'show active'); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade <?php echo e($collection_selection ? 'show active' : ''); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
           <div class="container">
@@ -70,7 +70,7 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <video width="100%"   controlsList="nodownload" disablePictureInPicture>
+        <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
@@ -168,7 +168,7 @@
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" class="hover"  id="collection_<?php echo e($detail->id); ?>"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hover" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -225,7 +225,7 @@
      <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
     <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>" width="100%">
 
-<audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>" disablePictureInPicture>
+<audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>"   poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" disablePictureInPicture>
 
 <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
 Your browser does not support the audio tag.
@@ -322,7 +322,7 @@ Your browser does not support the audio tag.
     </div>
 
 
-        <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="tab-pane fade mb-5 <?php echo e($collection_selection ? '' : 'show active'); ?>" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
   
   <!----------------------------------------------- Profile View --------------------------------------------->
   
@@ -339,13 +339,13 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
           <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); ?>" width="100%;">
-          <audio width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
                <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
           <?php endif; ?>
@@ -414,7 +414,8 @@ Your browser does not support the audio tag.
                 <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
-                     
+                <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
                   <label>Duration(Minutes):</label>
                   <div class="row">
                   <div class="col-md-6">
@@ -450,7 +451,7 @@ Your browser does not support the audio tag.
                   <br>
                   <label>Choose Category</label>
                   <div class="video" style="display:none">
-                  <select name="category[]"  class='form-control video'>
+                  <select name="video_cat"  class='form-control video'>
                           <option value="">Choose category</option>
                           <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <?php if($cat->type=='video'): ?>
@@ -461,7 +462,7 @@ Your browser does not support the audio tag.
                   </div>
                   <br>
                   <div class="audio" style="display:none">
-                    <select name="category[]"  class='form-control audio'>
+                    <select name="audio_cat"  class='form-control audio'>
                             <option value="">Choose category</option>
                             <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   <?php if($cat->type=='audio'): ?>
@@ -481,6 +482,15 @@ Your browser does not support the audio tag.
                             <option value="1080">Full HD 1080p  </option>
                     </select>
                 </div>
+                <br>
+            <label>Offer Status</label>
+            
+            <select name="offer_status" id="select_status" class='form-control'>
+                    <option value="">Choose...</option>
+                    <option value="offline">Offline(Draft)</option>
+                    <option value="online">Online</option>
+                   
+            </select>
                 <br>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
                    <label class="thumbnail1"></label>        
@@ -544,7 +554,7 @@ Your browser does not support the audio tag.
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div> -->
-          <div class="col-md-12 mt-3 text-white">
+          <div class="col-md-12 mt-3 text-white file">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
@@ -771,9 +781,17 @@ video:hover {
     color: white !important;
     padding: 7px;
 }
+.overlayprofile img {
+    display: flex;
+    margin: -10% 4%;
+}
 @media  only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
+}
+.overlayprofile img {
+    display: flex;
+    margin: -33% 14%;
 }
 }
 .pricetime .text-left h6 {

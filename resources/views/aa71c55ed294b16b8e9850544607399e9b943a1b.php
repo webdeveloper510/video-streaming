@@ -59,7 +59,7 @@
  
     <div class="">
             <span class="firstName" style="display: none;"><?php echo e($artistProfile[0]->nickname); ?></span>
-              <!-- <div class="profileImage"></div> -->
+              <div class="profileImage"></div>
     </div>
    <?php endif; ?>
    
@@ -492,6 +492,18 @@
 }
 .wid {
     width: 160px !important ;
+}
+.profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+    margin-right: 14px;
+    margin-top: 4px;
 }
 @media  only screen and (max-width: 768px) {
 .alert.alert-success {
