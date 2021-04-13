@@ -387,9 +387,10 @@
                 </select>
               
                 <br>
+                <br>
                 <h5 class="card-title">Email : </h5>
                 <br>
-                <h6>{{$personal_info[0]->email}}</h5>
+                <h5>{{$personal_info[0]->email}}</h5>
                 <br>
                 <div class="text-right">
                 {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
