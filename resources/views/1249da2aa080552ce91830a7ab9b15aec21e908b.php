@@ -344,7 +344,7 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
-          <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://www.google.com/search?q=black+bac&rlz=1C1CHBD_enIN916IN916&tbm=isch&source=iu&ictx=1&fir=d_LSeRSfVbfloM%252CsOgOvVzAoKlDPM%252C_&vet=1&usg=AI4_-kTPUQ0cBMU8sgx4Eup-G7CzUpiLGg&sa=X&ved=2ahUKEwiAmvCSkfzvAhWDf30KHdctBTYQ9QF6BAgOEAE#imgrc=d_LSeRSfVbfloM'); ?>" width="100%;">
+          <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://static.vecteezy.com/system/resources/thumbnails/000/097/181/small/free-black-leather-vector.jpg'); ?>" width="100%;">
           <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
                <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
