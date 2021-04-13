@@ -779,7 +779,7 @@
                       <div class="linksonit mb-3">
                         <div class="amout">
                         <div class="form-group col-5">
-                            <select class="custom-select" id="inputGroupSelect01">
+                            <select class="custom-select" id="inputGroupSelect01" onchange="selectUsername(this)">
                               <option selected>Choose...</option>
                               <option value="1">1</option>
                               <option value="2">2</option>
@@ -790,32 +790,9 @@
                               <option value="7">7</option>
                               <option value="8">8</option>
                               <option value="9">9</option>
-                            </select>
+                            </select>     
                           </div>
                           </div>
-                          <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                    <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose...</option>
-                                      <option value="1">Facebook</option>
-                                      <option value="2">Instagram</option>
-                                      <option value="3">Youtube</option>
-                                      <option value="4">Sharesome</option>
-                                      <option value="5">Xpurity</option>
-                                      <option value="6">WeChat</option>
-                                      <option value="7">Tiktok</option>
-                                      <option value="8">Twitter </option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-6">
-                                  <div class="form-group">
-                                      
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                            </div>
                             <div class="amountmedia">
                             <div class="row">
                                 <div class="col-6">

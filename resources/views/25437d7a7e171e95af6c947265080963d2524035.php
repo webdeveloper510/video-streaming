@@ -835,8 +835,17 @@
                             <div class="row">
                                 <div class="col-6">
                                 <div class="form-group">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                  <label class="custom-file-label" for="inputGroupFile01"></label>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
+                                    </select>
                                   </div>
                                   </div>
                                   <div class="col-6">
@@ -849,8 +858,86 @@
                             <div class="row">
                                 <div class="col-6">
                                 <div class="form-group">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                       <label class="custom-file-label" for="inputGroupFile01"> </label>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                  <div class="col-6">
+                                  <div class="form-group">
+                                      
+                                      <input type="text" class="form-control">
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                <div class="form-group">
+                                <select class="custom-select" id="inputGroupSelect01">
+                                      <option selected>Choose...</option>
+                                      <option value="1">Facebook</option>
+                                      <option value="2">Instagram</option>
+                                      <option value="3">Youtube</option>
+                                      <option value="4">Sharesome</option>
+                                      <option value="5">Xpurity</option>
+                                      <option value="6">WeChat</option>
+                                      <option value="7">Tiktok</option>
+                                      <option value="8">Twitter </option>
+                                    </select>
                                   </div>
                                   </div>
                                   <div class="col-6">
