@@ -790,9 +790,13 @@
                         <div class="alert alert-danger d-none"><?php echo e($errors->first('description') ?  $errors->first('description') : ''); ?></div>
                         </div>
                         <div class="text-right"> <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary btn-sm'])); ?></div>
+                        <?php echo e(Form::close()); ?>
+
                   </div>
 
                <div class="col-md-4 tagging">
+               <?php echo Form::open(['id'=>'social_media','method' => 'post', 'files'=>true]); ?>
+
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                       <div class="linksonit mb-3">
@@ -817,7 +821,10 @@
                         </div>
                  <div class="alert alert-danger d-none"><?php echo e($errors->first('username') ?  $errors->first('username') : ''); ?></div>
                  <div class="text-right"><?php echo e(Form::submit('Save',['class'=>'btn btn-primary btn-sm'])); ?></div>
-                    </div>
+                 <?php echo e(Form::close()); ?>
+
+                 
+                </div>
                 </div>
 
              </div>
@@ -832,8 +839,7 @@
                   </div>
               </div>
             </div>
-            <?php echo e(Form::close()); ?>
-
+            
             <div class="col-md-4">
          <div class="card" >
               <div class="card-body text-center">
@@ -911,6 +917,7 @@ img.img-fliud.logodownload {
 h5.customer1.text-center.pt-3.pl-3 {
     font-size: 13px;
 }
+
 .week {
     padding: 18px;
     text-align: center !important;
