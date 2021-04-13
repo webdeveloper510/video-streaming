@@ -24,7 +24,7 @@ $GLOBALS['price'] = $offerdata->price;
   <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-<div>
+</div>
 <div class="col"></div>
 </div>
 </div>
