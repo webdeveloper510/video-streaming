@@ -59,7 +59,7 @@
  
     <div class="">
             <span class="firstName" style="display: none;"><?php echo e($artistProfile[0]->nickname); ?></span>
-              <div class="profileImage"></div>
+              <!-- <div class="profileImage"></div> -->
     </div>
    <?php endif; ?>
    
