@@ -783,25 +783,29 @@ public function getRespectedSub($data){
       $user=Session::get('User');
 
        $userId =$user->id;
+<<<<<<< HEAD
       //DB::enableQueryLog();
       //echo "h";die;
+=======
+
+>>>>>>> 3e426fddae7a3e025ec4d176bf56f56ef618aea0
       $data = \DB::table("offer")
       ->select("users.nickname","offer.userid","offer.artistid","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)) as dates_submision"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
+<<<<<<< HEAD
       ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
+=======
+      ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");  
+>>>>>>> 3e426fddae7a3e025ec4d176bf56f56ef618aea0
        
       if ($sts) {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
-    }
-
-   
-
-
-      
+    }      
          return $data->get();
+
     }
 
     public function show_customer_orders(){
