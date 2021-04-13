@@ -386,10 +386,12 @@
                         <option value="Wallis & Futana Is">Wallis & Futana Is</option>
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
-</select>
+                </select>
               
                 <br>
-                <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
+                <h5 class="card-title">Email : </h5>
+                <br>
+                <h6><?php echo e($personal_info[0]->email); ?></h5>
                 <br>
                 <div class="text-right">
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm'])); ?>

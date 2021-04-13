@@ -384,10 +384,12 @@
                         <option value="Wallis & Futana Is">Wallis & Futana Is</option>
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
-</select>
+                </select>
               
                 <br>
-                <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
+                <h5 class="card-title">Email : </h5>
+                <br>
+                <h6>{{$personal_info[0]->email}}</h5>
                 <br>
                 <div class="text-right">
                 {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
