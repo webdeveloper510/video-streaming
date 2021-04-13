@@ -789,7 +789,6 @@
                   <?php                     
                       $count = count($name->username);
                     ?>
-                    @for ($i = 0; $i < $count; $i++)
                     <div class="row">
                       <div class="col-6">
                     <h3>{{$name->username[$i]}}</h3>
@@ -797,10 +796,10 @@
                       <div class="col-6">
                       <p>{{$name->social_plateform[$i]}}</p>
                        </div>
-                    </div>
+                   
                       <br>
                     @endfor
-                  
+                    </div>
                   @endforeach
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
