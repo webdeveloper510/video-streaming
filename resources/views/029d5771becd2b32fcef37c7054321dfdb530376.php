@@ -206,14 +206,14 @@
                     chooseImage','required'])); ?> <span id="filename" style="color:red;"></span>
                     </div> <div class="col-md-6 pt-2 text-center"> <!-- <img id="blah"
                     src="https://dummyimage.com/300" width="100px" height="100px" /> -->
-                    <!-- <?php if(session('errors')): ?> <div class="alert alert-danger"> <?php echo
+                    <?php if(session('errors')): ?> <div class="alert alert-danger"> <?php echo
                     $errors->first('image') ?> </div> <?php endif; ?> </div> -->
-                    <!-- <div class="loader col-6" style="display:none"> <span style="color:green;
+                    <div class="loader col-6" style="display:none"> <span style="color:green;
                     font-weight: bold;">Uploading...</span><img
                     src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/> <span
                     class="percentage" style="color:green;font-weight: bold;"></span> </div> <div
                     class="col-md-12 text-center pt-3"> <?php echo e(Form::submit('Submit!',['class'=>'btn
-                    btn-primary'])); ?> </div-->>
+                    btn-primary'])); ?> </div>
 
                     <?php echo e(Form::close()); ?>
 

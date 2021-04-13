@@ -177,14 +177,14 @@
                     chooseImage','required'])}} <span id="filename" style="color:red;"></span>
                     </div> <div class="col-md-6 pt-2 text-center"> <!-- <img id="blah"
                     src="https://dummyimage.com/300" width="100px" height="100px" /> -->
-                    <!-- @if(session('errors')) <div class="alert alert-danger"> <?php echo
+                    @if(session('errors')) <div class="alert alert-danger"> <?php echo
                     $errors->first('image') ?> </div> @endif </div> -->
-                    <!-- <div class="loader col-6" style="display:none"> <span style="color:green;
+                    <div class="loader col-6" style="display:none"> <span style="color:green;
                     font-weight: bold;">Uploading...</span><img
                     src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/> <span
                     class="percentage" style="color:green;font-weight: bold;"></span> </div> <div
                     class="col-md-12 text-center pt-3"> {{ Form::submit('Submit!',['class'=>'btn
-                    btn-primary']) }} </div-->>
+                    btn-primary']) }} </div>
 
                     {{ Form::close() }}
                 </div>
