@@ -785,7 +785,7 @@
                       <br>
                         <div class="linksonit mb-3">
                         <!-- <textarea class="form-control" aria-label="With textarea"></textarea> -->
-                        <?php echo e(Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])); ?>
+                        <?php echo e(Form::textarea('description',null,['class'=>'form-control','rows' => 8,'aria-label'=>'With textarea'])); ?>
 
                         <div class="alert alert-danger d-none"><?php echo e($errors->first('description') ?  $errors->first('description') : ''); ?></div>
                         </div>

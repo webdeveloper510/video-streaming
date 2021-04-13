@@ -771,7 +771,7 @@
                       <br>
                         <div class="linksonit mb-3">
                         <!-- <textarea class="form-control" aria-label="With textarea"></textarea> -->
-                        {{Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
+                        {{Form::textarea('description',null,['class'=>'form-control','rows' => 8,'aria-label'=>'With textarea'])}}
                         <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
                         </div>
                         <div class="text-right"> {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}</div>
