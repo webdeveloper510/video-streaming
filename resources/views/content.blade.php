@@ -204,12 +204,14 @@
 
     </section>
     <style type="text/css">
+    
         section.background1 {
 
             height: auto;
             width: 98%;
             position: absolute;
         }
+
         label {
             color: white;
         }
