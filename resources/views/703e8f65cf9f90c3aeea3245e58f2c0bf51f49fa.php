@@ -805,7 +805,7 @@
                   <?php                     
                       $count = count($name->username);
                     ?>
-                    <?php for($i = 0; $i < $count; $i++): ?>
+                    <?php for($i = 0; $i < $count; $i++): ?>       
                     <div class="row">
                       <div class="col-6">
                     <h3><?php echo e($name->username[$i]); ?></h3>
