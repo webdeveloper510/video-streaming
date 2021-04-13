@@ -786,25 +786,21 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                   @foreach($social_name as $name)
-                  <?php
-                      $name1 = explode(',',$name->username);
-                      $plateform = explode(',',$name->social_plateform);
-                     
-                      $count = count($plateform);
+                  <?php                     
+                      $count = count($name->username);
                     ?>
-                    <div class="row">
                     @for ($i = 0; $i < $count; $i++)
-                    
-                      <div class="col-6 text-right">
-                    <h5>{{$name1[$i]}}</h5>
+                    <div class="row">
+                      <div class="col-6">
+                    <h3>{{$name->username[$i]}}</h3>
                       </div>
-                      <div class="col-6 text-left">
-                      <p>{{$plateform[$i]}}</p>
+                      <div class="col-6">
+                      <p>{{$name->social_plateform[$i]}}</p>
                        </div>
-                   
+                    </div>
                       <br>
                     @endfor
-                    </div>
+                  
                   @endforeach
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}

@@ -484,6 +484,13 @@ public function insertSave($data,$id){
         return DB::table('social_username')->insert($data);
 }
 
+public function getSocialName($id){
+      return DB::table('social_username')->where('artistid',$id)->get()->each(function($query){
+        $query->username = explode(",", $query->username);
+        $query->social_plateform = explode(",", $query->social_plateform);
+      });
+}
+
 public function getArtists($flag){
 
     if($flag=='No'){
