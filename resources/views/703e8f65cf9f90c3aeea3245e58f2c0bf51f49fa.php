@@ -808,18 +808,19 @@
                      
                       $count = count($plateform);
                     ?>
-                    <?php for($i = 0; $i < $count; $i++): ?>
                     <div class="row">
+                    <?php for($i = 0; $i < $count; $i++): ?>
+                    
                       <div class="col-6 text-right">
                     <h5><?php echo e($name1[$i]); ?></h5>
                       </div>
                       <div class="col-6 text-left">
                       <p><?php echo e($plateform[$i]); ?></p>
                        </div>
-                    </div>
+                   
                       <br>
                     <?php endfor; ?>
-                  
+                    </div>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
