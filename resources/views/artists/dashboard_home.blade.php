@@ -384,17 +384,13 @@
                         <option value="Wallis & Futana Is">Wallis & Futana Is</option>
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
-                </select>
+</select>
               
                 <br>
-                <br>
-                <h5 class="card-title">Email : </h5>
-                
-                <h5>{{$personal_info[0]->email}}</h5>
-                <br>
+                <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
                 <br>
                 <div class="text-right">
-                {{ Form::submit('Apply!',['class'=>'btn btn-primary btn-sm']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
               </div>
               {{Form::close()}}
               </div>
@@ -732,8 +728,7 @@
          <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted: {{$social_count}}</h5>
              <hr>
-             {!!Form::open(['id'=>'social_media','method' => 'post', 'files'=>true])!!}
-              {{Form::token()}}
+            
             <div class="card-body text-center">
               <div class="row">
                 <div class="col-md-12">
@@ -741,7 +736,12 @@
                                    <span id="res_message"></span>
                               </div>
                         </div>
-              <div class="col-md-4 promote">
+                        <div class="col-md-8">
+                        {!!Form::open(['id'=>'social_media','method' => 'post', 'files'=>true])!!}
+              {{Form::token()}}
+                          <div class="row">
+                          
+                 <div class="col-md-6 promote">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
                   <input type="radio" id="video" name="gender" class="radioBtn" value="video">
@@ -766,22 +766,41 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 Descriptions">
+                <div class="col-md-6 Descriptions">
                       <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
                       <br>
                         <div class="linksonit mb-3">
                         <!-- <textarea class="form-control" aria-label="With textarea"></textarea> -->
-                        {{Form::textarea('description',null,['class'=>'form-control','rows' => 9,'aria-label'=>'With textarea'])}}
+                        {{Form::textarea('description',null,['class'=>'form-control','aria-label'=>'With textarea'])}}
                         <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
                         </div>
                         <div class="text-right"> {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}</div>
-                        {{ Form::close() }}
-                  </div>
+                    
+                      </div>
+                      
+                        </div>
+                        {{Form::close()}}
+                    </div>
 
                <div class="col-md-4 tagging">
-               {!!Form::open(['id'=>'social_media','method' => 'post', 'files'=>true])!!}
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  @foreach($social_name as $name)
+                  <?php
+                      $name1 = explode(',',$name->username);
+                      $plateform = explode(',',$name->social_plateform);
+                     
+                      $count = count($plateform);
+                    ?>
+                    @for ($i = 0; $i < $count; $i++)
+                    <span>{{$name1[$i]}}</span>
+                      <span>{{$plateform[$i]}}</span>
+                      <br>
+                    @endfor
+                  
+                  @endforeach
+                  {!!Form::open(['id'=>'user','method' => 'post'])!!}
+              {{Form::token()}}
                       <div class="linksonit mb-3">
                         <div class="amout">
                         <div class="form-group col-5">
@@ -799,14 +818,12 @@
                             </select>     
                           </div>
                           </div>
-                            <div class="amountmedia">
-                           
-                        </div>
-                 <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
-                 <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
-                 {{ Form::close() }}
-                 
-                </div>
+                            <div class="amountmedia">                           
+                            </div>
+                
+                    </div>
+                    {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
+                    {{ Form::close() }}
                 </div>
 
              </div>
@@ -816,12 +833,11 @@
             </div>
             <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
-                  <!-- {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }} -->
-                    <!-- <button class="btn btn-primary btn-sm" type="button">Submit</button> -->
+              
                   </div>
               </div>
             </div>
-            
+          
             <div class="col-md-4">
          <div class="card" >
               <div class="card-body text-center">
@@ -899,7 +915,6 @@ img.img-fliud.logodownload {
 h5.customer1.text-center.pt-3.pl-3 {
     font-size: 13px;
 }
-
 .week {
     padding: 18px;
     text-align: center !important;
@@ -912,6 +927,18 @@ h5.customer1.text-center.pt-3.pl-3 {
 }
 .card .card-header {
     z-index: 0 !important;
+}
+.col-md-4.tagging {
+    border: 2px solid red;
+    border-top:none;
+}
+
+.col-md-4.promote {
+    border-bottom: 2px solid red;
+}
+
+.col-md-4.Descriptions {
+    border-bottom: 2px solid red;
 }
 @media only screen and (max-width: 768px) {
 

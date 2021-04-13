@@ -250,11 +250,14 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/Profile/{text?}', 'artist@profile')->middleware('contentAuth');
 
-    Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
+    Route::get('artist/contentUpload', '@contentProv')->middleware('contentAuth');
 
     Route::post('addDescription','artist@addDescription');
 
+    Route::post('userName','artist@saveUsername');
+
     Route::post('sendToTip','artist@sendTip');
+
     Route::post('insertTime','artist@sendTimeFrame');
     
     Route::post('createOffer','artist@createOffer');
