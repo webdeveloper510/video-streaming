@@ -810,10 +810,10 @@
                     ?>
                     <?php for($i = 0; $i < $count; $i++): ?>
                     <div class="row">
-                      <div class="col-6">
-                    <h3><?php echo e($name1[$i]); ?></h3>
+                      <div class="col-6 text-right">
+                    <h5><?php echo e($name1[$i]); ?></h5>
                       </div>
-                      <div class="col-6">
+                      <div class="col-6 text-left">
                       <p><?php echo e($plateform[$i]); ?></p>
                        </div>
                     </div>
