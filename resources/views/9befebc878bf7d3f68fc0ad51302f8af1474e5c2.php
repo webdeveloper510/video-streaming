@@ -63,6 +63,9 @@
                             <div class="delete1">
                                 <h3>
                                     <?php echo e($info->nickname); ?></h3>
+                                    <div class="text-right">
+                                        <button class="btn btn-outline-danger" type="button">Delete</button>
+                                    </div>
 
                             </div>
                             <div class="post">
@@ -176,8 +179,12 @@
 
                                     <h3>
                                         <?php echo e($info->nickname); ?></h3>
+                                    <div class="text-right">
+                                        <button class="btn btn-outline-danger" type="button">Delete</button>
+                                    </div>
 
                                 </div>
+                                
                                 <div class="post">
                                     <h3>Description for the Post :</h3>
 
@@ -196,7 +203,7 @@
                                             class="img-fluid">
 
                                         <div class="text-right Delete">
-                                            <button class="btn btn-outline-primary" type="button">Delete</button>
+                                            <button class="btn btn-outline-primary" type="button">Download</button>
                                         </div>
                                     </div>
                                     <hr>
