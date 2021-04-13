@@ -789,7 +789,7 @@
                   <?php                     
                       $count = count($name->username);
                     ?>
-                    @for ($i = 0; $i < $count; $i++)
+                    @for ($i = 0; $i < $count; $i++)       
                     <div class="row">
                       <div class="col-6">
                     <h3>{{$name->username[$i]}}</h3>
