@@ -798,8 +798,8 @@ public function getRespectedSub($data){
         $data = $data->where('status', '=', $sts);
     }
 
-    // echo "<pre>";
-    // print_r($data->get());die;
+    echo "<pre>";
+    print_r($data->get());die;
 
 
       
