@@ -791,8 +791,6 @@ public function getRespectedSub($data){
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
       ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
-      echo "<pre>";
-      print_r($data->get());die;
        
       if ($sts) {
             //echo $sts;
@@ -2280,9 +2278,6 @@ public function PopularVideos($flag,$type){
         ->where('popular.type',$type)
         ->orderBy('count','desc')
         ->paginate(30);
-
-
-        //$videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->paginate(30) : DB::table("media")->get()->toArray();
 
       }
 // echo "<pre>";
