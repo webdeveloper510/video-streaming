@@ -791,8 +791,8 @@ public function getRespectedSub($data){
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
       ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
-      echo "<pre>";
-      print_r($data->get());die;
+      // echo "<pre>";
+      // print_r($data->get());die;
        
       if ($sts) {
             //echo $sts;
