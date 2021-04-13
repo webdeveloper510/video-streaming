@@ -775,9 +775,11 @@
                         <div class="alert alert-danger d-none">{{ $errors->first('description') ?  $errors->first('description') : ''}}</div>
                         </div>
                         <div class="text-right"> {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}</div>
+                        {{ Form::close() }}
                   </div>
 
                <div class="col-md-4 tagging">
+               {!!Form::open(['id'=>'social_media','method' => 'post', 'files'=>true])!!}
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                       <div class="linksonit mb-3">
@@ -802,7 +804,9 @@
                         </div>
                  <div class="alert alert-danger d-none">{{ $errors->first('username') ?  $errors->first('username') : ''}}</div>
                  <div class="text-right">{{ Form::submit('Save',['class'=>'btn btn-primary btn-sm']) }}</div>
-                    </div>
+                 {{ Form::close() }}
+                 
+                </div>
                 </div>
 
              </div>
@@ -817,7 +821,7 @@
                   </div>
               </div>
             </div>
-            {{ Form::close() }}
+            
             <div class="col-md-4">
          <div class="card" >
               <div class="card-body text-center">
