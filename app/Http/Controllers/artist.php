@@ -783,14 +783,19 @@ class artist extends Controller
         unset($data['_token']);
         $data['media']=$fileName;
         $data['description'] = $data['description'] ? $data['description'] : '';
-        $data['username'] = $data['username'] ? $data['username'] : '';
+        //$data['username'] = $data['username'] ? $data['username'] : '';
         $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
-
-          //print_r($data);die;
+        //print_r($data);die;
+         $social_account = $data['username'] ? implode(',',$data['social_plateform']) : '';
+         //print_r($social_account);die;
+         $username = $data['username'] ? implode(',',$data['username']) : '';
+         $data['social_plateform'] = $social_account;
+         $data['username'] = $username;
+       
           if($filePath){
 
           $insert = $this->model->uploadSocialMedia($data);
-          //print_r($insert);die;
+          
             if($insert){
                 return response()->json(array('status'=>1, 'messge'=>'Media Uploaded!'));
               }
