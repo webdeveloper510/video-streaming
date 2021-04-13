@@ -806,8 +806,14 @@
                       $count = count($name->username);
                     ?>
                     <?php for($i = 0; $i < $count; $i++): ?>
-                    <span><?php echo e($name->username[$i]); ?></span>
-                      <span><?php echo e($name->social_plateform[$i]); ?></span>
+                    <div class="row">
+                      <div class="col-6">
+                    <h3><?php echo e($name->username[$i]); ?></h3>
+                      </div>
+                      <div class="col-6">
+                      <p><?php echo e($name->social_plateform[$i]); ?></p>
+                       </div>
+                    </div>
                       <br>
                     <?php endfor; ?>
                   
@@ -945,18 +951,7 @@ h5.customer1.text-center.pt-3.pl-3 {
 .card .card-header {
     z-index: 0 !important;
 }
-.col-md-4.tagging {
-    border: 2px solid red;
-    border-top:none;
-}
 
-.col-md-4.promote {
-    border-bottom: 2px solid red;
-}
-
-.col-md-4.Descriptions {
-    border-bottom: 2px solid red;
-}
 @media  only screen and (max-width: 768px) {
 
 .row.mt-5.pt-5.text-center {
