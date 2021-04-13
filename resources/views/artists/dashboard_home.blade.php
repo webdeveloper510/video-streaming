@@ -384,13 +384,17 @@
                         <option value="Wallis & Futana Is">Wallis & Futana Is</option>
                         <option value="Zaire">Zaire</option>
                         <option value="Zambia">Zambia</option>
-</select>
+                </select>
               
                 <br>
-                <h5 class="card-title">Email : {{$personal_info[0]->email}}</h5>
+                <br>
+                <h5 class="card-title">Email : </h5>
+                
+                <h5>{{$personal_info[0]->email}}</h5>
+                <br>
                 <br>
                 <div class="text-right">
-                {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-primary btn-sm']) }}
               </div>
               {{Form::close()}}
               </div>
@@ -903,18 +907,6 @@ h5.customer1.text-center.pt-3.pl-3 {
 }
 .card .card-header {
     z-index: 0 !important;
-}
-.col-md-4.tagging {
-    border: 2px solid red;
-    border-top:none;
-}
-
-.col-md-4.promote {
-    border-bottom: 2px solid red;
-}
-
-.col-md-4.Descriptions {
-    border-bottom: 2px solid red;
 }
 @media only screen and (max-width: 768px) {
 
