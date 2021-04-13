@@ -394,7 +394,7 @@
                 <br>
                 <br>
                 <div class="text-right">
-                {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm']) }}
+                {{ Form::submit('Apply!',['class'=>'btn btn-primary btn-sm']) }}
               </div>
               {{Form::close()}}
               </div>

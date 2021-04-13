@@ -396,7 +396,7 @@
                 <br>
                 <br>
                 <div class="text-right">
-                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm'])); ?>
+                <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary btn-sm'])); ?>
 
               </div>
               <?php echo e(Form::close()); ?>
