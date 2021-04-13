@@ -459,6 +459,31 @@ public function getRecentlySearch(){
   
 }
 
+public function saveUsername($data){
+
+  $session_data =   Session::get('User');
+
+    $data1 = $this->selectDataById('artistid','social_username',$session_data->id);
+
+    $done = count($data1) > 0 ? $this->updateSaveUser($data,$session_data->id) : $this->insertSave($data,$session_data->id);
+    return $done ? 1 : 0;
+}
+
+public function updateSaveUser($data,$id){
+
+        return DB::table('social_username')->where('artistid',$id)->update([
+            'username'=>$data['username'],
+            'social_plateform'=>$data['social_plateform'],
+        ]);
+}
+public function insertSave($data,$id){
+      unset($data['_token']);
+        $data['created_at'] = now();
+        $data['artistid'] = $id;
+        $data['updated_at'] = now();
+        return DB::table('social_username')->insert($data);
+}
+
 public function getArtists($flag){
 
     if($flag=='No'){

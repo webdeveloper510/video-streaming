@@ -2795,6 +2795,32 @@ $(document).on('submit', '#updateUser', function (event) {
 
 });
 
+
+/**------------------------------------------------------------Save Username------------------------------------------------------- */
+$(document).on('submit', '#user', function (event) {
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/userName",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            if(data==1){
+                $('#success').show();
+                $('#success').html('Saved Successfully!');
+            }
+
+        }
+    });
+
+});
+
 /* ---------------------------------------------------Edit Artist Personal
  * Info-----------------------------------
  */
