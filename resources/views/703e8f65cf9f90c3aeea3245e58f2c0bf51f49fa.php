@@ -755,7 +755,7 @@
               <div class="col-md-4 promote">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
-                  <input type="radio" id="video" name="gender" class="radioBtn" value="Video">
+                  <input type="radio" id="video" name="gender" class="radioBtn" value="video">
                   <label for="male">Video</label>
                   <input type="radio" id="image" name="gender" class="radioBtn" value="image">
                   <label for="image">Image</label>
@@ -813,121 +813,7 @@
                           </div>
                           </div>
                             <div class="amountmedia">
-                            <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose...</option>
-                                      <option value="1">Facebook</option>
-                                      <option value="2">Instagram</option>
-                                      <option value="3">Youtube</option>
-                                      <option value="4">Sharesome</option>
-                                      <option value="5">Xpurity</option>
-                                      <option value="6">WeChat</option>
-                                      <option value="7">Tiktok</option>
-                                      <option value="8">Twitter </option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-6">
-                                  <div class="form-group">
-                                      
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose...</option>
-                                      <option value="1">Facebook</option>
-                                      <option value="2">Instagram</option>
-                                      <option value="3">Youtube</option>
-                                      <option value="4">Sharesome</option>
-                                      <option value="5">Xpurity</option>
-                                      <option value="6">WeChat</option>
-                                      <option value="7">Tiktok</option>
-                                      <option value="8">Twitter </option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-6">
-                                  <div class="form-group">
-                                      
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose...</option>
-                                      <option value="1">Facebook</option>
-                                      <option value="2">Instagram</option>
-                                      <option value="3">Youtube</option>
-                                      <option value="4">Sharesome</option>
-                                      <option value="5">Xpurity</option>
-                                      <option value="6">WeChat</option>
-                                      <option value="7">Tiktok</option>
-                                      <option value="8">Twitter </option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-6">
-                                  <div class="form-group">
-                                      
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose...</option>
-                                      <option value="1">Facebook</option>
-                                      <option value="2">Instagram</option>
-                                      <option value="3">Youtube</option>
-                                      <option value="4">Sharesome</option>
-                                      <option value="5">Xpurity</option>
-                                      <option value="6">WeChat</option>
-                                      <option value="7">Tiktok</option>
-                                      <option value="8">Twitter </option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-6">
-                                  <div class="form-group">
-                                      
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                <div class="form-group">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                      <option selected>Choose...</option>
-                                      <option value="1">Facebook</option>
-                                      <option value="2">Instagram</option>
-                                      <option value="3">Youtube</option>
-                                      <option value="4">Sharesome</option>
-                                      <option value="5">Xpurity</option>
-                                      <option value="6">WeChat</option>
-                                      <option value="7">Tiktok</option>
-                                      <option value="8">Twitter </option>
-                                    </select>
-                                  </div>
-                                  </div>
-                                  <div class="col-6">
-                                  <div class="form-group">
-                                      
-                                      <input type="text" class="form-control">
-                                    </div>
-                                  </div>
-                            </div>
+                           
                         </div>
                  <div class="alert alert-danger d-none"><?php echo e($errors->first('username') ?  $errors->first('username') : ''); ?></div>
                  <div class="text-right"><?php echo e(Form::submit('Save',['class'=>'btn btn-primary btn-sm'])); ?></div>
@@ -1037,18 +923,6 @@ h5.customer1.text-center.pt-3.pl-3 {
 }
 .card .card-header {
     z-index: 0 !important;
-}
-.col-md-4.tagging {
-    border: 2px solid red;
-    border-top:none;
-}
-
-.col-md-4.promote {
-    border-bottom: 2px solid red;
-}
-
-.col-md-4.Descriptions {
-    border-bottom: 2px solid red;
 }
 @media  only screen and (max-width: 768px) {
 
