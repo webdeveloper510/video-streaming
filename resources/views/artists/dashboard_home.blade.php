@@ -785,6 +785,14 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  <div class="row">
+                     <div class="col-6 text-right">
+                       <h4><b> App Name </b></h4>
+                        </div>
+                        <div class="col-6 text-left">
+                          <h4><b> User name</b></h4>
+                        </div>
+                    </div>
                   @foreach($social_name as $name)
                   <?php                     
                       $count = count($name->username);
