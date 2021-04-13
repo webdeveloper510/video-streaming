@@ -247,7 +247,7 @@ class artist extends Controller
 
         return redirect('artist/age-verification');
 
-      }
+      }   
 
    
 
