@@ -825,7 +825,7 @@
                             </div>
                 
                     </div>
-                    {{ Form::submit('Submit!',['class'=>'btn btn-primary btn-sm']) }}
+                    {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm']) }}
                     {{ Form::close() }}
                 </div>
 
