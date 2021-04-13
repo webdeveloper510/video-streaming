@@ -802,25 +802,21 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                   <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <?php
-                      $name1 = explode(',',$name->username);
-                      $plateform = explode(',',$name->social_plateform);
-                     
-                      $count = count($plateform);
+                  <?php                     
+                      $count = count($name->username);
                     ?>
-                    <div class="row">
                     <?php for($i = 0; $i < $count; $i++): ?>
-                    
-                      <div class="col-6 text-right">
-                    <h5><?php echo e($name1[$i]); ?></h5>
+                    <div class="row">
+                      <div class="col-6">
+                    <h3><?php echo e($name->username[$i]); ?></h3>
                       </div>
-                      <div class="col-6 text-left">
-                      <p><?php echo e($plateform[$i]); ?></p>
+                      <div class="col-6">
+                      <p><?php echo e($name->social_plateform[$i]); ?></p>
                        </div>
-                   
+                    </div>
                       <br>
                     <?php endfor; ?>
-                    </div>
+                  
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
