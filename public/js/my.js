@@ -2072,15 +2072,21 @@ $(document).ready(function () {
                 'data': 'choice'
             }, {
                 'data': 'nickname'
-            }, {
-                'data': 'status'
-            }, {
-                'data': 'dates_submision',
+            }, 
+            {
+                'data': 'status',
                 render: function (data, type, row) {
                     // console.log(data);
                     return row.remaining_days < 0
                         ? 'Expired'
-                        : data + '(24:00)';
+                        : data;
+                }
+            }, 
+            {
+                'data': 'dates_submision',
+                render: function (data, type, row) {
+                    // console.log(data);
+                    return data + '(24:00)';
                 }
             }
         ],
