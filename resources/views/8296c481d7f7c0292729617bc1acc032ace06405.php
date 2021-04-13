@@ -149,6 +149,7 @@
                                                     <video
                                                         width="100%"
                                                         height="100%"
+                                                        poster="<?php echo e(url('storage/app/public/uploads/'.$video->audio_pic)); ?>"
                                                         <?php echo e($buyed==1 ? 'controls' : ''); ?>
 
                                                         controlsList="nodownload"
