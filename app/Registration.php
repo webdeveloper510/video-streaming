@@ -2279,6 +2279,9 @@ public function PopularVideos($flag,$type){
         ->orderBy('count','desc')
         ->paginate(30);
 
+
+        //$videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->paginate(30) : DB::table("media")->get()->toArray();
+
       }
 // echo "<pre>";
       //print_r($videos);die;
