@@ -279,7 +279,7 @@ ul#pills-tab {
     color: white !important;
 }
 li.nav-item {
-    width: 50%;
+    width: 33.33%;
     text-align: center;
 }
 

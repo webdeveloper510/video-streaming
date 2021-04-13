@@ -33,6 +33,16 @@
                 aria-controls="pills-images"
                 aria-selected="false">Images</a>
         </li>
+        <li class="nav-item" role="presentation">
+            <a
+                class="nav-link"
+                id="pills-artist-tab"
+                data-toggle="pill"
+                href="#pills-artist"
+                role="tab"
+                aria-controls="pills-artist"
+                aria-selected="false">Artist Social Account</a>
+        </li>
 
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -106,24 +116,48 @@
         </div>
 
         <!-- ------- tickets tab---------------------------------------- -->
-        <!-- <div class="tab-pane fade" id="pills-audio" role="tabpanel"
-        aria-labelledby="pills-audio-tab"> <div class="container-fluid"> <div
-        class="row"> @foreach($social_audio as $info) <div class="col-md-12"> <div
-        class="row"> <div class="col-md-8"> <div class="delete1"> <h3>
-        {{$info->nickname}}</h3> <div class="text-right artistname"> <button class="btn
-        btn-outline-succes" type="button">Delete</button> </div> </div> <div
-        class="post"> <h3>Description for the Post :</h3> <p>{{$info->description}}</p>
-        <div class="text-right mr-3"> <button class="btn btn-outline-primary"
-        type="button">Copy</button> </div> </div> </div> <div class="col-md-4"> <div
-        class="soc"> <div class="mp4"> <audio width="50%" controls> <source
-        src="{{url('storage/app/public/audio/'.$info->media) }}" type="audio/mp3"> Your
-        browser does not support the video tag. </audio > <div class="text-right
-        Delete"> <button class="btn btn-outline-primary" type="button">Delete</button>
-        </div> </div> <hr> <div class="accounts"> <h3> Social Accounts :</h3> <h5>
-        Instagram {{$info->username}}</h5> <br> <h5> Twitter {{$info->username}}</h5>
-        <div class="text-right m-3"> <button class="btn btn-primary"
-        type="button">Copy</button> </div> </div> </div> </div> </div> </div>
-        @endforeach </div> </div> </div> -->
+       <div
+        class="tab-pane fade"
+        id="pills-artist"
+        role="tabpanel"
+        aria-labelledby="pills-artist-tab">
+        <div class="container-fluid">
+                <div class="card" style="width: 40rem;">
+                    <div class="card-header">
+                            <h3>Artist Social Media Accounts
+                            </h3>
+                         </div>
+                        <div class="card-body">
+                           
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">App Name</th>
+                                    <th scope="col">User Name</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>FAcebook</td>
+                                    <td>Otto</td>
+                                   
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>YouTube</td>
+                                    <td>Thornton</td>
+                                   
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    </div>
+                </div>
 
         <div
             class="tab-pane fade "
