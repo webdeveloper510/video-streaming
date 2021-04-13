@@ -122,7 +122,7 @@
         role="tabpanel"
         aria-labelledby="pills-artist-tab">
         <div class="container-fluid">
-                <div class="card" style="width: 40rem;">
+                <div class="card" style="width: 40rem; display: block; margin: 0px auto;">
                     <div class="card-header">
                             <h3>Artist Social Media Accounts
                             </h3>
