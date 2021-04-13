@@ -786,15 +786,12 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                   @foreach($social_name as $name)
-                  <?php
-                      $name1 = explode(',',$name->username);
-                      $plateform = explode(',',$name->social_plateform);
-                     
-                      $count = count($plateform);
+                  <?php                     
+                      $count = count($name->username);
                     ?>
                     @for ($i = 0; $i < $count; $i++)
-                    <span>{{$name1[$i]}}</span>
-                      <span>{{$plateform[$i]}}</span>
+                    <span>{{$name->username[$i]}}</span>
+                      <span>{{$name->social_plateform[$i]}}</span>
                       <br>
                     @endfor
                   
