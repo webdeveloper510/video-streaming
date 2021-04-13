@@ -793,8 +793,14 @@
                       $count = count($plateform);
                     ?>
                     @for ($i = 0; $i < $count; $i++)
-                    <span>{{$name1[$i]}}</span>
-                      <span>{{$plateform[$i]}}</span>
+                    <div class="row">
+                      <div class="col-6">
+                    <h3>{{$name1[$i]}}</h3>
+                      </div>
+                      <div class="col-6">
+                      <p>{{$plateform[$i]}}</p>
+                       </div>
+                    </div>
                       <br>
                     @endfor
                   
