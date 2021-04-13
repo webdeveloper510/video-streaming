@@ -2814,6 +2814,9 @@ $(document).on('submit', '#user', function (event) {
             if(data==1){
                 $('#success').show();
                 $('#success').html('Saved Successfully!');
+                setTimeout(function(){
+                    location.reload();
+                },2000);
             }
 
         }

@@ -243,7 +243,7 @@ class artist extends Controller
 
       $social_names = $this->model->getSocialName($contentType->id);
 
-        //print_r($social_names);die;
+       // print_r($social_names);die;
 
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
