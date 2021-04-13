@@ -139,8 +139,6 @@ section.background1 {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-element.style {
-}
 .bmd-form-group .form-control, .bmd-form-group label, .bmd-form-group input::placeholder {
     line-height: 1.1;
 }
