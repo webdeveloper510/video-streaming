@@ -752,6 +752,10 @@ video:hover {
 .coverimg img {
     object-fit: contain;
 }
+.overlayprofile img {
+    display: flex;
+    margin: -33% 14%;
+}
 }
 .pricetime .text-left h6 {
     background: black;
