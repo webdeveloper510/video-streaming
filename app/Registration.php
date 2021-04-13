@@ -782,7 +782,7 @@ public function getRespectedSub($data){
 
       $user=Session::get('User');
 
-      echo $userId =$user->id;
+       $userId =$user->id;
       //DB::enableQueryLog();
       //echo "h";die;
       $data = \DB::table("offer")
