@@ -241,7 +241,7 @@ class artist extends Controller
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
-      $social_names = $this->model->selectDataById('artistid','social_username',$contentType->id);
+      $social_names = $this->model->getSocialName($contentType->id);
 
        // print_r($social_names);die;
 
