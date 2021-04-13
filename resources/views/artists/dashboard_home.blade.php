@@ -895,18 +895,7 @@ img.img-fliud.logodownload {
 h5.customer1.text-center.pt-3.pl-3 {
     font-size: 13px;
 }
-.profileImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #512DA8;
-    font-size: 20px;
-    color: #fff;
-    text-align: center;
-    line-height: 48px;
-    margin-right: 14px;
-    margin-top: 4px;
-}
+
 .week {
     padding: 18px;
     text-align: center !important;
