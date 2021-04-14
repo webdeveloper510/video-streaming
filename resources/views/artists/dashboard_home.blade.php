@@ -785,6 +785,14 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  <div class="row">
+                     <div class="col-6 text-right">
+                       <h4><b> App Name </b></h4>
+                        </div>
+                        <div class="col-6 text-left">
+                          <h4><b> User name</b></h4>
+                        </div>
+                    </div>
                   @foreach($social_name as $name)
                   <?php                     
                       $count = count($name->username);
@@ -792,10 +800,10 @@
                     @for ($i = 0; $i < $count; $i++)       
                     <div class="row">
                       <div class="col-6">
-                    <h3>{{$name->username[$i]}}</h3>
+                      <h5><b>{{$name->username[$i]}}</b></h5>
                       </div>
                       <div class="col-6">
-                      <p>{{$name->social_plateform[$i]}}</p>
+                      <h5><b>{{$name->social_plateform[$i]}}</b></h5>
                        </div>
                     </div>
                       <br>
@@ -821,6 +829,31 @@
                             </select>     
                           </div>
                           </div>
+                          <div class='row'>
+                              <div class='col-6'>
+                              <div class='form-group'>
+                              <select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01'>
+                                    <option selected=''>Choose...</option>
+                                    <option value='Facebook'>Facebook</option>
+                                    <option value='Instagram'>Instagram</option>
+                                    <option value='Youtube'>Youtube</option>
+                                  <option value='Sharesome'>Sharesome</option>
+                                  <option value='Xpurity'>Xpurity</option>
+                                    <option value='WeChat'>WeChat</option>
+                                  <option value='Tiktok'>Tiktok</option>
+                                  <option value='Twitter'>Twitter </option>
+                              </select>
+                                </div>
+                              </div>
+                                <div class='col-6'>
+                                <div class='form-group'>             
+                                  <input type='text' name='username[]' class='form-control'>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="col-md-12 text-center">
+                              <button class="btn btn-outline-primary btn-sm" type="button">+</button>
+                           </div>
                             <div class="amountmedia">                           
                             </div>
                 

@@ -801,6 +801,14 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  <div class="row">
+                     <div class="col-6 text-right">
+                       <h4><b> App Name </b></h4>
+                        </div>
+                        <div class="col-6 text-left">
+                          <h4><b> User name</b></h4>
+                        </div>
+                    </div>
                   <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php
                       $name1 = explode(',',$name->username);
@@ -808,12 +816,19 @@
                      
                       $count = count($plateform);
                     ?>
+                    <div class="row">
                     <?php for($i = 0; $i < $count; $i++): ?>
-                    <span><?php echo e($name1[$i]); ?></span>
-                      <span><?php echo e($plateform[$i]); ?></span>
+                    
+                      <div class="col-6 text-right">
+                    <h5><?php echo e($name1[$i]); ?></h5>
+                      </div>
+                      <div class="col-6 text-left">
+                      <p><?php echo e($plateform[$i]); ?></p>
+                       </div>
+                   
                       <br>
                     <?php endfor; ?>
-                  
+                    </div>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
@@ -948,18 +963,7 @@ h5.customer1.text-center.pt-3.pl-3 {
 .card .card-header {
     z-index: 0 !important;
 }
-.col-md-4.tagging {
-    border: 2px solid red;
-    border-top:none;
-}
 
-.col-md-4.promote {
-    border-bottom: 2px solid red;
-}
-
-.col-md-4.Descriptions {
-    border-bottom: 2px solid red;
-}
 @media  only screen and (max-width: 768px) {
 
 .row.mt-5.pt-5.text-center {
