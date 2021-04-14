@@ -363,7 +363,7 @@ Your browser does not support the audio tag.
         @if(isset($details[0]))
       @foreach($details[0] as $key=>$profile)
        @if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor')
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <label><b>{{$key=='weight' ? ucwords('body'): ucwords($key)}}</b></label>
               <p class="edittable">{{$profile}}</p>
             </div>

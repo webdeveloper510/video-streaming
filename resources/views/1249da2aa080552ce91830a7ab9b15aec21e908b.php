@@ -369,7 +369,7 @@ Your browser does not support the audio tag.
         <?php if(isset($details[0])): ?>
       <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <label><b><?php echo e($key=='weight' ? ucwords('body'): ucwords($key)); ?></b></label>
               <p class="edittable"><?php echo e($profile); ?></p>
             </div>
