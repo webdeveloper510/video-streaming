@@ -2810,14 +2810,13 @@ $(document).on('submit', '#user', function (event) {
         data: $(this).serialize(),
 
         success: function (data) {
-
-            if(data==1){
-                $('#success').show();
-                $('#success').html('Saved Successfully!');
-                setTimeout(function(){
-                    location.reload();
-                },2000);
-            }
+                if(data==1){
+                    $('#success').show();
+                    $('#success').html('Saved Successfully!');
+                    setTimeout(function(){
+                        location.reload();
+                    },2000);
+                }
 
         }
     });
