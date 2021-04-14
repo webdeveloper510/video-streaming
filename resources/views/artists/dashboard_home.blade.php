@@ -813,23 +813,8 @@
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
                       <div class="linksonit mb-3">
-                        <div class="amout">
-                        <div class="form-group col-5">
-                            <select class="custom-select" id="inputGroupSelect01" onchange="selectUsername(this)">
-                              <option selected>Choose...</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                            </select>     
-                          </div>
-                          </div>
-                          <div class='row'>
+                      <div class="amountmedia"> 
+                          <div class='row social_append'>
                               <div class='col-6'>
                               <div class='form-group'>
                               <select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01'>
@@ -851,11 +836,12 @@
                                   </div>
                                 </div>
                           </div>
-                          <div class="col-md-12 text-center">
-                              <button class="btn btn-outline-primary btn-sm" type="button">+</button>
-                           </div>
-                            <div class="amountmedia">                           
+                         
+                                                    
                             </div>
+                            <div class="col-md-12 text-center">
+                              <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                           </div>
                 
                     </div>
                     {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm']) }}
@@ -916,15 +902,11 @@ label.error {
     
 }
 .amountmedia {
-    height: 160px;
+    max-height: 160px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
-.amountmedia {
-    height: 160px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
+
 .edit12 {
     margin-top: 30%;
 }

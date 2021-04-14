@@ -2810,6 +2810,7 @@ $(document).on('submit', '#user', function (event) {
         data: $(this).serialize(),
 
         success: function (data) {
+            //console.log(data);return false;
                 if(data==1){
                     $('#success').show();
                     $('#success').html('Saved Successfully!');
@@ -2822,6 +2823,12 @@ $(document).on('submit', '#user', function (event) {
     });
 
 });
+
+function appendDiv(a){
+    console.log('yhis');
+    var html = $('.amountmedia').find('.social_append').html();
+    $('.social_append').append(html);
+}
 
 /* ---------------------------------------------------Edit Artist Personal
  * Info-----------------------------------

@@ -465,15 +465,40 @@ public function saveUsername($data){
 
     $data1 = $this->selectDataById('artistid','social_username',$session_data->id);
 
-    $done = count($data1) > 0 ? $this->updateSaveUser($data,$session_data->id) : $this->insertSave($data,$session_data->id);
+    $done = count($data1) > 0 ? $this->updateSaveUser($data1,$data,$session_data->id) : $this->insertSave($data,$session_data->id);
     return $done ? 1 : 0;
 }
 
-public function updateSaveUser($data,$id){
+public function updateSaveUser($tableData,$data,$id){
+
+  $username = explode(',',$tableData[0]->username);
+
+  $name[]= $data['username'];
+
+  $plateform[]= $data['social_plateform'];
+ 
+  $social = explode(',',$tableData[0]->social_plateform);
+
+  $aunion=  array_merge(array_intersect($name, $username),array_diff($name, $username),array_diff($username, $name));
+
+  $result_array_name = array_unique($aunion);
+
+
+   $names = implode(',',$result_array_name); 
+
+   //print_r($names);
+
+   $aunion1=  array_merge(array_intersect($plateform, $social),array_diff($plateform, $social),array_diff($social, $plateform));
+
+   $result_array_account = array_unique($aunion1);
+ 
+    $accounts = implode(',',$result_array_account); 
+
+   // print_r($accounts);die;
 
         return DB::table('social_username')->where('artistid',$id)->update([
-            'username'=>$data['username'],
-            'social_plateform'=>$data['social_plateform'],
+            'username'=>$names,
+            'social_plateform'=>$accounts,
         ]);
 }
 public function insertSave($data,$id){
