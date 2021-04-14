@@ -847,6 +847,31 @@
                             </select>     
                           </div>
                           </div>
+                          <div class='row'>
+                              <div class='col-6'>
+                              <div class='form-group'>
+                              <select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01'>
+                                    <option selected=''>Choose...</option>
+                                    <option value='Facebook'>Facebook</option>
+                                    <option value='Instagram'>Instagram</option>
+                                    <option value='Youtube'>Youtube</option>
+                                  <option value='Sharesome'>Sharesome</option>
+                                  <option value='Xpurity'>Xpurity</option>
+                                    <option value='WeChat'>WeChat</option>
+                                  <option value='Tiktok'>Tiktok</option>
+                                  <option value='Twitter'>Twitter </option>
+                              </select>
+                                </div>
+                              </div>
+                                <div class='col-6'>
+                                <div class='form-group'>             
+                                  <input type='text' name='username[]' class='form-control'>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="col-md-12 text-center">
+                              <button class="btn btn-outline-primary btn-sm" type="button">+</button>
+                           </div>
                             <div class="amountmedia">                           
                             </div>
                 
