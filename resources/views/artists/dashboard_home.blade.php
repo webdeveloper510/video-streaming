@@ -800,10 +800,10 @@
                     @for ($i = 0; $i < $count; $i++)       
                     <div class="row">
                       <div class="col-6">
-                    <h3>{{$name->username[$i]}}</h3>
+                      <h5><b>{{$name->username[$i]}}</b></h5>
                       </div>
                       <div class="col-6">
-                      <p>{{$name->social_plateform[$i]}}</p>
+                      <h5><b>{{$name->social_plateform[$i]}}</b></h5>
                        </div>
                     </div>
                       <br>

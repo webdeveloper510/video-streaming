@@ -816,10 +816,10 @@
                     <?php for($i = 0; $i < $count; $i++): ?>       
                     <div class="row">
                       <div class="col-6">
-                    <h3><?php echo e($name->username[$i]); ?></h3>
+                      <h5><b><?php echo e($name->username[$i]); ?></b></h5>
                       </div>
                       <div class="col-6">
-                      <p><?php echo e($name->social_plateform[$i]); ?></p>
+                      <h5><b><?php echo e($name->social_plateform[$i]); ?></b></h5>
                        </div>
                     </div>
                       <br>
