@@ -240,7 +240,9 @@
     section.support1 {
         margin-top: 10px;
     }
-
+    .delete1 .text-right {
+    margin: -24px 10px 10px 10px;
+}
     li.nav-item {
         width: 33.33%;
         text-align: center;
