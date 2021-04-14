@@ -134,4 +134,16 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
       width: 57px;
       padding: 4px;
   }
+  .coverimg .iconcamera i{
+    position: absolute;
+    right: 15px;
+    display:block;
+    color: #746a6a;
+    margin-top: -30px;
+    background: #ffffff99;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    padding: 6px;
+}
 }
