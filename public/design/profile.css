@@ -46,7 +46,7 @@ input.select_media_pic {
     background: #7b0000;
     border-top: 1px solid #fff;
 }
-.coverimg:hover .iconcamera i{
+.coverimg .iconcamera i{
     position: absolute;
     right: 15px;
     display:block;
@@ -65,7 +65,7 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
     height: 36px !important;
     background-color: #ffbb11 !important;
 }
-.profileimg:hover .iconcamera i{
+.profileimg .iconcamera i{
   position: absolute;
     color: #746a6a;
     display: block;
@@ -119,4 +119,31 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
     width: 100%;
     text-align: center;
     padding-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+    
+
+.profileimg .iconcamera i{
+    position: absolute;
+      color: #746a6a;
+      display: block;
+      background: #ffffff99;
+      left: 88px;
+      height: 23px;
+      text-align: center;
+      width: 57px;
+      padding: 4px;
+  }
+  .coverimg .iconcamera i{
+    position: absolute;
+    right: 15px;
+    display:block;
+    color: #746a6a;
+    margin-top: -30px;
+    background: #ffffff99;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    padding: 6px;
+}
 }
