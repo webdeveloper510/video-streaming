@@ -125,40 +125,7 @@
         role="tabpanel"
         aria-labelledby="pills-artist-tab">
         <div class="container-fluid">
-                <div class="card" style="width: 40rem; display: block; margin: 0px auto;">
-                    <div class="card-header">
-                            <h3>Artist Social Media Accounts
-                            </h3>
-                         </div>
-                        <div class="card-body">
-                           
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">App Name</th>
-                                    <th scope="col">User Name</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>FAcebook</td>
-                                    <td>Otto</td>
-                                   
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>YouTube</td>
-                                    <td>Thornton</td>
-                                   
-                                </tr>
-                                
-                            </tbody>
-                        </table>
-                        </div>
-                    </div>
+               
                     </div>
                 </div>
 
@@ -207,20 +174,45 @@
                                         </div>
                                     </div>
                                     <hr>
-                                    <div class="accounts">
-                                        <h3>
-                                            Social Accounts :</h3>
-                                        <h5>
-                                            Instagram
-                                            <?php echo e($info->username); ?></h5>
-                                        <br>
-                                        <h5>
-                                            Twitter
-                                            <?php echo e($info->username); ?></h5>
+                                    <div class="card">
+                                        <div class="card-header">
+                                                <h3>Artist Social Media Accounts
+                                                </h3>
+                                            </div>
+                                            <div class="card-body">
+                                            
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">App Name</th>
+                                                        <th scope="col">User Name</th>
+                                                    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>FAcebook</td>
+                                                        <td> <?php echo e($info->username); ?></td>
+                                                    
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>YouTube</td>
+                                                        <td><?php echo e($info->username); ?></td>
+                                                    
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                   
                                         <div class="text-right m-3">
                                             <button class="btn btn-primary" type="button">Copy</button>
                                         </div>
-                                    </div>
+                                
 
                                 </div>
                             </div>
