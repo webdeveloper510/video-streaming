@@ -220,10 +220,8 @@ $(document).ready(function () {
     var profileImage = $('.profileImage').text(intials);
 
     $(".hoverVideo").hover(function () {
-
-        //alert('hhh');
-
         playVideo(this);
+
 
     }, function () {
         pause(this);
@@ -2825,9 +2823,9 @@ $(document).on('submit', '#user', function (event) {
 });
 
 function appendDiv(a){
-    console.log('yhis');
+    //console.log('yhis');
     var html = $('.amountmedia').find('.social_append').html();
-    $('.social_append').append(html);
+    $('.amountmedia ').append(html);
 }
 
 /* ---------------------------------------------------Edit Artist Personal
