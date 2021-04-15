@@ -107,6 +107,8 @@
                 <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
+            <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
             <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
@@ -229,7 +231,7 @@ section.background1 {
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  
 
-<script>
+<!-- <script>
 $('form').transloadit({
    
       wait: true,
@@ -243,4 +245,4 @@ $('form').transloadit({
         template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
       }
     });
-</script><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
+</script> --><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>

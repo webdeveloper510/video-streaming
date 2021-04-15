@@ -55,7 +55,7 @@
                 </div>
            
                     <div class="col-md-4 mt-5 ">
-                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ/min)')); ?> 
                         <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])); ?>
 
                         <?php if($errors->first('price')): ?>
