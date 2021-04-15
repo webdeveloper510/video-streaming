@@ -250,7 +250,7 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/Profile/{text?}', 'artist@profile')->middleware('contentAuth');
 
-    Route::get('artist/contentUpload', '@contentProv')->middleware('contentAuth');
+    Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
 
     Route::post('addDescription','artist@addDescription');
 
