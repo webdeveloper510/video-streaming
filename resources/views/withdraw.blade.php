@@ -77,10 +77,10 @@
      </div>
     </div> 
 
-    <div class=" invitedbox">
+    <div class=" invitedbox" style="{{$artistPassive[0]->reffered_by==0 ? 'display:none' : 'display:block'}}">
     <div class="card" >
         <div class="text-center">
-       <h3>You've been invited from artistname </h3>
+       <h3>You've been invited from {{$artistPassive[0]->nickname}} </h3>
        <h4>Get your $150 USD with :</h4>
             </div>
   <div class="card-body">

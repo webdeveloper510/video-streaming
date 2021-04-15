@@ -7,7 +7,7 @@
         <div class="overlayartist text-center">
            <img src=" {{asset('images/loaderartist.gif')}}" class="img-fluid" style="display:none">
         </div>
-           <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg') }}" width="100%" height="500px">
+           <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/dummy.png') }}" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -26,7 +26,7 @@
         <div class="overlayprofile">
            <img src=" {{asset('images/loaderartist.gif')}}" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png') }}" width="200px" height="200px">
+        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/dummy.png') }}" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
