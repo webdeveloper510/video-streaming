@@ -220,10 +220,8 @@ $(document).ready(function () {
     var profileImage = $('.profileImage').text(intials);
 
     $(".hoverVideo").hover(function () {
-
-        //alert('hhh');
-
         playVideo(this);
+
 
     }, function () {
         pause(this);
