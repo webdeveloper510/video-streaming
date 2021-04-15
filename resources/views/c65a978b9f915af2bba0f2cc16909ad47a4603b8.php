@@ -133,9 +133,9 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Artistname</th>
-      <td>not yet</td>
-      <td>not yet</td>
+      <th scope="row">-</th>
+      <td>-</td>
+      <td>-</td>
       <td>-</td>
     </tr>
    
@@ -152,7 +152,9 @@
        
       <!-- End Navbar -->
      <style>
-  
+  .background1{
+    height:unset;
+  }
  </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

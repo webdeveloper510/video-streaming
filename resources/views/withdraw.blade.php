@@ -133,9 +133,9 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Artistname</th>
-      <td>not yet</td>
-      <td>not yet</td>
+      <th scope="row">-</th>
+      <td>-</td>
+      <td>-</td>
       <td>-</td>
     </tr>
    
@@ -152,7 +152,9 @@
        
       <!-- End Navbar -->
      <style>
-  
+  .background1{
+    height:unset;
+  }
  </style>
 
  @include('artists.dashboard_footer')
