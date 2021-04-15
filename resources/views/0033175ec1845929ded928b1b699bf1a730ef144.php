@@ -70,11 +70,20 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
+          <?php if($offer->type=='video'): ?>
         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
-            </video>
+         </video>
+         <?php else: ?>
+         <audio width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
+                <source src="<?php echo e(url('storage/app/public/audio/'.$offer->media)); ?>" type="audio/mp3">
+                
+                Your browser does not support the video tag.
+         </audio>
+         <?php endif; ?>
+
       </div>
        
         <div class="col-md-8 pl-5 showoffer pt-5">
@@ -344,8 +353,8 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
-          <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://images.pexels.com/photos/6126313/pexels-photo-6126313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); ?>" width="100%;">
-          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration" controls controlsList="nodownload" disablePictureInPicture>
+          <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://static.vecteezy.com/system/resources/thumbnails/000/097/181/small/free-black-leather-vector.jpg'); ?>" width="100%;">
+          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
                <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
           <?php endif; ?>
@@ -369,7 +378,7 @@ Your browser does not support the audio tag.
         <?php if(isset($details[0])): ?>
       <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
        <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
-            <div class="col-md-3">
+            <div class="col-md-3 col-6">
               <label><b><?php echo e($key=='weight' ? ucwords('body'): ucwords($key)); ?></b></label>
               <p class="edittable"><?php echo e($profile); ?></p>
             </div>

@@ -237,7 +237,6 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
-      print_r($contentType->id);
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
