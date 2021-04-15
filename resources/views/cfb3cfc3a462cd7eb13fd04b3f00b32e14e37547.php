@@ -8,8 +8,8 @@
     elements: [
       {
         domId: "yoti",
-        scenarioId: "81e4a257-5c8e-4023-a425-8c8d25009050",
-        clientSdkId: "a134bb6d-b208-42b3-b777-9d1a627c3efd"
+        scenarioId: "90cea372-70dc-4cbe-b7d8-07bebda19fed",
+        clientSdkId: "1acff0c8-7717-4515-9b84-c3ebad3ea382"
       }
     ]
   });
