@@ -31,7 +31,7 @@ $GLOBALS['price'] = $offerdata->price;
 <h4>Description</h4>
 <p><?php echo e($offerdata->description); ?></p>
 
-<div class="row">
+<div class="row text-center">
 	<div class="col">
       <h3>Duration</h3>
       <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
