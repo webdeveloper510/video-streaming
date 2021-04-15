@@ -810,25 +810,21 @@
                         </div>
                     </div>
                   <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <?php
-                      $name1 = explode(',',$name->username);
-                      $plateform = explode(',',$name->social_plateform);
-                     
-                      $count = count($plateform);
+                  <?php                     
+                      $count = count($name->username);
                     ?>
+                    <?php for($i = 0; $i < $count; $i++): ?>       
                     <div class="row">
-                    <?php for($i = 0; $i < $count; $i++): ?>
-                    
-                      <div class="col-6 text-right">
-                    <h5><?php echo e($name1[$i]); ?></h5>
+                      <div class="col-6">
+                      <h5><b><?php echo e($name->username[$i]); ?></b></h5>
                       </div>
-                      <div class="col-6 text-left">
-                      <p><?php echo e($plateform[$i]); ?></p>
+                      <div class="col-6">
+                      <h5><b><?php echo e($name->social_plateform[$i]); ?></b></h5>
                        </div>
-                   
+                    </div>
                       <br>
                     <?php endfor; ?>
-                    </div>
+                  
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
@@ -851,11 +847,36 @@
                             </select>     
                           </div>
                           </div>
+                          <div class='row'>
+                              <div class='col-6'>
+                              <div class='form-group'>
+                              <select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01'>
+                                    <option selected=''>Choose...</option>
+                                    <option value='Facebook'>Facebook</option>
+                                    <option value='Instagram'>Instagram</option>
+                                    <option value='Youtube'>Youtube</option>
+                                  <option value='Sharesome'>Sharesome</option>
+                                  <option value='Xpurity'>Xpurity</option>
+                                    <option value='WeChat'>WeChat</option>
+                                  <option value='Tiktok'>Tiktok</option>
+                                  <option value='Twitter'>Twitter </option>
+                              </select>
+                                </div>
+                              </div>
+                                <div class='col-6'>
+                                <div class='form-group'>             
+                                  <input type='text' name='username[]' class='form-control'>
+                                  </div>
+                                </div>
+                          </div>
+                          <div class="col-md-12 text-center">
+                              <button class="btn btn-outline-primary btn-sm" type="button">+</button>
+                           </div>
                             <div class="amountmedia">                           
                             </div>
                 
                     </div>
-                    <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary btn-sm'])); ?>
+                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm'])); ?>
 
                     <?php echo e(Form::close()); ?>
 
