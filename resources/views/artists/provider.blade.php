@@ -50,7 +50,7 @@
             </div>
          
             <div class="col-md-6 mt-2 ">
-            {{Form::label('Add Price', 'Price')}} 
+            {{Form::label('Add Price', 'Price (PAZ)')}} 
             {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]) !!}
             </div>
             <div class="col-md-6 mt-2 ">
