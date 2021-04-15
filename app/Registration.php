@@ -1143,13 +1143,13 @@ public function getRespectedSub($data){
     }
 public function getRefersArtist($id){
 
-  echo $id;
-    $data = DB::table('contentprovider as mkd')->
-    select('mkd.nickname','mkd.reffered_by','mkd.id')->
-    join('contentprovider AS reffer', 'reffer.reffered_by', '=', 'mkd.id')->
-    where('reffer.reffered_by', $id)->
-   // where('reffer.reffered_by', '=', 'mkd.id')->
-    get();
+  $data = DB::select("SELECT cp.reffered_by,(SELECT nickname from contentprovider where id=cp.reffered_by) as nickname FROM contentprovider cp where cp.id='$id'");
+    //$data = DB::table('contentprovider as mkd')->
+   // select("(SELECT nickname from contentprovider where id=mkd.reffered_by) as nickname,'mkd.reffered_by','mkd.id'")->
+   // leftJoin('contentprovider AS reffer', 'reffer.reffered_by', '=', 'mkd.id')->
+   // where('mkd.id', $id)->
+    //where('reffer.reffered_by', '=', 'mkd.id')->
+   // get();
 
      //print_r($data);die;  
   
