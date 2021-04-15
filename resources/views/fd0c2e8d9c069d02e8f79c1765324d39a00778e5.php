@@ -77,7 +77,7 @@
      </div>
     </div> 
 
-    <div class=" invitedbox">
+    <div class=" invitedbox" style="<?php echo e($artistPassive[0]->reffered_by==0 ? 'display:none' : 'display:block'); ?>">
     <div class="card" >
         <div class="text-center">
        <h3>You've been invited from <?php echo e($artistPassive[0]->nickname); ?> </h3>
