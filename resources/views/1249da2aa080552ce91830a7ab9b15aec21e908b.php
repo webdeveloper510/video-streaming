@@ -794,7 +794,7 @@ video:hover {
     margin: -10% 4%;
 }
 .coverimg img{
-  margin-top:30px;
+  margin-top:50px;
 }
 @media  only screen and (max-width: 768px) {
 .coverimg img {
