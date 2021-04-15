@@ -70,11 +70,20 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
+          <?php if($offer->type=='video'): ?>
         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
-            </video>
+         </video>
+         <?php else: ?>
+         <audio width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
+                <source src="<?php echo e(url('storage/app/public/audio/'.$offer->media)); ?>" type="audio/mp3">
+                
+                Your browser does not support the video tag.
+         </audio>
+         <?php endif; ?>
+
       </div>
        
         <div class="col-md-8 pl-5 showoffer pt-5">
