@@ -793,23 +793,25 @@
                           <h4><b> User name</b></h4>
                         </div>
                     </div>
+                    <div class="row">
                   @foreach($social_name as $name)
                   <?php                     
                       $count = count($name->username);
                     ?>
                     @for ($i = 0; $i < $count; $i++)       
-                    <div class="row">
+                    
                       <div class="col-6">
                       <h5><b>{{$name->username[$i]}}</b></h5>
                       </div>
                       <div class="col-6">
                       <h5><b>{{$name->social_plateform[$i]}}</b></h5>
                        </div>
-                    </div>
-                      <br>
+                    
+                     
                     @endfor
                   
                   @endforeach
+                  </div>
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
                       <div class="linksonit mb-3">

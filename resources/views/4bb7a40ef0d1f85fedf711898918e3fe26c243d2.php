@@ -17,15 +17,21 @@ $GLOBALS['artistid'] = $offerdata->artistid;
 $GLOBALS['price'] = $offerdata->price;
 ?>
 <div class="container">
-<video width="100%" height="340" controls controlsList="nodownload" disablePictureInPicture>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-md-7">
+<video width="100%" poster="<?php echo e(url('storage/app/public/uploads/'.$offerdata->audio_pic)); ?>" height="340" controls controlsList="nodownload" disablePictureInPicture>
   <source src="<?php echo e(url('storage/app/public/video/'.$offerdata->media)); ?>" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 </div>
+<div class="col"></div>
+</div>
+</div>
 <h4>Description</h4>
 <p><?php echo e($offerdata->description); ?></p>
 
-<div class="row">
+<div class="row text-center">
 	<div class="col">
       <h3>Duration</h3>
       <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
