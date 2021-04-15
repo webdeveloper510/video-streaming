@@ -42,7 +42,7 @@ $GLOBALS['price'] = $offerdata->price;
   </div>
   <div class="col">
       <h3>Price</h3>
-      <p ><span style="color:yellow !important"><?php echo e($offerdata->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span>/minute</p>
+      <p ><span style="color:gold !important"><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> /minute</p>
   </div>
   <div class="col">
       <h3>Quality</h3>
