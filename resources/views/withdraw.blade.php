@@ -153,7 +153,7 @@
       <!-- End Navbar -->
      <style>
   .background1{
-    height:unset;
+    height:unset !important;
   }
  </style>
 
