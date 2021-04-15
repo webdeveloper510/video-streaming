@@ -237,13 +237,13 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
-      //print_r($contentType);die;
+      print_r($contentType->id);
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
       $social_names = $this->model->getSocialName($contentType->id);
 
-       // print_r($social_names);die;
+        
 
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
