@@ -800,11 +800,14 @@
                     ?>
                     @for ($i = 0; $i < $count; $i++)       
                     
-                      <div class="col-6">
+                      <div class="col-4">
                       <h5><b>{{$name->username[$i]}}</b></h5>
                       </div>
-                      <div class="col-6">
+                      <div class="col-4">
                       <h5><b>{{$name->social_plateform[$i]}}</b></h5>
+                       </div>
+                       <div class="col-4">
+                           <button class="btn btn-outline-danger btn-sm" type="button"> x</button>
                        </div>
                     
                      
