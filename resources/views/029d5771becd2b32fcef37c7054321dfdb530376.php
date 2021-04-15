@@ -157,7 +157,7 @@
 
                         <?php echo e(Form::select('titssize', ['Small'
                 => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null,
-                ['class'=>'form-control','placeholder' => 'Choose'])); ?>
+                ['class'=>'form-control','placeholder' => 'Choose','required'])); ?>
 
                         <?php if(session('errors')): ?>
                         <div class="alert alert-danger">
