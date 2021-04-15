@@ -152,7 +152,9 @@
        
       <!-- End Navbar -->
      <style>
-  
+  .background1{
+    height:unset;
+  }
  </style>
 
  @include('artists.dashboard_footer')
