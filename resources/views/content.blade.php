@@ -136,7 +136,7 @@
                         {{Form::label('tits Size', 'Tits Size')}}
                         {{Form::select('titssize', ['Small'
                 => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null,
-                ['class'=>'form-control','placeholder' => 'Choose','required'])}}
+                ['class'=>'form-control','placeholder' => 'Choose'])}}
                         @if(session('errors'))
                         <div class="alert alert-danger">
                             <?php echo $errors->first('titssize') ?>
