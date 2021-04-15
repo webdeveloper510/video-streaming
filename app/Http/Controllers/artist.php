@@ -341,6 +341,8 @@ class artist extends Controller
       $userid=  $session_data->id;
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
+
+      //print_r($allArtistsVideo);die;
          
       $allArtistsAudio=     $this->model->getArtistDetail($userid,'audio');
 
