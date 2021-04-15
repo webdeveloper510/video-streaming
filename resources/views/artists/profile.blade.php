@@ -544,7 +544,7 @@ Your browser does not support the audio tag.
                @endforeach
             </select>
             </div> -->
-          <div class="col-md-12 mt-3 text-white file">
+          <div class="col-md-12 mt-3 text-white file" style="display:none;">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])}}
             <br> 
                 {{Form::file('media',['class'=>'custom-file-input file_input'])}}
