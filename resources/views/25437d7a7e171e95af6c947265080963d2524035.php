@@ -809,23 +809,28 @@
                           <h4><b> User name</b></h4>
                         </div>
                     </div>
+                    <div class="row">
                   <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php                     
                       $count = count($name->username);
                     ?>
                     <?php for($i = 0; $i < $count; $i++): ?>       
-                    <div class="row">
-                      <div class="col-6">
+                    
+                      <div class="col-4">
                       <h5><b><?php echo e($name->username[$i]); ?></b></h5>
                       </div>
-                      <div class="col-6">
+                      <div class="col-4">
                       <h5><b><?php echo e($name->social_plateform[$i]); ?></b></h5>
                        </div>
-                    </div>
-                      <br>
+                       <div class="col-4">
+                           <button class="btn btn-outline-danger btn-sm" type="button"> x</button>
+                       </div>
+                    
+                     
                     <?php endfor; ?>
                   
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </div>
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
               <?php echo e(Form::token()); ?>

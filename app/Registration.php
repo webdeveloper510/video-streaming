@@ -1141,6 +1141,17 @@ public function getRespectedSub($data){
       return $done ? 1 : 0;
 
     }
+public function getRefersArtist($id){
+
+  return  DB::table('contentprovider as mkd')->
+    select('mkd.nickname')->
+    join('contentprovider AS reffer', 'reffer.reffered_by', '=', 'mkd.id')->
+    //where('reffer.reffered_by', $id)->
+    where('reffer.reffered_by', '<>', 'mkd.id')->
+    get();
+
+}
+    
 
     public function updateArtistDes($data){
 

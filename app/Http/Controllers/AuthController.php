@@ -212,13 +212,17 @@ class AuthController extends Controller
 
       $passive = $this->model->getSumOfPassive($artistId);
 
+      $passive_artist = $this->model->getRefersArtist($artistId);
+
+      
+
       
 
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw',['passive_income'=>$passive,'tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
+      return view('/withdraw',['artistPassive'=>$passive_artist,'passive_income'=>$passive,'tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');

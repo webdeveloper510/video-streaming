@@ -80,7 +80,7 @@
     <div class=" invitedbox">
     <div class="card" >
         <div class="text-center">
-       <h3>You've been invited from artistname </h3>
+       <h3>You've been invited from <?php echo e($artistPassive[0]->nickname); ?> </h3>
        <h4>Get your $150 USD with :</h4>
             </div>
   <div class="card-body">
