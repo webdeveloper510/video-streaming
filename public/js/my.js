@@ -6,8 +6,12 @@ $('.rad_But').click(function () {
     //console.log($(this).val());
     if ($(this).val() == 'male') {
         $('.hide').hide();
+        $("#tits").removeAttr("required");
+        $("#ass").removeAttr("required"); 
     } else {
         $('.hide').show();
+        $("#tits").attr("required", true);
+        $("#ass").attr("required", true);    
     }
 })
 
