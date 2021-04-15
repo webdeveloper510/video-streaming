@@ -791,10 +791,6 @@ public function privacy(){
       return redirect('/');
   }
 
-
-   
-
-
     $subcategory=$this->model->getSubcategory($id='');
 
     return view('artists.provider',['tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
