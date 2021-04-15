@@ -2445,6 +2445,12 @@ if ($("#myForm").length > 0) {
                 required: true,
                 maxlength: 30
             },
+            media: {
+                required: true
+            },
+            thumbnail_pic:{
+                required: true
+            },
             convert: {
                 required: true
             },
@@ -2461,6 +2467,12 @@ if ($("#myForm").length > 0) {
                 required: "Please Add Title",
                 maxlength: 'Character may be less than 30'
 
+            },
+            media:{
+                required: "Please Enter Media",
+            },
+            thumbnail_pic:{
+                required: "Please Enter Image",
             },
             category: {
                 required: "Choose Quality"

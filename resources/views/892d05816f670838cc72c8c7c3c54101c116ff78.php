@@ -53,7 +53,7 @@
             </div>
          
             <div class="col-md-6 mt-2 ">
-            <?php echo e(Form::label('Add Price', 'Price')); ?> 
+            <?php echo e(Form::label('Add Price', 'Price (PAZ)')); ?> 
             <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
