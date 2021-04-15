@@ -7,7 +7,7 @@
         <div class="overlayartist text-center">
            <img src=" {{asset('images/loaderartist.gif')}}" class="img-fluid" style="display:none">
         </div>
-           <img src="{{ isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/dummy.png') }}" width="100%" height="500px">
+           <img src="{{ $details && $details[0]->cover_photo!='' ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/dummy.png') }}" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -543,7 +543,7 @@ Your browser does not support the audio tag.
                @endforeach
             </select>
             </div> -->
-          <div class="col-md-12 mt-3 text-white file">
+          <div class="col-md-12 mt-3 text-white file" style="display:none;">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])}}
             <br> 
                 {{Form::file('media',['class'=>'custom-file-input file_input'])}}

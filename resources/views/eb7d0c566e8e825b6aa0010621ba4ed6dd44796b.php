@@ -157,7 +157,7 @@
 
                         <?php echo e(Form::select('titssize', ['Small'
                 => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null,
-                ['class'=>'form-control','placeholder' => 'Choose'])); ?>
+                ['class'=>'form-control','id'=>'tits','placeholder' => 'Choose'])); ?>
 
                         <?php if(session('errors')): ?>
                         <div class="alert alert-danger">
@@ -170,7 +170,7 @@
                 Size')); ?>
 
                         <?php echo e(Form::select('ass', ['Normal' => 'Normal', 'Small' =>
-                'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' =>
+                'Small','Big'=>'Big'], null, ['class'=>'form-control','id'=>'ass','placeholder' =>
                 'Choose'])); ?>
 
                         <?php if(session('errors')): ?>
