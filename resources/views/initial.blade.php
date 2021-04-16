@@ -195,7 +195,7 @@
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Get verified in less than 5 minutes</p>
+                                        Easy and fast Signup Process</p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
                                         Setup several Offers with your favourite categories
