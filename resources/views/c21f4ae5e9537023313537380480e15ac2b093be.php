@@ -1,11 +1,6 @@
 <?php if(!$login): ?>
             <style>
-                .overlay {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 15% !important;
-                }
+               
             </style>
             <div class="outer_slider">
 
@@ -83,12 +78,7 @@
 
             <?php if(!$login): ?>
             <style>
-                .overlay {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 15% !important;
-                }
+              
             </style>
             <div class="outer_slider">
 

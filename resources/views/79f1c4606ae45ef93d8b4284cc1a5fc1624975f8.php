@@ -7,7 +7,7 @@
         <div class="overlayartist text-center">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid" style="display:none">
         </div>
-           <img src="<?php echo e(isset($details[0]->cover_photo) ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/cover-dummy.jpg')); ?>" width="100%" height="500px">
+           <img src="<?php echo e($details && $details[0]->cover_photo!='' ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/dummy.png')); ?>" width="100%" height="500px">
           <div class="iconcamera">
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
@@ -30,7 +30,7 @@
         <div class="overlayprofile">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
+        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
@@ -50,7 +50,6 @@
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
-   
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -563,7 +562,7 @@ Your browser does not support the audio tag.
                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>
             </div> -->
-          <div class="col-md-12 mt-3 text-white file">
+          <div class="col-md-12 mt-3 text-white file" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
@@ -794,9 +793,13 @@ video:hover {
     display: flex;
     margin: -10% 4%;
 }
+.coverimg img{
+  margin-top:50px;
+}
 @media  only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
+    margin-top:10px;
 }
 .overlayprofile img {
     display: flex;
