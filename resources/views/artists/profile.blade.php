@@ -26,7 +26,7 @@
         <div class="overlayprofile">
            <img src=" {{asset('images/loaderartist.gif')}}" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/dummy.png') }}" width="200px" height="200px">
+        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png') }}" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
@@ -46,7 +46,6 @@
     <a class="nav-link tabss {{$collection_selection ? 'active' : ''}}" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss {{$collection_selection ? '' : 'active'}}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss {{$collection_selection ? 'active' : ''}}" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
-   
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -757,9 +756,13 @@ video:hover {
     display: flex;
     margin: -10% 4%;
 }
+.coverimg img{
+  margin-top:50px;
+}
 @media only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
+    margin-top:10px;
 }
 .overlayprofile img {
     display: flex;
