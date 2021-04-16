@@ -1,11 +1,11 @@
 @if(!$login)
             <style>
-                .overlay {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 15% !important;
-                }
+               @media only screen and (max-width: 768px){
+.artist.text-center .overlay {
+    left: 13% !important;
+    top: 10px;
+}
+               }
             </style>
             <div class="outer_slider">
 
@@ -83,12 +83,7 @@
 
             @if(!$login)
             <style>
-                .overlay {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 15% !important;
-                }
+              
             </style>
             <div class="outer_slider">
 

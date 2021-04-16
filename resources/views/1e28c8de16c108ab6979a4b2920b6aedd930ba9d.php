@@ -122,6 +122,7 @@ tr.shown td.details-control {
                     <option value="new" <?php echo e(($box) == 'new' ? 'selected' : ''); ?>>New</option>
                     <option value="process" <?php echo e(($box) == 'process' ? 'selected' : ''); ?>>In Process</option>
                     <option value="due" <?php echo e(($box) == 'due' ? 'selected' : ''); ?>>Due</option>
+                    <option value="Expired">Expired</option>
                   </select>
                 </div>
                 <div class="table-responsive">
@@ -262,7 +263,12 @@ tr.shown td.details-control {
 </div> -->
   </body>
   <style type="text/css">
-    
+    .leveltext.text-white {
+    display: none;
+    width: 161px !important;
+    position: absolute;
+    top: 47px !important;
+}
 
   </style>
   <script>
