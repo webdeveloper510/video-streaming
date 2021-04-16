@@ -201,8 +201,9 @@
                
               </div>
              
-              <?php if($detail->duration==''): ?>
+              <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
           <script>
+            console.log('eeee');
            var video;
             var id;
               setTimeout(() => {
@@ -412,15 +413,15 @@ Your browser does not support the audio tag.
 
                   
                  <?php echo e(Form::label('Title', 'Title')); ?> 
-                  <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','placeholder'=>'Title'])); ?>
+                  <?php echo e(Form::text('title', '',['class'=>'form-control','name'=>'title','id'=>'title','required','placeholder'=>'Title'])); ?>
 
                   <br>
                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
-                     <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','min'=>0,'placeholder'=>'Price'])); ?>
+                     <?php echo e(Form::number('price', '',['class'=>'form-control','name'=>'price','id'=>'price','required','min'=>0,'placeholder'=>'Price'])); ?>
 
                   <br>
                   <?php echo e(Form::label('Additional Request Price', 'Additional Request Price')); ?> 
-                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
+                <?php echo e(Form::number('additional_price', '',['class'=>'form-control','name'=>'additional_price','required','id'=>'additional_price','min'=>0,'placeholder'=>'Additional Price'])); ?>
 
                 <br>
                 <input type="hidden" class="created_at" name="created_at" value=""/>
@@ -429,12 +430,12 @@ Your browser does not support the audio tag.
                   <div class="row">
                   <div class="col-md-6">
                   <?php echo e(Form::label('Min', 'Min')); ?> 
-                  <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min'])); ?>
+                  <?php echo e(Form::number('min', '',['class'=>'form-control','id'=>'min','min'=>1,'placeholder'=>'Min','required'])); ?>
 
                    </div>
                    <div class="col-md-6">
                   <?php echo e(Form::label('Max', 'Max')); ?> 
-                  <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max'])); ?>
+                  <?php echo e(Form::number('max', '',['class'=>'form-control','id'=>'max','min'=>1,'placeholder'=>'Max','required'])); ?>
 
                 </div>
                 </div>
@@ -484,7 +485,7 @@ Your browser does not support the audio tag.
                    <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
-                  <select name="quality" class="form-control" id="quality">
+                  <select name="quality" class="form-control" required id="quality">
                             <option value="">Choose ...</option>
                             <option value="480">480p  </option>
                             <option value="720">HD 720p </option>
@@ -494,7 +495,7 @@ Your browser does not support the audio tag.
                 <br>
             <label>Offer Status</label>
             
-            <select name="offer_status" id="select_status" class='form-control'>
+            <select name="offer_status" required id="select_status" class='form-control'>
                     <option value="">Choose...</option>
                     <option value="offline">Offline(Draft)</option>
                     <option value="online">Online</option>
@@ -503,19 +504,20 @@ Your browser does not support the audio tag.
                 <br>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
                    <label class="thumbnail1"></label>        
-                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage','required'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
-                <input type="hidden" name="offerid" id="offerid" value="">
-                <label class="label12"></label><br>
-                  <input type="file" name="file" class="file_input" value=""/>
-                  <span id="filename" style="color:red;"></span>
-                  
+                <input type="hidden" name="offerid" id="offerid" value="">                  
                   <input type="hidden" id="file_url" name="file_url" value=""/>
                   <br>
                  
-           
+                  <div class="col-md-12 mt-3 text-white file" style="display:none;">
+                  <label class="label12"></label><br>
+                <?php echo e(Form::file('file',['class'=>'form-control file_input','required'])); ?>
+
+                <span id="filename" style="color:yellow;"></span>
+            </div>
           
             </div>
             <div class="modal-footer">
@@ -567,13 +569,13 @@ Your browser does not support the audio tag.
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input file_input'])); ?>
+                <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','required'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
             <?php echo e(Form::label('', '',['class'=>'custom-file-label thumbnail1'])); ?> 
-                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])); ?>
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage','required'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
@@ -581,7 +583,7 @@ Your browser does not support the audio tag.
           
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
-                <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','placeholder' => 'Pick a Sexology'])); ?>
+                <?php echo e(Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','id'=>'sexology','required','placeholder' => 'Pick a Sexology'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -591,7 +593,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Body', 'Body')); ?> 
-                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose'])); ?>
+                <?php echo e(Form::select('weight', ['Thin' => 'Thin', 'Normal' => 'Normal','Muscular'=>'Muscular','Chubby'=>'Chubby'], null, ['class'=>'form-control','id'=>'weight','placeholder' => 'Choose','required'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -601,7 +603,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Height', 'Height')); ?> 
-                <?php echo e(Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','id'=>'height','placeholder' => 'Choose Height'])); ?>
+                <?php echo e(Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','id'=>'height','placeholder' => 'Choose Height','required'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -611,7 +613,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Hair Color', 'Hair Color')); ?> 
-                <?php echo e(Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','id'=>'haircolor','placeholder' => 'Choose Hair Color'])); ?>
+                <?php echo e(Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','id'=>'haircolor','placeholder' => 'Choose Hair Color','required'])); ?>
 
                    <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -621,7 +623,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Hair length', 'Hair length')); ?> 
-                <?php echo e(Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','id'=>'hairlength','placeholder' => 'Choose Hair Length'])); ?>
+                <?php echo e(Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','id'=>'hairlength','placeholder' => 'Choose Hair Length','required'])); ?>
 
                  <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -631,7 +633,7 @@ Your browser does not support the audio tag.
             </div>
                 <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Eye/Lens Color', 'Eye/Lens Color')); ?> 
-                <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color'])); ?>
+                <?php echo e(Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','id'=>'eyecolor','placeholder' => 'Choose Eye Color','required'])); ?>
 
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -641,7 +643,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Privy part', 'Privy part')); ?> 
-                <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part'])); ?>
+                <?php echo e(Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','id'=>'privy','placeholder' => 'Privy part','required'])); ?>
 
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -651,7 +653,7 @@ Your browser does not support the audio tag.
             </div>
              <div class="col-md-12 pt-3">
             <?php echo e(Form::label('ABOUT ME', 'ABOUT ME')); ?> 
-                <?php echo e(Form::textarea('aboutme',null,['id'=>'aboutme','class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40])); ?>
+                <?php echo e(Form::textarea('aboutme',null,['id'=>'aboutme','class'=>'form-control', 'rows' => 2,'placeholder'=>'About Me','cols' => 40,'required'])); ?>
 
                   <?php if(session('errors')): ?>
                 <div class="alert alert-danger">
@@ -705,19 +707,19 @@ Your browser does not support the audio tag.
                           <input type="hidden" value="" name="type" id="type"/>
                           <div class="col-md-6 mt-2 ">
                           <?php echo e(Form::label('Title', 'Title')); ?> 
-                              <?php echo e(Form::text('title', '',['class'=>'form-control video_title','placeholder'=>'Enter Title'])); ?>
+                              <?php echo e(Form::text('title', '',['required','class'=>'form-control video_title','placeholder'=>'Enter Title'])); ?>
 
                           </div>
                       
                           <div class="col-md-6 mt-2 ">
                           <?php echo e(Form::label('Add Price', 'Price')); ?> 
-                          <?php echo Form::number('price', '' , ['class' => 'form-control video_price','placeholder'=>'Price','min'=>0]); ?>
+                          <?php echo Form::number('price', '' , ['required','class' => 'form-control video_price','placeholder'=>'Price','min'=>0]); ?>
 
                           </div>
                           <div class="col-md-12 mt-2 ">
                                   <div class="convert video" style="display:none">
                                 <?php echo e(Form::label('Quality:', 'Quality:')); ?> 
-                              <select name="convert"  class='form-control video_quality'>
+                              <select name="convert" required class='form-control video_quality'>
                                         <option value="">Choose ...</option>
                                         <option value="480">480p  </option>
                                         <option value="720">HD 720p </option>
@@ -738,7 +740,7 @@ Your browser does not support the audio tag.
                             </div>
                             <div class="audio" style="display:none">
                             <label>Category</label>
-                                        <select name="category[]"  class='form-control my-5 video_category'>
+                                        <select name="category[]"   class='form-control my-5 audio_category'>
                                                 <option value="">Choose Category</option>
                                                 <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                     <?php if($cat->type=='audio'): ?>
@@ -750,7 +752,7 @@ Your browser does not support the audio tag.
                             </div>      
                              <div class="col-md-12 mt-3">
                           <?php echo e(Form::label('Description', 'Description')); ?> 
-                              <?php echo e(Form::textarea('description',null,['class'=>'form-control video_description', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
+                              <?php echo e(Form::textarea('description',null,['required','class'=>'form-control video_description', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
 
                           </div>
 

@@ -394,13 +394,16 @@ public function insertSubcategory($sub){
       return $sucess_insert ? '1' :'0';
 }
 public function uploadContentProvider($contentdata){
+
     $session_data =   Session::get('User');
      $contentid=$session_data->id;
+
     //print_r($contentdata);die;
     unset($contentdata['email']);
    
     $contentdata['contentProviderid']=$contentid;
-     $contentdata['catid']=$contentdata['category'][0] ? $contentdata['category'][0] : $contentdata['category'][1];
+
+     //$contentdata['catid']=$contentdata['category'][0] ? $contentdata['category'][0] : $contentdata['category'][1];
     // $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
