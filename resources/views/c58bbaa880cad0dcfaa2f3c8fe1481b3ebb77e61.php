@@ -202,7 +202,7 @@
           </div>
             </div>
                   <?php endif; ?>
-                  <?php if($detail->duration==''): ?>
+                  <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
           <script>
            var video;
             var id;

@@ -1,6 +1,11 @@
 <?php if(!$login): ?>
             <style>
-               
+               @media  only screen and (max-width: 768px){
+.artist.text-center .overlay {
+    left: 13% !important;
+    top: 10px;
+}
+               }
             </style>
             <div class="outer_slider">
 
