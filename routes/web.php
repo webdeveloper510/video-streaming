@@ -123,6 +123,8 @@ Route::post('editPlaylist', 'AuthController@editPlaylist');
 
 Route::post('duration', 'AuthController@duration');
 
+Route::post('deleteName', 'artist@deleteUsername');
+
 
 Route::post('passwordReset', 'AuthController@passwordReset');
 
