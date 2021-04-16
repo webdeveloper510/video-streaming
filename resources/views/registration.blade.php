@@ -106,8 +106,8 @@
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="{{url('/privacy')}}">Privacy Policy</a> </label> <br>
 
-<label>{{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}</label><br>
-<span class="discount"> <label> {{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}I would like to receive Discounts and News from PAZ</label></span>
+              <label>{{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}</label><br>
+              <span class="discount"> <label> {{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}I would like to receive Discounts and News from PAZ</label></span>
                 
               </div>
 
