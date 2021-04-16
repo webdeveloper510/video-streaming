@@ -30,7 +30,7 @@
         <div class="overlayprofile">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/dummy.png')); ?>" width="200px" height="200px">
+        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
