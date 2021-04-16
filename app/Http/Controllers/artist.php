@@ -237,12 +237,13 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
+      echo $id = $contentType->id;
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
       $social_names = $this->model->getSocialName($contentType->id);
 
-        
+        //print_r($social_names);die;
 
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
@@ -362,6 +363,13 @@ class artist extends Controller
       
       return view('artists.profile',['collection_selection'=>$text,'getLevel'=>$getLevel,'random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
+  }
+
+  public function deleteUsername(Request $req){
+
+        $delete = $this->model->RemoveUsername($req->all());
+
+        return $delete;
   }
   public function faq(){
 

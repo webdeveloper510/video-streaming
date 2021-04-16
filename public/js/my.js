@@ -2751,7 +2751,37 @@ $('#cancel').click(function () {
 	$('#edit').show()
 })
 
+function deleteName(id,appname,name){
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/deleteName",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
 
+        data: {'id':id,'social_name':appname,'username':name},
+
+        success: function (data) {
+
+            //console.log(data);
+
+            if (data == 1) {
+
+                alert('Edit Successfully!');
+
+                location.reload();
+
+            } else {
+                alert('Password Wrong')
+                location.reload();
+
+            }
+
+        }
+    });
+}
 
 $(document).on('submit', '#updateUser', function (event) {
     event.preventDefault();
@@ -2858,6 +2888,8 @@ function seconds_to_min_sec(seconds, id, vidid) {
     });
 
 }
+
+
 
 /* ---------------------------------------------------Edit Artist Personal
  * Info-----------------------------------

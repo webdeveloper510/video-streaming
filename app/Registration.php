@@ -2851,6 +2851,36 @@ public function unsubscribe($allIds,$userid,$postData,$count){
 
 }
 
+public function RemoveUsername($data){
+
+  //print_r($data);die;
+
+      $database_data = DB::table('social_username')->where('id',$data['id'])->select('username','social_plateform')->get()->toArray();
+      $plateform = explode(',',$database_data[0]->social_plateform);
+      $username = explode(',',$database_data[0]->username);
+
+      $index = array_search($data['social_name'], $plateform);
+      $index1= array_search($data['username'], $username);
+
+
+      unset($plateform[$index]);
+      unset($username[$index1]);
+
+   
+
+  $update = DB::table('social_username')->where(array('id'=>$data['id']))
+
+  ->update([
+        'username' =>implode(',',$username),
+        'social_plateform' =>implode(',',$plateform),
+      ]);
+
+
+     return $update;
+
+
+}
+
 public function isSubscribe($artistId){
 
   $session_data =   Session::get('User');
