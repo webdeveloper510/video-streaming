@@ -1195,6 +1195,15 @@ function editVideoinfo(data) {
     $('.video_category')
         .val(json_info.catid)
         .attr("selected", "selected");
+    if(type=='video'){
+        $('.video_category').attr('required',true);
+        $('.audio_category').removeAttr('required',true);
+    }
+
+    else{
+        $('.audio_category').attr('required',true);
+        $('.video_category').removeAttr('required',true);
+    }
     $('.video_description').val(json_info.description)
 
 }
@@ -2218,7 +2227,8 @@ $(document).on('click', '.select_media_pic', function () {
     var value = $(this).val();
 
     if (value == 'audio') {
-
+                    $('.video').removeAttr('required');
+                    $('.audio').attr('required',true);
 					$('.media_label').text('Upload Sample Audio (~30s)');
 					$('.label12').text('Overview  Audio (~30s)');
 					$('.media_label12').text('Audio');
@@ -2229,7 +2239,8 @@ $(document).on('click', '.select_media_pic', function () {
 
 			}
 			else{
-					
+                $('.audio').removeAttr('required');
+                $('.video').attr('required',true);
 				$('.media_label12').text('Video');
 				$('.thumbnail1').text('Video Thumbnail');
 				$('.media_label').text('Upload Sample Video (~30s)');
@@ -2445,6 +2456,9 @@ if ($("#myForm").length > 0) {
                 required: true,
                 maxlength: 30
             },
+            radio:{
+                required: true,
+            },
             media: {
                 required: true
             },
@@ -2466,6 +2480,11 @@ if ($("#myForm").length > 0) {
             title: {
                 required: "Please Add Title",
                 maxlength: 'Character may be less than 30'
+
+            },
+            radio: {
+                required: "Please Select Option",
+             
 
             },
             media:{
@@ -2577,9 +2596,6 @@ if ($("#create_offer").length > 0) {
             quality: {
                 required: true
             },
-            category: {
-                required: true
-            },
             description: {
                 required: true,
                 maxlength: 2000
@@ -2595,9 +2611,6 @@ if ($("#create_offer").length > 0) {
                 required: "Choose Quality"
             },
 
-            category: {
-                required: "Choose Category"
-            },
 
             description: {
                 required: "Please Add Description",
@@ -2738,43 +2751,7 @@ $('#cancel').click(function () {
 	$('#edit').show()
 })
 
-function seconds_to_min_sec(seconds, id, vidid) {
 
-    //console.log(seconds);return false;
-
-    var minutes = Math.floor(seconds / 60);
-    var hours = Math.floor(seconds / 3600);
-    var seconds = seconds - minutes * 60;
-    //console.log(hours);return false;
-    var duration = parseInt(minutes) == 0
-        ? '0:' + parseInt(seconds)
-        : minutes + ":" + parseInt(seconds);
-    //console.log(duration);return false;
-    var hours_sys = hours == 0
-        ? '0:' + duration
-        : hours + ":" + duration;
-    //console.log(hours_sys);return false;
-    $(id).html(hours_sys);
-    $.ajax({
-        type: 'POST',
-        url: APP_URL + "/duration",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data: {
-            'duration': hours_sys,
-            'id': vidid
-        },
-
-        success: function (data) {
-
-            console.log(data);
-            return false;
-
-        }
-    });
-
-}
 
 $(document).on('submit', '#updateUser', function (event) {
     event.preventDefault();
@@ -2842,6 +2819,44 @@ function appendDiv(a){
     //console.log('yhis');
     var html = $('.amountmedia').find('.social_append').html();
     $('.amountmedia ').append(html);
+}
+
+function seconds_to_min_sec(seconds, id, vidid) {
+
+  //  console.log('seconds');return false;
+
+    var minutes = Math.floor(seconds / 60);
+    var hours = Math.floor(seconds / 3600);
+    var seconds = seconds - minutes * 60;
+    //console.log(hours);return false;
+    var duration = parseInt(minutes) == 0
+        ? '0:' + parseInt(seconds)
+        : minutes + ":" + parseInt(seconds);
+    //console.log(duration);return false;
+    var hours_sys = hours == 0
+        ? '0:' + duration
+        : hours + ":" + duration;
+    //console.log(hours_sys);return false;
+    $(id).html(hours_sys);
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/duration",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        data: {
+            'duration': hours_sys,
+            'id': vidid
+        },
+
+        success: function (data) {
+
+            console.log(data);
+            return false;
+
+        }
+    });
+
 }
 
 /* ---------------------------------------------------Edit Artist Personal

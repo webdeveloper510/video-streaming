@@ -440,8 +440,10 @@ class artist extends Controller
               unset($data['_token']);
               $data['media']=$fileName;
               $data['quality']= $req->quality ? $req->quality : '';
-              $data['categoryid']=$req->category[0] ? $req->category[0] : $req->category[1];
+              $data['categoryid']=$ext=='mp3' ? $data['audio_cat'] : $data['video_cat'];
               $data['type']=  $data['type'];
+              unset($data['audio_cat']);
+              unset($data['video_cat']);
               $data['audio_pic'] = $audio_pics;
               unset($data['thumbnail_pic']);
                 if($filePath){
