@@ -692,6 +692,10 @@ class AuthController extends Controller
               $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
               $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+              $data['catid']=  $ext=='mp3' ? $data['audio_cat'] :$data['video_cat'];
+              
+              unset($data['audio_cat']);
+              unset($data['video_cat']);
 
                 if($filePath){
 
