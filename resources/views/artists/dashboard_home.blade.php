@@ -786,7 +786,7 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                   <div class="row">
-                     <div class="col-6 text-right">
+                     <div class="col-6 text-center ">
                        <h4><b> App Name </b></h4>
                         </div>
                         <div class="col-6 text-left">
@@ -807,7 +807,7 @@
                       <h5><b>{{$name->social_plateform[$i]}}</b></h5>
                        </div>
                        <div class="col-4">
-                           <button class="btn btn-outline-danger btn-sm" type="button"> x</button>
+                           <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> x</button>
                        </div>
                     
                      
@@ -825,7 +825,7 @@
                                       <select
                                           class='custom-select valid'
                                           name='social_plateform[]'
-                                          id='inputGroupSelect01'>
+                                          id='inputGroupSelect01' required>
                                           <option selected=''>Choose...</option>
                                           <option value='Facebook'>Facebook</option>
                                           <option value='Instagram'>Instagram</option>
@@ -841,7 +841,7 @@
                               </div>
                               <div class='col-md-6'>
                                   <div class='form-group'>
-                                      <input type='text' name='username[]' class='form-control'></div>
+                                      <input type='text' required name='username[]' class='form-control'></div>
                                   </div>
                               </div>
                          
