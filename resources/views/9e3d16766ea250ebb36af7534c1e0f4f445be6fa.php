@@ -214,7 +214,6 @@ input.select_media_pic {
 }
   @media  only screen and (max-width: 767px){
 section.background1 {
-    height: 151%;
     padding-bottom: 30px;
 }
 .overlay1 {
