@@ -108,8 +108,8 @@
     </div>
     @endforeach
     @else
-          <div class="artistoffer1">
-            <h4> No Offer available </h4>
+          <div class="artistoffer1 pt-4">
+            <h4> No Offer created yet </h4>
             <a href="{{url('artist/offer')}}">Create Offer</a>
           </div>
           @endif
@@ -191,7 +191,7 @@
                 </div>               
               </div>             
               @if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN')
-              {{ddddd}}
+ 
           <script>
             console.log('eeee');
            var video;
