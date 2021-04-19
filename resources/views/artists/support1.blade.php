@@ -136,6 +136,7 @@
                                 
 
                                 </div>
+</div>
                                 <!-- <div class="accounts">
                                     <h3>
                                         Social Accounts :</h3>
