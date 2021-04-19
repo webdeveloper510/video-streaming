@@ -1,6 +1,6 @@
 @include('artists.dashboard')
 
-<section class="faq mt-5 pt-4">
+<section class="faq ">
     <div class="container">
         <div class="faqimg">
              <img src="" class="img-fluid">
@@ -111,6 +111,9 @@ ul.menufooter a {
 button.btn.btn-link {
     font-size: 20px;
 }
+section.faq {
+    margin-top: 10%;
+}
 .card-body.ques {
     font-size: 17px;
     padding-left: 50px;
@@ -122,8 +125,8 @@ button.btn.btn-link.btn-block.text-left.ques1 {
     padding: 3px;
 }
 .card-body.ques {
-    font-size: 13px;
-    padding-left: 0px;
+    font-size: 16px;
+    padding-left: 21px;
 }
 }
 </style>
