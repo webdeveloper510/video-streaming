@@ -3,7 +3,7 @@
     <div class="container">
         <div class="overlay1">
             <?php if(session('success')): ?>
-            <div class="alert alert-success" id="success">
+            <div class="alert alert-success set" id="success">
                 <?php echo e(session('success')); ?>
 
             </div>
@@ -25,7 +25,7 @@
 
             <div class="container profile">
                 <div class="heading text-center">
-                    <h2 class="text-white ">Artist Detail</h2>
+            <h2 class="text-white ">Artist Detail</h2></p>
                 </div>
                 <!---------------------- First Step Form-------------------->
                 <div class="row">
@@ -44,7 +44,7 @@
                         <?php echo e(Form::radio('gender',
                 'female',false,['class'=>'rad_But'])); ?>Female&nbsp;&nbsp;
                         <?php echo e(Form::radio('gender',
-                'trans',false,['class'=>'rad_But'])); ?>Trans <?php if(session('errors')): ?>
+                'trans',false,['class'=>'rad_But','checked'])); ?>Trans <?php if(session('errors')): ?>
                         <div class="alert alert-danger">
                             <?php echo $errors->first('gender') ?>
                         </div>
