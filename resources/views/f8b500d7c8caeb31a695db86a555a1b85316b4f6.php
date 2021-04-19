@@ -803,10 +803,10 @@
                   <br>
                   <div class="row">
                      <div class="col-4 text-center ">
-                       <h4><b> App Name </b></h4>
+                       <h5><b> App Name </b></h5>
                         </div>
                         <div class="col-5 text-left">
-                          <h4><b> User name</b></h4>
+                          <h5><b> User name</b></h5>
                         </div>
                     </div>
                     <div class="row">

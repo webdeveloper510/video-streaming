@@ -787,10 +787,10 @@
                   <br>
                   <div class="row">
                      <div class="col-4 text-center ">
-                       <h4><b> App Name </b></h4>
+                       <h5><b> App Name </b></h5>
                         </div>
                         <div class="col-5 text-left">
-                          <h4><b> User name</b></h4>
+                          <h5><b> User name</b></h5>
                         </div>
                     </div>
                     <div class="row">
@@ -801,10 +801,10 @@
                     @for ($i = 0; $i < $count; $i++)       
                     
                       <div class="col-4">
-                      <p><b>{{$name->username[$i]}}</b></p>
+                      <p style="font-weight: 500;"><b>{{$name->username[$i]}}</b></p>
                       </div>
                       <div class="col-5">
-                      <p><b>{{$name->social_plateform[$i]}}</b></p>
+                      <p style="font-weight: 500;"><b>{{$name->social_plateform[$i]}}</b></p>
                        </div>
                        <div class="col-3">
                            <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> x</button>
