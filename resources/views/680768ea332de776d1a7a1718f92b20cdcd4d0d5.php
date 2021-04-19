@@ -1,4 +1,6 @@
-<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> < body onload = "createCaptcha()" > <section class=" support">
+<?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
+<body onload = "createCaptcha()"> 
+<section class=" support">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <a
@@ -10,7 +12,7 @@
                 aria-controls="pills-home"
                 aria-selected="true">Open Ticket</a>
         </li>
-        <li class="nav-item" role="presentation">
+        <!-- <li class="nav-item" role="presentation">
             <a
                 class="nav-link"
                 id="pills-profile-tab"
@@ -19,7 +21,7 @@
                 role="tab"
                 aria-controls="pills-profile"
                 aria-selected="false">Tickets</a>
-        </li>
+        </li> -->
 
     </ul>
     <div class="tab-content" id="pills-tabContent">
@@ -39,8 +41,8 @@
 
                     <div class="ticketstext">
                         <label>Subject</label>
-                        <select name="technical_issue" class="custom-select">
-                            <option selected="selected">Select menu</option>
+                        <select name="technical_issue" class="form-control">
+                            <option value="">Select menu</option>
                             <option value="Feature Request">Feature Request</option>
                             <option value="Functionality Question">Functionality Question</option>
                             <option value="Technical Issue">Technical Issue</option>
@@ -57,6 +59,7 @@
                                 rows="3"></textarea>
                         </div>
                         <br>
+                        <input type="hidden" name="email" value="<?php echo e($data[0]->email); ?>"/>
                             <input type="file" name="file" class="form-control" placeholder="add file">
                                 <input type="hidden" name="recaptcha" value="" id="recaptcha"/>
                                 <div class="mt-3">
@@ -226,6 +229,7 @@
             <script>
                 var code;
                 function createCaptcha() {
+                    //alert('ddd');
                     //clear the contents of captcha div first
                     document
                         .getElementById('captcha')

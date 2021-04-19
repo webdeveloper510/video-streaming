@@ -157,8 +157,7 @@
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
-    
-       <div class="filter_div" id="video">     
+           <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
         @if(isset($details[0]->type))
@@ -189,11 +188,10 @@
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('{{json_encode($detail)}}')">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
-                </div>
-            
-               
+                </div>               
               </div>             
               @if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN')
+              {{ddddd}}
           <script>
             console.log('eeee');
            var video;
