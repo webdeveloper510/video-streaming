@@ -2098,8 +2098,6 @@ function formsubmit(scop) {
           exported: {
             use: ['imported_image','resized_image','merged',':original'],
             robot: '/s3/store',
-           // key: "AKIARBASIKHRR6UI4MTC",
-          ///  secret: "o5t0PJ7mDgT1jx8HY0jCjGh56ZCjlEIfh",
             credentials: "mp3-img-to-mp4",
            "path": "uploads/${file.id}.${file.ext}"
           }
