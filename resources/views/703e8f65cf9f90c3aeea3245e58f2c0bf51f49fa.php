@@ -802,10 +802,10 @@
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
                   <div class="row">
-                     <div class="col-6 text-center ">
+                     <div class="col-4 text-center ">
                        <h4><b> App Name </b></h4>
                         </div>
-                        <div class="col-6 text-left">
+                        <div class="col-5 text-left">
                           <h4><b> User name</b></h4>
                         </div>
                     </div>
@@ -817,12 +817,12 @@
                     <?php for($i = 0; $i < $count; $i++): ?>       
                     
                       <div class="col-4">
-                      <h5><b><?php echo e($name->username[$i]); ?></b></h5>
+                      <p><b><?php echo e($name->username[$i]); ?></b></p>
                       </div>
-                      <div class="col-4">
-                      <h5><b><?php echo e($name->social_plateform[$i]); ?></b></h5>
+                      <div class="col-5">
+                      <p><b><?php echo e($name->social_plateform[$i]); ?></b></p>
                        </div>
-                       <div class="col-4">
+                       <div class="col-3">
                            <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> x</button>
                        </div>
                     
@@ -837,7 +837,7 @@
 
                       <div class="linksonit mb-3">
                       <div class="amountmedia row"> 
-                          <div class='row social_append'>
+                          <div class='row social_append px-3'>
                               <div class='col-md-6'>
                                   <div class='form-group'>
                                       <select

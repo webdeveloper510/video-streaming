@@ -93,14 +93,14 @@
             </select>
             </div>
             
-            <div class="col-md-12 mt-3 text-white file" style="display:none;">
+            <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
-            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+            <div class=" mt-3 text-white thumbnail" style="display:none;">   
             <label class="thumbnail1"></label>        
                  <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 
