@@ -18,6 +18,9 @@ use View;
 
 use Illuminate\Support\Facades\Validator;
 
+include('vendor/autoload.php');
+
+use transloadit\Transloadit;
 
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
@@ -672,8 +675,12 @@ class AuthController extends Controller
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
+  //print_r($request->all());die;
 
-  print_r($request->all());die;
+// Show the results of the assembly we spawned
+
+
+  //print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();
@@ -682,6 +689,73 @@ class AuthController extends Controller
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
+              
+              /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+              
+                                          $transloadit = new Transloadit([
+                              "key" => "995b974268854de2b10f3f6844566287",
+                              "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
+                            ]);
+                            
+                            // Add files to upload
+                            $files = [];
+                            array_push($files, $request->media->getClientOriginalName());
+                            
+                            // Start the Assembly
+                            $response = $transloadit->createAssembly([
+                              "files" => $files, 
+                              "params" => [
+                                "steps" => [
+                                  ":original" => [
+                                    "robot" => "/upload/handle",
+                                  ],
+                                  "imported_chameleon" => [
+                                    "robot" => "/http/import",
+                                    "result" => true,
+                                    "url" => "https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                                  ],
+                                  "resized" => [
+                                    "use" => ["imported_chameleon"],
+                                    "robot" => "/image/resize",
+                                    "result" => true,
+                                    "height" => 768,
+                                    "imagemagick_stack" => "v2.0.7",
+                                    "resize_strategy" => "fit",
+                                    "width" => 1024,
+                                    "zoom" => false,
+                                  ],
+                                  "merged" => [
+                                    "use" => [
+                                      "steps" => [
+                                        ["name" => ":original", "as" => "audio"],
+                                        ["name" => "resized", "as" => "image"],
+                                      ],
+                                      "bundle_steps" => true,
+                                    ],
+                                    "robot" => "/video/merge",
+                                    "result" => true,
+                                    "duration" => 9,
+                                    "ffmpeg_stack" => "v4.3.1",
+                                    "framerate" => "1/3",
+                                    "preset" => "ipad-high",
+                                    "resize_strategy" => "fit",
+                                  ],
+                                  "exported" => [
+                                    "use" => ["imported_chameleon", "imported_prinsengracht", "imported_snowflake", "resized", "merged", ":original"],
+                                    "robot" => "/s3/store",
+                                    "credentials" => "YOUR_AWS_CREDENTIALS",
+                                   "path"=> "uploads/"
+                                  ],
+                                ],
+                              ],
+                            ]);
+                            echo '<pre>';
+                            print_r($response);
+                            echo '</pre>';
+                            
+                            die;
+     /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
