@@ -116,8 +116,8 @@
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="<?php echo e(url('/privacy')); ?>">Privacy Policy</a> </label> <br>
 
-<label><?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?></label><br>
-<span class="discount"> <label> <?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?>I would like to receive Discounts and News from PAZ</label></span>
+              <label><?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?></label><br>
+              <span class="discount"> <label> <?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?>I would like to receive Discounts and News from PAZ</label></span>
                 
               </div>
 
