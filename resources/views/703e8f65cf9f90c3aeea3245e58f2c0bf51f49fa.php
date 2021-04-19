@@ -823,7 +823,7 @@
                       <p style="font-weight: 500;"><b><?php echo e($name->social_plateform[$i]); ?></b></p>
                        </div>
                        <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> x</button>
+                           <button class="btn btn-outline-danger btn-sm px-3 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> x</button>
                        </div>
                     
                      

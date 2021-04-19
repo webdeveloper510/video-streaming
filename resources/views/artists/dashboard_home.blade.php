@@ -807,7 +807,7 @@
                       <p style="font-weight: 500;"><b>{{$name->social_plateform[$i]}}</b></p>
                        </div>
                        <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> x</button>
+                           <button class="btn btn-outline-danger btn-sm px-3 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> x</button>
                        </div>
                     
                      
