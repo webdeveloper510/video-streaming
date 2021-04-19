@@ -1,8 +1,8 @@
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
     <div class="text-center">
         <img
-            src="{{asset('images/logos/good_quality_logo.png')}}"
+            src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>"
             height="50"
             alt="CoolBrand">
         <h1 class="text-white mt-2">
@@ -55,14 +55,14 @@
 
             <div class="row">
 
-                @foreach($social_video as $info)
+                <?php $__currentLoopData = $social_video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                 <div class="col-md-12 mb-3 px-3">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="delete1">
                                 <h3>
-                                    {{$info->nickname}}</h3>
+                                    <?php echo e($info->nickname); ?></h3>
                                     <div class="text-right">
                                         <button class="btn btn-outline-danger" type="button">Delete</button>
                                     </div>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="post">
                                 <h3>Description for the Post :</h3>
-                                <p>{{$info->description}}</p>
+                                <p><?php echo e($info->description); ?></p>
                                 <div class="text-right mr-3">
                                     <button class="btn btn-outline-primary" type="button">Copy</button>
                                 </div>
@@ -80,15 +80,15 @@
                         <div class="col-md-4">
                             <div class="soc">
                                 <div class="mp4">
-                                    <video width="50%" poster="{{url('storage/app/public/uploads/'.$info->audio_pic) }}" controls="controls">
+                                    <video width="50%" poster="<?php echo e(url('storage/app/public/uploads/'.$info->audio_pic)); ?>" controls="controls">
                                         <source
-                                            src="{{url('storage/app/public/video/'.$info->media) }}"
+                                            src="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>"
                                             type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                     <div class="text-right Delete">
                                         <a
-                                            href="{{url('storage/app/public/video/'.$info->media) }}"
+                                            href="<?php echo e(url('storage/app/public/video/'.$info->media)); ?>"
                                             download="download">
                                             <button class="btn btn-outline-primary" type="button">Download</button>
                                         </a>
@@ -115,13 +115,13 @@
                                                     <tr>
                                                         <th scope="row">1</th>
                                                         <td>FAcebook</td>
-                                                        <td> {{$info->username}}</td>
+                                                        <td> <?php echo e($info->username); ?></td>
                                                     
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">2</th>
                                                         <td>YouTube</td>
-                                                        <td>{{$info->username}}</td>
+                                                        <td><?php echo e($info->username); ?></td>
                                                     
                                                     </tr>
                                                     
@@ -141,11 +141,11 @@
                                         Social Accounts :</h3>
                                     <h5>
                                         Instagram
-                                        {{$info->username}}</h5>
+                                        <?php echo e($info->username); ?></h5>
                                     <br>
                                     <h5>
                                         Twitter
-                                        {{$info->username}}</h5>
+                                        <?php echo e($info->username); ?></h5>
                                     <div class="text-right m-3 ">
                                         <button class="btn btn-primary" type="button">Copy</button>
                                     </div>
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
 
@@ -178,7 +178,7 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    @foreach($social_image as $info)
+                    <?php $__currentLoopData = $social_image; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $info): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                     <div class="col-md-12">
                         <div class="row">
@@ -186,7 +186,7 @@
                                 <div class="delete1">
 
                                     <h3>
-                                        {{$info->nickname}}</h3>
+                                        <?php echo e($info->nickname); ?></h3>
                                     <div class="text-right">
                                         <button class="btn btn-outline-danger" type="button">Delete</button>
                                     </div>
@@ -196,7 +196,7 @@
                                 <div class="post">
                                     <h3>Description for the Post :</h3>
 
-                                    <p>{{$info->description}}</p>
+                                    <p><?php echo e($info->description); ?></p>
                                     <div class="text-right mr-3">
                                         <button class="btn btn-outline-primary" type="button">Copy</button>
                                     </div>
@@ -207,7 +207,7 @@
                                     <div class="mp4">
 
                                         <img
-                                            src="{{url('storage/app/public/uploads/'.$info->media) }}"
+                                            src="<?php echo e(url('storage/app/public/uploads/'.$info->media)); ?>"
                                             class="img-fluid">
 
                                         <div class="text-right Delete">
@@ -235,13 +235,13 @@
                                                     <tr>
                                                         <th scope="row">1</th>
                                                         <td>FAcebook</td>
-                                                        <td> {{$info->username}}</td>
+                                                        <td> <?php echo e($info->username); ?></td>
                                                     
                                                     </tr>
                                                     <tr>
                                                         <th scope="row">2</th>
                                                         <td>YouTube</td>
-                                                        <td>{{$info->username}}</td>
+                                                        <td><?php echo e($info->username); ?></td>
                                                     
                                                     </tr>
                                                     
@@ -259,7 +259,7 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
 
@@ -337,4 +337,4 @@
     }
 </style>
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\video-streaming\resources\views/artists/support1.blade.php ENDPATH**/ ?>
