@@ -2853,8 +2853,6 @@ public function unsubscribe($allIds,$userid,$postData,$count){
 
 public function RemoveUsername($data){
 
-  //print_r($data);die;
-
       $database_data = DB::table('social_username')->where('id',$data['id'])->select('username','social_plateform')->get()->toArray();
       $plateform = explode(',',$database_data[0]->social_plateform);
       $username = explode(',',$database_data[0]->username);

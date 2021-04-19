@@ -30,7 +30,7 @@
         <div class="overlayprofile">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/dummy.png')); ?>" width="200px" height="200px">
+        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
@@ -50,7 +50,6 @@
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
-   
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -164,8 +163,7 @@
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
-    
-       <div class="filter_div" id="video">     
+           <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
         <?php if(isset($details[0]->type)): ?>
@@ -196,12 +194,11 @@
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('<?php echo e(json_encode($detail)); ?>')">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
-                </div>
-            
-               
-              </div>
-             
+                </div>               
+              </div>             
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
+              <?php echo e(ddddd); ?>
+
           <script>
             console.log('eeee');
            var video;
@@ -796,9 +793,13 @@ video:hover {
     display: flex;
     margin: -10% 4%;
 }
+.coverimg img{
+  margin-top:50px;
+}
 @media  only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
+    margin-top:10px;
 }
 .overlayprofile img {
     display: flex;

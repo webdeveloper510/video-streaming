@@ -2769,12 +2769,12 @@ function deleteName(id,appname,name){
 
             if (data == 1) {
 
-                alert('Edit Successfully!');
+                alert('Delete Successfully!');
 
                 location.reload();
 
             } else {
-                alert('Password Wrong')
+                alert('Some Error Occure')
                 location.reload();
 
             }
