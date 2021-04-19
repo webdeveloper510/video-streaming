@@ -707,10 +707,23 @@
              <h5 class="card-title text-left pt-3 pl-3">Requirement status:</h5>
              <hr>
               <div class="card-body ">
+               <div class="row">
+                 <div class="col-8">
+                 <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:</p>
+                  </div>
+                  <div class="col-4">
+                  <p class="card-text " style="    font-size: 20px;"><span  style="{{$social_count < 5  ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right cross" style="{{$social_count < 5 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
+                  </div>
+                  <div class="col-8 mt-2">
+                  <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  </p>
+                  </div>
+                  <div class="col-4 mt-2">
+                  <p class="card-text " style="    font-size: 20px;"><span class="text-right " style="{{$totalCollection < 3 ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class=" days" style="{{$totalCollection < 3 && $social_count < 5 ? 'display:none': 'display:block'}}">{{$day_difference ? $day_difference->difference : ''}} Remaining</span> <span class="text-right cross" style="{{$totalCollection < 3 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
+                  </div>
+               </div>
                
-                <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right" style="{{$social_count < 5  ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right cross" style="{{$social_count < 5 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
 
-                <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  <span class="text-right " style="{{$totalCollection < 3 ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right days" style="{{$totalCollection < 3 && $social_count < 5 ? 'display:none': 'display:block'}}">{{$day_difference ? $day_difference->difference : ''}} Remaining</span> <span class="text-right cross" style="{{$totalCollection < 3 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
+               
                 
                 <button class="btn btn-primary "  type="button">Get my reward!</button>
                 <button class="btn btn-primary " data-dismiss="modal" aria-label="Close" type="button">Back</button>
