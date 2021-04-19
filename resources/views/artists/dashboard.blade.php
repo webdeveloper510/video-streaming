@@ -473,7 +473,7 @@
 
 .leveltext.text-white {
     display: none;
-    width: 161px !important;
+    margin-left: -7%;
     position: absolute;
     top: 33px;
 }
