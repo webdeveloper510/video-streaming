@@ -790,7 +790,7 @@
                        <h5><b> App Name </b></h5>
                         </div>
                         <div class="col-5 text-left">
-                          <h5><b> User name</b></h5>
+                          <h5><b> Username</b></h5>
                         </div>
                     </div>
                     <div class="row">
