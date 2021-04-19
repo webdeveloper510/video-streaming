@@ -50,7 +50,7 @@
                       <?php echo $errors->first('title') ?>
                     </div>
                     <?php endif; ?>
-                    <div class="alert alert-success" id="messagediv" style="display:none"></div>
+                    <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
                 </div>
            
@@ -167,7 +167,7 @@
                 </div>
                 <?php endif; ?>
 </div>
-                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
+                <div class=" mt-3 text-white thumbnail" style="display:none;">
                 <label class="thumbnail1"> Image Upload</label>
                 <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 

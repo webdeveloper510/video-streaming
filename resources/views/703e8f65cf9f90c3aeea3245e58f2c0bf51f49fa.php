@@ -648,8 +648,8 @@
                       <input type="password" autocomplete="off"  class="form-control" name="password" placeholder="Enter Password">
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update'])); ?>
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                        <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm ','id'=>'update'])); ?>
 
                       </div>
                     </div>
