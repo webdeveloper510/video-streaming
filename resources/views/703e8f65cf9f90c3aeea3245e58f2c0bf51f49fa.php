@@ -801,8 +801,37 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
-                  <div class="row">
-                     <div class="col-4 text-center ">
+                  <div class="table table-responsive">
+                  <table class="table text-left">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">App Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col"></th>
+                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php                     
+                      $count = count($name->username);
+                    ?>
+                    <?php for($i = 0; $i < $count; $i++): ?>   
+                          <tr>
+                            <th scope="row"><?php echo e($name->username[$i]); ?></th>
+                            <td><?php echo e($name->social_plateform[$i]); ?></td>
+                            <td> <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button></td>
+                          
+                          </tr>
+                          <?php endfor; ?>
+                  
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </tbody>
+                      </table>
+
+                    </div>
+                  <!-- <div class="row">
+                     <div class="col-4  ">
                        <h5><b> App Name </b></h5>
                         </div>
                         <div class="col-5 text-left">
@@ -823,15 +852,14 @@
                       <p style="font-weight: 500;"><b><?php echo e($name->social_plateform[$i]); ?></b></p>
                        </div>
                        <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> <i class="fa fa-close" style="font-size: 10px !important;
-    font-weight: 100 !important;"></i> </button>
+                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button>
                        </div>
                     
                      
                     <?php endfor; ?>
                   
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </div>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+                  </div>-->
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
               <?php echo e(Form::token()); ?>
@@ -871,8 +899,10 @@
                            </div>
                 
                     </div>
+                    <div class="text-right">
                     <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm'])); ?>
 
+</div>
                     <?php echo e(Form::close()); ?>
 
                 </div>

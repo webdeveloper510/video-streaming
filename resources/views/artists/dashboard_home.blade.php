@@ -785,8 +785,37 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
-                  <div class="row">
-                     <div class="col-4 text-center ">
+                  <div class="table table-responsive">
+                  <table class="table text-left">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">App Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col"></th>
+                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($social_name as $name)
+                  <?php                     
+                      $count = count($name->username);
+                    ?>
+                    @for ($i = 0; $i < $count; $i++)   
+                          <tr>
+                            <th scope="row">{{$name->username[$i]}}</th>
+                            <td>{{$name->social_plateform[$i]}}</td>
+                            <td> <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button></td>
+                          
+                          </tr>
+                          @endfor
+                  
+                  @endforeach
+                        </tbody>
+                      </table>
+
+                    </div>
+                  <!-- <div class="row">
+                     <div class="col-4  ">
                        <h5><b> App Name </b></h5>
                         </div>
                         <div class="col-5 text-left">
@@ -807,15 +836,14 @@
                       <p style="font-weight: 500;"><b>{{$name->social_plateform[$i]}}</b></p>
                        </div>
                        <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;
-    font-weight: 100 !important;"></i> </button>
+                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button>
                        </div>
                     
                      
                     @endfor
                   
-                  @endforeach
-                  </div>
+                  @endforeach 
+                  </div>-->
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
                       <div class="linksonit mb-3">
@@ -853,7 +881,9 @@
                            </div>
                 
                     </div>
+                    <div class="text-right">
                     {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm']) }}
+</div>
                     {{ Form::close() }}
                 </div>
 

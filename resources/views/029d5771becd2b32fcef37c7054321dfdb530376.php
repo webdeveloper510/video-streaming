@@ -3,7 +3,7 @@
     <div class="container">
         <div class="overlay1">
             <?php if(session('success')): ?>
-            <div class="alert alert-success" id="success">
+            <div class="alert alert-success set" id="success">
                 <?php echo e(session('success')); ?>
 
             </div>

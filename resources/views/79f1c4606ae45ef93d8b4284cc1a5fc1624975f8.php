@@ -114,8 +114,8 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
-          <div class="artistoffer1">
-            <h4> No Offer available </h4>
+          <div class="artistoffer1 pt-4">
+            <h4> No Offer created yet </h4>
             <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
           </div>
           <?php endif; ?>

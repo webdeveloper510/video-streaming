@@ -207,7 +207,7 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 }
 .leveltext.text-white {
     display: none;
-    width: 207px !important;
+  
 }
 
 .wid:hover .leveltext.text-white {

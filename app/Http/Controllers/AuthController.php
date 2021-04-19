@@ -18,7 +18,7 @@ use View;
 
 use Illuminate\Support\Facades\Validator;
 
-include('vendor/autoload.php');
+include('php-sdk/vendor/autoload.php');
 
 use transloadit\Transloadit;
 
@@ -743,7 +743,7 @@ class AuthController extends Controller
                                   "exported" => [
                                     "use" => ["imported_chameleon", "imported_prinsengracht", "imported_snowflake", "resized", "merged", ":original"],
                                     "robot" => "/s3/store",
-                                    "credentials" => "YOUR_AWS_CREDENTIALS",
+                                    "credentials" => "mp3-img-to-mp4",
                                    "path"=> "uploads/"
                                   ],
                                 ],
