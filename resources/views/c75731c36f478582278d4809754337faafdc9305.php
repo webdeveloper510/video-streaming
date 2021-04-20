@@ -35,6 +35,11 @@
           <?php echo e(Form::token()); ?>
 
                 <div class="form-row ">
+                <?php if(session('success')): ?>
+
+                <?php echo e(session('success')); ?>
+
+                <?php endif; ?>
                     <div class="col"></div>
          
                   <div class="col-sm-7">

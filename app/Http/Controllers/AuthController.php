@@ -1120,7 +1120,7 @@ public function notifyEmail(Request $req){
 
          Mail::to($req->emails)->send(new notifyEmail($insertid));
 
-
+          return view('siteProcess')->with('success','Email Sent You Successfully!');
 
       }      
 
@@ -1131,7 +1131,6 @@ public function notifyEmail(Request $req){
       $notId = base64_decode($notifyId);
 
       $up = $this->model->notifyConfirm($notId);
-       // echo $up;die;
       if($up){
 
         echo 'yes';
