@@ -818,6 +818,7 @@ $(document).on('click', '.link_click', function () {
     }
 
     var controls = $(this).children().attr('aria-controls');
+    console.log(controls);
     $('.tab-content').find('.fade').removeClass('show active');
     $('#'+controls).addClass('show active');
 })

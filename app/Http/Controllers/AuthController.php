@@ -1114,6 +1114,8 @@ public function notifyEmail(Request $req){
 
       $insertid = $this->model->notifyMe($req);
 
+      //print_r($insertid);
+
       if($insertid!=0){
 
          Mail::to($req->emails)->send(new notifyEmail($insertid));
@@ -1129,7 +1131,7 @@ public function notifyEmail(Request $req){
       $notId = base64_decode($notifyId);
 
       $up = $this->model->notifyConfirm($notId);
-
+       // echo $up;die;
       if($up){
 
         echo 'yes';
