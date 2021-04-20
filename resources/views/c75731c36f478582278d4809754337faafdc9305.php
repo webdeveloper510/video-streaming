@@ -35,14 +35,19 @@
           <?php echo e(Form::token()); ?>
 
                 <div class="form-row ">
-                <?php if(session('success')): ?>
-
-                <?php echo e(session('success')); ?>
-
-                <?php endif; ?>
+              
                     <div class="col"></div>
          
                   <div class="col-sm-7">
+                  <?php if(session('success')): ?>
+
+                  <div class="message">
+
+                       <?php echo e(session('success')); ?>
+
+                        </div>
+                        <?php endif; ?>
+
                   <?php echo e(Form::label('Email', 'Enter your email here**')); ?> 
                 <?php echo e(Form::text('emails', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])); ?>
 
