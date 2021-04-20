@@ -1130,17 +1130,8 @@ public function notifyEmail(Request $req){
 
       $notId = base64_decode($notifyId);
 
-<<<<<<< HEAD
       $up = $this->model->notifyConfirm($notId);
-      if($up){
-=======
-    
-
-      $up = $this->model->notifyConfirm($notId);
-
-      print_r($up);die;
       if($up==1){
->>>>>>> e213a309af07bec97d18841b1b0ef676f21434da
 
                 echo "yes";
             }
