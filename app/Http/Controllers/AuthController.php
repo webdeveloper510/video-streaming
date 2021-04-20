@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Mail;
 
 
 use App\Mail\verifyEmail;
+use App\Mail\artistSupport;
 
 use App\Mail\customer_issue;
 
@@ -1815,10 +1816,12 @@ public function readNotification(Request $request){
         if($req->all()){
 
             $done = $this->model->customer_issue($req->all());
+            
+            
 
             if($done){
 
-              Mail::to('amit@codenomad.net')->send(new customer_issue($req->all()));
+              Mail::to('contact@pornartistzone.com')->send(new customer_issue($req->all()));
               return 1;
 
             }
