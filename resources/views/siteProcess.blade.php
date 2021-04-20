@@ -12,14 +12,14 @@
     <title>Coming Soon</title>
 
   </head>
-  <body style=" background:#750108;  color: white;">
+  <body style=" background:black;  color: white;">
     
     <div class="container">
-    <div class="row mt-5 pt-5">
+    <div class="row py-5">
         <div class="col"></div>
         <div class="col-md-8">
             <div class="text-center my-5">
-              <img src="{{asset('images/logos/cominglogo.png')}}" width="300px">
+              <img src="{{asset('images/logos/good_quality_logo.png')}}" width="500px" class="img-fluid mb-3" style="border:2px solid gold;">
                 <h1  style="font-size: 83px;font-family: 'Satisfy', cursive;">We're Coming Soon</h1>
             </div>
 
@@ -31,7 +31,7 @@
              @endforeach
                  {!!Form::open(['action' => 'AuthController@notifyEmail', 'method' => 'post'])!!}
           {{Form::token()}}
-                <div class="form-row">
+                <div class="form-row ">
                     <div class="col"></div>
          
                   <div class="col-sm-7">

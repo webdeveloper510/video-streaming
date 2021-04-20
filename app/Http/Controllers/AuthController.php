@@ -693,66 +693,32 @@ class AuthController extends Controller
               /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
               
                                         $transloadit = new Transloadit([
-  "key" => "995b974268854de2b10f3f6844566287",
-  "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
-]);
+                                              "key" => "995b974268854de2b10f3f6844566287",
+                                              "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
+                                            ]);
 
-// Add files to upload
-$files = [];
-array_push($files, $request->media->getClientOriginalName());
+                                                            
+                                                            $response = $transloadit->createAssembly(array(
+                                                              'files' => array('https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                                                              'params' => array(
+                                                                'steps' => array(
+                                                                  'resize' => array(
+                                                                    'robot' => '/image/resize',
+                                                                    'width' => 200,
+                                                                    'height' => 100,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ));
+                                                            
+                                                            // Show the results of the assembly we spawned
+                                                            echo '<pre>';
+                                                            print_r($response);
+                                                            echo '</pre>';
+                                                            
 
-// Start the Assembly
-$response = $transloadit->createAssembly([
-  "files" => $files, 
-  "params" => [
-    "steps" => [
-      ":original" => [
-        "robot" => "/upload/handle",
-      ],
-      "imported_chameleon" => [
-        "robot" => "/http/import",
-        "result" => true,
-        "url" => "https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      ],
-      "resized" => [
-        "use" =>"imported_chameleon",
-        "robot" => "/image/resize",
-        "result" => true,
-        "height" => 768,
-        "imagemagick_stack" => "v2.0.7",
-        "resize_strategy" => "fit",
-        "width" => 1024,
-        "zoom" => false,
-      ],
-      "merged" => [
-        "use" => [
-          "steps" => [
-            ["name" => ":original", "as" => "audio"],
-            ["name" => "resized", "as" => "image"],
-          ],
-          "bundle_steps" => true,
-        ],
-        "robot" => "/video/merge",
-        "result" => true,
-        "duration" => 9,
-        "ffmpeg_stack" => "v4.3.1",
-        "framerate" => "1/3",
-        "preset" => "ipad-high",
-        "resize_strategy" => "fit",
-      ],
-      "exported" => [
-        "use" => ["imported_chameleon","resized", "merged", ":original"],
-        "robot" => "/s3/store",
-        "credentials" => "mp3-img-to-mp4",
-        "url_prefix" => "https://demos.transloadit.com/",
-      ],
-    ],
-  ],
-]);
-echo "<pre>";
-print_r($response);die;
 
-     /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+     /*-------------------------------------------------------------------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
 
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);

@@ -795,6 +795,9 @@ video:hover {
 .coverimg img{
   margin-top:50px;
 }
+.coverimg {
+    margin-top: 37px;
+}
 @media  only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
