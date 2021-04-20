@@ -1818,7 +1818,7 @@ public function readNotification(Request $request){
 
             if($done){
 
-              Mail::to('contact@pornartistzone.com')->send(new artistSupport($req->all()));
+              Mail::to('amit@codenomad.net')->send(new customer_issue($req->all()));
               return 1;
 
             }
