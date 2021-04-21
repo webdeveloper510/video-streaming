@@ -1120,7 +1120,7 @@ public function notifyEmail(Request $req){
 
          Mail::to($req->emails)->send(new notifyEmail($insertid));
 
-          return view('siteProcess')->with('success','Email Sent You Successfully!');
+          return redirect('inProcess')->with('success','Email Sent You Successfully!');
 
       }      
 
