@@ -32,13 +32,18 @@
                  {!!Form::open(['action' => 'AuthController@notifyEmail', 'method' => 'post'])!!}
           {{Form::token()}}
                 <div class="form-row ">
-                @if(session('success'))
-
-                {{session('success')}}
-                @endif
+              
                     <div class="col"></div>
          
                   <div class="col-sm-7">
+                  @if(session('success'))
+
+                  <div class="message">
+
+                       {{session('success')}}
+                        </div>
+                        @endif
+
                   {{Form::label('Email', 'Enter your email here**')}} 
                 {{Form::text('emails', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
                   </div>
