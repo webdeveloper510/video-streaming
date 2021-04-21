@@ -493,13 +493,14 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
                 <input type="hidden" name="offerid" id="offerid" value="">                  
-                  <input type="hidden" id="file_url" name="file_url" value=""/>
+                  <input type="hidden" id="file_name" name="file_name" value=""/>
+                  <input type="hidden" id="file_image" name="file_image" value=""/>
                   <br>
                  
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
-                {{Form::file('file',['class'=>'form-control file_input','required'])}}
-                <span id="filename" style="color:yellow;"></span>
+                {{Form::file('file',['class'=>'form-control file_input','title'=>'eeeee','required'])}}
+                <span id="filename" style="color:red;"></span>
             </div>
           
             </div>

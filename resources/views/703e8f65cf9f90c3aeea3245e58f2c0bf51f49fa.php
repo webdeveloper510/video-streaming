@@ -909,6 +909,7 @@
                   </div>
               </div>
             </div>
+            </div>
           
             <div class="col-md-4">
          <div class="card" >
@@ -953,6 +954,7 @@ label.error {
 }
 .amountmedia {
     max-height: 160px;
+    min-height:159px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
