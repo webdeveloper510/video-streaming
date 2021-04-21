@@ -1130,13 +1130,15 @@ public function notifyEmail(Request $req){
 
       $notId = base64_decode($notifyId);
 
+    
+
       $up = $this->model->notifyConfirm($notId);
 
+      print_r($up);die;
+      if($up==1){
 
-      if($up){
-
-        echo 'yes';
-      }
+                echo "yes";
+            }
 
       else{
         echo "no";

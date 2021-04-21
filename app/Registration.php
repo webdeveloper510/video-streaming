@@ -824,6 +824,7 @@ public function getRespectedSub($data){
 
       $update = $this->UpdateData('all_emails','id',array('status'=>1),$notify);
 
+
      // $update = DB::table('all_emails')->where('id',$notify)->update($data);
 
       return $update ? 1 : 0 ; 
