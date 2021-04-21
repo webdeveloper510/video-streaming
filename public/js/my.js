@@ -2910,8 +2910,31 @@ $(document).on('submit', '#user', function (event) {
 
 function appendDiv(a){
     //console.log('yhis');
-    var html = $('.amountmedia').find('.social_append').html();
-    $('.amountmedia ').append(html);
+    var html  = "<div class='row social_append px-3'>"+
+                            "<div class='col-md-6'>"+
+                                                "<div class='form-group'>"+
+                                "<select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01' required>"+
+                                        "<option selected=''>Choose...</option>"+
+                                        "<option value='Facebook'>Facebook</option>"+
+                                        "<option value='Instagram'>Instagram</option>"+
+                                        "<option value='Youtube'>Youtube</option>"+
+                                        "<option value='Sharesome'>Sharesome</option>"+
+                                        "<option value='Xpurity'>Xpurity</option>"+
+                                        "<option value='WeChat'>WeChat</option>"+
+                                        "<option value='Tiktok'>Tiktok</option>"+
+                                        "<option value='Twitter'>Twitter"+
+                                        "</option>"+
+                                    "</select>"+
+                                "</div>"+
+                "</div>"+
+                        "<div class='col-md-6'>"+
+                                    "<div class='form-group'>"+
+                                        "<input type='text' required name='username[]' class='form-control'>"+
+                                        "</div>"+
+                            "</div>"+
+"</div>"; 
+
+    $('.amountmedia ').prepend(html);
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {

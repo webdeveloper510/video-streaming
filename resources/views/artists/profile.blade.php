@@ -102,7 +102,6 @@
           data-target="#myModal" class="btn btn-info btn-sm" 
           onclick="edit_offer({{json_encode($offer)}})">
         Edit</button>
-
            </div>
         </div>
         <hr>
@@ -401,6 +400,7 @@ Your browser does not support the audio tag.
                 </div>
             </div>
             <div class="modal-body">
+            
               {!!Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true])!!}
                    {{Form::token()}}
                   
