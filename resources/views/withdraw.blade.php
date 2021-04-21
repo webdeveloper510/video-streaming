@@ -51,9 +51,9 @@
        
 
          <div class="text_one">
-         <h6>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $150 USD! <span class="firsttext">? 
+         <h6>Invite other passionate Artists to grow their business on PAZ and you both get rewarded with $100 USD! <span class="firsttext">? 
            <div class="firsttextbody">
-            <p>The pay-out occurs when the invited Artist achieves Level 3 (400Subscribers) and a total income of +20 000 PAZ</p>
+            <p>The pay-out occurs when the invited Artist achieves Level 3 (400Subscribers) and a total income of +50 000 PAZ</p>
            </div>
          </span>
          </h6>
@@ -81,7 +81,7 @@
     <div class="card" >
         <div class="text-center">
        <h3>You've been invited from {{$artistPassive[0]->nickname}} </h3>
-       <h4>Get your $150 USD with :</h4>
+       <h4>Get your $100 USD with :</h4>
             </div>
   <div class="card-body">
     
@@ -90,7 +90,7 @@
     <tr>
       
       <th scope="col">lvl3</th>
-      <th scope="col"><span style="color:gold;font-size: 16px;">20k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> earned </th>
+      <th scope="col"><span style="color:gold;font-size: 16px;">50k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> earned </th>
       <th scope="col">Payout</th>
     </tr>
   </thead>
