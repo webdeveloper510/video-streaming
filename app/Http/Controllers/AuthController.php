@@ -1114,6 +1114,8 @@ public function notifyEmail(Request $req){
 
       $insertid = $this->model->notifyMe($req);
 
+      print_r($insertid);
+
       if($insertid!=0){
 
          Mail::to($req->emails)->send(new notifyEmail($insertid));
