@@ -32,6 +32,10 @@
                  {!!Form::open(['action' => 'AuthController@notifyEmail', 'method' => 'post'])!!}
           {{Form::token()}}
                 <div class="form-row ">
+                @if(session('success'))
+
+                {{session('success')}}
+                @endif
                     <div class="col"></div>
          
                   <div class="col-sm-7">
