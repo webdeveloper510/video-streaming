@@ -816,6 +816,10 @@ $(document).on('click', '.link_click', function () {
             .removeClass('active');
         $(this).addClass('active');
     }
+
+    var controls = $(this).children().attr('aria-controls');
+    $('.tab-content').find('.fade').removeClass('show active');
+    $('#'+controls).addClass('show active');
 })
 
 $(document).on('click', '.media', function () {
