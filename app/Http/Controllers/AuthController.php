@@ -18,6 +18,9 @@ use View;
 
 use Illuminate\Support\Facades\Validator;
 
+include('php-sdk/vendor/autoload.php');
+
+use transloadit\Transloadit;
 
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
@@ -31,6 +34,7 @@ use Illuminate\Support\Facades\Mail;
 
 
 use App\Mail\verifyEmail;
+use App\Mail\artistSupport;
 
 use App\Mail\customer_issue;
 
@@ -672,6 +676,10 @@ class AuthController extends Controller
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
+  //print_r($request->all());die;
+
+// Show the results of the assembly we spawned
+
 
   //print_r($request->all());die;
 
@@ -682,6 +690,37 @@ class AuthController extends Controller
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
+              
+              /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+              
+                                        $transloadit = new Transloadit([
+                                              "key" => "995b974268854de2b10f3f6844566287",
+                                              "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
+                                            ]);
+
+                                                            
+                                                            $response = $transloadit->createAssembly(array(
+                                                              'files' => array('https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                                                              'params' => array(
+                                                                'steps' => array(
+                                                                  'resize' => array(
+                                                                    'robot' => '/image/resize',
+                                                                    'width' => 200,
+                                                                    'height' => 100,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ));
+                                                            
+                                                            // Show the results of the assembly we spawned
+                                                            echo '<pre>';
+                                                            print_r($response);
+                                                            echo '</pre>';
+                                                            
+
+
+     /*-------------------------------------------------------------------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
@@ -1777,6 +1816,8 @@ public function readNotification(Request $request){
         if($req->all()){
 
             $done = $this->model->customer_issue($req->all());
+            
+            
 
             $exis_user = $this->model->selectDataById('email','users',$req->customer_email);
 

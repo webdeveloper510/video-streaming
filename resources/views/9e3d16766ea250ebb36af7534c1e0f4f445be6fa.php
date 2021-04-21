@@ -48,12 +48,12 @@
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])); ?>
 
-                <div class="alert alert-success" id="messagediv" style="display:none"></div>
+                <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
             </div>
          
             <div class="col-md-6 mt-2 ">
-            <?php echo e(Form::label('Add Price', 'Price')); ?> 
+            <?php echo e(Form::label('Add Price', 'Price (PAZ)')); ?> 
             <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
@@ -61,7 +61,7 @@
            
              
             <div class="video" style="display:none">
-            <select name="category[]"  class='form-control my-5'>
+            <select name="video_cat"  class='form-control my-5 video'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='video'): ?>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="audio" style="display:none">
-            <select name="category[]"  class='form-control my-5'>
+            <select name="audio_cat"  class='form-control my-5 audio'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='audio'): ?>
@@ -93,14 +93,14 @@
             </select>
             </div>
             
-            <div class="col-md-12 mt-3 text-white file" style="display:none;">
+            <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
-            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+            <div class=" mt-3 text-white thumbnail" style="display:none;">   
             <label class="thumbnail1"></label>        
                  <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 
@@ -214,6 +214,7 @@ input.select_media_pic {
 }
   @media  only screen and (max-width: 767px){
 section.background1 {
+    height: 151%;
     padding-bottom: 30px;
 }
 .overlay1 {

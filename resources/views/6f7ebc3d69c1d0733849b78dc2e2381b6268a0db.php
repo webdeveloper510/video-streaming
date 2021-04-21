@@ -265,7 +265,7 @@ tr.shown td.details-control {
   <style type="text/css">
     .leveltext.text-white {
     display: none;
-    width: 161px !important;
+
     position: absolute;
     top: 47px !important;
 }
