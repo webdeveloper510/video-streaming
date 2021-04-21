@@ -1778,9 +1778,15 @@ public function readNotification(Request $request){
 
             $done = $this->model->customer_issue($req->all());
 
+            $exis_user = $this->model->selectDataById('email','users',$req->customer_email);
+
+            $exist_artist = $this->model->selectDataById('email','contentprovider',$req->customer_email);
+
+           $mail =  (count($exis_user) > 0) ? "customer@pornartistzone.com" : ((count($exist_artist) > 0)  ? "artist@pornartistzone.com" : "contact@pornartistzone.com");
+
             if($done){
 
-              Mail::to('contact@pornartistzone.com')->send(new artistSupport($req->all()));
+              Mail::to($mail)->send(new artistSupport($req->all()));
               return 1;
 
             }
