@@ -53,7 +53,7 @@
             </div>
          
             <div class="col-md-6 mt-2 ">
-            <?php echo e(Form::label('Add Price', 'Price')); ?> 
+            <?php echo e(Form::label('Add Price', 'Price (PAZ)')); ?> 
             <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
@@ -61,7 +61,7 @@
            
              
             <div class="video" style="display:none">
-            <select name="category[]"  class='form-control my-5'>
+            <select name="video_cat"  class='form-control my-5 video'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='video'): ?>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="audio" style="display:none">
-            <select name="category[]"  class='form-control my-5'>
+            <select name="audio_cat"  class='form-control my-5 audio'>
                     <option value="">Choose Category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($cat->type=='audio'): ?>
@@ -93,7 +93,7 @@
             </select>
             </div>
             
-            <div class="col-md-12 mt-3 text-white">
+            <div class="col-md-12 mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
@@ -107,6 +107,8 @@
                 <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
+            <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
             <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
@@ -229,7 +231,7 @@ section.background1 {
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
  
 
-<script>
+<!-- <script>
 $('form').transloadit({
    
       wait: true,
@@ -243,4 +245,4 @@ $('form').transloadit({
         template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
       }
     });
-</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
+</script> --><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>

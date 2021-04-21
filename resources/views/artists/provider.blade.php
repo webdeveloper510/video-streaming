@@ -45,19 +45,19 @@
              <div class="col-md-6 mt-2 ">
             {{Form::label('Title', 'Title')}} 
                 {{Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])}}
-                <div class="alert alert-success" id="messagediv" style="display:none"></div>
+                <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
             </div>
          
             <div class="col-md-6 mt-2 ">
-            {{Form::label('Add Price', 'Price')}} 
+            {{Form::label('Add Price', 'Price (PAZ)')}} 
             {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]) !!}
             </div>
             <div class="col-md-6 mt-2 ">
            
              
             <div class="video" style="display:none">
-            <select name="category[]"  class='form-control my-5'>
+            <select name="video_cat"  class='form-control my-5 video'>
                     <option value="">Choose Category</option>
                     @foreach($category as $cat)
                         @if($cat->type=='video')
@@ -78,7 +78,7 @@
             </div>
 
             <div class="audio" style="display:none">
-            <select name="category[]"  class='form-control my-5'>
+            <select name="audio_cat"  class='form-control my-5 audio'>
                     <option value="">Choose Category</option>
                     @foreach($category as $cat)
                         @if($cat->type=='audio')
@@ -89,18 +89,20 @@
             </select>
             </div>
             
-            <div class="col-md-12 mt-3 text-white">
+            <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
-            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+            <div class=" mt-3 text-white thumbnail" style="display:none;">   
             <label class="thumbnail1"></label>        
                  {{Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
             </div>
+            <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
             <div class="col-md-6 mt-3">
             {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])}}
@@ -220,7 +222,7 @@ section.background1 {
 @include('artists.dashboard_footer')
  
 
-<script>
+<!-- <script>
 $('form').transloadit({
    
       wait: true,
@@ -234,4 +236,4 @@ $('form').transloadit({
         template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
       }
     });
-</script>
+</script> -->

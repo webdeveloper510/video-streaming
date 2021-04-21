@@ -1,5 +1,5 @@
 
-@include('layouts.header')
+@include('layout.cdn')
 <div class="header py-3">
  <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand">
  
@@ -85,19 +85,17 @@
   </section>
   <!-- Button trigger modal -->
 
-
 <!-- Modal -->
 <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
-       
         <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <label>Enter Email :</label>
-        <input type="email" class="form-control" placeholder="Enter Register Email" id="email"/> 
+        <input type="email" class="form-control" placeholder="Enter Register Email" id="email" requried/> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary close_popup" data-bs-dismiss="modal">Close</button>
@@ -111,9 +109,9 @@
     a.ffff {
         color: blue;
     }
-    header#default_header {
-    display: none;
-}
+    .header_bottom {
+        display: none;
+   }
 .header {
     background: #881114;
 }

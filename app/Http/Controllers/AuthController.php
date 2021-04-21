@@ -212,13 +212,17 @@ class AuthController extends Controller
 
       $passive = $this->model->getSumOfPassive($artistId);
 
+      $passive_artist = $this->model->getRefersArtist($artistId);
+
+      
+
       
 
        $type =   Session::get('userType');
       if($type=='User'){
         return redirect('/');
     }
-      return view('/withdraw',['passive_income'=>$passive,'tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
+      return view('/withdraw',['artistPassive'=>$passive_artist,'passive_income'=>$passive,'tab'=>$navbaractive,'artistid'=>$artistId,'level_system'=>$level_system]);
     }
     public function upload(){
       $contentLogin =   Session::get('contentUser');
@@ -669,7 +673,7 @@ class AuthController extends Controller
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-  print_r($request->all());die;
+  //print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();
@@ -688,6 +692,10 @@ class AuthController extends Controller
               $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
               $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+              $data['catid']=  $ext=='mp3' ? $data['audio_cat'] :$data['video_cat'];
+              
+              unset($data['audio_cat']);
+              unset($data['video_cat']);
 
                 if($filePath){
 
@@ -786,10 +794,6 @@ public function privacy(){
     if($contenttype=='User'){
       return redirect('/');
   }
-
-
-   
-
 
     $subcategory=$this->model->getSubcategory($id='');
 

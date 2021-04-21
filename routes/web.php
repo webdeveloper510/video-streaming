@@ -123,6 +123,8 @@ Route::post('editPlaylist', 'AuthController@editPlaylist');
 
 Route::post('duration', 'AuthController@duration');
 
+Route::post('deleteName', 'artist@deleteUsername');
+
 
 Route::post('passwordReset', 'AuthController@passwordReset');
 
@@ -254,7 +256,10 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::post('addDescription','artist@addDescription');
 
+    Route::post('userName','artist@saveUsername');
+
     Route::post('sendToTip','artist@sendTip');
+
     Route::post('insertTime','artist@sendTimeFrame');
     
     Route::post('createOffer','artist@createOffer');

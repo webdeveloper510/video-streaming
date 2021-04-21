@@ -1,7 +1,7 @@
 
 
 <!--?php echo HTML::assets('style.css');?!-->
-@include('layouts.header')
+@include('layout.cdn')
 <div class="header py-3">
  <a href="{{url('/')}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" width="100px" alt="CoolBrand"></a>
  </div>
@@ -106,8 +106,8 @@
                 border-bottom-style: solid;
                 border-bottom-width: 1px; border-color: blue;"  href="{{url('/privacy')}}">Privacy Policy</a> </label> <br>
 
-<label>{{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}</label><br>
-<span class="discount"> <label> {{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}I would like to receive Discounts and News from PAZ</label></span>
+              <label>{{Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])}}{{Form::label('Terms & Condition', 'I am at least 18+ years old')}}</label><br>
+              <span class="discount"> <label> {{Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])}}I would like to receive Discounts and News from PAZ</label></span>
                 
               </div>
 
@@ -132,9 +132,9 @@
   .alert-danger {
     margin-top: 10px;
 }
-header#default_header {
-    display: none;
-}
+.header_bottom {
+      display: none;
+      }
 .header {
     background: #881114;
 }

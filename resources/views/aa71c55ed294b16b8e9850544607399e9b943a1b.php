@@ -224,7 +224,7 @@
           </li>
           <li class="nav-item <?php echo e($tab=='faq'  ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
             <a class="nav-link" href="<?php echo e(url('/artist/faq')); ?>">
-            <i class="fa fa-question-circle-o"></i>
+            <i class="fa fa-question-circle-o" aria-hidden="true"></i>
               <p>FAQ's</p>
             </a>
           </li>
@@ -256,15 +256,12 @@
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <!--div class="navbar-wrapper text-white ">
+        <div class="container-fluid">  
+        <!--div class="navbar-wrapper text-white ">
           
           <ul class="nav custom search">
           <li id="options" onclick="mufunc()">
               <a href="#"><img width="35px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
-             
-
-
               <ul class="subnav" style="display: none">
                   <ul class="nav nav-tabs text-center">
                     <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home"> <h4 style="color: #fff;">Projects</h4></a></li>
@@ -289,11 +286,9 @@
                      <?php echo e($cat->category); ?> 
                    </label><br>
                              <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                         
                       </div>
                      </div>
-
                           <div class="col-md-6 ">
                             <div class="bar ">
                             <div class="dropdown1 text-white">
@@ -301,25 +296,23 @@
                          
                             <label class="text-white">
                           <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Video
-                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                                <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             <!---/label><br>
                             <label class="">
                                <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Audio
-                         <!--      orm::checkbox('price','desc')}}Higest   -->
-                            
+                              orm::checkbox('price','desc')}}Higest   -->                         
                             <!--/label>
-                       
                         </div>
                         <div class="dropdown1 text-white">
                            <h5>Reward</h5>
                          
                             <label class="text-white">
                           <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
-                              <!--  <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
+                                <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
                             <!--/label><br>
                             <label class="">
                                <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
-                         <!--      orm::checkbox('price','desc')}}Higest   -->
+                              orm::checkbox('price','desc')}}Higest   -->
                             
                             <!--/label>
                        
@@ -330,12 +323,12 @@
                            <h5 >Duration</h5>
                             <label class=""> 
                                <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
-                         <!--   <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
+                            <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
                            
                             <!--/label><br>
                             <label class="">
                                <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
-                          <!--  <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
+                            <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
                             
                           <!--/label><br>
                       
@@ -375,6 +368,7 @@
           
         
           </div--->
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -460,6 +454,10 @@
   background: #ccc9c9; 
   border-radius: 10px;
 }
+.levlv p {
+    padding-left: 6px;
+    padding-right: 6px;
+}
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -480,7 +478,7 @@
 
 .leveltext.text-white {
     display: none;
-    width: 161px !important;
+    margin-left: -7%;
     position: absolute;
     top: 33px;
 }
@@ -492,6 +490,18 @@
 }
 .wid {
     width: 160px !important ;
+}
+.profileImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #512DA8;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+    margin-right: 14px;
+    margin-top: 4px;
 }
 @media  only screen and (max-width: 768px) {
 .alert.alert-success {

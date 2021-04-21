@@ -3,7 +3,7 @@
     <div class="container">
         <div class="overlay1">
             @if(session('success'))
-            <div class="alert alert-success" id="success">
+            <div class="alert alert-success set" id="success">
                 {{session('success')}}
             </div>
             @endif @if(session('error'))
@@ -20,7 +20,7 @@
             {{Form::token()}}
             <div class="container profile">
                 <div class="heading text-center">
-                    <h2 class="text-white ">Artist Detail</h2>
+            <h2 class="text-white ">Artist Detail</h2></p>
                 </div>
                 <!---------------------- First Step Form-------------------->
                 <div class="row">
@@ -29,7 +29,7 @@
                     <div class="col"></div>
                 </div>
                 <!-- -------------------- second Step Form-------------------->
-                < <div class="row align-items-center text-white">
+                 <div class="row align-items-center text-white">
                     <div class="col-md-6 pt-3">
                         {{Form::label('Gender', 'Gender')}}
                         <br>
@@ -38,7 +38,7 @@
                         {{Form::radio('gender',
                 'female',false,['class'=>'rad_But'])}}Female&nbsp;&nbsp;
                         {{Form::radio('gender',
-                'trans',false,['class'=>'rad_But'])}}Trans @if(session('errors'))
+                'trans',false,['class'=>'rad_But','checked'])}}Trans @if(session('errors'))
                         <div class="alert alert-danger">
                             <?php echo $errors->first('gender') ?>
                         </div>
@@ -136,7 +136,7 @@
                         {{Form::label('tits Size', 'Tits Size')}}
                         {{Form::select('titssize', ['Small'
                 => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null,
-                ['class'=>'form-control','placeholder' => 'Choose'])}}
+                ['class'=>'form-control','id'=>'tits','placeholder' => 'Choose'])}}
                         @if(session('errors'))
                         <div class="alert alert-danger">
                             <?php echo $errors->first('titssize') ?>
@@ -147,7 +147,7 @@
                         {{Form::label('Ass Size', 'Ass
                 Size')}}
                         {{Form::select('ass', ['Normal' => 'Normal', 'Small' =>
-                'Small','Big'=>'Big'], null, ['class'=>'form-control','placeholder' =>
+                'Small','Big'=>'Big'], null, ['class'=>'form-control','id'=>'ass','placeholder' =>
                 'Choose'])}}
                         @if(session('errors'))
                         <div class="alert alert-danger">
@@ -177,14 +177,25 @@
                     chooseImage','required'])}} <span id="filename" style="color:red;"></span>
                     </div> <div class="col-md-6 pt-2 text-center"> <!-- <img id="blah"
                     src="https://dummyimage.com/300" width="100px" height="100px" /> -->
-                    <!-- @if(session('errors')) <div class="alert alert-danger"> <?php echo
-                    $errors->first('image') ?> </div> @endif </div> -->
-                    <!-- <div class="loader col-6" style="display:none"> <span style="color:green;
-                    font-weight: bold;">Uploading...</span><img
-                    src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/> <span
-                    class="percentage" style="color:green;font-weight: bold;"></span> </div> <div
+                    @if(session('errors'))
+                     <div class="alert alert-danger">
+                      <?php echo
+                    $errors->first('image') ?>
+                     </div>
+                      @endif 
+                      </div>
+                    <div class="loader col-6" style="display:none">
+                     <span style="color:green;
+                    font-weight: bold;">Uploading...</span>
+                    <img
+                    src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/> 
+                    <span
+                    class="percentage" style="color:green;font-weight: bold;"></span>
+                     </div>
+                      <div
                     class="col-md-12 text-center pt-3"> {{ Form::submit('Submit!',['class'=>'btn
-                    btn-primary']) }} </div-->>
+                    btn-primary']) }}
+                     </div>
 
                     {{ Form::close() }}
                 </div>
@@ -193,12 +204,14 @@
 
     </section>
     <style type="text/css">
+    
         section.background1 {
 
             height: auto;
             width: 98%;
             position: absolute;
         }
+
         label {
             color: white;
         }

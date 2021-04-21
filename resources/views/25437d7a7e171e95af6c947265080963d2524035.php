@@ -172,10 +172,10 @@
 
                  <?php echo e(Form::token()); ?>
 
-             <?php echo e(Form::label('First Name', 'First Name')); ?> 
-                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])); ?>
-
+             <?php echo e(Form::label('First Name', 'First Name')); ?> <br>
+                <?php echo e(Form::text('firstname', '',['class'=>'form-control','placeholder'=>'Enter name','required'])); ?>  <br>
                 <?php echo e(Form::label('Country', 'Country')); ?> 
+                <br>
                  <select name="country" required>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -390,6 +390,7 @@
               
                 <br>
                 <h5 class="card-title">Email : <?php echo e($personal_info[0]->email); ?></h5>
+                <br>
                 <div class="text-right">
                 <?php echo e(Form::submit('Apply!',['class'=>'btn btn-light btn-sm'])); ?>
 
@@ -618,7 +619,7 @@
                         <option value="Zambia">Zambia</option>
 </select>
               <br>
-                <h5 class="card-title"> Date of Birth : <?php echo e($personal_info[0]->dob); ?> </h5><br>
+                <br>
                
                 <h5 class="card-title">Email : <span class="replace" id="email"><?php echo e($personal_info[0]->email); ?></span></h5>
                    
@@ -627,11 +628,11 @@
                 <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
 
                 
-                <div style="display:none;  padding-top: 13%;">
+                <div style="display:none;  padding-top: 15%;">
                 <div class="text-left">
                         <button class="btn btn-outline-primary btn-sm " style="float:left" id="cancel" type="button"> Cancel</button>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm apply" data-toggle="modal" data-target="#exampleModal">Apply
+        <button type="button" class="btn btn-primary btn-sm apply" data-toggle="modal" data-target="#exampleModal">Apply
                  </button></div>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -644,7 +645,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                      <input type="text" class="form-control" placeholder="Enter Password">
+                      <input type="password" autocomplete="off"  class="form-control" name="password" placeholder="Enter Password">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -736,10 +737,7 @@
          <div class="card">
              <h5 class="card-title text-left pt-3 pl-3">Social Media Submitted: <?php echo e($social_count); ?></h5>
              <hr>
-             <?php echo Form::open(['id'=>'social_media','method' => 'post', 'files'=>true]); ?>
-
-              <?php echo e(Form::token()); ?>
-
+            
             <div class="card-body text-center">
               <div class="row">
                 <div class="col-md-12">
@@ -747,18 +745,33 @@
                                    <span id="res_message"></span>
                               </div>
                         </div>
-              <div class="col-md-4">
+                        <div class="col-md-8">
+                        <?php echo Form::open(['id'=>'social_media','method' => 'post', 'files'=>true]); ?>
+
+              <?php echo e(Form::token()); ?>
+
+                          <div class="row">
+                          
+                 <div class="col-md-6 promote">
                   <h5 class="card-title">Let us promote you on our social Media Channels</h5>
                   <br>
-                  <input type="radio" id="video" name="gender" value="Video">
+                  <input type="radio" id="video" name="gender" class="radioBtn" value="video">
                   <label for="male">Video</label>
-                  <input type="radio" id="image" name="gender" value="image">
+                  <input type="radio" id="image" name="gender" class="radioBtn" value="image">
                   <label for="image">Image</label>
                     <div class="linksonit mb-3">
                         <div class="custom-file">
-                        <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
+                            <div class="video" style="display:none;">
+                             <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
 
-                        <span id="filename" style="color:red;"></span>
+                             <span id="filename" style="color:red;"></span>
+                            </div>
+                            <div class="image" style="display:none;">
+                             <?php echo e(Form::file('media',['class'=>'custom-file-input chooseImage','id'=>'social1'])); ?>
+
+                             <span id="filename" style="color:red;"></span>
+                            </div>
+                      
                           <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label text-left'])); ?>
 
                           <!-- <div class="alert alert-danger d-none"><?php echo e($errors->first('media') ?  $errors->first('media') : ''); ?></div> -->
@@ -767,7 +780,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6 Descriptions">
                       <h5 class="card-title"> Add Descriptions that you want us to use:(optional)</h5>
                       <br>
                         <div class="linksonit mb-3">
@@ -776,16 +789,91 @@
 
                         <div class="alert alert-danger d-none"><?php echo e($errors->first('description') ?  $errors->first('description') : ''); ?></div>
                         </div>
-                  </div>
+                        <div class="text-right"> <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary btn-sm'])); ?></div>
+                    
+                      </div>
+                      
+                        </div>
+                        <?php echo e(Form::close()); ?>
 
-               <div class="col-md-4">
+                    </div>
+
+               <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
-                      <div class="linksonit mb-3">
-                      <?php echo e(Form::textarea('username',null,['class'=>'form-control','aria-label'=>'With textarea'])); ?>
-
-                 <div class="alert alert-danger d-none"><?php echo e($errors->first('username') ?  $errors->first('username') : ''); ?></div>
+                  <div class="row">
+                     <div class="col-6 text-center ">
+                       <h4><b> App Name </b></h4>
+                        </div>
+                        <div class="col-6 text-left">
+                          <h4><b> User name</b></h4>
+                        </div>
                     </div>
+                    <div class="row">
+                  <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php                     
+                      $count = count($name->username);
+                    ?>
+                    <?php for($i = 0; $i < $count; $i++): ?>       
+                    
+                      <div class="col-4">
+                      <h5><b><?php echo e($name->username[$i]); ?></b></h5>
+                      </div>
+                      <div class="col-4">
+                      <h5><b><?php echo e($name->social_plateform[$i]); ?></b></h5>
+                       </div>
+                       <div class="col-4">
+                           <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> x</button>
+                       </div>
+                    
+                     
+                    <?php endfor; ?>
+                  
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </div>
+                  <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
+
+              <?php echo e(Form::token()); ?>
+
+                      <div class="linksonit mb-3">
+                      <div class="amountmedia row"> 
+                          <div class='row social_append'>
+                              <div class='col-md-6'>
+                                  <div class='form-group'>
+                                      <select
+                                          class='custom-select valid'
+                                          name='social_plateform[]'
+                                          id='inputGroupSelect01' required>
+                                          <option selected=''>Choose...</option>
+                                          <option value='Facebook'>Facebook</option>
+                                          <option value='Instagram'>Instagram</option>
+                                          <option value='Youtube'>Youtube</option>
+                                          <option value='Sharesome'>Sharesome</option>
+                                          <option value='Xpurity'>Xpurity</option>
+                                          <option value='WeChat'>WeChat</option>
+                                          <option value='Tiktok'>Tiktok</option>
+                                          <option value='Twitter'>Twitter
+                                          </option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class='col-md-6'>
+                                  <div class='form-group'>
+                                      <input type='text' required name='username[]' class='form-control'></div>
+                                  </div>
+                              </div>
+                         
+                                                    
+                            </div>
+                            <div class="col-md-12 text-center">
+                              <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                           </div>
+                
+                    </div>
+                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm'])); ?>
+
+                    <?php echo e(Form::close()); ?>
+
                 </div>
 
              </div>
@@ -795,14 +883,11 @@
             </div>
             <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
-                  <?php echo e(Form::submit('Submit!',['class'=>'btn btn-primary btn-sm'])); ?>
-
-                    <!-- <button class="btn btn-primary btn-sm" type="button">Submit</button> -->
+              
                   </div>
               </div>
             </div>
-            <?php echo e(Form::close()); ?>
-
+          
             <div class="col-md-4">
          <div class="card" >
               <div class="card-body text-center">
@@ -844,6 +929,12 @@ label.error {
     color: white;
     
 }
+.amountmedia {
+    max-height: 160px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .edit12 {
     margin-top: 30%;
 }
@@ -889,6 +980,9 @@ h5.customer1.text-center.pt-3.pl-3 {
 .row.mt-5.pt-5.text-center {
     margin: 0px !important;
 }
+}
+::-webkit-scrollbar {
+    display: none;
 }
 </style>
 

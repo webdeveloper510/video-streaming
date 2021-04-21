@@ -6,8 +6,12 @@ $('.rad_But').click(function () {
     //console.log($(this).val());
     if ($(this).val() == 'male') {
         $('.hide').hide();
+        $("#tits").removeAttr("required");
+        $("#ass").removeAttr("required"); 
     } else {
         $('.hide').show();
+        $("#tits").attr("required", true);
+        $("#ass").attr("required", true);    
     }
 })
 
@@ -220,10 +224,8 @@ $(document).ready(function () {
     var profileImage = $('.profileImage').text(intials);
 
     $(".hoverVideo").hover(function () {
-
-        //alert('hhh');
-
         playVideo(this);
+
 
     }, function () {
         pause(this);
@@ -511,6 +513,20 @@ function readURL(input, bool) {
     }
 
 }
+
+$(document).on('click', '.radioBtn', function () {
+	var id = $(this).attr('id');
+ 
+	$('.'+id).show();
+	if(id=='video'){
+    
+		$('.image').hide();
+	}
+	else{
+		$('.video').hide();
+	}
+})
+
 
 $(document).on('click', '#checkPrice', function () {
     //alert('hello');return false;
@@ -1179,6 +1195,15 @@ function editVideoinfo(data) {
     $('.video_category')
         .val(json_info.catid)
         .attr("selected", "selected");
+    if(type=='video'){
+        $('.video_category').attr('required',true);
+        $('.audio_category').removeAttr('required',true);
+    }
+
+    else{
+        $('.audio_category').attr('required',true);
+        $('.video_category').removeAttr('required',true);
+    }
     $('.video_description').val(json_info.description)
 
 }
@@ -1507,7 +1532,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
-            //sconsole.log(data);return false;
+           // console.log(data);
 
             if (data.status == 1) {
                 $('.alert-success').show();
@@ -1631,6 +1656,15 @@ $(document).on('submit', '#edit_Video_info', function (event) {
 
 $(document).ready(function () {
 
+   /**-------------------------------------- Get Currnt Date and Time ------------------------------------------------------------------- */
+   var today = new Date();
+   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   var dateTime = date+' '+time;
+   $('.created_at').val(dateTime)
+   $('.updated_at').val(dateTime)
+
+   //console.log(dateTime)
     // Delete
     $('.delete').click(function () {
 
@@ -1723,6 +1757,7 @@ function addTohistory(type) {
 
 $('.image').click(function () {
     var image_type = $(this).attr('data-id');
+    $(this).parent().parent().find('.img-fluid').show();
     $('#image_type').val(image_type);
     //console.log(image_type);
     $('.image_change').trigger('click');
@@ -1766,7 +1801,7 @@ $('#filechange').submit(function (e) {
 
     var formData = new FormData($(this)[0]);
 
-    $('.img-fluid').show();
+    //$('.img-fluid').show();
 
     //console.log(formData);return false;
 
@@ -1783,7 +1818,7 @@ $('#filechange').submit(function (e) {
 
         success: function (data1) {
 
-            console.log(data1);
+            //console.log(data1);
 
             if (data1.status == 1) {
                 location.reload();
@@ -2052,15 +2087,21 @@ $(document).ready(function () {
                 'data': 'choice'
             }, {
                 'data': 'nickname'
-            }, {
-                'data': 'status'
-            }, {
-                'data': 'dates_submision',
+            }, 
+            {
+                'data': 'status',
                 render: function (data, type, row) {
                     // console.log(data);
                     return row.remaining_days < 0
                         ? 'Expired'
-                        : data + '(24:00)';
+                        : data;
+                }
+            }, 
+            {
+                'data': 'dates_submision',
+                render: function (data, type, row) {
+                    // console.log(data);
+                    return data + '(24:00)';
                 }
             }
         ],
@@ -2123,6 +2164,37 @@ $(document).ready(function () {
 
 });
 
+function selectUsername(a){
+    var length = $(a).val();
+    var html='';
+    for(var i=0; i< length; i++){
+        html+="<div class='row'>"+
+        "<div class='col-6'>"+
+        "<div class='form-group'>"+
+        "<select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01'>"+
+              "<option selected=''>Choose...</option>"+
+              "<option value='Facebook'>Facebook</option>"+
+              "<option value='Instagram'>Instagram</option>"+
+              "<option value='Youtube'>Youtube</option>"+
+              "<option value='Sharesome'>Sharesome</option>"+
+              "<option value='Xpurity'>Xpurity</option>"+
+              "<option value='WeChat'>WeChat</option>"+
+              "<option value='Tiktok'>Tiktok</option>"+
+             "<option value='Twitter'>Twitter </option>"+
+        "</select>"+
+          "</div>"+
+          "</div>"+
+          "<div class='col-6'>"+
+          "<div class='form-group'>"+              
+              "<input type='text' name='username[]' class='form-control'>"+
+            "</div>"+
+         " </div>"+
+     "</div>";
+    }
+$('.amountmedia').html(html);
+
+}
+
 function updateStatus(id, type) {
     $.ajax({
         type: 'POST',
@@ -2151,26 +2223,32 @@ function getPaz(a) {
 $(document).on('click', '.select_media_pic', function () {
 
     $('.thumbnail').show();
+    $('.file').show();
     var value = $(this).val();
 
     if (value == 'audio') {
+                    $('.video').removeAttr('required');
+                    $('.audio').attr('required',true);
+					$('.media_label').text('Upload Sample Audio (~30s)');
+					$('.label12').text('Overview  Audio (~30s)');
+					$('.media_label12').text('Audio');
+					$('.thumbnail1').text('Image Upload');
+					$('.convert').hide();
+					$('.audio').show();
+					$('.video').hide()
 
-        $('.media_label').text('Upload Sample Audio (~30s)');
-        $('.media_label12').text('Audio');
-        $('.thumbnail1').text('Image Upload');
-        $('.convert').hide();
-        $('.audio').show();
-        $('.video').hide()
-
-    } else {
-
-        $('.media_label12').text('Video');
-        $('.thumbnail1').text('Video Thumbnail');
-        $('.media_label').text('Upload Sample Video (~30s)');
-        $('.audio').hide()
-        $('.convert').show();
-        $('.video').show()
-    }
+			}
+			else{
+                $('.audio').removeAttr('required');
+                $('.video').attr('required',true);
+				$('.media_label12').text('Video');
+				$('.thumbnail1').text('Video Thumbnail');
+				$('.media_label').text('Upload Sample Video (~30s)');
+				$('.label12').text('Overview Video (~30s)');
+				$('.audio').hide()
+				$('.convert').show();
+				$('.video').show()
+			}
 })
 
 /** -------------------------------------------------Upload New Offer ---------------------------------------------------------*/
@@ -2337,7 +2415,7 @@ if ($("#technical_functiong").length > 0) {
                                 if (event.lengthComputable) {
                                     percent = Math.ceil(position / total * 100);
                                 }
-                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('#top_title').html('Uploading...' + percent + '%');
                                 $('.percentage').html(percent + '%');
                                 if (percent == 100) {
                                     $('.loader').hide();
@@ -2348,11 +2426,11 @@ if ($("#technical_functiong").length > 0) {
                 },
                 success: function (response) {
 
-                    //	console.log(response);return false;
+                    	console.log(response);
 
                     if (response == 1) {
                         $('#success').show();
-                        $('#success').html('Ticket Created Successfully!');
+                        $('#success').html('Ticket Created Successfully! <br> We will reach out to you Email shortly');
 
                         setTimeout(function () {
                             location.reload();
@@ -2378,6 +2456,15 @@ if ($("#myForm").length > 0) {
                 required: true,
                 maxlength: 30
             },
+            radio:{
+                required: true,
+            },
+            media: {
+                required: true
+            },
+            thumbnail_pic:{
+                required: true
+            },
             convert: {
                 required: true
             },
@@ -2394,6 +2481,17 @@ if ($("#myForm").length > 0) {
                 required: "Please Add Title",
                 maxlength: 'Character may be less than 30'
 
+            },
+            radio: {
+                required: "Please Select Option",
+             
+
+            },
+            media:{
+                required: "Please Enter Media",
+            },
+            thumbnail_pic:{
+                required: "Please Enter Image",
             },
             category: {
                 required: "Choose Quality"
@@ -2498,9 +2596,6 @@ if ($("#create_offer").length > 0) {
             quality: {
                 required: true
             },
-            category: {
-                required: true
-            },
             description: {
                 required: true,
                 maxlength: 2000
@@ -2516,9 +2611,6 @@ if ($("#create_offer").length > 0) {
                 required: "Choose Quality"
             },
 
-            category: {
-                required: "Choose Category"
-            },
 
             description: {
                 required: "Please Add Description",
@@ -2634,6 +2726,8 @@ $("#edit").on('click', function () {
 
 });
 
+
+
 $('#cancel').click(function () {
     //alert('hello');
     $('.replace').each(function () {
@@ -2657,9 +2751,109 @@ $('#cancel').click(function () {
 	$('#edit').show()
 })
 
+function deleteName(id,appname,name){
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/deleteName",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {'id':id,'social_name':appname,'username':name},
+
+        success: function (data) {
+
+            //console.log(data);
+
+            if (data == 1) {
+
+                alert('Delete Successfully!');
+
+                location.reload();
+
+            } else {
+                alert('Some Error Occure')
+                location.reload();
+
+            }
+
+        }
+    });
+}
+
+$(document).on('submit', '#updateUser', function (event) {
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/updateArtist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            console.log(data);
+
+            if (data == 1) {
+
+                alert('Edit Successfully!');
+
+                location.reload();
+
+            } else {
+                alert('Password Wrong')
+                location.reload();
+
+            }
+
+        }
+    });
+
+});
+
+
+/**------------------------------------------------------------Save Username------------------------------------------------------- */
+$(document).on('submit', '#user', function (event) {
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/userName",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+            //console.log(data);return false;
+                if(data==1){
+                    $('#success').show();
+                    $('#success').html('Saved Successfully!');
+                    setTimeout(function(){
+                        location.reload();
+                    },2000);
+                }
+
+        }
+    });
+
+});
+
+function appendDiv(a){
+    //console.log('yhis');
+    var html = $('.amountmedia').find('.social_append').html();
+    $('.amountmedia ').append(html);
+}
+
 function seconds_to_min_sec(seconds, id, vidid) {
 
-    //console.log(seconds);return false;
+  //  console.log('seconds');return false;
 
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
@@ -2695,36 +2889,7 @@ function seconds_to_min_sec(seconds, id, vidid) {
 
 }
 
-$(document).on('submit', '#updateUser', function (event) {
-    event.preventDefault();
-    //console.log(formData);return false;
-    $.ajax({
-        type: 'POST',
-        url: APP_URL + "/updateArtist",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
 
-        data: $(this).serialize(),
-
-        success: function (data) {
-
-            //console.log(data);return false;
-
-            if (data == 1) {
-
-                location.reload();
-
-            } else {
-
-                location.reload();
-
-            }
-
-        }
-    });
-
-});
 
 /* ---------------------------------------------------Edit Artist Personal
  * Info-----------------------------------

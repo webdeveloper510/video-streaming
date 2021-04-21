@@ -207,7 +207,7 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 }
 .leveltext.text-white {
     display: none;
-    width: 207px !important;
+  
 }
 
 .wid:hover .leveltext.text-white {
@@ -237,7 +237,9 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 .mobile-bar {
     display: none;
 }
-
+.form-control:read-only{
+    background-image: none !important;
+}
 
 @media only screen and (max-width: 768px) {
 li.nav-item a p {
@@ -264,7 +266,7 @@ nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top {
 a#navbarDropdown {
     color: white;
 }
-.mobile-bar {background: #7b0000;padding: 6px;}
+.mobile-bar {background: #7b0000;padding: 9px;}
 
 
 

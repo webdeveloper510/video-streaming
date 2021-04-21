@@ -5,7 +5,9 @@ use App\Registration;
 use Session;
 use App\File;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\artistSupport;
+use App\Mail\artist_email_support;
 //  use Stripe\Error\Card;
 
 //use Stripe;
@@ -235,15 +237,19 @@ class artist extends Controller
 
       $contentType =   Session::get('User');
 
+      $id = $contentType->id;
+
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
+      $social_names = $this->model->getSocialName($contentType->id);
 
+        //print_r($social_names);die;
 
       if(array_key_exists(0,$info) && $info[0]->gender==''){
 
         return redirect('artist/age-verification');
 
-      }
+      }   
 
    
 
@@ -323,7 +329,7 @@ class artist extends Controller
       $year_PAZ = $this->model->year_PAZ();
       
 
-      return view('artists.dashboard_home',['timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -336,6 +342,8 @@ class artist extends Controller
       $userid=  $session_data->id;
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
+
+      //print_r($allArtistsVideo);die;
          
       $allArtistsAudio=     $this->model->getArtistDetail($userid,'audio');
 
@@ -355,6 +363,13 @@ class artist extends Controller
       
       return view('artists.profile',['collection_selection'=>$text,'getLevel'=>$getLevel,'random'=>$random,'qualities'=>$quality,'tab'=>$navbaractive,'contentUser'=>$contentLogin,'details'=>isset($allArtistsVideo) ? $allArtistsVideo:[],'playlist'=>isset($allPlaylist) ? $allPlaylist:[],'audio'=>isset($allArtistsAudio) ? $allArtistsAudio : [], 'offerData'=>isset($allArtistOffer) ? $allArtistOffer :[]]);
 
+  }
+
+  public function deleteUsername(Request $req){
+
+        $delete = $this->model->RemoveUsername($req->all());
+
+        return $delete;
   }
   public function faq(){
 
@@ -433,8 +448,10 @@ class artist extends Controller
               unset($data['_token']);
               $data['media']=$fileName;
               $data['quality']= $req->quality ? $req->quality : '';
-              $data['categoryid']=$req->category[0] ? $req->category[0] : $req->category[1];
+              $data['categoryid']=$ext=='mp3' ? $data['audio_cat'] : $data['video_cat'];
               $data['type']=  $data['type'];
+              unset($data['audio_cat']);
+              unset($data['video_cat']);
               $data['audio_pic'] = $audio_pics;
               unset($data['thumbnail_pic']);
                 if($filePath){
@@ -544,10 +561,13 @@ class artist extends Controller
     //print_r($req->all());die;
     
        $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
+       $thumbnail = $req->file ? time().'_'.$req->audio_pic->getClientOriginalName() : '';
 
       $filePath = $req->file ? $req->file->storeAs('video', $fileName, 'public') : '';
+      $thumb = $req->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
       $req['media'] = $fileName ? $fileName : $req['file_url'];
+      $req['thumbnail'] = $thumbnail ;
 
         if($filePath || $filePath==''){ 
 
@@ -716,11 +736,17 @@ class artist extends Controller
 
     $session_data =   Session::get('User');
 
+   
+
     $userid=$session_data->id;
+
+    $artistData = $this->model->selectDataById('id','contentprovider',$userid);
+
+    //print_r($artistData);die;
 
     $value = $this->model->selectDataById('artistid','ticket',$userid);
 
-    return view('artists/support',['tab'=>$tab,'tickets'=>$value]);
+    return view('artists/support',['data'=>$artistData,'tab'=>$tab,'tickets'=>$value]);
   }
 
 
@@ -770,14 +796,19 @@ class artist extends Controller
         unset($data['_token']);
         $data['media']=$fileName;
         $data['description'] = $data['description'] ? $data['description'] : '';
-        $data['username'] = $data['username'] ? $data['username'] : '';
+        //$data['username'] = $data['username'] ? $data['username'] : '';
         $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
-
-          //print_r($data);die;
+        //print_r($data);die;
+        //  $social_account = $data['username'] ? implode(',',$data['social_plateform']) : '';
+        //  //print_r($social_account);die;
+        //  $username = $data['username'] ? implode(',',$data['username']) : '';
+        //  $data['social_plateform'] = $social_account;
+        //  $data['username'] = $username;
+       
           if($filePath){
 
           $insert = $this->model->uploadSocialMedia($data);
-          //print_r($insert);die;
+
             if($insert){
                 return response()->json(array('status'=>1, 'messge'=>'Media Uploaded!'));
               }
@@ -801,12 +832,24 @@ class artist extends Controller
     
     $userid =  $session_data->id;
 
-        unset($req['_token']);
+    $artist = $this->model->selectDataById('id','contentprovider',$userid);
 
-           $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
+    if($artist[0]->password==md5($req->password)){
+         // print_r($req->all());
+          unset($req['_token']);
+          unset($req['password']);
 
+          $updateInfo = $this->model->UpdateData('contentprovider','id',$req->all(),$userid);
 
-              return $updateInfo;
+          $return = 1;
+    }
+    else{
+
+            $return = 0;
+    }
+
+ 
+              return $return;
 
   }
 
@@ -905,8 +948,6 @@ class artist extends Controller
   public function insertData(Request $req){
 
    // print_r($req->all());die;
-
-
       $data=$req->all();
         $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
         $ext =$req->file ? $req->file->getClientOriginalExtension():'';
@@ -920,18 +961,49 @@ class artist extends Controller
         unset($data['recaptcha']);
         unset($data['match_recaptcha']);
         unset($data['file']);
-        $data['issue_file']=$fileName;
+        unset($data['email']);
+        $data['issue_file']=$fileName ? $fileName : '';
         $data['description'] = $data['description'];
         $data['technical_issue'] = $data['technical_issue'];
         $data['type'] = $data['type'] ? $data['type'] : '';
 
         
           $insert = $this->model->insert_ticket_table($data);
+          if($insert){
+            $contentType =   Session::get('User');
+            $fetch = $this->model->selectDataById('id','contentprovider',$contentType->id);
+            Mail::to('artist@pornartistzone.com')->send(new artistSupport($req->all(),$contentType->nickname));
+            Mail::to($fetch[0]->email)->send(new artist_email_support($req->all(),$contentType->nickname));
+             return $insert;
 
-          return $insert;
+          }
+
           //print_r($insert);die;
             
         }
+        public function saveUsername(Request $req){
+
+              $plateform = $req->social_plateform;
+
+              $username = $req->username;
+
+              $plateform = implode(',',$plateform);
+
+              $username = implode(',',$username);
+
+            $req['username'] =  $plateform;
+
+            $req['social_plateform'] =  $username;
+
+            //print_r($req->all());
+
+            $success = $this->model->saveUsername($req->all());
+
+            return $success ? 1 : 0;
+
+        }
+
+        
 
 
   }

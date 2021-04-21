@@ -46,7 +46,12 @@
 
 </div>
  <style>
+.leveltext.text-white {
+    display: none;
 
+    position: absolute;
+    top: 47px !important;
+}
 
 </style>
 

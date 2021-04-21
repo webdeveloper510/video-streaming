@@ -47,12 +47,12 @@
                       <?php echo $errors->first('title') ?>
                     </div>
                     @endif
-                    <div class="alert alert-success" id="messagediv" style="display:none"></div>
+                    <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
                 </div>
            
                     <div class="col-md-4 mt-5 ">
-                    {{Form::label('Price(PAZ)', 'Price(PAZ)')}} 
+                    {{Form::label('Price(PAZ)', 'Price(PAZ/min)')}} 
                         {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])}}
                         @if($errors->first('price'))
                         <div class="alert alert-danger">
@@ -101,7 +101,7 @@
            <div class="video" style="display:none">
            <label>Category</label>
 
-            <select name="category[]"  class='form-control'>
+            <select name="video_cat"  class='form-control video'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                       @if($cat->type=='video')
@@ -113,7 +113,7 @@
             </div>
             <div class="audio" style="display:none">
             <label>Category</label>
-            <select name="category[]"  class='form-control'>
+            <select name="audio_cat"  class='form-control audio'>
                     <option value="">Choose category</option>
                     @foreach($category as $cat)
                       @if($cat->type=='audio')
@@ -146,6 +146,7 @@
                 </div>
                 @endif
             <br>
+            <div class="file" style="display:none">
             <label class="media_label"></label>
 
  <br>
@@ -156,15 +157,19 @@
                   <?php echo $errors->first('media') ?>
                 </div>
                 @endif
-                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
+</div>
+                <div class=" mt-3 text-white thumbnail" style="display:none;">
                 <label class="thumbnail1"> Image Upload</label>
                 {{Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
                 
                <br>
+               <input type="hidden" class="created_at" name="created_at" value=""/>
+               <input type="hidden" class="updated_at" name="updated_at" value=""/>
                
-              <video width="200" id="video_choose" controls style="display:none;">
+               
+              <video width="200"   id="video_choose" controls style="display:none;">
              <source src="mov_bbb.mp4" id="video">
              Your browser does not support HTML5 video.
              </video>

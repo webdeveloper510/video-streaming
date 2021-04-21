@@ -8,7 +8,7 @@
        
           <div class="col-md-12">
             <div class="main-heading left_text text-center">
-              <h2>Additional links</h2>
+              <h6 class="text-white">Additional links</h6>
             </div>
             <hr>
             
@@ -88,7 +88,7 @@
       <p>BETA Version 1.0</p>
         <p>PAZ LLC © Copyrights 2021 Design by PAZ LLC</p>
         <br>
-     
+        <a href="https://www.facebook.com/Porn-Artist-Zone-100243395522674" target="_blank"> <img src="<?php echo e(asset('images/face.png')); ?>" class="img-fliud" width="25px" height="25px"></a> &nbsp; &nbsp;
        <a href="https://www.instagram.com/pazllcofficial/" target="_blank"> <img src="<?php echo e(asset('images/insta.png')); ?>" class="img-fliud" width="25px" height="25px"></a> &nbsp; &nbsp;
       <a href="https://xpurity.co/pazofficial" target="_blank"> <img src="<?php echo e(asset('images/xpurity.png')); ?>" class="img-fliud" width="25px" height="25px"></a>&nbsp; &nbsp;
        <a href="https://sharesome.com/pazofficial/" target="_blank"> <img src="<?php echo e(asset('images/images.png')); ?>" class="img-fliud" width="25px" height="25px"></a> 
@@ -101,6 +101,10 @@ button.close.footerclose {
     position: absolute;
     right: 6px;
     top: 7px;
+}
+ul.footer-menu.pb-3 {
+    display: flex;
+    justify-content: center;
 }
   div#exampleModal10 {
     background: transparent;
@@ -116,6 +120,7 @@ footer {
 }
 ul.footer-menu.pb-3 li a {
     color: white;
+    font-size:10px !important;
 }
 </style>
 

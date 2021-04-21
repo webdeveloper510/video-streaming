@@ -122,6 +122,7 @@ tr.shown td.details-control {
                     <option value="new" {{($box) == 'new' ? 'selected' : '' }}>New</option>
                     <option value="process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
                     <option value="due" {{($box) == 'due' ? 'selected' : '' }}>Due</option>
+                    <option value="Expired">Expired</option>
                   </select>
                 </div>
                 <div class="table-responsive">
@@ -257,7 +258,12 @@ tr.shown td.details-control {
 </div> -->
   </body>
   <style type="text/css">
-    
+    .leveltext.text-white {
+    display: none;
+
+    position: absolute;
+    top: 47px !important;
+}
 
   </style>
   <script>

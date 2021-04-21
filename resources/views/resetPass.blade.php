@@ -1,13 +1,13 @@
 -@include('layouts.header')
 
-<section class="background1">
-	 <div class="container mt-5 mb-5">
+<section class="background1" style="height:100vh">
+	 <div class="container ">
 
 	
 
       <div class="row justify-content-center">
 
-        <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white my-5">
 
         @if(session('error'))
         <div class="alert alert-danger" id="error">

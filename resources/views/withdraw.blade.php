@@ -77,10 +77,10 @@
      </div>
     </div> 
 
-    <div class=" invitedbox">
+    <div class=" invitedbox" style="{{$artistPassive[0]->reffered_by==0 ? 'display:none' : 'display:block'}}">
     <div class="card" >
         <div class="text-center">
-       <h3>You've been invited from artistname </h3>
+       <h3>You've been invited from {{$artistPassive[0]->nickname}} </h3>
        <h4>Get your $150 USD with :</h4>
             </div>
   <div class="card-body">
@@ -116,12 +116,12 @@
     <div class=" invitedbox">
     <div class="card" >
         <div class="text-center">
-       <h3>Total Bonus Payout : {{$passive_income[0]->passive}} USD</h3>
+       <h3>Total Bonus Payout :  <b style="color:gray;"> $ 0{{$passive_income[0]->passive}} USD </b></h3>
             </div>
   <div class="card-body">
     <h5 class="card-title text-center">Customer Invitations
                 <br> 
-        passive revenue Stream:  ${{$passive_income[0]->passive}} USD</h5>
+        passive revenue Stream:  <b style="color:gray;"> $ 0{{$passive_income[0]->passive}} USD </b></h5>
         <table class="table table-bordered text-center">
   <thead>
     <tr>
@@ -133,9 +133,9 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">Artistname</th>
-      <td>not yet</td>
-      <td>not yet</td>
+      <th scope="row">-</th>
+      <td>-</td>
+      <td>-</td>
       <td>-</td>
     </tr>
    
@@ -152,7 +152,9 @@
        
       <!-- End Navbar -->
      <style>
-  
+  .background1{
+    height:unset !important;
+  }
  </style>
 
  @include('artists.dashboard_footer')

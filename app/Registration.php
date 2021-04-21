@@ -394,21 +394,21 @@ public function insertSubcategory($sub){
       return $sucess_insert ? '1' :'0';
 }
 public function uploadContentProvider($contentdata){
+
     $session_data =   Session::get('User');
      $contentid=$session_data->id;
+
     //print_r($contentdata);die;
     unset($contentdata['email']);
    
     $contentdata['contentProviderid']=$contentid;
-     $contentdata['catid']=$contentdata['category'][0] ? $contentdata['category'][0] : $contentdata['category'][1];
+
+     //$contentdata['catid']=$contentdata['category'][0] ? $contentdata['category'][0] : $contentdata['category'][1];
     // $contentdata['subid']=1;
       unset($contentdata['category']);
       unset($contentdata['subcategory']);
       unset($contentdata['radio']);
        $contentdata['duration']='';
-
-    $contentdata['created_at']= now();
-    $contentdata['updated_at']= now();
      $inserted_data =  DB::table('media')->insertGetId($contentdata);
       if($inserted_data){
 
@@ -460,6 +460,63 @@ public function getRecentlySearch(){
      return $data;
     }
   
+}
+
+public function saveUsername($data){
+
+  $session_data =   Session::get('User');
+
+    $data1 = $this->selectDataById('artistid','social_username',$session_data->id);
+
+    $done = count($data1) > 0 ? $this->updateSaveUser($data1,$data,$session_data->id) : $this->insertSave($data,$session_data->id);
+    return $done ? 1 : 0;
+}
+
+public function updateSaveUser($tableData,$data,$id){
+
+  $username = explode(',',$tableData[0]->username);
+
+  $name[]= $data['username'];
+
+  $plateform[]= $data['social_plateform'];
+ 
+  $social = explode(',',$tableData[0]->social_plateform);
+
+  $aunion=  array_merge(array_intersect($name, $username),array_diff($name, $username),array_diff($username, $name));
+
+  $result_array_name = array_unique($aunion);
+
+
+   $names = implode(',',$result_array_name); 
+
+   //print_r($names);
+
+   $aunion1=  array_merge(array_intersect($plateform, $social),array_diff($plateform, $social),array_diff($social, $plateform));
+
+   $result_array_account = array_unique($aunion1);
+ 
+    $accounts = implode(',',$result_array_account); 
+
+   // print_r($accounts);die;
+
+        return DB::table('social_username')->where('artistid',$id)->update([
+            'username'=>$names,
+            'social_plateform'=>$accounts,
+        ]);
+}
+public function insertSave($data,$id){
+      unset($data['_token']);
+        $data['created_at'] = now();
+        $data['artistid'] = $id;
+        $data['updated_at'] = now();
+        return DB::table('social_username')->insert($data);
+}
+
+public function getSocialName($id){
+      return DB::table('social_username')->where('artistid',$id)->get()->each(function($query){
+        $query->username = explode(",", $query->username);
+        $query->social_plateform = explode(",", $query->social_plateform);
+      });
 }
 
 public function getArtists($flag){
@@ -785,26 +842,24 @@ public function getRespectedSub($data){
 
       $user=Session::get('User');
 
-      $userId =$user->id;
+       $userId =$user->id;
+
       //DB::enableQueryLog();
       //echo "h";die;
+
       $data = \DB::table("offer")
       ->select("users.nickname","offer.userid","offer.artistid","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)) as dates_submision"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
       ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
-     
-      //print_r($data);die;
        
       if ($sts) {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
-    }
-
-
-      
+    }      
          return $data->get();
+
     }
 
     public function show_customer_orders(){
@@ -863,7 +918,9 @@ public function getRespectedSub($data){
 
       $userid=  $session_data->id;
 
-      $value=DB::table($table)->where(array('status'=>'process'));
+      $value=DB::table($table)->where('status','process')
+        ->where('userid','!=',0);
+      
 
       if($table=='offer'){
         $val = $value->where('artistid',$userid)->count();
@@ -1049,10 +1106,12 @@ public function getRespectedSub($data){
 
          
            $update = array(
+              'created_at'=>$data['created_at'],
+              'updated_at'=>$data['updated_at'],
               'title'=>$data['title'],
               'price'=>$data['price'],
               'description'=>$data['description'],
-              'categoryid'=>$data['category'][0] ? $data['category'][0] : $data['category'][1],
+              'categoryid'=>$data['type']=='video' ? $data['video_cat'] : $data['audio_cat'],
               'min'=>$data['min'],
               'max'=>$data['max'],
               'type'=>$data['type'],
@@ -1061,10 +1120,11 @@ public function getRespectedSub($data){
               'delieveryspeed'=>$data['delieveryspeed'],
               'quality'=>$data['quality'],
               'media'=>$data['media'],
+              'audio_pic'=>$data['thumbnail']  
            );
-           //print_r($update);die;
 
-           $update = $this->UpdateData('offer','id',$update,$data['offerid']);
+
+          $update = $this->UpdateData('offer','id',$update,$data['offerid']);
            
 
            return $update ? 1 : 0;
@@ -1084,6 +1144,24 @@ public function getRespectedSub($data){
       return $done ? 1 : 0;
 
     }
+public function getRefersArtist($id){
+
+  $data = DB::select("SELECT cp.reffered_by,(SELECT nickname from contentprovider where id=cp.reffered_by) as nickname FROM contentprovider cp where cp.id='$id'");
+    //$data = DB::table('contentprovider as mkd')->
+   // select("(SELECT nickname from contentprovider where id=mkd.reffered_by) as nickname,'mkd.reffered_by','mkd.id'")->
+   // leftJoin('contentprovider AS reffer', 'reffer.reffered_by', '=', 'mkd.id')->
+   // where('mkd.id', $id)->
+    //where('reffer.reffered_by', '=', 'mkd.id')->
+   // get();
+
+     //print_r($data);die;  
+  
+   return $data;
+
+   
+
+}
+    
 
     public function updateArtistDes($data){
 
@@ -1109,8 +1187,6 @@ public function getRespectedSub($data){
 
       $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
-      $data['created_at'] = now();
-      $data['updated_at'] = now();
        $data['by_created']=1;
        $data['quality'] = $data['quality'] ? $data['quality'] : '';
 
@@ -2772,6 +2848,34 @@ public function unsubscribe($allIds,$userid,$postData,$count){
       count($data) > 0 ? $this->deleteFromMediaUpdate($userid): '';
 
     return $update;
+
+}
+
+public function RemoveUsername($data){
+
+      $database_data = DB::table('social_username')->where('id',$data['id'])->select('username','social_plateform')->get()->toArray();
+      $plateform = explode(',',$database_data[0]->social_plateform);
+      $username = explode(',',$database_data[0]->username);
+
+      $index = array_search($data['social_name'], $plateform);
+      $index1= array_search($data['username'], $username);
+
+
+      unset($plateform[$index]);
+      unset($username[$index1]);
+
+   
+
+  $update = DB::table('social_username')->where(array('id'=>$data['id']))
+
+  ->update([
+        'username' =>implode(',',$username),
+        'social_plateform' =>implode(',',$plateform),
+      ]);
+
+
+     return $update;
+
 
 }
 
