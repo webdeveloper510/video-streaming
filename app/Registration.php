@@ -812,6 +812,8 @@ public function getRespectedSub($data){
     $data['updated_at']=now();
     $data['status'] = 0 ;
     $inserted=DB::table('all_emails')->insertGetId($data);
+    
+   // print_r($inserted);die;
       return $inserted ? $inserted :'0';
 
     }

@@ -97,14 +97,11 @@
          <h4 ><span style="color:gold !important">{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">
-      <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"
-      ><i class="fa fa-trash-o"></i></button>
-          <button type="button"
-           data-toggle="modal" 
-           data-target="#myModal"
-            class="btn btn-info btn-sm" 
-          onclick="edit_offer('{{json_encode($offer)}}')"
-            >Edit</button>
+      <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
+          <button type="button" data-toggle="modal" 
+          data-target="#myModal" class="btn btn-info btn-sm" 
+          onclick="edit_offer({{json_encode($offer)}})">
+        Edit</button>
            </div>
         </div>
         <hr>

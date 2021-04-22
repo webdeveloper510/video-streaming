@@ -1834,7 +1834,9 @@ $('#filechange').submit(function (e) {
 });
 
 function edit_offer(data) {
-    var json_info = JSON.parse(data);
+    //console.log(data);
+    //console.log(data);return false;
+    var json_info = data;
     var url = 'http://localhost/laravel/video-streaming/storage/app/public/video/';
     var src = url + json_info.media;
     //console.log(json_info);return false;
@@ -1857,16 +1859,9 @@ function edit_offer(data) {
     $('.file_input #ilename').text(json_info.media);
 
     $('.' + json_info.type).show();
-    $('#select_status')
-        .val(json_info.offer_status)
-        .attr("selected", "selected");
-    $('#quality')
-        .val(json_info.quality)
-        .attr("selected", "selected");
-
-    $('.' + json_info.type)
-        .val(json_info.categoryid)
-        .attr("selected", "selected");
+    $('#select_status').val(json_info.offer_status).attr("selected", "selected");
+    $('#quality').val(json_info.quality).attr("selected", "selected");
+    $('.' + json_info.type).val(json_info.categoryid).attr("selected", "selected");
 }
 
 function change_other_info(data) {

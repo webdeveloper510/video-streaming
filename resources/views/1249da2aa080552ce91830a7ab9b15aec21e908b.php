@@ -104,7 +104,10 @@
          
          <div class="text-right mr-3">
       <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
-          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
+          <button type="button" data-toggle="modal" 
+          data-target="#myModal" class="btn btn-info btn-sm" 
+          onclick="edit_offer(<?php echo e(json_encode($offer)); ?>)">
+        Edit</button>
            </div>
         </div>
         <hr>
@@ -199,11 +202,12 @@
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
  
           <script>
-            console.log('eeee');
+            //console.log('eeee');
            var video;
             var id;
               setTimeout(() => {
               video = $("#collection_"+"<?php echo e($detail->id); ?>");
+              //console.log(video);
               seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
             }, 2000);
           </script>
@@ -250,7 +254,7 @@ Your browser does not support the audio tag.
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-<?php if($aud->duration==''): ?>
+<?php if($aud->duration=='' || $aud->duration=='NaN:NaN:NaN'): ?>
           <script>
            var video;
             var id;
@@ -403,6 +407,7 @@ Your browser does not support the audio tag.
                 </div>
             </div>
             <div class="modal-body">
+            
               <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
 
                    <?php echo e(Form::token()); ?>
@@ -505,14 +510,15 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
                 <input type="hidden" name="offerid" id="offerid" value="">                  
-                  <input type="hidden" id="file_url" name="file_url" value=""/>
+                  <input type="hidden" id="file_name" name="file_name" value=""/>
+                  <input type="hidden" id="file_image" name="file_image" value=""/>
                   <br>
                  
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
-                <?php echo e(Form::file('file',['class'=>'form-control file_input','required'])); ?>
+                <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee','required'])); ?>
 
-                <span id="filename" style="color:yellow;"></span>
+                <span id="filename" style="color:red;"></span>
             </div>
           
             </div>
