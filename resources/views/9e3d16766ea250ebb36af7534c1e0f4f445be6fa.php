@@ -227,9 +227,22 @@ section.background1 {
 }
 </style>
 
+
+
        
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
- 
+   <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript">
+  var tlProtocol = (('https:' === document.location.protocol) ? 'https://' : 'http://');
+ // console.log(tlProtocol);
+  document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Tell the transloadit plugin to bind itself to our form
+    $('form').transloadit();
+  });
+</script>
 
 <!-- <script>
 $('form').transloadit({

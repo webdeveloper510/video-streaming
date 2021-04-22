@@ -891,7 +891,7 @@
                 
                     </div>
                     <div class="text-right">
-                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm'])); ?>
+                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm','id'=>'save','disabled'])); ?>
 
 </div>
                     <?php echo e(Form::close()); ?>
@@ -958,7 +958,10 @@ label.error {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
+.table-responsive {
+    max-height: 444px;
+    overflow: scroll;
+}
 .edit12 {
     margin-top: 30%;
 }

@@ -668,6 +668,7 @@ class AuthController extends Controller
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
+      //'category'=>'required', 
       'thumbnail_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
@@ -679,6 +680,8 @@ class AuthController extends Controller
 
 // Show the results of the assembly we spawned
 
+
+  //print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();
@@ -755,9 +758,8 @@ class AuthController extends Controller
 
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
-              unset($data['_token']); 
-              
-              $data['media']= $fileName;
+              unset($data['_token']);
+              $data['media']=$fileName;
 
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
               unset($data['thumbnail_pic']);
@@ -785,12 +787,13 @@ class AuthController extends Controller
 
 
  public function getResponse(){
+     echo "yes";
    $transloadit = new Transloadit([
       "key" => "995b974268854de2b10f3f6844566287",
       "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
     ]);
  
-$response = $transloadit->response();
+$response = Transloadit::response();
      print_r($response);die;
 if ($response) {
   echo '<h1>Assembly status:</h1>';
