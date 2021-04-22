@@ -861,34 +861,7 @@
               {{Form::token()}}
                       <div class="linksonit mb-3">
                       <div class="amountmedia row"> 
-                          <div class='row social_append px-3'>
-                              <div class='col-md-6'>
-                                  <div class='form-group'>
-                                      <select
-                                          class='custom-select valid'
-                                          name='social_plateform[]'
-                                          id='inputGroupSelect01' required>
-                                          <option selected=''>Choose...</option>
-                                          <option value='Facebook'>Facebook</option>
-                                          <option value='Instagram'>Instagram</option>
-                                          <option value='Youtube'>Youtube</option>
-                                          <option value='Sharesome'>Sharesome</option>
-                                          <option value='Xpurity'>Xpurity</option>
-                                          <option value='WeChat'>WeChat</option>
-                                          <option value='Tiktok'>Tiktok</option>
-                                          <option value='Twitter'>Twitter
-                                          </option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class='col-md-6'>
-                                  <div class='form-group'>
-                                      <input type='text' required name='username[]' class='form-control'></div>
-                                  </div>
-                              </div>
                          
-                                                    
-                            </div>
                             <div class="col-md-12 text-center">
                               <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
                            </div>
