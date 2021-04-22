@@ -798,6 +798,7 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  <div class="table12">
                   <div class="table table-responsive">
                   <table class="table text-left">
                         <thead class="thead-light">
@@ -832,36 +833,6 @@
                       </table>
 
                     </div>
-                  <!-- <div class="row">
-                     <div class="col-4  ">
-                       <h5><b> App Name </b></h5>
-                        </div>
-                        <div class="col-5 text-left">
-                          <h5><b> Username</b></h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                  @foreach($social_name as $name)
-                  <?php                     
-                      $count = count($name->username);
-                    ?>
-                    @for ($i = 0; $i < $count; $i++)       
-                    
-                      <div class="col-4">
-                      <p style="font-weight: 500;"><b>{{$name->username[$i]}}</b></p>
-                      </div>
-                      <div class="col-5">
-                      <p style="font-weight: 500;"><b>{{$name->social_plateform[$i]}}</b></p>
-                       </div>
-                       <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button>
-                       </div>
-                    
-                     
-                    @endfor
-                  
-                  @endforeach 
-                  </div>-->
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
                       <div class="linksonit mb-3">
@@ -871,6 +842,7 @@
                               <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
                            </div>
                 
+                    </div>
                     </div>
                     <div class="text-right pt-2">
                     {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
@@ -934,12 +906,11 @@ label.error {
 }
 .amountmedia {
     max-height: 160px;
-    min-height:159px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 .table-responsive {
-    max-height: 444px;
+    max-height: 230px;
     overflow: scroll;
 }
 .edit12 {
