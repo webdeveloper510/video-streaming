@@ -890,8 +890,8 @@
                            </div>
                 
                     </div>
-                    <div class="text-right">
-                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm','id'=>'save','disabled'])); ?>
+                    <div class="text-right pt-1">
+                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled'])); ?>
 
 </div>
                     <?php echo e(Form::close()); ?>
