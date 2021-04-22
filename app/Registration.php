@@ -2855,24 +2855,26 @@ public function unsubscribe($allIds,$userid,$postData,$count){
 
 public function RemoveUsername($data){
 
+
+
       $database_data = DB::table('social_username')->where('id',$data['id'])->select('username','social_plateform')->get()->toArray();
-      $plateform = explode(',',$database_data[0]->social_plateform);
-      $username = explode(',',$database_data[0]->username);
+      $username = explode(',',$database_data[0]->social_plateform);
+      $plateform = explode(',',$database_data[0]->username);
+      //print_r($data);die;
+      $index = array_search($data['username'], $username);
+      $index1= array_search($data['social_name'], $plateform);
 
-      $index = array_search($data['social_name'], $plateform);
-      $index1= array_search($data['username'], $username);
-
-
-      unset($plateform[$index]);
-      unset($username[$index1]);
+     
+      unset($username[$index]);
+      unset($plateform[$index1]);
 
    
 
   $update = DB::table('social_username')->where(array('id'=>$data['id']))
 
   ->update([
-        'username' =>implode(',',$username),
-        'social_plateform' =>implode(',',$plateform),
+        'username' =>implode(',',$plateform),
+        'social_plateform' =>implode(',',$username),
       ]);
 
 

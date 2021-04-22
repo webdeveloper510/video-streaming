@@ -2846,7 +2846,7 @@ function deleteName(id,appname,name){
 
         success: function (data) {
 
-            //console.log(data);
+           // console.log(data);return false;
 
             if (data == 1) {
 
@@ -2927,12 +2927,13 @@ $(document).on('submit', '#user', function (event) {
 });
 
 function appendDiv(a){
+    $('#save').removeAttr('disabled')
     //console.log('yhis');
     var html  = "<div class='row social_append px-3'>"+
                             "<div class='col-md-6'>"+
                                                 "<div class='form-group'>"+
                                 "<select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01' required>"+
-                                        "<option selected=''>Choose...</option>"+
+                                        "<option value=''>Choose...</option>"+
                                         "<option value='Facebook'>Facebook</option>"+
                                         "<option value='Instagram'>Instagram</option>"+
                                         "<option value='Youtube'>Youtube</option>"+

@@ -969,6 +969,8 @@ class artist extends Controller
         }
         public function saveUsername(Request $req){
 
+          //print_r($req->all());die;
+
               $plateform = $req->social_plateform;
 
               $username = $req->username;
