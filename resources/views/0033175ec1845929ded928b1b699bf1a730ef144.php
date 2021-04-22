@@ -103,8 +103,14 @@
          <h4 ><span style="color:gold !important"><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">
-      <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"><i class="fa fa-trash-o"></i></button>
-          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm" onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')">Edit</button>
+      <button class="btn btn-sm btn-light delete" table="offer" data-id="<?php echo e($offer->id); ?>"
+      ><i class="fa fa-trash-o"></i></button>
+          <button type="button"
+           data-toggle="modal" 
+           data-target="#myModal"
+            class="btn btn-info btn-sm" 
+          onclick="edit_offer('<?php echo e(json_encode($offer)); ?>')"
+            >Edit</button>
            </div>
         </div>
         <hr>
@@ -114,8 +120,8 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
-          <div class="artistoffer1">
-            <h4> No Offer available </h4>
+          <div class="artistoffer1 pt-4">
+            <h4> No Offer created yet </h4>
             <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
           </div>
           <?php endif; ?>
@@ -197,8 +203,7 @@
                 </div>               
               </div>             
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
-              <?php echo e(ddddd); ?>
-
+ 
           <script>
             console.log('eeee');
            var video;
@@ -404,6 +409,7 @@ Your browser does not support the audio tag.
                 </div>
             </div>
             <div class="modal-body">
+            
               <?php echo Form::open([ 'id'=>'edit_form', 'method' => 'post','files'=>true]); ?>
 
                    <?php echo e(Form::token()); ?>
@@ -506,14 +512,15 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
                 <input type="hidden" name="offerid" id="offerid" value="">                  
-                  <input type="hidden" id="file_url" name="file_url" value=""/>
+                  <input type="hidden" id="file_name" name="file_name" value=""/>
+                  <input type="hidden" id="file_image" name="file_image" value=""/>
                   <br>
                  
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
-                <?php echo e(Form::file('file',['class'=>'form-control file_input','required'])); ?>
+                <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee','required'])); ?>
 
-                <span id="filename" style="color:yellow;"></span>
+                <span id="filename" style="color:red;"></span>
             </div>
           
             </div>
@@ -795,6 +802,9 @@ video:hover {
 }
 .coverimg img{
   margin-top:50px;
+}
+.coverimg {
+    margin-top: 37px;
 }
 @media  only screen and (max-width: 768px) {
 .coverimg img {

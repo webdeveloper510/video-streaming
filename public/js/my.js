@@ -1845,10 +1845,17 @@ function edit_offer(data) {
     $('#max').val(json_info.max);
     $('#additional_price').val(json_info.additional_price);
     $('#video').attr('src', src);
-    $('#file_url').val(json_info.media);
+    //$('#file_url').val(json_info.media);
+    $('#file_name').val(json_info.media);
+    $('#file_image').val(json_info.audio_pic);
+    $('.chooseImage').next('#filename').replaceWith('<span id="filename" style="color:red;">'+json_info.audio_pic+'</span>');
+    $('.file_input').next('#filename').replaceWith('<span id="filename" style="color:red;">'+json_info.media+'</span>');
     $('#price').val(json_info.price);
     $('#speed').val(json_info.delieveryspeed);
     $('#description').val(json_info.description);
+    $('.chooseImage #filename').text(json_info.audio_pic);
+    $('.file_input #ilename').text(json_info.media);
+
     $('.' + json_info.type).show();
     $('#select_status')
         .val(json_info.offer_status)
