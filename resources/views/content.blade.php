@@ -3,7 +3,7 @@
     <div class="container">
         <div class="overlay1">
             @if(session('success'))
-            <div class="alert alert-success" id="success">
+            <div class="alert alert-success set" id="success">
                 {{session('success')}}
             </div>
             @endif @if(session('error'))
@@ -20,7 +20,7 @@
             {{Form::token()}}
             <div class="container profile">
                 <div class="heading text-center">
-                    <h2 class="text-white ">Artist Detail</h2>
+            <h2 class="text-white ">Artist Detail</h2></p>
                 </div>
                 <!---------------------- First Step Form-------------------->
                 <div class="row">
@@ -38,7 +38,7 @@
                         {{Form::radio('gender',
                 'female',false,['class'=>'rad_But'])}}Female&nbsp;&nbsp;
                         {{Form::radio('gender',
-                'trans',false,['class'=>'rad_But'])}}Trans @if(session('errors'))
+                'trans',false,['class'=>'rad_But','checked'])}}Trans @if(session('errors'))
                         <div class="alert alert-danger">
                             <?php echo $errors->first('gender') ?>
                         </div>

@@ -75,7 +75,7 @@ Route::get('my-requests','AuthController@myRequests')->middleware('authenticatio
 
 Route::get('success', 'AuthController@succssPage'); 
 
-Route::get('notify/{id}', 'AuthController@notify')->middleware('authentication');; 
+Route::get('notify/{id}', 'AuthController@notify'); 
 
 Route::get('inProcess', 'AuthController@process'); 
 

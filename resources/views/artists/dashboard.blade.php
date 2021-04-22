@@ -449,6 +449,10 @@
   background: #ccc9c9; 
   border-radius: 10px;
 }
+.levlv p {
+    padding-left: 6px;
+    padding-right: 6px;
+}
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -469,7 +473,7 @@
 
 .leveltext.text-white {
     display: none;
-    width: 161px !important;
+    margin-left: -7%;
     position: absolute;
     top: 33px;
 }

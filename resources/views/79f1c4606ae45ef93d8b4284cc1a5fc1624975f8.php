@@ -114,8 +114,8 @@
     </div>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
-          <div class="artistoffer1">
-            <h4> No Offer available </h4>
+          <div class="artistoffer1 pt-4">
+            <h4> No Offer created yet </h4>
             <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
           </div>
           <?php endif; ?>
@@ -163,8 +163,7 @@
 </div>
 
   <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
-    
-       <div class="filter_div" id="video">     
+           <div class="filter_div" id="video">     
   <h3>Videos</h3>  
           <div class="row mb-5 filter_div" id="video">
         <?php if(isset($details[0]->type)): ?>
@@ -195,11 +194,10 @@
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('<?php echo e(json_encode($detail)); ?>')">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
-                </div>
-            
-               
+                </div>               
               </div>             
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
+ 
           <script>
             console.log('eeee');
            var video;

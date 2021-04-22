@@ -641,8 +641,8 @@
                       <input type="password" autocomplete="off"  class="form-control" name="password" placeholder="Enter Password">
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm mt-3','id'=>'update']) }}
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                        {{ Form::submit('Apply!',['class'=>'btn btn-light btn-sm ','id'=>'update']) }}
                       </div>
                     </div>
                   </div>
@@ -707,10 +707,23 @@
              <h5 class="card-title text-left pt-3 pl-3">Requirement status:</h5>
              <hr>
               <div class="card-body ">
+               <div class="row">
+                 <div class="col-8">
+                 <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:</p>
+                  </div>
+                  <div class="col-4">
+                  <p class="card-text " style="    font-size: 20px;"><span  style="{{$social_count < 5  ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right cross" style="{{$social_count < 5 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
+                  </div>
+                  <div class="col-8 mt-2">
+                  <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  </p>
+                  </div>
+                  <div class="col-4 mt-2">
+                  <p class="card-text " style="    font-size: 20px;"><span class="text-right " style="{{$totalCollection < 3 ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class=" days" style="{{$totalCollection < 3 && $social_count < 5 ? 'display:none': 'display:block'}}">{{$day_difference ? $day_difference->difference : ''}} Remaining</span> <span class="text-right cross" style="{{$totalCollection < 3 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
+                  </div>
+               </div>
                
-                <p class="card-text " style="    font-size: 20px;">5 pictures or videos submited:<span class="text-right" style="{{$social_count < 5  ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right cross" style="{{$social_count < 5 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
 
-                <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  <span class="text-right " style="{{$totalCollection < 3 ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right days" style="{{$totalCollection < 3 && $social_count < 5 ? 'display:none': 'display:block'}}">{{$day_difference ? $day_difference->difference : ''}} Remaining</span> <span class="text-right cross" style="{{$totalCollection < 3 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
+               
                 
                 <button class="btn btn-primary "  type="button">Get my reward!</button>
                 <button class="btn btn-primary " data-dismiss="modal" aria-label="Close" type="button">Back</button>
@@ -785,12 +798,46 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
-                  <div class="row">
-                     <div class="col-6 text-center ">
-                       <h4><b> App Name </b></h4>
+                  <div class="table table-responsive">
+                  <table class="table text-left">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">App Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col"></th>
+                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($social_name as $name)
+                  <?php 
+                  //echo $name->username;
+                       $count = count($name->username);
+                    ?>
+                    @for ($i = 0; $i < $count; $i++)
+                          <tr>
+                            <th scope="row">{{$name->username[$i]}}</th>
+                            <td>{{$name->social_plateform[$i]}}</td>
+                            <td> 
+                            <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')">
+                             <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> 
+                             </button>
+                             </td>
+                          
+                          </tr>
+                          @endfor
+                  
+                  @endforeach
+                        </tbody>
+                      </table>
+
+                    </div>
+                  <!-- <div class="row">
+                     <div class="col-4  ">
+                       <h5><b> App Name </b></h5>
                         </div>
-                        <div class="col-6 text-left">
-                          <h4><b> User name</b></h4>
+                        <div class="col-5 text-left">
+                          <h5><b> Username</b></h5>
                         </div>
                     </div>
                     <div class="row">
@@ -801,58 +848,33 @@
                     @for ($i = 0; $i < $count; $i++)       
                     
                       <div class="col-4">
-                      <h5><b>{{$name->username[$i]}}</b></h5>
+                      <p style="font-weight: 500;"><b>{{$name->username[$i]}}</b></p>
                       </div>
-                      <div class="col-4">
-                      <h5><b>{{$name->social_plateform[$i]}}</b></h5>
+                      <div class="col-5">
+                      <p style="font-weight: 500;"><b>{{$name->social_plateform[$i]}}</b></p>
                        </div>
-                       <div class="col-4">
-                           <button class="btn btn-outline-danger btn-sm" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> x</button>
+                       <div class="col-3">
+                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button>
                        </div>
                     
                      
                     @endfor
                   
-                  @endforeach
-                  </div>
+                  @endforeach 
+                  </div>-->
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
                       <div class="linksonit mb-3">
                       <div class="amountmedia row"> 
-                          <div class='row social_append'>
-                              <div class='col-md-6'>
-                                  <div class='form-group'>
-                                      <select
-                                          class='custom-select valid'
-                                          name='social_plateform[]'
-                                          id='inputGroupSelect01' required>
-                                          <option selected=''>Choose...</option>
-                                          <option value='Facebook'>Facebook</option>
-                                          <option value='Instagram'>Instagram</option>
-                                          <option value='Youtube'>Youtube</option>
-                                          <option value='Sharesome'>Sharesome</option>
-                                          <option value='Xpurity'>Xpurity</option>
-                                          <option value='WeChat'>WeChat</option>
-                                          <option value='Tiktok'>Tiktok</option>
-                                          <option value='Twitter'>Twitter
-                                          </option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class='col-md-6'>
-                                  <div class='form-group'>
-                                      <input type='text' required name='username[]' class='form-control'></div>
-                                  </div>
-                              </div>
                          
-                                                    
-                            </div>
                             <div class="col-md-12 text-center">
                               <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
                            </div>
                 
                     </div>
+                    <div class="text-right">
                     {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm']) }}
+</div>
                     {{ Form::close() }}
                 </div>
 
