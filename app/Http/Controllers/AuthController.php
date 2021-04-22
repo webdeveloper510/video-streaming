@@ -18,6 +18,9 @@ use View;
 
 use Illuminate\Support\Facades\Validator;
 
+include('php-sdk/vendor/autoload.php');
+
+use transloadit\Transloadit;
 
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
@@ -31,6 +34,7 @@ use Illuminate\Support\Facades\Mail;
 
 
 use App\Mail\verifyEmail;
+use App\Mail\artistSupport;
 
 use App\Mail\customer_issue;
 
@@ -664,7 +668,6 @@ class AuthController extends Controller
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
-      //'category'=>'required', 
       'thumbnail_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
@@ -672,8 +675,10 @@ class AuthController extends Controller
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
-
   //print_r($request->all());die;
+
+// Show the results of the assembly we spawned
+
 
       if($request->media){
             $data=$request->all();
@@ -682,10 +687,42 @@ class AuthController extends Controller
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
+              
+              /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+              
+                                        $transloadit = new Transloadit([
+                                              "key" => "995b974268854de2b10f3f6844566287",
+                                              "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
+                                            ]);
+
+                                                            
+                                                            $response = $transloadit->createAssembly(array(
+                                                              'files' => array('https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+                                                              'params' => array(
+                                                                'steps' => array(
+                                                                  'resize' => array(
+                                                                    'robot' => '/image/resize',
+                                                                    'width' => 200,
+                                                                    'height' => 100,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ));
+                                                            
+                                                            // Show the results of the assembly we spawned
+                                                            echo '<pre>';
+                                                            print_r($response);
+                                                            echo '</pre>';
+                                                            
+
+
+     /*-------------------------------------------------------------------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
+
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
-              unset($data['_token']);
-              $data['media']=$fileName;
+              unset($data['_token']); 
+              
+              $data['media']= $fileName;
 
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
               unset($data['thumbnail_pic']);
@@ -1075,11 +1112,13 @@ public function notifyEmail(Request $req){
 
       $insertid = $this->model->notifyMe($req);
 
-      if($insertid!=0){
+      //print_r($insertid);
+
+      if($insertid!='0'){
 
          Mail::to($req->emails)->send(new notifyEmail($insertid));
 
-
+          return redirect('inProcess')->with('success','Email Sent You Successfully!');
 
       }      
 
@@ -1089,12 +1128,15 @@ public function notifyEmail(Request $req){
 
       $notId = base64_decode($notifyId);
 
+    
+
       $up = $this->model->notifyConfirm($notId);
 
-      if($up){
+      print_r($up);die;
+      if($up==1){
 
-        echo 'yes';
-      }
+                echo "yes";
+            }
 
       else{
         echo "no";
@@ -1777,10 +1819,18 @@ public function readNotification(Request $request){
         if($req->all()){
 
             $done = $this->model->customer_issue($req->all());
+            
+            
+
+            $exis_user = $this->model->selectDataById('email','users',$req->customer_email);
+
+            $exist_artist = $this->model->selectDataById('email','contentprovider',$req->customer_email);
+
+           $mail =  (count($exis_user) > 0) ? "customer@pornartistzone.com" : ((count($exist_artist) > 0)  ? "artist@pornartistzone.com" : "contact@pornartistzone.com");
 
             if($done){
 
-              Mail::to('contact@pornartistzone.com')->send(new artistSupport($req->all()));
+              Mail::to($mail)->send(new artistSupport($req->all()));
               return 1;
 
             }

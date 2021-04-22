@@ -514,8 +514,9 @@ public function insertSave($data,$id){
 
 public function getSocialName($id){
       return DB::table('social_username')->where('artistid',$id)->get()->each(function($query){
-        $query->username = explode(",", $query->username);
-        $query->social_plateform = explode(",", $query->social_plateform);
+        $query->username = array_filter(explode(",", $query->username));
+        $query->social_plateform =   $array = array_filter(explode(",",$query->social_plateform));
+        //$query->count = count(explode(",", $query->social_plateform));
       });
 }
 
@@ -823,6 +824,7 @@ public function getRespectedSub($data){
       );
 
       $update = $this->UpdateData('all_emails','id',array('status'=>1),$notify);
+
 
      // $update = DB::table('all_emails')->where('id',$notify)->update($data);
 
@@ -3078,9 +3080,12 @@ public function getSocialInfo($type){
 
          $data =  DB::table('social_media')
           ->leftjoin('contentprovider', 'contentprovider.id', '=','social_media.artist_id')
-          ->select('contentprovider.nickname', 'social_media.*')
+          ->leftjoin('social_username','social_username.artistid','=','contentprovider.id')
+          ->select('contentprovider.nickname', 'social_media.*','social_username.social_plateform','social_username.username')
           ->where('social_media.type',$type)
           ->get()->toArray();
+    // echo "<pre>";
+    //       print_r($data);die;
             
           return $data;
 

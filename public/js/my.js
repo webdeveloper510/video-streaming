@@ -816,6 +816,11 @@ $(document).on('click', '.link_click', function () {
             .removeClass('active');
         $(this).addClass('active');
     }
+
+    var controls = $(this).children().attr('aria-controls');
+    console.log(controls);
+    $('.tab-content').find('.fade').removeClass('show active');
+    $('#'+controls).addClass('show active');
 })
 
 $(document).on('click', '.media', function () {
@@ -1840,10 +1845,17 @@ function edit_offer(data) {
     $('#max').val(json_info.max);
     $('#additional_price').val(json_info.additional_price);
     $('#video').attr('src', src);
-    $('#file_url').val(json_info.media);
+    //$('#file_url').val(json_info.media);
+    $('#file_name').val(json_info.media);
+    $('#file_image').val(json_info.audio_pic);
+    $('.chooseImage').next('#filename').replaceWith('<span id="filename" style="color:red;">'+json_info.audio_pic+'</span>');
+    $('.file_input').next('#filename').replaceWith('<span id="filename" style="color:red;">'+json_info.media+'</span>');
     $('#price').val(json_info.price);
     $('#speed').val(json_info.delieveryspeed);
     $('#description').val(json_info.description);
+    $('.chooseImage #filename').text(json_info.audio_pic);
+    $('.file_input #ilename').text(json_info.media);
+
     $('.' + json_info.type).show();
     $('#select_status')
         .val(json_info.offer_status)
@@ -1854,8 +1866,7 @@ function edit_offer(data) {
 
     $('.' + json_info.type)
         .val(json_info.categoryid)
-        .attr("selected", "selected");;
-    //alert('helo'); $('#myModal').modal('show');
+        .attr("selected", "selected");
 }
 
 function change_other_info(data) {
@@ -2042,6 +2053,70 @@ function formsubmit(scop) {
     });
 
 }
+
+
+/*----------------------------Convert Audio To Video----------------------------------------------------------*/
+
+    // $('form').transloadit({
+    //   wait: true,
+    //   triggerUploadOnFileSelection: true,
+    //   params: {
+    //     auth: {
+    //       // To avoid tampering use signatures:
+    //       // https://transloadit.com/docs/api/#authentication
+    //       key: '995b974268854de2b10f3f6844566287',
+    //     },
+    //     // It's often better store encoding instructions in your account
+    //     // and use a `template_id` instead of adding these steps inline
+    //     steps: {
+    //       ':original': {
+    //         robot: '/upload/handle'
+    //       },
+    //       imported_image: {
+    //         robot: '/http/import',
+    //         url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    //       },
+    //       resized_image: {
+    //         use: 'imported_image',
+    //         robot: '/image/resize',
+    //         result: true,
+    //         height: 768,
+    //         imagemagick_stack: 'v2.0.7',
+    //         resize_strategy: 'fillcrop',
+    //         width: 1024,
+    //         zoom: false
+    //       },
+    //       merged: {
+    //         use: {
+    //             'steps':[
+    //                 {'name':':original',
+    //                 'as':'audio'
+                        
+    //                 },
+    //                 {
+    //                 'name':'resized_image',
+    //                 'as':'image'
+                        
+    //                 }
+    //                 ]
+                
+    //         },
+    //         robot: '/video/merge',
+    //         result: true,
+    //         ffmpeg_stack: 'v4.3.1',
+    //         preset: 'ipad-high'
+    //       },
+    //       exported: {
+    //         use: ['imported_image','resized_image','merged',':original'],
+    //         robot: '/s3/store',
+    //       // key: "AKIARBASIKHRR6UI4MTC",
+    //       ///  secret: "o5t0PJ7mDgT1jx8HY0jCjGh56ZCjlEIfh",
+    //         credentials: "mp3-img-to-mp4",
+    //       "path": "uploads/${file.id}.${file.ext}"
+    //       }
+    //     }
+    //   }
+    // });
 
 $(document).ready(function () {
 
@@ -2550,7 +2625,7 @@ if ($("#myForm").length > 0) {
                 success: function (response) {
 
                     console.log(response);
-                    //return false;
+                    return false;
 
                     if (response.errors) {
 
@@ -2769,7 +2844,7 @@ function deleteName(id,appname,name){
 
             if (data == 1) {
 
-                alert('Delete Successfully!');
+                alert("Successfully deleted!");
 
                 location.reload();
 
@@ -2847,26 +2922,39 @@ $(document).on('submit', '#user', function (event) {
 
 function appendDiv(a){
     //console.log('yhis');
-    var html = $('.amountmedia').find('.social_append').html();
-    $('.amountmedia ').append(html);
+    var html  = "<div class='row social_append px-3'>"+
+                            "<div class='col-md-6'>"+
+                                                "<div class='form-group'>"+
+                                "<select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01' required>"+
+                                        "<option selected=''>Choose...</option>"+
+                                        "<option value='Facebook'>Facebook</option>"+
+                                        "<option value='Instagram'>Instagram</option>"+
+                                        "<option value='Youtube'>Youtube</option>"+
+                                        "<option value='Sharesome'>Sharesome</option>"+
+                                        "<option value='Xpurity'>Xpurity</option>"+
+                                        "<option value='WeChat'>WeChat</option>"+
+                                        "<option value='Tiktok'>Tiktok</option>"+
+                                        "<option value='Twitter'>Twitter"+
+                                        "</option>"+
+                                    "</select>"+
+                                "</div>"+
+                "</div>"+
+                        "<div class='col-md-6'>"+
+                                    "<div class='form-group'>"+
+                                        "<input type='text' required name='username[]' class='form-control'>"+
+                                        "</div>"+
+                            "</div>"+
+"</div>"; 
+
+    $('.amountmedia ').prepend(html);
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
-
-  //  console.log('seconds');return false;
-
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
-    //console.log(hours);return false;
-    var duration = parseInt(minutes) == 0
-        ? '0:' + parseInt(seconds)
-        : minutes + ":" + parseInt(seconds);
-    //console.log(duration);return false;
-    var hours_sys = hours == 0
-        ? '0:' + duration
-        : hours + ":" + duration;
-    //console.log(hours_sys);return false;
+    var duration = parseInt(minutes) == 0 ? '0:' + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+    var hours_sys = hours == 0 ? '0:' + duration : hours + ":" + duration;
     $(id).html(hours_sys);
     $.ajax({
         type: 'POST',
@@ -2874,15 +2962,11 @@ function seconds_to_min_sec(seconds, id, vidid) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data: {
-            'duration': hours_sys,
-            'id': vidid
-        },
+        data: {'duration': hours_sys,'id': vidid},
 
         success: function (data) {
 
             console.log(data);
-            return false;
 
         }
     });

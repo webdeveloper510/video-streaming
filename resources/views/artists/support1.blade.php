@@ -112,19 +112,18 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php 
+                                                $count= array_filter(explode(',',$info->username));
+                                                $a = count($count);
+                                                ?>
+                                          @for ($i = 0; $i < $a; $i++)
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>FAcebook</td>
-                                                        <td> {{$info->username}}</td>
+                                                        <td>{{$info->social_plateform[$i]}}</td>
+                                                        <td> {{$info->username[$i]}}</td>
                                                     
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>YouTube</td>
-                                                        <td>{{$info->username}}</td>
-                                                    
-                                                    </tr>
-                                                    
+                                                    @endfor                                                    
                                                 </tbody>
                                             </table>
                                             </div>

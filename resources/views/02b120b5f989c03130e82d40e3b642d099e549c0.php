@@ -50,12 +50,12 @@
                       <?php echo $errors->first('title') ?>
                     </div>
                     <?php endif; ?>
-                    <div class="alert alert-success" id="messagediv" style="display:none"></div>
+                    <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
                 </div>
            
                     <div class="col-md-4 mt-5 ">
-                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ)')); ?> 
+                    <?php echo e(Form::label('Price(PAZ)', 'Price(PAZ/min)')); ?> 
                         <?php echo e(Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])); ?>
 
                         <?php if($errors->first('price')): ?>
@@ -109,7 +109,7 @@
            <div class="video" style="display:none">
            <label>Category</label>
 
-            <select name="category[]"  class='form-control'>
+            <select name="video_cat"  class='form-control video'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if($cat->type=='video'): ?>
@@ -121,7 +121,7 @@
             </div>
             <div class="audio" style="display:none">
             <label>Category</label>
-            <select name="category[]"  class='form-control'>
+            <select name="audio_cat"  class='form-control audio'>
                     <option value="">Choose category</option>
                     <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if($cat->type=='audio'): ?>
@@ -167,7 +167,7 @@
                 </div>
                 <?php endif; ?>
 </div>
-                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
+                <div class=" mt-3 text-white thumbnail" style="display:none;">
                 <label class="thumbnail1"> Image Upload</label>
                 <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 
