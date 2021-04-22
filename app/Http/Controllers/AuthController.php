@@ -664,7 +664,6 @@ class AuthController extends Controller
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
-      //'category'=>'required', 
       'thumbnail_pic'=>$request->radio=='audio' ? 'required|mimes:jpg,png,jpeg' : ''
   ]);
         
@@ -672,8 +671,6 @@ class AuthController extends Controller
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
-
-  //print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();
@@ -684,8 +681,9 @@ class AuthController extends Controller
               $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
-              unset($data['_token']);
-              $data['media']=$fileName;
+              unset($data['_token']); 
+              
+              $data['media']= $fileName;
 
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
               unset($data['thumbnail_pic']);
