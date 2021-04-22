@@ -203,13 +203,17 @@
                 </div>               
               </div>             
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
+<<<<<<< HEAD
+=======
  
+>>>>>>> 4b89d2dca6ef07324f28da0957be683629554e73
           <script>
-            console.log('eeee');
+            //console.log('eeee');
            var video;
             var id;
               setTimeout(() => {
               video = $("#collection_"+"<?php echo e($detail->id); ?>");
+              //console.log(video);
               seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
             }, 2000);
           </script>
@@ -256,7 +260,7 @@ Your browser does not support the audio tag.
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-<?php if($aud->duration==''): ?>
+<?php if($aud->duration=='' || $aud->duration=='NaN:NaN:NaN'): ?>
           <script>
            var video;
             var id;

@@ -764,11 +764,11 @@
                     <div class="linksonit mb-3">
                         <div class="custom-file">
                             <div class="video" style="display:none;">
-                             {{Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])}}
+                             {{Form::file('media[]',['class'=>'custom-file-input file_input','id'=>'social'])}}
                              <span id="filename" style="color:red;"></span>
                             </div>
                             <div class="image" style="display:none;">
-                             {{Form::file('media',['class'=>'custom-file-input chooseImage','id'=>'social1'])}}
+                             {{Form::file('media[]',['class'=>'custom-file-input chooseImage','id'=>'social1'])}}
                              <span id="filename" style="color:red;"></span>
                             </div>
                       

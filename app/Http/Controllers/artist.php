@@ -343,8 +343,6 @@ class artist extends Controller
       $userid=  $session_data->id;
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
-
-      //print_r($allArtistsVideo);die;
          
       $allArtistsAudio=     $this->model->getArtistDetail($userid,'audio');
 
@@ -779,32 +777,19 @@ class artist extends Controller
 
   public function socialUpload(Request $req){
 
-    $this->validate($req,[
-      'media' => 'required|mimes:mp4,ppx,mp3,pdf,ogv,jpg,webm,jpg,png',
-     // 'description'=>'required|max:2000',
-     // 'username'=>'required|max:30',   
-  ]
-    );
-
    // print_r($req->all());die;
 
     if($req->media){
       $data=$req->all();
       unset($data['gender']);
-        $fileName = time().'_'.$req->media->getClientOriginalName();
-        $ext =$req->media->getClientOriginalExtension();
-        $filePath= ($ext=='mp3') ? $req->media->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media->storeAs('video', $fileName, 'public'): $req->media->storeAs('uploads', $fileName, 'public'));
+        $fileName = time().'_'.$req->media[0]->getClientOriginalName();
+        $ext =$req->media[0]->getClientOriginalExtension();
+        $filePath= ($ext=='mp3') ? $req->media[0]->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media[0]->storeAs('video', $fileName, 'public'): $req->media[0]->storeAs('uploads', $fileName, 'public'));
         unset($data['_token']);
         $data['media']=$fileName;
         $data['description'] = $data['description'] ? $data['description'] : '';
         //$data['username'] = $data['username'] ? $data['username'] : '';
         $data['type'] = ($ext=='mp4') ? 'video' : (($ext=='mp3') ? 'audio' : 'image');
-        //print_r($data);die;
-        //  $social_account = $data['username'] ? implode(',',$data['social_plateform']) : '';
-        //  //print_r($social_account);die;
-        //  $username = $data['username'] ? implode(',',$data['username']) : '';
-        //  $data['social_plateform'] = $social_account;
-        //  $data['username'] = $username;
        
           if($filePath){
 

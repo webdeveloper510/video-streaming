@@ -2945,21 +2945,11 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
-
-  //  console.log('seconds');return false;
-
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
-    //console.log(hours);return false;
-    var duration = parseInt(minutes) == 0
-        ? '0:' + parseInt(seconds)
-        : minutes + ":" + parseInt(seconds);
-    //console.log(duration);return false;
-    var hours_sys = hours == 0
-        ? '0:' + duration
-        : hours + ":" + duration;
-    //console.log(hours_sys);return false;
+    var duration = parseInt(minutes) == 0 ? '0:' + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+    var hours_sys = hours == 0 ? '0:' + duration : hours + ":" + duration;
     $(id).html(hours_sys);
     $.ajax({
         type: 'POST',
@@ -2967,15 +2957,11 @@ function seconds_to_min_sec(seconds, id, vidid) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data: {
-            'duration': hours_sys,
-            'id': vidid
-        },
+        data: {'duration': hours_sys,'id': vidid},
 
         success: function (data) {
 
             console.log(data);
-            return false;
 
         }
     });
