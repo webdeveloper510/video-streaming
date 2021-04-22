@@ -3080,9 +3080,12 @@ public function getSocialInfo($type){
 
          $data =  DB::table('social_media')
           ->leftjoin('contentprovider', 'contentprovider.id', '=','social_media.artist_id')
-          ->select('contentprovider.nickname', 'social_media.*')
+          ->leftjoin('social_username','social_username.artistid','=','contentprovider.id')
+          ->select('contentprovider.nickname', 'social_media.*','social_username.social_plateform','social_username.username')
           ->where('social_media.type',$type)
           ->get()->toArray();
+    // echo "<pre>";
+    //       print_r($data);die;
             
           return $data;
 
