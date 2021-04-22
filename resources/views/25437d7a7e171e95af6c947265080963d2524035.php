@@ -826,14 +826,19 @@
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <?php                     
-                      $count = count($name->username);
+                  <?php 
+                  //echo $name->username;
+                      echo $count = count($name->username);
                     ?>
-                    <?php for($i = 0; $i < $count; $i++): ?>   
+                    <?php for($i = 0; $i < $count; $i++): ?>
                           <tr>
                             <th scope="row"><?php echo e($name->username[$i]); ?></th>
                             <td><?php echo e($name->social_plateform[$i]); ?></td>
-                            <td> <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button></td>
+                            <td> 
+                            <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')">
+                             <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> 
+                             </button>
+                             </td>
                           
                           </tr>
                           <?php endfor; ?>

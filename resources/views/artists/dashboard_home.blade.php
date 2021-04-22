@@ -810,14 +810,19 @@
                         </thead>
                         <tbody>
                         @foreach($social_name as $name)
-                  <?php                     
-                      $count = count($name->username);
+                  <?php 
+                  //echo $name->username;
+                       $count = count($name->username);
                     ?>
-                    @for ($i = 0; $i < $count; $i++)   
+                    @for ($i = 0; $i < $count; $i++)
                           <tr>
                             <th scope="row">{{$name->username[$i]}}</th>
                             <td>{{$name->social_plateform[$i]}}</td>
-                            <td> <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button></td>
+                            <td> 
+                            <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')">
+                             <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> 
+                             </button>
+                             </td>
                           
                           </tr>
                           @endfor
