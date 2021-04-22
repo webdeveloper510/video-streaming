@@ -2844,7 +2844,7 @@ function deleteName(id,appname,name){
 
             if (data == 1) {
 
-                alert('Delete Successfully!');
+                alert("Successfully deleted!");
 
                 location.reload();
 
