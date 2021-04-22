@@ -844,7 +844,7 @@
                 
                     </div>
                     </div>
-                    <div class="text-right pt-2">
+                    <div class="text-right ">
                     {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
 </div>
                     {{ Form::close() }}
