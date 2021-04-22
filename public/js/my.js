@@ -1859,8 +1859,7 @@ function edit_offer(data) {
 
     $('.' + json_info.type)
         .val(json_info.categoryid)
-        .attr("selected", "selected");;
-    //alert('helo'); $('#myModal').modal('show');
+        .attr("selected", "selected");
 }
 
 function change_other_info(data) {
