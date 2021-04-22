@@ -938,7 +938,10 @@ label.error {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
+.table-responsive {
+    max-height: 444px;
+    overflow: scroll;
+}
 .edit12 {
     margin-top: 30%;
 }

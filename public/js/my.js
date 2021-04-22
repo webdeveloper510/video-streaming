@@ -2349,14 +2349,20 @@ if ($("#social_media").length > 0) {
     $("#social_media").validate({
 
         rules: {
-            media: {
+            'media[]': {
+                required: true
+            },
+            gender:{
                 required: true
             }
         },
         messages: {
-            media: {
+            'media[]': {
                 required: "Please Enter Media",
                 maxlength: "Enter Media"
+            },
+            'gender': {
+                required: "Select Radio Button",
             }
         },
         submitHandler: function (form) {
