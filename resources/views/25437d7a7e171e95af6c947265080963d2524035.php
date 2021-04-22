@@ -828,7 +828,7 @@
                         <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <?php 
                   //echo $name->username;
-                      echo $count = count($name->username);
+                       $count = count($name->username);
                     ?>
                     <?php for($i = 0; $i < $count; $i++): ?>
                           <tr>
