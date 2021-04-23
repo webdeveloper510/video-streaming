@@ -114,6 +114,7 @@
                                                 <tbody>
                                                 <?php 
                                                 $count= array_filter(explode(',',$info->username));
+                                                $social_plateform= array_filter(explode(',',$info->social_plateform));
                                                print_r($count);
                                                 $a = count($count);
                                                 ?>
@@ -121,7 +122,7 @@
                                                     <tr>
                                                         <th scope="row">1</th>
                                                         <td><?php echo e($count[$i]); ?></td>
-                                                        <td> <?php echo e($count[$i]); ?></td>
+                                                        <td> <?php echo e($social_plateform[$i]); ?></td>
                                                     
                                                     </tr>
                                                     <?php endfor; ?>                                                    
