@@ -48,7 +48,7 @@
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])); ?>
 
-                <div class="alert alert-success" id="messagediv" style="display:none"></div>
+                <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
             </div>
          
@@ -93,14 +93,14 @@
             </select>
             </div>
             
-            <div class="col-md-12 mt-3 text-white file" style="display:none;">
+            <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
-            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
+            <div class=" mt-3 text-white thumbnail" style="display:none;">   
             <label class="thumbnail1"></label>        
                  <?php echo e(Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])); ?>
 

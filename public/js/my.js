@@ -2967,9 +2967,7 @@ function seconds_to_min_sec(seconds, id, vidid) {
         data: {'duration': hours_sys,'id': vidid},
 
         success: function (data) {
-
             console.log(data);
-
         }
     });
 
