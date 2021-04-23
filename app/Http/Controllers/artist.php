@@ -843,7 +843,7 @@ class artist extends Controller
 
       $socialVideo = $this->model->getSocialInfo('video');
       $socialAudio = $this->model->getSocialInfo('audio');
-     // print_r($socialAudio);die;
+
       $socialImage = $this->model->getSocialInfo('image');
 
       $news_show = $this->model->selectDataById('is_news','users','yes');
