@@ -19,7 +19,7 @@
         <div class="col"></div>
         <div class="col-md-8">
             <div class="text-center my-5">
-              <img src="{{asset('images/process.png')}}" width="500px" class="img-fluid mb-3" style="border:2px solid gold;">
+              <img src="{{asset('images/logos/good_quality_logo.png')}}" width="500px" class="img-fluid mb-3" style="border:2px solid gold;">
                 <h1  style="font-size: 83px;font-family: 'Satisfy', cursive;">We're Coming Soon</h1>
             </div>
 
