@@ -777,14 +777,14 @@ class artist extends Controller
 
   public function socialUpload(Request $req){
 
-   // print_r($req->all());die;
+    //print_r($req->all());die;
 
     if($req->media){
       $data=$req->all();
       unset($data['gender']);
-        $fileName = time().'_'.$req->media[0]->getClientOriginalName();
-        $ext =$req->media[0]->getClientOriginalExtension();
-        $filePath= ($ext=='mp3') ? $req->media[0]->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media[0]->storeAs('video', $fileName, 'public'): $req->media[0]->storeAs('uploads', $fileName, 'public'));
+        $fileName = $req->media[0] ? time().'_'.$req->media[0]->getClientOriginalName() : time().'_'.$req->media[1]->getClientOriginalName();
+        $ext =$req->media[0] ? $req->media[0]->getClientOriginalExtension() : $req->media[1]->getClientOriginalExtension();
+        $filePath= ($ext=='mp3') ? $req->media[0]->storeAs('audio', $fileName, 'public') : (($ext=='mp4') ? $req->media[0]->storeAs('video', $fileName, 'public'): $req->media[1]->storeAs('uploads', $fileName, 'public'));
         unset($data['_token']);
         $data['media']=$fileName;
         $data['description'] = $data['description'] ? $data['description'] : '';
