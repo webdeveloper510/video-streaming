@@ -3089,8 +3089,8 @@ public function getSocialInfo($type){
           ->where('social_media.type',$type)
           ->get()->toArray();
 
-    echo "<pre>";
-          print_r($data);die;
+    // echo "<pre>";
+    //       print_r($data);die;
             
           return $data;
 
