@@ -697,6 +697,19 @@ class AuthController extends Controller
                                               "key" => "995b974268854de2b10f3f6844566287",
                                               "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
                                             ]);
+                                            
+                                            $expires    = gmdate('Y/m/d H:i:s+00:00', strtotime('+1 hour'));
+                                            $authKey    = '995b974268854de2b10f3f6844566287';
+                                            $authSecret = '4924ce552f2b8fbf3a48a155996bbbd2dce07485';
+                                            
+                                            $params = json_encode([
+                                              'auth' => [
+                                                'key'     => $authKey,
+                                                'expires' => $expires,
+                                              ],
+                                              'template_id' => 'c5de46c6498e4e0ba0f85499dd676bd3',
+                                            ], JSON_UNESCAPED_SLASHES);
+                                            $signature = hash_hmac('sha1', $params, $authSecret);
                                                      $files = [];
                                                     array_push($files, $request->media->getClientOriginalName());
                                                     
@@ -709,6 +722,9 @@ class AuthController extends Controller
                                                     // Start the Assembly
                                                     $response = $transloadit->createAssembly([
                                                       "files" => $files, 
+                                                      "params"=>[
+                                                          'auth'=>$signature
+                                                          ],
                                                       "params" => [
                                                         "steps" => [
                                                           ":original" => [
@@ -750,6 +766,7 @@ class AuthController extends Controller
                                                         ],
                                                       ],
                                                        'notify_url ' => $this->getResponse(),
+                                                       'waitForEncoding'=>false
                                                     ]);
                                                            print_r($response);
                                                            
