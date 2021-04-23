@@ -114,6 +114,7 @@
                                                 <tbody>
                                                 <?php 
                                                 $count= array_filter(explode(',',$info->username));
+                                               print_r($count);
                                                 $a = count($count);
                                                 ?>
                                           <?php for($i = 0; $i < $a; $i++): ?>
@@ -131,18 +132,6 @@
                                         <div class="text-right m-3 ">
                                         <button class="btn btn-primary" type="button">Copy</button>
                                     </div>
-                                <!-- <div class="accounts">
-                                    <h3>
-                                        Social Accounts :</h3>
-                                    <h5>
-                                        Instagram
-                                        <?php echo e($info->username); ?></h5>
-                                    <br>
-                                    <h5>
-                                        Twitter
-                                        <?php echo e($info->username); ?></h5>
-                                   
-                                </div> -->
 
                             </div>
                         </div>
