@@ -511,7 +511,7 @@ Your browser does not support the audio tag.
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary button_disable">Save changes</button>
             </div>
             {{ Form::close() }}
         </div>
@@ -538,15 +538,6 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" {{$random[0]->type=='audio' ? 'checked': ''}}/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
           </div>   
-          <!-- <div class="col-md-12 mt-2 convert">
-           {{Form::label('quality:', 'quality:')}} 
-           <select name="convert"  class='form-control'>
-                <option value="">Choose ...</option>
-               @foreach($qualities as $q)
-               <option  value="{{$q->quality}}" {{($random[0]->convert)==$q->quality ? 'selected' : ''}}>{{$q->quality}}px </option>
-               @endforeach
-            </select>
-            </div> -->
           <div class="col-md-12 mt-3 text-white file" style="display:none;">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])}}
             <br> 
@@ -639,7 +630,7 @@ Your browser does not support the audio tag.
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default popup_close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary button_disable">Save changes</button>
                 <div class="alert alert-success" role="alert" style="display:none">
                            This is a success alert—check it out!
                 </div>
@@ -725,7 +716,7 @@ Your browser does not support the audio tag.
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary button_disable">Save changes</button>
                           <div class="alert alert-success" id="success" style="display:none">
     
                            </div>

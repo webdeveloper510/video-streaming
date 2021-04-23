@@ -1501,6 +1501,7 @@ $(document).on('submit', '#form_sub', function (event) {
 $(document).on('submit', '#edit_form', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
+    $('.button_disable').attr('disabled',true);
     //console.log(formData);return false;
     $.ajax({
         type: 'POST',
@@ -1537,6 +1538,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
+            $('.button_disable').removeAttr('disabled');
            // console.log(data);
 
             if (data.status == 1) {
@@ -1568,6 +1570,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
     $('.loader').show();
+    $('.button_disable').attr('disabled',true);
     //console.log(formData);return false;
     $.ajax({
         type: 'POST',
@@ -1604,9 +1607,12 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
         success: function (data) {
 
-            console.log(data);
+            $('.button_disable').removeAttr('disabled');
+
+            //console.log(data);
 
             if (data.status == 1) {
+              
                 // $('.alert-success').show(); $('.alert-success').html(data.message);
                 $('.popup_close').trigger('click');
                 location.reload();
@@ -1628,6 +1634,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 $(document).on('submit', '#edit_Video_info', function (event) {
     event.preventDefault();
+    $('.button_disable').attr('disabled',true);
     $.ajax({
         type: 'POST',
         url: APP_URL + "/artist/editVedio",
@@ -1637,8 +1644,9 @@ $(document).on('submit', '#edit_Video_info', function (event) {
 
         data: $(this).serialize(),
         success: function (data) {
+            $('.button_disable').removeAttr('disabled');
 
-            console.log(data);
+           // console.log(data);
 
             if (data == 1) {
                 $('.alert-success').show();
