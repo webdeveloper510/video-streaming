@@ -3088,8 +3088,9 @@ public function getSocialInfo($type){
           ->select('contentprovider.nickname', 'social_media.*','social_username.social_plateform','social_username.username')
           ->where('social_media.type',$type)
           ->get()->toArray();
-    // echo "<pre>";
-    //       print_r($data);die;
+
+    echo "<pre>";
+          print_r($data);die;
             
           return $data;
 
