@@ -848,6 +848,9 @@ class artist extends Controller
 
       $news_show = $this->model->selectDataById('is_news','users','yes');
 
+      echo "<pre>";
+
+        print_r($socialVideo);die;
 
     return view('artists.support1',['news'=>$news_show,'social_video'=>$socialVideo,'social_audio'=>$socialAudio,'social_image'=>$socialImage]);
 
