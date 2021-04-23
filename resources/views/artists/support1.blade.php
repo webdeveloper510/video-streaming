@@ -119,8 +119,8 @@
                                           @for ($i = 0; $i < $a; $i++)
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>{{$info->social_plateform[$i]}}</td>
-                                                        <td> {{$info->username[$i]}}</td>
+                                                        <td>{{$count->social_plateform[$i]}}</td>
+                                                        <td> {{$count->username[$i]}}</td>
                                                     
                                                     </tr>
                                                     @endfor                                                    
