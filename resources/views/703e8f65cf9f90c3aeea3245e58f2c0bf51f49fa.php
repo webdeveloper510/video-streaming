@@ -790,6 +790,10 @@
                           <!-- <div class="alert alert-danger d-none"><?php echo e($errors->first('media') ?  $errors->first('media') : ''); ?></div> -->
                           <small>Upload social media friendly content here</small>
                         </div>
+                        <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
                     </div>
                 </div>
 
@@ -871,10 +875,7 @@
                 </div>
 
              </div>
-             <div class="loader col-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
-                <span class="percentage" style="color:green;font-weight: bold;"></span>
-            </div>
+           
             <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
               
