@@ -775,12 +775,12 @@
                     <div class="linksonit mb-3">
                         <div class="custom-file">
                             <div class="video" style="display:none;">
-                             <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
+                             <?php echo e(Form::file('media[]',['class'=>'custom-file-input file_input','id'=>'social'])); ?>
 
                              <span id="filename" style="color:red;"></span>
                             </div>
                             <div class="image" style="display:none;">
-                             <?php echo e(Form::file('media',['class'=>'custom-file-input chooseImage','id'=>'social1'])); ?>
+                             <?php echo e(Form::file('media[]',['class'=>'custom-file-input chooseImage','id'=>'social1'])); ?>
 
                              <span id="filename" style="color:red;"></span>
                             </div>
@@ -814,6 +814,7 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  <div class="table12">
                   <div class="table table-responsive">
                   <table class="table text-left">
                         <thead class="thead-light">
@@ -826,14 +827,19 @@
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <?php                     
-                      $count = count($name->username);
+                  <?php 
+                  //echo $name->username;
+                       $count = count($name->username);
                     ?>
-                    <?php for($i = 0; $i < $count; $i++): ?>   
+                    <?php for($i = 0; $i < $count; $i++): ?>
                           <tr>
                             <th scope="row"><?php echo e($name->username[$i]); ?></th>
                             <td><?php echo e($name->social_plateform[$i]); ?></td>
-                            <td> <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button></td>
+                            <td> 
+                            <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')">
+                             <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> 
+                             </button>
+                             </td>
                           
                           </tr>
                           <?php endfor; ?>
@@ -843,77 +849,21 @@
                       </table>
 
                     </div>
-                  <!-- <div class="row">
-                     <div class="col-4  ">
-                       <h5><b> App Name </b></h5>
-                        </div>
-                        <div class="col-5 text-left">
-                          <h5><b> Username</b></h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                  <?php $__currentLoopData = $social_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <?php                     
-                      $count = count($name->username);
-                    ?>
-                    <?php for($i = 0; $i < $count; $i++): ?>       
-                    
-                      <div class="col-4">
-                      <p style="font-weight: 500;"><b><?php echo e($name->username[$i]); ?></b></p>
-                      </div>
-                      <div class="col-5">
-                      <p style="font-weight: 500;"><b><?php echo e($name->social_plateform[$i]); ?></b></p>
-                       </div>
-                       <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('<?php echo e($name->id); ?>','<?php echo e($name->username[$i]); ?>','<?php echo e($name->social_plateform[$i]); ?>')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button>
-                       </div>
-                    
-                     
-                    <?php endfor; ?>
-                  
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
-                  </div>-->
                   <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
               <?php echo e(Form::token()); ?>
 
                       <div class="linksonit mb-3">
                       <div class="amountmedia row"> 
-                          <div class='row social_append px-3'>
-                              <div class='col-md-6'>
-                                  <div class='form-group'>
-                                      <select
-                                          class='custom-select valid'
-                                          name='social_plateform[]'
-                                          id='inputGroupSelect01' required>
-                                          <option selected=''>Choose...</option>
-                                          <option value='Facebook'>Facebook</option>
-                                          <option value='Instagram'>Instagram</option>
-                                          <option value='Youtube'>Youtube</option>
-                                          <option value='Sharesome'>Sharesome</option>
-                                          <option value='Xpurity'>Xpurity</option>
-                                          <option value='WeChat'>WeChat</option>
-                                          <option value='Tiktok'>Tiktok</option>
-                                          <option value='Twitter'>Twitter
-                                          </option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class='col-md-6'>
-                                  <div class='form-group'>
-                                      <input type='text' required name='username[]' class='form-control'></div>
-                                  </div>
-                              </div>
                          
-                                                    
-                            </div>
                             <div class="col-md-12 text-center">
                               <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
                            </div>
                 
                     </div>
-                    <div class="text-right">
-                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm'])); ?>
+                    </div>
+                    <div class="text-right pt-2">
+                    <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled'])); ?>
 
 </div>
                     <?php echo e(Form::close()); ?>
@@ -930,6 +880,7 @@
               
                   </div>
               </div>
+            </div>
             </div>
           
             <div class="col-md-4">
@@ -978,7 +929,10 @@ label.error {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
+.table-responsive {
+    max-height: 444px;
+    overflow: scroll;
+}
 .edit12 {
     margin-top: 30%;
 }
