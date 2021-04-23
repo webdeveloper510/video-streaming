@@ -119,8 +119,8 @@
                                           <?php for($i = 0; $i < $a; $i++): ?>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td><?php echo e($info->social_plateform[$i]); ?></td>
-                                                        <td> <?php echo e($info->username[$i]); ?></td>
+                                                        <td><?php echo e($count->social_plateform[$i]); ?></td>
+                                                        <td> <?php echo e($count->username[$i]); ?></td>
                                                     
                                                     </tr>
                                                     <?php endfor; ?>                                                    
