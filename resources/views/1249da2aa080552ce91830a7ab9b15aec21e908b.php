@@ -30,7 +30,7 @@
         <div class="overlayprofile">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="<?php echo e(isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png')); ?>" width="200px" height="200px">
+        <img src="<?php echo e(($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
@@ -528,7 +528,7 @@ Your browser does not support the audio tag.
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary button_disable">Save changes</button>
             </div>
             <?php echo e(Form::close()); ?>
 
@@ -558,15 +558,6 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>   
-          <!-- <div class="col-md-12 mt-2 convert">
-           <?php echo e(Form::label('quality:', 'quality:')); ?> 
-           <select name="convert"  class='form-control'>
-                <option value="">Choose ...</option>
-               <?php $__currentLoopData = $qualities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $q): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-               <option  value="<?php echo e($q->quality); ?>" <?php echo e(($random[0]->convert)==$q->quality ? 'selected' : ''); ?>><?php echo e($q->quality); ?>px </option>
-               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </select>
-            </div> -->
           <div class="col-md-12 mt-3 text-white file" style="display:none;">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
@@ -670,7 +661,7 @@ Your browser does not support the audio tag.
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default popup_close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary button_disable">Save changes</button>
                 <div class="alert alert-success" role="alert" style="display:none">
                            This is a success alert—check it out!
                 </div>
@@ -762,7 +753,7 @@ Your browser does not support the audio tag.
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary button_disable">Save changes</button>
                           <div class="alert alert-success" id="success" style="display:none">
     
                            </div>

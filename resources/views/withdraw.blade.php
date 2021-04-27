@@ -16,7 +16,7 @@
          <h3> {{$val['level']}} <small>(you save)</small>: {{$val['fee']}}%</h3>
          <hr>
          <h3>Current Fee : <span>{{20-$val['fee']}}%</span></h3>
-         @endif
+        @endif
          @endforeach
          
          @endif

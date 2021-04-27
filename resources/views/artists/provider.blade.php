@@ -222,31 +222,77 @@ section.background1 {
 
        
 @include('artists.dashboard_footer')
-   <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript">
-  var tlProtocol = (('https:' === document.location.protocol) ? 'https://' : 'http://');
- // console.log(tlProtocol);
-  document.write(unescape("%3Cscript src='" + tlProtocol + "assets.transloadit.com/js/jquery.transloadit2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    // Tell the transloadit plugin to bind itself to our form
-    $('form').transloadit();
-  });
-</script>
-
-<!-- <script>
-$('form').transloadit({
-   
-      wait: true,
-      triggerUploadOnFileSelection: true,
+  <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+ <script>
+   $('#myForm').transloadit({
+      wait: false,
+      triggerUploadOnSubmit: true,
       params: {
         auth: {
           // To avoid tampering use signatures:
           // https://transloadit.com/docs/api/#authentication
-          key: '1d655f1b2ca54bcf89a68e3b03fcf6ab',
+          key: '995b974268854de2b10f3f6844566287',
         },
-        template_id: "bdd1db3fe177446d8e5cf8ce93431eca",
+        // It's often better store encoding instructions in your account
+        // and use a `template_id` instead of adding these steps inline
+        steps: {
+          ':original': {
+            robot: '/upload/handle'
+          },
+         files_filtered: {
+            use: ':original',
+            robot: '/file/filter',
+            result: true,
+            accepts: [['${file.mime}','regex','audio']],
+            error_on_decline: true
+          },
+          imported_image: {
+            robot: '/http/import',
+            url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+          },
+          resized_image: {
+            use: 'imported_image',
+            robot: '/image/resize',
+            result: true,
+            height: 768,
+            imagemagick_stack: 'v2.0.7',
+            resize_strategy: 'fillcrop',
+            width: 1024,
+            zoom: false
+          },
+          merged: {
+            use: {
+                'steps':[
+                    {
+                    'name':':original',
+                    'as':'audio'
+                        
+                    },
+                    {
+                    'name':'resized_image',
+                    'as':'image'
+                        
+                    }
+                    ]
+                
+            },
+            robot: '/video/merge',
+            result: true,
+            ffmpeg_stack: 'v4.3.1',
+            preset: 'ipad-high'
+          },
+          exported: {
+            use: ['imported_image','resized_image','merged',':original'],
+            robot: '/s3/store',
+            credentials: "mp3-img-to-mp4",
+           "path": "uploads/${file.id}.${file.ext}"
+          }
+        },
+        
+      },
+    onResult: function(step, result) {
+        console.log(result.ssl_url);
+        //$('.result').attr('src', result.ssl_url)
       }
     });
-</script> -->
+</script>

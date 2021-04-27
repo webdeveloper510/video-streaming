@@ -16,7 +16,7 @@
          <h3> <?php echo e($val['level']); ?> <small>(you save)</small>: <?php echo e($val['fee']); ?>%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-$val['fee']); ?>%</span></h3>
-         <?php endif; ?>
+        <?php endif; ?>
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
          
          <?php endif; ?>

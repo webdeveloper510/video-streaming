@@ -1803,8 +1803,15 @@ $(document).on('change', '#change_section', function () {
 })
 
 function imageUpdate(data) {
+    
+    if(data.value.length){
+        $('#imageChange').click();
+    }
+    else{
+        $('.img-fluid').hide();
+    }
 
-    $('#imageChange').click();
+    //$('#imageChange').click();
 
 }
 

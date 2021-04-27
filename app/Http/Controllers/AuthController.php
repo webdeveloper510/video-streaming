@@ -681,7 +681,7 @@ class AuthController extends Controller
 // Show the results of the assembly we spawned
 
 
-  //print_r($request->all());die;
+  print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();
@@ -693,86 +693,11 @@ class AuthController extends Controller
               
               /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
               
-                                        $transloadit = new Transloadit([
-                                              "key" => "995b974268854de2b10f3f6844566287",
-                                              "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
-                                            ]);
-                                            
-                                            $expires    = gmdate('Y/m/d H:i:s+00:00', strtotime('+1 hour'));
-                                            $authKey    = '995b974268854de2b10f3f6844566287';
-                                            $authSecret = '4924ce552f2b8fbf3a48a155996bbbd2dce07485';
-                                            
-                                            $params = json_encode([
-                                              'auth' => [
-                                                'key'     => $authKey,
-                                                'expires' => $expires,
-                                              ],
-                                              'template_id' => 'c5de46c6498e4e0ba0f85499dd676bd3',
-                                            ], JSON_UNESCAPED_SLASHES);
-                                            $signature = hash_hmac('sha1', $params, $authSecret);
-                                                     $files = [];
-                                                    array_push($files, $request->media->getClientOriginalName());
-                                                    
-                                                    $redirectUrl = sprintf(
-                                                              'http://%s%s',
-                                                              $_SERVER['HTTP_HOST'],
-                                                              $_SERVER['REQUEST_URI']
-                                                            );
-
-                                                    // Start the Assembly
-                                                    $response = $transloadit->createAssembly([
-                                                      "files" => $files, 
-                                                      "params"=>[
-                                                          'auth'=>$signature
-                                                          ],
-                                                      "params" => [
-                                                        "steps" => [
-                                                          ":original" => [
-                                                            "robot" => "/upload/handle",
-                                                          ],
-                                                          "imported_image" => [
-                                                            "robot" => "/http/import",
-                                                            "url" => "https://demos.transloadit.com/inputs/chameleon.jpg",
-                                                          ],
-                                                          "resized_image" => [
-                                                            "use" => "imported_image",
-                                                            "robot" => "/image/resize",
-                                                            "result" => true,
-                                                            "height" => 768,
-                                                            "imagemagick_stack" => "v2.0.7",
-                                                            "resize_strategy" => "fillcrop",
-                                                            "width" => 1024,
-                                                            "zoom" => false,
-                                                          ],
-                                                          "merged" => [
-                                                            "use" => [
-                                                              "steps" => [
-                                                                ["name" => ":original", "as" => "audio"],
-                                                                ["name" => "resized_image", "as" => "image"],
-                                                              ],
-                                                            ],
-                                                            "robot" => "/video/merge",
-                                                            "result" => true,
-                                                            "ffmpeg_stack" => "v4.3.1",
-                                                            "preset" => "ipad-high",
-                                                          ],
-                                                          "exported" => [
-                                                            "use" => ["imported_image", "resized_image", "merged", ":original"],
-                                                            "robot" => "/s3/store",
-                                                            "credentials" => "mp3-img-to-mp4",
-                                                            "url_prefix" => "https://demos.transloadit.com/",
-                                                            "path"=> "/my_images/${file.id}/${file.url_name}"
-                                                          ],
-                                                        ],
-                                                      ],
-                                                       'notify_url ' => $this->getResponse(),
-                                                       'waitForEncoding'=>false
-                                                    ]);
-                                                           print_r($response);
-                                                           
-                                                                    die;
      /*-------------------------------------------------------------------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
-
+                    
+                                //print_r($request->all());die;
+                                
+                                
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
@@ -802,25 +727,9 @@ class AuthController extends Controller
       }
   }
 
-
- public function getResponse(){
-     echo "yes";
-   $transloadit = new Transloadit([
-      "key" => "995b974268854de2b10f3f6844566287",
-      "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
-    ]);
- 
-$response = Transloadit::response();
-     print_r($response);die;
-if ($response) {
-  echo '<h1>Assembly status:</h1>';
-  echo '<pre>';
-  print_r($response);
-  echo '</pre>';
-  exit;
-}                                                  
-
- }
+public function getResponse(){
+    print_r('eeee');
+}
 
 
   public function getProvider(){
