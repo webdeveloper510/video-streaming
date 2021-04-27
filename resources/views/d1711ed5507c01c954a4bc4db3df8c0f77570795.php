@@ -8,7 +8,7 @@
 
           </div>
 			<label class="text-left">Add PAZ Token :</label>
-			<?php echo e(Form::label('ADD', 'Token')); ?> 
+		 
                   <select class="custom-select mb-3">
                     <option selected>Select Token Amount</option>
                     <option value="200">200 Tokens $14USD</option>
@@ -56,7 +56,9 @@ button.close {
     bottom: 19px;
     right: 20px;
 }
-
+.modal-dialog {
+    height: 500px;
+}
 .popup-overlay.active{
 visibility:visible;
 }
