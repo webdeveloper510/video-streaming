@@ -15,7 +15,7 @@
         <div style="display:none">
         {!!Form::open(['id'=>'filechange','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
-        <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
+        <input type="file" class="image_change" name="image" onclick="initialize(this)"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
         {{ Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange']) }}
 
@@ -26,7 +26,7 @@
         <div class="overlayprofile">
            <img src=" {{asset('images/loaderartist.gif')}}" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="{{isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png') }}" width="200px" height="200px">
+        <img src="{{($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png') }}" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
