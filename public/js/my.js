@@ -1821,17 +1821,19 @@ function imageUpdate() {
 
    // document.body.onfocus = checkIt;
 
-function initialize(data) {
-  console.log(data.value.length);
+// <<<<<<< HEAD
+// function initialize(data) {
+//   console.log(data.value.length);
     
-    if(data.value.length!=0){
-       // console.log('dddd');
-        $('#imageChange').click();
-    }
-    else{
-        //console.log('ye0');
-        $('.img-fluid').hide();
-    }
+//     if(data.value.length!=0){
+//       // console.log('dddd');
+//         $('#imageChange').click();
+//     }
+//     else{
+//         //console.log('ye0');
+//         $('.img-fluid').hide();
+//     }
+// =======
 
     //console.log(event.target.value);
     
@@ -1844,6 +1846,7 @@ function initialize(data) {
     //     //console.log('ye0');
     //     $('.img-fluid').hide();
     // }
+
 
     //$('#imageChange').click();
 
