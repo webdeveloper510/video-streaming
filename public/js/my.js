@@ -1821,7 +1821,6 @@ function imageUpdate() {
 
    // document.body.onfocus = checkIt;
 
-<<<<<<< HEAD
 function initialize(data) {
   console.log(data.value.length);
     
@@ -1833,7 +1832,6 @@ function initialize(data) {
         //console.log('ye0');
         $('.img-fluid').hide();
     }
-=======
 
     //console.log(event.target.value);
     
@@ -1846,7 +1844,6 @@ function initialize(data) {
     //     //console.log('ye0');
     //     $('.img-fluid').hide();
     // }
->>>>>>> 69a87b51c7789dfc97a2ef3a743c64ca8d89ebf8
 
     //$('#imageChange').click();
 
