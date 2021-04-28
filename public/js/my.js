@@ -1771,7 +1771,7 @@ function addTohistory(type) {
 }
 
 $('.image').click(function () {
-    console.log('yes');
+   // console.log('yes');
     var image_type = $(this).attr('data-id');
     selectLoader = image_type=='profilepicture' ? 'profile_loader' : 'cover_loader';
    // $(this).parent().parent().find('.img-fluid').show();
