@@ -1769,6 +1769,7 @@ function addTohistory(type) {
 }
 
 $('.image').click(function () {
+    console.log('yes');
     var image_type = $(this).attr('data-id');
     $(this).parent().parent().find('.img-fluid').show();
     $('#image_type').val(image_type);
@@ -1779,7 +1780,7 @@ $('.image').click(function () {
 $(document).on('change', '#change_section', function () {
 
     var value = $(this).val();
-    console.log(value);
+   // console.log(value);
     if (value == 'all') {
 
         $('.filter_div').show();
@@ -1803,13 +1804,14 @@ $(document).on('change', '#change_section', function () {
 })
 
 function initialize(data) {
+  console.log(data.value.length);
     
-    if(data.value.length){
-        console.log('dddd');
+    if(data.value.length!=0){
+       // console.log('dddd');
         $('#imageChange').click();
     }
     else{
-        console.log('ye0');
+        //console.log('ye0');
         $('.img-fluid').hide();
     }
 
@@ -2969,6 +2971,7 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
+    //console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
