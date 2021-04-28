@@ -1342,15 +1342,16 @@ $(document).on('keyup', '.title', function () {
                     .addClass('alert alert-danger')
                     .removeClass('alert-success');
                 $('#messagediv').html('Title Already Exist!')
-            } else {
-
-                $('#messagediv').show();
-                $('#messagediv')
-                    .addClass('alert alert-success')
-                    .removeClass('alert-danger');
-                $('#messagediv').html('Title Available!');
-
             }
+            // else {
+
+            //     $('#messagediv').show();
+            //     $('#messagediv')
+            //         .addClass('alert alert-success')
+            //         .removeClass('alert-danger');
+            //     $('#messagediv').html('Title Available!');
+
+            // }
 
         }
     });
