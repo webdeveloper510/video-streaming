@@ -1818,7 +1818,6 @@ function imageUpdate() {
 
     $('#imageChange').click();
 
-
 }
 
 
