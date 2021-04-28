@@ -17,7 +17,11 @@
 
           <?php echo e(Form::token()); ?>
 
+<<<<<<< HEAD
         <input type="file" class="image_change" name="image" onchange="initialize(this)"/>
+=======
+        <input type="file" class="image_change" name="image" onclick="imageUpdate()"/>
+>>>>>>> 69a87b51c7789dfc97a2ef3a743c64ca8d89ebf8
         <input type="hidden" id="image_type" name="image_type" value=""/>
         <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>
 
