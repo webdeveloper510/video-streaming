@@ -1,5 +1,5 @@
 var storage_url;
-var theFile;
+var selectLoader;
 
 var APP_URL = $('#base_url').attr('data-url');
 
@@ -1773,7 +1773,8 @@ function addTohistory(type) {
 $('.image').click(function () {
     console.log('yes');
     var image_type = $(this).attr('data-id');
-    $(this).parent().parent().find('.img-fluid').show();
+    selectLoader = image_type=='profilepicture' ? 'profile_loader' : 'cover_loader';
+   // $(this).parent().parent().find('.img-fluid').show();
     $('#image_type').val(image_type);
     //console.log(image_type);
     $('.image_change').trigger('click');
@@ -1813,7 +1814,9 @@ function imageUpdate() {
 
    // theFile = event;
     
-    console.log(theFile);
+    $('.'+selectLoader).show();
+
+    $('#imageChange').click();
 
 
    // document.body.onfocus = checkIt;
@@ -1849,21 +1852,6 @@ function initialize(data) {
 
 }
 
-function checkIt() {
-    console.log(theFile);
-    // Check if the number of files
-    // is not zero
-    if (theFile.length) {
-      console.log('Files Loaded');
-    }
-    // Alert the user if the number
-    // of file is zero
-    else {
-      console.log('Cancel clicked');
-    }
-    document.body.onfocus = null;
-    console.log('checked');
-} 
 
 $('#filechange').submit(function (e) {
     //console.log('abc');
