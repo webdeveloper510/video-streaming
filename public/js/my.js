@@ -1341,7 +1341,7 @@ $(document).on('keyup', '.title', function () {
                 $('#messagediv')
                     .addClass('alert alert-danger')
                     .removeClass('alert-success');
-                $('#messagediv').html('Title Already Exist!')
+                $('#messagediv').html('Title Unavailable!')
             }
             // else {
 
