@@ -460,6 +460,7 @@ select.form-select.form-control, select.form-select.form-control * {
 .pricetime .text-left {
     float: left;
     padding-left: 10px;
+    margin-top:-5px;
 }
 .pricetime .text-right {
     margin-top: -47px;

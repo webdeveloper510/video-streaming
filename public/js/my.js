@@ -1819,37 +1819,6 @@ function imageUpdate() {
     $('#imageChange').click();
 
 
-   // document.body.onfocus = checkIt;
-
-// <<<<<<< HEAD
-// function initialize(data) {
-//   console.log(data.value.length);
-    
-//     if(data.value.length!=0){
-//       // console.log('dddd');
-//         $('#imageChange').click();
-//     }
-//     else{
-//         //console.log('ye0');
-//         $('.img-fluid').hide();
-//     }
-// =======
-
-    //console.log(event.target.value);
-    
-    // if(data.value.length > 0){
-    //     $('.img-fluid').show();
-    //    // console.log('dddd');
-    //     $('#imageChange').click();
-    // }
-    //  if(data.value.length==0){
-    //     //console.log('ye0');
-    //     $('.img-fluid').hide();
-    // }
-
-
-    //$('#imageChange').click();
-
 }
 
 
