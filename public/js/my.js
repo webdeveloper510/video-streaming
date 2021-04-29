@@ -91,6 +91,9 @@ $(document).on('change', '#exampleFormControlSelect1', function () {
 
 $(document).ready(function () {
 
+//    console.log('ffhfhf')
+
+
     storage_url = $('#storagePath').attr('url');
 
     var checked_radio = $('.user:checked').val();
@@ -291,6 +294,7 @@ function playVideo(a) {
     }
 }
 $(document).ready(function () {
+    console.log('yes');
     $('.rad_But').each(function () {
         if ($(this).is(':checked') == true) {
             $(this).val() == 'male'
@@ -298,7 +302,7 @@ $(document).ready(function () {
                 : $('.hide').show();
         }
     });
-
+   
     var id1 = $(".media1:checked")
         .attr('class')
         .split(' ');
@@ -310,6 +314,9 @@ $(document).ready(function () {
     $('#' + id1[1]).show();
 
     $('#' + notId[1]).hide();
+
+
+    
 
 });
 
