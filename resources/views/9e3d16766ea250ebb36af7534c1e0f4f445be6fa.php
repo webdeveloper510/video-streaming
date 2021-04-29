@@ -232,76 +232,133 @@ section.background1 {
        
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
- <script>
-   $('#myForm').transloadit({
-      wait: false,
-      triggerUploadOnSubmit: true,
-      params: {
-        auth: {
-          // To avoid tampering use signatures:
-          // https://transloadit.com/docs/api/#authentication
-          key: '995b974268854de2b10f3f6844566287',
-        },
-        // It's often better store encoding instructions in your account
-        // and use a `template_id` instead of adding these steps inline
-        steps: {
-          ':original': {
-            robot: '/upload/handle'
-          },
-         files_filtered: {
-            use: ':original',
-            robot: '/file/filter',
-            result: true,
-            accepts: [['${file.mime}','regex','audio']],
-            error_on_decline: true
-          },
-          imported_image: {
-            robot: '/http/import',
-            url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-          },
-          resized_image: {
-            use: 'imported_image',
-            robot: '/image/resize',
-            result: true,
-            height: 768,
-            imagemagick_stack: 'v2.0.7',
-            resize_strategy: 'fillcrop',
-            width: 1024,
-            zoom: false
-          },
-          merged: {
-            use: {
-                'steps':[
-                    {
-                    'name':':original',
-                    'as':'audio'
-                        
-                    },
-                    {
-                    'name':'resized_image',
-                    'as':'image'
-                        
-                    }
-                    ]
-                
-            },
-            robot: '/video/merge',
-            result: true,
-            ffmpeg_stack: 'v4.3.1',
-            preset: 'ipad-high'
-          },
-          exported: {
-            use: ['imported_image','resized_image','merged',':original'],
-            robot: '/s3/store',
-            credentials: "mp3-img-to-mp4",
-           "path": "uploads/${file.id}.${file.ext}"
-          }
-        },
-        
+      <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
+    <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
+  <script type="text/javascript">
+window.Robodog.form('#myForm', {
+  params: {
+    auth: { key: '995b974268854de2b10f3f6844566287' },
+    triggerUploadOnSubmit: true,
+    steps: {
+      ':original': {
+        robot: '/upload/handle'
       },
-    onResult: function(step, result) {
-        console.log(result.ssl_url);
-        //$('.result').attr('src', result.ssl_url)
-      }
-    });
+      files_filtered: {
+        use: ':original',
+        robot: '/file/filter',
+        result: true,
+        accepts: [['${file.mime}','regex','audio']]
+      },
+      imported_image: {
+        robot: '/http/import',
+        url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+      },
+      resized_image: {
+        use: 'imported_image',
+        robot: '/image/resize',
+        result: true,
+        height: 768,
+        imagemagick_stack: 'v2.0.7',
+        resize_strategy: 'fillcrop',
+        width: 1024,
+        zoom: false
+     },
+     merged: {
+       use: {
+         'steps':
+           [
+             {
+               'name':':original',
+               'as':'audio'
+             },
+             {
+               'name':'resized_image',
+               'as':'image'
+             }
+           ]
+       },    
+       robot: '/video/merge',
+       result: true,
+       ffmpeg_stack: 'v4.3.1',
+       preset: 'ipad-high'
+     },
+     exported: {
+       use: ['imported_image','resized_image','merged',':original'],
+       robot: '/s3/store',
+       credentials: "mp3-img-to-mp4",
+       "path": "uploads/${file.id}.${file.ext}"
+     }
+   }
+ }
+}).on('transloadit:complete', (assembly) => {
+	   $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/postContent",
+                type: "POST",
+                data: assembly,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (response) {
+
+                    console.log(response);
+                    return false;
+
+                    if (response.errors) {
+
+                        jQuery.each(response.errors, function (key, value) {
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').append('<p>' + value + '</p>');
+                        });
+                    } else {
+                        $('.loader').hide();
+                        //$('.percentage').hide();
+                        if (response.status == 1) {
+                            $('#success').show();
+                            $('#success').html(response.messge);
+
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+     
+                            // location.reload(); $('.popup_close').trigger('click');
+
+                        } else {
+
+                            $('#error').show();
+                            $('#error').html(response.messge);
+
+                        }
+
+                    }
+                }
+            });
+})
+
 </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/provider.blade.php ENDPATH**/ ?>
