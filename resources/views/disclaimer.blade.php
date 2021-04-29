@@ -24,7 +24,7 @@
 				<p>Since the Website offers non-tangible, irrevocable goods we do not provide refunds after the product is purchased, which you acknowledge prior to purchasing any product on the Website. Please make sure that you've carefully read service description before making a purchase.</p>
 				<h3>Acceptance of this disclaimer</h3>
 				<p>You acknowledge that you have read this Disclaimer and agree to all its terms and conditions. By accessing and using the Website and Services you agree to be bound by this Disclaimer. If you do not agree to abide by the terms of this Disclaimer, you are not authorized to access or use the Website and Services.</p>
-				<h3 class="text-center">This document was last updated on February22, 2021</h3>
+				<h3 class="text-center">This document was last updated on April 27, 2021</h3>
     </div>
     </div>
     <style>

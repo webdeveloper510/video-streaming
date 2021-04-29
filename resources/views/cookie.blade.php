@@ -34,7 +34,7 @@
         <p>We reserve the right to modify this Policy or its terms relating to the Websiteand Services at any time, effective upon posting of an updated version of this Policy on the Website. When we do, we will revise the updated date at the bottom of this page. Continued use of the Website and Services after any such changes shall constitute your consent to such changes.</p>
         <h3>Acceptance of this policy</h3>
         <p>You acknowledge that you have read this Policy and agree to all its terms and conditions. By accessing and using the Website and Services you agree to be bound by this Policy. If you do not agree to abide by the terms of this Policy, you are not authorized to access or use the Website and Services.</p>
-        <h3 class="text-center">This document was last updated on February22, 2021</h3>
+        <h3 class="text-center">This document was last updated on April 27, 2021</h3>
     </div>
     </div>
     <style>
