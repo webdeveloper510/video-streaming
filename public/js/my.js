@@ -123,7 +123,7 @@ $(document).ready(function () {
                 '><h3 class="description">Description :</h3><p>' + d.description + '</p></div><' +
                 '/div><div class="col"><h3 class="look">Additional Request :</h3><p>' + d.userdescription +
                 '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
-                'ry">' + d.catgory + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
+                'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
                 'p</p></td></tr><tr><td colspan="2">Paid: <span class="Reward" style="color: go' +
                 'ld !important;">' + d.tokens + '<b style="color: gold !important;font-family: ' +
                 'Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr></table><div cl' +
