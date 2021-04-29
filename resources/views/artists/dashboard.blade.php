@@ -159,7 +159,7 @@
         </div> 
 
 
-       <div class="logo">
+       <div class="logo text-center">
        <a href="{{url('/artists/dashboard')}}"> <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
         </a>
     </div>
