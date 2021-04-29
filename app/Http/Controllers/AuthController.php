@@ -681,7 +681,7 @@ class AuthController extends Controller
 // Show the results of the assembly we spawned
 
 
-  //print_r($request->all());die;
+  print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();
@@ -693,34 +693,11 @@ class AuthController extends Controller
               
               /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
               
-                                        $transloadit = new Transloadit([
-                                              "key" => "995b974268854de2b10f3f6844566287",
-                                              "secret" => "4924ce552f2b8fbf3a48a155996bbbd2dce07485",
-                                            ]);
-
-                                                            
-                                                            $response = $transloadit->createAssembly(array(
-                                                              'files' => array('https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
-                                                              'params' => array(
-                                                                'steps' => array(
-                                                                  'resize' => array(
-                                                                    'robot' => '/image/resize',
-                                                                    'width' => 200,
-                                                                    'height' => 100,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ));
-                                                            
-                                                            // Show the results of the assembly we spawned
-                                                            echo '<pre>';
-                                                            print_r($response);
-                                                            echo '</pre>';
-                                                            
-
-
      /*-------------------------------------------------------------------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
-
+                    
+                                //print_r($request->all());die;
+                                
+                                
                  $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
@@ -750,8 +727,9 @@ class AuthController extends Controller
       }
   }
 
-
- 
+public function getResponse(){
+    print_r('eeee');
+}
 
 
   public function getProvider(){
@@ -1130,11 +1108,7 @@ public function notifyEmail(Request $req){
 
       $notId = base64_decode($notifyId);
 
-    
-
       $up = $this->model->notifyConfirm($notId);
-
-      print_r($up);die;
       if($up==1){
 
                 echo "yes";

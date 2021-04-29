@@ -764,11 +764,11 @@
                     <div class="linksonit mb-3">
                         <div class="custom-file">
                             <div class="video" style="display:none;">
-                             {{Form::file('media',['class'=>'custom-file-input file_input','id'=>'social'])}}
+                             {{Form::file('media[]',['class'=>'custom-file-input file_input','id'=>'social'])}}
                              <span id="filename" style="color:red;"></span>
                             </div>
                             <div class="image" style="display:none;">
-                             {{Form::file('media',['class'=>'custom-file-input chooseImage','id'=>'social1'])}}
+                             {{Form::file('media[]',['class'=>'custom-file-input chooseImage','id'=>'social1'])}}
                              <span id="filename" style="color:red;"></span>
                             </div>
                       
@@ -776,6 +776,10 @@
                           <!-- <div class="alert alert-danger d-none">{{$errors->first('media') ?  $errors->first('media') : ''}}</div> -->
                           <small>Upload social media friendly content here</small>
                         </div>
+                        <div class="loader col-6 text-center" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
                     </div>
                 </div>
 
@@ -798,6 +802,7 @@
                <div class="col-md-4 tagging">
                   <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
                   <br>
+                  <div class="table12">
                   <div class="table table-responsive">
                   <table class="table text-left">
                         <thead class="thead-light">
@@ -832,36 +837,6 @@
                       </table>
 
                     </div>
-                  <!-- <div class="row">
-                     <div class="col-4  ">
-                       <h5><b> App Name </b></h5>
-                        </div>
-                        <div class="col-5 text-left">
-                          <h5><b> Username</b></h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                  @foreach($social_name as $name)
-                  <?php                     
-                      $count = count($name->username);
-                    ?>
-                    @for ($i = 0; $i < $count; $i++)       
-                    
-                      <div class="col-4">
-                      <p style="font-weight: 500;"><b>{{$name->username[$i]}}</b></p>
-                      </div>
-                      <div class="col-5">
-                      <p style="font-weight: 500;"><b>{{$name->social_plateform[$i]}}</b></p>
-                       </div>
-                       <div class="col-3">
-                           <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')"> <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> </button>
-                       </div>
-                    
-                     
-                    @endfor
-                  
-                  @endforeach 
-                  </div>-->
                   {!!Form::open(['id'=>'user','method' => 'post'])!!}
               {{Form::token()}}
                       <div class="linksonit mb-3">
@@ -872,22 +847,21 @@
                            </div>
                 
                     </div>
-                    <div class="text-right">
-                    {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm']) }}
+                    </div>
+                    <div class="text-right ">
+                    {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
 </div>
                     {{ Form::close() }}
                 </div>
 
              </div>
-             <div class="loader col-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
-                <span class="percentage" style="color:green;font-weight: bold;"></span>
-            </div>
+           
             <div class="alert alert-success" id="success" style="display:none"></div>
                   <div class="text-right">
               
                   </div>
               </div>
+            </div>
             </div>
           
             <div class="col-md-4">
@@ -936,7 +910,10 @@ label.error {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
+.table-responsive {
+    max-height: 230px;
+    overflow: scroll;
+}
 .edit12 {
     margin-top: 30%;
 }

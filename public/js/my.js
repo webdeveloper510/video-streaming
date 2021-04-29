@@ -1502,6 +1502,7 @@ $(document).on('submit', '#form_sub', function (event) {
 $(document).on('submit', '#edit_form', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
+    $('.button_disable').attr('disabled',true);
     //console.log(formData);return false;
     $.ajax({
         type: 'POST',
@@ -1538,6 +1539,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
+            $('.button_disable').removeAttr('disabled');
            // console.log(data);
 
             if (data.status == 1) {
@@ -1569,6 +1571,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
     $('.loader').show();
+    $('.button_disable').attr('disabled',true);
     //console.log(formData);return false;
     $.ajax({
         type: 'POST',
@@ -1605,9 +1608,12 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
         success: function (data) {
 
-            console.log(data);
+            $('.button_disable').removeAttr('disabled');
+
+            //console.log(data);
 
             if (data.status == 1) {
+              
                 // $('.alert-success').show(); $('.alert-success').html(data.message);
                 $('.popup_close').trigger('click');
                 location.reload();
@@ -1629,6 +1635,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
 $(document).on('submit', '#edit_Video_info', function (event) {
     event.preventDefault();
+    $('.button_disable').attr('disabled',true);
     $.ajax({
         type: 'POST',
         url: APP_URL + "/artist/editVedio",
@@ -1638,8 +1645,9 @@ $(document).on('submit', '#edit_Video_info', function (event) {
 
         data: $(this).serialize(),
         success: function (data) {
+            $('.button_disable').removeAttr('disabled');
 
-            console.log(data);
+           // console.log(data);
 
             if (data == 1) {
                 $('.alert-success').show();
@@ -1875,7 +1883,9 @@ $('#filechange').submit(function (e) {
 });
 
 function edit_offer(data) {
-    var json_info = JSON.parse(data);
+    //console.log(data);
+    //console.log(data);return false;
+    var json_info = data;
     var url = 'http://localhost/laravel/video-streaming/storage/app/public/video/';
     var src = url + json_info.media;
     //console.log(json_info);return false;
@@ -1898,16 +1908,9 @@ function edit_offer(data) {
     $('.file_input #ilename').text(json_info.media);
 
     $('.' + json_info.type).show();
-    $('#select_status')
-        .val(json_info.offer_status)
-        .attr("selected", "selected");
-    $('#quality')
-        .val(json_info.quality)
-        .attr("selected", "selected");
-
-    $('.' + json_info.type)
-        .val(json_info.categoryid)
-        .attr("selected", "selected");
+    $('#select_status').val(json_info.offer_status).attr("selected", "selected");
+    $('#quality').val(json_info.quality).attr("selected", "selected");
+    $('.' + json_info.type).val(json_info.categoryid).attr("selected", "selected");
 }
 
 function change_other_info(data) {
@@ -2395,14 +2398,20 @@ if ($("#social_media").length > 0) {
     $("#social_media").validate({
 
         rules: {
-            media: {
+            'media[]': {
+                required: true
+            },
+            gender:{
                 required: true
             }
         },
         messages: {
-            media: {
+            'media[]': {
                 required: "Please Enter Media",
                 maxlength: "Enter Media"
+            },
+            'gender': {
+                required: "Select Radio Button",
             }
         },
         submitHandler: function (form) {
@@ -2881,11 +2890,11 @@ function deleteName(id,appname,name){
 
         success: function (data) {
 
-            //console.log(data);
+           // console.log(data);return false;
 
             if (data == 1) {
 
-                alert('Delete Successfully!');
+                alert("Successfully deleted!");
 
                 location.reload();
 
@@ -2962,12 +2971,13 @@ $(document).on('submit', '#user', function (event) {
 });
 
 function appendDiv(a){
+    $('#save').removeAttr('disabled')
     //console.log('yhis');
     var html  = "<div class='row social_append px-3'>"+
                             "<div class='col-md-6'>"+
                                                 "<div class='form-group'>"+
                                 "<select class='custom-select valid' name='social_plateform[]' id='inputGroupSelect01' required>"+
-                                        "<option selected=''>Choose...</option>"+
+                                        "<option value=''>Choose...</option>"+
                                         "<option value='Facebook'>Facebook</option>"+
                                         "<option value='Instagram'>Instagram</option>"+
                                         "<option value='Youtube'>Youtube</option>"+
@@ -2991,21 +3001,11 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
-
-  //  console.log('seconds');return false;
-
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
-    //console.log(hours);return false;
-    var duration = parseInt(minutes) == 0
-        ? '0:' + parseInt(seconds)
-        : minutes + ":" + parseInt(seconds);
-    //console.log(duration);return false;
-    var hours_sys = hours == 0
-        ? '0:' + duration
-        : hours + ":" + duration;
-    //console.log(hours_sys);return false;
+    var duration = parseInt(minutes) == 0 ? '0:' + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+    var hours_sys = hours == 0 ? '0:' + duration : hours + ":" + duration;
     $(id).html(hours_sys);
     $.ajax({
         type: 'POST',
@@ -3013,16 +3013,10 @@ function seconds_to_min_sec(seconds, id, vidid) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data: {
-            'duration': hours_sys,
-            'id': vidid
-        },
+        data: {'duration': hours_sys,'id': vidid},
 
         success: function (data) {
-
             console.log(data);
-            return false;
-
         }
     });
 

@@ -26,7 +26,7 @@
         <div class="overlayprofile">
            <img src=" {{asset('images/loaderartist.gif')}}" style="display:none" width="100px" height="100px" class="img-fluid">
         </div>
-        <img src="{{ isset($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png') }}" width="200px" height="200px">
+        <img src="{{($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png') }}" width="200px" height="200px">
         <div class="iconcamera" >
         <i class="fa fa-camera image" data-id="profilepicture"></i>
 
@@ -93,18 +93,15 @@
        
         <div class="col-md-2 text-center">
         
-        <h3 class="text-green" style="{{ $offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
+        <h3 class="text-green" style="{{$offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
          <h4 ><span style="color:gold !important">{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">
-      <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"
-      ><i class="fa fa-trash-o"></i></button>
-          <button type="button"
-           data-toggle="modal" 
-           data-target="#myModal"
-            class="btn btn-info btn-sm" 
-          onclick="edit_offer('{{json_encode($offer)}}')"
-            >Edit</button>
+      <button class="btn btn-sm btn-light delete" table="offer" data-id="{{$offer->id}}"><i class="fa fa-trash-o"></i></button>
+          <button type="button" data-toggle="modal" 
+          data-target="#myModal" class="btn btn-info btn-sm" 
+          onclick="edit_offer({{json_encode($offer)}})">
+        Edit</button>
            </div>
         </div>
         <hr>
@@ -204,6 +201,7 @@
             var id;
               setTimeout(() => {
               video = $("#collection_"+"{{$detail->id}}");
+              //console.log(video);
               seconds_to_min_sec(video[0].duration,"#duration1_"+"{{$detail->id}}","{{$detail->id}}");
             }, 2000);
           </script>
@@ -250,7 +248,7 @@ Your browser does not support the audio tag.
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-@if($aud->duration=='')
+@if($aud->duration=='' || $aud->duration=='NaN:NaN:NaN')
           <script>
            var video;
             var id;
@@ -513,7 +511,7 @@ Your browser does not support the audio tag.
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary button_disable">Save changes</button>
             </div>
             {{ Form::close() }}
         </div>
@@ -540,15 +538,6 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" {{$random[0]->type=='audio' ? 'checked': ''}}/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
           </div>   
-          <!-- <div class="col-md-12 mt-2 convert">
-           {{Form::label('quality:', 'quality:')}} 
-           <select name="convert"  class='form-control'>
-                <option value="">Choose ...</option>
-               @foreach($qualities as $q)
-               <option  value="{{$q->quality}}" {{($random[0]->convert)==$q->quality ? 'selected' : ''}}>{{$q->quality}}px </option>
-               @endforeach
-            </select>
-            </div> -->
           <div class="col-md-12 mt-3 text-white file" style="display:none;">
             {{Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])}}
             <br> 
@@ -641,7 +630,7 @@ Your browser does not support the audio tag.
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default popup_close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary button_disable">Save changes</button>
                 <div class="alert alert-success" role="alert" style="display:none">
                            This is a success alert—check it out!
                 </div>
@@ -727,7 +716,7 @@ Your browser does not support the audio tag.
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary button_disable">Save changes</button>
                           <div class="alert alert-success" id="success" style="display:none">
     
                            </div>

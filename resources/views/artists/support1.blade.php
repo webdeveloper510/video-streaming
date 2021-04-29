@@ -114,13 +114,15 @@
                                                 <tbody>
                                                 <?php 
                                                 $count= array_filter(explode(',',$info->username));
+                                                $social_plateform= array_filter(explode(',',$info->social_plateform));
+                                            
                                                 $a = count($count);
                                                 ?>
                                           @for ($i = 0; $i < $a; $i++)
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>{{$info->social_plateform[$i]}}</td>
-                                                        <td> {{$info->username[$i]}}</td>
+                                                        <td>{{$count[$i]}}</td>
+                                                        <td> {{$social_plateform[$i]}}</td>
                                                     
                                                     </tr>
                                                     @endfor                                                    
@@ -131,18 +133,6 @@
                                         <div class="text-right m-3 ">
                                         <button class="btn btn-primary" type="button">Copy</button>
                                     </div>
-                                <!-- <div class="accounts">
-                                    <h3>
-                                        Social Accounts :</h3>
-                                    <h5>
-                                        Instagram
-                                        {{$info->username}}</h5>
-                                    <br>
-                                    <h5>
-                                        Twitter
-                                        {{$info->username}}</h5>
-                                   
-                                </div> -->
 
                             </div>
                         </div>
@@ -225,18 +215,20 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php 
+                                                $count= array_filter(explode(',',$info->username));
+                                                $social_plateform= array_filter(explode(',',$info->social_plateform));
+                                            
+                                                $a = count($count);
+                                                ?>
+                                          @for ($i = 0; $i < $a; $i++)
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>FAcebook</td>
-                                                        <td> {{$info->username}}</td>
+                                                        <td>{{$count[$i]}}</td>
+                                                        <td> {{$social_plateform[$i]}}</td>
                                                     
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>YouTube</td>
-                                                        <td>{{$info->username}}</td>
-                                                    
-                                                    </tr>
+                                                    @endfor   
                                                     
                                                 </tbody>
                                             </table>

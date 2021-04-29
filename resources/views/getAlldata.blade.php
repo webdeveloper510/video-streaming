@@ -149,7 +149,13 @@
 .card:hover{
   border:1px solid yellow;
 }
-
+.checkall input {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 17px;
+    z-index: 9;
+}
 .choose1 .row {
    
    color: #000 !important;
