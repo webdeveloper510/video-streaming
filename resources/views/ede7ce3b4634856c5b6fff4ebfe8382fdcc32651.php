@@ -462,7 +462,7 @@ select.form-select.form-control, select.form-select.form-control * {
     padding-left: 10px;
 }
 .pricetime .text-right {
-    margin-top: -41px;
+    margin-top: -47px;
     margin-right: 7px;
 }
 .tooltip {

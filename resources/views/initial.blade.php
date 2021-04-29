@@ -329,9 +329,7 @@
 
             @if($login && $recently)
             <h3 class="tittle">
-
-                Recently Search
-
+               Recently Searched
             </h3>
             @endif
         </div>

@@ -1771,6 +1771,7 @@ function addTohistory(type) {
 }
 
 $('.image').click(function () {
+    console.log('yes');
     var image_type = $(this).attr('data-id');
     selectLoader = image_type=='profilepicture' ? 'profile_loader' : 'cover_loader';
    // $(this).parent().parent().find('.img-fluid').show();
@@ -1782,7 +1783,7 @@ $('.image').click(function () {
 $(document).on('change', '#change_section', function () {
 
     var value = $(this).val();
-    console.log(value);
+   // console.log(value);
     if (value == 'all') {
 
         $('.filter_div').show();
@@ -2972,6 +2973,7 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
+    //console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
