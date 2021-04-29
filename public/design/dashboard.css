@@ -297,7 +297,10 @@ li.profileimagemobile hr {
 .logo img {
     position: absolute;
     top: 6px;
-    left: 38%;
+    left: 0;
+    display: block;
+    right: 0;
+    margin: 0% auto !important;
 }
 ul.subnav {
     width:100%;
