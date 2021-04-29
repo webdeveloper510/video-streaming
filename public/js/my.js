@@ -1817,24 +1817,6 @@ function imageUpdate() {
 
     $('#imageChange').click();
 
-
-   // document.body.onfocus = checkIt;
-
-
-    //console.log(event.target.value);
-    
-    // if(data.value.length > 0){
-    //     $('.img-fluid').show();
-    //    // console.log('dddd');
-    //     $('#imageChange').click();
-    // }
-    //  if(data.value.length==0){
-    //     //console.log('ye0');
-    //     $('.img-fluid').hide();
-    // }
-
-    //$('#imageChange').click();
-
 }
 
 
