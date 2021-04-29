@@ -15,8 +15,7 @@
         <div style="display:none">
         <?php echo Form::open(['id'=>'filechange','method' => 'post', 'files'=>true]); ?>
 
-          <?php echo e(Form::token()); ?>
-
+          <?php echo e(Form::token()); ?>   
         <input type="file" class="image_change" name="image" onchange="imageUpdate()"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
         <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>

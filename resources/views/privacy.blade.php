@@ -100,7 +100,7 @@
 <p>We reserve the right to modify this Policy or its terms relating to the Websiteand Services from time to time in our discretion and will notify you of any material changes to the way in which we treat Personal Information. When we do, we will revise the updated date at the bottom of this page. We may also provide notice to you in other ways in our discretion, such as through contact information you have provided. Any updated version of this Policy will be effective immediately upon the posting of the revised Policy unless otherwise specified. Your continued use of the Website and Services after the effective dateof the revised Policy (or such other act specified at that time) will constitute your consent to those changes. However, we will not, without your consent, use your Personal Information in a manner materially different than what was stated at the time your Personal Information was collected.</p>
 <h3>Acceptance of this policy</h3>
 <p>You acknowledge that you have read this Policy and agree to all its terms and conditions. By accessing and using the Website and Services you agree to be bound by this Policy. If you do not agree to abide by the terms of this Policy, you are not authorized to access or use the Website and Services.</p>
-<h3 class="text-center">This document was last updated on February22, 2021</h3>
+<h3 class="text-center">This document was last updated on April 27, 2021</h3>
 </div>
 </div>
 <style>
