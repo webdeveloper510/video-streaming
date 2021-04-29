@@ -80,6 +80,8 @@
 
         <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
         <input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
+        <input type="hidden" name="created_at" class="created_at" value=""/>
+        <input type="hidden" name="updated_at" class="updated_at" value=""/>
         <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
         <input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
 
@@ -144,4 +146,14 @@
             </div>
 
 
-        <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistoffers.blade.php ENDPATH**/ ?>
+        <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+        <script>
+        
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+    $('.created_at').val(dateTime)
+    $('.updated_at').val(dateTime)
+        </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistoffers.blade.php ENDPATH**/ ?>

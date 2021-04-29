@@ -287,13 +287,8 @@ button.btn.btn-info {
 li.profileimagemobile hr {
     width: 69%;
 }
-.logo img {
+.headerbar {
     position: absolute;
-    top: 6px;
-    left: 0;
-    display: block;
-    right: 0;
-    margin: 0% auto !important;
 }
 ul.subnav {
     width:100%;

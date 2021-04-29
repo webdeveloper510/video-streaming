@@ -14,7 +14,7 @@
         </div>
         <div style="display:none">
         {!!Form::open(['id'=>'filechange','method' => 'post', 'files'=>true])!!}
-          {{Form::token()}}
+          {{Form::token()}}   
         <input type="file" class="image_change" name="image" onchange="imageUpdate()"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
         {{ Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange']) }}
