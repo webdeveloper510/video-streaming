@@ -12,8 +12,7 @@
 	<li>Distributing malware or other malicious code.</li>
 	<li>Disclosing sensitive personal information about others.</li>
 	<li>Collecting, or attempting to collect, personal information about third parties without their knowledge or consent.</li>
-	<li>Distributing pornography or adult related content.</li>
-	<li>Promoting or facilitating prostitution or any escort services.</li>
+	
 	<li>Hosting, distributing or linking to child pornography or content that is harmful to minors.</li>
 	<li>Promoting or facilitating gambling, violence, terrorist activities or selling weapons or ammunition.</li>
 	<li>Engaging in the unlawful distribution of controlled substances, drug contraband or prescription medications.</li>
