@@ -1,4 +1,5 @@
 var storage_url;
+var theFile;
 
 var APP_URL = $('#base_url').attr('data-url');
 
@@ -1793,12 +1794,52 @@ $(document).on('change', '#change_section', function () {
     }
 
 })
+$('body').click(function(){
+    $('.alert-success').hide()
+    $('.alert-danger').hide()
+  });
+theFile = document.getElementsByClassName('image_change')
+function imageUpdate() {
 
-function imageUpdate(data) {
+   // theFile = event;
+    
+    console.log(theFile);
 
-    $('#imageChange').click();
+
+   // document.body.onfocus = checkIt;
+
+
+    //console.log(event.target.value);
+    
+    // if(data.value.length > 0){
+    //     $('.img-fluid').show();
+    //    // console.log('dddd');
+    //     $('#imageChange').click();
+    // }
+    //  if(data.value.length==0){
+    //     //console.log('ye0');
+    //     $('.img-fluid').hide();
+    // }
+
+    //$('#imageChange').click();
 
 }
+
+function checkIt() {
+    console.log(theFile);
+    // Check if the number of files
+    // is not zero
+    if (theFile.length) {
+      console.log('Files Loaded');
+    }
+    // Alert the user if the number
+    // of file is zero
+    else {
+      console.log('Cancel clicked');
+    }
+    document.body.onfocus = null;
+    console.log('checked');
+} 
 
 $('#filechange').submit(function (e) {
     //console.log('abc');

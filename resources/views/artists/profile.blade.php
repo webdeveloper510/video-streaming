@@ -15,7 +15,7 @@
         <div style="display:none">
         {!!Form::open(['id'=>'filechange','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
-        <input type="file" class="image_change" name="image" onchange="imageUpdate(this)"/>
+        <input type="file" class="image_change" name="image" onclick="imageUpdate()"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
         {{ Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange']) }}
 
@@ -199,7 +199,7 @@
               @if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN')
  
           <script>
-            console.log('eeee');
+            //console.log('eeee');
            var video;
             var id;
               setTimeout(() => {
