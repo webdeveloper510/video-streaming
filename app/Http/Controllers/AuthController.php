@@ -676,12 +676,7 @@ class AuthController extends Controller
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
-  //print_r($request->all());die;
 
-// Show the results of the assembly we spawned
-
-
-  print_r($request->all());die;
 
       if($request->media){
             $data=$request->all();

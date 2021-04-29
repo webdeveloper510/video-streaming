@@ -282,74 +282,7 @@ window.Robodog.form('#myForm', {
    }
  }
 }).on('transloadit:complete', (assembly) => {
-	   $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: APP_URL + "/postContent",
-                type: "POST",
-                data: assembly,
-                processData: false,
-                contentType: false,
-                xhr: function () {
-                    var xhr = $
-                        .ajaxSettings
-                        .xhr();
-                    if (xhr.upload) {
-                        xhr
-                            .upload
-                            .addEventListener('progress', function (event) {
-                                var percent = 0;
-                                var position = event.loaded || event.position;
-                                var total = event.total;
-                                if (event.lengthComputable) {
-                                    percent = Math.ceil(position / total * 100);
-                                }
-                                $('#top_title').html('Uploding...' + percent + '%');
-                                $('.percentage').html(percent + '%');
-                                if (percent == 100) {
-                                    $('.loader').hide();
-                                }
-                            }, true);
-                    }
-                    return xhr;
-                },
-                success: function (response) {
-
-                    console.log(response);
-                    return false;
-
-                    if (response.errors) {
-
-                        jQuery.each(response.errors, function (key, value) {
-                            jQuery('.alert-danger').show();
-                            jQuery('.alert-danger').append('<p>' + value + '</p>');
-                        });
-                    } else {
-                        $('.loader').hide();
-                        //$('.percentage').hide();
-                        if (response.status == 1) {
-                            $('#success').show();
-                            $('#success').html(response.messge);
-
-                            setTimeout(function () {
-                                location.reload();
-                            }, 2000);
-     
-                            // location.reload(); $('.popup_close').trigger('click');
-
-                        } else {
-
-                            $('#error').show();
-                            $('#error').html(response.messge);
-
-                        }
-
-                    }
-                }
-            });
+	console.log(assembly.results.merged[0].ssl_url)
 })
 
 </script>
