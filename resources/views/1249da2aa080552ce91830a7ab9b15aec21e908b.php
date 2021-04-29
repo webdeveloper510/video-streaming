@@ -5,7 +5,7 @@
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
         <div class="overlayartist text-center">
-           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid" style="display:none">
+           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid cover_loader" style="display:none">
         </div>
            <img src="<?php echo e($details && $details[0]->cover_photo!='' ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/dummy.png')); ?>" width="100%" height="500px">
           <div class="iconcamera">
@@ -17,11 +17,7 @@
 
           <?php echo e(Form::token()); ?>
 
-<<<<<<< HEAD
-        <input type="file" class="image_change" name="image" onchange="initialize(this)"/>
-=======
-        <input type="file" class="image_change" name="image" onclick="imageUpdate()"/>
->>>>>>> 69a87b51c7789dfc97a2ef3a743c64ca8d89ebf8
+        <input type="file" class="image_change" name="image" onchange="imageUpdate()"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
         <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>
 
@@ -32,7 +28,7 @@
         </div>
         <div class="profileimg">
         <div class="overlayprofile">
-           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid">
+           <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid profile_loader">
         </div>
         <img src="<?php echo e(($details[0]->profilepicture) ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/newlogo.png')); ?>" width="200px" height="200px">
         <div class="iconcamera" >
