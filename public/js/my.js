@@ -91,6 +91,9 @@ $(document).on('change', '#exampleFormControlSelect1', function () {
 
 $(document).ready(function () {
 
+//    console.log('ffhfhf')
+
+
     storage_url = $('#storagePath').attr('url');
 
     var checked_radio = $('.user:checked').val();
@@ -291,6 +294,7 @@ function playVideo(a) {
     }
 }
 $(document).ready(function () {
+    console.log('yes');
     $('.rad_But').each(function () {
         if ($(this).is(':checked') == true) {
             $(this).val() == 'male'
@@ -298,7 +302,7 @@ $(document).ready(function () {
                 : $('.hide').show();
         }
     });
-
+   
     var id1 = $(".media1:checked")
         .attr('class')
         .split(' ');
@@ -310,6 +314,9 @@ $(document).ready(function () {
     $('#' + id1[1]).show();
 
     $('#' + notId[1]).hide();
+
+
+    
 
 });
 
@@ -1771,6 +1778,7 @@ function addTohistory(type) {
 }
 
 $('.image').click(function () {
+   // console.log('yes');
     var image_type = $(this).attr('data-id');
     selectLoader = image_type=='profilepicture' ? 'profile_loader' : 'cover_loader';
    // $(this).parent().parent().find('.img-fluid').show();
@@ -1782,7 +1790,7 @@ $('.image').click(function () {
 $(document).on('change', '#change_section', function () {
 
     var value = $(this).val();
-    console.log(value);
+   // console.log(value);
     if (value == 'all') {
 
         $('.filter_div').show();
@@ -1816,24 +1824,6 @@ function imageUpdate() {
     $('.'+selectLoader).show();
 
     $('#imageChange').click();
-
-
-   // document.body.onfocus = checkIt;
-
-
-    //console.log(event.target.value);
-    
-    // if(data.value.length > 0){
-    //     $('.img-fluid').show();
-    //    // console.log('dddd');
-    //     $('#imageChange').click();
-    // }
-    //  if(data.value.length==0){
-    //     //console.log('ye0');
-    //     $('.img-fluid').hide();
-    // }
-
-    //$('#imageChange').click();
 
 }
 
@@ -2990,6 +2980,7 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
+    //console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;

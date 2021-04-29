@@ -1692,8 +1692,8 @@ public function readNotification(Request $request){
           //print_r($offerInfo['id']);die;
         Session::put('offer_artist_id',$offerInfo['id']);
 
-        $offerInfo['created_at'] = now();
-        $offerInfo['updated_at'] = now();
+        $offerInfo['created_at'] = $request->created_at;
+        $offerInfo['updated_at'] = $request->updated_at;
         $offerInfo['status'] = 'new';
         $offerInfo['is_seen'] = 'no';
         $offerInfo['choice'] = $request->duration;

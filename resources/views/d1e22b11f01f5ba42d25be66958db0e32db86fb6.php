@@ -816,4 +816,4 @@
                 autoPlay:true, nav:true, rewindNav:false }); }); </script-->
 
                 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-                <?php //include(app_path().'/include/includebottom.php');?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>
+                <?php //include(app_path().'/include/includebottom.php');?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
