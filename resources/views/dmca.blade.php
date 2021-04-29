@@ -27,7 +27,7 @@
 		<p>The process described in this Policy does not limit our ability to pursue any other remedies we may have to address suspected infringement.</p>
 		<h3>Changes and amendments</h3>
 		<p>We reserve the right to modify this Policy or its terms relating to the Websiteand Services at any time, effective upon posting of an updated version of this Policy on the Website. When we do, we will revise the updated date at the bottom of this page.</p>
-		<h3 class="text-center">This document was last updated on February22, 2021</h3>
+		<h3 class="text-center">This document was last updated on April 27, 2021</h3>
     </div>
     </div>
     <style>
