@@ -5507,7 +5507,7 @@ i.fa.fa-shopping-cart {
 		justify-content: unset;
 	}
 	footer {
-		min-height: 400px !important;
+		min-height: 300px !important;
 	}
 	#search {
 		width: auto !important;
