@@ -78,7 +78,7 @@
         </div>
         {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
         <input type="hidden" name="user_id" value="{{$GLOBALS['id'].'_'.$GLOBALS['user_id']}}"/>
-        <input type="hidden" name="price" id="offer_pay" value="{{$GLOBALS['price']}}"/>
+        <input type="hidden" name="price" id="offer_pay" value="{{$offerdata->max*$GLOBALS['price']}}"/>
         <input type="hidden" name="created_at" class="created_at" value=""/>
         <input type="hidden" name="updated_at" class="updated_at" value=""/>
         <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
@@ -86,8 +86,8 @@
 
         <input type="hidden" name="allinfo" value="{{json_encode($offerdata)}}"/>
         <div class="col-md-4">
-          <h3>Set Duration</h3>
-          {{Form::number('duration', $offerdata->max,['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])}}
+          <h3>Set Duration in Minutes</h3>
+          {{Form::number('duration', $offerdata->max,['class'=>'form-control','pattern'=>'[A-Za-z]','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])}}
         </div>
         @endforeach
         <h4>Additional Request <small>(Price: <span style="color:gold !important; font-size:16px;"> {{$GLOBALS['add_price']}} </span><b style="font-size:16px;font-family: 'Alfa Slab One', cursive;color:gold !important;font-weight: 400;">PAZ</b>)</small>

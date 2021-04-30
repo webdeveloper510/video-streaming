@@ -79,7 +79,7 @@
         <?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
 
         <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
-        <input type="hidden" name="price" id="offer_pay" value="<?php echo e($GLOBALS['price']); ?>"/>
+        <input type="hidden" name="price" id="offer_pay" value="<?php echo e($offerdata->max*$GLOBALS['price']); ?>"/>
         <input type="hidden" name="created_at" class="created_at" value=""/>
         <input type="hidden" name="updated_at" class="updated_at" value=""/>
         <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
@@ -88,7 +88,7 @@
         <input type="hidden" name="allinfo" value="<?php echo e(json_encode($offerdata)); ?>"/>
         <div class="col-md-4">
           <h3>Set Duration</h3>
-          <?php echo e(Form::number('duration', $offerdata->max,['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])); ?>
+          <?php echo e(Form::number('duration', $offerdata->max.' '.'min',['class'=>'form-control','pattern'=>'[A-Za-z]','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])); ?>
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
