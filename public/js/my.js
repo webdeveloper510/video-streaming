@@ -1489,9 +1489,7 @@ $(document).on('submit', '#form_sub', function (event) {
             if (data.status == 1) {
                 $('.successfull').show();
                 // $('.show_alert').html(data.message);
-                setTimeout(function () {
-                    location.reload()
-                }, 2000);
+              
             } else {
 
                 $('.show_alert').show();
@@ -1505,6 +1503,10 @@ $(document).on('submit', '#form_sub', function (event) {
     });
 
 });
+
+function reloadPage(){
+        location.reload()
+}
 /**-------------------------------------------------------Edit Offer Data-------------------------------------------------------------------- */
 
 $(document).on('submit', '#edit_form', function (event) {
