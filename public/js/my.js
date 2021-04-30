@@ -1473,6 +1473,8 @@ $(document).on('click', '.off', function () {
 
 $(document).on('submit', '#form_sub', function (event) {
     event.preventDefault();
+    var visiblie = $('#popup_visibile').val();
+   // console.log(visiblie);return false;
     $.ajax({
         type: 'POST',
         url: APP_URL + "/orderVideo",
@@ -1487,7 +1489,18 @@ $(document).on('submit', '#form_sub', function (event) {
             //console.log(data);return false;
 
             if (data.status == 1) {
-                $('.successfull').show();
+                if(!visiblie){
+
+                    $('.successfull').show();
+
+
+                }
+
+                else{
+                    setTimeout(function () {
+                        location.reload()
+                    }, 2000);
+                }
                 // $('.show_alert').html(data.message);
               
             } else {
@@ -1504,8 +1517,29 @@ $(document).on('submit', '#form_sub', function (event) {
 
 });
 
+$(document).on('click', '.popup_not_show', function (event) {
+    event.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/popupClose",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data:{},
+
+        success: function (data) {
+
+            //console.log(data);return false;
+
+        }
+    });
+
+})
+
 function reloadPage(){
-        location.reload()
+
+    location.reload();
 }
 /**-------------------------------------------------------Edit Offer Data-------------------------------------------------------------------- */
 
