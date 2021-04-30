@@ -88,7 +88,7 @@
         <input type="hidden" name="allinfo" value="<?php echo e(json_encode($offerdata)); ?>"/>
         <div class="col-md-4">
           <h3>Set Duration</h3>
-          <?php echo e(Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>1,'placeholder'=>'Duration'])); ?>
+          <?php echo e(Form::number('duration', $offerdata->max,['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])); ?>
 
         </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

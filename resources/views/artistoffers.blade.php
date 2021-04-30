@@ -87,7 +87,7 @@
         <input type="hidden" name="allinfo" value="{{json_encode($offerdata)}}"/>
         <div class="col-md-4">
           <h3>Set Duration</h3>
-          {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>1,'placeholder'=>'Duration'])}}
+          {{Form::number('duration', $offerdata->max,['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])}}
         </div>
         @endforeach
         <h4>Additional Request <small>(Price: <span style="color:gold !important; font-size:16px;"> {{$GLOBALS['add_price']}} </span><b style="font-size:16px;font-family: 'Alfa Slab One', cursive;color:gold !important;font-weight: 400;">PAZ</b>)</small>
