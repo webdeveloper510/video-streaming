@@ -122,7 +122,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title">Order Status</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" onclick="reloadPage()" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -134,7 +134,7 @@
 
                   </div>
                   <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">Close</button>
                   </div>
                 </div>
               </div>
