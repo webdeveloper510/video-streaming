@@ -5391,6 +5391,12 @@ section.background139 {
     margin-top: 10% !important;
     border-radius: 30px;
 }
+.reward-button{
+	position: absolute;
+    bottom: 7px;
+    right: 4%;
+}
+}
 a.logout1 {
     margin-right: 8%;
     margin-top: 1%;
@@ -5425,11 +5431,6 @@ a.logout1 {
     color: white;
 }
 
-/*a.btn:hover, button.btn:hover, a.btn:focus, button.btn:focus {
-    background: transparent; 
-  color: #fff; 
-}
-*/
 .hello p {
     padding: 14px;
     border: 1px solid black;
@@ -5438,10 +5439,6 @@ a.logout1 {
     margin-bottom: 20px;
         text-align: center;
 }
-
-
-
-
 
 @media only screen and (max-width: 950px) {
 .hello p {
