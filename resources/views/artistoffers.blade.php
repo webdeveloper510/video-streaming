@@ -81,6 +81,7 @@
         <input type="hidden" name="price" id="offer_pay" value="{{$offerdata->max*$GLOBALS['price']}}"/>
         <input type="hidden" name="created_at" class="created_at" value=""/>
         <input type="hidden" name="updated_at" class="updated_at" value=""/>
+
         <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
         <input type="hidden" name="add_price" id="additional" value="{{$GLOBALS['add_price']}}">
 
@@ -105,6 +106,7 @@
         </div>
         {{ Form::close() }}
         </div>
+        <input type="hidden" id="popup_visibile" value="{{$visible==1 ? false : true}}"/>
         <div class="alert alert-success show_alert" role="alert" style="display:none">
           A simple success alert—check it out!
         </div>
@@ -130,7 +132,7 @@
                    <h2 class="text-center"> Order Successful!</h2>
                    <p> You can check your order status anything in - My Order</p>
 
-                   <p><input type="checkbox" aria-label="Checkbox for following text input"> Do not show again</p>
+                   <p><input type="checkbox" class="popup_not_show" aria-label="Checkbox for following text input"> Do not show again</p>
 
                   </div>
                   <div class="modal-footer text-center">

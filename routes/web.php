@@ -109,6 +109,8 @@ Route::post('personal_info','AuthController@personal_info');
 
 Route::post('resetPassword','AuthController@resetPassword');
 
+Route::post('popupClose','AuthController@popupClose');
+
 Route::post('selectListname', 'AuthController@selectListname');
 
 Route::post('readNotification','AuthController@readNotification');

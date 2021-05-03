@@ -44,6 +44,10 @@ class cancelOrder extends Command
         $data = DB::table('offer')
         ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
         ->get()->toArray();
+        
+           $data1 = DB::table('offer')
+        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates1'))
+        ->get()->toArray();
 
         //print_r($data);die;
 
@@ -57,12 +61,20 @@ class cancelOrder extends Command
             }
 
         }
-
-        $update =  DB::table('offer')->whereIn('id',$ids)->update([
+           $update =  DB::table('offer')->whereIn('id',$ids)->update([
             'status'=>'due'
         ]);
+           foreach($data1 as $k=>$v){
 
-        if($update){
+            if(date('Y-m-d')==$v->dates1){
+
+                $ids1 = $v->id;
+             $update1 =  DB::table('offer')->where('id',$ids1)->update([
+            'status'=>'Expired'
+             ]);
+                   
+
+        if($update1){
             $data = array(
             'created_at'=>now(),
             'updated_at'=>now(),
@@ -85,6 +97,12 @@ class cancelOrder extends Command
             }
 
         }
+
+            }
+
+        }
+
+ 
 
         //return DB::table('cron')->insert(array('name'=>'amit'));
     }
