@@ -67,12 +67,16 @@ class cancelOrder extends Command
            foreach($data1 as $k=>$v){
 
             if(date('Y-m-d')==$v->dates1){
+                
+            $date = $v->dates1;
+        $thirtyDaysUnix = strtotime('+30 days', strtotime($date));
+         $expiryDate = date("Y-m-d", $thirtyDaysUnix);
 
                 $ids1 = $v->id;
              $update1 =  DB::table('offer')->where('id',$ids1)->update([
             'status'=>'Expired'
              ]);
-                   
+             
 
         if($update1){
             $data = array(
@@ -83,6 +87,8 @@ class cancelOrder extends Command
             'message'=>'Your order' .$v->title.' has expired and your tokens have been returned',
             'notificationfor'=>'user'
             );
+            
+            
 
             $insert_not = DB::table('notification')->insert($data);
 
@@ -92,8 +98,20 @@ class cancelOrder extends Command
                     $update = DB::table('users')->where('id',$v->userid)->update([
                         'tokens' =>  DB::raw('tokens +'.$tokens[0]->tokens),            
                       ]);
+                      
+                            if(date('Y-m-d')==$expiryDate){
+                            
+                             $update = DB::table('offer')->where('id',$v->id)->update([
+                           'deliever_media' =>'',
+                           'userid'=>0
+                           ]);
+                                      
+                        }
 
                      return  DB::table('reserved_tokens')->where('Offermediaid',$v->id)->delete();
+                     
+                  
+
             }
 
         }
