@@ -102,6 +102,10 @@ class AuthController extends Controller
 
     }
 
+    public function overview(){
+        return view('overview');
+    }
+
 
 
     

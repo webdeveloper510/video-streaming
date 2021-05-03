@@ -20,6 +20,8 @@ Route::get('/','AuthController@home')->middleware('authentication');
 
 Route::get('/register/{id?}', 'AuthController@register');
 
+Route::get('overview','AuthController@overview');
+
 Route::get('checkUser/{user}', 'AuthController@check');
 
 Route::get('addToken', 'AuthController@addtoken');
