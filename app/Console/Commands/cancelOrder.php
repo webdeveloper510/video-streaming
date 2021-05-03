@@ -45,6 +45,8 @@ class cancelOrder extends Command
         ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
         ->get()->toArray();
 
+     
+
         //print_r($data);die;
 
         foreach($data as $k=>$v){
