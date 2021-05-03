@@ -78,16 +78,17 @@
         </div>
         {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
         <input type="hidden" name="user_id" value="{{$GLOBALS['id'].'_'.$GLOBALS['user_id']}}"/>
-        <input type="hidden" name="price" id="offer_pay" value="{{$GLOBALS['price']}}"/>
+        <input type="hidden" name="price" id="offer_pay" value="{{$offerdata->max*$GLOBALS['price']}}"/>
         <input type="hidden" name="created_at" class="created_at" value=""/>
         <input type="hidden" name="updated_at" class="updated_at" value=""/>
+
         <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
         <input type="hidden" name="add_price" id="additional" value="{{$GLOBALS['add_price']}}">
 
         <input type="hidden" name="allinfo" value="{{json_encode($offerdata)}}"/>
         <div class="col-md-4">
-          <h3>Set Duration</h3>
-          {{Form::number('duration', '',['class'=>'form-control','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>1,'placeholder'=>'Duration'])}}
+          <h3>Set Duration in Minutes</h3>
+          {{Form::number('duration', $offerdata->max,['class'=>'form-control','pattern'=>'[A-Za-z]','data-id'=>$GLOBALS['price'],'id'=>'change_duration','min'=>$offerdata->min,'max'=>$offerdata->max,'placeholder'=>'Duration'])}}
         </div>
         @endforeach
         <h4>Additional Request <small>(Price: <span style="color:gold !important; font-size:16px;"> {{$GLOBALS['add_price']}} </span><b style="font-size:16px;font-family: 'Alfa Slab One', cursive;color:gold !important;font-weight: 400;">PAZ</b>)</small>
@@ -105,6 +106,7 @@
         </div>
         {{ Form::close() }}
         </div>
+        <input type="hidden" id="popup_visibile" value="{{$visible==1 ? false : true}}"/>
         <div class="alert alert-success show_alert" role="alert" style="display:none">
           A simple success alert—check it out!
         </div>
@@ -122,7 +124,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title">Order Status</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" onclick="reloadPage()" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -130,11 +132,11 @@
                    <h2 class="text-center"> Order Successful!</h2>
                    <p> You can check your order status anything in - My Order</p>
 
-                   <p><input type="checkbox" aria-label="Checkbox for following text input"> Do not show again</p>
+                   <p><input type="checkbox" class="popup_not_show" aria-label="Checkbox for following text input"> Do not show again</p>
 
                   </div>
                   <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">Close</button>
                   </div>
                 </div>
               </div>

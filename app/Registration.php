@@ -2105,6 +2105,18 @@ public function createList($create){
 
 }
 
+public function insertPopupNotification(){
+
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;
+
+  $data = array('created_at'=>now(),'updated_at'=>now(),'userid'=>$userid);
+
+    return DB::table('popup_visibility')->insert($data);
+
+}
+
 public function getAllPlaylist(){
 
       $session_data =   Session::get('User');

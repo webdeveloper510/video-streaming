@@ -750,17 +750,29 @@ public function artistselling(){
 
     return view('artistselling');
   }
+
+  public function popupClose(Request $req){
+
+        $this->model->insertPopupNotification();
+
+  }
   public function artistoffers($id){
 
     $data = $this->model->getofferByid($id);
 
      $artId = $data[0]->artistid;
 
+     $contentData=Session::get('User');
+
+     $contentId=$contentData->id;
+
+     $popup_visible = $this->model->selectDataById('userid','popup_visibility',$contentId);
+
     $isSubscribe =$this->model->isSubscribe($artId);
 
    
         
-    return view('artistoffers',['offer'=>isset($data) ? $data :[],'isSubscribed'=>$isSubscribe]);
+    return view('artistoffers',['visible'=>count($popup_visible),'offer'=>isset($data) ? $data :[],'isSubscribed'=>$isSubscribe]);
 
   }
 

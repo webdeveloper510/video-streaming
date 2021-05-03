@@ -159,7 +159,7 @@
         </div> 
 
 
-       <div class="logo">
+       <div class="logo text-center">
        <a href="<?php echo e(url('/artists/dashboard')); ?>"> <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand"></a>
         </a>
     </div>
@@ -180,7 +180,7 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="https://cdn0.iconfinder.com/data/icons/user-interface-151/24/List_menu_toggle-512.png">
      
-      <div class="logo"><a href="<?php echo e(url('/artists/dashboard')); ?>" class="simple-text logo-normal">
+      <div class="logo text-center"><a href="<?php echo e(url('/artists/dashboard')); ?>" class="simple-text logo-normal">
       <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
         
         </a></div>
