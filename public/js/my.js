@@ -826,9 +826,9 @@ $(document).on('click', '.link_click', function () {
     }
 
     var controls = $(this).children().attr('aria-controls');
-    console.log(controls);
+   // console.log(controls);
     $('.tab-content').find('.fade').removeClass('show active');
-    $('#'+controls).addClass('show active');
+    $('.tab-content').find('#'+controls).addClass('show active');
 })
 
 $(document).on('click', '.media', function () {
@@ -1427,11 +1427,13 @@ function subscribe(id, setValue) {
 function showPlaylistVedio(data) {
     //console.log(videos)
     var videos = JSON.parse(data);
-    console.log(videos);
+    //console.log(videos);
     var titles = videos.titles;
     var videos_playlist = videos.videos;
 
     $('.listname').html(videos.playlistname)
+    $('#exampleModalCenterTitle').html(videos.playlistname);
+    
     var split_title = titles.split(',');
     var videos_playlist = videos_playlist.split(',');
     var name = videos
