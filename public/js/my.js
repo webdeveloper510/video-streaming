@@ -30,7 +30,7 @@ $(document).on('click', '.user', function () {
         $(this).prop('checked', true);
         $(this).addClass("imChecked");
     }
-myfo
+
 })
 $(document).on('click', '.show_list', function () {
     $('.create_playlistt').show();
@@ -334,6 +334,8 @@ function mufunc() {
     // 'opacity':'1'})
 
 }
+
+
 
 $("#selectCategory").change(function () {
 
@@ -1245,6 +1247,8 @@ $(document).on('click', '#withdrawmoney', function () {
 
 });
 
+
+
 function copy(url) {
 
     var tempInput = document.createElement("input");
@@ -1425,9 +1429,10 @@ function subscribe(id, setValue) {
 }
 
 function showPlaylistVedio(data) {
-    //console.log(videos)
+    //console.log(data)
     var videos = JSON.parse(data);
-    //console.log(videos);
+    console.log(videos);
+    $('#list').val(videos.id);
     var titles = videos.titles;
     var videos_playlist = videos.videos;
 
@@ -1458,6 +1463,29 @@ function showPlaylistVedio(data) {
     $('.video_append').append(div);
 
 }
+$(document).on('click','#deletePlaylist',function(){
+   var id = $('#list').val();
+   
+       $.ajax({
+        type: 'POST',
+        url: APP_URL + "/deletePlaylist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+            'id': id,
+        },
+
+        success: function (data) {
+            
+            console.log(data);
+
+        }
+    });
+    
+})
+
 
 /* --------------------------------------------Order
  * Video-------------------------------------------------

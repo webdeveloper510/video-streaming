@@ -1335,6 +1335,8 @@ public function editPlaylist(Request $req){
 }
 
 
+
+
 public function selectMultiple(Request $req){
 
         $idsData = $req->all();
@@ -1842,6 +1844,11 @@ public function readNotification(Request $request){
 
         return count($value) > 0 ? 1 : 0;
       }
+      
+      
+      public function deletePlaylist1(Request $req){
+    print_r($req->all());
+}
 
       public function updateNoti(Request $req){
 
