@@ -93,7 +93,16 @@
     top: 0;
     right: 20px;
 }
-
+li.nav-item {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    background: #7b0000;
+    color: white !important;
+}
+li.nav-item  a{
+ color:white;
+}
 .row.media {
     border: 1px solid black;
     padding: 13px;
