@@ -234,7 +234,7 @@
 
                 
                   <div  class="tab-pane fade " id="menu4" role="tabpanel" aria-labelledby="menu4-tab">
-                    <h3 style="color: #fff;">Artists</h3>
+                    <!-- <h3 style="color: #fff;">Artists</h3> -->
                     <div class="row">
                            {!!Form::open(['action' => 'AuthController@getSelectingArtist', 'method' => 'post', 'files'=>true])!!}
                     {{Form::token()}}
@@ -242,7 +242,7 @@
                            <div class="scroll12">
                              
                           
-                           <div class="row text-left text-white mt-3 red">
+                           <div class=" text-left text-white mt-3 red">
                                 <div class="col-md-4 mb-4  das">
                                   <label>Gender</label><br>
                                   {{Form::radio('gender[]','Male')}}Male <br>
@@ -284,7 +284,7 @@
                                   <br>
                                   <br>
                                   <input type="hidden" name="type" value="artists"/>
-
+</div>
                                   
                                 <div class="col-md-4 mb-4 logy">
                                     <label>Privy part</label><br>
@@ -334,7 +334,6 @@
                                 </div>
                                 
                             </div>
-                      </div>
                            </div>
                         <div class="col-md-12 text-right mt-3 pr-5">
             

@@ -625,7 +625,7 @@
                    
                 <div class="text-right">
                 
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12 reward-button' , 'id'=>'edit'])); ?>
 
                 
                 <div style="display:none;  padding-top: 15%;">
@@ -704,7 +704,7 @@
                
                 <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
                 <div class="text-right mt-5">
-                   <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
+                   <button class="btn btn-primary btn-sm mt-5 reward-button" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 
 

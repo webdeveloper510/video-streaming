@@ -18,6 +18,7 @@ class Registration extends Model
         $value = $this->selectDataById('email','users',$data['email1']);
 
          $reffer_id = Session::get('reffer_by');
+         
         if(!$value){
             $userdata=$data->all();
             $userdata['email']=$data['email1'];
@@ -33,7 +34,7 @@ class Registration extends Model
            
             if($insertedid){
                 $session_data =   Session::get('User');
-                $userid= $session_data ? $session_data->id : $insertedid;
+                $userid= $session_data ? $session_data->id : $insertedid;    
                 // $userid = $session_data->id;
                 $data=array(
                     'backupemail' => '',
@@ -54,7 +55,7 @@ class Registration extends Model
                     'userid' =>  $userid
                 );
                 $inserted_data =  DB::table('profiletable')->insert($data);
-                // $insertedid=$inserted_data->id;
+                
                 return $inserted_data ? $insertedid :'0';
 
                 }
