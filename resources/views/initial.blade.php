@@ -16,7 +16,7 @@
                     .header {
                         background: black;
                     }
-                    .freelog {
+                    . .j  tfreelog {
                         padding: 13px;
                         font-size: 18px;
 
@@ -94,6 +94,7 @@
                     .header {
                         background: black;
                     }
+                    .
                     .freelog {
                         padding: 13px;
                         font-size: 18px;
