@@ -1431,7 +1431,7 @@ function subscribe(id, setValue) {
 function showPlaylistVedio(data) {
     //console.log(data)
     var videos = JSON.parse(data);
-    console.log(videos);
+   // console.log(videos);
     $('#list').val(videos.id);
     var titles = videos.titles;
     var videos_playlist = videos.videos;
@@ -1480,6 +1480,13 @@ $(document).on('click','#deletePlaylist',function(){
         success: function (data) {
             
             console.log(data);
+                
+                if(data==1){
+                    alert('deleted');
+                }
+                else{
+                    alert('some error');
+                }
 
         }
     });

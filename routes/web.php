@@ -113,6 +113,9 @@ Route::post('resetPassword','AuthController@resetPassword');
 
 Route::post('popupClose','AuthController@popupClose');
 
+Route::post('deletePlaylist', 'AuthController@deletePlaylist1');
+
+
 Route::post('selectListname', 'AuthController@selectListname');
 
 Route::post('readNotification','AuthController@readNotification');

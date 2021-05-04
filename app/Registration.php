@@ -3269,6 +3269,12 @@ public function customer_issue($data){
 
             return DB::table('show_bonus_passive')->insert($data);
     }
+    
+    
+    public function deleteListFromLibrary($data){
+        //print_r($data);die;   
+          return DB::table('playlist')->where('id',$data['id'])->delete();
+    }
 
     public function getSumOfPassive($artid){
 

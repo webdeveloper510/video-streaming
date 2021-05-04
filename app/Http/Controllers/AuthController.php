@@ -1847,7 +1847,11 @@ public function readNotification(Request $request){
       
       
       public function deletePlaylist1(Request $req){
-    print_r($req->all());
+          
+          $data = $this->model->deleteListFromLibrary($req->all());
+          
+          return $data;
+    //print_r($req->all());
 }
 
       public function updateNoti(Request $req){
