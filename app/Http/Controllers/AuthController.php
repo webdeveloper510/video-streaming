@@ -1233,9 +1233,6 @@ public function notifyEmail(Request $req){
 
     $ids = Session::get('listid');
 
-    //print_r($ids);die;
-
-   
 
     $playName = $this->model->getAllPlaylist();
 
