@@ -587,8 +587,6 @@ $(document).on('click', '#checkPrice', function () {
 
 $(document).on('click', '.create_list', function () {
     var listname = $('.list').val();
-
-    //console.log(listname);return false;
     $.ajax({
         type: 'POST',
         url: APP_URL + "/createList",
@@ -1466,7 +1464,7 @@ function showPlaylistVedio(data) {
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    bootbox.confirm({
-    message: 'Do you really want to delete this playlist!',
+    message: message,
     buttons: {
 
         confirm: {

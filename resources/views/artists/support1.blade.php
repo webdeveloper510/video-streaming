@@ -209,7 +209,7 @@
                                                 <thead class="thead-dark">
                                                     <tr>
                                                         <th scope="col">#</th>
-                                                        <th scope="col">App Name</th>
+                                                        <th scope="col">App </th>
                                                         <th scope="col">User Name</th>
                                                     
                                                     </tr>
