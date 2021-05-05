@@ -916,7 +916,7 @@
                                   <?php echo e(Form::checkbox('height[]','160-180cm')); ?>160-180cm <br>
                                   <?php echo e(Form::checkbox('height[]','180cm<')); ?>180cm< <br>
                                 </div>
-                                </div>
+                                
                                 <div class="col-4 mb-4">
                                     <label>Tits size</label><br>
                                   <?php echo e(Form::checkbox('titssize[]','Small')); ?>Small <br>
