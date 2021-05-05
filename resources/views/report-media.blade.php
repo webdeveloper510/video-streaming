@@ -105,9 +105,9 @@
     <div class="row">
       <div class="col-md-6">
           <div class="text-center">
-                <h3>Oldest : <span>0h</span>
+                <h3>Oldest : <span>0h</span> </h3>
 
-                <select class="custom-select my-2" id="inputGroupSelect01">
+                <select class="custom-select my-2"">
                     <option selected>Choose...</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -117,7 +117,7 @@
       </div>
       <div class="col-md-6">
           <div class="text-center">
-                <h3>In Queue : <span>0</span>
+                <h3>In Queue : <span>0</span> </h3>
 
                 <button class="btn btn-outline-primary my-2"  type="button">Start Reviewing</button>
           </div>
