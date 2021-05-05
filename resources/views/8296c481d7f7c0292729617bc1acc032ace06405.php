@@ -56,6 +56,7 @@
                                     type="button"
                                     style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>"
                                     class="btn-primary"
+                                    style="<?php echo e({{$buyed==1 ? 'display:none' : 'display:block'); ?>"
                                     <?php echo e($buyed==1 ? 'disabled ':''); ?>
 
                                     data-toggle="modal"
