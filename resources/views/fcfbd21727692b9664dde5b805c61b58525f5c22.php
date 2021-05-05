@@ -376,6 +376,7 @@
                                 <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
                                 <?php if($recnt->duration==''||$recnt->duration=='NaN:NaN:NaN'): ?>
                                 <script>
+                                console.log('dddd');
                                     var video1;
                                     var id1;
                                     setTimeout(() => {
@@ -459,10 +460,11 @@
                                     <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
                                     <?php if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN'): ?>
                                     <script>
-
+                                    var video;
+                                    var id;
                                         setTimeout(() => {
-                                            var video = $("#video_<?php echo e($pop->id); ?>");
-                                            var id = $("#video_<?php echo e($pop->id); ?>");
+                                             video = $("#video_<?php echo e($pop->id); ?>");
+                                             id = $("#video_<?php echo e($pop->id); ?>");
                                             seconds_to_min_sec(
                                                 video[0].duration,
                                                 "#duration_<?php echo e($pop->id); ?>",

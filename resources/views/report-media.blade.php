@@ -175,10 +175,10 @@
         <p class="text-center">Trustlevel : <span>0</span></p>
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
              <button class="btn btn-primary" type="button">Mark as legal</button>
           </div>
-         <div class="col-md-6">
+         <div class="col-md-6 text-center">
             <button class="btn btn-primary" type="button">illegal + delete</button>
          </div>
        </div>
@@ -186,10 +186,7 @@
   </div>
   </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      
     </div>
   </div>
 </div>
@@ -217,10 +214,10 @@
         <p class="text-center">Trustlevel : <span>0</span></p>
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
              <button class="btn btn-primary" type="button">deny</button>
           </div>
-         <div class="col-md-6">
+         <div class="col-md-6 text-center">
             <button class="btn btn-primary" type="button">Permit</button>
          </div>
        </div>
@@ -228,10 +225,7 @@
   </div>
   </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
