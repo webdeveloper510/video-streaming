@@ -1,4 +1,4 @@
-@include('layout.cdn')
+    @include('layout.cdn')
 <header>
 <div class="text-center">
 <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
@@ -20,7 +20,21 @@
   
   <section class="reportmeadia">
   <div class="container">
-    <h2></h2>
+    <div class="row">
+      <div class="col-md-6">
+          <div class="text-center">
+                <h3>Oldest : <span>0h</span>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="text-center">
+                <h3>In Queue : <span>0</span>
+          </div>
+      </div>
+      <div class="col-md-12">
+          <button class="btn btn-primary" type="button">Start Reviewing</button>
+      </div>
+    </div>
       <div class="row media">
           <div class="col-md-4">
           <video width="100%" controls>
