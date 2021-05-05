@@ -54,9 +54,8 @@
 
                                 <button
                                     type="button"
-                                    style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>"
+                                    style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;display:none;' : 'cursor:pointer'); ?>"
                                     class="btn-primary"
-                                    style="<?php echo e($buyed==1 ? 'display:none;' : 'display:block;'); ?>"
                                     <?php echo e($buyed==1 ? 'disabled ':''); ?>
 
                                     data-toggle="modal"
