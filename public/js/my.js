@@ -1653,7 +1653,8 @@ $(document).on('submit', '#edit_profile_info', function (event) {
     var formData = new FormData($(this)[0]);
     $('.loader').show();
     $('.button_disable').attr('disabled',true);
-    //console.log(formData);return false;
+    
+a           
     $.ajax({
         type: 'POST',
         url: APP_URL + "/edit_info",
