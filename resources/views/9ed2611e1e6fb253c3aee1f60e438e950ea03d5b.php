@@ -31,8 +31,8 @@
                 <h3>In Queue : <span>0</span>
           </div>
       </div>
-      <div class="col-md-12">
-          <button class="btn btn-primary" type="button">Start Reviewing</button>
+      <div class="col-md-12 text-center my-4">
+          <button class="btn btn-outline-primary" type="button">Start Reviewing</button>
       </div>
     </div>
       <div class="row media">
