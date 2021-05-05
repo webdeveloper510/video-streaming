@@ -283,7 +283,7 @@
                                                                     <p>Play Time</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p><?php echo e(convertSecondstoFormat($video->duration)); ?></p>
+                                                                    <p><?php echo e($video->duration); ?></p>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -278,7 +278,7 @@
                                                                     <p>Play Time</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p>{{ convertSecondstoFormat($video->duration) }}</p>
+                                                                    <p>{{$video->duration }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
