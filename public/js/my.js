@@ -30,7 +30,7 @@ $(document).on('click', '.user', function () {
         $(this).prop('checked', true);
         $(this).addClass("imChecked");
     }
-myfo
+
 })
 $(document).on('click', '.show_list', function () {
     $('.create_playlistt').show();
@@ -334,6 +334,8 @@ function mufunc() {
     // 'opacity':'1'})
 
 }
+
+
 
 $("#selectCategory").change(function () {
 
@@ -826,9 +828,9 @@ $(document).on('click', '.link_click', function () {
     }
 
     var controls = $(this).children().attr('aria-controls');
-    console.log(controls);
+   // console.log(controls);
     $('.tab-content').find('.fade').removeClass('show active');
-    $('#'+controls).addClass('show active');
+    $('.tab-content').find('#'+controls).addClass('show active');
 })
 
 $(document).on('click', '.media', function () {
@@ -1245,6 +1247,8 @@ $(document).on('click', '#withdrawmoney', function () {
 
 });
 
+
+
 function copy(url) {
 
     var tempInput = document.createElement("input");
@@ -1425,13 +1429,16 @@ function subscribe(id, setValue) {
 }
 
 function showPlaylistVedio(data) {
-    //console.log(videos)
+    //console.log(data)
     var videos = JSON.parse(data);
-    console.log(videos);
+   // console.log(videos);
+    $('#list').val(videos.id);
     var titles = videos.titles;
     var videos_playlist = videos.videos;
 
     $('.listname').html(videos.playlistname)
+    $('#exampleModalCenterTitle').html(videos.playlistname);
+    
     var split_title = titles.split(',');
     var videos_playlist = videos_playlist.split(',');
     var name = videos
@@ -1456,6 +1463,36 @@ function showPlaylistVedio(data) {
     $('.video_append').append(div);
 
 }
+$(document).on('click','#deletePlaylist',function(){
+   var id = $('#list').val();
+   
+       $.ajax({
+        type: 'POST',
+        url: APP_URL + "/deletePlaylist",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+            'id': id,
+        },
+
+        success: function (data) {
+            
+            console.log(data);
+                
+                if(data==1){
+                    alert('deleted');
+                }
+                else{
+                    alert('some error');
+                }
+
+        }
+    });
+    
+})
+
 
 /* --------------------------------------------Order
  * Video-------------------------------------------------
@@ -1486,7 +1523,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
         success: function (data) {
 
-            //console.log(data);return false;
+            console.log(data);return false;
 
             if (data.status == 1) {
                 if(!visiblie){
@@ -2695,7 +2732,7 @@ if ($("#technical_functiong").length > 0) {
 //                     if (response.errors) {
 
 //                         jQuery.each(response.errors, function (key, value) {
-//                             jQuery('.alert-danger').show();    
+//                             jQuery('.alert-danger').show();
 //                             jQuery('.alert-danger').append('<p>' + value + '</p>');
 //                         });
 //                     } else {

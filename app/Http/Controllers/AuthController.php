@@ -206,7 +206,9 @@ class AuthController extends Controller
     }
     public function withdraw(){
       $navbaractive = 'withdraw';
-
+              
+   
+      
       $user =   Session::get('User');
 
       $level_system = array();
@@ -680,13 +682,8 @@ class AuthController extends Controller
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
-  //print_r($request->all());die;
 
-// Show the results of the assembly we spawned
-
-
-  print_r($request->all());die;
-
+print_r($request->all());die;
       if($request->media){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
@@ -1338,6 +1335,8 @@ public function editPlaylist(Request $req){
 }
 
 
+
+
 public function selectMultiple(Request $req){
 
         $idsData = $req->all();
@@ -1845,6 +1844,15 @@ public function readNotification(Request $request){
 
         return count($value) > 0 ? 1 : 0;
       }
+      
+      
+      public function deletePlaylist1(Request $req){
+          
+          $data = $this->model->deleteListFromLibrary($req->all());
+          
+          return $data;
+    //print_r($req->all());
+}
 
       public function updateNoti(Request $req){
 

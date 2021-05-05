@@ -44,6 +44,10 @@ class cancelOrder extends Command
         $data = DB::table('offer')
         ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
         ->get()->toArray();
+        
+           $data1 = DB::table('offer')
+        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates1'))
+        ->get()->toArray();
 
      
 
@@ -59,12 +63,24 @@ class cancelOrder extends Command
             }
 
         }
-
-        $update =  DB::table('offer')->whereIn('id',$ids)->update([
+           $update =  DB::table('offer')->whereIn('id',$ids)->update([
             'status'=>'due'
         ]);
+           foreach($data1 as $k=>$v){
 
-        if($update){
+            if(date('Y-m-d')==$v->dates1){
+                
+            $date = $v->dates1;
+        $thirtyDaysUnix = strtotime('+30 days', strtotime($date));
+         $expiryDate = date("Y-m-d", $thirtyDaysUnix);
+
+                $ids1 = $v->id;
+             $update1 =  DB::table('offer')->where('id',$ids1)->update([
+            'status'=>'Expired'
+             ]);
+             
+
+        if($update1){
             $data = array(
             'created_at'=>now(),
             'updated_at'=>now(),
@@ -73,6 +89,8 @@ class cancelOrder extends Command
             'message'=>'Your order' .$v->title.' has expired and your tokens have been returned',
             'notificationfor'=>'user'
             );
+            
+            
 
             $insert_not = DB::table('notification')->insert($data);
 
@@ -82,11 +100,29 @@ class cancelOrder extends Command
                     $update = DB::table('users')->where('id',$v->userid)->update([
                         'tokens' =>  DB::raw('tokens +'.$tokens[0]->tokens),            
                       ]);
+                      
+                            if(date('Y-m-d')==$expiryDate){
+                            
+                             $update = DB::table('offer')->where('id',$v->id)->update([
+                           'deliever_media' =>'',
+                           'userid'=>0
+                           ]);
+                                      
+                        }
 
                      return  DB::table('reserved_tokens')->where('Offermediaid',$v->id)->delete();
+                     
+                  
+
             }
 
         }
+
+            }
+
+        }
+
+ 
 
         //return DB::table('cron')->insert(array('name'=>'amit'));
     }
