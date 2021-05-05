@@ -375,7 +375,6 @@
                                 <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
                                 @if($recnt->duration==''||$recnt->duration=='NaN:NaN:NaN')
                                 <script>
-                                console.log('dddd');
                                     var video1;
                                     var id1;
                                     setTimeout(() => {
@@ -463,6 +462,7 @@
                                         setTimeout(() => {
                                              video = $("#video_{{$pop->id}}");
                                              id = $("#video_{{$pop->id}}");
+                                             //console.log(video[0].duration);
                                             seconds_to_min_sec(
                                                 video[0].duration,
                                                 "#duration_{{$pop->id}}",
