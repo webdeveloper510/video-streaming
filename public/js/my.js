@@ -1466,7 +1466,7 @@ function showPlaylistVedio(data) {
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    bootbox.confirm({
-    message: message,
+    message: 'Do you really want to delete this playlist!',
     buttons: {
 
         confirm: {
