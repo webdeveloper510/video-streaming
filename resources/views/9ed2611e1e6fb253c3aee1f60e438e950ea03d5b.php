@@ -14,6 +14,9 @@
   <li class="nav-item">
     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Upload Verifying</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">History</a>
+  </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -242,7 +245,7 @@
     right: 20px;
 }
 li.nav-item {
-    width: 50%;
+    width: 33.33%;
     text-align: center;
     padding: 10px;
     background: #7b0000;
