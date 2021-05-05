@@ -615,7 +615,6 @@ $(document).on('click', '.create_list', function () {
 });
 
 $(document).on('click', '.send_time', function () {
-
     $(this)
         .addClass('btn btn-success')
         .removeClass('btn-info');
@@ -3071,12 +3070,13 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
-    //console.log(seconds);
+    console.log('yes');
+    console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
-    var duration = parseInt(minutes) == 0 ? '00:' + parseInt(seconds) : '0'+minutes + ":" + parseInt(seconds);
-    var hours_sys = hours == 0 ? '00:' + duration : hours + ":" + duration;
+    var duration = parseInt(minutes) == 0 ? '0:' + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+    var hours_sys = hours == 0 ? '0:' + duration : hours + ":" + duration;
     $(id).html(hours_sys);
     $.ajax({
         type: 'POST',

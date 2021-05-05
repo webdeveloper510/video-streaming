@@ -374,12 +374,14 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
-                                <?php if($recnt->duration==''): ?>
+                                <?php if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN'): ?>
                                 <script>
+                                console.log('yes');
                                     var video;
                                     var id;
                                     setTimeout(() => {
                                         video = $("#recently_<?php echo e($recnt->id); ?>");
+                                        console.log(video);
                                         seconds_to_min_sec(
                                             video[0].duration,
                                             "#duration_<?php echo e($recnt->id); ?>",
@@ -456,7 +458,7 @@
                                 </div>
                                 <div class="text-right">
                                     <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
-                                    <?php if($recnt->duration==''): ?>
+                                    <?php if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN'): ?>
                                     <script>
                                         setTimeout(() => {
                                             video = $("#video_<?php echo e($pop->id); ?>");
@@ -598,7 +600,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if($audio->duration==''): ?>
+                                    <?php if($audio->duration=='' || $audio->duration=='NaN:NaN:NaN'): ?>
                                     <script>
                                         var audio;
                                         var id;

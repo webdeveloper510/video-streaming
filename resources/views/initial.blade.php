@@ -373,12 +373,14 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
-                                @if($recnt->duration=='')
+                                @if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN')
                                 <script>
+                                console.log('yes');
                                     var video;
                                     var id;
                                     setTimeout(() => {
                                         video = $("#recently_{{$recnt->id}}");
+                                        console.log(video);
                                         seconds_to_min_sec(
                                             video[0].duration,
                                             "#duration_{{$recnt->id}}",
@@ -454,7 +456,7 @@
                                 </div>
                                 <div class="text-right">
                                     <h6 class="text-white" id="duration_{{$pop->id}}">{{ $pop->duration ? $pop->duration :'' }}</h6>
-                                    @if($recnt->duration=='')
+                                    @if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN')
                                     <script>
                                         setTimeout(() => {
                                             video = $("#video_{{$pop->id}}");
@@ -595,7 +597,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @if($audio->duration=='')
+                                    @if($audio->duration=='' || $audio->duration=='NaN:NaN:NaN')
                                     <script>
                                         var audio;
                                         var id;
