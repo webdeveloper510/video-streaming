@@ -940,6 +940,13 @@
                                     <label>Privy part</label><br>
                                   <?php echo e(Form::checkbox('privy[]','Shaved')); ?>Shaved <br>
                                   <?php echo e(Form::checkbox('privy[]','Unshaved')); ?>Unshaved <br>
+                                  <br>
+                                  <br>
+                                  <label>Hair Length</label><br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Very short')); ?>Very short <br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Short')); ?>Short <br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Long')); ?>Long <br>
+                                  <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
                                        
                                 </div>
                                  <div class="col-4 mb-4">
@@ -973,11 +980,7 @@
                                 </div>
                                
                                  <div class="col-4 mb-4 logy">
-                                    <label>Hair Length</label><br>
-                                  <?php echo e(Form::checkbox('hairlength[]','Very short')); ?>Very short <br>
-                                  <?php echo e(Form::checkbox('hairlength[]','Short')); ?>Short <br>
-                                  <?php echo e(Form::checkbox('hairlength[]','Long')); ?>Long <br>
-                                  <?php echo e(Form::checkbox('hairlength[]','Very Long')); ?>Very Long <br>
+                                   
                                 </div>
                                  <div class="col-md-4 mb-4">
                                  

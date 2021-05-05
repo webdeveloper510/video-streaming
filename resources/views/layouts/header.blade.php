@@ -904,6 +904,13 @@
                                     <label>Privy part</label><br>
                                   {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
                                   {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br>
+                                  <br>
+                                  <br>
+                                  <label>Hair Length</label><br>
+                                  {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
+                                  {{Form::checkbox('hairlength[]','Short')}}Short <br>
+                                  {{Form::checkbox('hairlength[]','Long')}}Long <br>
+                                  {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
                                        
                                 </div>
                                  <div class="col-4 mb-4">
@@ -937,11 +944,7 @@
                                 </div>
                                
                                  <div class="col-4 mb-4 logy">
-                                    <label>Hair Length</label><br>
-                                  {{Form::checkbox('hairlength[]','Very short')}}Very short <br>
-                                  {{Form::checkbox('hairlength[]','Short')}}Short <br>
-                                  {{Form::checkbox('hairlength[]','Long')}}Long <br>
-                                  {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br>
+                                   
                                 </div>
                                  <div class="col-md-4 mb-4">
                                  
