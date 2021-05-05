@@ -108,10 +108,11 @@
                 <h3>Oldest : <span>0h</span> </h3>
 
                 <select class="custom-select my-2"">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>All</option>
+                    <option value="1">Audio</option>
+                    <option value="2">Video</option>
+                    <option value="3">Projects</option>
+                    <option value="4">Orders</option>
                   </select>
           </div>
       </div>
@@ -126,6 +127,24 @@
         
       </div>
     </div>
+    <div class="row media">
+          <div class="col-md-4">
+          <video width="100%" controls>
+            <source src="movie.mp4" type="video/mp4">
+            </video>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3> Report item title</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                     <div class="text-right buttons">
+                         <button class="btn btn-outline-primary" type="button">deny</button>
+                          <button class="btn btn-outline-primary" type="button">Permit </button>
+                        </div>
+                </div>
+           </div>
+       </div>
     </div>
     </section>
   
