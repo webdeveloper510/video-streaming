@@ -8,7 +8,6 @@
 }
 </style>
 
-
             @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
