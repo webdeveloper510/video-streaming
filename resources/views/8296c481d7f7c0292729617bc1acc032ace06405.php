@@ -293,7 +293,7 @@
                                                                     <p>Resolution</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p><?php echo e($video->convert); ?></p>
+                                                                    <p><?php echo e($video->convert); ?>p</p>
                                                                 </div>
                                                             </div>
                                                         </div>
