@@ -58,7 +58,7 @@ button.close {
 .popup-overlay.active{
 visibility:visible;
 }
-.Coupon.text-center h2 {
+.Coupon.text-center h2 {     
     background: #7b0000;
     color: white;
     padding: 13px 0px;
