@@ -3070,7 +3070,7 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
-    console.log('yes');
+    //console.log('yes');
     console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);

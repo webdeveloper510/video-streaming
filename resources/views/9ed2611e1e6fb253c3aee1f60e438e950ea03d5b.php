@@ -32,7 +32,7 @@
           </div>
       </div>
       <div class="col-md-12 text-center my-4">
-          <button class="btn btn-outline-primary" type="button">Start Reviewing</button>
+          <button class="btn btn-outline-primary" data-toggle="modal" data-target="#legal" type="button">Start Reviewing</button>
       </div>
     </div>
       <div class="row media">
@@ -120,7 +120,7 @@
           <div class="text-center">
                 <h3>In Queue : <span>0</span> </h3>
 
-                <button class="btn btn-outline-primary my-2"  type="button">Start Reviewing</button>
+                <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button">Start Reviewing</button>
           </div>
       </div>
       <div class="col-md-12 text-center my-4">
@@ -150,6 +150,95 @@
   
   </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deny" tabindex="-1" role="dialog" aria-labelledby="denyLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="data">
+          <h3>Title</h3>
+          <p>Artist</p>
+          <video width="100%" height="340" controls>
+          <source src="movie.mp4" type="video/mp4">
+          <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+        </video>
+        <p class="text-center">Trustlevel : <span>0</span></p>
+
+        <div class="row">
+          <div class="col-md-6">
+             <button class="btn btn-primary" type="button">Mark as legal</button>
+          </div>
+         <div class="col-md-6">
+            <button class="btn btn-primary" type="button">illegal + delete</button>
+         </div>
+       </div>
+       <p><b>Description :</b> ..........</p>
+  </div>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="legal" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="data">
+          <h3>Title</h3>
+          <p>Artist</p>
+          <video width="100%" height="340" controls>
+          <source src="movie.mp4" type="video/mp4">
+          <source src="movie.ogg" type="video/ogg">
+          Your browser does not support the video tag.
+        </video>
+        <p class="text-center">Trustlevel : <span>0</span></p>
+
+        <div class="row">
+          <div class="col-md-6">
+             <button class="btn btn-primary" type="button">deny</button>
+          </div>
+         <div class="col-md-6">
+            <button class="btn btn-primary" type="button">Permit</button>
+         </div>
+       </div>
+       <p><b>Description :</b> ..........</p>
+  </div>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <style>
 .text-right.buttons {

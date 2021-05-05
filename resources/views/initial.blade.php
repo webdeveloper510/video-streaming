@@ -373,13 +373,12 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
-                                @if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN')
+                                @if($recnt->duration==''||$recnt->duration=='NaN:NaN:NaN')
                                 <script>
-                                console.log('yes');
-                                    var video;
-                                    var id;
+                                    var video1;
+                                    var id1;
                                     setTimeout(() => {
-                                        video = $("#recently_{{$recnt->id}}");
+                                        video1 = $("#recently_{{$recnt->id}}");
                                         console.log(video);
                                         seconds_to_min_sec(
                                             video[0].duration,
@@ -458,9 +457,10 @@
                                     <h6 class="text-white" id="duration_{{$pop->id}}">{{ $pop->duration ? $pop->duration :'' }}</h6>
                                     @if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN')
                                     <script>
+
                                         setTimeout(() => {
-                                            video = $("#video_{{$pop->id}}");
-                                            id = $("#video_{{$pop->id}}");
+                                            var video = $("#video_{{$pop->id}}");
+                                            var id = $("#video_{{$pop->id}}");
                                             seconds_to_min_sec(
                                                 video[0].duration,
                                                 "#duration_{{$pop->id}}",
