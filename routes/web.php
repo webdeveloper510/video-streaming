@@ -81,8 +81,8 @@ Route::get('notify/{id}', 'AuthController@notify');
 
 Route::get('inProcess', 'AuthController@process'); 
 
-Route::get('seeall/{text}', 'AuthController@seeall')->middleware('authentication');; 
-Route::get('seeall1/{text}', 'AuthController@seeOrder')->middleware('authentication');; 
+Route::get('seeall/{text}', 'AuthController@seeall')->middleware('authentication');
+Route::get('seeall1/{text}', 'AuthController@seeOrder')->middleware('authentication');
 Route::get('playlist/{id}', 'AuthController@playlistByid'); 
 
 Route::get('reset', 'AuthController@reset'); 
