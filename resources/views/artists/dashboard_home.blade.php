@@ -895,6 +895,7 @@ label.error {
     color: white;
     text-align: center;
     margin-top: 22px;
+    
     border-radius: 9px;
 }
 .columesdashboard1 {

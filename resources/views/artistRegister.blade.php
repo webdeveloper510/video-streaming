@@ -69,7 +69,7 @@
               <div class="form-check">
               {{Form::label('Terms & Condition', 'Terms & Condition')}} <br>
                 {{Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])}}
-                I agree not to
+                I agree not to 
                         upload content I have no right to</p>
               </div>
 
@@ -78,6 +78,7 @@
           </div>
           {{ Form::close() }}
           <p class="mt-2 text-white">Already have an account yet ?</p>
+          
               <a href="{{ URL::to('artistLogin')}}" class="ffff text-white"> <i>Login Now</i> </a>
         </div>
       </div>

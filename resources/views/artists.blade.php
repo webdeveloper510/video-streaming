@@ -87,6 +87,7 @@ hr{
                   <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
                </div>
                @else
+               
                <div class="artistnoimage">
                <a href="{{url('artistDetail/'.$artist->id)}}">
 		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>

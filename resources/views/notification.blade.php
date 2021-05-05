@@ -31,7 +31,8 @@
 			</div>
 			<hr>
 		@endforeach
-		</div>
+
+	</div>
 		<style type="text/css">
 .notification .profileImage {
   width: 100px;
