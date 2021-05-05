@@ -288,7 +288,7 @@
                                                                     <p>Resolution</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p>{{$video->convert}}</p>
+                                                                    <p>{{$video->convert}}p</p>
                                                                 </div>
                                                             </div>
                                                         </div>
