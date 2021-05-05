@@ -61,7 +61,6 @@ class cancelOrder extends Command
                // echo 'yes';
 
             }
-
         }
            $update =  DB::table('offer')->whereIn('id',$ids)->update([
             'status'=>'due'

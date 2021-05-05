@@ -75,7 +75,8 @@
    
     </tr>
     <tr>
-      <th scope="row">2</th>
+      <th scope="row">3</th>
+      <td>Mark</td>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -95,8 +96,9 @@
    
     </tr>
     <tr>
-      <th scope="row">2</th>
+      <th scope="row">4</th>
       <td>Mark</td>
+      <td>Otto</td>
       <td>Otto</td>
       <td>@mdo</td>
       <td>Mark</td>

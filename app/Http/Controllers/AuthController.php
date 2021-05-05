@@ -1238,6 +1238,7 @@ public function notifyEmail(Request $req){
    
 
     $playName = $this->model->getAllPlaylist();
+    
 
 
     $wishList = $this->model->getWishlist();

@@ -2125,7 +2125,7 @@ public function getAllPlaylist(){
 
       $session_data =   Session::get('User');
 
-      $userid =  $session_data->id;
+       $userid =  $session_data->id;
 
       $data = \DB::table("playlist")
       ->select("playlist.id","playlist.playlistname","playlist.created_at",\DB::raw("GROUP_CONCAT(media.media) as videos"),\DB::raw("GROUP_CONCAT(contentprovider.nickname) as names"),\DB::raw("GROUP_CONCAT(media.title) as titles"))
