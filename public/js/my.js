@@ -1465,31 +1465,51 @@ function showPlaylistVedio(data) {
 }
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
-   
-       $.ajax({
-        type: 'POST',
-        url: APP_URL + "/deletePlaylist",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+   bootbox.confirm({
+    message: message,
+    buttons: {
+
+        confirm: {
+            label: 'delete',
+            className: 'btn btn-danger'
+
         },
-
-        data: {
-            'id': id,
-        },
-
-        success: function (data) {
-            
-            console.log(data);
-                
-                if(data==1){
-                    alert('deleted');
-                }
-                else{
-                    alert('some error');
-                }
-
+        cancel: {
+            label: 'cancel',
+            className: 'btn btn-light'
         }
-    });
+    },
+    callback: function (result) {
+
+        if (result) {
+            // AJAX Request
+            $.ajax({
+                type: 'POST',
+                url: APP_URL + "/deletePlaylist",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+        
+                data: {
+                    'id': id,
+                },
+        
+                success: function (data) {
+                    
+                    console.log(data);
+                        
+                        if(data==1){
+                            location.reload();
+                       }
+                        else{
+                            location.reload();
+                        }
+        
+                }
+            });
+        }
+    }
+});
     
 })
 
