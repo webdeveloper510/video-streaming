@@ -21,7 +21,16 @@
                         font-size: 18px;
 
                     }
-                   
+                    .freelog {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
+                    .free {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
                     .header img {
                         display: block;
                         margin: 0 auto;
@@ -90,7 +99,9 @@
                     .header {
                         background: black;
                     }
-                    .
+                    button.btn.btn-primary.btn-lg.form-control.freelog {
+    padding: 13px;
+}
                     .freelog {
                         padding: 13px;
                         font-size: 18px;
@@ -123,12 +134,12 @@
                         <div class="container row my-4">
                             <div class="col-md-6 mb-3 text-center">
                                 <a href="<?php echo e(url('/register')); ?>">
-                                    <button type="button" class="btn btn-success free form-control">Join Free</button>
+                                    <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                                 </a>
                             </div>
                             <div class="col-md-6 text-center">
                                 <a href="<?php echo e(url('/login')); ?>">
-                                    <button type="button" class="btn btn-primary  form-control freelog">Login</button>
+                                    <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                                 </a>
                             </div>
                         </div>

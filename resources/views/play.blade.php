@@ -200,11 +200,11 @@
 
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
-
+                                    
                                 <video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$videos[0]->audio_pic) }}">
                                     <source src="{{url('storage/app/public/video/'.$videos[0])}}" type="video/mp4">
                                         Your browser does not support the video tag.
-                                    </video>
+                                </video>
                                     <div
                                         class="videooverlay text-white"
                                         onclick="showPlaylistVedio('{{json_encode($playlist)}}')">
@@ -234,8 +234,9 @@
                                   
                                     <div class="row pb-row">
                                         @if($wishList) @foreach($wishList as $indx=> $val)
+                                        
                                         <div class="col-md-3 pb-video">
-                                      
+                                            <a href="{{url('artist-video/'.$val->id)}}">
                                                 <video
                                                     width="100%"
                                                     height="100%"
@@ -243,6 +244,7 @@
                                                     controlsList="nodownload"
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4"></video>
+                                                    </a>
 
                                                 </div>
 
@@ -264,8 +266,11 @@
                                             </div>
                                             <div class="row pb-row">
 
-                                                @if($history) @foreach($history as $indx => $histories)
+                                                @if($history)
+                                                @foreach($history as $indx => $histories)
+
                                                 <div class="col-md-3 pb-video">
+                                                 <a href="{{url('artist-video/'.$histories->id)}}">
                                                     <video
                                                         width="100%"
                                                         height="100%"
@@ -275,9 +280,12 @@
 
                                                         <source
                                                             src="{{url('storage/app/public/video/'.$histories->media)}}"
-                                                            type="video/mp4"></video>
+                                                            type="video/mp4">
+                                                            </video>
+                                                            </a>
 
                                                     </div>
+
                                                     @endforeach @else
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
@@ -285,7 +293,7 @@
                                                     </div>
                                                     @endif
                                                 </div>
-                                            </div>
+                                            </div>  
                                         </div>
                                     </div>
                                 </div>
