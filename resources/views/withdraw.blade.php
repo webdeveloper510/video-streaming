@@ -7,9 +7,8 @@
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
-    
       <div class="data">
-      @if($level_system)
+      @if($levelData)
       @foreach($level_system as $key=>$val) 
           @if($val['level']==$levelData[0]->level_name)
          <h3> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ </b> Service Fee :20%</h3>
@@ -18,7 +17,11 @@
          <h3>Current Fee : <span>{{20-$val['fee']}}%</span></h3>
         @endif
          @endforeach
-         
+         @else
+           <h3> <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ </b> Service Fee :20%</h3>
+         <h3> Lvl0 <small>(you save)</small>: 0%</h3>
+         <hr>
+         <h3>Current Fee : <span>{{20-0}}%</span></h3>
          @endif
       </div>
   

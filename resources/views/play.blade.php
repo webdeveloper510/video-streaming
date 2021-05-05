@@ -137,7 +137,8 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
-                                        <button class="btn btn-outline-danger ml-5" type="button">Delete this Playlist</button>
+                                        <button class="btn btn-outline-danger ml-5" type="button" id="deletePlaylist">Delete this Playlist</button>
+                                        <input type="hidden" value="" name="playlistid" id="list"/>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>

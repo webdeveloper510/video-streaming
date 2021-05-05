@@ -16,16 +16,12 @@
                     .header {
                         background: black;
                     }
-                    .freelog {
+                    . .j  tfreelog {
                         padding: 13px;
                         font-size: 18px;
 
                     }
-                    .free {
-                        padding: 13px;
-                        font-size: 18px;
-
-                    }
+                   
                     .header img {
                         display: block;
                         margin: 0 auto;
@@ -94,6 +90,7 @@
                     .header {
                         background: black;
                     }
+                    .
                     .freelog {
                         padding: 13px;
                         font-size: 18px;

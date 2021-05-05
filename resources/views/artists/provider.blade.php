@@ -222,11 +222,14 @@ section.background1 {
 
        
 @include('artists.dashboard_footer')
-  <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+    <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
       <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
     <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
   <script type="text/javascript">
 window.Robodog.form('#myForm', {
+  waitForEncoding: true,
+  waitForMetadata: true,
+  submitOnSuccess: false,
   params: {
     auth: { key: '995b974268854de2b10f3f6844566287' },
     triggerUploadOnSubmit: true,
@@ -256,17 +259,17 @@ window.Robodog.form('#myForm', {
      },
      merged: {
        use: {
-         'steps':
-           [
-             {
-               'name':':original',
-               'as':'audio'
-             },
-             {
-               'name':'resized_image',
-               'as':'image'
-             }
-           ]
+          "steps": [
+      { 
+          "name": ":original", "fields": "media", "as": "audio" 
+          
+      },
+      { 
+          "name": ":original", "fields": "thumbnail_pic", "as": "image" 
+          
+      }
+    ],
+        "bundle_steps": true
        },    
        robot: '/video/merge',
        result: true,
@@ -282,7 +285,17 @@ window.Robodog.form('#myForm', {
    }
  }
 }).on('transloadit:complete', (assembly) => {
-	   $.ajaxSetup({
+    console.log(assembly)
+            var form = $("#myForm");
+            var formData = new FormData($(form)[0]);
+            $("<input />").attr("type", "hidden")
+          .attr("name", "transloadit")
+          .attr("value", assembly)
+          .appendTo("#myForm");
+		  formData["assembly"] = assembly;
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
@@ -290,7 +303,7 @@ window.Robodog.form('#myForm', {
             $.ajax({
                 url: APP_URL + "/postContent",
                 type: "POST",
-                data: assembly,
+                data: formData,
                 processData: false,
                 contentType: false,
                 xhr: function () {
@@ -337,7 +350,7 @@ window.Robodog.form('#myForm', {
                             setTimeout(function () {
                                 location.reload();
                             }, 2000);
-     
+
                             // location.reload(); $('.popup_close').trigger('click');
 
                         } else {

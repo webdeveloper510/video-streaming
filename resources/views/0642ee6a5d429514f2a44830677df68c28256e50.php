@@ -1,7 +1,7 @@
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
 <div class="text-center">
-<img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+<img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
 <h1 class="text-white mt-2"> Overview</h1>
 </div>
 </header>
@@ -11,7 +11,6 @@
 <table class="table table-hover">
   <thead class="thead-light">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Artist</th>
       <th scope="col">Reg.emails</th>
       <th scope="col">Cur.emalis</th>
@@ -34,7 +33,6 @@
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <th >mark</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -56,6 +54,25 @@
     <tr>
       <th scope="row">2</th>
       <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+   
+    </tr>
+    <tr>
+      <th scope="row">2</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -75,30 +92,8 @@
    
     </tr>
     <tr>
-      <th scope="row">3</th>
+      <th scope="row">2</th>
       <td>Mark</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-   
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Mark</td>
-      <td>Otto</td>
       <td>Otto</td>
       <td>@mdo</td>
       <td>Mark</td>
@@ -163,4 +158,4 @@ header {
 }
   </style>
 
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/overview.blade.php ENDPATH**/ ?>
