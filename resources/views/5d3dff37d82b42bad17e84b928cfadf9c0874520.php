@@ -903,13 +903,15 @@
                                   <?php echo e(Form::checkbox('sexology[]','Homo')); ?>Homo <br>
                                   <?php echo e(Form::checkbox('sexology[]','Bisexual')); ?>Bisexual <br>
                                   <br>
+                                  </div>
+                                  <div class="col-4 mb-4 logy">
                                   <label>Body</label><br>
                                   <?php echo e(Form::checkbox('weight[]','Less than Average')); ?> Thin <br>
                                   <?php echo e(Form::checkbox('weight[]','Normal')); ?>Normal <br>
                                   <?php echo e(Form::checkbox('weight[]','Muscular')); ?>Muscular<br> 
                                   <?php echo e(Form::checkbox('weight[]','Chubby')); ?>Chubby 
-                                  <br>
-                                            <br>
+                                      </div>
+                                      <div class="col-4 mb-4 logy">
                                     <label>Height</label><br>
                                   <?php echo e(Form::checkbox('height[]','<140cm')); ?><140cm <br>
                                   <?php echo e(Form::checkbox('height[]','140-160cm')); ?>140-160cm <br>
@@ -933,7 +935,7 @@
                                   <br>
                                   <input type="hidden" name="type" value="artists"/>
 
-                                  
+                                  </div>
                                 <div class="col-4 mb-4 logy">
                                     <label>Privy part</label><br>
                                   <?php echo e(Form::checkbox('privy[]','Shaved')); ?>Shaved <br>

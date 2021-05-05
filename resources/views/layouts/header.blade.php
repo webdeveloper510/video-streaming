@@ -867,13 +867,15 @@
                                   {{Form::checkbox('sexology[]','Homo')}}Homo <br>
                                   {{Form::checkbox('sexology[]','Bisexual')}}Bisexual <br>
                                   <br>
+                                  </div>
+                                  <div class="col-4 mb-4 logy">
                                   <label>Body</label><br>
                                   {{Form::checkbox('weight[]','Less than Average')}} Thin <br>
                                   {{Form::checkbox('weight[]','Normal')}}Normal <br>
                                   {{Form::checkbox('weight[]','Muscular')}}Muscular<br> 
                                   {{Form::checkbox('weight[]','Chubby')}}Chubby 
-                                  <br>
-                                            <br>
+                                      </div>
+                                      <div class="col-4 mb-4 logy">
                                     <label>Height</label><br>
                                   {{Form::checkbox('height[]','<140cm')}}<140cm <br>
                                   {{Form::checkbox('height[]','140-160cm')}}140-160cm <br>
@@ -897,7 +899,7 @@
                                   <br>
                                   <input type="hidden" name="type" value="artists"/>
 
-                                  
+                                  </div>
                                 <div class="col-4 mb-4 logy">
                                     <label>Privy part</label><br>
                                   {{Form::checkbox('privy[]','Shaved')}}Shaved <br>
