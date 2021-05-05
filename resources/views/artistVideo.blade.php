@@ -53,9 +53,8 @@
 
                                 <button
                                     type="button"
-                                    style="{{$buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'}}"
+                                    style="{{$buyed==1 ? 'cursor:default; background-color:grey;display:none;' : 'cursor:pointer'}}"
                                     class="btn-primary"
-                                    style="{{{{$buyed==1 ? 'display:none' : 'display:block'}}"
                                     {{$buyed==1 ? 'disabled ':''}}
                                     data-toggle="modal"
                                     data-target="#exampleModal">Add To Library</button>
@@ -279,7 +278,7 @@
                                                                     <p>Play Time</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p>{{ convertSecondstoFormat($video->duration) }}</p>
+                                                                    <p>{{$video->duration }}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
