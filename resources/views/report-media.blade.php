@@ -98,7 +98,38 @@
   
   
   </div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    
+  <section class="reportmeadia">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="text-center">
+                <h3>Oldest : <span>0h</span>
+
+                <select class="custom-select my-2" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="text-center">
+                <h3>In Queue : <span>0</span>
+
+                <button class="btn btn-outline-primary my-2"  type="button">Start Reviewing</button>
+          </div>
+      </div>
+      <div class="col-md-12 text-center my-4">
+        
+      </div>
+    </div>
+    </div>
+    </section>
+  
+  </div>
 </div>
 
 <style>
