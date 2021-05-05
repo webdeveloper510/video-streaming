@@ -21,6 +21,7 @@
 
         {{ Form::close() }}
         </div>
+        
         </div>
         <div class="profileimg">
         <div class="overlayprofile">
