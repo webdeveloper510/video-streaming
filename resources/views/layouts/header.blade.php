@@ -871,38 +871,38 @@
                                 </div>
                                 <div class="col-4 mb-4 logy">
                                   <label>Sexology</label><br>
-                                  {{Form::checkbox('sexology[]','Hetero')}}Hetero <br> <br>
-                                  {{Form::checkbox('sexology[]','Homo')}}Homo <br> <br>
-                                  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual <br>
+                                  <label> {{Form::checkbox('sexology[]','Hetero')}}Hetero </label> <br>
+                                  <label> {{Form::checkbox('sexology[]','Homo')}}Homo</label><br>
+                                  <label> {{Form::checkbox('sexology[]','Bisexual')}}Bisexual </label><br>
                                   <br>
                                   </div>
                                   <div class="col-4 mb-4 logy">
                                   <label>Body</label><br>
-                                  {{Form::checkbox('weight[]','Less than Average')}} Thin <br><br>
-                                  {{Form::checkbox('weight[]','Normal')}}Normal <br> <br>
-                                  {{Form::checkbox('weight[]','Muscular')}}Muscular<br> <br>
-                                  {{Form::checkbox('weight[]','Chubby')}}Chubby 
+                                  <label> {{Form::checkbox('weight[]','Less than Average')}} Thin </label><br>
+                                  <label> {{Form::checkbox('weight[]','Normal')}}Normal </label><br>
+                                  <label> {{Form::checkbox('weight[]','Muscular')}}Muscular</label> <br>
+                                  <label> {{Form::checkbox('weight[]','Chubby')}}Chubby 
                                       </div>
                                       <div class="col-4 mb-4 logy">
                                     <label>Height</label><br>
-                                  {{Form::checkbox('height[]','<140cm')}}<140cm <br> <br>
-                                  {{Form::checkbox('height[]','140-160cm')}}140-160cm <br> <br>
-                                  {{Form::checkbox('height[]','160-180cm')}}160-180cm <br><br>
-                                  {{Form::checkbox('height[]','180cm<')}}180cm< <br>
+                                    <label>{{Form::checkbox('height[]','<140cm')}}<140cm </label> <br>
+                                    <label>{{Form::checkbox('height[]','140-160cm')}}140-160cm </label> <br>
+                                    <label> {{Form::checkbox('height[]','160-180cm')}}160-180cm </label><br>
+                                    <label> {{Form::checkbox('height[]','180cm<')}}180cm<  </label> <br>
                                 </div>
                                 
                                 <div class="col-4 mb-4">
                                     <label>Tits size</label><br>
-                                  {{Form::checkbox('titssize[]','Small')}}Small <br><br>
-                                  {{Form::checkbox('titssize[]','Normal')}}Normal <br><br>
-                                  {{Form::checkbox('titssize[]','Big')}}Big 
+                                    <label> {{Form::checkbox('titssize[]','Small')}}Small </label><br>
+                                    <label> {{Form::checkbox('titssize[]','Normal')}}Normal </label><br>
+                                    <label> {{Form::checkbox('titssize[]','Big')}}Big </label>
                                 </div>
                                  <div class="col-4 mb-4 ">
                                   <label>Ass</label><br>
-                                   {{Form::checkbox('ass[]','Small')}}Small <br><br>
-                                  {{Form::checkbox('ass[]','Normal')}}Normal <br><br>
+                                  <label> {{Form::checkbox('ass[]','Small')}}Small </label><br>
+                                  <label> {{Form::checkbox('ass[]','Normal')}}Normal </label><br>
                                  
-                                  {{Form::checkbox('ass[]','Big')}}Big 
+                                  <label> {{Form::checkbox('ass[]','Big')}}Big </label>
                                   <br>
                                   <br>
                                   <input type="hidden" name="type" value="artists"/>
@@ -910,45 +910,45 @@
                                   </div>
                                 <div class="col-4 mb-4 logy">
                                     <label>Privy part</label><br>
-                                  {{Form::checkbox('privy[]','Shaved')}}Shaved <br><br>
-                                  {{Form::checkbox('privy[]','Unshaved')}}Unshaved <br><br>
+                                    <label> {{Form::checkbox('privy[]','Shaved')}}Shaved</label><br>
+                                    <label> {{Form::checkbox('privy[]','Unshaved')}}Unshaved </label><br>
                                   <br>
                                   <br>
                                   <label>Hair Length</label><br>
-                                  {{Form::checkbox('hairlength[]','Very short')}}Very short <br><br>
-                                  {{Form::checkbox('hairlength[]','Short')}}Short <br><br>
-                                  {{Form::checkbox('hairlength[]','Long')}}Long <br><br>
-                                  {{Form::checkbox('hairlength[]','Very Long')}}Very Long <br><br>
+                                  <label> {{Form::checkbox('hairlength[]','Very short')}}Very short </label><br>
+                                  <label> {{Form::checkbox('hairlength[]','Short')}}Short </label><br>
+                                  <label> {{Form::checkbox('hairlength[]','Long')}}Long </label><br>
+                                  <label> {{Form::checkbox('hairlength[]','Very Long')}}Very Long </label><br>
                                        
                                 </div>
                                  <div class="col-4 mb-4">
                                   <label>Eyes/lenses</label><br><br>
-                                  {{Form::checkbox('eyecolor[]','blue')}}Blue <br><br>
-                                  {{Form::checkbox('eyecolor[]','brown')}}Brown <br><br>
-                                  {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green<br> <br>
-                                  {{Form::checkbox('eyecolor[]','golden')}}Golden <br><br>
-                                  {{Form::checkbox('eyecolor[]','gray')}}Gray <br><br>
-                                  {{Form::checkbox('eyecolor[]','green')}}Green<br><br>
-                                  {{Form::checkbox('eyecolor[]','red')}}Red <br><br>
-                                  {{Form::checkbox('eyecolor[]','white')}}White <br><br>
-                                  {{Form::checkbox('eyecolor[]','yellow')}}Yellow <br><br>
-                                  {{Form::checkbox('eyecolor[]','indigo')}}Indigo <br><br>
-                                  {{Form::checkbox('eyecolor[]','violet')}}Violet <br><br>
+                                  <label> {{Form::checkbox('eyecolor[]','blue')}}Blue </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','brown')}}Brown </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','brown-green')}}Brown-green</label> <br>
+                                  <label> {{Form::checkbox('eyecolor[]','golden')}}Golden </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','gray')}}Gray </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','green')}}Green</label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','red')}}Red </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','white')}}White </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','yellow')}}Yellow </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','indigo')}}Indigo </label><br>
+                                  <label> {{Form::checkbox('eyecolor[]','violet')}}Violet </label><br>
                                 </div>
                                       <div class="col-4 mb-4 ">
                                   <label>Hair color</label><br><br>
-                                  {{Form::checkbox('haircolor[]','blue')}}Blue <br><br>
-                                  {{Form::checkbox('haircolor[]','brown')}}Brown <br><br>
-                                  {{Form::checkbox('haircolor[]','black')}}Black<br> <br>
-                                  {{Form::checkbox('haircolor[]','blonde')}}Blonde <br><br>
-                                  {{Form::checkbox('haircolor[]','gray')}}Gray <br><br>
-                                  {{Form::checkbox('haircolor[]','green')}}Green<br><br>
-                                  {{Form::checkbox('haircolor[]','red')}}Red <br><br>
-                                  {{Form::checkbox('haircolor[]','white')}}White <br><br>
-                                  {{Form::checkbox('haircolor[]','yellow')}}Yellow <br><br>
-                                  {{Form::checkbox('haircolor[]','silver')}}Silver <br><br>
-                                  {{Form::checkbox('haircolor[]','indigo')}}Indigo <br><br>
-                                  {{Form::checkbox('haircolor[]','violet')}}Violet <br><br>
+                                  <label> {{Form::checkbox('haircolor[]','blue')}}Blue </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','brown')}}Brown </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','black')}}Black</label> <br>
+                                  <label> {{Form::checkbox('haircolor[]','blonde')}}Blonde </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','gray')}}Gray </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','green')}}Green</label><br>
+                                  <label> {{Form::checkbox('haircolor[]','red')}}Red </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','white')}}White </label><br>
+                                  <label>  {{Form::checkbox('haircolor[]','yellow')}}Yellow </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','silver')}}Silver </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','indigo')}}Indigo </label><br>
+                                  <label> {{Form::checkbox('haircolor[]','violet')}}Violet </label><br>
                                 </div>
                                
                                  <div class="col-4 mb-4 logy">
