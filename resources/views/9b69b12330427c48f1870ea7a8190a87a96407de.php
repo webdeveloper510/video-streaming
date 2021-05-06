@@ -78,7 +78,7 @@
   <?php else: ?>
   <!--<h3 class="text-white"> Your search -<span>hello</span> - Did not match any content.<br>-->
   <!-- Please update your search/filter options.</h3>-->
-   <h3>Your filter options did not match any content.
+   <h3 class="text-white">Your filter options did not match any content.
 Please update your filter options</h3>
   <br/>
   <div class="popularvideo">
