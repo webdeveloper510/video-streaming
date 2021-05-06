@@ -853,9 +853,9 @@
                        
                                                <h4>Gender</h4>
                                                <label class=""></label><br>
-                                               <label> <?php echo e(Form::checkbox('gender[]','Male')); ?>Male </label><br>
-                                               <label> <?php echo e(Form::checkbox('gender[]','Female')); ?>Female </label><br>
-                                               <label> <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans </label>
+                                               <label> <?php echo e(Form::radio('gender[]','Male')); ?>Male </label><br>
+                                               <label> <?php echo e(Form::radio('gender[]','Female')); ?>Female </label><br>
+                                               <label> <?php echo e(Form::radio('gender[]','Trans')); ?>Trans </label>
                                                 
                                                <br>
                                             <h4>Sexology</h4>
