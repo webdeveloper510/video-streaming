@@ -26,7 +26,7 @@
                             <div class="content-area">
                                 <h2>{{$video->title}}</h2>
                                 <a href="{{url('artistDetail/'.$video->contentProviderid)}}">
-                                    <h5 style="    color: lightblue;">{{$video->nickname}}</h5>
+                                    <h5 style="    color: blue;">{{$video->nickname}}</h5>
                                 </a>
                             </div>
                         </div>
