@@ -863,11 +863,11 @@
                         <div class="row text-left text-white mt-3 red">
                                 <div class="col-4 mb-4  das">
                                   <label>Gender</label><br>
-                                  {{Form::radio('gender[]','Male')}}Male <br>
+                                  <label>{{Form::radio('gender[]','Male')}}Male </label>
                                   <br>
-                                  {{Form::radio('gender[]','Female')}}Female <br>
+                                  <label> {{Form::radio('gender[]','Female')}}Female</label>
                                   <br>
-                                  {{Form::radio('gender[]','Trans')}}Trans 
+                                  <label>{{Form::radio('gender[]','Trans')}}Trans </label>
                                 </div>
                                 <div class="col-4 mb-4 logy">
                                   <label>Sexology</label><br>
@@ -961,7 +961,7 @@
                             </div>
                       </div>
                            </div>
-                        <div class="col-md-12 text-right mt-3 pr-5">
+                        <div class="col-md-12 text-right my-3 pr-5">
             
               {{ Form::submit('Apply!',['class'=>'btn btn-primary mt-4']) }}
          
