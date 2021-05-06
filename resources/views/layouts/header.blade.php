@@ -817,24 +817,24 @@
                         
                         </label>
                         <!-- Modal -->
-                        <div class="collapse pt-4" id="audio123">
+                       
                                       <div class="row">
                                       <div class="col-md-12 mb-4">
                                                <label>Gender</label><br>
-                                                  {{Form::checkbox('gender[]','Male')}}Male <br>
-                                                  {{Form::checkbox('gender[]','Female')}}Female <br>
-                                                 {{Form::checkbox('gender[]','Trans')}}Trans 
+                                               <label> {{Form::checkbox('gender[]','Male')}}Male </label><br>
+                                               <label> {{Form::checkbox('gender[]','Female')}}Female </label><br>
+                                               <label> {{Form::checkbox('gender[]','Trans')}}Trans </label>
                                                 </div>
                                             <div class="col-md-12 mb-4">
                                             <label>Sexology</label><br>
-                                                {{Form::checkbox('sexology[]','Hetero')}}Hetero <br>
-                                               {{Form::checkbox('sexology[]','Homo')}}Homo <br>
-                                                 {{Form::checkbox('sexology[]','Bisexual')}}Bisexual 
+                                            <label> {{Form::checkbox('sexology[]','Hetero')}}Hetero </label><br>
+                                            <label> {{Form::checkbox('sexology[]','Homo')}}Homo</label> <br>
+                                            <label>  {{Form::checkbox('sexology[]','Bisexual')}}Bisexual </label>
                                              </div>
                                       </div>
                                 </div>
                               </div>
-                        </div>
+                       
                         <div class="col-md-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
                       </div>
