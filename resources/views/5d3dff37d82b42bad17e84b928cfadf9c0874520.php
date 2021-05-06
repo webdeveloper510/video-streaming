@@ -858,6 +858,7 @@
                                                <label> <?php echo e(Form::radio('gender[]','Trans')); ?>Trans </label>
                                                 
                                                <br>
+                                               <label class=""></label><br>
                                             <h4>Sexology</h4>
                                             <label class=""></label><br>
                                             <label> <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero </label><br>
