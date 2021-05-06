@@ -1095,7 +1095,7 @@
                       </div>
 
                      
-                        <div class="collapse pt-4" id="collapseExample2">
+                      <div class="collapse pt-4" id="collapseExample1" style="display:block;">
               <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
             </div>
                     </div>

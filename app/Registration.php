@@ -290,21 +290,10 @@ public function getVedio($data){
        /* -----------------------End Filter Data Using orderBy-------------------------------------- */
 
 
-                $response = $result->where('type',$data['type'])->get();
-
-                // echo "<pre>";
-
-                // print_r($response);die;  
-
-
-                   $subid=$response->pluck("subid");
-                    //print_r($subid);die;
-
-                    //  $products = DB::table("subcategory")->whereIn('id', $subid)
-                    //  ->pluck('id')
-                    //  ->toArray();
-                    // $response['subcategory']=$products;
+                $response = $result->where('type',$data['type'])->get()->toArray();
                       if($response){
+                          
+                         // echo "fff";die;
 
                         $response['search']= 'searched';
 
@@ -354,11 +343,13 @@ public function getNewComes(){
 
 /*------------------------Insert Recent Vedio media--------------------------------------------*/
 
-public function insertRecentTable($data){
+public function insertRecentTable($data,$srh){
+    
+    if($srh=='searched'){
+        
+     $ids = array_column($data, 'id');
 
-     $fetchData=$data->pluck('id')->toArray();
-
-     $insertData['mediaId']=implode(',', $fetchData);
+     $insertData['mediaId']=implode(',', $ids);
 
       $session_data =   Session::get('User');
 
@@ -374,6 +365,10 @@ public function insertRecentTable($data){
         Session::forget('recentSearch');
      
      }
+        
+    }
+    
+
      
 }
 /*----------------------------------------------------End---------------------------------------------------*/

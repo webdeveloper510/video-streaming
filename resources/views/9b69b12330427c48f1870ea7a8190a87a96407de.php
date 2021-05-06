@@ -1,21 +1,21 @@
 
-@include('layouts.header')
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- end header -->
 <div class="container mt-5">
 
     <!-- <div class="row my-5 pt-5 " >
       
-    @if($subcategory)
-      @forelse($subcategory as $sub)
+    <?php if($subcategory): ?>
+      <?php $__empty_1 = true; $__currentLoopData = $subcategory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
       <div class="col-md-2  hello">
 
-        <a href="{{url('show/'.$sub->id)}}"><p>{{$sub->subcategory}}</p></a>
+        <a href="<?php echo e(url('show/'.$sub->id)); ?>"><p><?php echo e($sub->subcategory); ?></p></a>
 
       </div>
-       @empty
-       @endforelse
-        @endif
+       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+       <?php endif; ?>
+        <?php endif; ?>
       
     </div> -->
 
@@ -24,58 +24,58 @@
 </div>
 
     
-    @if($video && $search=='searched')
+    <?php if($video && $search=='searched'): ?>
 
  <div class="row mt-5 pt-5">
  <div class="col-md-12  text-right my-3">
  <button type="button" class="btn btn-primary bardot my-3">Select</button>
  </div>
- 	  @foreach ($video as $vid)
+ 	  <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
  	   
             <div class="col-md-4 pt-3 searchvideo1">
-            <a href="{{url('artist-video/'.$vid->id)}}">
+            <a href="<?php echo e(url('artist-video/'.$vid->id)); ?>">
 			  <div class="embed-responsive embed-responsive-16by9">
-        @if($vid->type=='video')
-				<video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
-              <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+        <?php if($vid->type=='video'): ?>
+				<video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
         </video>
-        @else
-        <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" width="100%"/>
-        <audio width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
-              <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
+        <?php else: ?>
+        <img src="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" width="100%"/>
+        <audio width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
                   Your browser does not support the video tag.
         </audio>
-        @endif
+        <?php endif; ?>
             <div class="pricetime">
           <div class="text-left">
-          <h6 class="text-white">{{ $vid->price }}/PAZ</h6>
+          <h6 class="text-white"><?php echo e($vid->price); ?>/PAZ</h6>
           </div>
           <div class="text-right">
-          <h6 class="text-white">{{ $vid->duration }}</h6>
+          <h6 class="text-white"><?php echo e($vid->duration); ?></h6>
           </div>
           </div>
 				</div>
-        <h3 class="text-center text-white"> {{$vid->title}}</h3>
+        <h3 class="text-center text-white"> <?php echo e($vid->title); ?></h3>
         </a>
         <!-- <div class="tooltip text-white"> <i class="fa fa-ellipsis-v" ></i>
   <span class="tooltiptext">You can not download this video</span>
 </div> -->
          <div class="checkall" style="display: none">
          <form>
-          <input type="checkbox" class="slct_video"  id="{{$vid->id}}" data-id="{{$vid->price}}">
+          <input type="checkbox" class="slct_video"  id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>">
           </form></div>
 			</div>
-			@endforeach
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
  
   <div>
      <!-- <h1>Your specific taste is not served yet</h1>
-     <a href="{{url('my-requests')}}"><button class="btn btn-warning text-white">
+     <a href="<?php echo e(url('my-requests')); ?>"><button class="btn btn-warning text-white">
      Create Project
      </button></a> -->
   </div> 
-  @else
+  <?php else: ?>
   <!--<h3 class="text-white"> Your search -<span>hello</span> - Did not match any content.<br>-->
   <!-- Please update your search/filter options.</h3>-->
    <h3>Your filter options did not match any content.
@@ -84,23 +84,23 @@ Please update your filter options</h3>
   <div class="popularvideo">
     <h3 class="text-white">Popular Video :</h3>
     <div class="row">
-    @foreach ($video as $vid)
+    <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <div class="col-md-4 mb-3">
-     @if($vid->type=='video')
-				<video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
-              <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
+     <?php if($vid->type=='video'): ?>
+				<video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
                   Your browser does not support the video tag.
         </video>
-        @else
-        <audio width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
-              <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
+        <?php else: ?>
+        <audio width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+              <source src="<?php echo e(url('storage/app/public/audio/'.$vid->media)); ?>" type="audio/mp3">
                   Your browser does not support the video tag.
         </audio>
-        @endif
+        <?php endif; ?>
     </div>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>
-      @endif
+      <?php endif; ?>
 
 
 </div>
@@ -140,7 +140,7 @@ Please update your filter options</h3>
 <body end-->
 
 <!--footer -->
-@include('layouts.footer')
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <style>
 
 .tooltip {
@@ -236,3 +236,4 @@ input.slct_video:after {
 
 </style>
 </html>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//search.blade.php ENDPATH**/ ?>
