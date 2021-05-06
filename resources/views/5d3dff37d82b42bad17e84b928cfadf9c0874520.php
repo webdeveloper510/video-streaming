@@ -847,7 +847,8 @@
                       <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
             
                         
-                        </label>
+                        </label> <br>
+                        <br>
                         <!-- Modal -->
                        
                                       <div class="row">
@@ -1377,7 +1378,7 @@
 </header>
 <style>
 .dropdown1.audio12.text-white {
-    height: 107px;
+    height: 159px;
     overflow-y: scroll;
 }
 /* width */
