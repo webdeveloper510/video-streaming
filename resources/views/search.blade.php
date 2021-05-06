@@ -85,7 +85,7 @@ Please update your filter options</h3>
     <h3 class="text-white">Popular Video :</h3>
     <div class="row">
     @foreach ($video as $vid)
-     <div class="col-md-4 mb-3">
+     <div class="col-md-4 mb-3 red">
      @if($vid->type=='video')
 				<video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
               <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
@@ -163,7 +163,9 @@ Please update your filter options</h3>
   position: absolute;
   z-index: 1;
 }
-
+.red{
+  border:2px solid golden;
+}
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
