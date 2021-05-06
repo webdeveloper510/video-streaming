@@ -85,7 +85,7 @@ Please update your filter options</h3>
     <h3 class="text-white">Popular Video :</h3>
     <div class="row">
     <?php $__currentLoopData = $video; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-     <div class="col-md-4 mb-3">
+     <div class="col-md-4 mb-3 red">
      <?php if($vid->type=='video'): ?>
 				<video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$vid->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
               <source src="<?php echo e(url('storage/app/public/video/'.$vid->media)); ?>" type="video/mp4">
@@ -163,7 +163,9 @@ Please update your filter options</h3>
   position: absolute;
   z-index: 1;
 }
-
+.red{
+  border:2px solid golden;
+}
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
