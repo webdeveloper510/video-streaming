@@ -1053,7 +1053,7 @@
                       </div>
 
                      
-                        <div class="collapse pt-4" id="collapseExample2">
+                      <div class="collapse pt-4" id="collapseExample1" style="display:block;">
               @include('popup') 
             </div>
                     </div>
