@@ -24,9 +24,9 @@
 
                         <div class="col-md-5">
                             <div class="content-area">
-                                <h3>{{$video->title}}</h3>
+                                <h2>{{$video->title}}</h2>
                                 <a href="{{url('artistDetail/'.$video->contentProviderid)}}">
-                                    <p>{{$video->nickname}}</p>
+                                    <h5 style="    color: lightblue;">{{$video->nickname}}</h5>
                                 </a>
                             </div>
                         </div>
