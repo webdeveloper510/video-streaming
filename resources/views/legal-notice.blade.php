@@ -26,7 +26,7 @@
 
             </address>
             <h3>Authorized representative:</h3>
-            <i>Robin Heller, chief Executive Officer</i>
+            <i>Robin Heller, Chief Executive Officer</i>
         </div>
 
     </div>
