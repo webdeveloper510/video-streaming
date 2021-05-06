@@ -157,12 +157,6 @@ class AuthController extends Controller
 
 
             unset($search_data['search']);
-            
-            //print_r($search_data);die;
-
-          //$search_data->forget('search'); // Remove subcategory key from filter result data
-
-      //print_r($search);die;
 
             if($recentSelected && $session_type=='User'){
 
