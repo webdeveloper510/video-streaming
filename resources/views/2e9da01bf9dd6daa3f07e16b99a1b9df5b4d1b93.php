@@ -31,7 +31,8 @@
 			</div>
 			<hr>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-		</div>
+
+	</div>
 		<style type="text/css">
 .notification .profileImage {
   width: 100px;
