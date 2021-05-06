@@ -835,6 +835,7 @@
                                      
                                 
                               </div>
+                              </div>
                        
                         <div class="col-md-6">
                        <h4 class="text-white"><input type="checkbox">Save filter options</h4>
