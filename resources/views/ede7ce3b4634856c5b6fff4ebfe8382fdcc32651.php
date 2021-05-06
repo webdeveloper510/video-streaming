@@ -530,7 +530,7 @@ ul.reporting {
     top: 6px;
     right: 33px;
     cursor: pointer;
-	z-index: 1000;
+	z-index: 0;
 }
 .close {
      margin-top: 7px;
