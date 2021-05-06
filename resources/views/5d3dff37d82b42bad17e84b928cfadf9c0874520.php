@@ -851,21 +851,21 @@
                         <br>
                         <!-- Modal -->
                        
-                                      <div class="row">
-                                      <div class="col-md-12 mb-4">
-                                               <label>Gender</label><br>
+                                               <h4>Gender</h4>
+                                               <label class=""></label><br>
                                                <label> <?php echo e(Form::checkbox('gender[]','Male')); ?>Male </label><br>
                                                <label> <?php echo e(Form::checkbox('gender[]','Female')); ?>Female </label><br>
                                                <label> <?php echo e(Form::checkbox('gender[]','Trans')); ?>Trans </label>
-                                                </div>
-                                            <div class="col-md-12 mb-4">
-                                            <label>Sexology</label><br>
+                                                
+                                               <br>
+                                            <h4>Sexology</h4>
+                                            <label class=""></label><br>
                                             <label> <?php echo e(Form::checkbox('sexology[]','Hetero')); ?>Hetero </label><br>
                                             <label> <?php echo e(Form::checkbox('sexology[]','Homo')); ?>Homo</label> <br>
                                             <label>  <?php echo e(Form::checkbox('sexology[]','Bisexual')); ?>Bisexual </label>
-                                             </div>
-                                      </div>
-                                </div>
+                                            
+                                     
+                                
                               </div>
                        
                         <div class="col-md-6">
