@@ -11,6 +11,7 @@
 <table class="table table-hover">
   <thead class="thead-light">
     <tr>
+      <th scope="col">#</th>
       <th scope="col">Artist</th>
       <th scope="col">Reg.emails</th>
       <th scope="col">Cur.emalis</th>
@@ -33,6 +34,7 @@
   <tbody>
     <tr>
       <th scope="row">1</th>
+      <th >mark</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -54,25 +56,6 @@
     <tr>
       <th scope="row">2</th>
       <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
-   
-    </tr>
-    <tr>
-      <th scope="row">2</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -92,8 +75,30 @@
    
     </tr>
     <tr>
-      <th scope="row">2</th>
+      <th scope="row">3</th>
       <td>Mark</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+   
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Mark</td>
+      <td>Otto</td>
       <td>Otto</td>
       <td>@mdo</td>
       <td>Mark</td>

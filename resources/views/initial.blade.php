@@ -373,12 +373,13 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_{{$recnt->id}}">{{ $recnt->duration ? $recnt->duration :'' }}</h6>
-                                @if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN')
+                                @if($recnt->duration==''||$recnt->duration=='NaN:NaN:NaN')
                                 <script>
-                                    var video;
-                                    var id;
+                                    var video1;
+                                    var id1;
                                     setTimeout(() => {
-                                        video = $("#recently_{{$recnt->id}}");
+                                        video1 = $("#recently_{{$recnt->id}}");
+                                        console.log(video);
                                         seconds_to_min_sec(
                                             video[0].duration,
                                             "#duration_{{$recnt->id}}",
@@ -454,11 +455,14 @@
                                 </div>
                                 <div class="text-right">
                                     <h6 class="text-white" id="duration_{{$pop->id}}">{{ $pop->duration ? $pop->duration :'' }}</h6>
-                                    @if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN')
+                                    @if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN')
                                     <script>
+                                    var video;
+                                    var id;
                                         setTimeout(() => {
-                                            video = $("#video_{{$pop->id}}");
-                                            id = $("#video_{{$pop->id}}");
+                                             video = $("#video_{{$pop->id}}");
+                                             id = $("#video_{{$pop->id}}");
+                                             //console.log(video[0].duration);
                                             seconds_to_min_sec(
                                                 video[0].duration,
                                                 "#duration_{{$pop->id}}",

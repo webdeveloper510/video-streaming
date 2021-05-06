@@ -5,7 +5,7 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
 
 <?php endif; ?>
-		<div class="container mt-5 pt-5">
+		<div class="container">
 			<h2><b>Notification</b></h2>
 			<hr>
 		<?php $__currentLoopData = $notification1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -31,7 +31,8 @@
 			</div>
 			<hr>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-		</div>
+
+	</div>
 		<style type="text/css">
 .notification .profileImage {
   width: 100px;

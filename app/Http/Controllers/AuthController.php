@@ -148,42 +148,25 @@ class AuthController extends Controller
 
 
          $search_data = $this->model->getVedio($data);  // GET SUBCATEGORY ID AND DATA USING FILTER 
+         
 
-           //echo "<pre>";
-        
        
 
           $search=$search_data['search'];
 
-         // print_r($search);die;
-
-          //   if(Session::get('subid')){
 
 
-          //       $sessionGet=Session::get('subid');
+            unset($search_data['search']);
+            
+            //print_r($search_data);die;
 
-          //       //    print_r($sessionGet);die;
-
-          //   }
-          //   else{
-          //       $resultSubId=$this->model->getSubcategoryById($sub);
-
-              
-
-          //        Session::put('subid',$resultSubId);
-
-          // }
-
-
-
-
-          $search_data->forget('search'); // Remove subcategory key from filter result data
+          //$search_data->forget('search'); // Remove subcategory key from filter result data
 
       //print_r($search);die;
 
             if($recentSelected && $session_type=='User'){
 
-              $this->recentData($search_data);
+              $this->recentData($search_data,$search);
 
         }
          return view('/search',['search'=>$search,'video'=>$search_data,'subcategory'=>isset($sessionGet) ? $sessionGet : null]);
@@ -192,9 +175,9 @@ class AuthController extends Controller
 
     /*--------------------------------------------  End Filter Result--------------------------------------*/
 
-    public function recentData($search_data){
+    public function recentData($search_data,$search){
 
-           $this->model->insertRecentTable($search_data);
+           $this->model->insertRecentTable($search_data,$search);
     }
     public function playlist(){
     
@@ -1235,6 +1218,7 @@ public function notifyEmail(Request $req){
 
 
     $playName = $this->model->getAllPlaylist();
+    
 
 
     $wishList = $this->model->getWishlist();

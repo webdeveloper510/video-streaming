@@ -54,7 +54,7 @@
 
                                 <button
                                     type="button"
-                                    style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;' : 'cursor:pointer'); ?>"
+                                    style="<?php echo e($buyed==1 ? 'cursor:default; background-color:grey;display:none;' : 'cursor:pointer'); ?>"
                                     class="btn-primary"
                                     <?php echo e($buyed==1 ? 'disabled ':''); ?>
 
@@ -283,7 +283,7 @@
                                                                     <p>Play Time</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p><?php echo e(convertSecondstoFormat($video->duration)); ?></p>
+                                                                    <p><?php echo e($video->duration); ?></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -293,7 +293,7 @@
                                                                     <p>Resolution</p>
                                                                 </div>
                                                                 <div class="Media-Type1">
-                                                                    <p><?php echo e($video->convert); ?></p>
+                                                                    <p><?php echo e($video->convert); ?>p</p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -341,7 +341,7 @@
     top: 6px;
     right: 33px;
     cursor: pointer;
-	z-index: 1000;
+	z-index:0;
 }
 .content-cart .addToCart:hover {
     background: #0062cc !important;
@@ -375,7 +375,7 @@ ul.reporting {
                                     top: 6px;
                                     right: 33px;
                                     cursor: pointer;
-                                    z-index: 1000;
+                                    z-index: 0;
                                 }
                                 .content-cart .addToCart:hover {
                                     background: #0062cc !important;

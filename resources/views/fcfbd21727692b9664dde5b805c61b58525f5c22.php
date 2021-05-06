@@ -21,7 +21,16 @@
                         font-size: 18px;
 
                     }
-                   
+                    .freelog {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
+                    .free {
+                        padding: 13px;
+                        font-size: 18px;
+
+                    }
                     .header img {
                         display: block;
                         margin: 0 auto;
@@ -90,7 +99,9 @@
                     .header {
                         background: black;
                     }
-                    .
+                    button.btn.btn-primary.btn-lg.form-control.freelog {
+    padding: 13px;
+}
                     .freelog {
                         padding: 13px;
                         font-size: 18px;
@@ -123,12 +134,12 @@
                         <div class="container row my-4">
                             <div class="col-md-6 mb-3 text-center">
                                 <a href="<?php echo e(url('/register')); ?>">
-                                    <button type="button" class="btn btn-success free form-control">Join Free</button>
+                                    <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                                 </a>
                             </div>
                             <div class="col-md-6 text-center">
                                 <a href="<?php echo e(url('/login')); ?>">
-                                    <button type="button" class="btn btn-primary  form-control freelog">Login</button>
+                                    <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                                 </a>
                             </div>
                         </div>
@@ -363,12 +374,13 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
-                                <?php if($recnt->duration==''): ?>
+                                <?php if($recnt->duration==''||$recnt->duration=='NaN:NaN:NaN'): ?>
                                 <script>
-                                    var video;
-                                    var id;
+                                    var video1;
+                                    var id1;
                                     setTimeout(() => {
-                                        video = $("#recently_<?php echo e($recnt->id); ?>");
+                                        video1 = $("#recently_<?php echo e($recnt->id); ?>");
+                                        console.log(video);
                                         seconds_to_min_sec(
                                             video[0].duration,
                                             "#duration_<?php echo e($recnt->id); ?>",
@@ -445,11 +457,14 @@
                                 </div>
                                 <div class="text-right">
                                     <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
-                                    <?php if($recnt->duration==''): ?>
+                                    <?php if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN'): ?>
                                     <script>
+                                    var video;
+                                    var id;
                                         setTimeout(() => {
-                                            video = $("#video_<?php echo e($pop->id); ?>");
-                                            id = $("#video_<?php echo e($pop->id); ?>");
+                                             video = $("#video_<?php echo e($pop->id); ?>");
+                                             id = $("#video_<?php echo e($pop->id); ?>");
+                                             //console.log(video[0].duration);
                                             seconds_to_min_sec(
                                                 video[0].duration,
                                                 "#duration_<?php echo e($pop->id); ?>",
@@ -587,7 +602,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if($audio->duration==''): ?>
+                                    <?php if($audio->duration=='' || $audio->duration=='NaN:NaN:NaN'): ?>
                                     <script>
                                         var audio;
                                         var id;

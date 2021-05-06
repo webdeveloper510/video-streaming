@@ -200,11 +200,11 @@
 
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
-
+                                    
                                 <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$videos[0]->audio_pic)); ?>">
                                     <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                                         Your browser does not support the video tag.
-                                    </video>
+                                </video>
                                     <div
                                         class="videooverlay text-white"
                                         onclick="showPlaylistVedio('<?php echo e(json_encode($playlist)); ?>')">
@@ -234,8 +234,9 @@
                                   
                                     <div class="row pb-row">
                                         <?php if($wishList): ?> <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        
                                         <div class="col-md-3 pb-video">
-                                      
+                                            <a href="<?php echo e(url('artist-video/'.$val->id)); ?>">
                                                 <video
                                                     width="100%"
                                                     height="100%"
@@ -243,6 +244,7 @@
                                                     controlsList="nodownload"
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4"></video>
+                                                    </a>
 
                                                 </div>
 
@@ -264,8 +266,11 @@
                                             </div>
                                             <div class="row pb-row">
 
-                                                <?php if($history): ?> <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if($history): ?>
+                                                <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                                                 <div class="col-md-3 pb-video">
+                                                 <a href="<?php echo e(url('artist-video/'.$histories->id)); ?>">
                                                     <video
                                                         width="100%"
                                                         height="100%"
@@ -275,9 +280,12 @@
 
                                                         <source
                                                             src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>"
-                                                            type="video/mp4"></video>
+                                                            type="video/mp4">
+                                                            </video>
+                                                            </a>
 
                                                     </div>
+
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
@@ -285,7 +293,7 @@
                                                     </div>
                                                     <?php endif; ?>
                                                 </div>
-                                            </div>
+                                            </div>  
                                         </div>
                                     </div>
                                 </div>
