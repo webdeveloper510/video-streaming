@@ -86,13 +86,13 @@
     @foreach ($video as $vid)
      <div class="col-md-4 mb-3">
      @if($vid->type=='video')
-				<video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
+				<video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" >
               <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
                   Your browser does not support the video tag.
         </video>
         @else
         <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" width="100%"/>
-        <audio width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}" controlsList="nodownload" disablePictureInPicture>
+        <audio width="320" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"  >
               <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
                   Your browser does not support the video tag.
         </audio>
