@@ -204,7 +204,7 @@
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
                                     
-                                <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$videos[0]->audio_pic)); ?>">
+                                <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$playlist->audio_pic)); ?>">
                                     <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                                         Your browser does not support the video tag.
                                 </video>
@@ -419,6 +419,9 @@
                                 font-weight: 700;
                                 cursor: pointer;
                             }
+                            a .video_append:hover{
+                                border:1px solid gold;
+                            }
                         </style>
                         <!--body end-->
                         <script>
@@ -428,4 +431,8 @@
                             }
                         </script>
                         <!--footer -->
+
+
+
+
                         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/play.blade.php ENDPATH**/ ?>
