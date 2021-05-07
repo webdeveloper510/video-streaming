@@ -228,9 +228,10 @@
                                 <br/>
                             </div>
 
-                            <!-- -------------------------- Wish list Start--------------------------->
+                        </div>
+                         <!-- -------------------------- Wish list Start--------------------------->
 
-                            <div class="col-md-12 uploa_outer" id="wishlist">
+                         <div class="col-md-12 uploa_outer" id="wishlist">
                                 <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
@@ -267,7 +268,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle">
                                                 <h3 class="tittle">History</h3>
