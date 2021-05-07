@@ -422,6 +422,9 @@
                                 font-weight: 700;
                                 cursor: pointer;
                             }
+                            a .video_append::hover{
+                                border:1px solid gold;
+                            }
                         </style>
                         <!--body end-->
                         <script>
