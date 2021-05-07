@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
                         </div>
                         
                     </div>
@@ -56,18 +56,9 @@
                             <div class="modal-body">
                                 <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
-                                     <?php $__currentLoopData = $listname1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                    <h5 class="select_list"><?php echo e($val->listname); ?>
-
-                                                    </h5>
-                                                    <button
-                                                        data-id="<?php echo e($val->id); ?>"
-                                                        class="alert alert-primary btn-sm saveBtn"
-                                                        onclick="savePlaylist(this)"
-                                                        style="display:none;">Save</button>
-                                                    <p class="aedit text-right">edit</p>
-                                                    <br>
-                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <h5 class="select_list"><?php echo e($val->listname); ?> </h5><br>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 
 
                                 </div>
@@ -79,12 +70,11 @@
                                     </span>
                                 <div class="text-center mt-4">
                                     <input type="hidden" id="art_id" value="<?php echo e($cartVideo ? $cartVideo[0]->contentProviderid : ''); ?>"/>
-                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
+                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
                             </div>
-                            <div class="alert alert-success" id="showMessage" style="display:none;"></div>
                                 </div>
                                 
                                 </div>
@@ -95,7 +85,7 @@
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
                              <form> 
-                              <input type="checkbox" class="slct_video" id="<?php echo e($val->id); ?>" data-id="<?php echo e($val->price); ?>"></form></div>
+                              <input type="checkbox" class="slct_video" id="<?php echo e($vid->id); ?>" data-id="<?php echo e($vid->price); ?>"></form></div>
                             <video
                                 width="100%"
                                 height="100%"
@@ -214,7 +204,7 @@
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
                                     
-                                <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$playlist->audio_pic)); ?>">
+                                <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$videos[0]->audio_pic)); ?>">
                                     <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                                         Your browser does not support the video tag.
                                 </video>
@@ -277,8 +267,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="col-md-12 uploa_outer" id="history">
+                        </div>
+                        <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle">
                                                 <h3 class="tittle">History</h3>
                                             </div>
@@ -313,8 +303,6 @@
                                                 </div>
                                             </div>  
                                         </div>
-                        </div>
-
                         <style>
                             body {
                                 background: black;
@@ -430,12 +418,6 @@
                                 font-weight: 700;
                                 cursor: pointer;
                             }
-                            a .video_append:hover{
-                                border:1px solid gold;
-                            }
-                            h5.active{
-                                color:red;
-                            }
                         </style>
                         <!--body end-->
                         <script>
@@ -445,8 +427,4 @@
                             }
                         </script>
                         <!--footer -->
-
-
-
-
                         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/play.blade.php ENDPATH**/ ?>
