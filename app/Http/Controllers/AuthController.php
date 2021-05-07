@@ -1205,10 +1205,14 @@ public function notifyEmail(Request $req){
     $update = $this->model->UpdateData('notification','id',array('read'=>1),$id);
 
     $ids = Session::get('listid');
+         Session::forget('SessionmultipleIds');
 
 
     $playName = $this->model->getAllPlaylist();
     
+    $all_play_lists = $this->model->getPlaylist();
+    
+    //print_r($all_play_lists);die;
 
 
     $wishList = $this->model->getWishlist();
@@ -1225,7 +1229,7 @@ public function notifyEmail(Request $req){
 
   
 
-     return view('play',['listname'=>$playName,'videos'=>$videos,'history'=>$historyVideos,'wishList'=>$wishList]);
+     return view('play',['listname1'=>$all_play_lists,'listname'=>$playName,'videos'=>$videos,'history'=>$historyVideos,'wishList'=>$wishList]);
 
   }
 
@@ -1312,15 +1316,9 @@ public function selectMultiple(Request $req){
 
         $idsData = $req->all();
 
-      
-       
-
      $multipleIds = Session::get('SessionmultipleIds');
   
     if($idsData['isCheck']=='false'){
-
-      
-
 
         $pos = array_search($idsData['id'], $multipleIds);
 
@@ -1361,6 +1359,8 @@ public function selectMultiple(Request $req){
 
 $multipleIds = Session::get('SessionmultipleIds');
 
+//print_r($multipleIds);
+
 
 
 $cartVideo = $this->model->getVideoWhereIn($multipleIds);
@@ -1369,6 +1369,21 @@ $cartVideo = $this->model->getVideoWhereIn($multipleIds);
 
        return response()->json($cartVideo);
 
+}
+
+
+public function addInLibrary(){
+    
+    $multipleIds = Session::get('SessionmultipleIds');
+    $listname = Session::get('listname');
+    
+    $added = $this->model->addInLibrary($multipleIds,$listname);
+    
+    return $added;
+    
+   // print_r($multipleIds);
+
+    
 }
 
 public function addMultipleVideo(Request $req){

@@ -105,6 +105,9 @@ Route::get('notification/{text}','AuthController@seeNotification');
 
 Route::post('ajax-request', 'artist@cartSbmit');
 
+Route::post('libraryAdded', 'AuthController@addInLibrary');
+
+
 Route::post('subscribe','artist@subscribe');
 
 Route::post('personal_info','AuthController@personal_info');

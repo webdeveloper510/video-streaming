@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
                         </div>
                         
                     </div>
@@ -56,9 +56,17 @@
                             <div class="modal-body">
                                 <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
-                                    @foreach($listname as $val)
-                                    <h5 class="select_list">{{$val->listname}} </h5><br>
-                                    @endforeach
+                                     @foreach($listname1 as $index=>$val)
+                                                    <h5 class="select_list">{{$val->listname}}
+                                                    </h5>
+                                                    <button
+                                                        data-id="{{$val->id}}"
+                                                        class="alert alert-primary btn-sm saveBtn"
+                                                        onclick="savePlaylist(this)"
+                                                        style="display:none;">Save</button>
+                                                    <p class="aedit text-right">edit</p>
+                                                    <br>
+                                     @endforeach
                                 
 
                                 </div>
@@ -70,11 +78,12 @@
                                     </span>
                                 <div class="text-center mt-4">
                                     <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
                             </div>
+                            <div class="alert alert-success" id="showMessage" style="display:none;"></div>
                                 </div>
                                 
                                 </div>
@@ -85,7 +94,7 @@
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
                              <form> 
-                              <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                              <input type="checkbox" class="slct_video" id="{{$val->id}}" data-id="{{$val->price}}"></form></div>
                             <video
                                 width="100%"
                                 height="100%"
@@ -204,7 +213,7 @@
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
                                     
-                                <video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$videos[0]->audio_pic) }}">
+                                <video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$playlist->audio_pic) }}">
                                     <source src="{{url('storage/app/public/video/'.$videos[0])}}" type="video/mp4">
                                         Your browser does not support the video tag.
                                 </video>
@@ -420,6 +429,12 @@
                                 font-weight: 700;
                                 cursor: pointer;
                             }
+                            a .video_append:hover{
+                                border:1px solid gold;
+                            }
+                            h5.active{
+                                color:red;
+                            }
                         </style>
                         <!--body end-->
                         <script>
@@ -429,4 +444,8 @@
                             }
                         </script>
                         <!--footer -->
+
+
+
+
                         @include('layouts.footer')
