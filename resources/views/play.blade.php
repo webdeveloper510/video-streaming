@@ -70,7 +70,7 @@
                                     </span>
                                 <div class="text-center mt-4">
                                     <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <button type="button" class="multipleAdd btn btn-primary">ADD </button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
@@ -306,6 +306,13 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+   
+
+
+
 
                         <style>
                             body {
