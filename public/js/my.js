@@ -1475,7 +1475,7 @@ function getSrcUrl(a){
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    bootbox.confirm({
-    message: message,
+    message: 'Do you want to really delete playlist ?',
     buttons: {
 
         confirm: {

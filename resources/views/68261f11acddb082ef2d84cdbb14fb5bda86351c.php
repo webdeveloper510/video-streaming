@@ -260,6 +260,7 @@
                                             </div>
                                             <br/>
                                         </div>
+                                        </div>
                                         <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
