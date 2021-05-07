@@ -148,13 +148,8 @@ class AuthController extends Controller
 
 
          $search_data = $this->model->getVedio($data);  // GET SUBCATEGORY ID AND DATA USING FILTER 
-         
-
-       
 
           $search=$search_data['search'];
-
-
 
             unset($search_data['search']);
 

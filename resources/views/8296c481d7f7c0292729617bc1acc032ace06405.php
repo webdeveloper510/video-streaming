@@ -26,7 +26,7 @@
                             <div class="content-area">
                                 <h2><?php echo e($video->title); ?></h2>
                                 <a href="<?php echo e(url('artistDetail/'.$video->contentProviderid)); ?>">
-                                    <h5 style="    color: lightblue;"><?php echo e($video->nickname); ?></h5>
+                                    <h5 style="    color: blue;"><?php echo e($video->nickname); ?></h5>
                                 </a>
                             </div>
                         </div>

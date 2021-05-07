@@ -307,6 +307,7 @@ public function getVedio($data){
                        ->leftjoin('popular', 'popular.mediaid', '=','media.id')
                       ->select('media.*')
                       ->where('popular.type',$data['type'])
+                      ->orderBy('popular.count','desc')
                       ->get()->toArray();
 
                       $data['search']= 'popular';
