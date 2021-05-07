@@ -374,7 +374,7 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
-                                <?php if($recnt->duration==''): ?>
+                                <?php if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN'): ?>
                                 <script>
                                     var video;
                                     var id;
@@ -456,7 +456,7 @@
                                 </div>
                                 <div class="text-right">
                                     <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
-                                    <?php if($recnt->duration==''): ?>
+                                    <?php if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN'): ?>
                                     <script>
                                         setTimeout(() => {
                                             video = $("#video_<?php echo e($pop->id); ?>");
@@ -598,7 +598,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if($audio->duration==''): ?>
+                                    <?php if($audio->duration=='' || $audio->duration=='NaN:NaN:NaN'): ?>
                                     <script>
                                         var audio;
                                         var id;
