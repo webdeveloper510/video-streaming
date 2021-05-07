@@ -1209,6 +1209,9 @@ public function notifyEmail(Request $req){
 
     $playName = $this->model->getAllPlaylist();
     
+    $all_play_lists = $this->model->getPlaylist();
+    
+    //print_r($all_play_lists);die;
 
 
     $wishList = $this->model->getWishlist();
@@ -1225,7 +1228,7 @@ public function notifyEmail(Request $req){
 
   
 
-     return view('play',['listname'=>$playName,'videos'=>$videos,'history'=>$historyVideos,'wishList'=>$wishList]);
+     return view('play',['listname1'=>$all_play_lists,'listname'=>$playName,'videos'=>$videos,'history'=>$historyVideos,'wishList'=>$wishList]);
 
   }
 

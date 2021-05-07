@@ -54,11 +54,19 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <h3> Create New Playlist</h3>
+                                <h3> Choose Your Playlist</h3>
                                 <div class="Playlist1">
-                                    @foreach($listname as $val)
-                                    <h5 class="select_list">{{$val->listname}} </h5><br>
-                                    @endforeach
+                                     @foreach($listname1 as $index=>$val)
+                                                    <h5 class="select_list">{{$val->listname}}
+                                                    </h5>
+                                                    <button
+                                                        data-id="{{$val->id}}"
+                                                        class="alert alert-primary btn-sm saveBtn"
+                                                        onclick="savePlaylist(this)"
+                                                        style="display:none;">Save</button>
+                                                    <p class="aedit text-right">edit</p>
+                                                    <br>
+                                     @endforeach
                                 
 
                                 </div>
@@ -70,7 +78,7 @@
                                     </span>
                                 <div class="text-center mt-4">
                                     <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <button type="button" class="multipleAdd btn btn-primary">ADD </button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
@@ -227,11 +235,12 @@
                                 @endforeach
                                 <br/>
                             </div>
-
+                           </div>
+                           </div>
                             <!-- -------------------------- Wish list Start--------------------------->
 
                             <div class="col-md-12 uploa_outer" id="wishlist">
-                                <div class="slider_tittle">
+                                <div class="slider_tittle container">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
                                   
@@ -265,9 +274,9 @@
                                         <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
-                                            <div class="slider_tittle">
+                                            <div class="slider_tittle container">
                                                 <h3 class="tittle">History</h3>
-                                            </div>
+                                            
                                             <div class="row pb-row">
 
                                                 @if($history)
@@ -299,6 +308,7 @@
                                                 </div>
                                             </div>  
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -421,6 +431,9 @@
                             }
                             a .video_append:hover{
                                 border:1px solid gold;
+                            }
+                            h5.active{
+                                color:red;
                             }
                         </style>
                         <!--body end-->
