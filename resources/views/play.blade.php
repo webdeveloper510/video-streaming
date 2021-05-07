@@ -48,13 +48,13 @@
                     <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Create Playlist</h5>
+                                
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <h3> Create New Playlist</h3>
+                                <h3> Choose Your Playlist</h3>
                                 <div class="Playlist1">
                                     @foreach($listname as $val)
                                     <h5 class="select_list">{{$val->listname}} </h5><br>
@@ -73,6 +73,7 @@
                                 <button type="button" class="multipleAdd btn btn-primary">ADD </button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
+
                                 
                             </div>
                                 </div>
