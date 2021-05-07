@@ -727,6 +727,12 @@
                     
                       </div>
                         <div class="collapse pt-4" id="collapseExample1" style="display:block;">
+                        <h4>Quality</h4>
+                                            <label class=""></label><br>
+                                            <label> {{Form::checkbox('Quality[]','480p')}}480p </label><br>
+                                            <label> {{Form::checkbox('Quality[]','720p')}}720p HD</label> <br>
+                                            <label>  {{Form::checkbox('Quality[]','1080p')}}1080p Full HD </label>
+
               @include('popup') 
             </div>
                     </div>
