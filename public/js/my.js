@@ -737,6 +737,44 @@ $(document).on('click', '.multipleAdd', function () {
 
 });
 
+
+/*----------------------------------------------Add In Library-------------------------------------------------------*/
+
+$(document).on('click', '.add_in_library', function () {
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/libraryAdded",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+        },
+
+        success: function (data) {
+            
+            console.log(data);
+                    
+                    if(data==1){
+                        $('#showMessage').show();
+                        $('#showMessage').html('Added In Playlist');
+                        setTimeout(function(){ 
+                            location.reload()
+                        }, 3000);
+
+                    }
+                    else{
+                        
+                         $('#showMessage').show();
+                        $('#showMessage').html('Some Error Occure');
+                        
+                    }
+
+        }
+    });
+
+});
+
 $(document).on('click', '.library', function () {
 
     addMultiple('true', id = '');

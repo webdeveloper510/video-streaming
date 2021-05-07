@@ -54,7 +54,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <h3> Choose Your Playlist</h3>
+                                <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
                                      @foreach($listname1 as $index=>$val)
                                                     <h5 class="select_list">{{$val->listname}}
@@ -78,11 +78,12 @@
                                     </span>
                                 <div class="text-center mt-4">
                                     <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD </button>
+                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
                             </div>
+                            <div class="alert alert-success" id="showMessage" style="display:none;"></div>
                                 </div>
                                 
                                 </div>
@@ -93,7 +94,7 @@
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
                              <form> 
-                              <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                              <input type="checkbox" class="slct_video" id="{{$val->id}}" data-id="{{$val->price}}"></form></div>
                             <video
                                 width="100%"
                                 height="100%"
@@ -235,12 +236,11 @@
                                 @endforeach
                                 <br/>
                             </div>
-                           </div>
-                           </div>
+
                             <!-- -------------------------- Wish list Start--------------------------->
 
                             <div class="col-md-12 uploa_outer" id="wishlist">
-                                <div class="slider_tittle container">
+                                <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
                                   
@@ -274,9 +274,9 @@
                                         <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
-                                            <div class="slider_tittle container">
+                                            <div class="slider_tittle">
                                                 <h3 class="tittle">History</h3>
-                                            
+                                            </div>
                                             <div class="row pb-row">
 
                                                 @if($history)
@@ -308,7 +308,6 @@
                                                 </div>
                                             </div>  
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
