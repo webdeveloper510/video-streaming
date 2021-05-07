@@ -227,6 +227,8 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <br/>
                             </div>
+                            </div>
+                            </div>
 
                             <!-- -------------------------- Wish list Start--------------------------->
 
