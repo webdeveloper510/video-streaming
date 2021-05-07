@@ -322,6 +322,7 @@ $(document).ready(function () {
 
 function selectVideoBasedOnOption(a){
     var selected_div =$(a).val();
+    console.log(selected_div);
     $('.uploa_outer').hide();
     $('#'+selected_div).show();
     
