@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
                         </div>
                         
                     </div>
@@ -227,13 +227,11 @@
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 <br/>
                             </div>
-                            </div>
-                            </div>
 
                             <!-- -------------------------- Wish list Start--------------------------->
 
                             <div class="col-md-12 uploa_outer" id="wishlist">
-                                <div class="slider_tittle container" >
+                                <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
                                   
@@ -267,9 +265,9 @@
                                         <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
-                                            <div class="slider_tittle container">
+                                            <div class="slider_tittle">
                                                 <h3 class="tittle">History</h3>
-                                            
+                                            </div>
                                             <div class="row pb-row">
 
                                                 <?php if($history): ?>
@@ -301,7 +299,6 @@
                                                 </div>
                                             </div>  
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
