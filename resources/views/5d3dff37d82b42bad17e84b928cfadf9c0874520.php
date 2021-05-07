@@ -755,11 +755,11 @@
                     
                       </div>
                         <div class="collapse pt-4" id="collapseExample1" style="display:block;">
-                        <h4>Quality</h4>
+                        <h4 class="text-white">Quality</h4>
                                             <label class=""></label><br>
-                                            <label> <?php echo e(Form::checkbox('Quality[]','480p')); ?>480p </label><br>
-                                            <label> <?php echo e(Form::checkbox('Quality[]','720p')); ?>720p HD</label> <br>
-                                            <label>  <?php echo e(Form::checkbox('Quality[]','1080p')); ?>1080p Full HD </label>
+                                            <label class="text-white"> <?php echo e(Form::checkbox('Quality[]','480p')); ?>480p </label><br>
+                                            <label class="text-white"> <?php echo e(Form::checkbox('Quality[]','720p')); ?>720p HD</label> <br>
+                                            <label class="text-white">  <?php echo e(Form::checkbox('Quality[]','1080p')); ?>1080p Full HD </label>
 
               <?php echo $__env->make('popup', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> 
             </div>
