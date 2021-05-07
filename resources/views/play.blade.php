@@ -159,7 +159,7 @@
                                                         <p>1/5</p>
                                                     </div>
                                                     <!------------start list------------------>
-                                                    <a href="#" onClick="getSrcUrl(this)">
+                                                <a href="#" onClick="getSrcUrl(this)">
                                                     <div class="video_append">
 
                                                         <!-- <div class="videolist col-4" > </div> -->
