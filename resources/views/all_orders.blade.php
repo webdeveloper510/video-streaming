@@ -162,9 +162,11 @@ please remain patient. Thank You!</p>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
+          
       </div>
          {{ Form::close() }}
     </div>
+
   </div>
 </div>
 <!-- <div class="projects">
