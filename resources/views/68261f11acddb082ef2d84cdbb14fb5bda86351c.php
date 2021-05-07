@@ -269,7 +269,7 @@
                                         <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle container">
                                                 <h3 class="tittle">History</h3>
-                                            </div>
+                                            
                                             <div class="row pb-row">
 
                                                 <?php if($history): ?>
@@ -301,6 +301,7 @@
                                                 </div>
                                             </div>  
                                         </div>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
