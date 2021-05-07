@@ -4,12 +4,12 @@ var selectLoader;
 var APP_URL = $('#base_url').attr('data-url');
 
 $('.rad_But').click(function () {
-    //console.log($(this).val());
     if ($(this).val() == 'male') {
         $('.hide').hide();
         $("#tits").removeAttr("required");
         $("#ass").removeAttr("required"); 
-    } else {
+    } 
+    else {
         $('.hide').show();
         $("#tits").attr("required", true);
         $("#ass").attr("required", true);    
@@ -319,6 +319,13 @@ $(document).ready(function () {
     
 
 });
+
+function selectVideoBasedOnOption(a){
+    var selected_div =$(a).val();
+    $('.uploa_outer').hide();
+    $('#'+selected_div).show();
+    
+}
 
 function mufunc() {
 
@@ -1426,9 +1433,8 @@ function subscribe(id, setValue) {
 }
 
 function showPlaylistVedio(data) {
-    //console.log(data)
     var videos = JSON.parse(data);
-   // console.log(videos);
+    
     $('#list').val(videos.id);
     var titles = videos.titles;
     var videos_playlist = videos.videos;
@@ -1459,6 +1465,12 @@ function showPlaylistVedio(data) {
     }
     $('.video_append').append(div);
 
+}
+
+function getSrcUrl(a){
+    var src = $(a).find('.videolist').children().find('source').attr("src");
+    $('#firstvideo').attr('src',src)
+    $('.videodata video').get(0).play();
 }
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
@@ -1511,9 +1523,7 @@ $(document).on('click','#deletePlaylist',function(){
 })
 
 
-/* --------------------------------------------Order
- * Video-------------------------------------------------
- */
+/* --------------------------------------------Order * Video------------------------------------------------- */
 
 $(document).on('click', '.off', function () {
 

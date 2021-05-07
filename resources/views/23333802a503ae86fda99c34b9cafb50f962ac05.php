@@ -84,6 +84,7 @@
         <input type="hidden" name="updated_at" class="updated_at" value=""/>
 
         <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
+         
         <input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
 
         <input type="hidden" name="allinfo" value="<?php echo e(json_encode($offerdata)); ?>"/>
@@ -122,7 +123,6 @@
             padding: 30px;
         }
         </style>
-
 
             <div class="modal successfull" tabindex="-1" style="display:none;">
               <div class="modal-dialog">

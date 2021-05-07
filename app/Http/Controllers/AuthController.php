@@ -34,6 +34,7 @@ use Illuminate\Support\Facades\Mail;
 
 
 use App\Mail\verifyEmail;
+
 use App\Mail\artistSupport;
 
 use App\Mail\customer_issue;

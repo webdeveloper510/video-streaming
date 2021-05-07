@@ -8,12 +8,12 @@
         <div class="text-right">
             <select
                 class="form-select form-control col-md-4"
-                aria-label="Default select example">
+                aria-label="Default select example" onchange="selectVideoBasedOnOption(this)">
                 <option selected="selected">All</option>
-                <option value="1">Collection</option>
-                <option value="2">Playlists</option>
-                <option value="3">Wishlist</option>
-                <option value="4">History</option>
+                <option value="collection">Collection</option>
+                <option value="playlist">Playlists</option>
+                <option value="wishlist">Wishlist</option>
+                <option value="history">History</option>
             </select>
         </div>
         <div class="col-md-12 uploa_outer " id="collection">
@@ -43,7 +43,7 @@
                         
                     </div>
                     </div>
-                    <div class="modal" role="dialog" id="playlist" aria-hidden="false">
+                    <div class="modal" role="dialog" id="playlist1" aria-hidden="false">
 
                     <div class="modal-dialog">
                             <div class="modal-content">
@@ -80,8 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row pb-row">
+                         <div class="row pb-row">
                         @if($videos) @foreach($videos as $indx=> $val)
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
@@ -106,6 +105,8 @@
                             </div>
                             @endif
                         </div>
+                    </div>
+                   
                     </div>
                 </div>
         <!-- -------------------------- Play List Start--------------------------->
@@ -158,6 +159,7 @@
                                                         <p>1/5</p>
                                                     </div>
                                                     <!------------start list------------------>
+                                                    <a href="#" onClick="getSrcUrl(this)">
                                                     <div class="video_append">
 
                                                         <!-- <div class="videolist col-4" > </div> -->
@@ -167,6 +169,7 @@
                                                         </div>
 
                                                     </div>
+</a>
                                                     <!------------end list------------------>
 
                                                 </div>
@@ -257,8 +260,7 @@
                                             </div>
                                             <br/>
                                         </div>
-                                        <!-- -------------------------- History Section
-                                        Start--------------------------->
+                                        <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle">
