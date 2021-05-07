@@ -233,7 +233,7 @@
                             <!-- -------------------------- Wish list Start--------------------------->
 
                             <div class="col-md-12 uploa_outer" id="wishlist">
-                                <div class="slider_tittle">
+                                <div class="slider_tittle container" >
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
                                   
@@ -267,7 +267,7 @@
                                         <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
-                                            <div class="slider_tittle">
+                                            <div class="slider_tittle container">
                                                 <h3 class="tittle">History</h3>
                                             </div>
                                             <div class="row pb-row">
