@@ -422,7 +422,7 @@
                                 font-weight: 700;
                                 cursor: pointer;
                             }
-                            a .video_append::hover{
+                            a .video_append:hover{
                                 border:1px solid gold;
                             }
                         </style>
@@ -434,4 +434,8 @@
                             }
                         </script>
                         <!--footer -->
+
+
+
+
                         @include('layouts.footer')
