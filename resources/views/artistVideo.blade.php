@@ -24,9 +24,9 @@
 
                         <div class="col-md-5">
                             <div class="content-area">
-                                <h3>{{$video->title}}</h3>
+                                <h2>{{$video->title}}</h2>
                                 <a href="{{url('artistDetail/'.$video->contentProviderid)}}">
-                                    <p>{{$video->nickname}}</p>
+                                    <h5 style="    color: blue;">{{$video->nickname}}</h5>
                                 </a>
                             </div>
                         </div>
@@ -336,7 +336,7 @@
     top: 6px;
     right: 33px;
     cursor: pointer;
-	z-index: 1000;
+	z-index:0;
 }
 .content-cart .addToCart:hover {
     background: #0062cc !important;
@@ -370,7 +370,7 @@ ul.reporting {
                                     top: 6px;
                                     right: 33px;
                                     cursor: pointer;
-                                    z-index: 1000;
+                                    z-index: 0;
                                 }
                                 .content-cart .addToCart:hover {
                                     background: #0062cc !important;

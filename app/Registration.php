@@ -290,21 +290,10 @@ public function getVedio($data){
        /* -----------------------End Filter Data Using orderBy-------------------------------------- */
 
 
-                $response = $result->where('type',$data['type'])->get();
-
-                // echo "<pre>";
-
-                // print_r($response);die;  
-
-
-                   $subid=$response->pluck("subid");
-                    //print_r($subid);die;
-
-                    //  $products = DB::table("subcategory")->whereIn('id', $subid)
-                    //  ->pluck('id')
-                    //  ->toArray();
-                    // $response['subcategory']=$products;
+                $response = $result->where('type',$data['type'])->get()->toArray();
                       if($response){
+                          
+                         // echo "fff";die;
 
                         $response['search']= 'searched';
 
@@ -318,6 +307,7 @@ public function getVedio($data){
                        ->leftjoin('popular', 'popular.mediaid', '=','media.id')
                       ->select('media.*')
                       ->where('popular.type',$data['type'])
+                      ->orderBy('popular.count','desc')
                       ->get()->toArray();
 
                       $data['search']= 'popular';
@@ -354,11 +344,13 @@ public function getNewComes(){
 
 /*------------------------Insert Recent Vedio media--------------------------------------------*/
 
-public function insertRecentTable($data){
+public function insertRecentTable($data,$srh){
+    
+    if($srh=='searched'){
+        
+     $ids = array_column($data, 'id');
 
-     $fetchData=$data->pluck('id')->toArray();
-
-     $insertData['mediaId']=implode(',', $fetchData);
+     $insertData['mediaId']=implode(',', $ids);
 
       $session_data =   Session::get('User');
 
@@ -374,6 +366,10 @@ public function insertRecentTable($data){
         Session::forget('recentSearch');
      
      }
+        
+    }
+    
+
      
 }
 /*----------------------------------------------------End---------------------------------------------------*/
@@ -2125,7 +2121,7 @@ public function getAllPlaylist(){
 
       $session_data =   Session::get('User');
 
-      $userid =  $session_data->id;
+       $userid =  $session_data->id;
 
       $data = \DB::table("playlist")
       ->select("playlist.id","playlist.playlistname","playlist.created_at",\DB::raw("GROUP_CONCAT(media.media) as videos"),\DB::raw("GROUP_CONCAT(contentprovider.nickname) as names"),\DB::raw("GROUP_CONCAT(media.title) as titles"))

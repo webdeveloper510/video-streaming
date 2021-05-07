@@ -4,12 +4,12 @@ var selectLoader;
 var APP_URL = $('#base_url').attr('data-url');
 
 $('.rad_But').click(function () {
-    //console.log($(this).val());
     if ($(this).val() == 'male') {
         $('.hide').hide();
         $("#tits").removeAttr("required");
         $("#ass").removeAttr("required"); 
-    } else {
+    } 
+    else {
         $('.hide').show();
         $("#tits").attr("required", true);
         $("#ass").attr("required", true);    
@@ -320,6 +320,13 @@ $(document).ready(function () {
 
 });
 
+function selectVideoBasedOnOption(a){
+    var selected_div =$(a).val();
+    $('.uploa_outer').hide();
+    $('#'+selected_div).show();
+    
+}
+
 function mufunc() {
 
     //console.log($('.subnav').get(0).style.opacity);
@@ -587,8 +594,6 @@ $(document).on('click', '#checkPrice', function () {
 
 $(document).on('click', '.create_list', function () {
     var listname = $('.list').val();
-
-    //console.log(listname);return false;
     $.ajax({
         type: 'POST',
         url: APP_URL + "/createList",
@@ -617,7 +622,6 @@ $(document).on('click', '.create_list', function () {
 });
 
 $(document).on('click', '.send_time', function () {
-
     $(this)
         .addClass('btn btn-success')
         .removeClass('btn-info');
@@ -1429,9 +1433,8 @@ function subscribe(id, setValue) {
 }
 
 function showPlaylistVedio(data) {
-    //console.log(data)
     var videos = JSON.parse(data);
-   // console.log(videos);
+    
     $('#list').val(videos.id);
     var titles = videos.titles;
     var videos_playlist = videos.videos;
@@ -1463,10 +1466,16 @@ function showPlaylistVedio(data) {
     $('.video_append').append(div);
 
 }
+
+function getSrcUrl(a){
+    var src = $(a).find('.videolist').children().find('source').attr("src");
+    $('#firstvideo').attr('src',src)
+    $('.videodata video').get(0).play();
+}
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    bootbox.confirm({
-    message: 'Do you really want to delete this playlist!',
+    message: message,
     buttons: {
 
         confirm: {
@@ -1514,9 +1523,7 @@ $(document).on('click','#deletePlaylist',function(){
 })
 
 
-/* --------------------------------------------Order
- * Video-------------------------------------------------
- */
+/* --------------------------------------------Order * Video------------------------------------------------- */
 
 $(document).on('click', '.off', function () {
 
@@ -1673,8 +1680,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
     var formData = new FormData($(this)[0]);
     $('.loader').show();
     $('.button_disable').attr('disabled',true);
-    
-a           
+    //console.log(formData);return false;
     $.ajax({
         type: 'POST',
         url: APP_URL + "/edit_info",
@@ -3074,12 +3080,13 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
+    //console.log('yes');
     //console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
-    var duration = parseInt(minutes) == 0 ? '00:' + parseInt(seconds) : '0'+minutes + ":" + parseInt(seconds);
-    var hours_sys = hours == 0 ? '00:' + duration : hours + ":" + duration;
+    var duration = parseInt(minutes) == 0 ? '0:' + parseInt(seconds) : minutes + ":" + parseInt(seconds);
+    var hours_sys = hours == 0 ? '0:' + duration : hours + ":" + duration;
     $(id).html(hours_sys);
     $.ajax({
         type: 'POST',

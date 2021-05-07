@@ -196,7 +196,7 @@ Route::post('createList', 'AuthController@createList');
 
 Route::get('paz-Team-Login', 'AuthController@supportlogin');
 
-Route::get('Reported-items', 'AuthController@report_media');
+Route::get('Content-review', 'AuthController@report_media');
 Route::get('legal-notice', 'AuthController@legal');
 
    /*-------------------End Web Site Route----------------------*/

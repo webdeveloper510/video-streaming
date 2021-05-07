@@ -8,12 +8,12 @@
         <div class="text-right">
             <select
                 class="form-select form-control col-md-4"
-                aria-label="Default select example">
+                aria-label="Default select example" onchange="selectVideoBasedOnOption(this)">
                 <option selected="selected">All</option>
-                <option value="1">Collection</option>
-                <option value="2">Playlists</option>
-                <option value="3">Wishlist</option>
-                <option value="4">History</option>
+                <option value="collection">Collection</option>
+                <option value="playlist">Playlists</option>
+                <option value="wishlist">Wishlist</option>
+                <option value="history">History</option>
             </select>
         </div>
         <div class="col-md-12 uploa_outer " id="collection">
@@ -43,7 +43,7 @@
                         
                     </div>
                     </div>
-                    <div class="modal" role="dialog" id="playlist" aria-hidden="false">
+                    <div class="modal" role="dialog" id="playlist1" aria-hidden="false">
 
                     <div class="modal-dialog">
                             <div class="modal-content">
@@ -80,8 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row pb-row">
+                         <div class="row pb-row">
                         @if($videos) @foreach($videos as $indx=> $val)
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
@@ -106,6 +105,8 @@
                             </div>
                             @endif
                         </div>
+                    </div>
+                   
                     </div>
                 </div>
         <!-- -------------------------- Play List Start--------------------------->
@@ -158,6 +159,7 @@
                                                         <p>1/5</p>
                                                     </div>
                                                     <!------------start list------------------>
+                                                <a href="#" onClick="getSrcUrl(this)">
                                                     <div class="video_append">
 
                                                         <!-- <div class="videolist col-4" > </div> -->
@@ -167,6 +169,7 @@
                                                         </div>
 
                                                     </div>
+</a>
                                                     <!------------end list------------------>
 
                                                 </div>
@@ -200,11 +203,11 @@
 
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
-
+                                    
                                 <video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$videos[0]->audio_pic) }}">
                                     <source src="{{url('storage/app/public/video/'.$videos[0])}}" type="video/mp4">
                                         Your browser does not support the video tag.
-                                    </video>
+                                </video>
                                     <div
                                         class="videooverlay text-white"
                                         onclick="showPlaylistVedio('{{json_encode($playlist)}}')">
@@ -234,8 +237,9 @@
                                   
                                     <div class="row pb-row">
                                         @if($wishList) @foreach($wishList as $indx=> $val)
+                                        
                                         <div class="col-md-3 pb-video">
-                                      
+                                            <a href="{{url('artist-video/'.$val->id)}}">
                                                 <video
                                                     width="100%"
                                                     height="100%"
@@ -243,6 +247,7 @@
                                                     controlsList="nodownload"
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4"></video>
+                                                    </a>
 
                                                 </div>
 
@@ -255,8 +260,9 @@
                                             </div>
                                             <br/>
                                         </div>
-                                        <!-- -------------------------- History Section
-                                        Start--------------------------->
+                                        </div>
+                                        </div>
+                                        <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle">
@@ -264,8 +270,11 @@
                                             </div>
                                             <div class="row pb-row">
 
-                                                @if($history) @foreach($history as $indx => $histories)
+                                                @if($history)
+                                                @foreach($history as $indx => $histories)
+
                                                 <div class="col-md-3 pb-video">
+                                                 <a href="{{url('artist-video/'.$histories->id)}}">
                                                     <video
                                                         width="100%"
                                                         height="100%"
@@ -275,9 +284,12 @@
 
                                                         <source
                                                             src="{{url('storage/app/public/video/'.$histories->media)}}"
-                                                            type="video/mp4"></video>
+                                                            type="video/mp4">
+                                                            </video>
+                                                            </a>
 
                                                     </div>
+
                                                     @endforeach @else
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
@@ -285,7 +297,7 @@
                                                     </div>
                                                     @endif
                                                 </div>
-                                            </div>
+                                            </div>  
                                         </div>
                                     </div>
                                 </div>
