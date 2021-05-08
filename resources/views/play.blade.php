@@ -48,13 +48,13 @@
                     <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                
+                                <h5 class="modal-title">Create Playlist</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <h3> Choose Your Playlist</h3>
+                                <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
                                     @foreach($listname as $val)
                                     <h5 class="select_list">{{$val->listname}} </h5><br>
@@ -70,10 +70,9 @@
                                     </span>
                                 <div class="text-center mt-4 ">
                                     <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD </button>
+                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
-
                                 
                             </div>
                                 </div>
@@ -228,13 +227,11 @@
                                 @endforeach
                                 <br/>
                             </div>
-                            </div>
-                            </div>
 
                             <!-- -------------------------- Wish list Start--------------------------->
 
                             <div class="col-md-12 uploa_outer" id="wishlist">
-                                <div class="slider_tittle container" >
+                                <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
                                     <div class="text-right">
                                   
@@ -268,9 +265,9 @@
                                         <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
-                                            <div class="slider_tittle container">
+                                            <div class="slider_tittle">
                                                 <h3 class="tittle">History</h3>
-                                            
+                                            </div>
                                             <div class="row pb-row">
 
                                                 @if($history)
@@ -303,17 +300,9 @@
                                             </div>  
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-   
-
-
-
 
                         <style>
                             body {
@@ -430,9 +419,6 @@
                                 font-weight: 700;
                                 cursor: pointer;
                             }
-                            a .video_append:hover{
-                                border:1px solid gold;
-                            }
                         </style>
                         <!--body end-->
                         <script>
@@ -442,8 +428,4 @@
                             }
                         </script>
                         <!--footer -->
-
-
-
-
                         @include('layouts.footer')

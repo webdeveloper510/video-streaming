@@ -1613,6 +1613,55 @@ public function getRefersArtist($id){
        return $value;
 
     }
+    
+    public function addInLibrary($ids,$name){
+        
+     $session_data =   Session::get('User');
+     
+    $userid=  $session_data->id;
+    
+    //echo $name;
+        
+    $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$name))->get()->toArray();
+         
+    //print_r($data);die;
+        
+        
+               if(count($data)>0){ 
+                   
+                        $newArray = explode(",",$data[0]->listvideo);   
+              
+                        $aunion=  array_merge(array_intersect($ids, $newArray),array_diff($ids, $newArray),array_diff($newArray, $ids));
+
+                         $result_array = array_unique($aunion);
+
+                          $newListid = implode(',',$result_array); 
+
+                          $update = $this->updateInPlayList($userid,$name,$newListid);    
+                          
+                          return $update;
+                
+
+      }
+
+                else {
+                 $newListid = implode(',',$ids); 
+                  $playlist['listvideo'] = $newListid;
+                  $playlist['userid'] = $userid;
+                  $playlist['playlistname'] = $name;
+
+                  $playlist['created_at'] = now();
+                  $playlist['updated_at'] = now();   
+
+                  $created = $this->createPlayListUser($playlist);  
+                  
+                  return $created ? 1 : 0 ;
+
+
+              }
+            
+                
+    }
 
     public function buyVideo($vid){
 

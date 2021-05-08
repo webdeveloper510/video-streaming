@@ -322,6 +322,7 @@ $(document).ready(function () {
 
 function selectVideoBasedOnOption(a){
     var selected_div =$(a).val();
+    console.log(selected_div);
     $('.uploa_outer').hide();
     $('#'+selected_div).show();
     
@@ -730,6 +731,44 @@ $(document).on('click', '.multipleAdd', function () {
                 }, 2000);
 
             }
+
+        }
+    });
+
+});
+
+
+/*----------------------------------------------Add In Library-------------------------------------------------------*/
+
+$(document).on('click', '.add_in_library', function () {
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/libraryAdded",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+        },
+
+        success: function (data) {
+            
+            console.log(data);
+                    
+                    if(data==1){
+                        $('#showMessage').show();
+                        $('#showMessage').html('Added In Playlist');
+                        setTimeout(function(){ 
+                            location.reload()
+                        }, 3000);
+
+                    }
+                    else{
+                        
+                         $('#showMessage').show();
+                        $('#showMessage').html('Some Error Occure');
+                        
+                    }
 
         }
     });
@@ -1475,7 +1514,7 @@ function getSrcUrl(a){
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    bootbox.confirm({
-    message: message,
+    message: 'Do you want to really delete playlist ?',
     buttons: {
 
         confirm: {
