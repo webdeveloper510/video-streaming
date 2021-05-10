@@ -445,9 +445,9 @@ public function getRecentlySearch(){
                 //   print_r($count);die;
     if(count($count)>0){
         $media_array = explode(',',$count[0]->mediaId);
-       // print_r($media_array);die;
          $data = DB::table("media")->select('*')
             ->whereIn('id',$media_array)
+            ->where('is_deleted',0)
             //->toSql();
             ->get()
             ->toArray();
@@ -2402,6 +2402,7 @@ public function PopularVideos($flag,$type){
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
         ->where('popular.type',$type)
+        ->where('media.is_deleted',0)
         ->orderBy('count','desc')
         ->take(3)
         ->get()
@@ -2417,6 +2418,7 @@ public function PopularVideos($flag,$type){
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
         ->where('popular.type',$type)
+        ->where('media.is_deleted',0)
         ->orderBy('count','desc')
         ->paginate(30);
 
@@ -3191,6 +3193,9 @@ public function customer_issue($data){
 
       $userid =  $session_data->id;
 
+     
+
+
      $done = DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
 
      if($done){
@@ -3222,7 +3227,21 @@ public function customer_issue($data){
 
       $userid =  $session_data->id;
 
-        $deleted = DB::table('media')->where('id',$data['id'])->delete();
+      // $folder = 'temporary_files';
+
+      //   //Get a list of all of the file names in the folder.
+      //   $files = glob($folder . '/*');
+
+      //   //Loop through the file list.
+      //   foreach($files as $file){
+      //       //Make sure that this is a file and not a directory.
+      //       if(is_file($file)){
+      //           //Use the unlink function to delete the file.
+      //           unlink($file);
+      //       }
+      //   }
+
+        $updated = DB::table('media')->where('id',$data['id'])->update(array('is_deleted'=>1));
 
               if($deleted){
 

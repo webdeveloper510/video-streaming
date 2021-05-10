@@ -15,8 +15,7 @@
         <div style="display:none">
         <?php echo Form::open(['id'=>'filechange','method' => 'post', 'files'=>true]); ?>
 
-          <?php echo e(Form::token()); ?>
-
+          <?php echo e(Form::token()); ?>   
         <input type="file" class="image_change" name="image" onchange="imageUpdate()"/>
         <input type="hidden" id="image_type" name="image_type" value=""/>
         <?php echo e(Form::submit('change!',['class'=>'btn btn-primary mb-4','id'=>'imageChange'])); ?>
@@ -25,6 +24,7 @@
         <?php echo e(Form::close()); ?>
 
         </div>
+        
         </div>
         <div class="profileimg">
         <div class="overlayprofile">
@@ -47,7 +47,7 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
   </div>
@@ -56,7 +56,7 @@
 
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
-  <div class="tab-pane fade <?php echo e($collection_selection ? 'show active' : ''); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade <?php echo e($collection_selection ? '' : 'show active'); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
           <div class="container">
