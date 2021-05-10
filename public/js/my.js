@@ -1518,6 +1518,7 @@ function getSrcUrl(a){
 }
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
+   var listname = $('#exampleModalCenterTitle').text();
    bootbox.confirm({
     message: 'Do you want to really delete playlist ?',
     buttons: {
@@ -1545,6 +1546,7 @@ $(document).on('click','#deletePlaylist',function(){
         
                 data: {
                     'id': id,
+                    'listname':listname
                 },
         
                 success: function (data) {

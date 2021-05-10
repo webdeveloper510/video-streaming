@@ -1620,14 +1620,15 @@ public function getRefersArtist($id){
      
     $userid=  $session_data->id;
     
-    //echo $name;
         
     $data = DB::table('playlist')->where(array('userid'=>$userid,'playlistname'=>$name))->get()->toArray();
          
-    //print_r($data);die;
         
         
                if(count($data)>0){ 
+
+               // print_r($ids);
+
                    
                         $newArray = explode(",",$data[0]->listvideo);   
               
@@ -1645,6 +1646,7 @@ public function getRefersArtist($id){
       }
 
                 else {
+                  //print_r($ids);
                  $newListid = implode(',',$ids); 
                   $playlist['listvideo'] = $newListid;
                   $playlist['userid'] = $userid;
@@ -3317,8 +3319,10 @@ public function customer_issue($data){
     
     
     public function deleteListFromLibrary($data){
-        //print_r($data);die;   
-          return DB::table('playlist')->where('id',$data['id'])->delete();
+           $deleted = DB::table('playlist')->where('id',$data['id'])->delete();
+           if($deleted){
+              return DB::table('listname')->where('listname',$data['listname'])->delete();
+           }
     }
 
     public function getSumOfPassive($artid){
