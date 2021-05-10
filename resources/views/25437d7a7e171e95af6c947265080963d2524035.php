@@ -625,7 +625,7 @@
                    
                 <div class="text-right">
                 
-                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12' , 'id'=>'edit'])); ?>
+                <?php echo e(Form::button('edit!',['class'=>'btn btn-light btn-sm edit12 reward-button' , 'id'=>'edit'])); ?>
 
                 
                 <div style="display:none;  padding-top: 15%;">
@@ -704,7 +704,7 @@
                
                 <p>-Upload 3 Videos/Audios to the Collection and keep them  for a minimum of 30 days</p>
                 <div class="text-right mt-5">
-                   <button class="btn btn-primary btn-sm mt-5" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
+                   <button class="btn btn-primary btn-sm mt-5 reward-button" data-toggle="modal" data-target="#reward" type="button"> Reward</button>
                    <!-- Button trigger modal -->
 
 
@@ -823,7 +823,7 @@
                   <table class="table text-left">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col">App Name</th>
+                            <th scope="col">App</th>
                             <th scope="col">Username</th>
                             <th scope="col"></th>
                            
@@ -915,6 +915,7 @@ label.error {
     color: white;
     text-align: center;
     margin-top: 22px;
+    
     border-radius: 9px;
 }
 .columesdashboard1 {

@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 use App\Registration;
 use Session;
 use App\File;
+use Storage;
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\artistSupport;
 use App\Mail\artist_email_support;
+//use Illuminate\Support\Facades\Storage;
+
 //  use Stripe\Error\Card;
 
 //use Stripe;
@@ -340,7 +344,34 @@ class artist extends Controller
 
       $session_data =   Session::get('User');
 
+      if(Storage::exists('app/public/uploads/amit.jpeg')){
+
+        echo "ddd";die;
+        Storage::delete('upload/test.png');
+        /*
+            Delete Multiple File like this way
+            Storage::delete(['upload/test.png', 'upload/test2.png']);
+        */
+    }else{
+        dd('File does not exists.');
+    }
+
       $userid=  $session_data->id;
+
+      $file= 'amit.mp4';
+
+      $path =  storage_path('app/public/video/');
+
+      echo $deleted = unlink(storage_path($path.$file));die;
+
+      if($deleted){
+        echo "yes";
+      }
+      else{
+        echo "no";
+      }
+
+      die;
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
          
