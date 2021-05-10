@@ -8,12 +8,12 @@
         <div class="text-right">
             <select
                 class="form-select form-control col-md-4"
-                aria-label="Default select example">
+                aria-label="Default select example" onchange="selectVideoBasedOnOption(this)">
                 <option selected="selected">All</option>
-                <option value="1">Collection</option>
-                <option value="2">Playlists</option>
-                <option value="3">Wishlist</option>
-                <option value="4">History</option>
+                <option value="collection">Collection</option>
+                <option value="playlist">Playlists</option>
+                <option value="wishlist">Wishlist</option>
+                <option value="history">History</option>
             </select>
         </div>
         <div class="col-md-12 uploa_outer " id="collection">
@@ -38,12 +38,12 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
                         </div>
                         
                     </div>
                     </div>
-                    <div class="modal" role="dialog" id="playlist" aria-hidden="false">
+                    <div class="modal" role="dialog" id="playlist1" aria-hidden="false">
 
                     <div class="modal-dialog">
                             <div class="modal-content">
@@ -56,9 +56,18 @@
                             <div class="modal-body">
                                 <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
-                                    <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <h5 class="select_list"><?php echo e($val->listname); ?> </h5><br>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                     <?php $__currentLoopData = $listname1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <h5 class="select_list"><?php echo e($val->listname); ?>
+
+                                                    </h5>
+                                                    <button
+                                                        data-id="<?php echo e($val->id); ?>"
+                                                        class="alert alert-primary btn-sm saveBtn"
+                                                        onclick="savePlaylist(this)"
+                                                        style="display:none;">Save</button>
+                                                    <p class="aedit text-right">edit</p>
+                                                    <br>
+                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 
 
                                 </div>
@@ -68,9 +77,9 @@
                                         <input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
                                         <button class="create_list btn btn-primary" type="button">Create</button>
                                     </span>
-                                <div class="text-center mt-4">
+                                <div class="text-center mt-4 ">
                                     <input type="hidden" id="art_id" value="<?php echo e($cartVideo ? $cartVideo[0]->contentProviderid : ''); ?>"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
@@ -80,8 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row pb-row">
+                         <div class="row pb-row">
                         <?php if($videos): ?> <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
@@ -106,6 +114,8 @@
                             </div>
                             <?php endif; ?>
                         </div>
+                    </div>
+                   
                     </div>
                 </div>
         <!-- -------------------------- Play List Start--------------------------->
@@ -155,9 +165,10 @@
                                                 <div class="videoinfo">
                                                     <div class="playlistname">
                                                         <h4 class="listname">hello</h4>
-                                                        <p>1/5</p>
+                                                        <p>1/</p><p class="lengthVideo">5</p>
                                                     </div>
                                                     <!------------start list------------------>
+                                                <a href="#" onClick="getSrcUrl(this)">
                                                     <div class="video_append">
 
                                                         <!-- <div class="videolist col-4" > </div> -->
@@ -167,6 +178,7 @@
                                                         </div>
 
                                                     </div>
+</a>
                                                     <!------------end list------------------>
 
                                                 </div>
@@ -200,11 +212,11 @@
 
                         <div class="col-md-4 mb-4">
                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
-
+                                    
                                 <video width="320" height="240" poster="<?php echo e(url('storage/app/public/uploads/'.$videos[0]->audio_pic)); ?>">
                                     <source src="<?php echo e(url('storage/app/public/video/'.$videos[0])); ?>" type="video/mp4">
                                         Your browser does not support the video tag.
-                                    </video>
+                                </video>
                                     <div
                                         class="videooverlay text-white"
                                         onclick="showPlaylistVedio('<?php echo e(json_encode($playlist)); ?>')">
@@ -234,8 +246,9 @@
                                   
                                     <div class="row pb-row">
                                         <?php if($wishList): ?> <?php $__currentLoopData = $wishList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx=> $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        
                                         <div class="col-md-3 pb-video">
-                                      
+                                            <a href="<?php echo e(url('artist-video/'.$val->id)); ?>">
                                                 <video
                                                     width="100%"
                                                     height="100%"
@@ -243,6 +256,7 @@
                                                     controlsList="nodownload"
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4"></video>
+                                                    </a>
 
                                                 </div>
 
@@ -255,8 +269,9 @@
                                             </div>
                                             <br/>
                                         </div>
-                                        <!-- -------------------------- History Section
-                                        Start--------------------------->
+                                        </div>
+                                        </div>
+                                        <!-- -------------------------- History Section Start--------------------------->
 
                                         <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle">
@@ -264,8 +279,11 @@
                                             </div>
                                             <div class="row pb-row">
 
-                                                <?php if($history): ?> <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <?php if($history): ?>
+                                                <?php $__currentLoopData = $history; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indx => $histories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                                                 <div class="col-md-3 pb-video">
+                                                 <a href="<?php echo e(url('artist-video/'.$histories->id)); ?>">
                                                     <video
                                                         width="100%"
                                                         height="100%"
@@ -275,17 +293,19 @@
 
                                                         <source
                                                             src="<?php echo e(url('storage/app/public/video/'.$histories->media)); ?>"
-                                                            type="video/mp4"></video>
+                                                            type="video/mp4">
+                                                            </video>
+                                                            </a>
 
                                                     </div>
+
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
-
                                                     </div>
                                                     <?php endif; ?>
                                                 </div>
-                                            </div>
+                                            </div>  
                                         </div>
                                     </div>
                                 </div>
@@ -390,6 +410,9 @@
                             z-index: 1;
                             width: 20px;
                             height: 20px;
+                        }
+                        .active{
+                            color:red;
                         }
                             .row.pb-row {
                                 background: black;

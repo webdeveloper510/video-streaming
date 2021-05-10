@@ -1472,6 +1472,7 @@ function subscribe(id, setValue) {
 }
 
 function showPlaylistVedio(data) {
+
     var videos = JSON.parse(data);
     
     $('#list').val(videos.id);
@@ -1488,7 +1489,9 @@ function showPlaylistVedio(data) {
         .split(',');
     var div = '';
     $('.video_append').html('')
+    var lengthVideo=0;
     for (var i = 0; i < videos_playlist.length; i++) {
+        
         var url = storage_url + '/video/' + videos_playlist[i];
         if (i == 0) {
             $('.videodata').html(
@@ -1501,8 +1504,10 @@ function showPlaylistVedio(data) {
                 "ght='100px' controlsList='nodownload' disablePictureInPicture><source src='" +
                 url + "' type='video/mp4'></video></div><div class='videonameq col-6'><h3>" +
                 split_title[i] + "</h3><p>" + name[i] + "</p> </div></div>"
+                lengthVideo++;
     }
     $('.video_append').append(div);
+    $('.lengthVideo').html(lengthVideo);
 
 }
 
@@ -1513,6 +1518,7 @@ function getSrcUrl(a){
 }
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
+   var listname = $('#exampleModalCenterTitle').text();
    bootbox.confirm({
     message: 'Do you want to really delete playlist ?',
     buttons: {
@@ -1540,6 +1546,7 @@ $(document).on('click','#deletePlaylist',function(){
         
                 data: {
                     'id': id,
+                    'listname':listname
                 },
         
                 success: function (data) {

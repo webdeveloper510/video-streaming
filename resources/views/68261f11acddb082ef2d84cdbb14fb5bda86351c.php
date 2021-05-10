@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
                         </div>
                         
                     </div>
@@ -56,9 +56,18 @@
                             <div class="modal-body">
                                 <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
-                                    <?php $__currentLoopData = $listname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <h5 class="select_list"><?php echo e($val->listname); ?> </h5><br>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                     <?php $__currentLoopData = $listname1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <h5 class="select_list"><?php echo e($val->listname); ?>
+
+                                                    </h5>
+                                                    <button
+                                                        data-id="<?php echo e($val->id); ?>"
+                                                        class="alert alert-primary btn-sm saveBtn"
+                                                        onclick="savePlaylist(this)"
+                                                        style="display:none;">Save</button>
+                                                    <p class="aedit text-right">edit</p>
+                                                    <br>
+                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 
 
                                 </div>
@@ -70,7 +79,7 @@
                                     </span>
                                 <div class="text-center mt-4 ">
                                     <input type="hidden" id="art_id" value="<?php echo e($cartVideo ? $cartVideo[0]->contentProviderid : ''); ?>"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
@@ -156,7 +165,7 @@
                                                 <div class="videoinfo">
                                                     <div class="playlistname">
                                                         <h4 class="listname">hello</h4>
-                                                        <p>1/5</p>
+                                                        <p>1/</p><p class="lengthVideo">5</p>
                                                     </div>
                                                     <!------------start list------------------>
                                                 <a href="#" onClick="getSrcUrl(this)">
@@ -293,7 +302,6 @@
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
-
                                                     </div>
                                                     <?php endif; ?>
                                                 </div>
@@ -402,6 +410,9 @@
                             z-index: 1;
                             width: 20px;
                             height: 20px;
+                        }
+                        .active{
+                            color:red;
                         }
                             .row.pb-row {
                                 background: black;
