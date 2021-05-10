@@ -166,10 +166,12 @@ please remain patient. Thank You!</p>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <?php echo e(Form::submit('Update!',['class'=>'btn btn-primary'])); ?>
 
+          
       </div>
          <?php echo e(Form::close()); ?>
 
     </div>
+
   </div>
 </div>
 <!-- <div class="projects">
