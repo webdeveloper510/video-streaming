@@ -1489,9 +1489,9 @@ function showPlaylistVedio(data) {
         .split(',');
     var div = '';
     $('.video_append').html('')
-    var lengthVideo;
+    var lengthVideo=1;
     for (var i = 0; i < videos_playlist.length; i++) {
-        lengthVideo = i==0 ? 1 : i+=1;
+        
         var url = storage_url + '/video/' + videos_playlist[i];
         if (i == 0) {
             $('.videodata').html(
@@ -1504,6 +1504,7 @@ function showPlaylistVedio(data) {
                 "ght='100px' controlsList='nodownload' disablePictureInPicture><source src='" +
                 url + "' type='video/mp4'></video></div><div class='videonameq col-6'><h3>" +
                 split_title[i] + "</h3><p>" + name[i] + "</p> </div></div>"
+                lengthVideo++;
     }
     $('.video_append').append(div);
     $('.lengthVideo').html(lengthVideo);
