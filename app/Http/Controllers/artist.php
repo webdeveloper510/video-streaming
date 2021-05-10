@@ -344,48 +344,7 @@ class artist extends Controller
 
       $session_data =   Session::get('User');
 
-      unlink(storage_path('app/public/video/'.$file));
-
-
-      // $path = storage_path('app\public\uploads\amit');
-
-      // if(unlink($path)){
-      //   echo "yes";
-      // }
-      // else{
-      //   echo "no";
-      // }
-      // die;
-
-
-    //   if(Storage::exists('uploads/amit')){
-
-    //     echo "ddd";die;
-    //     Storage::delete('upload/test.png');
-    //     /*
-    //         Delete Multiple File like this way
-    //         Storage::delete(['upload/test.png', 'upload/test2.png']);
-    //     */
-    // }else{
-    //     dd('File does not exists.');
-    // }
-
       $userid=  $session_data->id;
-
-      $file= 'amit.mp4';
-
-      $path =  storage_path('app/public/video/');
-
-      echo $deleted = unlink(storage_path($path.$file));die;
-
-      if($deleted){
-        echo "yes";
-      }
-      else{
-        echo "no";
-      }
-
-      die;
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
          
