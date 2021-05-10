@@ -31,7 +31,7 @@
 <input class="form-control card-expiry-year" placeholder="YYYY" size="4" pattern="\d{4}" maxlength="4" type="text" name="ccExpiryYear">
 <input class="form-control price" placeholder="YYYY" size="4" type="hidden" name="amount" value="300">
 </div>
-<input type="hidden" id="fees" value="" name = "fees"/>
+<input type="hidden" id="fees" value="" name = "fees"/>   
 <input type="hidden" id="tokens" name="token" value="">
 <div class="col-md-12">
 <div class="form-control total btn btn-primary" >

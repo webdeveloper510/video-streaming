@@ -53,6 +53,15 @@ hr{
            <div class="col-md-4">
             <div class="form-group mt-4">
                
+              
+            <div class="input-group mb-3">
+  <input type="search" class="form-control" placeholder="Search" >
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+
+
               <form class="form-inline text-center align-center">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>

@@ -79,7 +79,7 @@
   <!--<h3 class="text-white"> Your search -<span>hello</span> - Did not match any content.<br>-->
   <!-- Please update your search/filter options.</h3>-->
    <h3 class="text-white">Your filter options did not match any content.
-Please update your filter options</h3>
+Please update your filter options  </h3>
   <br/>
   <div class="popularvideo">
     <h3 class="text-white">Popular Video :</h3>
