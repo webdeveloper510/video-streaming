@@ -22,6 +22,7 @@
             </div>
             <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
                     <button type="button" class="btn btn-primary bardot">Select</button>
+                    <button type="button" class="btn btn-danger closbtn">cancel</button>
                     </div>
                     <div class="choose1" style="display:none;">
                     <button type="button" class="close" data-dismiss="choose1" aria-label="Close">
@@ -148,7 +149,7 @@
                                         <div class="row">
                                             <div class="col-md-8 playlist_video_show">
                                                 <div class="videodata"></div>
-                                                <div class="text-right">
+                                                <div class="text-right mt-5">
                                                     <button class="btn btn-outline-danger" type="button">Remove From Playlist</button>
                                                 </div>
                                             </div>
