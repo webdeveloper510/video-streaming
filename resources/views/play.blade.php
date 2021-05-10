@@ -233,7 +233,6 @@
                             <div class="col-md-12 uploa_outer" id="wishlist">
                                 <div class="slider_tittle">
                                     <h3 class="tittle">Wishlist</h3>
-                                    </div>
                                     <div class="text-right">
                                   
                                     <div class="row pb-row">
@@ -263,12 +262,9 @@
                                         </div>
                                         </div>
                                         </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                                                       <!-- -------------------------- History Section Start--------------------------->
+                                        <!-- -------------------------- History Section Start--------------------------->
 
-                                                                       <div class="col-md-12 uploa_outer" id="history">
+                                        <div class="col-md-12 uploa_outer" id="history">
                                             <div class="slider_tittle">
                                                 <h3 class="tittle">History</h3>
                                             </div>
@@ -302,6 +298,9 @@
                                                     @endif
                                                 </div>
                                             </div>  
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
