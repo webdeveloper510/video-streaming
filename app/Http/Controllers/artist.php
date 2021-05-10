@@ -344,34 +344,47 @@ class artist extends Controller
 
       $session_data =   Session::get('User');
 
-      if(Storage::exists('app/public/uploads/amit.jpeg')){
 
-        echo "ddd";die;
-        Storage::delete('upload/test.png');
-        /*
-            Delete Multiple File like this way
-            Storage::delete(['upload/test.png', 'upload/test2.png']);
-        */
-    }else{
-        dd('File does not exists.');
-    }
+
+      // $path = storage_path('app\public\uploads\amit');
+
+      // if(unlink($path)){
+      //   echo "yes";
+      // }
+      // else{
+      //   echo "no";
+      // }
+      // die;
+
+
+    //   if(Storage::exists('uploads/amit')){
+
+    //     echo "ddd";die;
+    //     Storage::delete('upload/test.png');
+    //     /*
+    //         Delete Multiple File like this way
+    //         Storage::delete(['upload/test.png', 'upload/test2.png']);
+    //     */
+    // }else{
+    //     dd('File does not exists.');
+    // }
 
       $userid=  $session_data->id;
 
-      $file= 'amit.mp4';
+    //   $file= 'amit.mp4';
 
-      $path =  storage_path('app/public/video/');
+    //   $path =  storage_path('app/public/video/');
 
-      echo $deleted = unlink(storage_path($path.$file));die;
+    //   echo $deleted = unlink(storage_path($path.$file));die;
 
-      if($deleted){
-        echo "yes";
-      }
-      else{
-        echo "no";
-      }
+    //   if($deleted){
+    //     echo "yes";
+    //   }
+    //   else{
+    //     echo "no";
+    //   }
 
-      die;
+    //   die;
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
          
@@ -781,8 +794,11 @@ class artist extends Controller
 
 
   public function deleteOfer(Request $req){
+      
 
           if($req['table']=='media'){
+              
+            $done = unlink(storage_path('app/public/uploads/1605637554_etsy inspo.jpg'));
 
             $delete =$this->model->deleteCollection($req->all());
           }

@@ -3193,7 +3193,7 @@ public function customer_issue($data){
 
       $userid =  $session_data->id;
 
-     
+
 
 
      $done = DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
