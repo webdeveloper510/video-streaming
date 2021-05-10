@@ -294,7 +294,7 @@ window.Robodog.form('#myForm', {
    }
  }
 }).on('transloadit:complete', (assembly) => {
-    console.log(assembly)
+    //console.log(assembly)
             var form = $("#myForm");
             var formData = new FormData($(form)[0]);
             $("<input />").attr("type", "hidden")

@@ -68,7 +68,7 @@
                                         <input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
                                         <button class="create_list btn btn-primary" type="button">Create</button>
                                     </span>
-                                <div class="text-center mt-4">
+                                <div class="text-center mt-4 ">
                                     <input type="hidden" id="art_id" value="<?php echo e($cartVideo ? $cartVideo[0]->contentProviderid : ''); ?>"/>
                                 <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">

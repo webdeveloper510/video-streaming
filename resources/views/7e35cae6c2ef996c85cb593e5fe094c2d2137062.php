@@ -77,6 +77,7 @@
         <button class="dropdown-item" type="button">
           <a href="<?php echo e(url('/logout')); ?>">Logout</a></button>
            <button class="dropdown-item" type="button">
+             
           <a href="<?php echo e(url('/my-requests')); ?>">Projects</a></button>
     </div> -->
   

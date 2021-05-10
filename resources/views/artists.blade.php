@@ -53,8 +53,7 @@ hr{
            <div class="col-md-4">
             <div class="form-group mt-4">
 <!--                
-              
-            <div class="input-group mb-3">
+  <div class="input-group mb-3">
   <input type="search" class="form-control" placeholder="Search" >
   <div class="input-group-append">
     <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
