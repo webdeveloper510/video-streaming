@@ -374,12 +374,13 @@
                             </div>
                             <div class="text-right">
                                 <h6 class="text-white" id="duration_<?php echo e($recnt->id); ?>"><?php echo e($recnt->duration ? $recnt->duration :''); ?></h6>
-                                <?php if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN'): ?>
+                                <?php if($recnt->duration==''||$recnt->duration=='NaN:NaN:NaN'): ?>
                                 <script>
-                                    var video;
-                                    var id;
+                                    var video1;
+                                    var id1;
                                     setTimeout(() => {
-                                        video = $("#recently_<?php echo e($recnt->id); ?>");
+                                        video1 = $("#recently_<?php echo e($recnt->id); ?>");
+                                        console.log(video);
                                         seconds_to_min_sec(
                                             video[0].duration,
                                             "#duration_<?php echo e($recnt->id); ?>",
@@ -456,11 +457,14 @@
                                 </div>
                                 <div class="text-right">
                                     <h6 class="text-white" id="duration_<?php echo e($pop->id); ?>"><?php echo e($pop->duration ? $pop->duration :''); ?></h6>
-                                    <?php if($recnt->duration=='' || $recnt->duration=='NaN:NaN:NaN'): ?>
+                                    <?php if($pop->duration=='' || $pop->duration=='NaN:NaN:NaN'): ?>
                                     <script>
+                                    var video;
+                                    var id;
                                         setTimeout(() => {
-                                            video = $("#video_<?php echo e($pop->id); ?>");
-                                            id = $("#video_<?php echo e($pop->id); ?>");
+                                             video = $("#video_<?php echo e($pop->id); ?>");
+                                             id = $("#video_<?php echo e($pop->id); ?>");
+                                             //console.log(video[0].duration);
                                             seconds_to_min_sec(
                                                 video[0].duration,
                                                 "#duration_<?php echo e($pop->id); ?>",

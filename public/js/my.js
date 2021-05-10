@@ -1489,9 +1489,9 @@ function showPlaylistVedio(data) {
         .split(',');
     var div = '';
     $('.video_append').html('')
-    var lengthVideo = 0;
+    var lengthVideo;
     for (var i = 0; i < videos_playlist.length; i++) {
-        lengthVideo = i;
+        lengthVideo = i==0 ? 1 : i+=1;
         var url = storage_url + '/video/' + videos_playlist[i];
         if (i == 0) {
             $('.videodata').html(
