@@ -823,7 +823,7 @@
                   <table class="table text-left">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col">App Name</th>
+                            <th scope="col">App</th>
                             <th scope="col">Username</th>
                             <th scope="col"></th>
                            
@@ -915,6 +915,7 @@ label.error {
     color: white;
     text-align: center;
     margin-top: 22px;
+    
     border-radius: 9px;
 }
 .columesdashboard1 {

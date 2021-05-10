@@ -5,7 +5,6 @@
 <h1 class="text-white mt-2"> Support Team</h1>
 </div>
 </header>
-
 <section class=" support">
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -17,7 +16,6 @@
   <li class="nav-item" role="presentation">
     <a class="nav-link" id="pills-message-tab" data-toggle="pill" href="#pills-message" role="tab" aria-controls="pills-message" aria-selected="false">Site Update info</a>
   </li>
- 
 </ul>
 <div class="tab-content" id="pills-tabContent">
     <!--------- Open  ticket tab------------------------------------------>
@@ -51,18 +49,6 @@
         </div>
         <br>
         <input type="file" class="form-control" placeholder="add file">
-            <!-- <div class="mt-3">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h3>Spam Bot Verification</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
-                        automated submissions.</p>
-                        <img src="" class="img-fluid" alt="qr image">
-                        <input type="text" class="form-control" >
-                    </div>
-                </div> -->
                 <div class="text-right">
                     <button type="button" class="btn btn-primary my-4">Submit</button>
         </div>
@@ -79,7 +65,6 @@
        <div class="row">
            <div class="col"></div>
            <div class="col-md-8">
-                 
              <div class="ticketstext">
                  <label>Subject</label>
                  <select class="custom-select mb-4">
@@ -104,18 +89,6 @@
          </div>
          <br>
          <input type="file" class="form-control" placeholder="add file">
-             <!-- <div class="mt-3">
-                 <div class="row">
-                     <div class="col-md-3">
-                         <h3>Spam Bot Verification</h3>
-                     </div>
-                     <div class="col-md-6">
-                         <p>Please enter the characters you see in the image below into the text box provided.This is requred to prevent
-                         automated submissions.</p>
-                         <img src="" class="img-fluid" alt="qr image">
-                         <input type="text" class="form-control" >
-                     </div>
-                 </div> -->
                  <div class="text-right">
                      <button type="button" class="btn btn-primary my-4">Submit</button>
          </div>

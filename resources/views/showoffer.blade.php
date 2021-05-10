@@ -2,13 +2,11 @@
 @include('layouts.header')
 <div class="show-offer">
 <div class="container">
-
 	 @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
-        @endif
-           
+        @endif   
           @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
@@ -51,9 +49,7 @@
             	<th>Price</th>
             	<td> {{$val->price}}  <span style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</span>/Minute </td>
               </tr>
-	      </table>
-	    
-	      <!-- <a href="#" data-toggle="modal" onclick="getId('{{$val->id}}')" data-target="#addDescription" class="btn btn-primary add mb-3">Add Description</a> -->
+	      </table>	    
      </div>
    </div>
    </a>

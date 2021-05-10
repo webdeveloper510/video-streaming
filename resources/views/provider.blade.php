@@ -3,7 +3,6 @@
 
     <div class="container mt-5">
         <div class="overlay1 text-white">
-
             @if(session('success'))
             <div class="alert alert-success" id="success">
                 {{session('success')}}
@@ -16,7 +15,6 @@
             <div class="alert alert-danger">
                 {{$error}}
             </div>
-
             @endforeach {!!Form::open(['action' => 'AuthController@providerContent',
             'method' => 'post', 'files'=>true])!!}
             {{Form::token()}}
