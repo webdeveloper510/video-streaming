@@ -1489,7 +1489,7 @@ function showPlaylistVedio(data) {
         .split(',');
     var div = '';
     $('.video_append').html('')
-    var lengthVideo=1;
+    var lengthVideo=0;
     for (var i = 0; i < videos_playlist.length; i++) {
         
         var url = storage_url + '/video/' + videos_playlist[i];

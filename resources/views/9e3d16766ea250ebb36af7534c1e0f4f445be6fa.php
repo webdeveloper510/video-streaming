@@ -297,10 +297,10 @@ window.Robodog.form('#myForm', {
     //console.log(assembly)
             var form = $("#myForm");
             var formData = new FormData($(form)[0]);
-            $("<input />").attr("type", "hidden")
-          .attr("name", "transloadit")
-          .attr("value", assembly)
-          .appendTo("#myForm");
+        //     $("<input />").attr("type", "hidden")
+        //   .attr("name", "transloadit")
+        //   .attr("value", assembly)
+        //   .appendTo("#myForm");
 		  formData["assembly"] = assembly;
             $('.loader').show();
             $('.percentage').html('0');

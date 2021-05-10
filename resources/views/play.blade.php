@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                         <div class="col pt-3">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist">Add To Playlist</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
                         </div>
                         
                     </div>
@@ -56,9 +56,17 @@
                             <div class="modal-body">
                                 <h3> Create New Playlist</h3>
                                 <div class="Playlist1">
-                                    @foreach($listname as $val)
-                                    <h5 class="select_list">{{$val->listname}} </h5><br>
-                                    @endforeach
+                                     @foreach($listname1 as $index=>$val)
+                                                    <h5 class="select_list">{{$val->listname}}
+                                                    </h5>
+                                                    <button
+                                                        data-id="{{$val->id}}"
+                                                        class="alert alert-primary btn-sm saveBtn"
+                                                        onclick="savePlaylist(this)"
+                                                        style="display:none;">Save</button>
+                                                    <p class="aedit text-right">edit</p>
+                                                    <br>
+                                     @endforeach
                                 
 
                                 </div>
@@ -70,7 +78,7 @@
                                     </span>
                                 <div class="text-center mt-4 ">
                                     <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
-                                <button type="button" class="multipleAdd btn btn-primary">ADD NOW</button>
+                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
                                 <div class="alert alert-success" id="success_message" style="display: none" role="alert">
                                     </div>
                                 
@@ -401,6 +409,9 @@
                             z-index: 1;
                             width: 20px;
                             height: 20px;
+                        }
+                        .active{
+                            color:red;
                         }
                             .row.pb-row {
                                 background: black;
