@@ -756,8 +756,8 @@ $(document).on('click', '.add_in_library', function () {
             console.log(data);
                     
                     if(data==1){
-                        $('#showMessage').show();
-                        $('#showMessage').html('Added In Playlist');
+                        $('#success_message').show();
+                        $('#success_message').html('Added In Playlist');
                         setTimeout(function(){ 
                             location.reload()
                         }, 3000);
@@ -765,8 +765,8 @@ $(document).on('click', '.add_in_library', function () {
                     }
                     else{
                         
-                         $('#showMessage').show();
-                        $('#showMessage').html('Some Error Occure');
+                         $('#success_message').show();
+                        $('#success_message').html('Some Error Occure');
                         
                     }
 

@@ -93,7 +93,7 @@
                         <div class="col-md-3 pb-video">
                         <div class="checkall" style="display:none">
                              <form> 
-                              <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
+                              <input type="checkbox" class="slct_video" id="{{$val->id}}" data-id="{{$val->price}}"></form></div>
                             <video
                                 width="100%"
                                 height="100%"
