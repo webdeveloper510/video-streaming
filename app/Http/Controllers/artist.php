@@ -344,6 +344,10 @@ class artist extends Controller
 
       $session_data =   Session::get('User');
 
+<<<<<<< HEAD
+=======
+      unlink(storage_path('app/public/video/'.$file));
+>>>>>>> f16c1745d152b8eac1cd503eace6f75c904caa15
 
 
       // $path = storage_path('app\public\uploads\amit');
