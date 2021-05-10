@@ -22,6 +22,7 @@
             </div>
             <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
                     <button type="button" class="btn btn-primary bardot">Select</button>
+                    <button type="button" class="btn btn-danger closbtn">cancel</button>
                     </div>
                     <div class="choose1" style="display:none;">
                     <button type="button" class="close" data-dismiss="choose1" aria-label="Close">
@@ -156,7 +157,7 @@
                                         <div class="row">
                                             <div class="col-md-8 playlist_video_show">
                                                 <div class="videodata"></div>
-                                                <div class="text-right">
+                                                <div class="text-right mt-5">
                                                     <button class="btn btn-outline-danger" type="button">Remove From Playlist</button>
                                                 </div>
                                             </div>
@@ -192,7 +193,26 @@
                             </div>
                         </div>
                     </div>
+                                   <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Content is no available
+                    </button>
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-body">
+                            <p>The artist has removed this Content. </p>
+                            <p>For unlimited access please place Orders directly from the Artists Offers and download them under "My Orders"</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                         
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                     <!-- -------------------------- Video Section Start--------------------------->
 
                     <div class="row pb-row">
@@ -222,7 +242,7 @@
 
                                         <img
                                             src="{{asset('images/playlisticon.png')}}"
-                                            class="img-fluid"
+                                            class="img-fluid"`
                                             width="200px"
                                             height="200px">
                                             <h2 class="text-white pl-5">{{$count}}</h2>
@@ -234,6 +254,7 @@
                                 </div>
                                 @endforeach
                                 <br/>
+                            </div>
                             </div>
 
                             <!-- -------------------------- Wish list Start--------------------------->
