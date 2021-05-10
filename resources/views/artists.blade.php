@@ -52,14 +52,14 @@ hr{
        <div class="row">
            <div class="col-md-4">
             <div class="form-group mt-4">
-               
+<!--                
               
             <div class="input-group mb-3">
   <input type="search" class="form-control" placeholder="Search" >
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
   </div>
-</div>
+</div> -->
 
 
               <form class="form-inline text-center align-center">
