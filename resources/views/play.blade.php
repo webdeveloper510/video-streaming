@@ -156,7 +156,7 @@
                                                 <div class="videoinfo">
                                                     <div class="playlistname">
                                                         <h4 class="listname">hello</h4>
-                                                        <p>1/5</p>
+                                                        <p>1/</p><p class="lengthVideo">5</p>
                                                     </div>
                                                     <!------------start list------------------>
                                                 <a href="#" onClick="getSrcUrl(this)">
@@ -293,7 +293,6 @@
                                                     @endforeach @else
                                                     <div class="playhistory col-md-12">
                                                         <h4>History Empty</h4>
-
                                                     </div>
                                                     @endif
                                                 </div>
