@@ -1838,6 +1838,8 @@ $(document).ready(function () {
 
         // Delete id
         var deleteid = $(this).attr('data-id');
+        var src1 = $(this).attr('data-url');
+        var img_src = $(this).attr('img-src');
         var table = $(this).attr('table');
         var message = table == 'offer'
             ? "Do you really want to delete this Offer?"
@@ -1871,7 +1873,9 @@ $(document).ready(function () {
                         },
                         data: {
                             id: deleteid,
-                            table: table
+                            table: table,
+                            media_url:src1,
+                            image_url:img_src
                         },
                         success: function (response) {
 
