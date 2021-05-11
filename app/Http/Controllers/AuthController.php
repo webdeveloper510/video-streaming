@@ -1676,7 +1676,7 @@ public function readNotification(Request $request){
     
     }
 
-/*-----------------------------------------------Order Video By User-------------------------------------------------*/
+/*-----------------------------------------------Order Video By User-----------------------------------------------------------------------------------------*/
       public function orderVideo(Request $request){
 
         $data = json_decode($request->allinfo);
@@ -1700,8 +1700,6 @@ public function readNotification(Request $request){
         $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additioal Requests' ;
 
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
-
-
         //print_r($requestData);die;
 
 

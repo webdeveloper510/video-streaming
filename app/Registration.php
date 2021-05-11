@@ -875,6 +875,7 @@ public function getRespectedSub($data){
       ->join("contentprovider","contentprovider.id","=","offer.artistid")
       ->join('reserved_tokens','reserved_tokens.userid','=','offer.userid')
       ->where('offer.userid',$userid)
+      ->orderby('offer.id','desc')
       ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","category.category","offer.status","contentprovider.nickname");
      
       if ($sts) {
@@ -882,7 +883,7 @@ public function getRespectedSub($data){
         $data = $data->where('status', '=', $sts);
     }
   
-//   echo "<pre>"
+//   echo "<pre>";
 //   print_r($data->get());die;
          return $data->get();
     }
@@ -1031,6 +1032,9 @@ public function getRespectedSub($data){
 
        $reqData['cat'] = $category;
 
+
+
+     //  print_r($reqData);die;
 
         $req = DB::table('add_request')->insert($reqData);
 
