@@ -762,7 +762,9 @@ class artist extends Controller
 
           if($req['table']=='media'){
               
-            $done = unlink(storage_path('app/public/uploads/1605637554_etsy inspo.jpg'));
+              //echo $req['media_url'];die;
+             unlink(storage_path('app/public/video/'.$req['media_url']));
+             unlink(storage_path('app/public/uploads/'.$req['image_url']));
 
             $delete =$this->model->deleteCollection($req->all());
           }

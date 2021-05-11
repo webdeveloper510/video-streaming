@@ -196,7 +196,7 @@
                 <div class="edit">
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('<?php echo e(json_encode($detail)); ?>')">Edit</button>
                
-                <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-light delete" table="media" img-src="<?php echo e($detail->audio_pic); ?>" data-url="<?php echo e($detail->media); ?>" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>

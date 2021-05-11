@@ -105,6 +105,11 @@
                                 <source
                                     src="{{url('storage/app/public/video/'.$val->videos)}}"
                                     type="video/mp4"></video>
+                                    <div class="outer">
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="{{$val->is_deleted==1 ? 'display:block' : 'display:none'}}">
+                                      Content is no available
+                                        </button>
+                                        </div>
 
                             </div>
                             @endforeach @else
@@ -194,9 +199,7 @@
                         </div>
                     </div>
                                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Content is no available
-                    </button>
+                  
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
