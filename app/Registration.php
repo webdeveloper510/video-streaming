@@ -1075,7 +1075,6 @@ public function getRespectedSub($data){
                $session_data =   Session::get('User');
 
               $data= array(
-
               'created_at'=>now(),
               'updated_at'=>now(),
               'artistid'=>$session_data->id,
