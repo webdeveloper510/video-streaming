@@ -1681,15 +1681,18 @@ public function readNotification(Request $request){
 
         $data = json_decode($request->allinfo);
 
-        //print_r($data);die;
+        //print_r($request->all());die;
 
         $offerInfo = (array)$data;
+        
+        //print_r($offerInfo);die;
 
 
           //print_r($offerInfo['id']);die;
         Session::put('offer_artist_id',$offerInfo['id']);
 
         $offerInfo['created_at'] = $request->created_at;
+        //$offerInfo['userid'] = 
         $offerInfo['updated_at'] = $request->updated_at;
         $offerInfo['status'] = 'new';
         $offerInfo['is_seen'] = 'no';

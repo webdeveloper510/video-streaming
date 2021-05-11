@@ -756,8 +756,8 @@ $(document).on('click', '.add_in_library', function () {
             console.log(data);
                     
                     if(data==1){
-                        $('#showMessage').show();
-                        $('#showMessage').html('Added In Playlist');
+                        $('#success_message').show();
+                        $('#success_message').html('Added In Playlist');
                         setTimeout(function(){ 
                             location.reload()
                         }, 3000);
@@ -765,8 +765,8 @@ $(document).on('click', '.add_in_library', function () {
                     }
                     else{
                         
-                         $('#showMessage').show();
-                        $('#showMessage').html('Some Error Occure');
+                         $('#success_message').show();
+                        $('#success_message').html('Some Error Occure');
                         
                     }
 
@@ -1596,7 +1596,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
         success: function (data) {
 
-            console.log(data);return false;
+          //console.log(data);return false;
 
             if (data.status == 1) {
                 if(!visiblie){
@@ -3130,7 +3130,7 @@ function appendDiv(a){
 }
 
 function seconds_to_min_sec(seconds, id, vidid) {
-    //console.log('yes');
+   // console.log('yes');
     //console.log(seconds);
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);

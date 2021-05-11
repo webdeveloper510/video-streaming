@@ -344,7 +344,11 @@ class artist extends Controller
 
       $session_data =   Session::get('User');
 
+
+
       $userid=  $session_data->id;
+
+
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
          
@@ -754,8 +758,13 @@ class artist extends Controller
 
 
   public function deleteOfer(Request $req){
+      
 
           if($req['table']=='media'){
+              
+              //echo $req['media_url'];die;
+             unlink(storage_path('app/public/video/'.$req['media_url']));
+             unlink(storage_path('app/public/uploads/'.$req['image_url']));
 
             $delete =$this->model->deleteCollection($req->all());
           }

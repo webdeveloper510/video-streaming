@@ -548,7 +548,7 @@ public function getArtistDetail($artid,$type){
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','media.id')
        ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.userid','media_seen_notification.mediaid','media_seen_notification.type as notification')
-       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
+       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
 
@@ -882,6 +882,8 @@ public function getRespectedSub($data){
         $data = $data->where('status', '=', $sts);
     }
   
+//   echo "<pre>"
+//   print_r($data->get());die;
          return $data->get();
     }
 
@@ -1704,9 +1706,9 @@ public function getRefersArtist($id){
           unset($video['category']);
           unset($video['count']);
 
+              $done = $this->insertOffer($video);
 
-
-          $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
+          //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
 
             $update = DB::table('user_video')->where(array('userid'=>$uid,'type'=>$type))
@@ -1773,14 +1775,14 @@ public function getRefersArtist($id){
         'userid'=>$data['userid'],
         'status'=>'new',
         'is_seen'=>'no',
-        'updated_at'=>now()
+        'updated_at'=>$data['updated']
         ]);
 
         if($return){
 
           $array= array(
-            'created_at'=>now(),
-            'updated_at'=>now(),
+            'created_at'=>$data['created_at'],
+            'updated_at'=>$data['updated_at'],
             'artistid'=>$data['artistid'],
             'userid'=>$data['userid'],
             'message'=>$data['title'].'has been ordered',
@@ -1804,8 +1806,8 @@ public function getRefersArtist($id){
       $insert  = DB::table('offer')->insert($data);
 
           $array= array(
-            'created_at'=>now(),
-            'updated_at'=>now(),
+            'created_at'=>$data['created_at'],
+            'updated_at'=>$data['updated_at'],
             'artistid'=>$data['artistid'],
             'userid'=>$data['userid'],
             'message'=>$data['title'].'has been ordered',
@@ -2306,7 +2308,7 @@ public function getVideosbyList(){
   $userid =  $session_data->id;
 
   $data = \DB::table("user_video")
-  ->select(DB::raw("media.media as videos"),"media.id","media.title")
+  ->select(DB::raw("media.media as videos"),"media.id","media.title","media.is_deleted")
   ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,user_video.videoid)"),">",\DB::raw("'0'"))
  // ->groupBy("playlist.id","playlist.playlistname","media.media")
   ->where(array('user_video.userid'=> $userid,'user_video.type'=>'normal'))
@@ -2713,7 +2715,7 @@ public function buyofferVideo($data,$offer){
        
         
 
-       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data['price']) : $this->insertReservedTable($data,$id);
+       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$id);
        
 
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
@@ -2759,15 +2761,18 @@ public function addonContentProvider($data){
 
 }
 
-public function updateReservedTable($uid,$price){
+public function updateReservedTable($uid,$data){
 
-  $deducted  = $this->deductUserTokens($uid,$price);
-
-  if($deducted){
+  
 
     $update = DB::table('reserved_tokens')->where(array('userid'=>$uid))->update([
-      'tokens'=>$price
+      'tokens'=>$data['price'],
+      'updated_at'=>$data['updated_at']
       ]);
+
+  if($update){
+      
+        $deducted  = $this->deductUserTokens($uid,$data['price']);
 
   } 
 
@@ -2797,16 +2802,14 @@ public function deductUserTokens($uid,$token){
 
 public function insertReservedTable($data,$vid)
 {
-   // print_r($data);
-    //print_r($vid);die;
 
   $deducted  = $this->deductUserTokens($vid[1],$data['price']);
 
   if($deducted){
 
     $data  = array(
-      'created_at'=>now(),
-      'updated_at'=>now(),
+      'created_at'=>$data['created_at'],
+      'updated_at'=>$data['updated_at'],
       'Offermediaid'=>$vid[0],
       'tokens'=>$data['price'],
       'userid'=>$userid,
@@ -3190,7 +3193,7 @@ public function customer_issue($data){
 
       $userid =  $session_data->id;
 
-     
+
 
 
      $done = DB::table('offer')->where('id', $data['id'])->update(array('is_deleted'=>'true'));
