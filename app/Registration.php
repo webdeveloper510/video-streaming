@@ -870,19 +870,20 @@ public function getRespectedSub($data){
       $userid=  $session_data->id;
       
       $data = \DB::table("offer")
-      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("contentprovider","contentprovider.id","=","offer.artistid")
       ->join('reserved_tokens','reserved_tokens.userid','=','offer.userid')
       ->where('offer.userid',$userid)
-      ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","offer.status","contentprovider.nickname");
+      ->orderby('offer.id','desc')
+      ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","category.category","offer.status","contentprovider.nickname");
      
       if ($sts) {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }
   
-//   echo "<pre>"
+//   echo "<pre>";
 //   print_r($data->get());die;
          return $data->get();
     }
@@ -1031,6 +1032,9 @@ public function getRespectedSub($data){
 
        $reqData['cat'] = $category;
 
+
+
+     //  print_r($reqData);die;
 
         $req = DB::table('add_request')->insert($reqData);
 
