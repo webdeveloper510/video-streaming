@@ -1030,9 +1030,6 @@ public function getRespectedSub($data){
        $reqData['cat'] = $category;
 
 
-
-     //  print_r($reqData);die;
-
         $req = DB::table('add_request')->insert($reqData);
 
        
