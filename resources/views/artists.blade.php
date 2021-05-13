@@ -122,7 +122,7 @@ hr{
             <div class="card mt-5">
             <img class="card-img-top" src="{{$artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png') }}"  width="100%" height="300px" alt=" image cap">
             <div class="card-body text-center">
-                <h3 class="card-title text-center">{{$artist->nickname}} <small> <i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <h3 class="card-title text-center">{{$artist->nickname}} <small style="    font-family: 'Poppins';"> <i class="fa fa-star" style="color:red;"></i>  999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -131,7 +131,7 @@ hr{
                     <div class="col-6">
                            <div class="">
                                <h3>{{$artist->count ? $artist->count : 0}}</h3>
-                               <h5>Offers(S)</h3>
+                               <h5>Offer(S)</h3>
                                </div>
 
                            </div>
