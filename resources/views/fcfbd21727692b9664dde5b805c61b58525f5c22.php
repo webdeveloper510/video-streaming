@@ -566,7 +566,7 @@
                 <!--------------------------------------------------------------Audio------------------------------------------------->
 
                 <div class="outer_slider">
-                    <div class="container my-4">
+                    <div class="container my-4">  
                         <div class="slider_tittle">
                             <h3 class="tittle">
                                 <a href="<?php echo e(url('/seeall/audio')); ?>">Audios</a>

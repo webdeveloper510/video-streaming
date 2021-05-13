@@ -362,6 +362,12 @@
                                 position: absolute;
                                 z-index: 1;
                             }
+                            .outer {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
 
                             .tooltip:hover .tooltiptext {
                                 visibility: visible;
