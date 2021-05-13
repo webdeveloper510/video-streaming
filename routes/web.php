@@ -37,7 +37,10 @@ Route::get('cookie', 'AuthController@cookie');
 Route::get('acceptable', 'AuthController@acceptable');
 
 Route::get('terms', 'AuthController@terms');
+
 Route::get('accept', 'AuthController@accept');
+
+Route::get('showArtist','AuthController@artistPage');
 
 Route::get('login', 'AuthController@login');
 

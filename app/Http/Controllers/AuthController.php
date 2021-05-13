@@ -1200,6 +1200,11 @@ public function notifyEmail(Request $req){
       return view('notification',['viewName'=>$text, 'notification1'=>$all_data]);
   
 }
+
+public function artistPage(){
+
+        return view('show_artist');
+}
    public function play($id=null){
 
     $update = $this->model->UpdateData('notification','id',array('read'=>1),$id);

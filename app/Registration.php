@@ -71,13 +71,14 @@ class Registration extends Model
         $value = $this->selectDataById('email','contentprovider',$data['email1']);
 
         $reffer_id = Session::get('reffer_by');
+
         if(!$value){
 
             $userdata = $data->all();
 
             $userdata['password']= md5($data['confirm']);
 
-            $userdata['email']= $data['email1'];
+            $userdata['email'] = $data['email1'];
 
             unset($userdata['email1']);
 
@@ -108,16 +109,14 @@ class Registration extends Model
                 'password'=>md5($data->password)))
                 ->get()
                 ->first();
-           // print_r($value);die;
                 if(is_null($value)){
                     return 0;
                 }
                 else{
                     Session::put('User', $value);
                     Session::put('userType','contentUser');
-                // $data->session()->put('User', $value);
                     return 1;
-        }
+                 }
 }
 
 
