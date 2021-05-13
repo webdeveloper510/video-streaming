@@ -138,7 +138,7 @@ hr{
                            <div class="col-6">
                            <div class="">
                                <h3>{{$artist->rowcount}}</h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
