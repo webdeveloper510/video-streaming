@@ -97,6 +97,7 @@
             <label class="media_label12">Audio/Video</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
+                  <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -232,16 +233,28 @@ section.background1 {
        
 <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
-      <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
-    <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
+    <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
+<script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
   <script type="text/javascript">
 window.Robodog.form('#myForm', {
-  waitForEncoding: true,
-  waitForMetadata: true,
-  submitOnSuccess: false,
+      statusBar: '#myForm .progress',
+      waitForEncoding: false,
+      waitForMetadata: true,
+     submitOnSuccess: false,
+      alwaysRunAssembly: false,
+      closeAfterFinish:true,
+      autoProceed: false,
+       restrictions: {
+    maxFileSize: null,
+    minFileSize: null,
+    maxTotalFileSize: null,
+    maxNumberOfFiles: 1,
+    minNumberOfFiles: null,
+    allowedFileTypes: null
+  },
   params: {
     auth: { key: '995b974268854de2b10f3f6844566287' },
-    triggerUploadOnSubmit: true,
+    triggerUploadOnSubmit: false,
     steps: {
       ':original': {
         robot: '/upload/handle'
@@ -293,85 +306,30 @@ window.Robodog.form('#myForm', {
      }
    }
  }
-}).on('transloadit:complete', (assembly) => {
-    //console.log(assembly)
-            var form = $("#myForm");
-            var formData = new FormData($(form)[0]);
-        //     $("<input />").attr("type", "hidden")
-        //   .attr("name", "transloadit")
-        //   .attr("value", assembly)
-        //   .appendTo("#myForm");
-		  formData["assembly"] = assembly;
-            $('.loader').show();
-            $('.percentage').html('0');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: APP_URL + "/postContent",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                xhr: function () {
-                    var xhr = $
-                        .ajaxSettings
-                        .xhr();
-                    if (xhr.upload) {
-                        xhr
-                            .upload
-                            .addEventListener('progress', function (event) {
-                                var percent = 0;
-                                var position = event.loaded || event.position;
-                                var total = event.total;
-                                if (event.lengthComputable) {
-                                    percent = Math.ceil(position / total * 100);
-                                }
-                                $('#top_title').html('Uploding...' + percent + '%');
-                                $('.percentage').html(percent + '%');
-                                if (percent == 100) {
-                                    $('.loader').hide();
-                                }
-                            }, true);
-                    }
-                    return xhr;
-                },
-                success: function (response) {
-
-                    console.log(response);
-                    return false;
-
-                    if (response.errors) {
-
-                        jQuery.each(response.errors, function (key, value) {
-                            jQuery('.alert-danger').show();
-                            jQuery('.alert-danger').append('<p>' + value + '</p>');
-                        });
-                    } else {
-                        $('.loader').hide();
-                        //$('.percentage').hide();
-                        if (response.status == 1) {
-                            $('#success').show();
-                            $('#success').html(response.messge);
-
-                            setTimeout(function () {
-                                location.reload();
-                            }, 2000);
-
-                            // location.reload(); $('.popup_close').trigger('click');
-
-                        } else {
-
-                            $('#error').show();
-                            $('#error').html(response.messge);
-
-                        }
-
-                    }
-                }
-            });
-})
+})  .on('transloadit:assembly-created', (assembly) => {
+      console.log(">>> onStart", assembly);
+    })
+    .on('upload-progress', (bytesIn, totalBytes) => {
+      console.log(">>> onProgress", bytesIn, totalBytes);
+    })
+    .on('transloadit:complete', (assembly) => {
+      console.log('>> onSuccess: Assembly finished successfully with', assembly);
+    })
+    .on('transloadit:assembly-executing', () => {
+      console.log('>> Uploading finished!');
+    })
+    .on('transloadit:upload', (uploadedFile) => {
+      console.log('>> Upload added', uploadedFile);
+    })
+    .on('transloadit:result', (stepName, result) => {
+      console.log('>> Result added', stepName, result);
+    })
+    .on('error', (error) => {
+      console.log('>> Assembly got an error:', error);
+      if (error.assembly) {
+        console.log(`>> Assembly ID ${error.assembly.assembly_id} failed!`);
+        console.log(error.assembly);
+      }
+    })
 
 </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/provider.blade.php ENDPATH**/ ?>

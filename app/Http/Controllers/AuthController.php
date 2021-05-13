@@ -628,7 +628,7 @@ class AuthController extends Controller
          //if($filePath){          
               $update_data = $this->model->uploadContentData($data);
 
-              print_r($update_data);die;
+              //print_r($update_data);die;
 
               return $update_data;
               //   if($update_data){
