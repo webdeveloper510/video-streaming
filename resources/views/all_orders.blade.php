@@ -96,8 +96,8 @@ tr.shown td.details-control {
                         <th >Media</th>
                         <th>Duration</th>
                         <th>Delivery Time</th>
-                        <th >Artist Name</th>
-                        <th > Status</th>              
+                        <th>Artist Name</th>
+                        <th> Status</th>              
         </tr>
     </thead>
   
