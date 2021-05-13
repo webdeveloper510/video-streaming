@@ -535,7 +535,12 @@ public function getArtists($flag){
     }
     else{
 
-      $artists=DB::table('contentprovider')->paginate(30);
+      $artists=DB::table('contentprovider')
+      ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
+      ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
+      ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
+      ->paginate(30);
     }
   return $artists;
 }
