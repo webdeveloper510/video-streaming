@@ -6,7 +6,7 @@
 <div class="container">
    <div class="row">
      <div class="col-md-4">
-            <div class="card">
+            <div class="card mt-5">
             <img class="card-img-top" src="..." alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
@@ -33,7 +33,7 @@
             </div>
      </div>
      <div class="col-md-4">
-            <div class="card">
+            <div class="card mt-5">
             <img class="card-img-top" src="..." alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
@@ -60,7 +60,7 @@
             </div>
      </div>
      <div class="col-md-4">
-            <div class="card">
+            <div class="card mt-5">
             <img class="card-img-top" src="..." alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
@@ -87,7 +87,7 @@
             </div>
      </div>
      <div class="col-md-4">
-            <div class="card">
+            <div class="card mt-5">
             <img class="card-img-top" src="..." alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
@@ -114,7 +114,7 @@
             </div>
      </div>
      <div class="col-md-4">
-            <div class="card">
+            <div class="card mt-5">
             <img class="card-img-top" src="..." alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
@@ -141,7 +141,7 @@
             </div>
      </div>
      <div class="col-md-4">
-            <div class="card">
+            <div class="card mt-5">
             <img class="card-img-top" src="..." alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
