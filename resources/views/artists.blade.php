@@ -117,6 +117,8 @@ hr{
     <div class="row">
     @foreach($artists as $key=>$artist)
      <div class="col-md-4">
+     <a href="{{url('artistDetail/'.$artist->id)}}">
+
             <div class="card mt-5">
             <img class="card-img-top" src="{{$artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png') }}"  width="100%" height="300px" alt=" image cap">
             <div class="card-body text-center">
@@ -128,7 +130,7 @@ hr{
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3>{{$artist->count}}</h3>
+                               <h3>{{$artist->count ? $artist->count : 0}}</h3>
                                <h5>Offers(S)</h3>
                                </div>
 
@@ -143,8 +145,8 @@ hr{
                 </div>
             </div>
             </div>
+            </a>
      </div>
-
      @endforeach
      
 
