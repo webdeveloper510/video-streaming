@@ -66,8 +66,6 @@ Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 
 Route::get('artistDetail/{id}', 'artist@artistDetail')->middleware('authentication');
 
-//Route::get('artist-profile', 'artist@artistProfile');
-
 Route::get('artist-video/{id}', 'artist@artistVideo');
 
 Route::get('logout', 'AuthController@logout'); 
