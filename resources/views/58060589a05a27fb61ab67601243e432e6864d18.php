@@ -7,7 +7,7 @@
    <div class="row">
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="https://www.google.com/search?q=profile+dummy+image&rlz=1C1RXQR_enIN951IN951&tbm=isch&source=iu&ictx=1&fir=ky30ccn_gHov2M%252CCIXM6BOucQSnxM%252C_&vet=1&usg=AI4_-kRIwdDAPkhv8olPJmf-L4AyHfCmmg&sa=X&ved=2ahUKEwiSxZudocfwAhWNyjgGHcZrAFgQ9QF6BAgLEAE#imgrc=ky30ccn_gHov2M" alt=" image cap">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
@@ -34,7 +34,7 @@
      </div>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="https://www.google.com/search?q=profile+dummy+image&rlz=1C1RXQR_enIN951IN951&tbm=isch&source=iu&ictx=1&fir=ky30ccn_gHov2M%252CCIXM6BOucQSnxM%252C_&vet=1&usg=AI4_-kRIwdDAPkhv8olPJmf-L4AyHfCmmg&sa=X&ved=2ahUKEwiSxZudocfwAhWNyjgGHcZrAFgQ9QF6BAgLEAE#imgrc=ky30ccn_gHov2M" alt=" image cap">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
@@ -61,7 +61,7 @@
      </div>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="https://www.google.com/search?q=profile+dummy+image&rlz=1C1RXQR_enIN951IN951&tbm=isch&source=iu&ictx=1&fir=ky30ccn_gHov2M%252CCIXM6BOucQSnxM%252C_&vet=1&usg=AI4_-kRIwdDAPkhv8olPJmf-L4AyHfCmmg&sa=X&ved=2ahUKEwiSxZudocfwAhWNyjgGHcZrAFgQ9QF6BAgLEAE#imgrc=ky30ccn_gHov2M" alt=" image cap">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
@@ -88,7 +88,7 @@
      </div>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="https://www.google.com/search?q=profile+dummy+image&rlz=1C1RXQR_enIN951IN951&tbm=isch&source=iu&ictx=1&fir=ky30ccn_gHov2M%252CCIXM6BOucQSnxM%252C_&vet=1&usg=AI4_-kRIwdDAPkhv8olPJmf-L4AyHfCmmg&sa=X&ved=2ahUKEwiSxZudocfwAhWNyjgGHcZrAFgQ9QF6BAgLEAE#imgrc=ky30ccn_gHov2M" alt=" image cap">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
@@ -115,7 +115,7 @@
      </div>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="https://www.google.com/search?q=profile+dummy+image&rlz=1C1RXQR_enIN951IN951&tbm=isch&source=iu&ictx=1&fir=ky30ccn_gHov2M%252CCIXM6BOucQSnxM%252C_&vet=1&usg=AI4_-kRIwdDAPkhv8olPJmf-L4AyHfCmmg&sa=X&ved=2ahUKEwiSxZudocfwAhWNyjgGHcZrAFgQ9QF6BAgLEAE#imgrc=ky30ccn_gHov2M" alt=" image cap">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
@@ -142,7 +142,7 @@
      </div>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="https://www.google.com/search?q=profile+dummy+image&rlz=1C1RXQR_enIN951IN951&tbm=isch&source=iu&ictx=1&fir=ky30ccn_gHov2M%252CCIXM6BOucQSnxM%252C_&vet=1&usg=AI4_-kRIwdDAPkhv8olPJmf-L4AyHfCmmg&sa=X&ved=2ahUKEwiSxZudocfwAhWNyjgGHcZrAFgQ9QF6BAgLEAE#imgrc=ky30ccn_gHov2M" alt=" image cap">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
