@@ -113,7 +113,7 @@ hr{
        
 <section class="showartist">
 
-<div class="container">
+<div class="">
     <div class="row">
     @foreach($artists as $key=>$artist)
      <div class="col-md-4">

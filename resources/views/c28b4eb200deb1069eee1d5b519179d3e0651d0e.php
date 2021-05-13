@@ -113,7 +113,7 @@ hr{
        
 <section class="showartist">
 
-<div class="container">
+<div class="">
     <div class="row">
     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <div class="col-md-4">
