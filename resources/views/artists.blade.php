@@ -120,12 +120,8 @@ hr{
             <div class="card mt-5">
             <img class="card-img-top" src="{{$artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png') }}"  width="100px" height="100px" alt=" image cap">
             <div class="card-body text-center">
-<<<<<<< HEAD
-                <h3 class="card-title text-center">Artist Name</h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-=======
                 <h3 class="card-title text-center">{{$artist->nickname}}</h3>
->>>>>>> 0cb66fe29ed6c0bdec089c8fbdaeb8e44add36e7
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Discription</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
@@ -148,153 +144,8 @@ hr{
             </div>
             </div>
      </div>
-<<<<<<< HEAD
-     <div class="col-md-4">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                <h3 class="card-title text-center">Artist Name</h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Discription</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content........</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Followers</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collections</h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-     </div>
-     <div class="col-md-4">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                <h3 class="card-title text-center">Artist Name</h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Discription</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Followers</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collections</h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-     </div>
-     <div class="col-md-4">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                <h3 class="card-title text-center">Artist Name</h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Discription</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Followers</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collections</h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-     </div>
-     <div class="col-md-4">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                <h3 class="card-title text-center">Artist Name</h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Discription</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Followers</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collections</h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-     </div>
-     <div class="col-md-4">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                <h3 class="card-title text-center">Artist Name</h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Discription</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Followers</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collections</h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-     </div>
-
-     
-=======
 
      @endforeach
->>>>>>> 0cb66fe29ed6c0bdec089c8fbdaeb8e44add36e7
      
 
    </div>
