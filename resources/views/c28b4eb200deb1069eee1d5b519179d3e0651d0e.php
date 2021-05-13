@@ -118,7 +118,7 @@ hr{
     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100px" height="100px" alt=" image cap">
+            <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100%" height="300px" alt=" image cap">
             <div class="card-body text-center">
                 <h3 class="card-title text-center"><?php echo e($artist->nickname); ?>  <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
