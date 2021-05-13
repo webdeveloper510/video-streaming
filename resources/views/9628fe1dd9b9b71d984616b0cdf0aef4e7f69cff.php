@@ -5,7 +5,7 @@
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{asset('design/artist.css')}}" />
+    <link rel="stylesheet" href="<?php echo e(asset('design/artist.css')); ?>" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -46,7 +46,7 @@ hr{
     </style>
   </head>
   <body>
-    @include('layouts.header')
+    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <div class="artistpage">
    <div class="container">
        <div class="row">
@@ -85,29 +85,29 @@ hr{
        </div>
        <hr>
        <!-- <div class="row mb-5">
-    @foreach ($artists as $artist)
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
            <div class="col-md-2">
              
                <div class="artist text-center">
-               @if($artist->profilepicture)
-                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
+               <?php if($artist->profilepicture): ?>
+                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
                 <div class="overlay">
-                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
+                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
                </div>
-               @else
+               <?php else: ?>
                
                <div class="artistnoimage">
-               <a href="{{url('artistDetail/'.$artist->id)}}">
-		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
+               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
 	           	<div class="profileImage"></div>
 
                </a>
               </div>
              
-             @endif
+             <?php endif; ?>
                </div>
            </div>
-             @endforeach
+             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
        </div> -->
        
@@ -115,26 +115,26 @@ hr{
 
 <div class="container">
     <div class="row">
-    @foreach($artists as $key=>$artist)
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <div class="col-md-4">
             <div class="card mt-5">
-            <img class="card-img-top" src="{{$artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png') }}"  width="100px" height="100px" alt=" image cap">
+            <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100px" height="100px" alt=" image cap">
             <div class="card-body text-center">
-                <h3 class="card-title text-center">{{$artist->nickname}}</h3>
+                <h3 class="card-title text-center"><?php echo e($artist->nickname); ?></h3>
                 <hr>
                 <h5>Discription</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3>{{$artist->count}}</h3>
+                               <h3><?php echo e($artist->count); ?></h3>
                                <h5>Subscriber</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
-                               <h3>{{$artist->rowcount}}</h3>
+                               <h3><?php echo e($artist->rowcount); ?></h3>
                                <h5>Collections</h3>
                                  
                            </div>
@@ -144,16 +144,16 @@ hr{
             </div>
      </div>
 
-     @endforeach
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      
 
    </div>
 </div>
 </section>
 
-    <div class="pagination">{{$artists->links()}}</div>
+    <div class="pagination"><?php echo e($artists->links()); ?></div>
 
    </div>
 </div>
   </body>
-  @include('layouts.footer')
+  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists.blade.php ENDPATH**/ ?>

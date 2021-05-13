@@ -84,7 +84,7 @@ hr{
            </div>
        </div>
        <hr>
-       <div class="row mb-5">
+       <!-- <div class="row mb-5">
     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
            <div class="col-md-2">
              
@@ -109,7 +109,47 @@ hr{
            </div>
              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-       </div>
+       </div> -->
+       
+<section class="showartist">
+
+<div class="container">
+    <div class="row">
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+     <div class="col-md-4">
+            <div class="card mt-5">
+            <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100px" height="100px" alt=" image cap">
+            <div class="card-body text-center">
+                <h3 class="card-title text-center"><?php echo e($artist->nickname); ?></h3>
+                <hr>
+                <h5>Discription</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3><?php echo e($artist->count); ?></h3>
+                               <h5>Subscriber</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3><?php echo e($artist->rowcount); ?></h3>
+                               <h5>Collections</h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+     </div>
+
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+     
+
+   </div>
+</div>
+</section>
 
     <div class="pagination"><?php echo e($artists->links()); ?></div>
 

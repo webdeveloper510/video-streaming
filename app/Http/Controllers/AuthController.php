@@ -1050,7 +1050,7 @@ public function getSelectingArtist(Request $req){
 
     $data=$req->all();
 
-         //print_r($data);die;
+        // print_r($data);die;
 
       Session::put('artistData',$data);
 
