@@ -52,13 +52,7 @@ hr{
        <div class="row">
            <div class="col-md-4">
             <div class="form-group mt-4">
-<!--                
-  <div class="input-group mb-3">
-  <input type="search" class="form-control" placeholder="Search" >
-  <div class="input-group-append">
-    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-  </div>
-</div> -->
+
 
 
               <form class="form-inline text-center align-center">
@@ -84,32 +78,7 @@ hr{
            </div>
        </div>
        <hr>
-       <!-- <div class="row mb-5">
-    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-           <div class="col-md-2">
-             
-               <div class="artist text-center">
-               <?php if($artist->profilepicture): ?>
-                <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-                <div class="overlay">
-                  <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>"><?php echo e($artist->nickname); ?></a>
-               </div>
-               <?php else: ?>
-               
-               <div class="artistnoimage">
-               <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
-		    	  <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
-	           	<div class="profileImage"></div>
-
-               </a>
-              </div>
-             
-             <?php endif; ?>
-               </div>
-           </div>
-             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-       </div> -->
+      
        
 <section class="showartist">
 
