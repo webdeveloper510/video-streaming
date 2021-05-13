@@ -168,7 +168,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="videoinfo">
-                                                    <div class="playlistname">
+0                                                    <div class="playlistname">
                                                         <h4 class="listname">hello</h4>
                                                         <p>1/</p><p class="lengthVideo">5</p>
                                                     </div>
