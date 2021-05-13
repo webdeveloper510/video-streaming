@@ -8,7 +8,7 @@
      <div class="col-md-4">
             <div class="card">
             <img class="card-img-top" src="..." alt=" image cap">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
                 <h5>Discription</h5>
@@ -35,7 +35,7 @@
      <div class="col-md-4">
             <div class="card">
             <img class="card-img-top" src="..." alt=" image cap">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
                 <h5>Discription</h5>
@@ -62,7 +62,7 @@
      <div class="col-md-4">
             <div class="card">
             <img class="card-img-top" src="..." alt=" image cap">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
                 <h5>Discription</h5>
@@ -89,7 +89,7 @@
      <div class="col-md-4">
             <div class="card">
             <img class="card-img-top" src="..." alt=" image cap">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
                 <h5>Discription</h5>
@@ -116,7 +116,7 @@
      <div class="col-md-4">
             <div class="card">
             <img class="card-img-top" src="..." alt=" image cap">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
                 <h5>Discription</h5>
@@ -143,7 +143,7 @@
      <div class="col-md-4">
             <div class="card">
             <img class="card-img-top" src="..." alt=" image cap">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">Artist Name</h3>
                 <hr>
                 <h5>Discription</h5>
@@ -167,7 +167,7 @@
             </div>
             </div>
      </div>
-     
+
      
      
 
