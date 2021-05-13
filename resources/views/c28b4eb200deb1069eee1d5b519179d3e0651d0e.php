@@ -117,6 +117,8 @@ hr{
     <div class="row">
     <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
      <div class="col-md-4">
+     <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
+
             <div class="card mt-5">
             <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100%" height="300px" alt=" image cap">
             <div class="card-body text-center">
@@ -143,8 +145,8 @@ hr{
                 </div>
             </div>
             </div>
+            </a>
      </div>
-
      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
      
 
