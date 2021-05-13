@@ -52,13 +52,7 @@ hr{
        <div class="row">
            <div class="col-md-4">
             <div class="form-group mt-4">
-<!--                
-  <div class="input-group mb-3">
-  <input type="search" class="form-control" placeholder="Search" >
-  <div class="input-group-append">
-    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-  </div>
-</div> -->
+
 
 
               <form class="form-inline text-center align-center">
@@ -84,32 +78,7 @@ hr{
            </div>
        </div>
        <hr>
-       <!-- <div class="row mb-5">
-    @foreach ($artists as $artist)
-           <div class="col-md-2">
-             
-               <div class="artist text-center">
-               @if($artist->profilepicture)
-                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-                <div class="overlay">
-                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
-               </div>
-               @else
-               
-               <div class="artistnoimage">
-               <a href="{{url('artistDetail/'.$artist->id)}}">
-		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
-	           	<div class="profileImage"></div>
-
-               </a>
-              </div>
-             
-             @endif
-               </div>
-           </div>
-             @endforeach
-
-       </div> -->
+      
        
 <section class="showartist">
 
