@@ -9,7 +9,7 @@
             <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                <h3 class="card-title text-center">Artist Name <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                <h3 class="card-title text-center">Artist Name  <small><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -18,14 +18,14 @@
                     <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Followers</h3>
+                               <h5>Offers(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
@@ -37,7 +37,7 @@
             <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                                <h3 class="card-title text-center">Artist Name  <small><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -46,14 +46,14 @@
                     <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Followers</h3>
+                               <h5>Offers(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
@@ -65,7 +65,7 @@
             <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                                <h3 class="card-title text-center">Artist Name  <small><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -74,14 +74,14 @@
                     <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Followers</h3>
+                               <h5>Offers(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
@@ -93,7 +93,7 @@
             <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                                <h3 class="card-title text-center">Artist Name  <small><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -102,14 +102,14 @@
                     <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Followers</h3>
+                               <h5>Offers(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
@@ -121,7 +121,7 @@
             <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                                <h3 class="card-title text-center">Artist Name  <small><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -130,14 +130,14 @@
                     <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Followers</h3>
+                               <h5>Offers(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
@@ -149,7 +149,7 @@
             <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                                <h3 class="card-title text-center">Artist Name  <small><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -158,14 +158,14 @@
                     <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Followers</h3>
+                               <h5>Offers(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
                                <h3>9 </h3>
-                               <h5>Collections</h3>
+                               <h5>Collection </h3>
                                  
                            </div>
                     </div>
