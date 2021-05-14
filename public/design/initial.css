@@ -93,7 +93,9 @@ button.btn.btn-primary.partner_col:hover {
      background: #bf0000 !important;
     border: 2px solid #bf0000 !important;
 }
-
+.slider__item .card-title {
+    margin-bottom: -2.25rem;
+}
 
 .text-center.header-text {
     font-weight: 700;
