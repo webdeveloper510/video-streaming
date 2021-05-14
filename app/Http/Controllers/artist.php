@@ -918,13 +918,15 @@ class artist extends Controller
     unset($data['_token']);
     $data['deliever_media']=$fileName;
     $data['type']=  $ext=='mp4' ? 'video' : 'audio';
-      //print_r($data);die;
+    $updateStatus['status'] = 'delievered';
 
     $return_data = $this->model->UpdateData('offer','id',$data,$req['offerid']);
 
-    $delivered = $return_data ? $this->model->UpdateData('offer','id',array('status'=>'delievered'),$req['offerid']):'';
+    $delivered = $return_data ? $this->model->UpdateData('offer','id',$updateStatus,$req['offerid']):'';
 
     $done = $this->model->addonContentProvider($req);
+    
+   // print_r($done);die;
 
 
     return $done;

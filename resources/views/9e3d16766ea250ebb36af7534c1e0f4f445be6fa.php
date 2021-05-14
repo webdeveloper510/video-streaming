@@ -347,7 +347,7 @@ window.Robodog.form('#myForm', {
             $.ajax({
                 url: APP_URL + "/postContent",
                 type: "POST",
-                data: {formData:formData,assembly:assembly},
+                data: formData,
                 processData: false,
                 contentType: false,
                 xhr: function () {
