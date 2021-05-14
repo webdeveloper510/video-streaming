@@ -180,251 +180,67 @@
    </div>
 </div>
 </section>
-
-<section>
-
-<div class="row">
-    <div class="col-md-12">
-      <div class="carousel slide multi-item-carousel" id="theCarousel">
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="col-xs-4"><a href="#1">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </a>
+<div class="container py-3">
+  <div class="p-3 m-n3 overflow-hidden">
+    <div id="carousel-multiple" class="carousel slide carousel-multiple" data-ride="carousel"
+         data-maximum-items-per-slide="6">
+      <div class="row position-relative">
+        <div class="row carousel-inner mx-0">
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2 active">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              1
             </div>
           </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1">
-            
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              2
             </div>
-            </div>
-            
-            </a></div>
           </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1">
-            
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              3
             </div>
-            </div>
-            
-            
-            </a></div>
           </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              4
             </div>
-            </div>
-            
-            </a></div>
           </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1">
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              5
             </div>
-            </div>
-            
-            </a></div>
           </div>
-          <div class="item">
-            <div class="col-xs-4"><a href="#1">
-            
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              6
             </div>
-            </div>
-            
-            
-            
-            </a></div>
           </div>
-          <!-- add  more items here -->
-          <!-- Example item start:  -->
-          
-          <div class="item">
-            <div class="col-xs-4"><a href="#1">
-            
-            <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
-                <hr>
-                <h5>Description</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5>Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              7
             </div>
-            </div>
-            
-            
-            
-            </a></div>
           </div>
-          
-          <!--  Example item end -->
+          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
+              8
+            </div>
+          </div>
         </div>
-        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        <a class="carousel-control-prev w-auto px-5 px-xl-4" href="#carousel-multiple" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next w-auto px-5 px-xl-4" href="#carousel-multiple" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
   </div>
+</div>
 
+<section>
 
 </section>
 <style>
@@ -433,51 +249,201 @@ section.showartist {
     padding-bottom: 40px;
 }
 
-/* .carousel-inner{padding:20px;} */
-#theCarousel{padding:20px;}
-/*Issue happnes because of this ^^^ */
-.multi-item-carousel .carousel-inner > .item {
-  -webkit-transition: 500ms ease-in-out left;
-  transition: 500ms ease-in-out left;
+@mixin  bs-multiple-carousel-item-repeater($count) {
+  $result-selector: "";
+
+  //main loop
+  <?php while: ?> $count > 0 {
+    $result-selector: $result-selector + "+ .carousel-item";
+    $count: $count - 1;
+
+    //secondary loop
+    $nested-count: $count;
+    <?php while: ?> $nested-count > 0 {
+      $result-selector: $result-selector + "+ .carousel-item";
+      $nested-count: $nested-count - 1;
+    }
+
+    <?php if: ?> $count != 0 {
+      $result-selector: $result-selector + ",";
+    }
+  }
+
+  #{$result-selector} {
+    @content;
+  }
 }
-.multi-item-carousel .carousel-inner .active.left {
-  left: -33%;
+
+@mixin  bs-multiple-carousel-item-nesting($count) {
+  $result-selector: "";
+
+  //main loop
+  <?php while: ?> $count > 0 {
+    $result-selector: $result-selector + "+ .carousel-item";
+    $count: $count - 1;
+  }
+
+  #{$result-selector} {
+    @content;
+  }
 }
-.multi-item-carousel .carousel-inner .active.right {
-  left: 33%;
+
+@mixin  bs-multiple-carousel($items-count: 2) {
+  .carousel-item.active,
+  .carousel-item-next,
+  .carousel-item-prev {
+    display: flex; //block
+  }
+
+  .carousel-inner {
+    overflow: visible;
+
+    .carousel-item {
+      // NEW to v4.3.1: all margin-right properties come with -100% as default
+      // causing all hidden items to be out of the screen
+      margin-right: inherit;
+
+      &.active {
+        <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel-item-repeater($items-count) {
+          display: flex; //block // three visible items
+        }
+
+        // prevents opposite direction "animation"
+        &:not(.carousel-item-right):not(.carousel-item-left) {
+          transition: none;
+
+          <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel-item-repeater($items-count - 1) {
+            transition: none;
+          }
+        }
+
+        // allows new item to be visible in order to "slide in" into place
+        <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel-item-nesting($items-count) {
+          position: absolute;
+          top: 0;
+          right: -(percentage(1 / $items-count));
+          z-index: -1;
+          display: flex; //block
+          visibility: visible;
+          height: 100%;
+        }
+      } // .active
+      &-next,
+      &-prev {
+        position: relative;
+        transform: translate3d(0, 0, 0);
+      }
+    } // .carousel-item
+
+    // farthest right hidden item must be also positioned for animations
+    .carousel-item-prev.carousel-item-right {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      z-index: -1;
+      display: flex; //block
+      visibility: visible;
+      height: 100%;
+      transform: translate3d(100%, 0, 0);
+    }
+  } // .carousel-inner
+
+  // left or forward direction
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  .carousel-item-next.carousel-item-left {
+    <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel-item-repeater($items-count) {
+      position: relative;
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+  }
+
+  // right or previous direction
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    display: flex; //block
+    visibility: visible;
+  }
+
+  .carousel-item-prev.carousel-item-right {
+    <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel-item-repeater($items-count) {
+      position: relative;
+      transform: translate3d(100%, 0, 0);
+      display: flex; //block
+      visibility: visible;
+    }
+  }
 }
-.multi-item-carousel .carousel-inner .next {
-  left: 33%;
+
+.carousel-multiple {
+  &::before {
+    display: block;
+    margin-bottom: 20px;
+
+    font-size: 30px;
+    content: "xs - default breakpoint";
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    &::before {
+      content: "media-breakpoint-between(sm, sm)";
+    }
+    <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel(2);
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    &::before {
+      content: "media-breakpoint-between(md, md)";
+    }
+    <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel(3);
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    &::before {
+      content: "media-breakpoint-between(lg, lg)";
+    }
+    <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel(4);
+  }
+
+  @media (min-width: 1200px) {
+    &::before {
+      content: "media-breakpoint-up(xl)";
+    }
+    <?php echo $__env->make(, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?> bs-multiple-carousel(6);
+  }
 }
-.multi-item-carousel .carousel-inner .prev {
-  left: -33%;
-}
+
+
 </style>
 
 
 
 <script>
+$(function () {
+  $("#carousel-multiple").on("slide.bs.carousel", function (e) {
+    var itemsPerSlide = parseInt($(this).attr('data-maximum-items-per-slide')),
+      totalItems = $(".carousel-item", this).length,
+      reserve = 1,//do not change
+      $itemsContainer = $(".carousel-inner", this),
+      it = (itemsPerSlide + reserve) - (totalItems - e.to);
 
-// Instantiate the Bootstrap carousel
-$('.multi-item-carousel').carousel({
-  interval: false
+    if (it > 0) {
+      for (var i = 0; i < it; i++) {
+        $(".carousel-item", this)
+          .eq(e.direction == "left" ? i : 0)
+          // append slides to the end/beginning
+          .appendTo($itemsContainer);
+      }
+    }
+  });
 });
 
-// for every slide in carousel, copy the next slide's item in the slide.
-// Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
-  
-  if (next.next().length>0) {
-    next.next().children(':first-child').clone().appendTo($(this));
-  } else {
-  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-  }
-});
 
 </script>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/show_artist.blade.php ENDPATH**/ ?>
