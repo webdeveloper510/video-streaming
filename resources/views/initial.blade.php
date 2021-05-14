@@ -815,33 +815,7 @@
                                         <button class="btn btn-primary seemore" type="button">See All</button>
                                     </a>
                                 </div>
-                                <div class="row mb-5">
-                                    @foreach ($artists as $artist)
-                                    <div class="col-md-2 col-6">
-
-                                        <div class="artist text-center">
-                                            @if($artist->profilepicture)
-                                            <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-                                                <a href="{{url('artistDetail/'.$artist->id)}}" class="overlay">
-                                                    <a href="{{url('artistDetail/'.$artist->id)}}" class="tag">{{$artist->nickname}}</a>
-                                                </a>
-                                                @else
-                                                <a href="{{url('artistDetail/'.$artist->id)}}">
-                                                    <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
-                                                    <div class="profileImage"></div>
-
-                                                </a>
-
-                                                @endif
-                                            </div>
-                                        </div>
-                                        @endforeach
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                           
 
 
 
@@ -1038,7 +1012,9 @@
 
   
 
-
+    
+  </div>
+                        </div>
 
 
                         <!--/.Slides-->
