@@ -386,13 +386,6 @@ section.showartist {
     padding-bottom: 40px;
 }
 
-body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      color: #fff;
-      height: 3000px;
-    }
-
     .slider {
       position: relative;
       overflow: hidden;
