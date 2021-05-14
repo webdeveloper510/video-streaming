@@ -1717,7 +1717,8 @@ public function getRefersArtist($id){
           unset($video['nickname']);
           unset($video['category']);
           unset($video['count']);
-
+          
+        
               $done = $this->insertOffer($video);
 
           //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
@@ -1812,8 +1813,10 @@ public function getRefersArtist($id){
     }
 
     public function insertOffer($data){
+        
+        // By created==0 because this is order not offer
 
-
+        $data['by_created'] = 0 ;
 
       $insert  = DB::table('offer')->insert($data);
 
@@ -2500,13 +2503,11 @@ public function getHistoryVideo(){
 
 public function getallOffer($flag){
         if($flag=='No'){
-
-          //echo "eee";
-
           return  DB::table('offer')
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
           ->where('offer.offer_status','online')
+          ->where('by_created',1)
           ->take(3)
           ->get()
           ->toArray();
@@ -2727,7 +2728,7 @@ public function buyofferVideo($data,$offer){
        
         
 
-       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$id);
+       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
        
 
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
@@ -2814,15 +2815,19 @@ public function deductUserTokens($uid,$token){
 
 public function insertReservedTable($data,$vid)
 {
+    
+        $session_data =   Session::get('User');
 
-  $deducted  = $this->deductUserTokens($vid[1],$data['price']);
+    $userid =  $session_data->id;
+
+  $deducted  = $this->deductUserTokens($userid,$data['price']);
 
   if($deducted){
 
     $data  = array(
       'created_at'=>$data['created_at'],
       'updated_at'=>$data['updated_at'],
-      'Offermediaid'=>$vid[0],
+      'Offermediaid'=>$vid,
       'tokens'=>$data['price'],
       'userid'=>$userid,
       'artistid'=>$data['art_id'],
@@ -3311,7 +3316,7 @@ public function customer_issue($data){
     
       $update = DB::table($table)->where(array($key=>$where))->update($data); 
     
-        return $update;
+        return $update ? 1 : 0;
     }
 
 

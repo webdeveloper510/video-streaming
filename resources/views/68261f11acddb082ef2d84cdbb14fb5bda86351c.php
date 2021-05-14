@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="videoinfo">
-                                                    <div class="playlistname">
+0                                                    <div class="playlistname">
                                                         <h4 class="listname">hello</h4>
                                                         <p>1/</p><p class="lengthVideo">5</p>
                                                     </div>
@@ -362,6 +362,12 @@
                                 position: absolute;
                                 z-index: 1;
                             }
+                            .outer {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
 
                             .tooltip:hover .tooltiptext {
                                 visibility: visible;
