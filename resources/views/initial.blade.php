@@ -166,33 +166,9 @@
                                 <button class="btn btn-primary seemore" type="button">See All</button>
                             </a>
                         </div>
-                        <div class="row mb-5">
-                            @foreach ($artists as $artist)
-                            <div class="col-md-2 col-6">
+                        
 
-                                <div class="artist text-center">
-                                    @if($artist->profilepicture)
-
-                                    <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-                                        <a href="{{url('artistDetail/'.$artist->id)}}" class="overlay">
-                                            <a href="{{url('artistDetail/'.$artist->id)}}" class="tag">{{$artist->nickname}}</a>
-                                        </a>
-                                        @else
-                                        <a href="{{url('artistDetail/'.$artist->id)}}">
-                                            <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
-                                            <div class="profileImage"></div>
-
-                                        </a>
-
-                                        @endif
-                                    </div>
-                                </div>
-                                @endforeach
-
-                            </div>
-
-                        </div>
-                    </div>
+                       
 
 
 
@@ -207,7 +183,7 @@
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-                <h5>Description</h5>
+               <h5 class="text-dark">Description </h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
                 <div class="row">
                     <div class="col-6">
@@ -237,7 +213,7 @@
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-                <h5>Description</h5>
+               <h5 class="text-dark">Description </h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
                 <div class="row">
                     <div class="col-6">
@@ -268,7 +244,7 @@
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-                <h5>Description</h5>
+               <h5 class="text-dark">Description </h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
                 <div class="row">
                     <div class="col-6">
@@ -298,7 +274,7 @@
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger my-3" type="button"> Subscribe</button>
                 <hr>
-                <h5>Description</h5>
+               <h5 class="text-dark">Description </h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
                 <div class="row">
                     <div class="col-6">
@@ -329,7 +305,7 @@
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-                <h5>Description</h5>
+               <h5 class="text-dark">Description </h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
                 <div class="row">
                     <div class="col-6">
@@ -359,7 +335,7 @@
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-                <h5>Description</h5>
+               <h5 class="text-dark">Description </h3>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
                 <div class="row">
                     <div class="col-6">
@@ -390,7 +366,8 @@
   
 
 					
-
+  </div>
+                    </div>
 							
 
 
