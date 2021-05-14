@@ -230,7 +230,7 @@
         </div>
       </div>
       <div class="slider__item">
-        <div style="height: auto; background: green;">
+        <div style="height: auto;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -260,7 +260,7 @@
         </div>
       </div>
       <div class="slider__item">
-        <div style="height: auto; background: violet;">
+        <div style="height: auto;">
         
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
@@ -291,7 +291,7 @@
         </div>
       </div>
       <div class="slider__item">
-        <div style="height: auto; background: coral;">
+        <div style="height: auto; ">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -321,7 +321,7 @@
         </div>
       </div>
         <div class="slider__item">
-        <div style="height: auto; background: violet;">
+        <div style="height: auto; ">
         
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
@@ -352,7 +352,7 @@
         </div>
       </div>
         <div class="slider__item">
-        <div style="height: auto; background: violet;">
+        <div style="height: auto;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -1096,7 +1096,10 @@
     }
 
                      
-
+    .slider__item .card {
+    background: white;
+    margin: 12px;
+}
 
 
 
