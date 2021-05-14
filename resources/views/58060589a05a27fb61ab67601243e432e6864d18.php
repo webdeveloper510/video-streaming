@@ -184,7 +184,7 @@
   <div class="slider">
     <div class="slider__wrapper">
       <div class="slider__item">
-        <div style="height: 250px;">
+        <div style="height: auto;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -214,7 +214,7 @@
         </div>
       </div>
       <div class="slider__item">
-        <div style="height: 250px; background: green;">
+        <div style="height: auto; background: green;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -244,7 +244,7 @@
         </div>
       </div>
       <div class="slider__item">
-        <div style="height: 250px; background: violet;">
+        <div style="height: auto; background: violet;">
         
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
@@ -275,7 +275,7 @@
         </div>
       </div>
       <div class="slider__item">
-        <div style="height: 250px; background: coral;">
+        <div style="height: auto; background: coral;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -305,7 +305,7 @@
         </div>
       </div>
         <div class="slider__item">
-        <div style="height: 250px; background: violet;">
+        <div style="height: auto; background: violet;">
         
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
@@ -336,7 +336,7 @@
         </div>
       </div>
         <div class="slider__item">
-        <div style="height: 250px; background: violet;">
+        <div style="height: auto; background: violet;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
@@ -457,7 +457,7 @@ body {
     }
 
     .slider__item>div {
-      line-height: 250px;
+      line-height: auto;
       font-size: 100px;
       text-align: center;
     }
