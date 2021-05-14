@@ -145,20 +145,18 @@ $(document).ready(function () {
             }, {
                 'data': 'title',
 
-                // render : function(data, type, row) { 	return row.is_seen=='no' ? '<div
-                // class="noti">'+data+'</div>' : data }
-
             }, {
                 'data': 'type'
             }, {
                 'data': 'choice'
-            }, {
-                'data': 'remaining_days',
-                render: function (data, type, row) {
-                    return data < 0
-                        ? 'Expired'
-                        : data + ' Days';
-                }
+            },
+             {
+                'data': 'delieveryspeed',
+                // render: function (data, type, row) {
+                //     return data < 0
+                //         ? 'Expired'
+                //         : data + ' Days';
+                // }
             }, {
                 'data': 'nickname'
             }, {

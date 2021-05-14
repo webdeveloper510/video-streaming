@@ -42,6 +42,7 @@ class artist extends Controller
     public function getArtists(){
    
       $artistData = Session::get('artistData');
+      
       if($artistData){
         $artists = $this->model->getArtistsbyfilter($artistData);
       }

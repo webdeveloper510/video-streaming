@@ -41,13 +41,8 @@ class AppServiceProvider extends ServiceProvider
 
               $count = $array['count'];
 
-              // echo "<pre>";
-              // print_r($notification);die;
-
 
                $data=Session::get('User');
-
-
 
                $isActive = true;
 
@@ -60,11 +55,6 @@ class AppServiceProvider extends ServiceProvider
 
               $library = $model->libraryNotification();
 
-              //print_r($library);die;
-          
-
-              //Session::put('offer_artist_id',$offer->id);
-
             $tokens = $model->getUserData($userId);
 
              $artistData = $model->onlyArtistDetail($userId);
@@ -73,11 +63,9 @@ class AppServiceProvider extends ServiceProvider
       
        
              $getLevel= isset($data) ? $model->getlevel(): '';
-
-                //print_r($getLevel);die;
              
-              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];  
-              //print_r($percentage);      die;    
+              $percentage = $getLevel ? ($getLevel[0]->countsubscriber * 100)/$getLevel[0]->max:[];
+
 
             $view->with(array('addedLibrary'=>$library,'subscribed_artist'=>$subscribed_artist,'latestOffer'=>$offer,'levelData'=>$getLevel,'percentage'=>$percentage,'login'=>$data,'count'=>$count,'notification'=>$notification,'category'=>$category, 'userProfile'=>$tokens, 'artistProfile'=>$artistData));    
     }); 
