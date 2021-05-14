@@ -120,16 +120,17 @@ hr{
      <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
 
             <div class="card mt-5">
-            <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100px" height="100px" alt=" image cap">
+            <img class="card-img-top" src="<?php echo e($artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png')); ?>"  width="100%" height="300px" alt=" image cap">
             <div class="card-body text-center">
-                <h3 class="card-title text-center"><?php echo e($artist->nickname); ?></h3>
+                <h3 class="card-title text-center"><?php echo e($artist->nickname); ?>  <i class="fa fa-star" style="font-size:24px;color:red;"></i>999</h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
-                <h5>Discription</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5>Description</h5>
+                <p class="card-text">No Description....</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3><?php echo e($artist->count); ?></h3>
+                               <h3><?php echo e($artist->count ? $artist->count : 0); ?></h3>
                                <h5>Subscriber</h3>
                                </div>
 
