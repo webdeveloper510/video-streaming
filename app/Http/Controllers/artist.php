@@ -929,7 +929,7 @@ class artist extends Controller
    // print_r($done);die;
 
 
-    return $done;
+    return $done ? 1 : 0;
             
   }
 
