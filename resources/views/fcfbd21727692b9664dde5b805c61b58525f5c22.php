@@ -818,33 +818,7 @@
                                         <button class="btn btn-primary seemore" type="button">See All</button>
                                     </a>
                                 </div>
-                                <div class="row mb-5">
-                                    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <div class="col-md-2 col-6">
-
-                                        <div class="artist text-center">
-                                            <?php if($artist->profilepicture): ?>
-                                            <img src="<?php echo e(url('storage/app/public/uploads/'.$artist->profilepicture)); ?>">
-                                                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>" class="overlay">
-                                                    <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>" class="tag"><?php echo e($artist->nickname); ?></a>
-                                                </a>
-                                                <?php else: ?>
-                                                <a href="<?php echo e(url('artistDetail/'.$artist->id)); ?>">
-                                                    <span class="firstName" style="display: none;"><?php echo e($artist->nickname); ?></span>
-                                                    <div class="profileImage"></div>
-
-                                                </a>
-
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                           
 
 
 
@@ -1041,7 +1015,9 @@
 
   
 
-
+    
+  </div>
+                        </div>
 
 
                         <!--/.Slides-->
