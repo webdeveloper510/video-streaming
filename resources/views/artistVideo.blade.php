@@ -160,7 +160,8 @@
                                                                         class="btn btn-outline-light btn-sm text-dark"
                                                                         data-toggle="modal"
                                                                         data-target="#reportvideo"
-                                                                        type="button">Report</button>
+                                                                        type="button">Report
+                                                                    </button>
                                                                 </li>
 
                                                             </ul>
@@ -389,7 +390,6 @@ ul.reporting {
                                     margin: 1px auto;
                                     padding: 4px;
                                 }
-
                                 .artistaudiopage img {
                                     height: 184px;
                                 }
