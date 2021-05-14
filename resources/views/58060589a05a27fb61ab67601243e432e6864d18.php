@@ -184,22 +184,187 @@
   <div class="slider">
     <div class="slider__wrapper">
       <div class="slider__item">
-        <div style="height: 250px; background: orange;">1</div>
+        <div style="height: 250px;">
+        <div class="card mt-5">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <div class="card-body text-center">
+                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <hr>
+                <h5>Description</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Offer(S)</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Collection </h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
       </div>
       <div class="slider__item">
-        <div style="height: 250px; background: green;">2</div>
+        <div style="height: 250px; background: green;">
+        <div class="card mt-5">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <div class="card-body text-center">
+                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <hr>
+                <h5>Description</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Offer(S)</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Collection </h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
       </div>
       <div class="slider__item">
-        <div style="height: 250px; background: violet;">3</div>
+        <div style="height: 250px; background: violet;">
+        
+        <div class="card mt-5">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <div class="card-body text-center">
+                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <hr>
+                <h5>Description</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Offer(S)</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Collection </h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
       </div>
       <div class="slider__item">
-        <div style="height: 250px; background: coral;">4</div>
+        <div style="height: 250px; background: coral;">
+        <div class="card mt-5">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <div class="card-body text-center">
+                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <hr>
+                <h5>Description</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Offer(S)</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Collection </h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
       </div>
         <div class="slider__item">
-        <div style="height: 250px; background: violet;">3</div>
+        <div style="height: 250px; background: violet;">
+        
+        <div class="card mt-5">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <div class="card-body text-center">
+                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <hr>
+                <h5>Description</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Offer(S)</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Collection </h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
       </div>
         <div class="slider__item">
-        <div style="height: 250px; background: violet;">6</div>
+        <div style="height: 250px; background: violet;">
+        <div class="card mt-5">
+            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <div class="card-body text-center">
+                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <hr>
+                <h5>Description</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+                <div class="row">
+                    <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Offer(S)</h3>
+                               </div>
+
+                           </div>
+                           <div class="col-6">
+                           <div class="">
+                               <h3>9 </h3>
+                               <h5>Collection </h3>
+                                 
+                           </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+        </div>
       </div>
     </div>
     <a class="slider__control slider__control_left" href="#" role="button"></a>
