@@ -784,6 +784,9 @@ public function getRespectedSub($data){
 
     public function getArtistsbyfilter($filter){
 
+            unset($filter['_token']);
+
+
              $result = DB::table('contentprovider')
                      ->where(function($query) use ($filter)
                         {
@@ -795,6 +798,9 @@ public function getRespectedSub($data){
                         }
 
                         })->paginate(10);
+
+                        //print_r($result);die;
+
                     
                     return $result;
 
