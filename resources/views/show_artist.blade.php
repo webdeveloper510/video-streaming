@@ -180,65 +180,37 @@
    </div>
 </div>
 </section>
-<div class="container py-3">
-  <div class="p-3 m-n3 overflow-hidden">
-    <div id="carousel-multiple" class="carousel slide carousel-multiple" data-ride="carousel"
-         data-maximum-items-per-slide="6">
-      <div class="row position-relative">
-        <div class="row carousel-inner mx-0">
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2 active">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              1
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              2
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              3
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              4
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              5
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              6
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              7
-            </div>
-          </div>
-          <div class="carousel-item col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="p-5 w-100 text-center bg-primary rounded shadow-sm display-1 text-light">
-              8
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev w-auto px-5 px-xl-4" href="#carousel-multiple" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next w-auto px-5 px-xl-4" href="#carousel-multiple" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+
+  <div class="slider">
+    <div class="slider__wrapper">
+      <div class="slider__item">
+        <div style="height: 250px; background: orange;">1</div>
+      </div>
+      <div class="slider__item">
+        <div style="height: 250px; background: green;">2</div>
+      </div>
+      <div class="slider__item">
+        <div style="height: 250px; background: violet;">3</div>
+      </div>
+      <div class="slider__item">
+        <div style="height: 250px; background: coral;">4</div>
+      </div>
+        <div class="slider__item">
+        <div style="height: 250px; background: violet;">3</div>
+      </div>
+        <div class="slider__item">
+        <div style="height: 250px; background: violet;">6</div>
       </div>
     </div>
+    <a class="slider__control slider__control_left" href="#" role="button"></a>
+    <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
   </div>
-</div>
+
+  
+
+					
+
+							
 
 <section>
 
@@ -249,30 +221,193 @@ section.showartist {
     padding-bottom: 40px;
 }
 
+body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: #fff;
+      height: 3000px;
+    }
+
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider__wrapper {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .slider__item {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+
+    .slider__control {
+      position: absolute;
+      top: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      color: #fff;
+      text-align: center;
+      opacity: 0.5;
+      height: 50px;
+      transform: translateY(-25%);
+      background: rgba(0, 0, 0, .5);
+    }
+
+    .slider__control:hover,
+    .slider__control:focus {
+      color: #fff;
+      text-decoration: none;
+      outline: 0;
+      opacity: .9;
+    }
+
+    .slider__control_left {
+      left: 0;
+    }
+
+    .slider__control_right {
+      right: 0;
+    }
+
+    .slider__control::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: transparent no-repeat center center;
+      background-size: 100% 100%;
+    }
+
+    .slider__control_left::before {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    }
+
+    .slider__control_right::before {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    }
+
+    .slider__item>div {
+      line-height: 250px;
+      font-size: 100px;
+      text-align: center;
+    }
+
 
 </style>
 
 
 
 <script>
-$(function () {
-  $("#carousel-multiple").on("slide.bs.carousel", function (e) {
-    var itemsPerSlide = parseInt($(this).attr('data-maximum-items-per-slide')),
-      totalItems = $(".carousel-item", this).length,
-      reserve = 1,//do not change
-      $itemsContainer = $(".carousel-inner", this),
-      it = (itemsPerSlide + reserve) - (totalItems - e.to);
 
-    if (it > 0) {
-      for (var i = 0; i < it; i++) {
-        $(".carousel-item", this)
-          .eq(e.direction == "left" ? i : 0)
-          // append slides to the end/beginning
-          .appendTo($itemsContainer);
+'use strict';
+    var multiItemSlider = (function () {
+      return function (selector, config) {
+        var
+          _mainElement = document.querySelector(selector), // основный элемент блока
+          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
+          _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
+          _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
+          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
+          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
+          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+          _positionLeftItem = 0, // позиция левого активного элемента
+          _transform = 0, // значение транфсофрмации .slider_wrapper
+          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+          _items = []; // массив элементов
+
+        // наполнение массива _items
+        _sliderItems.forEach(function (item, index) {
+          _items.push({ item: item, position: index, transform: 0 });
+        });
+
+        var position = {
+          getItemMin: function () {
+            var indexItem = 0;
+            _items.forEach(function (item, index) {
+              if (item.position < _items[indexItem].position) {
+                indexItem = index;
+              }
+            });
+            return indexItem;
+          },
+          getItemMax: function () {
+            var indexItem = 0;
+            _items.forEach(function (item, index) {
+              if (item.position > _items[indexItem].position) {
+                indexItem = index;
+              }
+            });
+            return indexItem;
+          },
+          getMin: function () {
+            return _items[position.getItemMin()].position;
+          },
+          getMax: function () {
+            return _items[position.getItemMax()].position;
+          }
+        }
+
+        var _transformItem = function (direction) {
+          var nextItem;
+          if (direction === 'right') {
+            _positionLeftItem++;
+            if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) > position.getMax()) {
+              nextItem = position.getItemMin();
+              _items[nextItem].position = position.getMax() + 1;
+              _items[nextItem].transform += _items.length * 100;
+              _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
+            }
+            _transform -= _step;
+          }
+          if (direction === 'left') {
+            _positionLeftItem--;
+            if (_positionLeftItem < position.getMin()) {
+              nextItem = position.getItemMax();
+              _items[nextItem].position = position.getMin() - 1;
+              _items[nextItem].transform -= _items.length * 100;
+              _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
+            }
+            _transform += _step;
+          }
+          _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+        }
+
+        // обработчик события click для кнопок "назад" и "вперед"
+        var _controlClick = function (e) {
+          var direction = this.classList.contains('slider__control_right') ? 'right' : 'left';
+          e.preventDefault();
+          _transformItem(direction);
+        };
+
+        var _setUpListeners = function () {
+          // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
+          _sliderControls.forEach(function (item) {
+            item.addEventListener('click', _controlClick);
+          });
+        }
+
+        // инициализация
+        _setUpListeners();
+
+        return {
+          right: function () { // метод right
+            _transformItem('right');
+          },
+          left: function () { // метод left
+            _transformItem('left');
+          }
+        }
+
       }
-    }
-  });
-});
+    }());
+
+    var slider = multiItemSlider('.slider')
 
 
 </script>
