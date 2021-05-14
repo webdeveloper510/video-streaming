@@ -281,7 +281,7 @@
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="<?php echo e(url('storage/app/public/video/'.$val->media)); ?>" type="video/mp4"></video>
                                                     </a>
-
+                                                    <h3 class="videotitle text-white">title</h3>
                                                 </div>
 
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <?php else: ?>

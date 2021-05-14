@@ -280,7 +280,7 @@
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4"></video>
                                                     </a>
-
+                                                    <h3 class="videotitle text-white">title</h3>
                                                 </div>
 
                                                 @endforeach @else
