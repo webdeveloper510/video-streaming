@@ -921,12 +921,13 @@ class artist extends Controller
     $updateStatus['status'] = 'delievered';
 
     $return_data = $this->model->UpdateData('offer','id',$data,$req['offerid']);
+    
 
     $delivered = $return_data ? $this->model->UpdateData('offer','id',$updateStatus,$req['offerid']):'';
 
     $done = $this->model->addonContentProvider($req);
     
-   // print_r($done);die;
+    print_r($done);die;
 
 
     return $done ? 1 : 0;
