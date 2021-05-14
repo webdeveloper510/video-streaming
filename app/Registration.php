@@ -523,12 +523,7 @@ public function getArtists($flag){
       $artists = DB::table('contentprovider')
       ->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
       ->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
-      //->where(array('contentprovider.id'=>$artid,'media.type'=>$type))
-      //->orWhere('contentprovider.id',$artid)
       ->inRandomOrder()->take(6)->get()->toArray();
-
-// echo "<pre>";
-//       print_r($artists);die;
 
         return $artists;
      
