@@ -45,9 +45,7 @@ h1.text-center.text-uppercase.comimg1 {
     padding-top: 12px;
     font-size: 28px;
 }
-a.btn, button.btn {
-    line-height: 100% !important;
-  }
+
  button.btn.btn-primary a {
     color: white;
 }
