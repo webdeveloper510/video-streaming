@@ -2113,9 +2113,15 @@ function format(d, type) {
        // console.log(d.remaining_days);
 
 
-    var disabled = d.remaining_days < 0
+    var disabled = d.remaining_days < 0 || d.paid_status==1
         ? 'disabled'
         : ''
+
+        var text =  d.paid_status==1
+        ? 'Delievered'
+        : 'Deliever Now'
+
+    // var visiblity = d.paid_status==1 ? "style=display:none":"style=display:block"
 
     var file = d.type == 'video'
         ? 'Upload Video'
@@ -2134,9 +2140,9 @@ function format(d, type) {
                 '><h3 class="description">Description :</h3><p>' + d.description + '</p></div><' +
                 '/div><div class="col"><h3 class="look">Additional Request :</h3><p>' + d.userdescription +
                 '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
-                'ry">' + d.catgory + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
+                'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
                 'p </p></td></tr><tr><td colspan="2">Reward:<span class="Reward" style="color: ' +
-                'gold !important;">' + d.tokens + '<b style="color: gold !important;font-family' +
+                'gold !important;">' + d.price + '<b style="color: gold !important;font-family' +
                 ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr><td colspan="' +
                 '2"><div class="col-md-12"><form class="uploadOffer" method="post" enctype="mul' +
                 'tipart/form-data"><label>' + file +
@@ -2149,7 +2155,7 @@ function format(d, type) {
                 'tage" style="color:green;font-weight: bold;"></span></div></form></div></td></' +
                 'tr></table><div class="alert alert-success" id="success" style="display:none">' +
                 '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
-                'submit(this)"' + disabled + '>Deliver Now</button></div></div></div></div>';
+                'submit(this)"' + disabled + '>'+text+'</button></div></div></div></div>';
     } else {
         updateStatus(d.id, type);
         return '<div class="project"><div class="row"><div class="col"><div class="description' +
@@ -2209,7 +2215,7 @@ function formsubmit(scop) {
 
         success: function (data) {
 
-           console.log(data);return false;
+          // console.log(data);return false;
 
             if (data == 1) {
 
