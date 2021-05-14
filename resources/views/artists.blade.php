@@ -130,7 +130,7 @@ hr{
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3>{{$artist->count}}</h3>
+                               <h3>{{$artist->count ? $artist->count : 0}}</h3>
                                <h5>Subscriber</h3>
                                </div>
 
