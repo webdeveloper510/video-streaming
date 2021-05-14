@@ -28,7 +28,7 @@
                     <div class="col-md-6 mt-2 ">
                         {{Form::label('Duration', 'Duration')}}
                         <div class="row text-white">
-                            <div class="col-md-4">
+                            <div class="col-md-4">`
                                 <div class="form-group">
                                     {{Form::text('hour',null,['class'=>'form-control','placeholder'=>'Hour'])}}
                                 </div>
