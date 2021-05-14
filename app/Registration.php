@@ -788,6 +788,10 @@ public function getRespectedSub($data){
 
 
              $result = DB::table('contentprovider')
+             ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
+             ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
+             ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+             ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
                      ->where(function($query) use ($filter)
                         {
                              foreach($filter as $key=>$val){
@@ -799,7 +803,7 @@ public function getRespectedSub($data){
 
                         })->paginate(10);
 
-                        //print_r($result);die;
+                       // print_r($result);die;
 
                     
                     return $result;
