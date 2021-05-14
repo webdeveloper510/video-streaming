@@ -158,9 +158,11 @@ $(document).ready(function () {
                 //         : data + ' Days';
                 // }
                 render:function(data,type,row){
+
                     return data+" "+'days'
                 }
-            }, {
+            }, 
+            {
                 'data': 'nickname'
             }, {
                 'data': 'status'
@@ -783,8 +785,6 @@ $(document).on('click', '.library', function () {
 });
 
 $(document).on('click', '.removeSession', function () {
-
-    //alert('helo');return false;
 
     var id = $(this).attr('id');
 

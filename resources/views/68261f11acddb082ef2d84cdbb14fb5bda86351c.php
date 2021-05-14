@@ -426,6 +426,15 @@
                                 display: inline-block;
                                 width: 100%;
                             }
+                            h3.videotitle.text-white {
+                                position: absolute;
+                                top: 5px;
+                                display: none;
+                            }
+
+                            .col-md-3.pb-video:hover h3.videotitle.text-white {
+                                display: block !important;
+                            }
                             .pb-video {
                                 border: 1px solid #e6e6e6;
                                 padding: 5px;
