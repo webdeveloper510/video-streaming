@@ -1708,9 +1708,6 @@ public function getRefersArtist($id){
 
           $getOffer = $this->selectDataById('id','offer',$videoId);
           
-         // echo $uid;
-          
-          //print_r($getOffer);die;
 
 
           unset($video['id']);
@@ -1719,7 +1716,7 @@ public function getRefersArtist($id){
           unset($video['count']);
           
         
-              $done = $this->insertOffer($video);
+        $done = $this->insertOffer($video);
 
           //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
@@ -1757,7 +1754,8 @@ public function getRefersArtist($id){
       unset($video['category']);
       unset($video['count']);
 
-      $done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($video_id,$video):$this->insertOffer($video);
+      $done = $this->insertOffer($video);
+      //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($video_id,$video):$this->insertOffer($video);
 
       }
   
@@ -1817,6 +1815,8 @@ public function getRefersArtist($id){
         // By created==0 because this is order not offer
 
         $data['by_created'] = 0 ;
+
+        $data['offerid'] = $data['id'];
 
       $insert  = DB::table('offer')->insert($data);
 
@@ -2695,6 +2695,9 @@ public function updatePassword($email,$password){
      
 public function buyofferVideo($data,$offer){
 
+
+  //print_r($offer);die;
+
       unset($data['_token']);
 
       $ids = $data['user_id'];
@@ -2750,26 +2753,30 @@ public function buyofferVideo($data,$offer){
 
 public function addonContentProvider($data){
 
-  //print_r($data->all());die;
 
-    $exists = $this->selectDataById('Offermediaid','reserved_tokens',$data['offerid']);
 
-   // print_r($exists);die;
+    $exists = $this->selectDataById('id','offer',$data['offerid']);
 
-    if($exists[0]->userid==$data['userid'] && $exists[0]->artistid==$data['artistid']){
+    //print_r($exists);die;
+
+    $tokensData = $this->selectDataById('Offermediaid','reserved_tokens',$exists[0]->offerid);
+
+    //print_r($exists);die;
+
+    if($tokensData[0]->userid==$data['userid'] && $tokensData[0]->artistid==$data['artistid']){
 
       //echo "yes";die;
 
       $update = DB::table('contentprovider')->where(array('id'=>$data['artistid']))->update([
-        'token' =>  DB::raw('token +'.$exists[0]->tokens)
+        'token' =>  DB::raw('token +'.$tokensData[0]->tokens)
         
       ]);
 
-      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$data['offerid'],$exists[0]->tokens,'order','') : 0;
+      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$exists[0]->offerid,$tokensData[0]->tokens,'order','') : 0;
   
     }
 
-    return $status_done;
+    return $status_done ? 1 : 0;
 
 
 }

@@ -1690,7 +1690,7 @@ public function readNotification(Request $request){
 
         $offerInfo = (array)$data;
         
-        //print_r($offerInfo);die;
+       // print_r($offerInfo);die;
 
 
           //print_r($offerInfo['id']);die;
