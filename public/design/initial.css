@@ -45,9 +45,7 @@ h1.text-center.text-uppercase.comimg1 {
     padding-top: 12px;
     font-size: 28px;
 }
-a.btn, button.btn {
-    line-height: 100% !important;
-  }
+
  button.btn.btn-primary a {
     color: white;
 }
@@ -95,7 +93,9 @@ button.btn.btn-primary.partner_col:hover {
      background: #bf0000 !important;
     border: 2px solid #bf0000 !important;
 }
-
+.slider__item .card-title {
+    margin-bottom: -2.25rem;
+}
 
 .text-center.header-text {
     font-weight: 700;

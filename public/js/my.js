@@ -1597,7 +1597,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
         success: function (data) {
 
-          //console.log(data);return false;
+         // console.log(data);return false;
 
             if (data.status == 1) {
                 if(!visiblie){
@@ -2108,9 +2108,11 @@ $(document).on('keyup change', '#calculate_tokens', function () {
 
 /* Formatting function for row details - modify as you need */
 function format(d, type) {
+    
+       // console.log(d.remaining_days);
 
 
-    var disabled = d.remaining_days > 0
+    var disabled = d.remaining_days < 0
         ? 'disabled'
         : ''
 
@@ -2206,7 +2208,7 @@ function formsubmit(scop) {
 
         success: function (data) {
 
-            //console.log(data);return false;
+           console.log(data);return false;
 
             if (data == 1) {
 

@@ -92,6 +92,7 @@
             <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
+                  <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -223,16 +224,28 @@ section.background1 {
        
 @include('artists.dashboard_footer')
     <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
-      <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
-    <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
+    <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
+<script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
   <script type="text/javascript">
 window.Robodog.form('#myForm', {
-  waitForEncoding: true,
-  waitForMetadata: true,
-  submitOnSuccess: false,
+      statusBar: '#myForm .progress',
+      waitForEncoding: false,
+      waitForMetadata: true,
+     submitOnSuccess: false,
+      alwaysRunAssembly: false,
+      closeAfterFinish:true,
+      autoProceed: false,
+       restrictions: {
+    maxFileSize: null,
+    minFileSize: null,
+    maxTotalFileSize: null,
+    maxNumberOfFiles: 1,
+    minNumberOfFiles: null,
+    allowedFileTypes: null
+  },
   params: {
     auth: { key: '995b974268854de2b10f3f6844566287' },
-    triggerUploadOnSubmit: true,
+    triggerUploadOnSubmit: false,
     steps: {
       ':original': {
         robot: '/upload/handle'
@@ -284,15 +297,37 @@ window.Robodog.form('#myForm', {
      }
    }
  }
-}).on('transloadit:complete', (assembly) => {
-    //console.log(assembly)
-            var form = $("#myForm");
+})  .on('transloadit:assembly-created', (assembly) => {
+      console.log(">>> onStart", assembly);
+    })
+    .on('upload-progress', (bytesIn, totalBytes) => {
+      console.log(">>> onProgress", bytesIn, totalBytes);
+    })
+    .on('transloadit:complete', (assembly) => {
+      console.log('>> onSuccess: Assembly finished successfully with', assembly);
+      callajax(assembly);
+    })
+    .on('transloadit:assembly-executing', () => {
+      console.log('>> Uploading finished!');
+    })
+    .on('transloadit:upload', (uploadedFile) => {
+      console.log('>> Upload added', uploadedFile);
+    })
+    .on('transloadit:result', (stepName, result) => {
+      console.log('>> Result added', stepName, result);
+    })
+    .on('error', (error) => {
+      console.log('>> Assembly got an error:', error);
+      if (error.assembly) {
+        console.log(`>> Assembly ID ${error.assembly.assembly_id} failed!`);
+        console.log(error.assembly);
+      }
+    })
+    
+    function callajax(assembly){
+             var form = $("#myForm");
             var formData = new FormData($(form)[0]);
-        //     $("<input />").attr("type", "hidden")
-        //   .attr("name", "transloadit")
-        //   .attr("value", assembly)
-        //   .appendTo("#myForm");
-		  formData["assembly"] = assembly;
+		     formData["assembly"] = assembly;
             $('.loader').show();
             $('.percentage').html('0');
             $.ajaxSetup({
@@ -363,6 +398,6 @@ window.Robodog.form('#myForm', {
                     }
                 }
             });
-})
+    }
 
 </script>

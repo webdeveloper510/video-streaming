@@ -235,22 +235,7 @@
               <p>Logout</p>
             </a>
           </li>
-         <!-- <li class="nav-item dropdown <?php echo e($tab == 'offer' ? 'active': ''); ?>">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          
-              <i class="fa fa-money"></i>
-             Create Offer
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-            <a class="dropdown-item" href="<?php echo e(url('/artist/offer')); ?>">Create Offer</a>
-            <a class="dropdown-item" href="<?php echo e(url('/artist/my-offer')); ?>">My Offers</a>
-         
-        </div>
-         
-
-          </li> -->
-          
+     
         </ul>
       </div>
     </div>
@@ -258,117 +243,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">  
-        <!--div class="navbar-wrapper text-white ">
-          
-          <ul class="nav custom search">
-          <li id="options" onclick="mufunc()">
-              <a href="#"><img width="35px" src="<?php echo e(asset('images/logos/filter.png')); ?>"></a></li>
-              <ul class="subnav" style="display: none">
-                  <ul class="nav nav-tabs text-center">
-                    <li class="active link_click"><a data-toggle="tab" class="text-white" href="#home"> <h4 style="color: #fff;">Projects</h4></a></li>
-                    </ul>
-          
-                    <div class="tab-content">
-                    <div id="home" class="tab-pane fade1 in active">
-                       
-                    <div class="row">
-                    <div class="col-md-6">
-                      <div class="dropdown12 text-white">
-                           <h5>Categories </h5>
-                <?php echo Form::open(['action' => 'AuthController@getVedio', 'method' => 'post', 'files'=>true]); ?>
-
-                  <?php echo e(Form::token()); ?>
-
-                            <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($cat->type=='video'): ?>
-                   <label class=""> 
-                     <?php echo e(Form::checkbox('catid[]', $cat->id)); ?>
-
-                     <?php echo e($cat->category); ?> 
-                   </label><br>
-                             <?php endif; ?>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                         
-                      </div>
-                     </div>
-                          <div class="col-md-6 ">
-                            <div class="bar ">
-                            <div class="dropdown1 text-white">
-                           <h5>Media : </h5>
-                         
-                            <label class="text-white">
-                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Video
-                                <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
-                            <!---/label><br>
-                            <label class="">
-                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Audio
-                              orm::checkbox('price','desc')}}Higest   -->                         
-                            <!--/label>
-                        </div>
-                        <div class="dropdown1 text-white">
-                           <h5>Reward</h5>
-                         
-                            <label class="text-white">
-                          <?php echo e(Form::radio('price', 'asc', false ,['class'=>'user'])); ?> Lowest
-                                <?php echo e(Form::checkbox('price','asc')); ?>lowest   -->
-                            <!--/label><br>
-                            <label class="">
-                               <?php echo e(Form::radio('price', 'desc', false ,['class'=>'user'])); ?> Highest
-                              orm::checkbox('price','desc')}}Higest   -->
-                            
-                            <!--/label>
-                       
-                        </div>
-                       
-
-                        <div class="dropdown1 text-white">
-                           <h5 >Duration</h5>
-                            <label class=""> 
-                               <?php echo e(Form::radio('duration', 'asc', false ,['class'=>'user'])); ?> Shortest
-                            <?php echo e(Form::checkbox('duration','asc')); ?>Shortest  -->
-                           
-                            <!--/label><br>
-                            <label class="">
-                               <?php echo e(Form::radio('duration', 'desc', false ,['class'=>'user'])); ?> Longest
-                            <?php echo e(Form::checkbox('duration','desc')); ?>Longest  -->
-                            
-                          <!--/label><br>
-                      
-                        </div>
-                         
-                      </div>
-                    </div>
-                      
-                     
-                        
-                    <div class="col-md-12 text-right pr-5">
-              
-               
        
-          <?php echo e(Form::submit('Apply!',['class'=>'btn btn-primary mb-4'])); ?>
-
-              </div>
-              <div class="col-md-6">
-                       
-            
-            </div>
-                     
-                       
-                         <?php echo e(Form::close()); ?>
-
-                      
-                    
-                     </div>
-                    </div>
-                    </ul>
-              <form action="" method="get">
-             
-                  <input type="text" name="search_text" id="search_text" placeholder="Search"/>
-
-                
-              </form>
-          
-        
-          </div--->
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
