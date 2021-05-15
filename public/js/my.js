@@ -157,6 +157,9 @@ $(document).ready(function () {
                 //         ? 'Expired'
                 //         : data + ' Days';
                 // }
+                render:function(data,type,row){
+                    return data+" "+'days'
+                }
             }, {
                 'data': 'nickname'
             }, {
