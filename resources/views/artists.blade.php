@@ -52,13 +52,7 @@ hr{
        <div class="row">
            <div class="col-md-4">
             <div class="form-group mt-4">
-<!--                
-  <div class="input-group mb-3">
-  <input type="search" class="form-control" placeholder="Search" >
-  <div class="input-group-append">
-    <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
-  </div>
-</div> -->
+
 
 
               <form class="form-inline text-center align-center">
@@ -84,36 +78,11 @@ hr{
            </div>
        </div>
        <hr>
-       <!-- <div class="row mb-5">
-    @foreach ($artists as $artist)
-           <div class="col-md-2">
-             
-               <div class="artist text-center">
-               @if($artist->profilepicture)
-                <img src="{{url('storage/app/public/uploads/'.$artist->profilepicture) }}">
-                <div class="overlay">
-                  <a href="{{url('artistDetail/'.$artist->id)}}">{{$artist->nickname}}</a>
-               </div>
-               @else
-               
-               <div class="artistnoimage">
-               <a href="{{url('artistDetail/'.$artist->id)}}">
-		    	  <span class="firstName" style="display: none;">{{$artist->nickname}}</span>
-	           	<div class="profileImage"></div>
-
-               </a>
-              </div>
-             
-             @endif
-               </div>
-           </div>
-             @endforeach
-
-       </div> -->
+      
        
 <section class="showartist">
 
-<div class="container">
+<div class="">
     <div class="row">
     @foreach($artists as $key=>$artist)
      <div class="col-md-4">
@@ -122,7 +91,7 @@ hr{
             <div class="card mt-5">
             <img class="card-img-top" src="{{$artist->profilepicture ?  url('storage/app/public/uploads/'.$artist->profilepicture) : asset('images/profile-dummy1.png') }}"  width="100%" height="300px" alt=" image cap">
             <div class="card-body text-center">
-                <h3 class="card-title text-center">{{$artist->nickname}} <small> <i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                <h3 class="card-title text-center">{{$artist->nickname}} <small style="    font-family: 'Poppins';"> <i class="fa fa-star" style="color:red;"></i>  999 </small></h3>
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
@@ -131,7 +100,7 @@ hr{
                     <div class="col-6">
                            <div class="">
                                <h3>{{$artist->count ? $artist->count : 0}}</h3>
-                               <h5>Offers(S)</h3>
+                               <h5>Offer(S)</h3>
                                </div>
 
                            </div>
