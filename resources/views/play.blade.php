@@ -280,7 +280,7 @@
                                                     disablePictureInPicture="disablePictureInPicture">
                                                     <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4"></video>
                                                     </a>
-
+                                                    <h3 class="videotitle text-white">title</h3>
                                                 </div>
 
                                                 @endforeach @else
@@ -424,6 +424,15 @@
                             .inner-page {
                                 display: inline-block;
                                 width: 100%;
+                            }
+                            h3.videotitle.text-white {
+                                position: absolute;
+                                top: 5px;
+                                display: none;
+                            }
+
+                            .col-md-3.pb-video:hover h3.videotitle.text-white {
+                                display: block !important;
                             }
                             .pb-video {
                                 border: 1px solid #e6e6e6;
