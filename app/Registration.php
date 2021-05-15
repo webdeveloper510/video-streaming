@@ -858,11 +858,11 @@ public function getRespectedSub($data){
       //echo "h";die;
 
       $data = \DB::table("offer")
-      ->select("users.nickname","offer.userid","offer.artistid","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)) as dates_submision"))
+      ->select("users.nickname","offer.userid","offer.paid_status","offer.artistid","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)) as dates_submision"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
-      ->groupBy("offer.id","offer.title","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
+      ->groupBy("offer.id","offer.title","offer.paid_status","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
        
       if ($sts) {
             //echo $sts;
@@ -2753,22 +2753,19 @@ public function buyofferVideo($data,$offer){
 
 public function addonContentProvider($data){
 
-
-
     $exists = $this->selectDataById('id','offer',$data['offerid']);
-
-    //print_r($exists);die;
 
     $tokensData = $this->selectDataById('Offermediaid','reserved_tokens',$exists[0]->offerid);
 
-    //print_r($exists);die;
 
     if($tokensData[0]->userid==$data['userid'] && $tokensData[0]->artistid==$data['artistid']){
 
-      //echo "yes";die;
-
       $update = DB::table('contentprovider')->where(array('id'=>$data['artistid']))->update([
         'token' =>  DB::raw('token +'.$tokensData[0]->tokens)
+      ]);
+
+        $update1 = DB::table('offer')->where(array('id'=>$data['offerid']))->update([
+          'paid_status' => 1
         
       ]);
 
