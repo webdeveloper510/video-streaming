@@ -2776,7 +2776,7 @@ public function addonContentProvider($data){
   
     }
 
-    return $status_done ? 1 : 0;
+    return $status_done ? 1 : 0;     
 
 
 }
