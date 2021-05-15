@@ -319,6 +319,7 @@
                                                             type="video/mp4">
                                                             </video>
                                                             </a>
+                                                            <h3 class="videotitle text-white">title</h3>
 
                                                     </div>
 
