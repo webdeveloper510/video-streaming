@@ -158,9 +158,11 @@ $(document).ready(function () {
                 //         : data + ' Days';
                 // }
                 render:function(data,type,row){
+
                     return data+" "+'days'
                 }
-            }, {
+            }, 
+            {
                 'data': 'nickname'
             }, {
                 'data': 'status'
@@ -783,8 +785,6 @@ $(document).on('click', '.library', function () {
 });
 
 $(document).on('click', '.removeSession', function () {
-
-    //alert('helo');return false;
 
     var id = $(this).attr('id');
 
@@ -2108,6 +2108,7 @@ $(document).on('keyup change', '#calculate_tokens', function () {
 
 /* Formatting function for row details - modify as you need */
 function format(d, type) {
+
 
     var disabled = d.remaining_days > 0
         ? 'disabled'
