@@ -736,6 +736,8 @@ public function artistselling(){
 
      $popup_visible = $this->model->selectDataById('userid','popup_visibility',$contentId);
 
+     //print_r(count($popup_visible));die;
+
     $isSubscribe =$this->model->isSubscribe($artId);
 
    
