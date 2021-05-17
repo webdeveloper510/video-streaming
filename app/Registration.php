@@ -1714,7 +1714,7 @@ public function getRefersArtist($id){
           
 
 
-          unset($video['id']);
+         // unset($video['id']);
           unset($video['nickname']);
           unset($video['category']);
           unset($video['count']);
@@ -1753,7 +1753,7 @@ public function getRefersArtist($id){
         $getOffer = $this->selectDataById('id','offer',$video['id']);
 
        $video_id = $video['id'];
-      unset($video['id']);
+     // unset($video['id']);
       unset($video['nickname']);
       unset($video['category']);
       unset($video['count']);
@@ -1815,12 +1815,14 @@ public function getRefersArtist($id){
     }
 
     public function insertOffer($data){
-        
-        // By created==0 because this is order not offer
+
+       // print_r($data);die;
 
         $data['by_created'] = 0 ;
 
         $data['offerid'] = $data['id'];
+
+        unset($data['id']);
 
       $insert  = DB::table('offer')->insert($data);
 
