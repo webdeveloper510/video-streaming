@@ -818,16 +818,20 @@
                                         <button class="btn btn-primary seemore" type="button">See All</button>
                                     </a>
                                 </div>
+                           
 
-                                
+
+
+                       
+                    <div class="slider">
+    <div class="slider__wrapper">
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="slider__item">
         <div style="height: auto;">
-        <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                                <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                <h5 class="text-dark">Description </h3>
@@ -842,7 +846,7 @@
                            </div>
                            <div class="col-6">
                            <div class="">
-                               <h3>9 </h3>
+                               <h3><?php echo e($val->rowcount); ?> </h3>
                                <h5 class="text-dark">Collection </h3>
                                  
                            </div>
@@ -850,10 +854,10 @@
                 </div>
             </div>
             </div>
+        
         </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
       </div>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     <a class="slider__control slider__control_left" href="#" role="button"></a>
     <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>

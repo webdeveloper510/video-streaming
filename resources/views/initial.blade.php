@@ -815,16 +815,20 @@
                                         <button class="btn btn-primary seemore" type="button">See All</button>
                                     </a>
                                 </div>
+                           
 
-                                
+
+
+                       
+                    <div class="slider">
+    <div class="slider__wrapper">
+    @foreach($artists as $val)
         <div class="slider__item">
         <div style="height: auto;">
-        @foreach($artists as $val)
-
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
-                                <h3 class="card-title text-center">{{$val->nickname}}  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+                                <h3 class="card-title text-center">{{$val->nickname}}  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                <h5 class="text-dark">Description </h3>
@@ -839,7 +843,7 @@
                            </div>
                            <div class="col-6">
                            <div class="">
-                               <h3>9 </h3>
+                               <h3>{{$val->rowcount}} </h3>
                                <h5 class="text-dark">Collection </h3>
                                  
                            </div>
@@ -847,10 +851,10 @@
                 </div>
             </div>
             </div>
+        
         </div>
-        @endforeach
-
       </div>
+      @endforeach
     </div>
     <a class="slider__control slider__control_left" href="#" role="button"></a>
     <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
