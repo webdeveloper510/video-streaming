@@ -84,6 +84,7 @@
         <input type="hidden" name="updated_at" class="updated_at" value=""/>
 
         <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
+         
         <input type="hidden" name="add_price" id="additional" value="<?php echo e($GLOBALS['add_price']); ?>">
 
         <input type="hidden" name="allinfo" value="<?php echo e(json_encode($offerdata)); ?>"/>
@@ -99,7 +100,7 @@
               <input type="radio" id="No" class="add_price" name="gender" value="No">
               <label for="female">No</label><h4>  
               <div class="extra_price">
-        <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])); ?>
+        <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>20,'rows' => 5, 'cols' => 30])); ?>
 
         </div>
         <br>
@@ -111,7 +112,7 @@
         <?php echo e(Form::close()); ?>
 
         </div>
-        <input type="hidden" id="popup_visibile" value="<?php echo e($visible==1 ? false : true); ?>"/>
+        <input type="hidden" id="popup_visibile" value="<?php echo e($visible==1 ? 0 : 1); ?>"/>
         <div class="alert alert-success show_alert" role="alert" style="display:none">
           A simple success alert—check it out!
         </div>
@@ -122,7 +123,6 @@
             padding: 30px;
         }
         </style>
-
 
             <div class="modal successfull" tabindex="-1" style="display:none;">
               <div class="modal-dialog">
@@ -135,7 +135,7 @@
                   </div>
                   <div class="modal-body">
                    <h2 class="text-center"> Order Successful!</h2>
-                   <p> You can check your order status anything in - My Order</p>
+                   <p> You can check your order status anytime  under : My Order</p>
 
                    <p><input type="checkbox" class="popup_not_show" aria-label="Checkbox for following text input"> Do not show again</p>
 

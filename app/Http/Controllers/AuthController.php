@@ -403,12 +403,6 @@ class AuthController extends Controller
         Session::forget('login_attempt');   
 
 
-      //$time = Timezone::convertToLocal('2020-12-01 02:54:21');
-
-      //print_r($time);die;
-
-
-
          $Recentlydata= $this->model->getRecentlySearch();
 
            $artists=$this->model->getArtists($paginate='No');
@@ -741,6 +735,8 @@ public function artistselling(){
      $contentId=$contentData->id;
 
      $popup_visible = $this->model->selectDataById('userid','popup_visibility',$contentId);
+
+     //print_r(count($popup_visible));die;
 
     $isSubscribe =$this->model->isSubscribe($artId);
 
@@ -1690,7 +1686,7 @@ public function readNotification(Request $request){
 
         $offerInfo = (array)$data;
         
-        //print_r($offerInfo);die;
+      //print_r($offerInfo);die;
 
 
           //print_r($offerInfo['id']);die;
