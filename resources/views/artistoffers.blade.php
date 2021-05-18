@@ -98,7 +98,7 @@
               <input type="radio" id="No" class="add_price" name="gender" value="No">
               <label for="female">No</label><h4>  
               <div class="extra_price">
-        {{Form::textarea('description',null,['class'=>'form-control', 'min'=>500,'rows' => 5, 'cols' => 30])}}
+        {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>20,'rows' => 5, 'cols' => 30])}}
         </div>
         <br>
         <strong id="change_text"></strong>
@@ -130,7 +130,7 @@
                   </div>
                   <div class="modal-body">
                    <h2 class="text-center"> Order Successful!</h2>
-                   <p> You can check your order status anything in - My Order</p>
+                   <p> You can check your order status anytime  under : My Order</p>
 
                    <p><input type="checkbox" class="popup_not_show" aria-label="Checkbox for following text input"> Do not show again</p>
 
