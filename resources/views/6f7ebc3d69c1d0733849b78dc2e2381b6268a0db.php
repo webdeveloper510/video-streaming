@@ -193,74 +193,7 @@ tr.shown td.details-control {
     </div>
   </div>
 </div>
-<!-- <div class="projects">
-<div class="row">
-  <div class="col">
-        <div class="descriptions">
-        <h3 class="description">Description :</h3>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-        </div> 
-  </div>
-    <div class="col">
-    <h3 class="look">Look :</h3>
-    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-    </div>
-<div class="col">
-<table>
-<tr>
-<td> <p>Categories :</p>
-<p class="category">Body Fetish</p>
-</td>
-<td> <p class="quality">Quality :</p>
-<p>1080p</p>
-</td>
-</tr>
-<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
-<tr>
-</table>
-<div class="">
-<button type="button"class="btn btn-primary">Upload Content</button>
-</div>
-</div>
-</div>
-</div>
 
-
-
-<div class="order">
-<div class="row">
-<div class="col">
- <div class="descriptions">
-<h3 class="description">Description :</h3>
-<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div> 
-</div>
-<div class="col">
-<h3>Additional Request :</h3>
-<p class="userdescription"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div>
-<div class="col">
-<table>
-<tr>
-<td> <p>Categories :</p>
-<p class="category">Body Fetish</p>
-</td>
-<td> <p>Quality :</p>
-<p class="quality">1080p</p>
-</td>
-</tr>
-<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
-<tr>
-</table>
-<div class="">
-<button type="button"class="btn btn-primary">Upload Content</button>
-</div>
-</div>
-</div> -->
 
 
 <!-- Button trigger modal -->
@@ -284,7 +217,10 @@ tr.shown td.details-control {
           <div class="form-group">
             <label for="exampleInputEmail1">Chosse Reason :</label>
             <select class="form-control">
-              <option>Default select</option>
+            <option selected>Choose...</option>
+              <option value="1">I do not offer this kind of additional requests.</option>
+              <option value="2">Sorry, I receive to many orders right now.</option>
+              <option value="3">I am not available right now. (Block this customer)</option>
             </select>
           </div>
         
