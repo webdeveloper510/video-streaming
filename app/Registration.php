@@ -521,8 +521,12 @@ public function getArtists($flag){
     if($flag=='No'){
 
       $artists = DB::table('contentprovider')
-      ->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
-      ->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
+      ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
+      ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
+      ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
+      //->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
+      //->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
       ->inRandomOrder()->take(6)->get()->toArray();
 
         return $artists;

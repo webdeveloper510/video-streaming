@@ -403,12 +403,6 @@ class AuthController extends Controller
         Session::forget('login_attempt');   
 
 
-      //$time = Timezone::convertToLocal('2020-12-01 02:54:21');
-
-      //print_r($time);die;
-
-
-
          $Recentlydata= $this->model->getRecentlySearch();
 
            $artists=$this->model->getArtists($paginate='No');
