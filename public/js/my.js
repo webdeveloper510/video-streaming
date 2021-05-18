@@ -1601,7 +1601,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
           //return false;
             if (data.status == 1) {
-                if(!visiblie){
+                if(visiblie==1){
 
                     $('.successfull').show();
 

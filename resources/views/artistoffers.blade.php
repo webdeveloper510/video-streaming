@@ -107,7 +107,7 @@
         </div>
         {{ Form::close() }}
         </div>
-        <input type="hidden" id="popup_visibile" value="{{$visible==1 ? false : true}}"/>
+        <input type="hidden" id="popup_visibile" value="{{$visible==1 ? 0 : 1}}"/>
         <div class="alert alert-success show_alert" role="alert" style="display:none">
           A simple success alert—check it out!
         </div>
