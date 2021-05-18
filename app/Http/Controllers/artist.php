@@ -343,6 +343,9 @@ class artist extends Controller
 
       $navbaractive = 'profile';
 
+     // $date = Carbon::now('Europe/London');
+
+
       $session_data =   Session::get('User');
 
 

@@ -883,7 +883,7 @@ public function getRespectedSub($data){
       $userid=  $session_data->id;
       
       $data = \DB::table("offer")
-      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"))
+      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(offer.created_at) as created_at"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("contentprovider","contentprovider.id","=","offer.artistid")
       ->join('reserved_tokens','reserved_tokens.userid','=','offer.userid')

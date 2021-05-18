@@ -159,13 +159,17 @@ $(document).ready(function () {
                 // }
                 render:function(data,type,row){
 
-                    return data+" "+'days'
+                    return parseInt(data)+1+" "+'days'
                 }
             }, 
             {
                 'data': 'nickname'
-            }, {
+            }, 
+            {
                 'data': 'status'
+            },
+            {
+                'data': 'created_at'
             }
         ]
     });
