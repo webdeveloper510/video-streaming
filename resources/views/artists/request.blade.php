@@ -189,8 +189,6 @@ tr.shown td.details-control {
   </div>
 </div>
 
-
-
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">
   Launch demo modal
@@ -247,7 +245,6 @@ tr.shown td.details-control {
   <style type="text/css">
     .leveltext.text-white {
     display: none;
-
     position: absolute;
     top: 47px !important;
 }
@@ -269,4 +266,3 @@ function openCity(evt, cityName) {
 }
 </script>
   @include('artists.dashboard_footer');
-</html>
