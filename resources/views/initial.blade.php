@@ -827,8 +827,8 @@
         <div style="height: auto;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">{{$val->nickname}}  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
+            <div class="card-body text-cenxter">
+                                <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                <h5 class="text-dark">Description </h3>
@@ -836,7 +836,7 @@
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3>9 </h3>
+                               <h3>{{$val->offercount}} </h3>
                                <h5 class="text-dark">Offer(S)</h3>
                                </div>
 

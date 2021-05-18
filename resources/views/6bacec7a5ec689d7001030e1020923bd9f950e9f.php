@@ -95,9 +95,11 @@ tr.shown td.details-control {
                        <th>Title</th>
                         <th >Media</th>
                         <th>Duration</th>
-                        <th>Delivery Before</th>
-                        <th >Artist Name</th>
-                        <th > Status</th>              
+                        <th>Delivery Time</th>
+                        <th>Artist Name</th>
+                        <th> Status</th>
+                        <th>Date of order</th>           
+              
         </tr>
     </thead>
   
@@ -107,9 +109,10 @@ tr.shown td.details-control {
                         <th>Title</th>
                         <th>Media</th>
                         <th>Duration</th>
-                        <th>Delivery Before</th>
+                        <th>Delivery Time</th>
                         <th>Artist Name</th>
-                        <th> Status</th>              
+                        <th> Status</th>   
+                        <th>Date of order</th>           
         </tr>
     </tfoot>
 </table>
@@ -166,10 +169,12 @@ please remain patient. Thank You!</p>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <?php echo e(Form::submit('Update!',['class'=>'btn btn-primary'])); ?>
 
+          
       </div>
          <?php echo e(Form::close()); ?>
 
     </div>
+
   </div>
 </div>
 <!-- <div class="projects">

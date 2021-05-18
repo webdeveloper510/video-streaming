@@ -97,7 +97,9 @@ tr.shown td.details-control {
                         <th>Duration</th>
                         <th>Delivery Time</th>
                         <th>Artist Name</th>
-                        <th> Status</th>              
+                        <th> Status</th>
+                        <th>Date of order</th>           
+              
         </tr>
     </thead>
   
@@ -109,7 +111,8 @@ tr.shown td.details-control {
                         <th>Duration</th>
                         <th>Delivery Time</th>
                         <th>Artist Name</th>
-                        <th> Status</th>              
+                        <th> Status</th>   
+                        <th>Date of order</th>           
         </tr>
     </tfoot>
 </table>
