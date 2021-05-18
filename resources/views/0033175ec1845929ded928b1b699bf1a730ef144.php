@@ -47,7 +47,7 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
   </div>
@@ -56,7 +56,7 @@
 
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
-  <div class="tab-pane fade <?php echo e($collection_selection ? '' : 'show active'); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
           <div class="container">
@@ -196,7 +196,7 @@
                 <div class="edit">
                 <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('<?php echo e(json_encode($detail)); ?>')">Edit</button>
                
-                <button class="btn btn-sm btn-light delete" table="media" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-sm btn-light delete" table="media" img-src="<?php echo e($detail->audio_pic); ?>" data-url="<?php echo e($detail->media); ?>" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
               <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
