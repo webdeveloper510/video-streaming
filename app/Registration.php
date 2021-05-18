@@ -28,7 +28,8 @@ class Registration extends Model
 
             $userdata['created_at']= now();
             $userdata['is_news']= $data['news'] ? 'yes' : 'no' ;
-            $userdata['reffered_by']= $reffer_id ? $reffer_id : 0;    
+            $userdata['reffered_by']= $reffer_id ? $reffer_id : 0; 
+            unset($userdata['news']);   
             $userdata['updated_at']= now();
                 $insertedid=DB::table('users')->insertGetId($userdata);
            
