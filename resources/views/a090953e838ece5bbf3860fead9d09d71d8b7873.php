@@ -86,7 +86,7 @@
        
       <div class="cprt">
       <p>BETA Version 1.0</p>
-        <p>PAZ LLC © Copyrights 2021 Design by PAZ LLC</p>
+        <p>PAZ GmbH © Copyrights 2021 Design by PAZ GmbH</p>
         <br>
         <a href="https://www.facebook.com/Porn-Artist-Zone-100243395522674" target="_blank"> <img src="<?php echo e(asset('images/face.png')); ?>" class="img-fliud" width="25px" height="25px"></a> &nbsp; &nbsp;
        <a href="https://www.instagram.com/pazllcofficial/" target="_blank"> <img src="<?php echo e(asset('images/insta.png')); ?>" class="img-fliud" width="25px" height="25px"></a> &nbsp; &nbsp;
