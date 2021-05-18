@@ -368,9 +368,7 @@
 					
   </div>
                     </div>
-							
-
-
+                  
 
 
 
@@ -509,6 +507,14 @@
             </div>
 
         </div>
+
+
+
+     
+
+
+
+
 
         @endif
     </div>
@@ -1211,11 +1217,11 @@
 
 
 </script>
-                <!--script> $(document).ready(function() { $("#owl-example").owlCarousel({
+                <!-- <script> $(document).ready(function() { $("#owl-example").owlCarousel({
                 items:3 }); $("#owl-example1").owlCarousel({ items:3 });
                 $("#owl-example2").owlCarousel({ items:3 }); $("#owl-example3").owlCarousel({
                 items:3, }); $("#owl-example4").owlCarousel({ items:3, loop:true, margin:10,
-                autoPlay:true, nav:true, rewindNav:false }); }); </script-->
+                autoPlay:true, nav:true, rewindNav:false }); }); </script> -->
 
                 @include('layouts.footer')
                 <?php //include(app_path().'/include/includebottom.php');?>
