@@ -194,8 +194,6 @@ tr.shown td.details-control {
   </div>
 </div>
 
-
-
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">
   Launch demo modal
@@ -252,7 +250,6 @@ tr.shown td.details-control {
   <style type="text/css">
     .leveltext.text-white {
     display: none;
-
     position: absolute;
     top: 47px !important;
 }
@@ -274,4 +271,4 @@ function openCity(evt, cityName) {
 }
 </script>
   <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
-</html><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/request.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/request.blade.php ENDPATH**/ ?>
