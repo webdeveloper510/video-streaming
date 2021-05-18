@@ -522,6 +522,7 @@ public function getArtists($flag){
 
       $artists = DB::table('contentprovider')
       ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
+      //->leftjoin('offer','offer.artistid','=','contentprovider.id')
       ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
       ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
       ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
