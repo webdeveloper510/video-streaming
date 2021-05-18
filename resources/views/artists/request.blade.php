@@ -256,6 +256,57 @@ tr.shown td.details-control {
 </div>
 </div>
 </div> -->
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ordercancel" tabindex="-1" role="dialog" aria-labelledby="ordercancelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cancel Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div class="corder">
+         <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Chosse Reason :</label>
+            <select class="form-control">
+              <option>Default select</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+          <label> Or write a specific Message for your Customer :</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="form-group text-center">
+         <label> Do you really want to cancel this Order ? </label>
+            <div class="row">
+                 <div class="col">
+                 <button type="button" class="btn btn-danger">No</button>
+                 </div>
+                 <div class="col">
+                 <button type="button" class="btn btn-success"data-dismiss="modal">Yes</button>
+                 </div>
+
+              </div>
+        </form>
+         </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
   </body>
   <style type="text/css">
     .leveltext.text-white {
