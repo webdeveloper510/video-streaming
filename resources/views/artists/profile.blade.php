@@ -547,7 +547,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
             {{Form::label('', '',['class'=>'custom-file-label thumbnail1'])}} 
-                {{Form::file('audio_pic',['class'=>'custom-file-input chooseImage')}}
+                {{Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])}}
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <input type="hidden" value="{{isset($random[0]->id)}}" name="hid"/>

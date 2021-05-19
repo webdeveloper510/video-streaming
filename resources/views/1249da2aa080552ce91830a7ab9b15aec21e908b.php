@@ -562,17 +562,21 @@ Your browser does not support the audio tag.
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','required'])); ?>
+                <?php echo e(Form::file('media',['class'=>'custom-file-input file_input'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
             <?php echo e(Form::label('', '',['class'=>'custom-file-label thumbnail1'])); ?> 
-                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage','required'])); ?>
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <input type="hidden" value="<?php echo e(isset($random[0]->id)); ?>" name="hid"/>
+            <input type="hidden" name="type" value="<?php echo e($random[0]->type); ?>"/>
+            <input type="hidden" name="media_url" value="<?php echo e($random[0]->media); ?>"/>
+             <input type="hidden" name="image_url" value="<?php echo e($random[0]->audio_pic); ?>"/>
+
           
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
