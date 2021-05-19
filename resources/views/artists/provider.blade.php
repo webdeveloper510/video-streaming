@@ -223,7 +223,7 @@ section.background1 {
 
        
 @include('artists.dashboard_footer')
-    <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+    <!-- <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
   <script type="text/javascript">
@@ -400,4 +400,4 @@ window.Robodog.form('#myForm', {
             });
     }
 
-</script>
+</script> -->
