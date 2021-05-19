@@ -188,79 +188,63 @@ tr.shown td.details-control {
     </div>
   </div>
 </div>
-<!-- <div class="projects">
-<div class="row">
-  <div class="col">
-        <div class="descriptions">
-        <h3 class="description">Description :</h3>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-        </div> 
-  </div>
-    <div class="col">
-    <h3 class="look">Look :</h3>
-    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="ordercancel" tabindex="-1" role="dialog" aria-labelledby="ordercancelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cancel Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <div class="corder">
+         <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Chosse Reason :</label>
+            <select class="form-control">
+            <option selected>Choose...</option>
+              <option value="1">I do not offer this kind of additional requests.</option>
+              <option value="2">Sorry, I receive to many orders right now.</option>
+              <option value="3">I am not available right now. (Block this customer)</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+          <label> Or write a specific Message for your Customer :</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="form-group text-center">
+         <label> Do you really want to cancel this Order ? </label>
+            <div class="row">
+                 <div class="col">
+                 <button type="button" class="btn btn-danger">No</button>
+                 </div>
+                 <div class="col">
+                 <button type="button" class="btn btn-success"data-dismiss="modal">Yes</button>
+                 </div>
+
+              </div>
+        </form>
+         </div>
+      </div>
+    
     </div>
-<div class="col">
-<table>
-<tr>
-<td> <p>Categories :</p>
-<p class="category">Body Fetish</p>
-</td>
-<td> <p class="quality">Quality :</p>
-<p>1080p</p>
-</td>
-</tr>
-<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
-<tr>
-</table>
-<div class="">
-<button type="button"class="btn btn-primary">Upload Content</button>
-</div>
-</div>
-</div>
+  </div>
 </div>
 
 
-
-<div class="order">
-<div class="row">
-<div class="col">
- <div class="descriptions">
-<h3 class="description">Description :</h3>
-<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div> 
-</div>
-<div class="col">
-<h3>Additional Request :</h3>
-<p class="userdescription"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div>
-<div class="col">
-<table>
-<tr>
-<td> <p>Categories :</p>
-<p class="category">Body Fetish</p>
-</td>
-<td> <p>Quality :</p>
-<p class="quality">1080p</p>
-</td>
-</tr>
-<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
-<tr>
-</table>
-<div class="">
-<button type="button"class="btn btn-primary">Upload Content</button>
-</div>
-</div>
-</div> -->
   </body>
   <style type="text/css">
     .leveltext.text-white {
     display: none;
-
     position: absolute;
     top: 47px !important;
 }
@@ -282,4 +266,3 @@ function openCity(evt, cityName) {
 }
 </script>
   @include('artists.dashboard_footer');
-</html>
