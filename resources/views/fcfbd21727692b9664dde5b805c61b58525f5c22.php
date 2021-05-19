@@ -368,9 +368,7 @@
 					
   </div>
                     </div>
-							
-
-
+                  
 
 
 
@@ -509,6 +507,14 @@
             </div>
 
         </div>
+
+
+
+     
+
+
+
+
 
         <?php endif; ?>
     </div>
@@ -1214,11 +1220,11 @@
 
 
 </script>
-                <!--script> $(document).ready(function() { $("#owl-example").owlCarousel({
+                <!-- <script> $(document).ready(function() { $("#owl-example").owlCarousel({
                 items:3 }); $("#owl-example1").owlCarousel({ items:3 });
                 $("#owl-example2").owlCarousel({ items:3 }); $("#owl-example3").owlCarousel({
                 items:3, }); $("#owl-example4").owlCarousel({ items:3, loop:true, margin:10,
-                autoPlay:true, nav:true, rewindNav:false }); }); </script-->
+                autoPlay:true, nav:true, rewindNav:false }); }); </script> -->
 
                 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <?php //include(app_path().'/include/includebottom.php');?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>
