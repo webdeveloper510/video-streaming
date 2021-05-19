@@ -1699,8 +1699,12 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
+            //console.log(data);
+
+            //return false;
+
             $('.button_disable').removeAttr('disabled');
-           // console.log(data);
+       
 
             if (data.status == 1) {
                 $('.alert-success').show();
@@ -2717,142 +2721,142 @@ if ($("#technical_functiong").length > 0) {
     })
 }
 
-if ($("#myForm").length > 0) {
-    $("#myForm").validate({
+// if ($("#myForm").length > 0) {
+//     $("#myForm").validate({
 
-        rules: {
-            title: {
-                required: true,
-                maxlength: 30
-            },
-            radio:{
-                required: true,
-            },
-            media: {
-                required: true
-            },
-            thumbnail_pic:{
-                required: true
-            },
-            convert: {
-                required: true
-            },
-            category: {
-                required: true
-            },
-            description: {
-                required: true,
-                maxlength: 2000
-            }
-        },
-        messages: {
-            title: {
-                required: "Please Add Title",
-                maxlength: 'Character may be less than 30'
+//         rules: {
+//             title: {
+//                 required: true,
+//                 maxlength: 30
+//             },
+//             radio:{
+//                 required: true,
+//             },
+//             media: {
+//                 required: true
+//             },
+//             thumbnail_pic:{
+//                 required: true
+//             },
+//             convert: {
+//                 required: true
+//             },
+//             category: {
+//                 required: true
+//             },
+//             description: {
+//                 required: true,
+//                 maxlength: 2000
+//             }
+//         },
+//         messages: {
+//             title: {
+//                 required: "Please Add Title",
+//                 maxlength: 'Character may be less than 30'
 
-            },
-            radio: {
-                required: "Please Select Option",
+//             },
+//             radio: {
+//                 required: "Please Select Option",
              
 
-            },
-            media:{
-                required: "Please Enter Media",
-            },
-            thumbnail_pic:{
-                required: "Please Enter Image",
-            },
-            category: {
-                required: "Choose Quality"
-            },
+//             },
+//             media:{
+//                 required: "Please Enter Media",
+//             },
+//             thumbnail_pic:{
+//                 required: "Please Enter Image",
+//             },
+//             category: {
+//                 required: "Choose Quality"
+//             },
 
-            convert: {
-                required: "Choose Category"
-            },
+//             convert: {
+//                 required: "Choose Category"
+//             },
 
-            description: {
-                required: "Please Add Description",
-                maxlength: 'Character may be less than 2000'
-            }
-        },
-        submitHandler: function (form) {
-            //event.preventDefault();
-            var form = $("#myForm");
-            var formData = new FormData($(form)[0]);
+//             description: {
+//                 required: "Please Add Description",
+//                 maxlength: 'Character may be less than 2000'
+//             }
+//         },
+//         submitHandler: function (form) {
+//             //event.preventDefault();
+//             var form = $("#myForm");
+//             var formData = new FormData($(form)[0]);
 
-            $('.loader').show();
-            $('.percentage').html('0');
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: APP_URL + "/postContent",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                xhr: function () {
-                    var xhr = $
-                        .ajaxSettings
-                        .xhr();
-                    if (xhr.upload) {
-                        xhr
-                            .upload
-                            .addEventListener('progress', function (event) {
-                                var percent = 0;
-                                var position = event.loaded || event.position;
-                                var total = event.total;
-                                if (event.lengthComputable) {
-                                    percent = Math.ceil(position / total * 100);
-                                }
-                                $('#top_title').html('Uploding...' + percent + '%');
-                                $('.percentage').html(percent + '%');
-                                if (percent == 100) {
-                                    $('.loader').hide();
-                                }
-                            }, true);
-                    }
-                    return xhr;
-                },
-                success: function (response) {
+//             $('.loader').show();
+//             $('.percentage').html('0');
+//             $.ajaxSetup({
+//                 headers: {
+//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                 }
+//             });
+//             $.ajax({
+//                 url: APP_URL + "/postContent",
+//                 type: "POST",
+//                 data: formData,
+//                 processData: false,
+//                 contentType: false,
+//                 xhr: function () {
+//                     var xhr = $
+//                         .ajaxSettings
+//                         .xhr();
+//                     if (xhr.upload) {
+//                         xhr
+//                             .upload
+//                             .addEventListener('progress', function (event) {
+//                                 var percent = 0;
+//                                 var position = event.loaded || event.position;
+//                                 var total = event.total;
+//                                 if (event.lengthComputable) {
+//                                     percent = Math.ceil(position / total * 100);
+//                                 }
+//                                 $('#top_title').html('Uploding...' + percent + '%');
+//                                 $('.percentage').html(percent + '%');
+//                                 if (percent == 100) {
+//                                     $('.loader').hide();
+//                                 }
+//                             }, true);
+//                     }
+//                     return xhr;
+//                 },
+//                 success: function (response) {
 
-                   // console.log(response);
-                  //  return false;
+//                   // console.log(response);
+//                   //  return false;
 
-                    if (response.errors) {
+//                     if (response.errors) {
 
-                        jQuery.each(response.errors, function (key, value) {
-                            jQuery('.alert-danger').show();
-                            jQuery('.alert-danger').append('<p>' + value + '</p>');
-                        });
-                    } else {
-                        $('.loader').hide();
-                        //$('.percentage').hide();
-                        if (response.status == 1) {
-                            $('#success').show();
-                            $('#success').html(response.messge);
+//                         jQuery.each(response.errors, function (key, value) {
+//                             jQuery('.alert-danger').show();
+//                             jQuery('.alert-danger').append('<p>' + value + '</p>');
+//                         });
+//                     } else {
+//                         $('.loader').hide();
+//                         //$('.percentage').hide();
+//                         if (response.status == 1) {
+//                             $('#success').show();
+//                             $('#success').html(response.messge);
 
-                            setTimeout(function () {
-                                location.reload();
-                            }, 2000);
+//                             setTimeout(function () {
+//                                 location.reload();
+//                             }, 2000);
 
-                            // location.reload(); $('.popup_close').trigger('click');
+//                             // location.reload(); $('.popup_close').trigger('click');
 
-                        } else {
+//                         } else {
 
-                            $('#error').show();
-                            $('#error').html(response.messge);
+//                             $('#error').show();
+//                             $('#error').html(response.messge);
 
-                        }
+//                         }
 
-                    }
-                }
-            });
-        }
-    })
-}
+//                     }
+//                 }
+//             });
+//         }
+//     })
+// }
 
 if ($("#create_offer").length > 0) {
     $("#create_offer").validate({
