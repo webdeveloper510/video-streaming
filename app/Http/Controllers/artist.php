@@ -362,9 +362,9 @@ class artist extends Controller
 
       $allArtistOffer =      $this->model->getArtistOffer($userid,'artist');
 
-      // echo "<pre>";
+    //   echo "<pre>";
 
-      // print_r($allArtistOffer);die;
+    //   print_r($random);die;
 
       $quality = $this->model->getQuality();
 
@@ -617,12 +617,12 @@ class artist extends Controller
 
 
      
-      if($req->media){
+      if($req->media || $req->media==''){
 
-        $fileName =$req->media ?  time().'_'.$req->media->getClientOriginalName():'';
-        $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():'';
+        $fileName =$req->media ?  time().'_'.$req->media->getClientOriginalName():$req->media_url;
+        $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():$req->image_url;
         $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
-        $ext =$req->media ? $req->media->getClientOriginalExtension():'';
+        //$ext =$req->media ? $req->media->getClientOriginalExtension():$req->type;
         $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
         $size=$req->media->getSize();
         $data['size'] = number_format($size / 1048576,2);
@@ -630,7 +630,7 @@ class artist extends Controller
         $data['hid']=$req['hid'];
         $data['audio_pic'] = $audio_pics;
         $data['convert'] = $req['convert'] ? $req['convert'] : '';
-        $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
+        $data['type']= $req->media ? $req->media->getClientOriginalExtension():$req->type;
 
 
       }

@@ -2053,8 +2053,10 @@ function edit_offer(data) {
 }
 
 function change_other_info(data) {
+    
+   // console.log(data);return false;
 
-    var json_info = JSON.parse(data);
+    var json_info = data;
 
     $('#aboutme').val(json_info.aboutme);
     $('#weight')

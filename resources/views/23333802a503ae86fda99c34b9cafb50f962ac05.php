@@ -137,7 +137,7 @@
                    <h2 class="text-center"> Order Successful!</h2>
                    <p> You can check your order status anytime  under : My Order</p>
 
-                   <p><input type="checkbox" class="popup_not_show"name="ve"> Do not show again</p>
+                   <p><input type="checkbox" class="popup_not" aria-label="Checkbox for following text input"> Do not show again</p>
 
                   </div>
                   <div class="modal-footer text-center">

@@ -340,7 +340,7 @@ Your browser does not support the audio tag.
      
       <h2>Overview</h2>
       <div class="text-right">
-   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('<?php echo e(json_encode($details[0])); ?>')">Edit</button>
+   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info(<?php echo e(json_encode($details[0])); ?>)">Edit</button>
               </div>
       <div class="row">
       
@@ -349,7 +349,7 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
