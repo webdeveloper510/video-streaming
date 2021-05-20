@@ -879,7 +879,12 @@
                         font-size: 14px;
                         font-weight: bold;
                     }
-
+                    .carousel-control-prev {
+    left: 0% !important;
+}
+.carousel-control-next {
+    right: 0 !important;
+}
                     @media (min-width: 768px) {
 
 /* show 3 items */
