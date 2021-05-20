@@ -31,7 +31,7 @@
             </div>
           </div>
         </div>
-        <p>Sample</p>
+      
         @foreach($offer as $offerdata)
         <?php 
         $GLOBALS['id'] = $offerdata->id;
