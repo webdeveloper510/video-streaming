@@ -879,7 +879,12 @@
                         font-size: 14px;
                         font-weight: bold;
                     }
-
+                    .carousel-control-prev {
+    left: 0% !important;
+}
+.carousel-control-next {
+    right: 0 !important;
+}
                     @media (min-width: 768px) {
 
 /* show 3 items */
@@ -959,7 +964,9 @@
 #profile-grid .panel-thumbnail { overflow: hidden; }
 #profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
 
-
+.panel-thumbnail .card {
+    background: white;
+}
                 </style>
 <script>
 
