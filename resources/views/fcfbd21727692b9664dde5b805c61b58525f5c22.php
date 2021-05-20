@@ -175,164 +175,13 @@
 
                     <div class="slider">
     <div class="slider__wrapper">
-      <div class="slider__item">
-        <div style="height: auto;">
-        <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
-                <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="slider__item">
-        <div style="height: auto;">
-        <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
-                <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="slider__item">
-        <div style="height: auto;">
-        
-        <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
-                <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
-      <div class="slider__item">
-        <div style="height: auto; ">
-        <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger my-3" type="button"> Subscribe</button>
-                <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
-        <div class="slider__item">
-        <div style="height: auto; ">
-        
-        <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
-                <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
-                <div class="row">
-                    <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
-                               </div>
-
-                           </div>
-                           <div class="col-6">
-                           <div class="">
-                               <h3>9 </h3>
-                               <h5 class="text-dark">Collection </h3>
-                                 
-                           </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-      </div>
+    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="slider__item">
         <div style="height: auto;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
-                                <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
+            <div class="card-body text-cenxter">
+                                <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                <h5 class="text-dark">Description </h3>
@@ -340,14 +189,14 @@
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3>9 </h3>
+                               <h3><?php echo e($val->offercount); ?> </h3>
                                <h5 class="text-dark">Offer(S)</h3>
                                </div>
 
                            </div>
                            <div class="col-6">
                            <div class="">
-                               <h3>9 </h3>
+                               <h3><?php echo e($val->rowcount); ?> </h3>
                                <h5 class="text-dark">Collection </h3>
                                  
                            </div>
@@ -358,6 +207,7 @@
         
         </div>
       </div>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
     <a class="slider__control slider__control_left" href="#" role="button"></a>
     <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
@@ -368,9 +218,7 @@
 					
   </div>
                     </div>
-							
-
-
+                  
 
 
 
@@ -509,6 +357,14 @@
             </div>
 
         </div>
+
+
+
+     
+
+
+
+
 
         <?php endif; ?>
     </div>
@@ -830,7 +686,7 @@
         <div style="height: auto;">
         <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
-            <div class="card-body text-center">
+            <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
@@ -839,7 +695,7 @@
                 <div class="row">
                     <div class="col-6">
                            <div class="">
-                               <h3>9 </h3>
+                               <h3><?php echo e($val->offercount); ?> </h3>
                                <h5 class="text-dark">Offer(S)</h3>
                                </div>
 
@@ -1214,11 +1070,11 @@
 
 
 </script>
-                <!--script> $(document).ready(function() { $("#owl-example").owlCarousel({
+                <!-- <script> $(document).ready(function() { $("#owl-example").owlCarousel({
                 items:3 }); $("#owl-example1").owlCarousel({ items:3 });
                 $("#owl-example2").owlCarousel({ items:3 }); $("#owl-example3").owlCarousel({
                 items:3, }); $("#owl-example4").owlCarousel({ items:3, loop:true, margin:10,
-                autoPlay:true, nav:true, rewindNav:false }); }); </script-->
+                autoPlay:true, nav:true, rewindNav:false }); }); </script> -->
 
                 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <?php //include(app_path().'/include/includebottom.php');?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views//initial.blade.php ENDPATH**/ ?>

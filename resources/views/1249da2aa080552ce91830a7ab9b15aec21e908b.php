@@ -47,7 +47,7 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? 'active' : ''); ?>" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
   </div>
@@ -56,7 +56,7 @@
 
      <!-- ------------------------------------------Offer videos -------------------------------------------------->
 
-  <div class="tab-pane fade <?php echo e($collection_selection ? '' : 'show active'); ?>" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+  <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
    <h2> Offers</h2>
           <div class="container">
@@ -340,7 +340,7 @@ Your browser does not support the audio tag.
      
       <h2>Overview</h2>
       <div class="text-right">
-   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info('<?php echo e(json_encode($details[0])); ?>')">Edit</button>
+   <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info(<?php echo e(json_encode($details[0])); ?>)">Edit</button>
               </div>
       <div class="row">
       
@@ -349,7 +349,7 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
@@ -505,7 +505,7 @@ Your browser does not support the audio tag.
                 <br>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
                    <label class="thumbnail1"></label>        
-                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage','required'])); ?>
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
@@ -516,7 +516,7 @@ Your browser does not support the audio tag.
                  
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
-                <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee','required'])); ?>
+                <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
@@ -562,17 +562,21 @@ Your browser does not support the audio tag.
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
-                <?php echo e(Form::file('media',['class'=>'custom-file-input file_input','required'])); ?>
+                <?php echo e(Form::file('media',['class'=>'custom-file-input file_input'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
             <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
             <?php echo e(Form::label('', '',['class'=>'custom-file-label thumbnail1'])); ?> 
-                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage','required'])); ?>
+                <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])); ?>
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
-            <input type="hidden" value="<?php echo e(isset($random[0]->id)); ?>" name="hid"/>
+            <input type="hidden" value="<?php echo e($random[0]->id); ?>" name="hid"/>
+            <input type="hidden" name="type" value="<?php echo e($random[0]->type); ?>"/>
+            <input type="hidden" name="media_url" value="<?php echo e($random[0]->media); ?>"/>
+             <input type="hidden" name="image_url" value="<?php echo e($random[0]->audio_pic); ?>"/>
+
           
             <div class="col-md-12 pt-3">
             <?php echo e(Form::label('Sexology', 'Sexology')); ?> 
