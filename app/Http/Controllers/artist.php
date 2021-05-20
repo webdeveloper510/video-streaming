@@ -362,6 +362,10 @@ class artist extends Controller
 
       $allArtistOffer =      $this->model->getArtistOffer($userid,'artist');
 
+      // echo "<pre>";
+
+      // print_r($allArtistOffer);die;
+
       $quality = $this->model->getQuality();
 
       $getLevel= $this->model->getlevel();
@@ -568,8 +572,6 @@ class artist extends Controller
   }
 
   public function edit_offer(Request $req){    
-
-    //print_r($req->all());die;
     
        $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : $req->file_name;
        $thumbnail = $req->file ? time().'_'.$req->audio_pic->getClientOriginalName() : $req->file_image;
@@ -578,9 +580,12 @@ class artist extends Controller
       $thumb = $req->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
       $req['media'] = $fileName ? $fileName : $req['file_url'];
-      $req['thumbnail'] = $thumbnail ;
+      $req['thumbnail'] = $thumbnail ?  $thumbnail :'';
 
         if($filePath || $filePath==''){ 
+
+          //print_r($req->all());die;
+
 
            $update_data = $this->model->editOfferDetail($req);
 

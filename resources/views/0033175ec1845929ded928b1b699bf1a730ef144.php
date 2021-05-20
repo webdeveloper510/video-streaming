@@ -505,7 +505,7 @@ Your browser does not support the audio tag.
                 <br>
                 <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
                    <label class="thumbnail1"></label>        
-                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage','required'])); ?>
+                 <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>
@@ -516,7 +516,7 @@ Your browser does not support the audio tag.
                  
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
-                <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee','required'])); ?>
+                <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee'])); ?>
 
                 <span id="filename" style="color:red;"></span>
             </div>

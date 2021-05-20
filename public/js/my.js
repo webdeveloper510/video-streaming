@@ -1699,8 +1699,12 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
+            //console.log(data);
+
+            //return false;
+
             $('.button_disable').removeAttr('disabled');
-           // console.log(data);
+       
 
             if (data.status == 1) {
                 $('.alert-success').show();
