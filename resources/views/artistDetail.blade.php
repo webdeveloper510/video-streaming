@@ -222,7 +222,7 @@
   
      <h3>Audios</h3>
      <div class="row mb-5">
-      @if($audio)
+      @if($audio[0]->type)
           @foreach($audio as $aud)
 
         <div class="col-md-4 mb-3">
