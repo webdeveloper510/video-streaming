@@ -1663,7 +1663,6 @@ $(document).on('submit', '#edit_form', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
     $('.button_disable').attr('disabled',true);
-    //console.log(formData);return false;
     $.ajax({
         type: 'POST',
         url: APP_URL + "/edit_offer",
@@ -1699,12 +1698,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
-            //console.log(data);
-
-            //return false;
-
-            $('.button_disable').removeAttr('disabled');
-       
+            $('.button_disable').removeAttr('disabled');      
 
             if (data.status == 1) {
                 $('.alert-success').show();
