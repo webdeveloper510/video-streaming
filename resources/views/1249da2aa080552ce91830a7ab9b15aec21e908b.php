@@ -558,7 +558,7 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>   
-          <div class="col-md-12 mt-3 text-white file" style="display:none;">
+          <div class="col-md-12 mt-3 text-white file" style="<?php echo e($random[0]->type!='' ? 'display:block' : 'display:none'); ?>">
             <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
@@ -566,7 +566,7 @@ Your browser does not support the audio tag.
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
-            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
+            <div class="col-md-12 mt-3 text-white thumbnail" style="<?php echo e($random[0]->type!='' ? 'display:block' : 'display:none'); ?>">
             <?php echo e(Form::label('', '',['class'=>'custom-file-label thumbnail1'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])); ?>
 
