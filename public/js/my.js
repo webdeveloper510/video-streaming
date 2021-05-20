@@ -166,7 +166,17 @@ $(document).ready(function () {
                 'data': 'nickname'
             }, 
             {
-                'data': 'status'
+                'data': 'status',
+                render:function(data,type,row){
+                    if(data=='cancel'){
+                        $('#model_text').html(row.reason_of_cancel);
+                        return "<u><a href='#' data-toggle='modal' data-target='#Cancelled'>"+data+"</a></u>"
+                    }
+                    else{
+                        return data;
+                    }
+
+                }
             },
             {
                 'data': 'created_at'
@@ -2112,8 +2122,8 @@ $(document).on('keyup change', '#calculate_tokens', function () {
 
 /* Formatting function for row details - modify as you need */
 function format(d, type) {
-    
-       // console.log(d.remaining_days);
+
+    $('.offer_id').val(d.id);
 
 
     var disabled = d.remaining_days < 0 || d.paid_status==1
@@ -2158,7 +2168,8 @@ function format(d, type) {
                 'tage" style="color:green;font-weight: bold;"></span></div></form></div></td></' +
                 'tr></table><div class="alert alert-success" id="success" style="display:none">' +
                 '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
-                'submit(this)"' + disabled + '>'+text+'</button></div></div></div></div>';
+                'submit(this)"' + disabled + '>'+text+'</button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">Cancel</button>'+
+        '</div></div></div></div>';
     } else {
         updateStatus(d.id, type);
         return '<div class="project"><div class="row"><div class="col"><div class="description' +
@@ -2175,6 +2186,37 @@ function format(d, type) {
                 'div></div>';
     }
 }
+
+
+/*-------------------------------------Cancel Order-----------------------------------------------------------*/
+
+
+$(document).on('submit', '#cancelOrder', function (event) {
+    event.preventDefault();
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/cancelOrder",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            if(data==1){
+                alert('Canceled');
+            }
+
+            else{
+                alert('Some Error');
+            }
+
+        }
+    });
+
+});
 
 function formsubmit(scop) {
 

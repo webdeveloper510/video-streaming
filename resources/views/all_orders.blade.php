@@ -175,10 +175,6 @@ please remain patient. Thank You!</p>
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Cancelled">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="Cancelled" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -189,12 +185,13 @@ please remain patient. Thank You!</p>
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-center">
+      <div class="modal-body text-center" id="model_text">
         <p>We have found this Content to be categorized as harmful / misleading / underage.<cr>
 If we learn that such Content was actively pursued, your account will be terminated.<br>
 If you believe you are being treated wrong, please reach out to us at <a href="mailto: customer@pornartistzone.com">customer@pornartistzone.com  </p>
-         <button type="button" class="btn btn-success">ok</button>
       </div>
+      <button type="button" class="btn btn-success" data-dismiss="modal">ok</button>
+
      
     </div>
   </div>

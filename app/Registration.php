@@ -885,13 +885,13 @@ public function getRespectedSub($data){
       $userid=  $session_data->id;
       
       $data = \DB::table("offer")
-      ->select("contentprovider.nickname","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(offer.created_at) as created_at"))
+      ->select("contentprovider.nickname","offer.reason_of_cancel","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(offer.created_at) as created_at"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("contentprovider","contentprovider.id","=","offer.artistid")
       ->join('reserved_tokens','reserved_tokens.userid','=','offer.userid')
       ->where('offer.userid',$userid)
       ->orderby('offer.id','desc')
-      ->groupBy("offer.id","offer.title","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","category.category","offer.status","contentprovider.nickname");
+      ->groupBy("offer.id","offer.title","offer.reason_of_cancel","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","category.category","offer.status","contentprovider.nickname");
      
       if ($sts) {
             //echo $sts;
@@ -3379,6 +3379,45 @@ public function customer_issue($data){
       ->select(DB::raw('SUM(passive_income) as passive'))
       ->where('artistid',$artid)
       ->get()->toArray();
+
+    }
+
+    public function cancelOrder($data){
+      $offer_data = $this->selectDataById('id','offer',$data['offerid']);
+
+      //print_r($offer_data);die;
+
+      $update_offer = array(
+        'status'=>'cancel',
+        'reason_of_cancel'=>$data['reason'].','.$data['reason_cancel']
+      );
+
+      $updateStatus = $this->UpdateData('offer','id',$update_offer,$data['offerid']);
+      if($updateStatus){
+          $getToken = DB::table('reserved_tokens')
+          ->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))
+          ->get()->toArray();
+
+          $update = DB::table('users')->where('id',$offer_data[0]->userid)->update([
+            'tokens' =>  DB::raw('tokens +'.$getToken[0]->tokens)
+          ]);
+
+          $notification = array(
+            'created_at'=>date('Y-m-d'),
+            'updated_at'=>date('Y-m-d'),
+            'artistid'=>$offer_data[0]->artistid,
+            'userid'=>$offer_data[0]->userid,
+            'notificationfor'=>'user',
+            'message'=>'Your order' .$offer_data[0]->title.' has canceled and your tokens have been returned',
+          );
+
+          DB::table('notification')->insert($notification);
+
+      $delete =  DB::table('reserved_tokens')->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))->delete();
+
+          return $delete ? 1 : 0;
+
+      }
 
 
     }

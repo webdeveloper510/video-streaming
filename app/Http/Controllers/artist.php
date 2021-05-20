@@ -574,23 +574,36 @@ class artist extends Controller
   public function edit_offer(Request $req){    
     
        $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : $req->file_name;
+
        $thumbnail = $req->file ? time().'_'.$req->audio_pic->getClientOriginalName() : $req->file_image;
 
       $filePath = $req->file ? $req->file->storeAs('video', $fileName, 'public') : '';
+
       $thumb = $req->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
       $req['media'] = $fileName ? $fileName : $req['file_url'];
+
       $req['thumbnail'] = $thumbnail ?  $thumbnail :'';
 
         if($filePath || $filePath==''){ 
 
-          //print_r($req->all());die;
-
-
-           $update_data = $this->model->editOfferDetail($req);
+          $update_data = $this->model->editOfferDetail($req);
 
            return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
-   }
+      }
+  }
+
+
+  /**----------------------------------------------------Cancel Order---------------------------------------------------- */
+
+  public function CnacelOrder(Request $request){
+
+
+    $return_data = $this->model->cancelOrder($request->all());
+
+    return $return_data;
+
+
   }
 
   public function change_image(Request $req){

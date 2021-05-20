@@ -193,79 +193,66 @@ tr.shown td.details-control {
     </div>
   </div>
 </div>
-<!-- <div class="projects">
-<div class="row">
-  <div class="col">
-        <div class="descriptions">
-        <h3 class="description">Description :</h3>
-        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-        </div> 
-  </div>
-    <div class="col">
-    <h3 class="look">Look :</h3>
-    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="ordercancel" tabindex="-1" role="dialog" aria-labelledby="ordercancelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cancel Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+         <div class="corder">
+         <?php echo Form::open(['id'=>'cancelOrder', 'method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?>      
+              <div class="form-group">
+            <label for="exampleInputEmail1">Chosse Reason :</label>
+            <select class="form-control" name="reason">
+            <option selected>Choose...</option>
+              <option value="I do not offer this kind of additional requests.">I do not offer this kind of additional requests.</option>
+              <option value="Sorry, I receive to many orders right now">Sorry, I receive to many orders right now.</option>
+              <option value="I am not available right now. (Block this customer)">I am not available right now. (Block this customer)</option>
+            </select>
+          </div>
+        <input type="hidden" name="offerid" value="" class="offer_id"/>
+          <div class="form-group">
+          <label> Or write a specific Message for your Customer :</label>
+            <textarea class="form-control" name="reason_cancel" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <div class="form-group text-center">
+         <label> Do you really want to cancel this Order ? </label>
+            <div class="row">
+                 <div class="col">
+                 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                 </div>
+                 <div class="col">
+                 <button type="submit" name="btn" class="btn btn-success">Yes</button>
+                 </div>
+
+                 
+
+              </div>
+              <?php echo e(Form::close()); ?>
+
+         </div>
+      </div>
+    
     </div>
-<div class="col">
-<table>
-<tr>
-<td> <p>Categories :</p>
-<p class="category">Body Fetish</p>
-</td>
-<td> <p class="quality">Quality :</p>
-<p>1080p</p>
-</td>
-</tr>
-<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
-<tr>
-</table>
-<div class="">
-<button type="button"class="btn btn-primary">Upload Content</button>
-</div>
-</div>
-</div>
+  </div>
 </div>
 
 
-
-<div class="order">
-<div class="row">
-<div class="col">
- <div class="descriptions">
-<h3 class="description">Description :</h3>
-<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div> 
-</div>
-<div class="col">
-<h3>Additional Request :</h3>
-<p class="userdescription"> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-</div>
-<div class="col">
-<table>
-<tr>
-<td> <p>Categories :</p>
-<p class="category">Body Fetish</p>
-</td>
-<td> <p>Quality :</p>
-<p class="quality">1080p</p>
-</td>
-</tr>
-<tr><td>Reward:</td><td class="Reward">300PAZ</td></tr>
-<tr>
-</table>
-<div class="">
-<button type="button"class="btn btn-primary">Upload Content</button>
-</div>
-</div>
-</div> -->
   </body>
   <style type="text/css">
     .leveltext.text-white {
     display: none;
-
     position: absolute;
     top: 47px !important;
 }
@@ -287,4 +274,4 @@ function openCity(evt, cityName) {
 }
 </script>
   <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
-</html><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/request.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/request.blade.php ENDPATH**/ ?>
