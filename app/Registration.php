@@ -2415,8 +2415,6 @@ public function PopularVideos($flag,$type){
 
 
   //$videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
-        
-
 
       if($flag=='No'){
 
@@ -2425,7 +2423,7 @@ public function PopularVideos($flag,$type){
         ->select('media.*')
         ->orWhere('popular.type',$type)
         ->where('media.is_deleted',0)
-        ->orderBy('popular.count','desc')
+        //->orderBy('popular.count','desc')
         ->take(3)
         ->get()
         ->toArray();
@@ -2439,7 +2437,7 @@ public function PopularVideos($flag,$type){
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
-        ->orWhere('popular.type',$type)
+       // ->orWhere('popular.type',$type)
         ->where('media.is_deleted',0)
         ->orderBy('count','desc')
         ->paginate(30);
