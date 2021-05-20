@@ -959,7 +959,9 @@
 #profile-grid .panel-thumbnail { overflow: hidden; }
 #profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
 
-
+.panel-thumbnail .card {
+    background: white;
+}
                 </style>
 <script>
 
