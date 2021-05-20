@@ -31,6 +31,9 @@
                         font-size: 18px;
 
                     }
+                    img.card-img-top {
+    filter: blur(6px);
+}
                     .header img {
                         display: block;
                         margin: 0 auto;
