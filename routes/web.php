@@ -272,6 +272,8 @@ Route::get('legal-notice', 'AuthController@legal');
     Route::post('sendToTip','artist@sendTip');
 
     Route::post('insertTime','artist@sendTimeFrame');
+
+    Route::post('cancelOrder','artist@CnacelOrder');
     
     Route::post('createOffer','artist@createOffer');
 

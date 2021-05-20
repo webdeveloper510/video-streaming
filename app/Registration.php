@@ -3380,6 +3380,45 @@ public function customer_issue($data){
       ->where('artistid',$artid)
       ->get()->toArray();
 
+    }
+
+    public function cancelOrder($data){
+      $offer_data = $this->selectDataById('id','offer',$data['offerid']);
+
+      //print_r($offer_data);die;
+
+      $update_offer = array(
+        'status'=>'cancel',
+        'reason_of_cancel'=>$data['reason'].','.$data['reason_cancel']
+      );
+
+      $updateStatus = $this->UpdateData('offer','id',$update_offer,$data['offerid']);
+      if($updateStatus){
+          $getToken = DB::table('reserved_tokens')
+          ->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))
+          ->get()->toArray();
+
+          $update = DB::table('users')->where('id',$offer_data[0]->userid)->update([
+            'tokens' =>  DB::raw('tokens +'.$getToken[0]->tokens)
+          ]);
+
+          $notification = array(
+            'created_at'=>date('Y-m-d'),
+            'updated_at'=>date('Y-m-d'),
+            'artistid'=>$offer_data[0]->artistid,
+            'userid'=>$offer_data[0]->userid,
+            'notificationfor'=>'user',
+            'message'=>'Your order' .$offer_data[0]->title.' has canceled and your tokens have been returned',
+          );
+
+          DB::table('notification')->insert($notification);
+
+      $delete =  DB::table('reserved_tokens')->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))->delete();
+
+          return $delete ? 1 : 0;
+
+      }
+
 
     }
     
