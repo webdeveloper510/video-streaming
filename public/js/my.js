@@ -166,7 +166,17 @@ $(document).ready(function () {
                 'data': 'nickname'
             }, 
             {
-                'data': 'status'
+                'data': 'status',
+                render:function(data,type,row){
+                    if(data=='cancel'){
+                        $('#model_text').html(row.reason_of_cancel);
+                        return "<u><a href='#' data-toggle='modal' data-target='#Cancelled'>"+data+"</a></u>"
+                    }
+                    else{
+                        return data;
+                    }
+
+                }
             },
             {
                 'data': 'created_at'
