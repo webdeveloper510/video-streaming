@@ -1768,7 +1768,6 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
             $('.button_disable').removeAttr('disabled');
 
-            //console.log(data);
 
             if (data.status == 1) {
               

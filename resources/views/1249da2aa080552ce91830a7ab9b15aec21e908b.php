@@ -572,7 +572,7 @@ Your browser does not support the audio tag.
 
                 <span id="filename" style="color:#767605;"></span>
             </div>
-            <input type="hidden" value="<?php echo e(isset($random[0]->id)); ?>" name="hid"/>
+            <input type="hidden" value="<?php echo e($random[0]->id); ?>" name="hid"/>
             <input type="hidden" name="type" value="<?php echo e($random[0]->type); ?>"/>
             <input type="hidden" name="media_url" value="<?php echo e($random[0]->media); ?>"/>
              <input type="hidden" name="image_url" value="<?php echo e($random[0]->audio_pic); ?>"/>

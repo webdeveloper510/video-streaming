@@ -653,6 +653,7 @@ class artist extends Controller
 
          // print_r($data);die;
         $update = $this->model->edit_other($inputData,$data);
+        
 
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
   }
