@@ -12,8 +12,6 @@
  <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
 </div>
 
-
-
         <!------------------------------------ Modal  unSubscribe------------------------------->
         <div class="modal fade" id="Unsubscribe1" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -31,7 +29,7 @@
             </div>
           </div>
         </div>
-        <p>Sample</p>
+      
         <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php 
         $GLOBALS['id'] = $offerdata->id;

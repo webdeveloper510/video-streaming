@@ -2421,9 +2421,9 @@ public function PopularVideos($flag,$type){
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
-        //->orWhere('popular.type',$type)
-        ->where('media.is_deleted',0)
-        //->orderBy('popular.count','desc')
+        ->orWhere('popular.type',$type)
+        ->orWhere('media.is_deleted',0)
+        ->orderBy('popular.count','desc')
         ->take(3)
         ->get()
         ->toArray();
@@ -2435,8 +2435,8 @@ public function PopularVideos($flag,$type){
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
-       // ->orWhere('popular.type',$type)
-        ->where('media.is_deleted',0)
+       ->orWhere('popular.type',$type)
+        ->orWhere('media.is_deleted',0)
         ->orderBy('count','desc')
         ->paginate(30);
 
