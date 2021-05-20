@@ -39,8 +39,7 @@
     <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers<div id="offerSelected" class="noti1" style="display:none;"></div></a>
     <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection<div id="mediaSelected" class="noti1" style="display:none;">  </div></a>
-    <!-- <a class="nav-link tabss " id="nav-feed-tab" data-toggle="tab" href="#nav-feed" role="tab" aria-controls="nav-feed" aria-selected="false"><i class="fa fa-newspaper-o"> </i> feed</a>
-     -->
+   
   </div>
 </nav>
 
@@ -419,7 +418,11 @@
 </script>
 <style>
 
-
+.col-md-12.col-sm-12.col-lg-12.text-center.mt-5 p {
+    font-size: 20px;
+    padding: 29px;
+    line-height: 29px;
+}
 .fa-lock{
   font-size:30px;
 }
@@ -537,6 +540,11 @@ ul.reporting {
 @media only screen and (max-width: 768px) {
 .coverimg img {
     object-fit: contain;
+}
+.col-md-12.col-sm-12.col-lg-12.text-center.mt-5 p {
+    font-size: auto;
+    padding: 10px;
+    line-height: auto;
 }
 }
 </style>
