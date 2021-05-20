@@ -679,12 +679,15 @@
 
 
                        
-                    <div class="slider">
-    <div class="slider__wrapper">
-    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="slider__item">
-        <div style="height: auto;">
-        <div class="card mt-5">
+                                <div class="container-fluid">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+        <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="carousel-item col-md-4  active">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 1" class="thumb">
+                    <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
@@ -710,20 +713,23 @@
                 </div>
             </div>
             </div>
-        
-        </div>
-      </div>
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+           
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <a class="slider__control slider__control_left" href="#" role="button"></a>
-    <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
-  </div>
+</div>
 
-  
-
-    
-  </div>
-                        </div>
 
 
                         <!--/.Slides-->
