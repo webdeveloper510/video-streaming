@@ -123,8 +123,8 @@
     width: 16px;
     border-radius: 50%;
     position: absolute;
-    top: 12px;
-    right: 22px;
+    top: 5px;
+    right: 11px;
 }
 .noti1 {
     background: blue;

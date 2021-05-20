@@ -2033,7 +2033,9 @@ function edit_offer(data) {
     //console.log(json_info);return false;
     $('#title').val(json_info.title);
     $("input[value='" + json_info.type + "']").prop('checked', true);
-    $('#offerid').val(json_info.id);
+    $('.thumbnail').show();
+    $('.file').show();   
+     $('#offerid').val(json_info.id);
     $('#min').val(json_info.min);
     $('#max').val(json_info.max);
     $('#additional_price').val(json_info.additional_price);
