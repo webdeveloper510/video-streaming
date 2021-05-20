@@ -629,7 +629,7 @@ public function getArtistDetail($artid,$type){
       //print_r($update);die;
       
 
-      return $update ? $update; 
+      return $update;
 
 
    // print_r($update);die;
