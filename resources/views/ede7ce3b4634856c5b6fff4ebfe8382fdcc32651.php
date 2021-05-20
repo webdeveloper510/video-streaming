@@ -225,7 +225,7 @@
   
      <h3>Audios</h3>
      <div class="row mb-5">
-      <?php if($audio): ?>
+      <?php if($audio[0]->type): ?>
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
         <div class="col-md-4 mb-3">
