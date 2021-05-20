@@ -622,14 +622,14 @@ public function getArtistDetail($artid,$type){
 
         unset($data['hid']);
   
-        $update1 = $this->UpdateData('media','id',$data,$id);
+        $update = $this->UpdateData('media','id',$data,$id);
 
       }
 
       //print_r($update);die;
       
 
-      return $update ? $update : $update1; 
+      return $update ? $update; 
 
 
    // print_r($update);die;
