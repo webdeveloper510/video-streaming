@@ -169,19 +169,17 @@
                                 <button class="btn btn-primary seemore" type="button">See All</button>
                             </a>
                         </div>
-                        
-
-                       
 
 
-
-
-                    <div class="slider">
-    <div class="slider__wrapper">
-    <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="slider__item">
-        <div style="height: auto;">
-        <div class="card mt-5">
+                    <div class="container-fluid">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+        <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="carousel-item col-md-4  active">
+               <div class="panel panel-default">
+                  <div class="panel-thumbnail">
+                    <a href="#" title="image 1" class="thumb">
+                    <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
@@ -207,23 +205,22 @@
                 </div>
             </div>
             </div>
-        
-        </div>
-      </div>
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+           
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <a class="slider__control slider__control_left" href="#" role="button"></a>
-    <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
-  </div>
-
-  
-
-					
-  </div>
-                    </div>
-                  
-
-
+</div>
 
 
 
@@ -886,190 +883,131 @@
                         font-weight: bold;
                     }
 
-                    .slider {
-      position: relative;
-      overflow: hidden;
-    }
+                    @media (min-width: 768px) {
 
-    .slider__wrapper {
-      display: flex;
-      transition: transform 0.6s ease;
-    }
-
-    .slider__item {
-      flex: 0 0 25%;
-      max-width: 25%;
-    }
-
-    .slider__control {
-      position: absolute;
-      top: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      color: #fff;
-      text-align: center;
-      opacity: 0.5;
-      height: 50px;
-      transform: translateY(-25%);
-      background: rgba(0, 0, 0, .5);
-    }
-
-    .slider__control:hover,
-    .slider__control:focus {
-      color: #fff;
-      text-decoration: none;
-      outline: 0;
-      opacity: .9;
-    }
-
-    .slider__control_left {
-      left: 0;
-    }
-
-    .slider__control_right {
-      right: 0;
-    }
-
-    .slider__control::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      background: transparent no-repeat center center;
-      background-size: 100% 100%;
-    }
-
-    .slider__control_left::before {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
-    }
-
-    .slider__control_right::before {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
-    }
-
-    .slider__item>div {
-      line-height: auto;
-      font-size: 100px;
-      text-align: center;
-    }
-
-                     
-    .slider__item .card {
-    background: white;
-    margin: 12px;
+/* show 3 items */
+.carousel-inner .active,
+.carousel-inner .active + .carousel-item,
+.carousel-inner .active + .carousel-item + .carousel-item,
+.carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+    display: block;
 }
 
+.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+.carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+    transition: none;
+}
+
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  position: relative;
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -25%;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+}
+
+/* left or forward direction */
+.active.carousel-item-left + .carousel-item-next.carousel-item-left,
+.carousel-item-next.carousel-item-left + .carousel-item,
+.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
+.carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+}
+
+/* farthest right hidden item must be abso position for animations */
+.carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+}
+
+/* right or prev direction */
+.active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+.carousel-item-prev.carousel-item-right + .carousel-item,
+.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
+.carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+}
+
+}
+
+/* Bootstrap Lightbox using Modal */
+
+#profile-grid { overflow: auto; white-space: normal; } 
+#profile-grid .profile { padding-bottom: 40px; }
+#profile-grid .panel { padding: 0 }
+#profile-grid .panel-body { padding: 15px }
+#profile-grid .profile-name { font-weight: bold; }
+#profile-grid .thumbnail {margin-bottom:6px;}
+#profile-grid .panel-thumbnail { overflow: hidden; }
+#profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
 
 
                 </style>
 <script>
 
-'use strict';
-    var multiItemSlider = (function () {
-      return function (selector, config) {
-        var
-          _mainElement = document.querySelector(selector), // основный элемент блока
-          _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
-          _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
-          _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
-          _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
-          _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
-          _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
-          _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
-          _positionLeftItem = 0, // позиция левого активного элемента
-          _transform = 0, // значение транфсофрмации .slider_wrapper
-          _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
-          _items = []; // массив элементов
 
-        // наполнение массива _items
-        _sliderItems.forEach(function (item, index) {
-          _items.push({ item: item, position: index, transform: 0 });
-        });
+$('#carouselExample').on('slide.bs.carousel', function (e) {
 
-        var position = {
-          getItemMin: function () {
-            var indexItem = 0;
-            _items.forEach(function (item, index) {
-              if (item.position < _items[indexItem].position) {
-                indexItem = index;
-              }
-            });
-            return indexItem;
-          },
-          getItemMax: function () {
-            var indexItem = 0;
-            _items.forEach(function (item, index) {
-              if (item.position > _items[indexItem].position) {
-                indexItem = index;
-              }
-            });
-            return indexItem;
-          },
-          getMin: function () {
-            return _items[position.getItemMin()].position;
-          },
-          getMax: function () {
-            return _items[position.getItemMax()].position;
-          }
+  
+var $e = $(e.relatedTarget);
+var idx = $e.index();
+var itemsPerSlide = 4;
+var totalItems = $('.carousel-item').length;
+
+if (idx >= totalItems-(itemsPerSlide-1)) {
+    var it = itemsPerSlide - (totalItems - idx);
+    for (var i=0; i<it; i++) {
+        // append slides to end
+        if (e.direction=="left") {
+            $('.carousel-item').eq(i).appendTo('.carousel-inner');
         }
-
-        var _transformItem = function (direction) {
-          var nextItem;
-          if (direction === 'right') {
-            _positionLeftItem++;
-            if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) > position.getMax()) {
-              nextItem = position.getItemMin();
-              _items[nextItem].position = position.getMax() + 1;
-              _items[nextItem].transform += _items.length * 100;
-              _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
-            }
-            _transform -= _step;
-          }
-          if (direction === 'left') {
-            _positionLeftItem--;
-            if (_positionLeftItem < position.getMin()) {
-              nextItem = position.getItemMax();
-              _items[nextItem].position = position.getMin() - 1;
-              _items[nextItem].transform -= _items.length * 100;
-              _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
-            }
-            _transform += _step;
-          }
-          _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+        else {
+            $('.carousel-item').eq(0).appendTo('.carousel-inner');
         }
+    }
+}
+});
 
-        // обработчик события click для кнопок "назад" и "вперед"
-        var _controlClick = function (e) {
-          var direction = this.classList.contains('slider__control_right') ? 'right' : 'left';
-          e.preventDefault();
-          _transformItem(direction);
-        };
 
-        var _setUpListeners = function () {
-          // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
-          _sliderControls.forEach(function (item) {
-            item.addEventListener('click', _controlClick);
-          });
-        }
+$('#carouselExample').carousel({ 
+            interval: 2000
+    });
 
-        // инициализация
-        _setUpListeners();
 
-        return {
-          right: function () { // метод right
-            _transformItem('right');
-          },
-          left: function () { // метод left
-            _transformItem('left');
-          }
-        }
+$(document).ready(function() {
+/* show lightbox when clicking a thumbnail */
+$('a.thumb').click(function(event){
+  event.preventDefault();
+  var content = $('.modal-body');
+  content.empty();
+    var title = $(this).attr("title");
+    $('.modal-title').html(title);        
+    content.html($(this).html());
+    $(".modal-profile").modal({show:true});
+});
 
-      }
-    }());
-
-    var slider = multiItemSlider('.slider')
+});
 
 
 </script>
