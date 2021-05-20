@@ -2,11 +2,11 @@
 
 <div class="container">
 
-<div class="offer ">
-<h4 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h4> 
+<div class="offer mt-5">
+<h4 ><?php echo e($offer[0]->title); ?></h4> 
 <!-- <h5>Audio/Video</h5> -->
 <a href="<?php echo e(url('artistDetail/'.$offer[0]->artistid)); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
-<div class="text-right">
+<div class="text-right mb-4">
 <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>"  onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe" >Subscribe </button>
     
  <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
@@ -146,7 +146,7 @@
             </div>
 
 
-        <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>6666
 
         <script>
         
