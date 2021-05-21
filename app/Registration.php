@@ -2421,15 +2421,13 @@ public function PopularVideos($flag,$type){
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
-        ->orWhere('popular.type',$type)
+        //->orWhere('popular.type',$type)
         ->where('media.is_deleted',0)
         //->orderBy('popular.count','desc')
         ->take(3)
         ->get()
         ->toArray();
-
-
-       // $videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray(): DB::table("media")->take(3)->get()->toArray();
+     // $videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray(): DB::table("media")->take(3)->get()->toArray();
 
       }
       else{
