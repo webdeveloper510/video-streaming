@@ -467,7 +467,7 @@
             </script>
 
             <div class="row">
-                @forelse ($popular as $pop) @if($pop->type=='video')
+                @forelse ($popular as $pop) @if($pop->type=='video' && $pop->profile_video!='yes')
 
                 <div class="col-md-4 hover">
                     <a id="anchor_{{$pop->id}}" href="{{url('artist-video/'.$pop->id)}}">
@@ -612,7 +612,7 @@
                             </a>
                         </div>
                         <div class="row">
-                            @forelse ($popularAudios as $audio) @if($audio->type=='audio')
+                            @forelse ($popularAudios as $audio) @if($audio->type=='audio' && $audio->type!='yes')
                             <div class="col-md-4 mb-3 audiohome">
                                 <a href="{{url('artist-video/'.$audio->id)}}">
 

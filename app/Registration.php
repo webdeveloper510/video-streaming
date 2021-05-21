@@ -2413,16 +2413,13 @@ public function updatePopular($data,$uid){
 
 public function PopularVideos($flag,$type){
 
-
-  //$videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
-
       if($flag=='No'){
 
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
         ->orWhere('popular.type',$type)
-        ->orWhere('media.is_deleted',0)
+        ->Where('media.is_deleted',0)
         ->orderBy('popular.count','desc')
         ->take(3)
         ->get()
@@ -2433,11 +2430,11 @@ public function PopularVideos($flag,$type){
       else{
 
         $videos=DB::table('media') 
-        ->leftjoin('popular','popular.mediaid','=','media.id')
+       ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
        ->orWhere('popular.type',$type)
-        ->orWhere('media.is_deleted',0)
-        ->orderBy('count','desc')
+        ->Where('media.is_deleted',0)
+        ->orderBy('popular.count','desc')
         ->paginate(30);
 
 
@@ -3299,7 +3296,7 @@ public function customer_issue($data){
       $userid =  $session_data->id;
 
       $random  = DB::table('media')
-      ->where('contentProviderid',$userid)
+      ->where(array('contentProviderid'=>$userid,'profile_video'=>'yes'))
       // ->inRandomOrder()
       ->limit(1)
       ->get()
