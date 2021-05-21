@@ -1,6 +1,5 @@
 @include('layouts.header')
  
-    <title>Hello, world!</title>
 
 <style type="text/css">
   

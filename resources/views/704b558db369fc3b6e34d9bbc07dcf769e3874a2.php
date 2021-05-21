@@ -35,7 +35,7 @@
           <div class="row align-items-center">
             <div class="col mt-4">
 
-        <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Customer 
+        <?php echo e(Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])); ?> Consumer  
 
         <?php echo e(Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])); ?> Artist
 
@@ -64,7 +64,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-            <?php echo e(Form::label('Nickname', 'Nickname')); ?> 
+            <?php echo e(Form::label('Username', 'Username')); ?> 
                 <?php echo e(Form::text('nickname',null,['class'=>'form-control checknameExist','data-id'=>'nickname','placeholder'=>'Enter Nickname'])); ?>
 
                 <?php if($errors->first('nickname')): ?>

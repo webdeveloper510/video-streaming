@@ -1,6 +1,5 @@
 @extends('layout.cdn')
 
-<!--?php echo HTML::assets('style.css');?!-->
 <section class="background1">
     <div class="container mt-5">
 
