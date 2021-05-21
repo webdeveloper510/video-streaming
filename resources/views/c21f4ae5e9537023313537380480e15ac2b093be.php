@@ -686,7 +686,7 @@
             <div class="carousel-item col-md-4  active">
                <div class="panel panel-default">
                   <div class="panel-thumbnail">
-                    <a href="#" title="image 1" class="thumb">
+                    <a href="<?php echo e(url('artistDetail/'.$val->id)); ?>" title="image 1" class="thumb">
                     <div class="card mt-5">
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-cenxter">
