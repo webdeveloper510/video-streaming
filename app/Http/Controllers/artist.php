@@ -636,6 +636,7 @@ class artist extends Controller
         $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():$req->image_url;
         $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
         $ext =$req->media ? $req->media->getClientOriginalExtension():'';
+        $extension  = $ext=='mp4' ? 'video' : 'audio';
         $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
         $size=$req->media->getSize();
         $data['size'] = number_format($size / 1048576,2);
@@ -643,7 +644,7 @@ class artist extends Controller
         $data['hid']=$req['hid'];
         $data['audio_pic'] = $audio_pics;
         $data['convert'] = $req['convert'] ? $req['convert'] : '';
-        $data['type']= $req->media ? $req->media->getClientOriginalExtension():$req->type;
+        $data['type']= $req->media ? $extension :$req->type;
 
       }
       
