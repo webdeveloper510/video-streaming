@@ -2423,7 +2423,7 @@ public function PopularVideos($flag,$type){
         ->select('media.*')
         ->Where('media.profile_video','!=','yes')
       //  ->orWhere('popular.type',$type)
-        ->orWhere('media.is_deleted',0)
+        ->Where('media.is_deleted',0)
         //->orderBy('popular.count','desc')
         ->take(3)
         ->get()
@@ -2438,7 +2438,7 @@ public function PopularVideos($flag,$type){
         ->select('media.*')
         ->Where('media.profile_video','!=','yes')
        //->orWhere('popular.type',$type)
-        ->orWhere('media.is_deleted',0)
+        ->Where('media.is_deleted',0)
         //->orderBy('popular.count','desc')
         ->paginate(30);
 
