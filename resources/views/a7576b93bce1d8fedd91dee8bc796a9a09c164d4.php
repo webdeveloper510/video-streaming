@@ -236,6 +236,8 @@ tr.shown td.details-control {
                  <button type="submit" name="btn" class="btn btn-success">Yes</button>
                  </div>
 
+                 
+
               </div>
               <?php echo e(Form::close()); ?>
 
