@@ -2421,6 +2421,7 @@ public function PopularVideos($flag,$type){
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
+        ->orWhere('media.profile_video','!=','yes')
         ->orWhere('popular.type',$type)
         ->orWhere('media.is_deleted',0)
         ->orderBy('popular.count','desc')
@@ -2435,9 +2436,10 @@ public function PopularVideos($flag,$type){
         $videos=DB::table('media') 
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
+        ->orWhere('media.profile_video','!=','yes')
        ->orWhere('popular.type',$type)
         ->orWhere('media.is_deleted',0)
-        ->orderBy('count','desc')
+        ->orderBy('popular.count','desc')
         ->paginate(30);
 
 
@@ -3299,7 +3301,7 @@ public function customer_issue($data){
       $userid =  $session_data->id;
 
       $random  = DB::table('media')
-      ->where('contentProviderid',$userid)
+      ->where(array('contentProviderid'=>$userid,'profile_video'=>'yes'))
       // ->inRandomOrder()
       ->limit(1)
       ->get()
