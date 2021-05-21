@@ -2515,8 +2515,8 @@ public function getallOffer($flag){
           ->leftjoin('category','offer.categoryid','=','category.id')
           ->select('offer.*','category.category')
           ->where('offer.offer_status','online')
-          ->where('by_created',1)
-          ->where('is_deleted',false)
+          ->where('offer.by_created',1)
+          ->where('offer.is_deleted',false)
           ->take(3)
           ->get()
           ->toArray();
@@ -2526,8 +2526,9 @@ public function getallOffer($flag){
     $code = DB::table('offer')
     ->leftjoin('category','offer.categoryid','=','category.id')
     ->select('offer.*','category.category')
-    ->where('by_created',1)
-    ->where('is_deleted',false)
+    ->where('offer.offer_status','online')
+    ->where('offer.by_created',1)
+    ->where('offer.is_deleted',false)
     ->paginate(30);
     return $code;
   }
