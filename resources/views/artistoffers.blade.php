@@ -12,8 +12,6 @@
  <button class="btn btn-secondary text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
 </div>
 
-
-
         <!------------------------------------ Modal  unSubscribe------------------------------->
         <div class="modal fade" id="Unsubscribe1" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
           <div class="modal-dialog">
