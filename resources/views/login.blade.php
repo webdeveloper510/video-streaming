@@ -51,7 +51,7 @@
           <div class="form-group">
               {{Form::radio('user', 'contentprovider', true)}} Artist
 
-               {{Form::radio('user', 'users', false )}}  Customer 
+               {{Form::radio('user', 'users', false )}}  Consumer  
           </div> 
 
             
