@@ -31,7 +31,7 @@
           <div class="row align-items-center">
             <div class="col mt-4">
 
-        {{Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])}} Customer 
+        {{Form::radio('person', 'users', $checkRadio == 'user' ,['class'=>'user'])}} Consumer  
 
         {{Form::radio('person', 'contentprovider',$checkRadio=='artist',['class'=>'user'])}} Artist
 
@@ -59,7 +59,7 @@
           </div>
           <div class="row align-items-center mt-4">
             <div class="col">
-            {{Form::label('Nickname', 'Nickname')}} 
+            {{Form::label('Username', 'Username')}} 
                 {{Form::text('nickname',null,['class'=>'form-control checknameExist','data-id'=>'nickname','placeholder'=>'Enter Nickname'])}}
                 @if($errors->first('nickname'))
                 <div class="alert alert-danger">
