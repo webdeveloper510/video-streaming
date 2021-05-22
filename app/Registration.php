@@ -2413,18 +2413,14 @@ public function updatePopular($data,$uid){
 
 public function PopularVideos($flag,$type){
 
-
-  //$videoId1 =  DB::table('popular')->where('type',$type)->orderBy('count','desc')->pluck('mediaid')->toArray();
-
       if($flag=='No'){
 
         $videos=DB::table('media') 
-        //->leftjoin('popular','popular.mediaid','=','media.id')
+        ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
-        ->Where('media.profile_video','!=','yes')
-      //  ->orWhere('popular.type',$type)
+        ->orWhere('popular.type',$type)
         ->Where('media.is_deleted',0)
-        //->orderBy('popular.count','desc')
+        ->orderBy('popular.count','desc')
         ->take(3)
         ->get()
         ->toArray();
@@ -2434,12 +2430,11 @@ public function PopularVideos($flag,$type){
       else{
 
         $videos=DB::table('media') 
-       // ->leftjoin('popular','popular.mediaid','=','media.id')
+       ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
-        ->Where('media.profile_video','!=','yes')
-       //->orWhere('popular.type',$type)
+       ->orWhere('popular.type',$type)
         ->Where('media.is_deleted',0)
-        //->orderBy('popular.count','desc')
+        ->orderBy('popular.count','desc')
         ->paginate(30);
 
 
