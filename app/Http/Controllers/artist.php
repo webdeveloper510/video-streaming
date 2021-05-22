@@ -349,9 +349,7 @@ class artist extends Controller
       $session_data =   Session::get('User');
 
 
-
       $userid=  $session_data->id;
-
 
 
       $allArtistsVideo =     $this->model->getArtistDetail($userid,'video');
@@ -624,12 +622,7 @@ class artist extends Controller
 
 
   public function edit_info(Request $req){
-
-
-        unset($req['_token']);
-
-
-     
+      unset($req['_token']);     
       if($req->media){
 
         $fileName =$req->media ?  time().'_'.$req->media->getClientOriginalName():$req->media_url;
@@ -641,19 +634,13 @@ class artist extends Controller
         $size=$req->media->getSize();
         $data['size'] = number_format($size / 1048576,2);
         $data['media']=$fileName;
+        $data['profile_video'] = 'yes';
         $data['hid']=$req['hid'];
         $data['audio_pic'] = $audio_pics;
         $data['convert'] = $req['convert'] ? $req['convert'] : '';
-        $data['type']= $req->media ? $extension :$req->type;
+        $data['type']= $req->media ? $extension : $req->type;
 
-      }
-      
-
-
-
-         
-
-         
+      }         
 
           $inputData = Arr::except($req->all(),['media', 'image_url','media_url','type','hid','audio_pic','convert','radio']);
 
