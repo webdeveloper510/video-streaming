@@ -34,7 +34,7 @@
     @if($videos)
    <div class="row pt-5">
    @foreach($videos as $vid)
-    @if($flag!='offer')
+    @if($flag!='offer' && $vid->profile_video!='yes')
        <div class="col-md-4 my-3">
        <div class="checkall" style="display:none">
           <form> 
@@ -100,6 +100,8 @@
     @else
     <div class="row pt-5 mt-5">
    @foreach($audio as $aud)
+
+    @if($aud->profile_video!='yes')
        <div class="col-md-4 my-3">
             <div class="borderhover">
             <a href="{{url('artist-video/'.$aud->id)}}">
@@ -111,7 +113,9 @@
           <h3 class="text-white">{{$aud->title}}</h3>
           </a>
           </div>
+
  </div>
+ @endif
     @endforeach
 @endif
     </div>
