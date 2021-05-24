@@ -2737,22 +2737,16 @@ if ($("#technical_functiong").length > 0) {
                     return xhr;
                 },
                 success: function (response) {
-
-                    	console.log(response);
-
                     if (response == 1) {
                         $('#success').show();
                         $('#success').html('Ticket Created Successfully! <br> We will reach out to you Email shortly');
-
                         setTimeout(function () {
                             location.reload();
                         }, 2000);
-
-                    } else {
-
+                    } 
+                    else {
                         $('#error').show();
                         $('#error').html('Some Error');
-
                     }
                 }
             });
@@ -3192,8 +3186,10 @@ function seconds_to_min_sec(seconds, id, vidid) {
     var minutes = Math.floor(seconds / 60);
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
-    var duration = parseInt(minutes) == 0 ? '0:' + parseInt(seconds) : minutes + ":" + parseInt(seconds);
-    var hours_sys = hours == 0 ? '0:' + duration : hours + ":" + duration;
+    var addZeroSeconds = parseInt(seconds) > 9 ? parseInt(seconds) : '0' + parseInt(seconds);
+    var addZeroMinutes = minutes > 9 ? minutes : '0' + minutes;
+    var duration = parseInt(minutes) == 0 ?  addZeroSeconds : addZeroMinutes + ":" + addZeroSeconds;
+    var hours_sys = hours == 0 ?  duration : '0' + hours + ":" + duration;
     $(id).html(hours_sys);
     $.ajax({
         type: 'POST',

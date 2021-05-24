@@ -51,6 +51,11 @@
                 <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
             </div>
+
+            <input type="hidden" name="created_at" value="" class="created_at"/>
+
+            <input type="hidden" name="updated_at" value="" class="updated_at"/>
+
          
             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price (PAZ)')); ?> 
@@ -487,7 +492,6 @@ section.background1 {
       },
     onResult: function(step, result) {
         console.log(result.ssl_url);
-        //$('.result').attr('src', result.ssl_url)
       }
     });
 

@@ -290,7 +290,7 @@
                         <div class="col-md-6">
                             <div class="user1 mb-3">
                                 <div class="user-head text-center text-white">
-                                    <h3>Customer
+                                    <h3>Consumer 
                                     </h3>
                                 </div>
                                 <div class="user-body">
