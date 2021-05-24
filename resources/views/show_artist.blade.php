@@ -250,7 +250,7 @@
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
@@ -311,7 +311,7 @@
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
@@ -341,7 +341,7 @@
             <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
             <div class="card-body text-center">
                                 <h3 class="card-title text-center">Artist Name  <small style="    font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>999 </small></h3>
-                <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
+                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>

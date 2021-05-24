@@ -468,7 +468,7 @@
             </script>
 
             <div class="row">
-                <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> <?php if($pop->type=='video'): ?>
+                <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> <?php if($pop->type=='video' && $pop->profile_video!='yes'): ?>
 
                 <div class="col-md-4 hover">
                     <a id="anchor_<?php echo e($pop->id); ?>" href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
@@ -615,7 +615,7 @@
                             </a>
                         </div>
                         <div class="row">
-                            <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> <?php if($audio->type=='audio'): ?>
+                            <?php $__empty_1 = true; $__currentLoopData = $popularAudios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $audio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> <?php if($audio->type=='audio' && $audio->type!='yes'): ?>
                             <div class="col-md-4 mb-3 audiohome">
                                 <a href="<?php echo e(url('artist-video/'.$audio->id)); ?>">
 

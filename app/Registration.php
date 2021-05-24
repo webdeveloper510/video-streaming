@@ -600,23 +600,14 @@ public function getArtistDetail($artid,$type){
 
   public function edit_other($profile,$data){
 
-
-
-
     $session_data =   Session::get('User');
 
    
      $contentid=$session_data->id;
 
-    // echo $contentid;
-
-    //print_r($profile);
-
-//
     $update = $this->UpdateData('contentprovider','id',$profile,$contentid);
-    //
+    
       if($data){
-
         
         $id=$data['hid'];
 
