@@ -395,7 +395,6 @@ button.btn.btn-primary.partner_col:hover {
 .text-center.header-text {
     font-weight: 700;
     text-transform: capitalize;
-    /* font-family: 'Playfair Display', serif; */
     color: white;
 }
 .PAZ.text-center.header-text {
