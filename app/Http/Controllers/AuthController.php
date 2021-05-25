@@ -30,6 +30,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 use Illuminate\Support\Facades\Redirect;
 
+use Illuminate\Routing\Redirector
+
 use Illuminate\Support\Facades\Mail;
 
 
