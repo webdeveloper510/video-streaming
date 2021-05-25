@@ -411,6 +411,9 @@ class AuthController extends Controller
 
            $offersVideos = $this->model->getallOffer($paginate='No');
 
+           $isData = $this->model->isSubscribe($id='');
+
+
            $popularVideos = $this->model->PopularVideos($paginate='No','video');
 
            $popularaudios = $this->model->PopularVideos($paginate='No','audio');
@@ -418,7 +421,7 @@ class AuthController extends Controller
 
           $newComes=$this->model->getNewComes();
 
-    return view('/initial',['recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos,'popularAudios'=>$popularaudios]);
+    return view('/initial',['isSubscribed'=>$isData,'recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos,'popularAudios'=>$popularaudios]);
 
       }
       public function contentPostLogin(Request $request){
