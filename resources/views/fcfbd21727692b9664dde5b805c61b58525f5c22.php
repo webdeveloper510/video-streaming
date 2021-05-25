@@ -690,8 +690,8 @@
             <img class="card-img-top" src="<?php echo e($val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg'); ?>" alt=" image cap">
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
-                <button class="btn btn-danger  my-3" type="button" onclick="subscribe(<?php echo e($val->id); ?>,true)"> Subscribe</button>
-                <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
+                <button class="btn btn-danger  my-3 <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" type="button" onclick="subscribe(<?php echo e($val->id); ?>,true)"> Subscribe</button>
+                <button class="btn btn-warning text-left <?php echo e($isSubscribed && in_array($val->id,$isSubscribed) ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
 
                 <hr>
                <h5 class="text-dark">About me</h3>
