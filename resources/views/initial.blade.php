@@ -314,7 +314,7 @@
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Directly Download your Orders
+                                         Download your Orders
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
@@ -891,7 +891,7 @@
                         width: 100%;
                         background: #00adff;
 
-                        text-align: center;
+                        text-align: center; 
                         padding-left: 12px;
 
                         line-height: 33px;
