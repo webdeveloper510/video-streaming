@@ -34,7 +34,7 @@
     <?php if($videos): ?>
    <div class="row pt-5">
    <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vid): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <?php if($flag!='offer'): ?>
+    <?php if($flag!='offer' && $vid->profile_video!='yes'): ?>
        <div class="col-md-4 my-3">
        <div class="checkall" style="display:none">
           <form> 
@@ -100,6 +100,8 @@
     <?php else: ?>
     <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+    <?php if($aud->profile_video!='yes'): ?>
        <div class="col-md-4 my-3">
             <div class="borderhover">
             <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
@@ -111,7 +113,9 @@
           <h3 class="text-white"><?php echo e($aud->title); ?></h3>
           </a>
           </div>
+
  </div>
+ <?php endif; ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php endif; ?>
     </div>
