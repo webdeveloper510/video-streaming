@@ -687,7 +687,7 @@
             <img class="card-img-top" src="{{$val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg' }}" alt=" image cap">
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
-                <button class="btn btn-danger  my-3 {{$isSubscribed ? 'hide' : 'block'}}" type="button" onclick="subscribe({{$val->id}},true)"> Subscribe</button>
+                <button class="btn btn-danger  my-3 {{$isSubscribed && in_array($val->id,$isSubscribed) ? 'hide' : 'block'}}" type="button" onclick="subscribe({{$val->id}},true)"> Subscribe</button>
                 <button class="btn btn-warning text-left {{$isSubscribed && in_array($val->id,$isSubscribed) ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe_{{$val->id}}" id="unsubscribe" >Subscribed </button>
 
                 <hr>
