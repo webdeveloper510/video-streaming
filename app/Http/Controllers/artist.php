@@ -642,17 +642,8 @@ class artist extends Controller
 
       }         
 
-          $inputData = Arr::except($req->all(),['media', 'image_url','media_url','type','hid','audio_pic','convert','radio']);
+       $inputData = Arr::except($req->all(),['media', 'image_url','media_url','type','hid','audio_pic','convert','radio']);
 
-          //print_r($inputData);die;
-
-          //print_r($inputData);die;
-
-
-        
-         
-
-         // print_r($data);die;
         $update = $this->model->edit_other($inputData,$data);
         
 

@@ -2899,7 +2899,6 @@ if ($("#technical_functiong").length > 0) {
 
 if ($("#create_offer").length > 0) {
     $("#create_offer").validate({
-
         rules: {
             title: {
                 required: true,

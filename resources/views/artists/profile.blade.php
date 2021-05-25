@@ -553,6 +553,9 @@ Your browser does not support the audio tag.
             <input type="hidden" value="{{$random[0]->id}}" name="hid"/>
             <input type="hidden" name="type" value="{{$random[0]->type}}"/>
             <input type="hidden" name="media_url" value="{{$random[0]->media}}"/>
+            <input type="hidden" name="created_at" value="" class="created_at"/>
+
+<input type="hidden" name="updated_at" value="" class="updated_at"/>
              <input type="hidden" name="image_url" value="{{$random[0]->audio_pic}}"/>
 
           
