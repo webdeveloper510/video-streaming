@@ -2410,7 +2410,7 @@ public function PopularVideos($flag,$type){
         ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
         ->orWhere('popular.type',$type)
-        ->Where('media.is_deleted',0)
+        ->orWhere('media.is_deleted',0)
         ->orderBy('popular.count','desc')
         ->take(3)
         ->get()
@@ -2424,7 +2424,7 @@ public function PopularVideos($flag,$type){
        ->leftjoin('popular','popular.mediaid','=','media.id')
         ->select('media.*')
        ->orWhere('popular.type',$type)
-        ->Where('media.is_deleted',0)
+        ->orWhere('media.is_deleted',0)
         ->orderBy('popular.count','desc')
         ->paginate(30);
 
