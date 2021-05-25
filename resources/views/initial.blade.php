@@ -169,8 +169,6 @@
                                 <button class="btn btn-primary seemore" type="button">See All</button>
                             </a>
                         </div>
-
-
                     <div class="container-fluid">
     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
         <div class="carousel-inner row w-100 mx-auto" role="listbox">
@@ -180,13 +178,14 @@
                   <div class="panel-thumbnail">
                     <a href="#" title="image 1" class="thumb">
                     <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <img class="card-img-top" src="{{$val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg' }}" alt=" image cap">
             <div class="card-body text-cenxter">
-                                <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
-                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
+                                <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';">
+                                <i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
+                <button class="btn btn-danger  my-3" type="button" onclick="subscribe({{$val->id}},true)"> Subscribe</button>
                 <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+               <h5 class="text-dark">About me </h3>
+                <p class="card-text">{{$val->aboutme}}</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
@@ -685,13 +684,15 @@
                   <div class="panel-thumbnail">
                     <a href="{{url('artistDetail/'.$val->id)}}" title="image 1" class="thumb">
                     <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <img class="card-img-top" src="{{$val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg' }}" alt=" image cap">
             <div class="card-body text-center">
                                 <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
-                <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
+                <button class="btn btn-danger  my-3 {{$isSubscribed && in_array($val->id,$isSubscribed) ? 'hide' : 'block'}}" type="button" onclick="subscribe({{$val->id}},true)"> Subscribe</button>
+                <button class="btn btn-warning text-left {{$isSubscribed && in_array($val->id,$isSubscribed) ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe_{{$val->id}}" id="unsubscribe" >Subscribed </button>
+
                 <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+               <h5 class="text-dark">About me</h3>
+                <p class="card-text">{{$val->aboutme}}</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
@@ -714,6 +715,23 @@
                   </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="Unsubscribe_{{$val->id}}" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                  <h3> Unsubscribe from {{$details[0]->nickname}}</h3>
+                  <div class="text-center Artistxyz">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  
+                    <button type="button" class="btn btn-primary" onclick="subscribe({{isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id}},false)">Unsubscribe</button>
+                  </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
             @endforeach
            
         <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
@@ -733,6 +751,8 @@
 
                     </div>
                 </div>
+
+                
                 @endif
                 <!--/.Carousel Wrapper-->
                 <style>

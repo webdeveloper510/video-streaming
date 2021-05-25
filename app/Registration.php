@@ -525,8 +525,8 @@ public function getArtists($flag){
       ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
       //->leftjoin('offer','offer.artistid','=','contentprovider.id')
       ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
-      ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
-      ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
+      ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.aboutme,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture','contentprovider.aboutme')
       //->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
       //->select('contentprovider.profilepicture', 'timeframe.timeframe','timeframe.created_at','contentprovider.id','contentprovider.nickname')
       ->inRandomOrder()->take(6)->get()->toArray();
@@ -600,23 +600,14 @@ public function getArtistDetail($artid,$type){
 
   public function edit_other($profile,$data){
 
-
-
-
     $session_data =   Session::get('User');
 
    
      $contentid=$session_data->id;
 
-    // echo $contentid;
-
-    //print_r($profile);
-
-//
     $update = $this->UpdateData('contentprovider','id',$profile,$contentid);
-    //
+    
       if($data){
-
         
         $id=$data['hid'];
 
@@ -2990,16 +2981,30 @@ public function RemoveUsername($data){
 
 public function isSubscribe($artistId){
 
+
   $session_data =   Session::get('User');
 
   $userid =  $session_data->id;
 
+  if($artistId==''){
+
+    $isSubscribe = DB::table('subscriber')
+  ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
+  ->pluck('artistid')
+  ->toArray();
+
+    return $isSubscribe;
+  }
+
+  else{
   $isSubscribe = DB::table('subscriber')
   ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
   ->Where('artistid',$artistId)
   ->get();
-
   return count($isSubscribe) > 0 ? true : false;
+
+  }
+
 
 }
 
