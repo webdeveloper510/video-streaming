@@ -180,7 +180,7 @@
                   <div class="panel-thumbnail">
                     <a href="#" title="image 1" class="thumb">
                     <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <img class="card-img-top" src="<?php echo e($val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg'); ?>" alt=" image cap">
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
@@ -688,7 +688,7 @@
                   <div class="panel-thumbnail">
                     <a href="<?php echo e(url('artistDetail/'.$val->id)); ?>" title="image 1" class="thumb">
                     <div class="card mt-5">
-            <img class="card-img-top" src="https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg" alt=" image cap">
+            <img class="card-img-top" src="<?php echo e($val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg'); ?>" alt=" image cap">
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
