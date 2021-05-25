@@ -360,9 +360,9 @@ class artist extends Controller
 
       $allArtistOffer =      $this->model->getArtistOffer($userid,'artist');
 
-    //   echo "<pre>";
+      // echo "<pre>";
 
-    //   print_r($random);die;
+      // print_r($random);die;
 
       $quality = $this->model->getQuality();
 
