@@ -185,8 +185,8 @@
                                 <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+               <h5 class="text-dark">About me </h3>
+                <p class="card-text">{{$val->aboutme}}</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
@@ -690,8 +690,8 @@
                                 <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
                 <button class="btn btn-danger  my-3" type="button"> Subscribe</button>
                 <hr>
-               <h5 class="text-dark">Description </h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.....</p>
+               <h5 class="text-dark">About me</h3>
+                <p class="card-text">{{$val->aboutme}}</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">

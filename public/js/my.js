@@ -311,7 +311,6 @@ function playVideo(a) {
     }
 }
 $(document).ready(function () {
-    console.log('yes');
     $('.rad_But').each(function () {
         if ($(this).is(':checked') == true) {
             $(this).val() == 'male'
