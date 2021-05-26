@@ -911,6 +911,9 @@
 .carousel-control-next {
     right: 0 !important;
 }
+.card-body.text-center button {
+    margin: 0 auto;
+}
                     @media (min-width: 768px) {
 
 /* show 3 items */
