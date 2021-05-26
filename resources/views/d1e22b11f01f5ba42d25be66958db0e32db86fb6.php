@@ -691,6 +691,8 @@
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                 <button class="btn btn-danger  my-3" type="button" onclick="subscribe(<?php echo e($val->id); ?>,true)"> Subscribe</button>
+                <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
+
                 <hr>
                <h5 class="text-dark">About me</h3>
                 <p class="card-text"><?php echo e($val->aboutme); ?></p>
@@ -735,6 +737,8 @@
 
                     </div>
                 </div>
+
+                
                 <?php endif; ?>
                 <!--/.Carousel Wrapper-->
                 <style>

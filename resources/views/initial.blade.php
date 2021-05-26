@@ -688,27 +688,9 @@
             <div class="card-body text-cenxter">
                                 <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
                 <button class="btn btn-danger  my-3" type="button" onclick="subscribe({{$val->id}},true)"> Subscribe</button>
-                <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe_{{$val->id}}" id="unsubscribe" >Subscribed </button>
+                <button class="btn btn-warning text-left {{$isSubscribed ? 'block' : 'hide'}}" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
 
                 <hr>
-
-                <div class="modal fade" id="Unsubscribe_{{$val->id}}" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  
-                  <div class="modal-body">
-                  <h3> Unsubscribe from {{$val->nickname}}</h3>
-                  <div class="text-center Artistxyz">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  
-                    <button type="button" class="btn btn-primary" onclick="subscribe({{$val->id}},false)">Unsubscribe</button>
-                  </div>
-                  </div>
-                
-                </div>
-              </div>
-            </div>
-          </div>
                <h5 class="text-dark">About me</h3>
                 <p class="card-text">{{$val->aboutme}}</p>
                 <div class="row">

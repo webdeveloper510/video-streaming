@@ -2981,16 +2981,30 @@ public function RemoveUsername($data){
 
 public function isSubscribe($artistId){
 
+
   $session_data =   Session::get('User');
 
   $userid =  $session_data->id;
 
+  if($artistId==''){
+
+    $isSubscribe = DB::table('subscriber')
+  ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
+  ->pluck('artistid')
+  ->toArray();
+
+    return $isSubscribe;
+  }
+
+  else{
   $isSubscribe = DB::table('subscriber')
   ->whereRaw('FIND_IN_SET(?,userid)',[$userid])
   ->Where('artistid',$artistId)
   ->get();
-
   return count($isSubscribe) > 0 ? true : false;
+
+  }
+
 
 }
 
