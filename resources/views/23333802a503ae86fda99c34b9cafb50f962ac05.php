@@ -52,7 +52,7 @@
           <div class="col">
               <h3>Duration</h3>
               <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
-          </div>
+          </div>  
           <div class="col">
               <h3>Media</h3>
               <p>video</p>

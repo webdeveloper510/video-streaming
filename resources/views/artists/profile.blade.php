@@ -194,7 +194,7 @@
                 <button class="btn btn-sm btn-light delete" table="media" img-src="{{$detail->audio_pic}}" data-url="{{$detail->media}}" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
-              @if($detail->duration!='' || $detail->duration=='NaN:NaN:NaN')
+              @if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN')
  
           <script>
             //console.log('eeee');

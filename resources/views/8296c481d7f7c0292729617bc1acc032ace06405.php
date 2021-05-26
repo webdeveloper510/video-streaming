@@ -142,8 +142,6 @@
                                                 <div class="col"></div>
                                                 <?php if($video->type=='video'): ?>
                                                 <div class="col-md-8">
-                                                    <?php echo e($login->email); ?>
-
                                                     <div class="lockicon" style="<?php echo e($buyed > 0  || $login->email=='ccbill-visa@pornartistzone.com' ? 'display:none': 'display:block'); ?>">
                                                         <i class="fa fa-lock" style="font-size:48px;color:yellow"></i>
                                                     </div>

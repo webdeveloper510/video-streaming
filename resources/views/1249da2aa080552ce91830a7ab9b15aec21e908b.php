@@ -199,7 +199,7 @@
                 <button class="btn btn-sm btn-light delete" table="media" img-src="<?php echo e($detail->audio_pic); ?>" data-url="<?php echo e($detail->media); ?>" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
-              <?php if($detail->duration!='' || $detail->duration=='NaN:NaN:NaN'): ?>
+              <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
  
           <script>
             //console.log('eeee');
