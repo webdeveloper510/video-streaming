@@ -142,7 +142,9 @@
                                                 <div class="col"></div>
                                                 <?php if($video->type=='video'): ?>
                                                 <div class="col-md-8">
-                                                    <div class="lockicon" style="<?php echo e($buyed>0 ? 'display:none': 'display:block'); ?>">
+                                                    <?php echo e($login->email); ?>
+
+                                                    <div class="lockicon" style="<?php echo e($buyed > 0  || $login->email=='ccbill-visa@pornartistzone.com' ? 'display:none': 'display:block'); ?>">
                                                         <i class="fa fa-lock" style="font-size:48px;color:yellow"></i>
                                                     </div>
 
@@ -150,7 +152,7 @@
                                                         width="100%"
                                                         height="100%"
                                                         poster="<?php echo e(url('storage/app/public/uploads/'.$video->audio_pic)); ?>"
-                                                        <?php echo e($buyed==1 ? 'controls' : ''); ?>
+                                                        <?php echo e($buyed==1 || $login->email=='ccbill-visa@pornartistzone.com' ? 'controls' : ''); ?>
 
                                                         controlsList="nodownload"
                                                         disablePictureInPicture="disablePictureInPicture">
