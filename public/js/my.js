@@ -3186,7 +3186,7 @@ function seconds_to_min_sec(seconds, id, vidid) {
     var hours = Math.floor(seconds / 3600);
     var seconds = seconds - minutes * 60;
     var addZeroSeconds = parseInt(seconds) > 9 ? parseInt(seconds) : '0' + parseInt(seconds);
-    var addZeroMinutes = minutes > 9 ? minutes : '0' + minutes;
+    var addZeroMinutes = parseInt(minutes)  > 9 ? minutes : '0' + minutes;
     var duration = parseInt(minutes) == 0 ?  addZeroSeconds : addZeroMinutes + ":" + addZeroSeconds;
     var hours_sys = hours == 0 ?  duration : '0' + hours + ":" + duration;
     $(id).html(hours_sys);
