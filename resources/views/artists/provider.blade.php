@@ -279,8 +279,7 @@ section.background1 {
 //       use: {
 //           "steps": [
 //       { 
-//           "name": ":original", "fields": "media", "as": "audio" 
-          
+//           "name": ":original", "fields": "media", "as": "audio"  
 //       },
 //       { 
 //           "name": ":original", "fields": "thumbnail_pic", "as": "image" 
