@@ -1547,7 +1547,16 @@ button.btn.btn-warning.text-white {
     font-weight: bold;
     margin-top: -1px;
 }
-
+}
+.red{
+  color:red !important;
+}
+.green{
+  color:green !important;
+}
+.orange{
+  color:orange !important;
+}
 </style>
 <script>
 function openNav() {
