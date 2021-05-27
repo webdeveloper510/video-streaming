@@ -3123,7 +3123,10 @@ public function count_collection_items(){
 
   $userid =  $session_data->id;
 
-        return DB::table('media')->where('contentProviderid',$userid)->get()->count();
+        return DB::table('media')
+        ->where('contentProviderid',$userid)
+        ->where('profile_video','!=','yes')
+        ->get()->count();
 }
 
 

@@ -2409,7 +2409,30 @@ $(document).ready(function () {
                     return data + '(24:00)';
                 }
             }
+            
         ],
+        "createdRow": (row, data, dataIndex) => {
+
+            console.log(data);
+            if(data.status=='new')
+            {
+                $('td', row).eq(5).addClass('green');           
+            
+            }
+
+            if(data.status=='due')
+            {
+                $('td', row).eq(5).addClass('red');           
+            
+            }
+
+            if(data.status=='process')
+            {
+                $('td', row).eq(5).addClass('orange');           
+            
+            }
+        }
+            
         //  'order': [[1, 'asc']]
     });
 
