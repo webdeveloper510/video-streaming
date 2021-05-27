@@ -101,7 +101,7 @@
     <div class="row pt-5 mt-5">
    <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-    <?php if($aud->profile_video!='yes'): ?>
+    <?php if($aud->type=='audio' && $aud->profile_video!='yes'): ?>
        <div class="col-md-4 my-3">
             <div class="borderhover">
             <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">

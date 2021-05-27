@@ -1253,7 +1253,7 @@ $(document).on('click', '#forgetLink', function () {
 });
 
 function editVideoinfo(data) {
-    var json_info = JSON.parse(data);
+    var json_info = data;
     var type = json_info.type;
     $('.video_title').val(json_info.title)
     $('#mediaid').val(json_info.id)
@@ -2049,6 +2049,16 @@ function edit_offer(data) {
     $('#description').val(json_info.description);
     $('.chooseImage #filename').text(json_info.audio_pic);
     $('.file_input #ilename').text(json_info.media);
+
+    if(json_info.type=='video'){
+        $('.thumbnail1').text('Video Thumbnail');
+        $('.label12').text('Overview Video (~30s)');
+    }
+
+    else{
+        $('.thumbnail1').text('Audio Thumbnail');
+        $('.label12').text('Overview Audio (~30s)');
+    }
 
     $('.' + json_info.type).show();
     $('#select_status').val(json_info.offer_status).attr("selected", "selected");
