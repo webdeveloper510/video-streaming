@@ -668,7 +668,7 @@ public function getArtistDetail($artid,$type){
 
      }
      else{
-      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false'));
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.by_created'=>1));
      }
      
       // if($offer){
