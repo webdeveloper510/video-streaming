@@ -12,6 +12,9 @@
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
         </div>
+        <div class="verify text-center">
+                  <h3>verifying</h3>
+               </div>
         <div style="display:none">
         {!!Form::open(['id'=>'filechange','method' => 'post', 'files'=>true])!!}
           {{Form::token()}}   
@@ -172,9 +175,7 @@
                <form> 
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
                </form></div>
-               <div class="verify text-center">
-                  <h3>verifying</h3>
-               </div>
+               
                <a href="{{url('artistVideo/'.$detail->id)}}">
             <video width="100%" class="hover" poster="{{url('storage/app/public/uploads/'.$detail->audio_pic) }}"  id="collection_{{$detail->id}}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">

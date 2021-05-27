@@ -12,6 +12,9 @@
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
         </div>
+        <div class="verify text-center">
+                  <h3>verifying</h3>
+               </div>
         <div style="display:none">
         <?php echo Form::open(['id'=>'filechange','method' => 'post', 'files'=>true]); ?>
 
@@ -177,9 +180,7 @@
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
-               <div class="verify text-center">
-                  <h3>verifying</h3>
-               </div>
+               
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
             <video width="100%" class="hover" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
