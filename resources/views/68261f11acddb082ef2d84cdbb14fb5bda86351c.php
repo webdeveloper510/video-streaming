@@ -320,7 +320,7 @@
                                                             type="video/mp4">
                                                             </video>
                                                             </a>
-                                                            <h3 class="videotitle text-white">title</h3>
+                                                            <h4 class="videotitle text-white">title</h4>
 
                                                     </div>
 

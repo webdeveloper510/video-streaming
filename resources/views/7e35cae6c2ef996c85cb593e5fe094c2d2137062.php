@@ -379,6 +379,15 @@
     margin-right: 14px;
     margin-top: 4px;
 }
+.red{
+  color:red !important;
+}
+.green{
+  color:green !important;
+}
+.orange{
+  color:orange !important;
+}
 @media  only screen and (max-width: 768px) {
 .alert.alert-success {
     margin-top: -4%;

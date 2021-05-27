@@ -101,7 +101,7 @@
     <div class="row pt-5 mt-5">
    @foreach($audio as $aud)
 
-    @if($aud->profile_video!='yes')
+    @if($aud->type=='audio' && $aud->profile_video!='yes')
        <div class="col-md-4 my-3">
             <div class="borderhover">
             <a href="{{url('artist-video/'.$aud->id)}}">

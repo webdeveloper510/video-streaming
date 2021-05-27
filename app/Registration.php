@@ -576,6 +576,18 @@ public function getArtistDetail($artid,$type){
 
   }
 
+  public function getOverviewProfile($id){
+
+    $overview = DB::table('media')
+    ->where('contentProviderid',$id)
+    ->where('profile_video','yes')
+    ->get()
+    ->toArray();
+
+    return $overview;
+
+  }
+
   public function UpdateMediaNotification($artid){
     $session_data =   Session::get('User');
     $user = $session_data->id;
@@ -2407,13 +2419,21 @@ public function PopularVideos($flag,$type){
       if($flag=='No'){
 
         $videos=DB::table('media') 
-        ->leftjoin('popular','popular.mediaid','=','media.id')
-        ->select('media.*')
-        ->orWhere('popular.type',$type)
-        ->orWhere('media.is_deleted',0)
+          ->leftjoin('popular', function($join)
+        {
+            $join->on('popular.mediaid', '=', 'media.id')
+                 ->where('popular.type', '=', $type);
+        })
+        ->where('media.is_deleted',0)
         ->orderBy('popular.count','desc')
-        ->take(3)
+        ->select('media.*')
         ->get()
+        //->orWhere('popular.type',$type)
+       // ->orWhere('media.is_deleted',0)
+        //->orderBy('popular.count','desc')
+        //->distinct('media.id')
+        //->take(3)
+        //->get()
         ->toArray();
      // $videos = $videoId1 ? DB::table("media")->whereIn('id', $videoId1)->take(3)->get()->toArray(): DB::table("media")->take(3)->get()->toArray();
 
@@ -2421,11 +2441,14 @@ public function PopularVideos($flag,$type){
       else{
 
         $videos=DB::table('media') 
-       ->leftjoin('popular','popular.mediaid','=','media.id')
-        ->select('media.*')
-       ->orWhere('popular.type',$type)
-        ->orWhere('media.is_deleted',0)
+        ->leftjoin('popular', function($join)
+        {
+            $join->on('popular.mediaid', '=', 'media.id')
+                 ->where('popular.type', '=', $type);
+        })
+        ->where('media.is_deleted',0)
         ->orderBy('popular.count','desc')
+        ->select('media.*')
         ->paginate(30);
 
 
@@ -3126,6 +3149,7 @@ public function count_collection_items(){
         return DB::table('media')
         ->where('contentProviderid',$userid)
         ->where('profile_video','!=','yes')
+        ->where('is_deleted',0)
         ->get()->count();
 }
 
