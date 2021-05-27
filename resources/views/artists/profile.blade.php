@@ -356,9 +356,7 @@ Your browser does not support the audio tag.
           <audio  poster="{{url('storage/app/public/uploads/'.$random->audio_pic) }}" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
                <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">          
           </audio>
-          @endif
-          
-                  
+          @endif                 
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
             </div>
