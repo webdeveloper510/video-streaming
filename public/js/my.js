@@ -2050,6 +2050,16 @@ function edit_offer(data) {
     $('.chooseImage #filename').text(json_info.audio_pic);
     $('.file_input #ilename').text(json_info.media);
 
+    if(json_info.type=='video'){
+        $('.thumbnail1').text('Video Thumbnail');
+        $('.label12').text('Overview Video (~30s)');
+    }
+
+    else{
+        $('.thumbnail1').text('Audio Thumbnail');
+        $('.label12').text('Overview Audio (~30s)');
+    }
+
     $('.' + json_info.type).show();
     $('#select_status').val(json_info.offer_status).attr("selected", "selected");
     $('#quality').val(json_info.quality).attr("selected", "selected");

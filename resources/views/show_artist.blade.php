@@ -376,10 +376,6 @@
 					
 
 							
-
-<section>
-
-</section>
 <style>
 section.showartist {
     background: black;
