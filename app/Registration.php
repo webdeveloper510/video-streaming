@@ -576,6 +576,18 @@ public function getArtistDetail($artid,$type){
 
   }
 
+  public function getOverviewProfile($id){
+
+    $overview = DB::table('media')
+    ->where('contentProviderid',$id)
+    ->where('profile_video','yes')
+    ->get()
+    ->toArray();
+
+    return $overview;
+
+  }
+
   public function UpdateMediaNotification($artid){
     $session_data =   Session::get('User');
     $user = $session_data->id;
