@@ -178,7 +178,7 @@
                                 
                                 <div class="post">
                                     <h3>Description for the Post :</h3>
-
+.
                                     <p>{{$info->description}}</p>
                                     <div class="text-right mr-3">
                                         <button class="btn btn-outline-primary" type="button">Copy</button>
@@ -243,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     @endforeach
                 </div>
             </div>
