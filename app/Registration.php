@@ -3126,6 +3126,7 @@ public function count_collection_items(){
         return DB::table('media')
         ->where('contentProviderid',$userid)
         ->where('profile_video','!=','yes')
+        ->where('is_deleted',0)
         ->get()->count();
 }
 

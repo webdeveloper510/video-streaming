@@ -43,6 +43,8 @@ class AppServiceProvider extends ServiceProvider
 
 
                $data=Session::get('User');
+               
+               //print_r($data);die;
 
                $isActive = true;
 

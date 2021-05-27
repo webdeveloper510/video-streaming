@@ -558,23 +558,26 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="audio" <?php echo e($random[0]->type=='audio' ? 'checked': ''); ?>/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>   
-          <div class="col-md-12 mt-3 text-white file" style="display:none;">
-            <?php echo e(Form::label('Choose Media', 'Choose Media',['class'=>'custom-file-label label12'])); ?>
+          <div class="col-md-12 mt-3 text-white file" style="<?php echo e($random[0]->type!='' ? 'display:block' : 'display:none'); ?>">
+            <?php echo e(Form::label('Choose Media', $random[0]->type=='audio' ? 'Overview  Audio (~30s)' : 'Overview Video (~30s)',['class'=>'custom-file-label label12'])); ?>
 
             <br> 
                 <?php echo e(Form::file('media',['class'=>'custom-file-input file_input'])); ?>
 
-                <span id="filename" style="color:#767605;"></span>
+                <span id="filename" style="color:#767605;"><?php echo e($random[0]->media); ?></span>
             </div>
-            <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">
-            <?php echo e(Form::label('', '',['class'=>'custom-file-label thumbnail1'])); ?> 
+            <div class="col-md-12 mt-3 text-white thumbnail" style="<?php echo e($random[0]->type!='' ? 'display:block' : 'display:none'); ?>">
+            <?php echo e(Form::label('', $random[0]->type=='audio' ? 'Audio Thumbnail' : 'Video Thumbnail',['class'=>'custom-file-label thumbnail1'])); ?> 
                 <?php echo e(Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])); ?>
 
-                <span id="filename" style="color:#767605;"></span>
+                <span id="filename" style="color:#767605;"><?php echo e($random[0]->audio_pic); ?></span>
             </div>
             <input type="hidden" value="<?php echo e($random[0]->id); ?>" name="hid"/>
             <input type="hidden" name="type" value="<?php echo e($random[0]->type); ?>"/>
             <input type="hidden" name="media_url" value="<?php echo e($random[0]->media); ?>"/>
+            <input type="hidden" name="created_at" value="" class="created_at"/>
+
+<input type="hidden" name="updated_at" value="" class="updated_at"/>
              <input type="hidden" name="image_url" value="<?php echo e($random[0]->audio_pic); ?>"/>
 
           
