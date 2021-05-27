@@ -2412,8 +2412,8 @@ $(document).ready(function () {
             
         ],
         "createdRow": (row, data, dataIndex) => {
-
-            console.log(data);
+       
+            console.log(data.status);
             if(data.status=='new')
             {
                 $('td', row).eq(5).addClass('green');           
