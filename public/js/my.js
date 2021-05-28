@@ -147,8 +147,12 @@ $(document).ready(function () {
 
             }, {
                 'data': 'type'
-            }, {
-                'data': 'choice'
+            }, 
+            {
+                'data': 'choice',
+                render: function (data, type, row) {
+                        return  data + ' Minute(s)';
+                     }
             },
              {
                 'data': 'delieveryspeed',
@@ -2398,9 +2402,14 @@ $(document).ready(function () {
                 'data': 'title'
             }, {
                 'data': 'type'
-            }, {
-                'data': 'choice'
-            }, {
+            }, 
+            {
+                'data': 'choice',
+                render: function (data, type, row) {
+                    return  data + ' Minute(s)';
+                 }
+            }, 
+            {
                 'data': 'nickname'
             }, 
             {
