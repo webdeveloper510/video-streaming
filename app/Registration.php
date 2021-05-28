@@ -655,16 +655,14 @@ public function getArtistDetail($artid,$type){
   }
 
   public function getArtistOffer($artistId,$user){
-
     $offer=DB::table('offer')
     ->leftjoin('category', 'category.id', '=','offer.categoryid')
     ->leftjoin('subscriber','subscriber.artistid','=','offer.artistid')
     ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','offer.id')
      ->select('offer.*', 'category.category','subscriber.count','media_seen_notification.is_seen as notificationseen','media_seen_notification.type as notiType');  
-
      if($user=='customer'){
 
-      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online'));
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online','offer.by_created'=>1));
 
      }
      else{
