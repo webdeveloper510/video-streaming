@@ -7,7 +7,7 @@
 <!-- <h5>Audio/Video</h5> -->
 <h3>{{$offer[0]->nickname}} <i class="fa fa-star"></i>  {{$offer[0]->count}} </h3>
 </div>
-<p>Sample</p>
+
 @foreach($offer as $offerdata)
 <?php 
 $GLOBALS['id'] = $offerdata->id;
