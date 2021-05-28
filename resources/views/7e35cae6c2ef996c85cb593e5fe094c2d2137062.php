@@ -106,7 +106,7 @@
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
-            </a>
+            </a> 
           </li>
       
           <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
@@ -155,7 +155,7 @@
 
           </li> -->
           
-        </ul>
+        </ul> 
       </div>
         </div> 
 
@@ -281,11 +281,6 @@
                 
                   <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : '1'); ?> </p>
                   </div>
-                
-                  
-           
-         
-      
      
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
@@ -318,7 +313,15 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
-
+.red{
+  color:red !important;
+}
+.green{
+  color:green !important;
+}
+.orange{
+  color:orange !important;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 

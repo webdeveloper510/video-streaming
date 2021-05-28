@@ -106,7 +106,7 @@
             <a class="nav-link" href="{{url('artist/contentUpload')}}">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
-            </a>
+            </a> 
           </li>
       
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
@@ -155,7 +155,7 @@
 
           </li> -->
           
-        </ul>
+        </ul> 
       </div>
         </div> 
 
@@ -281,11 +281,6 @@
                 
                   <p> Lvl{{$levelData ? $levelData[0]->id+1-1 : '1'}} </p>
                   </div>
-                
-                  
-           
-         
-      
      
            @if($artistProfile[0]->profilepicture)
             <img width="50px" height="50px" src="{{url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)}}">
@@ -318,7 +313,15 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
-
+.red{
+  color:red !important;
+}
+.green{
+  color:green !important;
+}
+.orange{
+  color:orange !important;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
