@@ -2398,9 +2398,11 @@ $(document).ready(function () {
                 'orderable': false,
                 'data': null,
                 'defaultContent': ''
-            }, {
-                'data': 'title'
-            }, {
+            },
+             {
+            'data': 'title'
+            }, 
+            {
                 'data': 'type'
             }, 
             {
