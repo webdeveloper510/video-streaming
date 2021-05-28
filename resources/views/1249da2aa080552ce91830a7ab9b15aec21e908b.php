@@ -182,7 +182,7 @@
                </form></div>
                
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" class="hover" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
