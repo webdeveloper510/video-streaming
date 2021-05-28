@@ -1581,6 +1581,7 @@ public function getRefersArtist($id){
          ->select('notification.*', 'users.*','profiletable.profilepicture')
          ->where('notification.notificationfor',$user)
          ->orWhere('notification.notificationfor','addedVideo')
+         ->orderby('notification.id','desc')
          ->get()->toArray();
       }
       else{
@@ -1588,6 +1589,8 @@ public function getRefersArtist($id){
         ->leftjoin('contentprovider', 'notification.artistid', '=','contentprovider.id')
          ->select('notification.*', 'contentprovider.*')
          ->where('notification.notificationfor',$user)
+         ->orderby('notification.id','desc')
+
          ->get()->toArray();
       }
 
