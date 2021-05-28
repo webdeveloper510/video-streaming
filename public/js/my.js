@@ -172,7 +172,7 @@ $(document).ready(function () {
             {
                 'data': 'status',
                 render:function(data,type,row){
-                    if(data=='cancel'){
+                    if(data=='cancelled'){
                         $('#model_text').html(row.reason_of_cancel);
                         return "<u><a href='#' data-toggle='modal' data-target='#Cancelled'>"+data+"</a></u>"
                     }
@@ -1646,7 +1646,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
 });
 
-$(document).on('click', '.popup_not', function (event) {
+$(document).on('click', '.popup_notification', function (event) {
     event.preventDefault();
     $.ajax({
         type: 'POST',
