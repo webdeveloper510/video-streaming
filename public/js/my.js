@@ -147,8 +147,12 @@ $(document).ready(function () {
 
             }, {
                 'data': 'type'
-            }, {
-                'data': 'choice'
+            }, 
+            {
+                'data': 'choice',
+                render: function (data, type, row) {
+                        return  data + ' Minute(s)';
+                     }
             },
              {
                 'data': 'delieveryspeed',
@@ -2394,13 +2398,22 @@ $(document).ready(function () {
                 'orderable': false,
                 'data': null,
                 'defaultContent': ''
-            }, {
-                'data': 'title'
-            }, {
+            },
+             {
+            'data': 'title'
+            }, 
+            {
                 'data': 'type'
-            }, {
-                'data': 'choice'
-            }, {
+            }, 
+            {
+                'data': 'choice',
+                render: function (data, type, row) {
+
+                    return  data + ' Minute(s)';
+
+                 }
+            }, 
+            {
                 'data': 'nickname'
             }, 
             {
@@ -2423,7 +2436,7 @@ $(document).ready(function () {
         ],
         "createdRow": (row, data, dataIndex) => {
        
-            console.log(data.status);
+            //console.log(data.status);
             if(data.status=='new')
             {
                 $('td', row).eq(5).addClass('green');           
@@ -2453,12 +2466,17 @@ $(document).ready(function () {
 
         if (row.child.isShown()) {
             // This row is already open - close it
+
+            console.log('ddd');
+
             row
                 .child
                 .hide();
             tr.removeClass('shown');
         } else {
             // Open this row
+            console.log('ddd');
+
             row
                 .child(format(row.data(), 'offer'))
                 .show();

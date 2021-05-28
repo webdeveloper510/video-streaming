@@ -177,7 +177,7 @@
                </form></div>
                
                <a href="{{url('artistVideo/'.$detail->id)}}">
-            <video width="100%" class="hover" poster="{{url('storage/app/public/uploads/'.$detail->audio_pic) }}"  id="collection_{{$detail->id}}"   controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" poster="{{url('storage/app/public/uploads/'.$detail->audio_pic) }}"  id="collection_{{$detail->id}}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
                 
                 Your browser does not support the tag.

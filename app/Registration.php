@@ -655,16 +655,14 @@ public function getArtistDetail($artid,$type){
   }
 
   public function getArtistOffer($artistId,$user){
-
     $offer=DB::table('offer')
     ->leftjoin('category', 'category.id', '=','offer.categoryid')
     ->leftjoin('subscriber','subscriber.artistid','=','offer.artistid')
     ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','offer.id')
      ->select('offer.*', 'category.category','subscriber.count','media_seen_notification.is_seen as notificationseen','media_seen_notification.type as notiType');  
-
      if($user=='customer'){
 
-      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online'));
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online','offer.by_created'=>1));
 
      }
      else{
@@ -889,9 +887,9 @@ public function getRespectedSub($data){
       
       $data = \DB::table("offer")
       ->select("contentprovider.nickname","offer.reason_of_cancel","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(offer.created_at) as created_at"))
-      ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
-      ->join("contentprovider","contentprovider.id","=","offer.artistid")
-      ->join('reserved_tokens','reserved_tokens.userid','=','offer.userid')
+      ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
+      ->leftjoin("contentprovider","contentprovider.id","=","offer.artistid")
+      ->leftjoin('reserved_tokens','reserved_tokens.userid','=','offer.userid')
       ->where('offer.userid',$userid)
       ->orderby('offer.id','desc')
       ->groupBy("offer.id","offer.title","offer.reason_of_cancel","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","category.category","offer.status","contentprovider.nickname");
@@ -1583,6 +1581,7 @@ public function getRefersArtist($id){
          ->select('notification.*', 'users.*','profiletable.profilepicture')
          ->where('notification.notificationfor',$user)
          ->orWhere('notification.notificationfor','addedVideo')
+         ->orderby('notification.id','desc')
          ->get()->toArray();
       }
       else{
@@ -1590,6 +1589,8 @@ public function getRefersArtist($id){
         ->leftjoin('contentprovider', 'notification.artistid', '=','contentprovider.id')
          ->select('notification.*', 'contentprovider.*')
          ->where('notification.notificationfor',$user)
+         ->orderby('notification.id','desc')
+
          ->get()->toArray();
       }
 
@@ -3416,7 +3417,7 @@ public function customer_issue($data){
       //print_r($offer_data);die;
 
       $update_offer = array(
-        'status'=>'cancel',
+        'status'=>'cancelled',
         'reason_of_cancel'=>$data['reason'].','.$data['reason_cancel']
       );
 

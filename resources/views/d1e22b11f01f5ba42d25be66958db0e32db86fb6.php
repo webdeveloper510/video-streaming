@@ -441,7 +441,7 @@
 
     </div>
 </div>
-
+ 
 <br/><br/>
 
 <!--End 1st slider-->
@@ -947,7 +947,7 @@
     z-index: -1;
     display: block;
     visibility: visible;
-}
+} 
 
 /* left or forward direction */
 .active.carousel-item-left + .carousel-item-next.carousel-item-left,
