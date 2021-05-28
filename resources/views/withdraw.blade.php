@@ -94,7 +94,7 @@
       
       <th scope="col">lvl3</th>
       <th scope="col"><span style="color:gold;font-size: 16px;">50k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span> earned </th>
-      <th scope="col">Payout</th>
+      <th scope="col">Bonus</th>
     </tr>
   </thead>
   <tbody>
@@ -119,7 +119,7 @@
     <div class=" invitedbox">
     <div class="card" >
         <div class="text-center">
-       <h3>Total Bonus Payout :  <b style="color:gray;"> $ 0{{$passive_income[0]->passive}} USD </b></h3>
+       <h3>Total Bonus  :  <b style="color:gray;"> $ 0{{$passive_income[0]->passive}} USD </b></h3>
             </div>
   <div class="card-body">
     <h5 class="card-title text-center">Customer Invitations
@@ -131,7 +131,7 @@
       <th scope="col">Artists invited</th>
       <th scope="col">lvl3</th>
       <th scope="col"><span style="color:gold;font-size: 16px;">50k <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span> earned </th>
-      <th scope="col">Payout</th>
+      <th scope="col">Bonus</th>
     </tr>
   </thead>
   <tbody>
