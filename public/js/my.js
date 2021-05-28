@@ -1253,7 +1253,7 @@ $(document).on('click', '#forgetLink', function () {
 });
 
 function editVideoinfo(data) {
-    var json_info = JSON.parse(data);
+    var json_info = data;
     var type = json_info.type;
     $('.video_title').val(json_info.title)
     $('#mediaid').val(json_info.id)

@@ -189,7 +189,7 @@
             
                 </a>
                 <div class="edit">
-                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('{{json_encode($detail)}}')">Edit</button>
+                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo({{json_encode($detail)}})">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" img-src="{{$detail->audio_pic}}" data-url="{{$detail->media}}" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>               
