@@ -2398,15 +2398,19 @@ $(document).ready(function () {
                 'orderable': false,
                 'data': null,
                 'defaultContent': ''
-            }, {
-                'data': 'title'
-            }, {
+            },
+             {
+            'data': 'title'
+            }, 
+            {
                 'data': 'type'
             }, 
             {
                 'data': 'choice',
                 render: function (data, type, row) {
+
                     return  data + ' Minute(s)';
+
                  }
             }, 
             {
