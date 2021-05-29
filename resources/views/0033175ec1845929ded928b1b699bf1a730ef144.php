@@ -12,6 +12,9 @@
         <i class="fa fa-camera image" data-id="cover_photo"></i>
 
         </div>
+        <div class="verify text-center">
+                  <h3>verifying</h3>
+               </div>
         <div style="display:none">
         <?php echo Form::open(['id'=>'filechange','method' => 'post', 'files'=>true]); ?>
 
@@ -177,8 +180,9 @@
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
                </form></div>
+               
                <a href="<?php echo e(url('artistVideo/'.$detail->id)); ?>">
-            <video width="100%" class="hover" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" class="hoverVideo" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>"  id="collection_<?php echo e($detail->id); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the tag.
@@ -194,7 +198,7 @@
             
                 </a>
                 <div class="edit">
-                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo('<?php echo e(json_encode($detail)); ?>')">Edit</button>
+                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#media" onclick="editVideoinfo(<?php echo e(json_encode($detail)); ?>)">Edit</button>
                
                 <button class="btn btn-sm btn-light delete" table="media" img-src="<?php echo e($detail->audio_pic); ?>" data-url="<?php echo e($detail->media); ?>" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>               
@@ -349,18 +353,16 @@ Your browser does not support the audio tag.
         <div class="col-md-8 col-sm-8 col-lg-8">
        
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
-            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" controlsList="nodownload" disablePictureInPicture>
+            <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" controls List="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
           <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://static.vecteezy.com/system/resources/thumbnails/000/097/181/small/free-black-leather-vector.jpg'); ?>" width="100%;">
-          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controlsList="nodownload" disablePictureInPicture>
+          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
                <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
           </audio>
-          <?php endif; ?>
-          
-                  
+          <?php endif; ?>                 
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
             </div>
