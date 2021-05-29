@@ -3414,7 +3414,7 @@ public function customer_issue($data){
       //print_r($offer_data);die;
 
       $update_offer = array(
-        'status'=>'cancel',
+        'status'=>'cancelled',
         'reason_of_cancel'=>$data['reason'].','.$data['reason_cancel']
       );
 
