@@ -1646,7 +1646,7 @@ $(document).on('submit', '#form_sub', function (event) {
 
 });
 
-$(document).on('click', '.popup_not', function (event) {
+$(document).on('click', '.popup_notification', function (event) {
     event.preventDefault();
     $.ajax({
         type: 'POST',

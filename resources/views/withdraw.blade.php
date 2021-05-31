@@ -1,9 +1,45 @@
 @include('artists.dashboard')
 <link rel="stylesheet" href="{{asset('design/withdraw.css')}}" />
 <section class="background1">
+         
+
         <div class="row">
           <div class="col"></div>
           <div class="col-lg-10">
+          <div class="card">
+            <div clas="card-header">
+               <h3>Payout to your Account </h3>
+            </div>
+            <div class="card-body">
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Period</th>
+                    <th scope="col">Method</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
