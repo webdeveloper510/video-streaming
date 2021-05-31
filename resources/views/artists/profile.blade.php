@@ -68,7 +68,7 @@
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
         <div class="verify text-center">
-                  <h3>verifying</h3>
+                  <h3>Verifying...</h3>
                </div>
           @if($offer->type=='video')
         <video width="100%"  poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}"   controlsList="nodownload" disablePictureInPicture>
@@ -152,9 +152,7 @@
         <div class="col"> <h2>Collection</h2></div>
         <div class="col"></div>
         <div class="col-md-4 text-right">
-        <div class="verifyvideo text-center">
-                  <h3>verifying</h3>
-               </div>
+       
             <!-- <button type="button" class="btn btn-primary bardot">Choose</button> -->
       <select class="form-select form-control mt-3" id="change_section" aria-label="Default select example">
       <option selected value="all">All</option>
@@ -176,7 +174,7 @@
                    @if($detail->type=='video') 
             <div class="col-md-4 mb-3 ">
             <div class="verifyvideo text-center">
-                  <h3>verifying</h3>
+                  <h3>Verifying...</h3>
                </div>
                <div class="checkall" style="display:none">
                <form> 
@@ -237,7 +235,7 @@
 
 <div class="col-md-4 mb-3">
 <div class="verifyvideo text-center">
-                  <h3>verifying</h3>
+                  <h3>Verifying...</h3>
                </div>
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
