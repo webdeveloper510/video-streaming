@@ -644,7 +644,7 @@ class AuthController extends Controller
   public function providerContent(Request $request){
 
     $validator = \Validator::make($request->all(), [
-      'media' => $request->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,webm':'required|mimes:mp3',
+      //'media' => $request->radio=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,webm':'required|mimes:mp3',
       'description'=>'required|max:2000',
       'title'=>'required|max:30',
       'price'=>'required|max:50000',

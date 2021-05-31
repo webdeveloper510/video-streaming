@@ -172,7 +172,7 @@ $(document).ready(function () {
             {
                 'data': 'status',
                 render:function(data,type,row){
-                    if(data=='cancelled'){
+                    if(data=='cancel'){
                         $('#model_text').html(row.reason_of_cancel);
                         return "<u><a href='#' data-toggle='modal' data-target='#Cancelled'>"+data+"</a></u>"
                     }
@@ -2813,9 +2813,7 @@ if ($("#myForm").length > 0) {
             radio:{
                 required: true,
             },
-            media: {
-                required: true
-            },
+          
             thumbnail_pic:{
                 required: true
             },
@@ -2841,9 +2839,7 @@ if ($("#myForm").length > 0) {
              
 
             },
-            media:{
-                required: "Please Enter Media",
-            },
+          
             thumbnail_pic:{
                 required: "Please Enter Image",
             },
@@ -2903,8 +2899,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                  // console.log(response);
-                  //  return false;
+                 // console.log(response);
+                  // return false;
 
                     if (response.errors) {
 

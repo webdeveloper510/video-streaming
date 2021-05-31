@@ -54,6 +54,8 @@
 
             <input type="hidden" name="created_at" value="" class="created_at"/>
 
+                <input type="hidden" name="transloadit" value="" class="transloadit"/>
+                
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
          
@@ -244,6 +246,7 @@ section.background1 {
 // window.Robodog.form('#myForm', {
 //       statusBar: '#myForm .progress',
 //       waitForEncoding: false,
+//         modal: true,
 //       waitForMetadata: true,
 //      submitOnSuccess: false,
 //       alwaysRunAssembly: false,
@@ -311,107 +314,108 @@ section.background1 {
 //   }
 //  }
 // }).on('transloadit:assembly-created', (assembly) => {
-//       console.log(">>> onStart", assembly);
+//       //console.log(">>> onStart", assembly);
 //     })
 //     .on('upload-progress', (bytesIn, totalBytes) => {
-//       console.log(">>> onProgress", bytesIn, totalBytes);
+//      // console.log(">>> onProgress", bytesIn, totalBytes);
 //     })
 //     .on('transloadit:complete', (assembly) => {
 //       console.log('>> onSuccess: Assembly finished successfully with', assembly);
-//       callajax(assembly);
+//       $('.transloadit').val(assembly);
+//       //callajax(assembly);
 //     })
 //     .on('transloadit:assembly-executing', () => {
-//       console.log('>> Uploading finished!');
+//       //console.log('>> Uploading finished!');
 //     })
 //     .on('transloadit:upload', (uploadedFile) => {
-//       console.log('>> Upload added', uploadedFile);
+//      // console.log('>> Upload added', uploadedFile);
 //     })
 //     .on('transloadit:result', (stepName, result) => {
-//       console.log('>> Result added', stepName, result);
+//       //console.log('>> Result added', stepName, result);
 //     })
 //     .on('error', (error) => {
-//       console.log('>> Assembly got an error:', error);
+//       //console.log('>> Assembly got an error:', error);
 //       if (error.assembly) {
 //         console.log(`>> Assembly ID ${error.assembly.assembly_id} failed!`);
 //         console.log(error.assembly);
 //       }
 //     })
     
-//     function callajax(assembly){
-//              var form = $("#myForm");
-//             var formData = new FormData($(form)[0]);
-// 		     formData["assembly"] = assembly;
-//             $('.loader').show();
-//             $('.percentage').html('0');
-//             $.ajaxSetup({
-//                 headers: {
-//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//                 }
-//             });
-//             $.ajax({
-//                 url: APP_URL + "/postContent",
-//                 type: "POST",
-//                 data: formData,
-//                 processData: false,
-//                 contentType: false,
-//                 xhr: function () {
-//                     var xhr = $
-//                         .ajaxSettings
-//                         .xhr();
-//                     if (xhr.upload) {
-//                         xhr
-//                             .upload
-//                             .addEventListener('progress', function (event) {
-//                                 var percent = 0;
-//                                 var position = event.loaded || event.position;
-//                                 var total = event.total;
-//                                 if (event.lengthComputable) {
-//                                     percent = Math.ceil(position / total * 100);
-//                                 }
-//                                 $('#top_title').html('Uploding...' + percent + '%');
-//                                 $('.percentage').html(percent + '%');
-//                                 if (percent == 100) {
-//                                     $('.loader').hide();
-//                                 }
-//                             }, true);
-//                     }
-//                     return xhr;
-//                 },
-//                 success: function (response) {
+    function callajax(assembly){
+             var form = $("#myForm");
+            var formData = new FormData($(form)[0]);
+		     formData["assembly"] = assembly;
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/postContent",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (response) {
 
-//                     console.log(response);
-//                     return false;
+                    console.log(response);
+                    return false;
 
-//                     if (response.errors) {
+                    if (response.errors) {
 
-//                         jQuery.each(response.errors, function (key, value) {
-//                             jQuery('.alert-danger').show();
-//                             jQuery('.alert-danger').append('<p>' + value + '</p>');
-//                         });
-//                     } else {
-//                         $('.loader').hide();
-//                         //$('.percentage').hide();
-//                         if (response.status == 1) {
-//                             $('#success').show();
-//                             $('#success').html(response.messge);
+                        jQuery.each(response.errors, function (key, value) {
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').append('<p>' + value + '</p>');
+                        });
+                    } else {
+                        $('.loader').hide();
+                        //$('.percentage').hide();
+                        if (response.status == 1) {
+                            $('#success').show();
+                            $('#success').html(response.messge);
 
-//                             setTimeout(function () {
-//                                 location.reload();
-//                             }, 2000);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
 
-//                             // location.reload(); $('.popup_close').trigger('click');
+                            // location.reload(); $('.popup_close').trigger('click');
 
-//                         } else {
+                        } else {
 
-//                             $('#error').show();
-//                             $('#error').html(response.messge);
+                            $('#error').show();
+                            $('#error').html(response.messge);
 
-//                         }
+                        }
 
-//                     }
-//                 }
-//             });
-//     }
+                    }
+                }
+            });
+    }
 
 
 
