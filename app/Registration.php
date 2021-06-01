@@ -3266,7 +3266,12 @@ public function customer_issue($data){
 
 public function getNotVerifiedContent($table){
 
-        return DB::table($table)->where(array('is_verified'=>0,'is_deleted'=>0))->get()->toArray();
+         $data = DB::table($table)
+        ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
+        ->select('media.*','video_verified.team_user_id','video_verified.mediaid')
+        ->where(array('is_verified'=>0,'is_deleted'=>0))
+        ->get();
+        return $data;
 }
 
     public function deleteoffer($data){

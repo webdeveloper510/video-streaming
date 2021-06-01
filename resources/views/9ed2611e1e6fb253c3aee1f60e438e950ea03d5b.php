@@ -154,7 +154,7 @@
     </div>
     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-<div class="row media">
+<div class="row media" style="<?php echo e($is_not_veryfy->team_user_id == 2 || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
     <div class="col-md-4">
     <?php if($is_not_veryfy->type=='video'): ?>
     <video width="100%" controls>
