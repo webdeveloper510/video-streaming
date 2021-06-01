@@ -78,7 +78,7 @@
           <h3>Title : <?php echo e($is_not_veryfy->title); ?></h3>
           <p>Artist</p>
           <video width="100%" height="340" controls>
-          <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+          <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <p class="text-center">Trustlevel : <span>0</span></p>
