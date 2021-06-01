@@ -62,6 +62,8 @@
                 </div>
            </div>
        </div>
+
+
        <div class="modal fade" id="legal_<?php echo e($is_not_veryfy->id); ?>" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -97,7 +99,7 @@
       
     </div>
   </div>
-</div>
+
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
