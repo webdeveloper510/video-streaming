@@ -47,6 +47,10 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
+             <div class="float-right">
+             <button class="btn btn-primary" type="button">Start Review</button>
+
+             </div>
                 <h3> Report item title</h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
@@ -65,6 +69,10 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
+             <div class="float-right">
+             <button class="btn btn-primary" type="button">Start Review</button>
+
+             </div>
                 <h3> Report item title</h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
@@ -83,6 +91,10 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
+             <div class="float-right">
+             <button class="btn btn-primary" type="button">Start Review</button>
+
+             </div>
                 <h3> Report item title</h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
