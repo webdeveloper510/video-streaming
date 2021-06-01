@@ -305,9 +305,9 @@ class AuthController extends Controller
     }
     public function report_media()
     {
-     
+      $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      return view('report-media');
+      return view('report-media',['notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {
@@ -380,7 +380,7 @@ class AuthController extends Controller
 
               Session::forget('login_attempt');
 
-        return  $data['user']=='users' ?  redirect($redirect_url)->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
+        return  $data['user']=='users' ?  redirect('/')->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
 
             }
 

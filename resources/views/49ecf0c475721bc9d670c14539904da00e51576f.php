@@ -337,7 +337,18 @@
     padding-left: 6px;
     padding-right: 6px;
 }
+.verify.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-56%,-72%);
+}
 
+.verify.text-center h3 {
+    background: limegreen;
+    padding: 4px 19px;
+    color: white;
+}
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #ccc9c9; 
@@ -353,7 +364,31 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+.verify.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-56%,-72%);
+}
 
+.verify.text-center h3 {
+    background: limegreen;
+    padding: 4px 19px;
+    color: white;
+}
+
+.verifyvideo.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.verifyvideo.text-center h3 {
+    background: limegreen;
+    color: white;
+    padding: 5px 30px;
+}
 
 .leveltext.text-white {
     display: none;

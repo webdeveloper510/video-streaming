@@ -173,9 +173,9 @@
               @foreach ($details as $detail)
                    @if($detail->type=='video') 
             <div class="col-md-4 mb-3 ">
-            <div class="verifyvideo text-center">
+            <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
-               </div>
+            </div>
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
@@ -234,7 +234,7 @@
           @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
-<div class="verifyvideo text-center">
+<div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
    <div class="checkall" style="display:none"><form> 

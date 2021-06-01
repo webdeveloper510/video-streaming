@@ -364,7 +364,7 @@ class artist extends Controller
 
       // echo "<pre>";
 
-      // print_r($random);die;
+      // print_r($allArtistsVideo);die;
 
       $quality = $this->model->getQuality();
 
