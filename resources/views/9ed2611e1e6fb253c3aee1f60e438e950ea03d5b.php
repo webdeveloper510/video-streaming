@@ -39,38 +39,24 @@
           <button class="btn btn-outline-primary" data-toggle="modal" data-target="#legal" type="button">Start Reviewing</button>
       </div>
     </div>
+    <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
       <div class="row media">
           <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
           <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
             </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
            </div>
            <div class="col-md-8">
              <div class="reportitems">
-            
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" type="button">Start Review</button>
-                         <button class="btn btn-outline-primary" type="but ton">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
-                        </div>
-                </div>
-           </div>
-       </div>
-       <div class="row media">
-          <div class="col-md-4">
-          <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
-            </video>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-             
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" type="button">Start Review</button>
                          <button class="btn btn-outline-primary" type="button">Mark as legal</button>
@@ -79,27 +65,7 @@
                 </div>
            </div>
        </div>
-       <div class="row media">
-          <div class="col-md-4">
-          <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
-            </video>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-          
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" type="button">Start Review</button>
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
-                        </div>
-                </div>
-           </div>
-       </div>
-
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 
