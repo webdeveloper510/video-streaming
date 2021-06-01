@@ -145,7 +145,7 @@
           <div class="text-center">
                 <h3>In Queue : <span>0</span> </h3>
 
-                <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button">Start Reviewing</button>
+                <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button" >Start Reviewing</button>
           </div>
       </div>
       <div class="col-md-12 text-center my-4">
@@ -171,7 +171,7 @@
           <h3>{{$is_not_veryfy->title}}</h3>
           <p> {{$is_not_veryfy->description}} </p>
                <div class="text-right buttons">
-               <button class="btn btn-primary" data-toggle="modal" data-target="#legal_{{$is_not_veryfy->id}}" type="button">Start Review</button>
+               <button class="btn btn-primary " data-toggle="modal" data-target="#legal_{{$is_not_veryfy->id}}" type="button" onClick="startReviw({{$is_not_veryfy->id}})">Start Review</button>
                    <button class="btn btn-outline-primary" type="button">Mark as legal</button>
                     <button class="btn btn-outline-primary" type="button">illegal + delete</button>
                   </div>

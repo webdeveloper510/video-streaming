@@ -978,6 +978,8 @@ function getId(id) {
 
 }
 
+
+
 function getofferid(id, desc, userid) {
 
     $(".description").val(desc);
@@ -1430,6 +1432,7 @@ $(document).on('keyup', '.title', function () {
 
 })
 
+
 function updateRead() {
 
     var ids = $('#notids').val();
@@ -1534,6 +1537,29 @@ function getSrcUrl(a){
     $('#firstvideo').attr('src',src)
     $('.videodata video').get(0).play();
 }
+
+/**----------------------------------------------------------Start Reviewing------------------------------------------------------------------ */
+
+
+function startReviw(id){
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/verifyVideo",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data:{'videoid':id},
+
+        success: function (data) {
+
+            console.log(data);
+
+        }
+
+    });
+}
+
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    var listname = $('#exampleModalCenterTitle').text();

@@ -1855,4 +1855,14 @@ public function readNotification(Request $request){
                 //print_r($req->all());
       }
 
+      public function verifyMedia(Request $req){
+
+        //print_r($req->all());
+
+        $return = $this->model->insertVerifyMediaData($req->all());
+
+        return $return;
+
+      }
+
 }
