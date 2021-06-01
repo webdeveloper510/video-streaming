@@ -52,7 +52,7 @@
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                      <div class="text-right buttons">
-                     <button class="btn btn-primary" type="button">Start Review</button>
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
                          <button class="btn btn-outline-primary" type="but ton">Mark as legal</button>
                           <button class="btn btn-outline-primary" type="button">illegal + delete</button>
                         </div>
@@ -72,7 +72,7 @@
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                      <div class="text-right buttons">
-                     <button class="btn btn-primary" type="button">Start Review</button>
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
                          <button class="btn btn-outline-primary" type="button">Mark as legal</button>
                           <button class="btn btn-outline-primary" type="button">illegal + delete</button>
                         </div>
@@ -92,7 +92,7 @@
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
                      <div class="text-right buttons">
-                     <button class="btn btn-primary" type="button">Start Review</button>
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
                          <button class="btn btn-outline-primary" type="button">Mark as legal</button>
                           <button class="btn btn-outline-primary" type="button">illegal + delete</button>
                         </div>
