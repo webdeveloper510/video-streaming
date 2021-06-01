@@ -35,9 +35,6 @@
                 <h3>In Queue : <span>0</span>
           </div>
       </div>
-      <div class="col-md-12 text-center my-4">
-          <button class="btn btn-outline-primary" data-toggle="modal" data-target="#legal" type="button">Start Reviewing</button>
-      </div>
     </div>
     @foreach($notVerified as $is_not_veryfy)
 

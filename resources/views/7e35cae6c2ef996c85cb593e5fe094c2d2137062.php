@@ -385,7 +385,7 @@
 }
 
 .verifyvideo.text-center h3 {
-    background: lightgreen;
+    background: limegreen;
     color: white;
     padding: 5px 30px;
 }
