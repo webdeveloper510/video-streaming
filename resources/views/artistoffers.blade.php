@@ -127,24 +127,23 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                   <h2 class="text-center"> Order Successful!</h2>
-                   <p> You can check your order status anytime  under : My Order</p>
-
-                   <p><input type="checkbox" class="popup_notification" aria-label="Checkbox for following text input"> Do not show again</p>
-
+                      <h2 class="text-center"> Order Successful!</h2>
+                      <p> You can check your order status anytime  under : My Order</p>
+                      <p><input type="checkbox" class="popup_notification" aria-label="Checkbox for following text input"> 
+                            Do not show again
+                      </p>
                   </div>
-                  <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">Close</button>
-                  </div>
+                      <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">Close</button>
+                      </div>
                 </div>
               </div>
             </div>
 
 
-        @include('layouts.footer')6666
+        @include('layouts.footer')
 
         <script>
-        
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();

@@ -305,9 +305,9 @@ class AuthController extends Controller
     }
     public function report_media()
     {
-     
+      $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      return view('report-media');
+      return view('report-media',['notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {

@@ -3245,6 +3245,11 @@ public function customer_issue($data){
            return $done ? 1 : 0;
 }
 
+public function getNotVerifiedContent($table){
+
+        return DB::table($table)->where('is_verified',0)->get()->toArray();
+}
+
     public function deleteoffer($data){
 
       $session_data =   Session::get('User');
