@@ -57,6 +57,10 @@ class AppServiceProvider extends ServiceProvider
 
               $library = $model->libraryNotification();
 
+              echo "<pre>";
+
+              print_r($library);die;
+
             $tokens = $model->getUserData($userId);
 
              $artistData = $model->onlyArtistDetail($userId);
