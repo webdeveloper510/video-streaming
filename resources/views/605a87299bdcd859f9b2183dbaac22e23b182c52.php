@@ -14,7 +14,7 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-            <div class="text-left col-md-3">
+            <div class="text-left col-md-5 mb-3" >
           <select class="custom-select" id="inputGroupSelect01">
               <option selected>Choose Page...</option>
               <option value="1">Admin Panel</option>
