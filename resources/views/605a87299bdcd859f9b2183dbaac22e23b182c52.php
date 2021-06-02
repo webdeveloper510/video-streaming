@@ -14,11 +14,15 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-                <div class="row">
-                    <div class="col text-center ">
-                        <!-- <h1>Login</h1> -->
-                    </div>
-                </div>
+            <div class="text-left">
+          <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose Page...</option>
+              <option value="1">Admin Panel</option>
+              <option value="2">Content Review</option>
+              <option value="3">Social Media</option>
+              <option value="4">Support Team</option>
+            </select>
+          </div>
 
                 <?php if(session('error')): ?>
                 <div class="alert alert-danger" id="error">
