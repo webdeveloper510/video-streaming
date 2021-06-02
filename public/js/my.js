@@ -189,7 +189,7 @@ $(document).ready(function () {
     });
 
     // Add event listener for opening and closing details
-    $('#example2 tbody').on('click', 'td.details-control', function () {
+    $('#example2 tbody').on('click', 'td', function () {
         var tr = $(this).closest('tr');
         var row = table2.row(tr);
 
@@ -2490,7 +2490,7 @@ $(document).ready(function () {
         var row = table1.row(tr);
 
         if (row.child.isShown()) {
-            console.log('ssdssss');
+           // console.log('ssdssss');
 
             // This row is already open - close it
             row
