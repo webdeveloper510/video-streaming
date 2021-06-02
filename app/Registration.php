@@ -3247,7 +3247,7 @@ public function customer_issue($data){
 
 public function getNotVerifiedContent($table){
 
-        return DB::table($table)->where('is_verified',0)->get()->toArray();
+        return DB::table($table)->where(array('is_verified'=>0,'is_deleted'=>0))->get()->toArray();
 }
 
     public function deleteoffer($data){
