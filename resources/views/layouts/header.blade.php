@@ -1265,7 +1265,7 @@
                <input type='hidden' value="{{$addedLibrary->read}}" data="{{$count}}"/>
                <!-- <div class="noti-icon" style="{{ $count > 0 ? 'display: block' : 'display: none' }}"><p>{{$count}}</p></div--> 
                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
-               <div class="noti" style="{{ $count > 0 || $addedLibrary->read==0 ? 'display: block' : 'display: none' }}"></div>
+               <div class="noti" style="{{ $count > 0 || $addedLibrary->read=='0' ? 'display: block' : 'display: none' }}"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>

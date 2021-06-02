@@ -1314,7 +1314,7 @@
                <input type='hidden' value="<?php echo e($addedLibrary->read); ?>" data="<?php echo e($count); ?>"/>
                <!-- <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div--> 
                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
-               <div class="noti" style="<?php echo e($count > 0 || $addedLibrary->read==0 ? 'display: block' : 'display: none'); ?>"></div>
+               <div class="noti" style="<?php echo e($count > 0 || $addedLibrary->read=='0' ? 'display: block' : 'display: none'); ?>"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
