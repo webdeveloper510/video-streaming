@@ -42,7 +42,7 @@
           </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-   <div class="float-right">
+   <div class="float-right mr-3">
    <i class="material-icons">my_location</i>
    </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
