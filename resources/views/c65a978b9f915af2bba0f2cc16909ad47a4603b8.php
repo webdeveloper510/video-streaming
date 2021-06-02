@@ -42,8 +42,8 @@
           </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-   <div class="float-right">
-   <i class="material-icons">my_location</i>
+   <div class="float-right mr-3">
+   <a data-toggle="modal" data-target="#payment"><i class="material-icons">my_location</i></a>
    </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
       <div class="data">
@@ -61,7 +61,7 @@
          <h3> Lvl0 <small>(you save)</small>: 0%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-0); ?>%</span></h3>
-         <?php endif; ?>
+         <?php endif; ?>                                      
       </div>
   
        </span>
@@ -191,7 +191,31 @@
   <div class="col"></div>
    </div>
 </section>  
-       
+       <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
       <!-- End Navbar -->
      <style>
   .background1{
