@@ -154,7 +154,7 @@
     </div>
     @foreach($notVerified as $is_not_veryfy)
 
-<div class="row media" style="{{$is_not_veryfy->team_user_id == 2 || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'}}">
+<div class="row media" style="{{$is_not_veryfy->team_user_id == 1 || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'}}">
     <div class="col-md-4">
     @if($is_not_veryfy->type=='video')
     <video width="100%" controls>
