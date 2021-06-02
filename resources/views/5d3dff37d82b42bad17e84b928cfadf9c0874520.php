@@ -1310,6 +1310,7 @@
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <?php if($login): ?>
+
                
                <!-- <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div--> 
                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>

@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
 
               echo "<pre>";
 
-              print_r($library);die;
+              print_r($library->read);die;
 
             $tokens = $model->getUserData($userId);
 
