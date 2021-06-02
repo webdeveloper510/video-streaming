@@ -3,7 +3,7 @@
 <section class="background1">
          
 
-        <div class="row">
+        <div class="row mt-5 pt-2">
           <div class="col"></div>
           <div class="col-lg-10">
           <div class="card">
@@ -43,7 +43,7 @@
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
    <div class="float-right mr-3">
-   <a data-toggle="modal" data-target="#payment"><i class="material-icons">my_location</i></a>
+   <a style="cursor: pointer;" data-toggle="modal" data-target="#payment"><i class="material-icons">my_location</i></a>
    </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
       <div class="data">
@@ -221,6 +221,10 @@
   .background1{
     height:unset !important;
   }
+  .overlay1 {
+    margin-top: 7% !important;
+}
+
  </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
