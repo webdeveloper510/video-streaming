@@ -3222,6 +3222,13 @@ public function update_due_to_process($data){
 
 public function insertVerifyMediaData($data){
 
+    $exist = $this->selectDataById('mediaid','video_verified',$data['videoid']);
+
+    if(count($exist) > 0){
+
+    }
+
+    else{
     $verifyData = array(
 
       'created_at'=>now(),
@@ -3231,6 +3238,10 @@ public function insertVerifyMediaData($data){
     );
 
     return DB::table('video_verified')->insert($verifyData);
+
+
+  }
+
 
 }
 
@@ -3477,9 +3488,29 @@ public function getNotVerifiedContent($table){
 
       }
 
+  
 
     }
     
+    public function deleteFromVideoVerify($id){
+
+      return DB::table('video_verified')->where('mediaid',$id)->delete();
+
+}
+
+public function profileInfo($id){
+
+  return DB::table('contentprovider')
+  ->leftjoin('media', 'media.contentProviderid', '=', 'contentprovider.id')
+  ->select('contentprovider.*', 'media.*')
+  ->where('contentprovider.id',$id)
+  ->where('media.profile_video','yes')
+  ->get()
+  ->toArray();
+
+
+
+}
 
 
 }

@@ -189,7 +189,7 @@ $(document).ready(function () {
     });
 
     // Add event listener for opening and closing details
-    $('#example2 tbody').on('click', 'td.details-control', function () {
+    $('#example2 tbody').on('click', 'td', function () {
         var tr = $(this).closest('tr');
         var row = table2.row(tr);
 
@@ -1560,6 +1560,26 @@ function startReviw(id){
     });
 }
 
+function permit(id,status){
+    console.log(id);
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/isVerifiedOrNot",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data:{'videoid':id, 'bool':status},
+
+        success: function (data) {
+
+            console.log(data);
+
+        }
+
+    });
+}
+
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    var listname = $('#exampleModalCenterTitle').text();
@@ -2486,23 +2506,23 @@ $(document).ready(function () {
     });
 
     // Add event listener for opening and closing details
-    $('#example1 tbody').on('click', 'td.details-control', function () {
-        var tr = $(this).closest('tr');
+    $('#example1 tbody').on('click', 'td', function () {
+        console.log('yes');
+        var tr = $(this)
         var row = table1.row(tr);
 
         if (row.child.isShown()) {
+           // console.log('ssdssss');
+
             // This row is already open - close it
-
-            console.log('ddd');
-
             row
                 .child
                 .hide();
             tr.removeClass('shown');
         } else {
-            // Open this row
-            console.log('ddd');
+            console.log('sssddsdsss');
 
+            // Open this row
             row
                 .child(format(row.data(), 'offer'))
                 .show();

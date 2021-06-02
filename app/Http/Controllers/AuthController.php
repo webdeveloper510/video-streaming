@@ -316,6 +316,25 @@ class AuthController extends Controller
       return view('legal-notice');
     }
 
+    public function isVerifyOrNot(Request $req){
+
+      if($req->bool=='true'){
+        $is_verified = 1;
+      }
+      else{
+        $is_verified= -1;
+      }
+
+      $verify = array('is_verified'=>$is_verified);
+
+      $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
+
+      if($updated){
+          $this->model->deleteFromVideoVerify($req->videoid);
+      }
+
+    }
+
     public function subcat_video($subid){
      
 
@@ -416,12 +435,7 @@ class AuthController extends Controller
 
            $popularVideos = $this->model->PopularVideos($paginate='No','video');
 
-           $popularaudios = $this->model->PopularVideos($paginate='No','audio');
-           
-        //   echo "<pre>";
-           
-        //   print_r($popularVideos);die;
-      
+           $popularaudios = $this->model->PopularVideos($paginate='No','audio');      
 
           $newComes=$this->model->getNewComes();
 

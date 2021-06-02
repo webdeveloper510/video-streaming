@@ -154,7 +154,7 @@
     </div>
     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-<div class="row media" style="<?php echo e($is_not_veryfy->team_user_id == 2 || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
+<div class="row media" style="<?php echo e($is_not_veryfy->team_user_id == 1 || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
     <div class="col-md-4">
     <?php if($is_not_veryfy->type=='video'): ?>
     <video width="100%" controls>
@@ -201,10 +201,10 @@
 
   <div class="row">
     <div class="col-md-6 text-center">
-       <button class="btn btn-primary" type="button">Mark as legal</button>
+       <button class="btn btn-primary" type="button" oNClick="permit(<?php echo e($is_not_veryfy->id); ?>,true)">Permit</button>
     </div>
    <div class="col-md-6 text-center">
-      <button class="btn btn-primary" type="button">illegal + delete</button>
+      <button class="btn btn-primary" type="button" onClick="permit(<?php echo e($is_not_veryfy->id); ?>,false)">Deny</button>
    </div>
  </div>
  <p><b>Description :<?php echo e($is_not_veryfy->description); ?></b> ..........</p>
