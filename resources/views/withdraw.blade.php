@@ -42,6 +42,9 @@
           </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
+   <div class="float-right">
+          <i class="fa fa-location"></i>
+   </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
       <div class="data">
       @if($levelData)
