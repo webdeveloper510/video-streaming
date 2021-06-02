@@ -55,14 +55,10 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
-             <div class="float-right">
-             <button class="btn btn-primary" type="button">Start Review</button>
-
-             </div>
                 <h3><?php echo e($is_not_veryfy->title); ?></h3>
-                <p>
-                <?php echo e($is_not_veryfy->description); ?>, </p>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
                      <div class="text-right buttons">
+                     <button class="btn btn-primary" type="button">Start Review</button>
                          <button class="btn btn-outline-primary" type="button">Mark as legal</button>
                           <button class="btn btn-outline-primary" type="button">illegal + delete</button>
                         </div>
