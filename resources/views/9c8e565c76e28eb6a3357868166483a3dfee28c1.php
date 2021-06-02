@@ -62,6 +62,8 @@
                 </div>
            </div>
        </div>
+
+
        <div class="modal fade" id="legal_<?php echo e($is_not_veryfy->id); ?>" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -73,11 +75,10 @@
       </div>
       <div class="modal-body">
        <div class="data">
-          <h3>Title</h3>
+          <h3>Title : <?php echo e($is_not_veryfy->title); ?></h3>
           <p>Artist</p>
           <video width="100%" height="340" controls>
-          <source src="movie.mp4" type="video/mp4">
-          <source src="movie.ogg" type="video/ogg">
+          <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="video/mp4">
           Your browser does not support the video tag.
         </video>
         <p class="text-center">Trustlevel : <span>0</span></p>
@@ -90,14 +91,14 @@
             <button class="btn btn-primary" type="button">illegal + delete</button>
          </div>
        </div>
-       <p><b>Description :</b> ..........</p>
+       <p><b>Description :<?php echo e($is_not_veryfy->description); ?></b> ..........</p>
   </div>
   </div>
       </div>
       
     </div>
   </div>
-</div>
+
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
