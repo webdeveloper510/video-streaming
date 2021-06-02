@@ -61,9 +61,9 @@ class AppServiceProvider extends ServiceProvider
 
               $library = $model->libraryNotification();
 
-              echo "<pre>";
+              // echo "<pre>";
 
-              print_r($library->read);die;
+              // print_r($library->read);die;
 
             $tokens = $model->getUserData($userId);
 
