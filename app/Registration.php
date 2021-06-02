@@ -3220,6 +3220,20 @@ public function update_due_to_process($data){
 
 }
 
+public function insertVerifyMediaData($data){
+
+    $verifyData = array(
+
+      'created_at'=>now(),
+      'updated_at'=>now(),
+      'team_user_id'=>1,
+      'mediaid'=>$data['videoid']
+    );
+
+    return DB::table('video_verified')->insert($verifyData);
+
+}
+
 
 public function getSocialInfo($type){
 
