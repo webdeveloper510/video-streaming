@@ -63,7 +63,7 @@
            </div>
        </div>
 
-
+<!-- 
        <div class="modal fade" id="legal_{{$is_not_veryfy->id}}" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -97,7 +97,7 @@
       </div>
       
     </div>
-  </div>
+  </div> -->
 
 @endforeach
 
@@ -187,27 +187,71 @@
         
       </div>
     </div>
-    <div class="row media">
-          <div class="col-md-4">
-          <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
-            </video>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#deny" type="button">Start Review</button>
+    @foreach($notVerified as $is_not_veryfy)
 
-                         <button class="btn btn-outline-primary" type="button">deny</button>
-                          <button class="btn btn-outline-primary" type="button">Permit </button>
-                        </div>
-                </div>
-           </div>
-       </div>
+<div class="row media">
+    <div class="col-md-4">
+    @if($is_not_veryfy->type=='video')
+    <video width="100%" controls>
+      <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+      </video>
+      @else
+      <audio width="100%" controls>
+      <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+      </audio>
+      @endif
+     </div>
+     <div class="col-md-8">
+       <div class="reportitems">
+          <h3>{{$is_not_veryfy->title}}</h3>
+          <p> {{$is_not_veryfy->description}} </p>
+               <div class="text-right buttons">
+               <button class="btn btn-primary" data-toggle="modal" data-target="#legal_{{$is_not_veryfy->id}}" type="button">Start Review</button>
+                   <button class="btn btn-outline-primary" type="button">Mark as legal</button>
+                    <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                  </div>
+          </div>
+     </div>
+ </div>
+
+
+ <div class="modal fade" id="legal_{{$is_not_veryfy->id}}" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+ 
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+ <div class="data">
+    <h3>Title : {{$is_not_veryfy->title}}</h3>
+    <p>Artist</p>
+    <video width="100%" height="340" controls>
+    <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p class="text-center">Trustlevel : <span>0</span></p>
+
+  <div class="row">
+    <div class="col-md-6 text-center">
+       <button class="btn btn-primary" type="button">Mark as legal</button>
     </div>
+   <div class="col-md-6 text-center">
+      <button class="btn btn-primary" type="button">illegal + delete</button>
+   </div>
+ </div>
+ <p><b>Description :{{$is_not_veryfy->description}}</b> ..........</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+@endforeach
+
     </section>
   
   </div>
