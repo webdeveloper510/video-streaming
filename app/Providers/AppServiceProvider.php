@@ -36,9 +36,9 @@ class AppServiceProvider extends ServiceProvider
          
              $array = $model->getNotification();
 
-             echo "<pre>";
+            //  echo "<pre>";
 
-             print_r($array);die;
+            //  print_r($array);die;
 
              $notification = $array['notifications'];
            
@@ -61,9 +61,9 @@ class AppServiceProvider extends ServiceProvider
 
               $library = $model->libraryNotification();
 
-              // echo "<pre>";
+              echo "<pre>";
 
-              // print_r($library);die;
+              print_r($library);die;
 
             $tokens = $model->getUserData($userId);
 
