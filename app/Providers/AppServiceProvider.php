@@ -36,6 +36,10 @@ class AppServiceProvider extends ServiceProvider
          
              $array = $model->getNotification();
 
+             echo "<pre>";
+
+             print_r($array);die;
+
              $notification = $array['notifications'];
            
 
