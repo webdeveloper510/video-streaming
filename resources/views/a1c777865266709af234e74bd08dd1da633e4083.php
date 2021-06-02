@@ -1238,7 +1238,7 @@
 						<div class="navbar-nav">
 					
 		<a href="<?php echo e(url('/play/'.$addedLibrary->id)); ?>"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library
-    <div class="noti" style="<?php echo e($addedLibrary->read==0 ? 'display:block' : 'display:none'); ?>"></div></a>
+    <div class="noti" style="<?php echo e($addedLibrary->read=='0' ? 'display:block' : 'display:none'); ?>"></div></a>
     <a href="<?php echo e(url('/seeall1/orders')); ?>"  class="nav-item nav-link">
     <i style="font-size: 21px !important;" class="fa fa-list-alt" aria-hidden="true"></i> My Orders
     <?php if($login && $latestOffer): ?>
@@ -1310,10 +1310,11 @@
     <li class="nav-item dropdown" style="padding: 0px !important">
   <a class="nav-link text-white " href="javascript:;" id="navbarDropdownProfile" onclick="updateRead()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   <?php if($login): ?>
-               
+
+               <input type='hidden' value="<?php echo e($addedLibrary->read); ?>" data="<?php echo e($count); ?>"/>
                <!-- <div class="noti-icon" style="<?php echo e($count > 0 ? 'display: block' : 'display: none'); ?>"><p><?php echo e($count); ?></p></div--> 
                <i style="font-size: 27px !important;"   class="fa fa-bell" aria-hidden="true"></i>
-               <div class="noti" style="<?php echo e($count > 0 || $addedLibrary->read==0 ? 'display: block' : 'display: none'); ?>"></div>
+               <div class="noti" style="<?php echo e($count > 0 || $addedLibrary->read=='0' ? 'display: block' : 'display: none'); ?>"></div>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>

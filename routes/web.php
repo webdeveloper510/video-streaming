@@ -196,6 +196,8 @@ Route::post('orderVideo', 'AuthController@orderVideo');
 
 Route::post('updateStatus', 'AuthController@updateStatus');
 
+Route::post('isVerifiedOrNot','AuthController@isVerifyOrNot');
+
 Route::post('verifyVideo','AuthController@verifyMedia');
 
 Route::post('createList', 'AuthController@createList');
