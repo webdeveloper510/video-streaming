@@ -26,7 +26,7 @@
 
                 <div class="form-group">
 
-                    <?php echo e(Form::label('Username', 'Username')); ?>
+                    <?php echo e(Form::label('Username', '&#8204;')); ?>
 
                     <?php echo e(Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
 
@@ -48,7 +48,7 @@
                     </select>
           </div>
                 <div class="form-group">
-                    <?php echo e(Form::label('Password', 'Password')); ?>
+                    <?php echo e(Form::label('Password', '&#8204;')); ?>
 
                     <?php echo e(Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
