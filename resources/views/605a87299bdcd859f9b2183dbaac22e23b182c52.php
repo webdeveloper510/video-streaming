@@ -30,7 +30,7 @@
                 <input autocomplete="false" name="hidden" type="text" style="display:none;">
 
 
-                    <?php echo e(Form::label('Username', 'User&#8204;name')); ?>
+                    <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
 
                     <?php echo e(Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'false'])); ?>
 
@@ -52,7 +52,7 @@
                     </select>
           </div>
                 <div class="form-group">
-                    <?php echo e(Form::label('Password', 'Pas&#8204;sword')); ?>
+                    <?php echo e(Form::label('Password', 'P&#8204;assword')); ?>
 
                     <?php echo e(Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'false'])); ?>
 
