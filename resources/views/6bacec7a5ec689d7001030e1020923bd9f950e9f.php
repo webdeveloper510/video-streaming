@@ -240,7 +240,7 @@ If you believe you are being treated wrong, please reach out to us at <a href="m
 
 
 
-<div class="order">
+<div class="order">.
 <div class="row">
 <div class="col">
  <div class="descriptions">

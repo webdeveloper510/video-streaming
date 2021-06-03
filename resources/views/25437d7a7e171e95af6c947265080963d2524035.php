@@ -5,7 +5,7 @@
 
 <div class="row mt-5 pt-5 text-center">
   
-<div class="titleheader col-md-12" >
+<div class="titleheader col-md-12" style="<?php echo e($profileComplete > 0 ? 'display:none': 'display:block'); ?>">
      <h3><a href="<?php echo e(url('artist/Profile')); ?>" class="text-white">Please upload Media for your Profile Overview here....</a></h3>
 </div>
     <div class="col-md-3 mb-2">
@@ -14,7 +14,7 @@
     <div class="columesdashboard">
     <?php 
             $_GLOBEL['count'] =0;
-          ?>
+    ?>
           <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <?php if(date('Y-m-d')== $data->dates): ?>
                 <?php 
