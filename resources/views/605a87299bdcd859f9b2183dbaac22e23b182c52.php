@@ -26,9 +26,9 @@
 
                 <div class="form-group">
 
-                    <?php echo e(Form::label('Username', '&#8204;')); ?>
+                    <?php echo e(Form::label('Username', 'User&#8204;name')); ?>
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
@@ -48,9 +48,9 @@
                     </select>
           </div>
                 <div class="form-group">
-                    <?php echo e(Form::label('Password', '&#8204;')); ?>
+                    <?php echo e(Form::label('Password', 'Pas&#8204;sword')); ?>
 
-                    <?php echo e(Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control'])); ?>
 
                     <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
