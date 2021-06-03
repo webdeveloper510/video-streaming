@@ -14,7 +14,7 @@
     <div class="columesdashboard">
     <?php 
             $_GLOBEL['count'] =0;
-          ?>
+    ?>
           <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <?php if(date('Y-m-d')== $data->dates): ?>
                 <?php 

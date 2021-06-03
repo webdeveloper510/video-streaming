@@ -28,7 +28,7 @@
 
                     <?php echo e(Form::label('Username', 'User&#8204;name')); ?>
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'off'])); ?>
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'false'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Password', 'Pas&#8204;sword')); ?>
 
-                    <?php echo e(Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'off'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'false'])); ?>
 
                     <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
