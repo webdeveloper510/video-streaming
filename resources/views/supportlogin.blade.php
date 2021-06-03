@@ -14,38 +14,41 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-            <div class="text-left col-md-5 mb-3" >
-          <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose Page...</option>
-              <option value="1">Admin Panel</option>
-              <option value="2">Content Review</option>
-              <option value="3">Social Media</option>
-              <option value="4">Support Team</option>
-            </select>
-          </div>
+       
 
                 @if(session('error'))
                 <div class="alert alert-danger" id="error">
                     {{session('error')}}
                 </div>
-                @endif {!!Form::open(['action' => 'AuthController@postLogin', 'method' =>
-                'post'])!!}
+                @endif {!!Form::open(['action' => 'AuthController@pazLogin', 'method' =>
+                'post' ,'autocomplete'=>'off'])!!}
                 <div class="form-group">
-                    {{Form::label('Username', 'Username')}}
-                    {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
-                    @if($errors->first('email'))
+
+                    {{Form::label('Username', 'User&#8204;name')}}
+                    {{Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'false'])}}
+                    @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('email'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>
 
                     </div>
                     @endif
                 </div>
+
+                <div class="text-left col-md-5 mb-3" >
+                <select class="custom-select"autocomplete="off"  name="pagesUrl" id="inputGroupSelect01">
+                    <option selected>Choose Page...</option>
+                    <option value="admin">Admin Panel</option>
+                    <option value="content">Content Review</option>
+                    <option value="social">Social Media</option>
+                    <option value="support">Support Team</option>
+                    </select>
+          </div>
                 <div class="form-group">
-                    {{Form::label('Password', 'Password')}}
-                    {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
-                    @if($errors->first('password'))
+                    {{Form::label('Password', 'Pas&#8204;sword')}}
+                    {{Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'false'])}}
+                    @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('password'); ?>
+                        <?php echo $errors->first('data_password_field'); ?>
 
                     </div>
                     @endif
