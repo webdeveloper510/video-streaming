@@ -439,6 +439,8 @@ $data=$request->all();
 
 $get = $this->model->pazLogin($data);
 
+print_r($get);die;
+
 
 if($get==1 && $data['g-recaptcha-response']){
 
