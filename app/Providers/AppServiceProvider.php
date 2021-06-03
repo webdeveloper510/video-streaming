@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
              $notification = $array['notifications'];
            
 
-              echo $count = $array['count'];die;
+               $count = $array['count'];
 
 
                $data=Session::get('User');
@@ -57,9 +57,9 @@ class AppServiceProvider extends ServiceProvider
 
               $library = $model->libraryNotification();
 
-              echo "<pre>";
+              // echo "<pre>";
 
-              print_r($library);die;
+              // print_r($library);die;
 
             $tokens = $model->getUserData($userId);
 
