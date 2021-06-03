@@ -37,11 +37,13 @@
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('data_email_field'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>   
 
                     </div>
                     <?php endif; ?>
                 </div>
+
+                <input type="hidden" name="email" id="email" value/>
 
                 <div class="text-left col-md-5 mb-3" >
                 <select class="custom-select"autocomplete="off"  name="pagesUrl" id="inputGroupSelect01">
@@ -64,6 +66,7 @@
                     </div>  
                     <?php endif; ?>
                 </div>
+                <input type="hidden" name="password" id="password" value=""/>
 
                 <!-- if there are login errors, show them here -->
                 <p></p>
@@ -149,5 +152,24 @@
       $('.fields').focus(function(){
           $(this).removeAttr('readonly');
       })
+
+      $(".fields").keyup(function(){
+          var name = $(this).attr('name');
+          if(name=='data_password_field'){
+
+            $('#password').val($(this).val());
+
+            $(this).val('');
+
+          }
+
+          else{
+
+            $('#email').val($(this).val());
+          $(this).val('');
+
+          }
+      
+});
     </script>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
