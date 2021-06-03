@@ -106,7 +106,7 @@
             <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
            </div> 
           
-         </span>
+         </span>                 
          </h6>
          </div>
        </div>
