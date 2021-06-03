@@ -32,14 +32,9 @@
 
                     <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
 
-<<<<<<< HEAD
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])); ?>
-
-=======
                     <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','readonly','spellcheck'=>'false' ,'autocomplete'=>'off'])); ?>
 
->>>>>>> fa5aa32fefb8f015a2ce5684dd759fd16433ccf4
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_email_field'); ?>
