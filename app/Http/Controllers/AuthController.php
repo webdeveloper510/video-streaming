@@ -421,9 +421,9 @@ class AuthController extends Controller
 public function pazLogin(Request $request){
 
   $this->validate($request,[
-    'email'=>'required',
-    'email.required' => 'The User Email must be a valid email address.',
-    'password'=>'required',
+    'data_email_field'=>'required',
+    'data_email_field.required' => 'The User Email must be a valid email address.',
+    'data_password_field'=>'required',
 
 ]
 

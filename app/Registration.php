@@ -220,8 +220,8 @@ public function uploadContentData($userdata){
 public function pazLogin(){
 
   $value = DB::table('team_login')->where(array(
-    'email'=> $data['email'],
-    'password'=>md5($data['password'])))
+    'email'=> $data['data_email_field'],
+    'password'=>md5($data['data_password_field'])))
     ->get()
     ->first();
 

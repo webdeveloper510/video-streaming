@@ -32,7 +32,7 @@
                 'post' ,'autocomplete'=>'off'])!!}
                 <div class="form-group">
                     {{Form::label('Username', 'Username')}}
-                    {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
+                    {{Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
                     @if($errors->first('email'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('email'); ?>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     {{Form::label('Password', 'Password')}}
-                    {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
+                    {{Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])}}
                     @if($errors->first('password'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('password'); ?>

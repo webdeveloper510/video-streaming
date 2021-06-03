@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Username', 'Username')); ?>
 
-                    <?php echo e(Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
 
                     <?php if($errors->first('email')): ?>
                     <div class="alert alert-danger">
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Password', 'Password')); ?>
 
-                    <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
                     <?php if($errors->first('password')): ?>
                     <div class="alert alert-danger">
