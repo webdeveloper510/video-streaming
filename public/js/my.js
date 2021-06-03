@@ -2486,23 +2486,23 @@ $(document).ready(function () {
     });
 
     // Add event listener for opening and closing details
-    $('#example1 tbody').on('click', 'td.details-control', function () {
-        var tr = $(this).closest('tr');
+    $('#example1 tbody').on('click', 'td', function () {
+        console.log('yes');
+        var tr = $(this)
         var row = table1.row(tr);
 
         if (row.child.isShown()) {
+            console.log('ssdssss');
+
             // This row is already open - close it
-
-            console.log('ddd');
-
             row
                 .child
                 .hide();
             tr.removeClass('shown');
         } else {
-            // Open this row
-            console.log('ddd');
+            console.log('sssddsdsss');
 
+            // Open this row
             row
                 .child(format(row.data(), 'offer'))
                 .show();
