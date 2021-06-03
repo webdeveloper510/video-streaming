@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Password', 'P&#8204;assword')); ?>
 
-                    <?php echo e(Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'new-password'])); ?>
 
                     <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
