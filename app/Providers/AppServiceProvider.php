@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
              $notification = $array['notifications'];
            
 
-              $count = $array['count'];
+              echo $count = $array['count'];die;
 
 
                $data=Session::get('User');
