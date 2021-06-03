@@ -3,11 +3,11 @@
 <section class="background1">
          
 
-        <div class="row mt-5 pt-2">
+        <div class="row mt-5 ">
           <div class="col"></div>
-          <div class="col-lg-10">
+          <div class="col-lg-10 mt-4">
           <div class="card">
-            <div clas="card-header">
+            <div class="card-header text-center">
                <h3>Payout to your Account </h3>
             </div>
             <div class="card-body">
@@ -191,28 +191,21 @@
   <div class="col"></div>
    </div>
 </section>  
-       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
+      
 <!-- Modal -->
 <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Payment Method</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+               <button class="btn btn-primary" type="button">Save</button>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
