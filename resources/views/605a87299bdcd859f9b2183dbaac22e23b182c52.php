@@ -37,9 +37,9 @@
 
                     <?php echo e(Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
 
-                    <?php if($errors->first('email')): ?>
+                    <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('email'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>
 
                     </div>
                     <?php endif; ?>
@@ -49,9 +49,9 @@
 
                     <?php echo e(Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])); ?>
 
-                    <?php if($errors->first('password')): ?>
+                    <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('password'); ?>
+                        <?php echo $errors->first('data_password_field'); ?>
 
                     </div>
                     <?php endif; ?>
