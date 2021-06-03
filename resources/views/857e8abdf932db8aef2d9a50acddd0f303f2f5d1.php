@@ -14,18 +14,22 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-                <div class="row">
-                    <div class="col text-center ">
-                        <!-- <h1>Login</h1> -->
-                    </div>
-                </div>
+            <div class="text-left col-md-5 mb-3" >
+          <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choose Page...</option>
+              <option value="admin">Admin Panel</option>
+              <option value="content">Content Review</option>
+              <option value="social">Social Media</option>
+              <option value="support">Support Team</option>
+            </select>
+          </div>
 
                 <?php if(session('error')): ?>
                 <div class="alert alert-danger" id="error">
                     <?php echo e(session('error')); ?>
 
                 </div>
-                <?php endif; ?> <?php echo Form::open(['action' => 'AuthController@postLogin', 'method' =>
+                <?php endif; ?> <?php echo Form::open(['action' => 'AuthController@pazLogin', 'method' =>
                 'post']); ?>
 
                 <div class="form-group">

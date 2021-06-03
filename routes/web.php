@@ -199,6 +199,7 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 Route::post('isVerifiedOrNot','AuthController@isVerifyOrNot');
 
 Route::post('verifyVideo','AuthController@verifyMedia');
+Route::post('paz','AuthController@pazLogin');
 
 Route::post('createList', 'AuthController@createList');
 

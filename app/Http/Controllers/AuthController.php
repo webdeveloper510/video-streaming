@@ -417,6 +417,70 @@ class AuthController extends Controller
             }
 
       }
+
+public function pazLogin(Request $request){
+
+  $this->validate($request,[
+    'email'=>'required',
+    'email.required' => 'The User Email must be a valid email address.',
+    'password'=>'required',
+
+]
+
+);
+
+
+
+
+$data=$request->all();
+
+
+
+
+$get = $this->model->pazLogin($data);
+
+
+if($get==1 && $data['g-recaptcha-response']){
+
+  if($data['pagesUrl']=='admin'){
+
+    return redirect('/admin-panel');
+
+  }
+
+  if($data['pagesUrl']=='content'){
+
+    return redirect('/Content-review');
+
+
+  }
+  if($data['pagesUrl']=='social'){
+
+    return redirect('/Social-Media-Download');
+
+    
+  }
+  if($data['pagesUrl']=='support'){
+
+    return redirect('/support-team');
+
+    
+  }
+
+
+}
+
+else if($data['g-recaptcha-response']==''){
+
+   return redirect('/login')->with('captcha','invalid Captcha!!');
+}
+else{
+  return redirect('/login')->with('error','Invalid Email or Password!');
+
+}
+
+
+}
       public function home(){
 
         Session::forget('login_attempt');   

@@ -15,12 +15,12 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
             <div class="text-left col-md-5 mb-3" >
-          <select class="custom-select" id="inputGroupSelect01">
+          <select class="custom-select" name="pagesUrl" id="inputGroupSelect01">
               <option selected>Choose Page...</option>
-              <option value="1">Admin Panel</option>
-              <option value="2">Content Review</option>
-              <option value="3">Social Media</option>
-              <option value="4">Support Team</option>
+              <option value="admin">Admin Panel</option>
+              <option value="content">Content Review</option>
+              <option value="social">Social Media</option>
+              <option value="support">Support Team</option>
             </select>
           </div>
 
@@ -28,7 +28,7 @@
                 <div class="alert alert-danger" id="error">
                     {{session('error')}}
                 </div>
-                @endif {!!Form::open(['action' => 'AuthController@postLogin', 'method' =>
+                @endif {!!Form::open(['action' => 'AuthController@pazLogin', 'method' =>
                 'post'])!!}
                 <div class="form-group">
                     {{Form::label('Username', 'Username')}}
