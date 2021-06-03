@@ -32,7 +32,7 @@
 
                     <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'nope'])); ?>
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control autocomplete','autocomplete'=>'nope'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
@@ -54,7 +54,7 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Password', 'P&#8204;assword')); ?>
 
-                    <?php echo e(Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'nope'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control autocomplete','autocomplete'=>'nope'])); ?>
 
                     <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
@@ -140,4 +140,9 @@
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+    $('.autocomplete').val('');
+    </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>

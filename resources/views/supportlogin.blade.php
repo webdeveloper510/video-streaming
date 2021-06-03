@@ -29,7 +29,7 @@
 
 
                     {{Form::label('Username', 'U&#8204;sername')}}
-                    {{Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'nope'])}}
+                    {{Form::text('data_email_field', '',['class'=>'form-control autocomplete','autocomplete'=>'nope'])}}
                     @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_email_field'); ?>
@@ -49,7 +49,7 @@
           </div>
                 <div class="form-group">
                     {{Form::label('Password', 'P&#8204;assword')}}
-                    {{Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'nope'])}}
+                    {{Form::password('data_password_field',['class'=>'form-control autocomplete','autocomplete'=>'nope'])}}
                     @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_password_field'); ?>
@@ -132,4 +132,9 @@
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+    $('.autocomplete').val('');
+    </script>
