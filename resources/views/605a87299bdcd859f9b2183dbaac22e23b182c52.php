@@ -30,7 +30,7 @@
 
                 </div>
                 <?php endif; ?> <?php echo Form::open(['action' => 'AuthController@pazLogin', 'method' =>
-                'post' 'autocomplete'=>'off']); ?>
+                'post' ,'autocomplete'=>'off']); ?>
 
                 <div class="form-group">
                     <?php echo e(Form::label('Username', 'Username')); ?>
