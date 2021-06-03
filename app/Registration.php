@@ -3488,14 +3488,15 @@ public function getNotVerifiedContent($table){
 
       }
 
-public function deleteFromVideoVerify($id){
-
-      return DB::table('video_verified')->where('mediaid',$id)->delete();
-      
-}
+  
 
     }
     
+    public function deleteFromVideoVerify($id){
+
+      return DB::table('video_verified')->where('mediaid',$id)->delete();
+
+}
 
 
 }
