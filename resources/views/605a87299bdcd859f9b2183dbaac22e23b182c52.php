@@ -28,7 +28,7 @@
 
                     <?php echo e(Form::label('Username', 'User&#8204;name')); ?>
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control'])); ?>
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'off'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="text-left col-md-5 mb-3" >
-                <select class="custom-select" name="pagesUrl" id="inputGroupSelect01">
+                <select class="custom-select"autocomplete="off"  name="pagesUrl" id="inputGroupSelect01">
                     <option selected>Choose Page...</option>
                     <option value="admin">Admin Panel</option>
                     <option value="content">Content Review</option>
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Password', 'Pas&#8204;sword')); ?>
 
-                    <?php echo e(Form::password('data_password_field',['class'=>'form-control'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'off'])); ?>
 
                     <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
