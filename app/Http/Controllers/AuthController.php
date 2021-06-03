@@ -440,7 +440,7 @@ $data=$request->all();
 $get = $this->model->pazLogin($data);
 
 
-print_r($data);
+//print_r($data);
 
 
 if($get=='1' && $data['g-recaptcha-response']){
