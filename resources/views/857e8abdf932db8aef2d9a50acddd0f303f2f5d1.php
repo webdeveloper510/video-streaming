@@ -14,15 +14,7 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-            <div class="text-left col-md-5 mb-3" >
-          <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose Page...</option>
-              <option value="admin">Admin Panel</option>
-              <option value="content">Content Review</option>
-              <option value="social">Social Media</option>
-              <option value="support">Support Team</option>
-            </select>
-          </div>
+       
 
                 <?php if(session('error')): ?>
                 <div class="alert alert-danger" id="error">
@@ -30,30 +22,45 @@
 
                 </div>
                 <?php endif; ?> <?php echo Form::open(['action' => 'AuthController@pazLogin', 'method' =>
-                'post']); ?>
+                'post' ,'autocomplete'=>'off']); ?>
 
                 <div class="form-group">
-                    <?php echo e(Form::label('Username', 'Username')); ?>
+      
 
-                    <?php echo e(Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
+                <input autocomplete="false" name="hidden" type="text" style="display:none;">
 
-                    <?php if($errors->first('email')): ?>
+
+                    <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
+
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','autocomplete'=>'nope'])); ?>
+
+                    <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('email'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>
 
                     </div>
                     <?php endif; ?>
                 </div>
+
+                <div class="text-left col-md-5 mb-3" >
+                <select class="custom-select"autocomplete="off"  name="pagesUrl" id="inputGroupSelect01">
+                    <option selected>Choose Page...</option>
+                    <option value="admin">Admin Panel</option>
+                    <option value="content">Content Review</option>
+                    <option value="social">Social Media</option>
+                    <option value="support">Support Team</option>
+                    </select>
+          </div>
                 <div class="form-group">
-                    <?php echo e(Form::label('Password', 'Password')); ?>
+                    <?php echo e(Form::label('Password', 'P&#8204;assword')); ?>
 
-                    <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])); ?>
 
-                    <?php if($errors->first('password')): ?>
+                    <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('password'); ?>
+                        <?php echo $errors->first('data_password_field'); ?>
 
-                    </div>
+                    </div>  
                     <?php endif; ?>
                 </div>
 
@@ -133,4 +140,12 @@
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/supportlogin.blade.php ENDPATH**/ ?>
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+      $('.fields').focus(function(){
+          $(this).removeAttr('readonly');
+      })
+    </script>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/supportlogin.blade.php ENDPATH**/ ?>

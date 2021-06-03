@@ -32,7 +32,8 @@
 
                     <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control autocomplete','autocomplete'=>'nope'])); ?>
+
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
@@ -54,13 +55,13 @@
                 <div class="form-group">
                     <?php echo e(Form::label('Password', 'P&#8204;assword')); ?>
 
-                    <?php echo e(Form::password('data_password_field',['class'=>'form-control autocomplete','autocomplete'=>'nope'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])); ?>
 
                     <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_password_field'); ?>
 
-                    </div>
+                    </div>  
                     <?php endif; ?>
                 </div>
 
@@ -144,5 +145,9 @@
     </script>
 
     <script>
-    $('.autocomplete').val('');
-    </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
+
+      $('.fields').focus(function(){
+          $(this).removeAttr('readonly');
+      })
+    </script>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
