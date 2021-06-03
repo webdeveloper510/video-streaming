@@ -1560,6 +1560,26 @@ function startReviw(id){
     });
 }
 
+function permit(id,status){
+    console.log(id);
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/isVerifiedOrNot",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data:{'videoid':id, 'bool':status},
+
+        success: function (data) {
+
+            console.log(data);
+
+        }
+
+    });
+}
+
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    var listname = $('#exampleModalCenterTitle').text();
