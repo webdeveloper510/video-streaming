@@ -3498,5 +3498,19 @@ public function getNotVerifiedContent($table){
 
 }
 
+public function profileInfo($id){
+
+  return DB::table('contentprovider')
+  ->leftjoin('media', 'media.contentProviderid', '=', 'contentprovider.id')
+  ->select('contentprovider.*', 'media.*')
+  ->where('contentprovider.id',$id)
+  ->where('media.profile_video','yes')
+  ->get()
+  ->toArray();
+
+
+
+}
+
 
 }

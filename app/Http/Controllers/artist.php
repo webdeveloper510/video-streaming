@@ -248,6 +248,8 @@ class artist extends Controller
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
+      $profileComplete = $this->model->profileInfo($id);
+
       $social_names = $this->model->getSocialName($contentType->id);
       // echo "<pre>";
 
