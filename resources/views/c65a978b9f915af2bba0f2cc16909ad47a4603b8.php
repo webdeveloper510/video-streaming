@@ -203,6 +203,25 @@
         </button>
       </div>
       <div class="modal-body">
+
+
+      <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-6 col-form-label">Paxum Account</label>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-primary" type="button">Enter payout Information</button>
+              </div>
+            </div>
+          </form>
+          <p class="text-center my-3">OR</p>
+          <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-6 col-form-label">Bank Account</label>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-primary" type="button">Enter payout Information</button>
+              </div>
+            </div>
+          </form>
                <button class="btn btn-primary" type="button">Save</button>
       </div>
      
