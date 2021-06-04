@@ -305,9 +305,12 @@ class AuthController extends Controller
     }
     public function report_media()
     {
+
+      $sessionLogin = Session::get('pazLogin');
+
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      return view('report-media',['notVerified'=>$notVerifiedContent]);
+      return view('report-media',['teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {
