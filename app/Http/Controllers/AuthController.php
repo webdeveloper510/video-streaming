@@ -333,7 +333,11 @@ class AuthController extends Controller
       $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
 
       if($updated){
-          $this->model->deleteFromVideoVerify($req->videoid);
+        $verify = array('is_deleted'=>1);
+
+          $delete = $this->model->UpdateData('video_verified','mediaid',$verify,$req->videoid);
+
+          return $delete;
       }
 
     }

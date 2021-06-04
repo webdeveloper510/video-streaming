@@ -1573,8 +1573,12 @@ function permit(id,status){
 
         success: function (data) {
 
-            console.log(data);
-
+            if(data==1){
+                location.reload();
+            }
+            else{
+                alert('some error');
+            }
         }
 
     });
