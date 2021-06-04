@@ -214,12 +214,32 @@ public function uploadContentData($userdata){
             }
             return $return;
               }
-
-
-     
-  
-
         
+}
+
+public function pazLogin(){
+
+  $value = DB::table('team_login')->where(array(
+    'email'=> $data['email'],
+    'password'=>md5($data['password'])))
+    ->get()
+    ->first();
+
+    if(count($value) > 0){
+
+      Session::put('pazLogin',$value);
+
+      return 1;
+
+    }
+
+    else{
+
+      return 0;
+
+
+    }
+
 }
 
 // public function updateStatusDue(){
