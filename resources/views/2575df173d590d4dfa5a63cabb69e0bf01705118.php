@@ -31,7 +31,7 @@
                 justify-content: center;
             }
 
-            .position-ref {
+            .position-ref { 
                 position: relative;
             }
 

@@ -3,11 +3,11 @@
 <section class="background1">
          
 
-        <div class="row">
+        <div class="row mt-5 ">
           <div class="col"></div>
-          <div class="col-lg-10">
+          <div class="col-lg-10 mt-4">
           <div class="card">
-            <div clas="card-header">
+            <div class="card-header text-center">
                <h3>Payout to your Account </h3>
             </div>
             <div class="card-body">
@@ -42,8 +42,8 @@
           </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-   <div class="float-right">
-   <i class="material-icons">my_location</i>
+   <div class="float-right mr-3">
+   <a style="cursor: pointer;" data-toggle="modal" data-target="#payment"><i class="material-icons">my_location</i></a>
    </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
       <div class="data">
@@ -61,7 +61,7 @@
          <h3> Lvl0 <small>(you save)</small>: 0%</h3>
          <hr>
          <h3>Current Fee : <span>{{20-0}}%</span></h3>
-         @endif
+         @endif                                      
       </div>
   
        </span>
@@ -191,12 +191,33 @@
   <div class="col"></div>
    </div>
 </section>  
-       
+      
+<!-- Modal -->
+<div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Payment Method</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+               <button class="btn btn-primary" type="button">Save</button>
+      </div>
+     
+    </div>
+  </div>
+</div>
       <!-- End Navbar -->
      <style>
   .background1{
     height:unset !important;
   }
+  .overlay1 {
+    margin-top: 7% !important;
+}
+
  </style>
 
  @include('artists.dashboard_footer')
