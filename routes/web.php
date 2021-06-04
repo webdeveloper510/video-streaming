@@ -112,6 +112,8 @@ Route::post('libraryAdded', 'AuthController@addInLibrary');
 
 Route::post('subscribe','artist@subscribe');
 
+Route::post('report','AuthController@reportVideo');
+
 Route::post('personal_info','AuthController@personal_info');
 
 Route::post('resetPassword','AuthController@resetPassword');

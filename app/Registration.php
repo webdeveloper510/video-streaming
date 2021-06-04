@@ -3534,6 +3534,24 @@ public function getHistoryVerifiedContent($table){
 
 }
 
+
+public function insertReport($data){
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;  
+
+      $array = array(
+        'created_at'=>now(),
+        'updated_at'=>now(),
+        'userid'=>$userid,
+        'mediaid'=>$data['mediaid'],
+        'reason'=>$data['reason'],
+        'description'=>$data['description']
+      );
+      $insert =DB::table('report_media')->insert($array);
+      return $insert ? 1 : 0;
+}
+
 public function profileInfo($id){
 
   return DB::table('contentprovider')

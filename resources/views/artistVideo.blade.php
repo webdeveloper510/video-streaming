@@ -213,23 +213,28 @@
 	    <!-- Modal -->
 		<div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
+                  {!!Form::open(['id'=>'report','method' => 'post'])!!}
+                    {{Form::token()}}
+          
                     <div class="modal-content">
                       <div class="modal-header ">
                       <div class="row" style="width: 100%;">
                         <div class="col"></div>
                          <div class="col-md-8 my-3">
                             <div class="text-center">
-                                <select class="form-select form-control " aria-label="Default select example">
-                                  <option selected> Select Menu</option>
-                                  <option value="1">Harmful </option>
-                                  <option value="2">Underage</option>
-                                  <option value="3">Misleading </option>
-                                  <option value="7">Other</option>
-                                </select>
+                                        <select class="form-select form-control " required name="reason" aria-label="Default select example">
+                                        <option selected> Select Menu</option>
+                                        <option value="harmful">Harmful </option>
+                                        <option value="underage">Underage</option>
+                                        <option value="misleading">Misleading </option>
+                                        <option value="other">Other</option>
+                                        </select>
                               </div>
                           </div>
                           <div class="col"></div>
                           </div>
+
+                          <input type="hidden" name="mediaid" value="{{$vedioid}}"/>
                         
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                       </div>
@@ -237,11 +242,13 @@
                       
 
                         <label>Description</label>
-                        <textarea class="form-control"minlength="50" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                        <textarea class="form-control" name="description" minlength="50" required placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                       </div>
                       <div class="pb-3 pr-3 text-right">
-                      <button class="btn btn-primary" type="button">Submit</button></div>
+                          <div class="alert alert-success" id="show_message" style="display:none"></div>
+                      <button class="btn btn-primary" type="submit">Submit</button></div>
                     </div>
+                    {{ Form::close() }}
                     
                     </div>
                   </div>
