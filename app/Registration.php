@@ -217,7 +217,7 @@ public function uploadContentData($userdata){
         
 }
 
-public function pazLogin(){
+public function pazLogin($data){
 
   $value = DB::table('team_login')->where(array(
     'email'=> $data['data_email_field'],
