@@ -33,9 +33,9 @@
                 <div class="form-group">
                     {{Form::label('Username', 'Username')}}
                     {{Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
-                    @if($errors->first('email'))
+                    @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('email'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>
 
                     </div>
                     @endif
@@ -43,9 +43,9 @@
                 <div class="form-group">
                     {{Form::label('Password', 'Password')}}
                     {{Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])}}
-                    @if($errors->first('password'))
+                    @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('password'); ?>
+                        <?php echo $errors->first('data_password_field'); ?>
 
                     </div>
                     @endif

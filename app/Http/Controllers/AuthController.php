@@ -472,10 +472,10 @@ if($get==1 && $data['g-recaptcha-response']){
 
 else if($data['g-recaptcha-response']==''){
 
-   return redirect('/login')->with('captcha','invalid Captcha!!');
+   return redirect('/paz-Team-Login')->with('captcha','invalid Captcha!!');
 }
 else{
-  return redirect('/login')->with('error','Invalid Email or Password!');
+  return redirect('/paz-Team-Login')->with('error','Invalid Email or Password!');
 
 }
 
