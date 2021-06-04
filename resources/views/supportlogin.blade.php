@@ -23,7 +23,7 @@
                 @endif {!!Form::open(['action' => 'AuthController@pazLogin', 'method' =>
                 'post' ,'autocomplete'=>'off'])!!}
                 <div class="form-group">
-
+      
 
                 <input autocomplete="false" name="hidden" type="text" style="display:none;">
 
