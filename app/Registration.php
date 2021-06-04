@@ -3302,7 +3302,7 @@ public function getNotVerifiedContent($table){
          $data = DB::table($table)
         ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
         ->select('media.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
-        ->where(array('is_verified'=>0,'media.is_deleted'=>0))
+        ->where(array('media.is_verified'=>0,'media.is_deleted'=>0))
         ->get();
         // echo "<pre>";
         // print_r($data);die;
