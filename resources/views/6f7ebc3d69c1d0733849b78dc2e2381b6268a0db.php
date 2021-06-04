@@ -127,7 +127,7 @@ tr.shown td.details-control {
                 </div>
                 <div class="table-responsive">
                 <button id="btn-show-all-children1" type="button">Expand All</button>
-<button id="btn-hide-all-children1" type="button">Collapse All</button>
+                <button id="btn-hide-all-children1" type="button">Collapse All</button>
 <hr>
 <table id="example1" class="display" cellspacing="0" width="100%">
     <thead>

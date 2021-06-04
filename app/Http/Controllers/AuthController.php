@@ -313,12 +313,12 @@ class AuthController extends Controller
       $history = $this->model->getHistoryVerifiedContent('media');
 
       $reports = $this->model->getReportVerifiedContent('media');
-      echo "<pre>";
-      print_r($notVerifiedContent);
-      print_r($history);
-      print_r($reports);
+//       echo "<pre>";
+//       print_r($notVerifiedContent);
+//       print_r($history);
+//       print_r($reports);
 
-die;
+// die;
 
       return view('report-media',['reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
