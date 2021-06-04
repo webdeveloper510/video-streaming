@@ -14,7 +14,7 @@
     <div class="columesdashboard">
     <?php 
             $_GLOBEL['count'] =0;
-          ?>
+    ?>
           @foreach($count_due_project as $data)
               @if(date('Y-m-d')== $data->dates)
                 <?php 
