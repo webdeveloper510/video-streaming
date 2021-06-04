@@ -29,7 +29,7 @@
                     {{session('error')}}
                 </div>
                 @endif {!!Form::open(['action' => 'AuthController@pazLogin', 'method' =>
-                'post' 'autocomplete'=>'off'])!!}
+                'post' ,'autocomplete'=>'off'])!!}
                 <div class="form-group">
                     {{Form::label('Username', 'Username')}}
                     {{Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
