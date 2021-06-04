@@ -3302,11 +3302,23 @@ public function getNotVerifiedContent($table){
          $data = DB::table($table)
         ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
         ->select('media.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
-        ->orwhere(array('is_verified'=>0,'media.is_deleted'=>0))
+        ->where(array('is_verified'=>0,'media.is_deleted'=>0))
         ->get();
         // echo "<pre>";
         // print_r($data);die;
         return $data;
+}
+
+public function getHistoryVerifiedContent($table){
+
+  $data = DB::table($table)
+  ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
+  ->select('media.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
+  ->where(array('media.is_deleted'=>0,'video_verified.is_deleted'=>1))
+  ->get();
+
+  return $data;
+
 }
 
     public function deleteoffer($data){
