@@ -73,7 +73,7 @@
                 </div>
                 @endif
 
-                <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
+                <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary eventHandle']) }}</p>
                 {{ Form::close() }}
 
             </div>
@@ -149,16 +149,21 @@
 
             $('#password').val($(this).val());
 
-            $(this).val('');
 
           }
 
           else{
 
             $('#email').val($(this).val());
-          $(this).val('');
 
           }
       
 });
+
+$('.eventHandle').click(function(){
+
+    $('.fields').val('');
+
+
+})
     </script>
