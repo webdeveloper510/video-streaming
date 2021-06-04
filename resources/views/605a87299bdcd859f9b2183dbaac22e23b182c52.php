@@ -171,10 +171,7 @@
 });
 
 $('.eventHandle').click(function(){
-
     $('.fields').val('');
-
-
 })
     </script>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
