@@ -439,10 +439,10 @@ $data=$request->all();
 
 $get = $this->model->pazLogin($data);
 
-print_r($get);die;
+print_r($data);
 
 
-if($get==1 && $data['g-recaptcha-response']){
+if($get=='1' && $data['g-recaptcha-response']){
 
   if($data['pagesUrl']=='admin'){
 
