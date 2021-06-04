@@ -14,15 +14,7 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-            <div class="text-left col-md-5 mb-3" >
-          <select class="custom-select" name="pagesUrl" id="inputGroupSelect01">
-              <option selected>Choose Page...</option>
-              <option value="admin">Admin Panel</option>
-              <option value="content">Content Review</option>
-              <option value="social">Social Media</option>
-              <option value="support">Support Team</option>
-            </select>
-          </div>
+       
 
                 @if(session('error'))
                 <div class="alert alert-danger" id="error">
@@ -31,6 +23,7 @@
                 @endif {!!Form::open(['action' => 'AuthController@pazLogin', 'method' =>
                 'post' ,'autocomplete'=>'off'])!!}
                 <div class="form-group">
+
                     {{Form::label('Username', 'Username')}}
                     {{Form::text('data_email_field', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])}}
                     @if($errors->first('data_email_field'))
@@ -40,6 +33,16 @@
                     </div>
                     @endif
                 </div>
+
+                <div class="text-left col-md-5 mb-3" >
+                <select class="custom-select" name="pagesUrl" id="inputGroupSelect01">
+                    <option selected>Choose Page...</option>
+                    <option value="admin">Admin Panel</option>
+                    <option value="content">Content Review</option>
+                    <option value="social">Social Media</option>
+                    <option value="support">Support Team</option>
+                    </select>
+          </div>
                 <div class="form-group">
                     {{Form::label('Password', 'Password')}}
                     {{Form::password('data_password_field',['class'=>'form-control','placeholder'=>'Password'])}}
