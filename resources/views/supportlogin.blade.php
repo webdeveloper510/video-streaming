@@ -49,7 +49,7 @@
           </div>
                 <div class="form-group">
                     {{Form::label('Password', 'P&#8204;assword')}}
-                    {{Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])}}
+                    {{Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'new-password'])}}
                     @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_password_field'); ?>

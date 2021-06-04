@@ -32,7 +32,7 @@
 
                     <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
 
-                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','autocomplete'=>'nope'])); ?>
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
