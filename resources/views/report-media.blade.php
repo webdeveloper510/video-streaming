@@ -4,6 +4,9 @@
 <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
 <h1 class="text-white mt-2"> Content Review</h1>
 </div>
+<div class="text-right">
+<a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
+</div>
 </header>
 
 
@@ -247,7 +250,7 @@
 
   <div class="row">
     <div class="col-md-6 text-center">
-       <button class="btn btn-primary" type="button" oNClick="permit({{$is_not_veryfy->id}},true)">Permit</button>
+       <button class="btn btn-primary" type="button" onClick="permit({{$is_not_veryfy->id}},true)">Permit</button>
     </div>
    <div class="col-md-6 text-center">
       <button class="btn btn-primary" type="button" onClick="permit({{$is_not_veryfy->id}},false)">Deny</button>

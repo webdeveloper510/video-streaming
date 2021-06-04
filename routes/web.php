@@ -68,7 +68,8 @@ Route::get('artistDetail/{id}', 'artist@artistDetail')->middleware('authenticati
 
 Route::get('artist-video/{id}', 'artist@artistVideo');
 
-Route::get('logout', 'AuthController@logout'); 
+Route::get('logout/{user?}', 'AuthController@logout'); 
+
 
 Route::get('view1', 'AuthController@view1'); 
 
