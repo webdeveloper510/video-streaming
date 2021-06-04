@@ -28,7 +28,7 @@
                 <input autocomplete="false" name="hidden" type="text" style="display:none;">
 
 
-                    {{Form::label('Username', 'User&#8204;name')}}
+                    {{Form::label('Username', 'U&#8204;sername')}}
                     {{Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'false'])}}
                     @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
@@ -48,7 +48,7 @@
                     </select>
           </div>
                 <div class="form-group">
-                    {{Form::label('Password', 'Pas&#8204;sword')}}
+                    {{Form::label('Password', 'P&#8204;assword')}}
                     {{Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'false'])}}
                     @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
