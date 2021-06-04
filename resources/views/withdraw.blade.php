@@ -106,7 +106,7 @@
             <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
            </div> 
           
-         </span>
+         </span>                 
          </h6>
          </div>
        </div>
@@ -202,14 +202,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
 
 
       <form>
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-6 col-form-label">Paxum Account</label>
               <div class="col-sm-6">
-                <button class="btn btn-outline-primary" type="button">Enter payout Information</button>
+                <button class="btn btn-outline-primary" type="button">Enter payout <br> Information</button>
               </div>
             </div>
           </form>
@@ -218,7 +218,7 @@
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-6 col-form-label">Bank Account</label>
               <div class="col-sm-6">
-                <button class="btn btn-outline-primary" type="button">Enter payout Information</button>
+                <button class="btn btn-outline-primary" type="button">Enter payout <br> Information</button>
               </div>
             </div>
           </form>
