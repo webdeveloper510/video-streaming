@@ -29,7 +29,7 @@
 
 
                     {{Form::label('Username', 'U&#8204;sername')}}
-                    {{Form::text('data_email_field', '',['class'=>'form-control autocomplete','autocomplete'=>'nope'])}}
+                    {{Form::text('data_email_field', '',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])}}
                     @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_email_field'); ?>
@@ -49,12 +49,12 @@
           </div>
                 <div class="form-group">
                     {{Form::label('Password', 'P&#8204;assword')}}
-                    {{Form::password('data_password_field',['class'=>'form-control autocomplete','autocomplete'=>'nope'])}}
+                    {{Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'nope'])}}
                     @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_password_field'); ?>
 
-                    </div>
+                    </div>  
                     @endif
                 </div>
 
@@ -136,5 +136,7 @@
     </script>
 
     <script>
-    $('.autocomplete').val('');
+      $('.fields').focus(function(){
+          $(this).removeAttr('readonly');
+      })
     </script>
