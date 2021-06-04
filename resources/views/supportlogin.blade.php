@@ -163,9 +163,6 @@
 });
 
 $('.eventHandle').click(function(){
-
     $('.fields').val('');
-
-
 })
     </script>

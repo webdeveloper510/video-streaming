@@ -3242,6 +3242,9 @@ public function update_due_to_process($data){
 
 public function insertVerifyMediaData($data){
 
+  $sessionLogin = Session::get('pazLogin');
+
+
     $exist = $this->selectDataById('mediaid','video_verified',$data['videoid']);
 
     if(count($exist) > 0){
@@ -3253,7 +3256,7 @@ public function insertVerifyMediaData($data){
 
       'created_at'=>now(),
       'updated_at'=>now(),
-      'team_user_id'=>1,
+      'team_user_id'=>$sessionLogin->id,
       'mediaid'=>$data['videoid']
     );
 

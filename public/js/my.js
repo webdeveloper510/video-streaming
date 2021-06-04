@@ -1561,7 +1561,7 @@ function startReviw(id){
 }
 
 function permit(id,status){
-    console.log(id);
+    //console.log(id);
     $.ajax({
         type: 'POST',
         url: APP_URL + "/isVerifiedOrNot",
