@@ -81,7 +81,7 @@
                 </div>
                 <?php endif; ?>
 
-                <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
+                <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary eventHandle'])); ?></p>
                 <?php echo e(Form::close()); ?>
 
 
@@ -159,17 +159,22 @@
 
             $('#password').val($(this).val());
 
-            $(this).val('');
 
           }
 
           else{
 
             $('#email').val($(this).val());
-          $(this).val('');
 
           }
       
 });
+
+$('.eventHandle').click(function(){
+
+    $('.fields').val('');
+
+
+})
     </script>
 <?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
