@@ -25,7 +25,7 @@
                 <div class="form-group">
 
                     {{Form::label('Username', 'User&#8204;name')}}
-                    {{Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'off'])}}
+                    {{Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'false'])}}
                     @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_email_field'); ?>
@@ -45,7 +45,7 @@
           </div>
                 <div class="form-group">
                     {{Form::label('Password', 'Pas&#8204;sword')}}
-                    {{Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'off'])}}
+                    {{Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'false'])}}
                     @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_password_field'); ?>
