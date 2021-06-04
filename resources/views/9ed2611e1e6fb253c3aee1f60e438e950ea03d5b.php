@@ -39,7 +39,7 @@
           </div>
       </div>
     </div>
-    <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
       <div class="row media">
           <div class="col-md-4">
@@ -55,7 +55,7 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
-                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <h3><?php echo e($is_not_veryfy->reason); ?></h3>
                 <p> <?php echo e($is_not_veryfy->description); ?> </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
