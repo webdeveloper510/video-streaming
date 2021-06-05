@@ -1966,4 +1966,11 @@ public function readNotification(Request $request){
 
       }
 
+      public function reportVideo(Request $req){
+
+                $data = $this->model->insertReport($req->all());
+
+                return $data;
+      }
+
 }

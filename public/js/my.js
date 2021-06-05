@@ -1696,6 +1696,41 @@ $(document).on('submit', '#form_sub', function (event) {
 
 });
 
+
+/*------------------------------------------------------Report Video---------------------------------------------------------------*/
+$(document).on('submit', '#report', function (event) {
+    event.preventDefault();
+    var visiblie = $('#popup_visibile').val();
+   // console.log(visiblie);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/report",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            if(data==1){
+                $('#show_message').show();
+                $('#show_message').html('Thank you for your suggestion!');
+            }
+            else{
+                alert('Some error');
+            }
+
+        
+
+        }
+    });
+
+});
+
+
+
+
 $(document).on('click', '.popup_notification', function (event) {
     event.preventDefault();
     $.ajax({
