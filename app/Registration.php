@@ -3321,6 +3321,18 @@ public function getHistoryVerifiedContent($table){
 
 }
 
+public function getReportVerifiedContent($table){
+
+  $data = DB::table($table)
+  ->leftjoin('report_media','report_media.mediaid','=',$table.'.id')
+  ->select('media.*','report_media.reason','report_media.description')
+  ->where(array('media.is_deleted'=>0,'report_media.is_report'=>0))
+  ->get();
+
+  return $data;
+
+}
+
     public function deleteoffer($data){
 
       $session_data =   Session::get('User');

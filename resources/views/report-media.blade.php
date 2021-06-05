@@ -39,7 +39,7 @@
           </div>
       </div>
     </div>
-    @foreach($notVerified as $is_not_veryfy)
+    @foreach($reports as $is_not_veryfy)
 
       <div class="row media">
           <div class="col-md-4">
@@ -55,7 +55,7 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
-                <h3>{{$is_not_veryfy->title}}</h3>
+                <h3>{{$is_not_veryfy->reason}}</h3>
                 <p> {{$is_not_veryfy->description}} </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
