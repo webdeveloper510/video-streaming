@@ -310,7 +310,11 @@ class AuthController extends Controller
 
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      return view('report-media',['teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
+      $history = $this->model->getHistoryVerifiedContent('media');
+
+
+
+      return view('report-media',['verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {

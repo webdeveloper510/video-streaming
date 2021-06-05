@@ -92,7 +92,7 @@
           </div>
       </div>
     </div>
-    @foreach($notVerified as $is_not_veryfy)
+    @foreach($verifyHistory as $is_not_veryfy)
 
       <div class="row media">
           <div class="col-md-4">

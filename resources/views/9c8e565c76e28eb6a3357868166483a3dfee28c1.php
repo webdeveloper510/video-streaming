@@ -5,7 +5,7 @@
 <h1 class="text-white mt-2"> Content Review</h1>
 </div>
 <div class="text-right">
-<a href="<?php echo e(url('/logout')); ?>"><button class="btn btn-primery">Logout</button></a>
+<a href="<?php echo e(url('/logout/default')); ?>"><button class="btn btn-primery">Logout</button></a>
 </div>
 </header>
 
@@ -92,7 +92,7 @@
           </div>
       </div>
     </div>
-    <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $verifyHistory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
       <div class="row media">
           <div class="col-md-4">
