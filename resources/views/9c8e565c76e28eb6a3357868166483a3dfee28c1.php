@@ -154,13 +154,14 @@
     </div>
     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-<div class="row media" style="<?php echo e($is_not_veryfy->deletion!='1' && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id==''  ? 'display:block' : 'display:none'); ?>">
+<div class="row media" style="<?php echo e($is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
+  <?php if($is_not_veryfy->type=='video' && $is_not_veryfy->deletion==''): ?>
     <div class="col-md-4">
-    <?php if($is_not_veryfy->type=='video' && $is_not_veryfy->deletion==''): ?>
-    <video width="100%" controls>
-      <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-      </video>
-      <div class="col-md-8">
+          <video width="100%" controls>
+                <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+    </div>
+    <div class="col-md-8">
        <div class="reportitems">
           <h3><?php echo e($is_not_veryfy->title); ?></h3>
           <p> <?php echo e($is_not_veryfy->description); ?> </p>
@@ -172,9 +173,11 @@
           </div>
      </div>
       <?php elseif($is_not_veryfy->type=='audio' && $is_not_veryfy->deletion==''): ?>
+      <div class="col-md-4">
       <audio width="100%" controls>
       <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
       </audio>
+      </div>
       <div class="col-md-8">
        <div class="reportitems">
           <h3><?php echo e($is_not_veryfy->title); ?></h3>
@@ -187,8 +190,6 @@
           </div>
      </div>
       <?php endif; ?>
-     </div>
-    
  </div>
 
 
