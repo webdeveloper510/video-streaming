@@ -637,8 +637,18 @@ else{
 
 
 
-    public function logout(Request $request){
-      Session::forget('User');
+    public function logout($text=null){
+      if($text=='default'){
+
+        Session::forget('pazLogin');
+
+
+      }
+
+      else{
+        Session::forget('User');
+      }
+    
        Session::flush();
 
        return redirect('/');
