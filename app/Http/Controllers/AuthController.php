@@ -313,8 +313,12 @@ class AuthController extends Controller
       $history = $this->model->getHistoryVerifiedContent('media');
 
       $reports = $this->model->getReportVerifiedContent('media');
+      echo "<pre>";
+      print_r($notVerifiedContent);
+      print_r($history);
+      print_r($reports);
 
-
+die;
 
       return view('report-media',['reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
@@ -339,9 +343,9 @@ class AuthController extends Controller
       $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
 
       if($updated){
-        $verify = array('is_deleted'=>1);
+        $verify1 = array('is_deleted'=>1);
 
-          $delete = $this->model->UpdateData('video_verified','mediaid',$verify,$req->videoid);
+          $delete = $this->model->UpdateData('video_verified','mediaid',$verify1,$req->videoid);
 
           return $delete;
       }
