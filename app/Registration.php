@@ -3314,7 +3314,7 @@ public function getHistoryVerifiedContent($table){
   $data = DB::table($table)
   ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
   ->select('media.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
-  ->where(array('video_verified.is_deleted'=>1))
+  ->where(array('media.is_deleted'=>0,'video_verified.is_deleted'=>1))
   ->get();
 
   return $data;
