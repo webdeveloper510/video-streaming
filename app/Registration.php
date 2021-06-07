@@ -2451,6 +2451,7 @@ public function PopularVideos($flag,$type){
                  ->where('popular.type', '=', $type);
         })
         ->where('media.is_deleted',0)
+        ->where('media.is_verified',1)
         ->orderBy('popular.count','desc')
         ->select('media.*')
         ->get()
@@ -2473,6 +2474,7 @@ public function PopularVideos($flag,$type){
                  ->where('popular.type', '=', $type);
         })
         ->where('media.is_deleted',0)
+        ->where('media.is_verified',1)
         ->orderBy('popular.count','desc')
         ->select('media.*')
         ->paginate(30);
@@ -3325,12 +3327,18 @@ public function getReportVerifiedContent($table){
 
   $data = DB::table($table)
   ->leftjoin('report_media','report_media.mediaid','=',$table.'.id')
-  ->select('media.*','report_media.reason','report_media.description')
+  ->select('media.*','report_media.reason','report_media.description','report_media.id as increamented')
   ->where(array('report_media.is_report'=>0))
   ->get();
+  
 
   return $data;
 
+}
+
+public function deleteIllegeContent($id){
+
+        return DB::table('media')->where('id',$id)->delete();
 }
 
     public function deleteoffer($data){

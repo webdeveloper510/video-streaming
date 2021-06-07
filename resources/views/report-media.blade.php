@@ -59,8 +59,8 @@
                 <p> {{$is_not_veryfy->description}} </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                         <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},1)">Mark as legal</button>
+                          <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},-1)">illegal + delete</button>
                         </div>
                 </div>
            </div>
@@ -173,8 +173,7 @@
           <p> {{$is_not_veryfy->description}} </p>
                <div class="text-right buttons">
                <button class="btn btn-primary " data-toggle="modal" data-target="#legal_{{$is_not_veryfy->id}}" type="button" onClick="startReviw({{$is_not_veryfy->id}})">Start Review</button>
-                   <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                    <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+
                   </div>
           </div>
      </div>
