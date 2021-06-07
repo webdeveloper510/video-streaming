@@ -2218,6 +2218,8 @@ function filterproject(data) {
 
     var value = data.value;
 
+   // console.log(value);
+
     var dataset = $('.filteration_table tbody').find('tr ');
 
     //console.log(dataset);return false;
@@ -2226,6 +2228,10 @@ function filterproject(data) {
 
     dataset
         .filter(function (index, item) {
+
+        //    console.log($(item)
+        //    .find('td:eq(5)')
+        //    .text().indexOf(value));
             //console.log($(item).find('td:eq(5)').text().indexOf());return false;
             return $(item)
                 .find('td:eq(5)')

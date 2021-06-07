@@ -123,13 +123,14 @@ tr.shown td.details-control {
                     <option value="process" <?php echo e(($box) == 'process' ? 'selected' : ''); ?>>In Process</option>
                     <option value="due" <?php echo e(($box) == 'due' ? 'selected' : ''); ?>>Due</option>
                     <option value="Expired">Expired</option>
+                    <option value="Cancelled">Cancelled</option>
                   </select>
                 </div>
                 <div class="table-responsive">
                 <button id="btn-show-all-children1" type="button">Expand All</button>
                 <button id="btn-hide-all-children1" type="button">Collapse All</button>
 <hr>
-<table id="example1" class="display" cellspacing="0" width="100%">
+<table id="example1" class="display filteration_table" cellspacing="0" width="100%">
     <thead>
         <tr>
                        <th></th>
