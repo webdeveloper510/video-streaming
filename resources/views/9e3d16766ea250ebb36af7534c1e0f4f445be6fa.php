@@ -243,103 +243,103 @@ section.background1 {
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
   <script type="text/javascript">
-// window.Robodog.form('#myForm', {
-//       statusBar: '#myForm .progress',
-//       waitForEncoding: false,
-//         modal: true,
-//       waitForMetadata: true,
-//      submitOnSuccess: false,
-//       alwaysRunAssembly: false,
-//       closeAfterFinish:true,
-//       autoProceed: false,
-//       restrictions: {
-//     maxFileSize: null,
-//     minFileSize: null,
-//     maxTotalFileSize: null,
-//     maxNumberOfFiles: 1,
-//     minNumberOfFiles: null,
-//     allowedFileTypes: null
-//   },
-//   params: {
-//     auth: { key: '995b974268854de2b10f3f6844566287' },
-//     triggerUploadOnSubmit: false,
-//     steps: {
-//       ':original': {
-//         robot: '/upload/handle'
-//       },
-//       files_filtered: {
-//         use: ':original',
-//         robot: '/file/filter',
-//         result: true,
-//         accepts: [['${file.mime}','regex','audio']]
-//       },
-//       imported_image: {
-//         robot: '/http/import',
-//         url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-//       },
-//       resized_image: {
-//         use: 'imported_image',
-//         robot: '/image/resize',
-//         result: true,
-//         height: 768,
-//         imagemagick_stack: 'v2.0.7',
-//         resize_strategy: 'fillcrop',
-//         width: 1024,
-//         zoom: false
-//      },
-//      merged: {
-//       use: {
-//           "steps": [
-//       { 
-//           "name": ":original", "fields": "media", "as": "audio"  
-//       },
-//       { 
-//           "name": ":original", "fields": "thumbnail_pic", "as": "image" 
+window.Robodog.form('#myForm', {
+       statusBar: '#myForm .progress',
+       waitForEncoding: false,
+       modal: true,
+       waitForMetadata: true,
+      submitOnSuccess: false,
+       alwaysRunAssembly: false,
+       closeAfterFinish:true,
+       autoProceed: false,
+       restrictions: {
+     maxFileSize: null,
+     minFileSize: null,
+     maxTotalFileSize: null,
+     maxNumberOfFiles: 1,
+     minNumberOfFiles: null,
+     allowedFileTypes: null
+   },
+   params: {
+     auth: { key: '995b974268854de2b10f3f6844566287' },
+     triggerUploadOnSubmit: false,
+     steps: {
+       ':original': {
+         robot: '/upload/handle'
+       },
+       files_filtered: {
+         use: ':original',
+         robot: '/file/filter',
+         result: true,
+         accepts: [['${file.mime}','regex','audio']]
+       },
+       imported_image: {
+        robot: '/http/import',
+        url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+      },
+      resized_image: {
+        use: 'imported_image',
+        robot: '/image/resize',
+        result: true,
+        height: 768,
+        imagemagick_stack: 'v2.0.7',
+        resize_strategy: 'fillcrop',
+        width: 1024,
+        zoom: false
+     },
+     merged: {
+      use: {
+          "steps": [
+      { 
+          "name": ":original", "fields": "media", "as": "audio"  
+      },
+      { 
+          "name": ":original", "fields": "thumbnail_pic", "as": "image" 
           
-//       }
-//     ],
-//         "bundle_steps": true
-//       },    
-//       robot: '/video/merge',
-//       result: true,
-//       ffmpeg_stack: 'v4.3.1',
-//       preset: 'ipad-high'
-//      },
-//      exported: {
-//       use: ['imported_image','resized_image','merged',':original'],
-//       robot: '/s3/store',
-//       credentials: "mp3-img-to-mp4",
-//       "path": "uploads/${file.id}.${file.ext}"
-//      }
-//   }
-//  }
-// }).on('transloadit:assembly-created', (assembly) => {
-//       //console.log(">>> onStart", assembly);
-//     })
-//     .on('upload-progress', (bytesIn, totalBytes) => {
-//      // console.log(">>> onProgress", bytesIn, totalBytes);
-//     })
-//     .on('transloadit:complete', (assembly) => {
-//       console.log('>> onSuccess: Assembly finished successfully with', assembly);
-//       $('.transloadit').val(assembly);
-//       //callajax(assembly);
-//     })
-//     .on('transloadit:assembly-executing', () => {
-//       //console.log('>> Uploading finished!');
-//     })
-//     .on('transloadit:upload', (uploadedFile) => {
-//      // console.log('>> Upload added', uploadedFile);
-//     })
-//     .on('transloadit:result', (stepName, result) => {
-//       //console.log('>> Result added', stepName, result);
-//     })
-//     .on('error', (error) => {
-//       //console.log('>> Assembly got an error:', error);
-//       if (error.assembly) {
-//         console.log(`>> Assembly ID ${error.assembly.assembly_id} failed!`);
-//         console.log(error.assembly);
-//       }
-//     })
+      }
+    ],
+        "bundle_steps": true
+      },    
+      robot: '/video/merge',
+      result: true,
+      ffmpeg_stack: 'v4.3.1',
+      preset: 'ipad-high'
+     },
+     exported: {
+      use: ['imported_image','resized_image','merged',':original'],
+      robot: '/s3/store',
+      credentials: "mp3-img-to-mp4",
+      "path": "uploads/${file.id}.${file.ext}"
+     }
+  }
+ }
+}).on('transloadit:assembly-created', (assembly) => {
+      //console.log(">>> onStart", assembly);
+    })
+    .on('upload-progress', (bytesIn, totalBytes) => {
+      //console.log(">>> onProgress", bytesIn, totalBytes);
+    })
+    .on('transloadit:complete', (assembly) => {
+      console.log('>> onSuccess: Assembly finished successfully with', assembly);
+      //callajax(assembly);
+    })
+    .on('transloadit:assembly-executing', () => {
+      //console.log('>> Uploading finished!');
+    })
+    .on('transloadit:upload', (uploadedFile) => {
+     // console.log('>> Upload added', uploadedFile);
+    })
+    .on('transloadit:result', (stepName, result) => {
+      //console.log('>> Result added', stepName, result);
+    })
+    .on('error', (error) => {
+      //console.log('>> Assembly got an error:', error);
+      if (error.assembly) {
+        console.log(`>> Assembly ID ${error.assembly.assembly_id} failed!`);
+        console.log(error.assembly);
+      }
+    })
+
     
     function callajax(assembly){
              var form = $("#myForm");
