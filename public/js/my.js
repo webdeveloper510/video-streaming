@@ -2245,6 +2245,39 @@ function filterproject(data) {
 }
 }
 
+
+function filterproject1(data){
+
+    var value = data.value;
+
+
+
+    var dataset = $('.filteration_table tbody').find('tr ');
+
+
+    if(data.text=='all'){
+        dataset.show();
+    }
+
+    else{
+   // console.log(value);
+    //console.log(dataset);return false;
+
+    dataset.show();
+
+    dataset
+        .filter(function (index, item) {
+            return $(item)
+                .find('td:eq(6)')
+                .text()
+                .indexOf(value) === -1;
+        })
+        .hide();
+
+}
+
+}
+
 $(document).on('keyup change', '#calculate_tokens', function () {
 
     var amount = parseInt($(this).val()) / 20;

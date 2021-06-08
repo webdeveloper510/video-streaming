@@ -77,7 +77,7 @@ tr.shown td.details-control {
               </div>
               <h2 class="text-center"></h2>
                 <div class="dropreq text-right">
-                <select class="custom-select col-md-4" id="select_option" onchange="filterproject(this)">
+                <select class="custom-select col-md-4" id="select_option" onchange="filterproject1(this)">
                     <option value>All</option>
                     <option value="new" {{($box) == 'new' ? 'selected' : '' }}>New</option>
                     <option value="process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
