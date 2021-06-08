@@ -406,7 +406,7 @@ Your browser does not support the audio tag.
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Edit Offer</h4>
+            <h4 class="modal-title" id="myModalLabel">Edit Service</h4>
                 <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal" aria-hidden="true">&times;</button>
                 
                 <div class="alert alert-success" role="alert" style="display:none">

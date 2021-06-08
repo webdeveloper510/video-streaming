@@ -169,10 +169,15 @@
     </div>
     <div class="col-md-8">
        <div class="reportitems">
-          <h3><?php echo e($is_not_veryfy->title); ?></h3>
-          <p> <?php echo e($is_not_veryfy->description); ?> </p>
+          <h3>
+             <?php echo e($is_not_veryfy->title); ?>
+
+          </h3>
+          <p> 
+             <?php echo e($is_not_veryfy->description); ?> 
+          </p>
                <div class="text-right buttons">
-               <button class="btn btn-primary " data-toggle="modal" data-target="#legal_<?php echo e($is_not_veryfy->id); ?>" type="button" onClick="startReviw(<?php echo e($is_not_veryfy->id); ?>)">Start Review</button>
+               <button class="btn btn-primary" data-toggle="modal" data-target="#legal_<?php echo e($is_not_veryfy->id); ?>" type="button" onClick="startReviw(<?php echo e($is_not_veryfy->id); ?>)">Start Review</button>
 
                   </div>
           </div>
