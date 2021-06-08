@@ -35,6 +35,8 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\verifyEmail;
 
+use App\Mail\email_reporting;
+
 use App\Mail\artistSupport;
 
 use App\Mail\customer_issue;
@@ -309,6 +311,10 @@ class AuthController extends Controller
       $sessionLogin = Session::get('pazLogin');
 
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
+
+      // echo "<pre>";
+
+      // print_r($notVerifiedContent);die;
 
       $history = $this->model->getHistoryVerifiedContent('media');
 
@@ -1977,6 +1983,40 @@ public function readNotification(Request $request){
                 $data = $this->model->insertReport($req->all());
 
                 return $data;
+      }
+
+      public function islegelOrNot(Request $req){
+
+        $sessionLogin = Session::get('pazLogin');
+
+
+        if($req->bool==-1){
+
+          $array= array('is_report'=>-1,'team_user_id'=>$sessionLogin->id);
+
+            $delete = $this->model->deleteIllegeContent($req->videoid);
+
+            if($delete){
+
+              $data = $this->model->selectDataById('id','contentprovider',$req->artistid);
+
+              Mail::to($data[0]->email)->send(new email_reporting($data[0]->nickname));
+
+            }
+
+            $this->model->UpdateData('report_media','id',$array,$req->reportid);
+        }
+
+        else{
+
+          $array= array('is_report'=>1,'team_user_id'=>$sessionLogin->id);
+
+
+          $this->model->UpdateData('report_media','id',$array,$req->reportid);
+
+
+        }
+
       }
 
 }

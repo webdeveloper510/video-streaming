@@ -1584,6 +1584,33 @@ function permit(id,status){
     });
 }
 
+function legelorNot(mediaid,id,artistid,status){
+
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/islegelOrNot",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data:{'videoid':mediaid, 'artistid':artistid,'reportid':id, 'bool':status},
+
+        success: function (data) {
+
+            console.log(data);
+
+            // if(data==1){
+            //     location.reload();
+            // }
+            // else{
+            //     alert('some error');
+            // }
+        }
+
+    });
+
+}
+
 $(document).on('click','#deletePlaylist',function(){
    var id = $('#list').val();
    var listname = $('#exampleModalCenterTitle').text();
