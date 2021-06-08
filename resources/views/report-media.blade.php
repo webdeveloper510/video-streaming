@@ -2,11 +2,12 @@
 <header>
 <div class="text-center">
 <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-<h1 class="text-white mt-2"> Content Review</h1>
-</div>
-<div class="text-right">
+<div class="float-right">
 <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
 </div>
+<h1 class="text-white mt-2"> Content Review</h1>
+</div>
+
 </header>
 
 
