@@ -1561,7 +1561,7 @@ function startReviw(id){
 }
 
 function permit(id,status){
-    console.log(id);
+    //console.log(id);
     $.ajax({
         type: 'POST',
         url: APP_URL + "/isVerifiedOrNot",
@@ -1573,11 +1573,42 @@ function permit(id,status){
 
         success: function (data) {
 
-            console.log(data);
-
+            if(data==1){
+                location.reload();
+            }
+            else{
+                alert('some error');
+            }
         }
 
     });
+}
+
+function legelorNot(mediaid,id,artistid,status){
+
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/islegelOrNot",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data:{'videoid':mediaid, 'artistid':artistid,'reportid':id, 'bool':status},
+
+        success: function (data) {
+
+            console.log(data);
+
+            // if(data==1){
+            //     location.reload();
+            // }
+            // else{
+            //     alert('some error');
+            // }
+        }
+
+    });
+
 }
 
 $(document).on('click','#deletePlaylist',function(){
@@ -1691,6 +1722,41 @@ $(document).on('submit', '#form_sub', function (event) {
     });
 
 });
+
+
+/*------------------------------------------------------Report Video---------------------------------------------------------------*/
+$(document).on('submit', '#report', function (event) {
+    event.preventDefault();
+    var visiblie = $('#popup_visibile').val();
+   // console.log(visiblie);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/report",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+            if(data==1){
+                $('#show_message').show();
+                $('#show_message').html('Thank you for your suggestion!');
+            }
+            else{
+                alert('Some error');
+            }
+
+        
+
+        }
+    });
+
+});
+
+
+
 
 $(document).on('click', '.popup_notification', function (event) {
     event.preventDefault();
@@ -2152,21 +2218,63 @@ function filterproject(data) {
 
     var value = data.value;
 
+
+
     var dataset = $('.filteration_table tbody').find('tr ');
 
+
+    if(data.text=='all'){
+        dataset.show();
+    }
+
+    else{
+   // console.log(value);
     //console.log(dataset);return false;
 
     dataset.show();
 
     dataset
         .filter(function (index, item) {
-            //console.log($(item).find('td:eq(5)').text().indexOf());return false;
             return $(item)
                 .find('td:eq(5)')
                 .text()
                 .indexOf(value) === -1;
         })
         .hide();
+
+}
+}
+
+
+function filterproject1(data){
+
+    var value = data.value;
+
+
+
+    var dataset = $('.filteration_table tbody').find('tr ');
+
+
+    if(data.text=='all'){
+        dataset.show();
+    }
+
+    else{
+   // console.log(value);
+    //console.log(dataset);return false;
+
+    dataset.show();
+
+    dataset
+        .filter(function (index, item) {
+            return $(item)
+                .find('td:eq(6)')
+                .text()
+                .indexOf(value) === -1;
+        })
+        .hide();
+
+}
 
 }
 

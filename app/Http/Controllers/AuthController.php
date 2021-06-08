@@ -35,6 +35,8 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Mail\verifyEmail;
 
+use App\Mail\email_reporting;
+
 use App\Mail\artistSupport;
 
 use App\Mail\customer_issue;
@@ -305,9 +307,26 @@ class AuthController extends Controller
     }
     public function report_media()
     {
+
+      $sessionLogin = Session::get('pazLogin');
+
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      return view('report-media',['notVerified'=>$notVerifiedContent]);
+      // echo "<pre>";
+
+      // print_r($notVerifiedContent);die;
+
+      $history = $this->model->getHistoryVerifiedContent('media');
+
+      $reports = $this->model->getReportVerifiedContent('media');
+//       echo "<pre>";
+//       print_r($notVerifiedContent);
+//       print_r($history);
+//       print_r($reports);
+
+// die;
+
+      return view('report-media',['reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {
@@ -330,7 +349,11 @@ class AuthController extends Controller
       $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
 
       if($updated){
-          $this->model->deleteFromVideoVerify($req->videoid);
+        $verify1 = array('is_deleted'=>1);
+
+          $delete = $this->model->UpdateData('video_verified','mediaid',$verify1,$req->videoid);
+
+          return $delete;
       }
 
     }
@@ -421,9 +444,9 @@ class AuthController extends Controller
 public function pazLogin(Request $request){
 
   $this->validate($request,[
-    'data_email_field'=>'required',
-    'data_email_field.required' => 'The User Email must be a valid email address.',
-    'data_password_field'=>'required',
+    'email'=>'required',
+    'email.required' => 'The User Email must be a valid email address.',
+    'password'=>'required',
 
 ]
 
@@ -630,8 +653,18 @@ else{
 
 
 
-    public function logout(Request $request){
-      Session::forget('User');
+    public function logout($text=null){
+      if($text=='default'){
+
+        Session::forget('pazLogin');
+
+
+      }
+
+      else{
+        Session::forget('User');
+      }
+    
        Session::flush();
 
        return redirect('/');
@@ -737,7 +770,7 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-//print_r($request->all());die;
+print_r($request->all());die;
       if($request->media){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
@@ -1942,6 +1975,47 @@ public function readNotification(Request $request){
         $return = $this->model->insertVerifyMediaData($req->all());
 
         return $return;
+
+      }
+
+      public function reportVideo(Request $req){
+
+                $data = $this->model->insertReport($req->all());
+
+                return $data;
+      }
+
+      public function islegelOrNot(Request $req){
+
+        $sessionLogin = Session::get('pazLogin');
+
+
+        if($req->bool==-1){
+
+          $array= array('is_report'=>-1,'team_user_id'=>$sessionLogin->id);
+
+            $delete = $this->model->deleteIllegeContent($req->videoid);
+
+            if($delete){
+
+              $data = $this->model->selectDataById('id','contentprovider',$req->artistid);
+
+              Mail::to($data[0]->email)->send(new email_reporting($data[0]->nickname));
+
+            }
+
+            $this->model->UpdateData('report_media','id',$array,$req->reportid);
+        }
+
+        else{
+
+          $array= array('is_report'=>1,'team_user_id'=>$sessionLogin->id);
+
+
+          $this->model->UpdateData('report_media','id',$array,$req->reportid);
+
+
+        }
 
       }
 

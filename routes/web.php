@@ -68,7 +68,8 @@ Route::get('artistDetail/{id}', 'artist@artistDetail')->middleware('authenticati
 
 Route::get('artist-video/{id}', 'artist@artistVideo');
 
-Route::get('logout', 'AuthController@logout'); 
+Route::get('logout/{user?}', 'AuthController@logout'); 
+
 
 Route::get('view1', 'AuthController@view1'); 
 
@@ -110,6 +111,8 @@ Route::post('libraryAdded', 'AuthController@addInLibrary');
 
 
 Route::post('subscribe','artist@subscribe');
+
+Route::post('report','AuthController@reportVideo');
 
 Route::post('personal_info','AuthController@personal_info');
 
@@ -198,6 +201,8 @@ Route::post('updateStatus', 'AuthController@updateStatus');
 
 Route::post('isVerifiedOrNot','AuthController@isVerifyOrNot');
 
+Route::post('islegelOrNot','AuthController@islegelOrNot');
+
 Route::post('verifyVideo','AuthController@verifyMedia');
 Route::post('paz','AuthController@pazLogin');
 
@@ -205,7 +210,7 @@ Route::post('createList', 'AuthController@createList');
 
 Route::get('paz-Team-Login', 'AuthController@supportlogin');
 
-Route::get('Content-review', 'AuthController@report_media');
+Route::get('Content-review', 'AuthController@report_media')->middleware('pazAuth');
 Route::get('legal-notice', 'AuthController@legal');
 
    /*-------------------End Web Site Route----------------------*/

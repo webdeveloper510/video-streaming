@@ -204,7 +204,7 @@ class artist extends Controller
           $count=$arrayId ? count($arrayId) : '';
           $category_data = $this->model->getCategory();
   
-       return view('artistVideo',['wishlist'=>count($wishlistCheck),'buyed'=>count($buyed),'vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
+       return view('artistVideo',['vedioid'=>$vedioid,'wishlist'=>count($wishlistCheck),'buyed'=>count($buyed),'vedios'=>$allVedios,'listname'=>$all_play_lists,'category'=>$category_data, 'count'=>$count]);
     }
 
 

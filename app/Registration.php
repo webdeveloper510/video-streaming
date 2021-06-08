@@ -220,8 +220,8 @@ public function uploadContentData($userdata){
 public function pazLogin($data){
 
   $value = DB::table('team_login')->where(array(
-    'email'=> $data['data_email_field'],
-    'password'=>md5($data['data_password_field'])))
+    'email'=> $data['email'],
+    'password'=>md5($data['password'])))
     ->get()
     ->first();
 
@@ -2451,6 +2451,7 @@ public function PopularVideos($flag,$type){
                  ->where('popular.type', '=', $type);
         })
         ->where('media.is_deleted',0)
+        ->where('media.is_verified',1)
         ->orderBy('popular.count','desc')
         ->select('media.*')
         ->get()
@@ -2473,6 +2474,7 @@ public function PopularVideos($flag,$type){
                  ->where('popular.type', '=', $type);
         })
         ->where('media.is_deleted',0)
+        ->where('media.is_verified',1)
         ->orderBy('popular.count','desc')
         ->select('media.*')
         ->paginate(30);
@@ -3242,6 +3244,9 @@ public function update_due_to_process($data){
 
 public function insertVerifyMediaData($data){
 
+  $sessionLogin = Session::get('pazLogin');
+
+
     $exist = $this->selectDataById('mediaid','video_verified',$data['videoid']);
 
     if(count($exist) > 0){
@@ -3250,10 +3255,9 @@ public function insertVerifyMediaData($data){
 
     else{
     $verifyData = array(
-
       'created_at'=>now(),
       'updated_at'=>now(),
-      'team_user_id'=>1,
+      'team_user_id'=>$sessionLogin->id,
       'mediaid'=>$data['videoid']
     );
 
@@ -3299,10 +3303,42 @@ public function getNotVerifiedContent($table){
 
          $data = DB::table($table)
         ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
-        ->select('media.*','video_verified.team_user_id','video_verified.mediaid')
-        ->where(array('is_verified'=>0,'is_deleted'=>0))
+        ->select('media.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
+        ->where(array('media.is_verified'=>0,'media.is_deleted'=>0))
         ->get();
+        // echo "<pre>";
+        // print_r($data);die;
         return $data;
+}
+
+public function getHistoryVerifiedContent($table){
+
+  $data = DB::table($table)
+  ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
+  ->select('media.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
+  ->where(array('media.is_deleted'=>0,'video_verified.is_deleted'=>1))
+  ->get();
+
+  return $data;
+
+}
+
+public function getReportVerifiedContent($table){
+
+  $data = DB::table($table)
+  ->leftjoin('report_media','report_media.mediaid','=',$table.'.id')
+  ->select('media.*','report_media.reason','report_media.description','report_media.id as increamented')
+  ->where(array('report_media.is_report'=>0))
+  ->get();
+  
+
+  return $data;
+
+}
+
+public function deleteIllegeContent($id){
+
+        return DB::table('media')->where('id',$id)->delete();
 }
 
     public function deleteoffer($data){
@@ -3516,6 +3552,24 @@ public function getNotVerifiedContent($table){
 
       return DB::table('video_verified')->where('mediaid',$id)->delete();
 
+}
+
+
+public function insertReport($data){
+  $session_data =   Session::get('User');
+
+  $userid =  $session_data->id;  
+
+      $array = array(
+        'created_at'=>now(),
+        'updated_at'=>now(),
+        'userid'=>$userid,
+        'mediaid'=>$data['mediaid'],
+        'reason'=>$data['reason'],
+        'description'=>$data['description']
+      );
+      $insert =DB::table('report_media')->insert($array);
+      return $insert ? 1 : 0;
 }
 
 public function profileInfo($id){

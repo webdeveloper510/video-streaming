@@ -29,14 +29,16 @@
 
 
                     {{Form::label('Username', 'U&#8204;sername')}}
-                    {{Form::text('data_email_field', '',['class'=>'form-control','autocomplete'=>'false'])}}
+                    {{Form::text('data_email_field', '',['class'=>'form-control fields','readonly','spellcheck'=>'false' ,'autocomplete'=>'off'])}}
                     @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('data_email_field'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>   
 
                     </div>
                     @endif
                 </div>
+
+                <input type="hidden" name="email" id="email" value/>
 
                 <div class="text-left col-md-5 mb-3" >
                 <select class="custom-select"autocomplete="off"  name="pagesUrl" id="inputGroupSelect01">
@@ -49,14 +51,15 @@
           </div>
                 <div class="form-group">
                     {{Form::label('Password', 'P&#8204;assword')}}
-                    {{Form::password('data_password_field',['class'=>'form-control','autocomplete'=>'false'])}}
+                    {{Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'new-password'])}}
                     @if($errors->first('data_password_field'))
                     <div class="alert alert-danger">
                         <?php echo $errors->first('data_password_field'); ?>
 
-                    </div>
+                    </div>  
                     @endif
                 </div>
+                <input type="hidden" name="password" id="password" value=""/>
 
                 <!-- if there are login errors, show them here -->
                 <p></p>
@@ -70,7 +73,7 @@
                 </div>
                 @endif
 
-                <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
+                <p class="pt-3">{{ Form::submit('Login!',['class'=>'btn btn-primary eventHandle']) }}</p>
                 {{ Form::close() }}
 
             </div>
@@ -132,4 +135,32 @@
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+      $('.fields').focus(function(){
+          $(this).removeAttr('readonly');
+      })
+
+      $(".fields").keyup(function(){
+          var name = $(this).attr('name');
+          if(name=='data_password_field'){
+
+            $('#password').val($(this).val());
+
+
+          }
+
+          else{
+
+            $('#email').val($(this).val());
+
+          }
+      
+});
+
+$('.eventHandle').click(function(){
+    $('.fields').val('');
+})
+    </script>

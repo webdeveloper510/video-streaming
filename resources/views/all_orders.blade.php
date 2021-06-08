@@ -77,18 +77,20 @@ tr.shown td.details-control {
               </div>
               <h2 class="text-center"></h2>
                 <div class="dropreq text-right">
-                <select class="custom-select col-md-4" id="select_option" onchange="filterproject(this)">
-                    <option >All</option>
+                <select class="custom-select col-md-4" id="select_option" onchange="filterproject1(this)">
+                    <option value>All</option>
                     <option value="new" {{($box) == 'new' ? 'selected' : '' }}>New</option>
                     <option value="process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
                     <option value="due" {{($box) == 'due' ? 'selected' : '' }}>Due</option>
+                    <option value="Expired">Expired</option>
+                    <option value="cancelled">Cancelled</option>
                   </select>
                 </div>
                 <div class="table-responsive">
                 <button id="btn-show-all-children1" type="button">Expand All</button>
 <button id="btn-hide-all-children1" type="button">Collapse All</button>
 <hr>
-<table id="example2" class="display" cellspacing="0" width="100%">
+<table id="example2" class="display filteration_table" cellspacing="0" width="100%">
     <thead>
         <tr>
                        <th></th>
