@@ -2,11 +2,12 @@
 <header>
 <div class="text-center">
 <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
-<h1 class="text-white mt-2"> Content Review</h1>
-</div>
-<div class="text-right">
+<div class="float-right">
 <a href="<?php echo e(url('/logout/default')); ?>"><button class="btn btn-primery">Logout</button></a>
 </div>
+<h1 class="text-white mt-2"> Content Review</h1>
+</div>
+
 </header>
 
 
@@ -80,18 +81,7 @@
   <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
   <section class="reportmeadia">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>Oldest : <span>0h</span>
-          </div>
-      </div>
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>In Queue : <span>0</span>
-          </div>
-      </div>
-    </div>
+  
     <?php $__currentLoopData = $verifyHistory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
       <div class="row media">
