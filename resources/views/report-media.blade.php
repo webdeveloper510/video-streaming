@@ -81,18 +81,7 @@
   <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
   <section class="reportmeadia">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>Oldest : <span>0h</span>
-          </div>
-      </div>
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>In Queue : <span>0</span>
-          </div>
-      </div>
-    </div>
+  
     @foreach($verifyHistory as $is_not_veryfy)
 
       <div class="row media">
