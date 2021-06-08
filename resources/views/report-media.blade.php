@@ -340,6 +340,11 @@ header {
     background: #7b0000;
     padding: 11px;
 }
+.float-right {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
   </style>
 
 @include('layouts.footer')
