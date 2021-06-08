@@ -538,7 +538,7 @@
             <div class="container my-4">
                 <div class="slider_tittle">
                     <h3 class="tittle">
-                        <a href="{{url('/seeall/offer')}}">Offers</a>
+                        <a href="{{url('/seeall/offer')}}">Service(s)</a>
                     </h3>
                     <a href="{{url('/seeall/offer')}}">
                         <button class="btn btn-primary seemore" type="button">See All</button>
@@ -697,7 +697,7 @@
                     <div class="col-6">
                            <div class="">
                                <h3>{{$val->offercount}} </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
+                               <h5 class="text-dark">Service(s)</h3>
                                </div>
 
                            </div>
