@@ -98,7 +98,14 @@
             
             <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
-                {{Form::file('media',['class'=>'form-control file_input','id'=>'browse'])}}
+                {{Form::file('media',['class'=>'form-control file_input'])}}
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+
+            <div class=" mt-3 text-white file1" style="display:none;">
+            <label class="media_label12">Audio/Video</label>
+               <button type="button" id="browse">Choose File</button>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -246,6 +253,7 @@ section.background1 {
         "onedrive"
       ],
       waitForEncoding: true,
+      statusBar: '#myForm .progress',
       params: {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
