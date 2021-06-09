@@ -297,8 +297,9 @@ section.background1 {
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
         // so that your user can be on their way as soon as the upload completes.
-        console.log(bundle.transloadit); // Array of Assembly Statuses
-        console.log(bundle.results); // Array of all encoding results
+       var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
+        $('.transloadit').val(url);
+        //console.log(bundle.results); // Array of all encoding results
       })
       .catch(console.error);
   });
@@ -465,7 +466,7 @@ section.background1 {
                             $('#error').html(response.messge);
 
                         }
-
+  
                     }
                 }
             });
