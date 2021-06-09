@@ -341,6 +341,11 @@ header {
     background: #7b0000;
     padding: 11px;
 }
+.float-right {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
   </style>
 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/report-media.blade.php ENDPATH**/ ?>
