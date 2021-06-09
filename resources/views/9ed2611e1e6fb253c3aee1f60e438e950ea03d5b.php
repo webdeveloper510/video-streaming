@@ -422,6 +422,13 @@
     top: 0;
     right: 20px;
 }
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #0000001a no-repeat center center;
+    background-size: 100% 100%;
+}
 li.nav-item {
     width: 33.33%;
     text-align: center;
