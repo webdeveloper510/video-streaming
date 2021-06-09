@@ -245,9 +245,83 @@
           </div>
       </div>
       <div class="col-md-12 text-center my-4">
-        
-      </div>
+      <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
     </div>
+    <div class="carousel-item">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="carousel-item">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+    
     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="row media" style="<?php echo e($is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
@@ -361,6 +435,8 @@
  </div>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</div>
+    </div>
 
     </section>
   
