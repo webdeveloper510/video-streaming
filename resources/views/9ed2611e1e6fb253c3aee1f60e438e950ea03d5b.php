@@ -74,6 +74,42 @@
 
   </div>
 </section>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
+                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                        </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+</div>
   
   
   </div>

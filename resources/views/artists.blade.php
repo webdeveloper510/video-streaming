@@ -69,7 +69,7 @@ hr{
            <div class="col-md-4 mt-3">
   
             <select class="custom-select form-inline m-2">
-             
+              
                  <option selected>Filter</option>
                  <option value="1">By Popular</option>
                  <option value="2">By Alphabetical</option>
