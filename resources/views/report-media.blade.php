@@ -418,5 +418,3 @@ header {
     top: 20px;
 }
   </style>
-
-@include('layouts.footer')
