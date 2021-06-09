@@ -2218,10 +2218,12 @@ function filterproject(data) {
 
     var value = data.value;
 
+
+
     var dataset = $('.filteration_table tbody').find('tr ');
 
 
-    if(value=='all'){
+    if(data.text=='all'){
         dataset.show();
     }
 
