@@ -59,9 +59,9 @@
             <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
             </video>
             @else
-            <audio width="100%" controls>
-            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
-            </audio>
+            <video width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
             @endif
            </div>
            <div class="col-md-8">
@@ -237,9 +237,9 @@
 </div>
       @elseif($is_not_veryfy->type=='audio' && $is_not_veryfy->deletion=='')
       <div class="col-md-4">
-      <audio width="100%" controls>
-      <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
-      </audio>
+      <video width="100%" controls>
+      <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="video/mp4">
+      </video>
       </div>
       <div class="col-md-8">
        <div class="reportitems">
