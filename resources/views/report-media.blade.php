@@ -243,83 +243,8 @@
                 <h3>In Queue : <span>0</span> </h3>
 
                 <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button" >Start Reviewing</button>
-          </div>
-      </div>
-      <div class="col-md-12 text-center my-4">
-      <h3>{{$is_not_veryfy->title}}</h3>
-                <p> {{$is_not_veryfy->description}} </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
-                </div>
-           </div>
-       </div>
-    </div>
-    <div class="carousel-item">
-    <div class="row media">
-          <div class="col-md-4">
-          @if($is_not_veryfy->type=='video')
-          <video width="100%" controls>
-            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
-            </video>
-            @else
-            <audio width="100%" controls>
-            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
-            </audio>
-            @endif
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3>{{$is_not_veryfy->title}}</h3>
-                <p> {{$is_not_veryfy->description}} </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
-                </div>
-           </div>
-       </div>
-    </div>
-    <div class="carousel-item">
-    <div class="row media">
-          <div class="col-md-4">
-          @if($is_not_veryfy->type=='video')
-          <video width="100%" controls>
-            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
-            </video>
-            @else
-            <audio width="100%" controls>
-            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
-            </audio>
-            @endif
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3>{{$is_not_veryfy->title}}</h3>
-                <p> {{$is_not_veryfy->description}} </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
-                </div>
-           </div>
-       </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
+      
+ 
 
 
       </div>
