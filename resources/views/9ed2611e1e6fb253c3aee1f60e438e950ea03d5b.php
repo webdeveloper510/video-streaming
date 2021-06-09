@@ -71,6 +71,8 @@
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
+</div>
+</section>
 
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -174,8 +176,6 @@
 
 
 
-</div>
-</section>
   
   </div>
       <!-- History -->
