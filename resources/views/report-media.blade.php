@@ -71,6 +71,8 @@
 @endforeach
 
 
+</div>
+</section>
 
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -174,8 +176,6 @@
 
 
 
-</div>
-</section>
   
   </div>
       <!-- History -->
