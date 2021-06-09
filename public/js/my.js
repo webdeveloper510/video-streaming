@@ -2218,21 +2218,21 @@ function filterproject(data) {
 
     var value = data.value;
 
-   // console.log(value);
-
     var dataset = $('.filteration_table tbody').find('tr ');
 
+
+    if(value=='all'){
+        dataset.show();
+    }
+
+    else{
+   // console.log(value);
     //console.log(dataset);return false;
 
     dataset.show();
 
     dataset
         .filter(function (index, item) {
-
-        //    console.log($(item)
-        //    .find('td:eq(5)')
-        //    .text().indexOf(value));
-            //console.log($(item).find('td:eq(5)').text().indexOf());return false;
             return $(item)
                 .find('td:eq(5)')
                 .text()
@@ -2240,6 +2240,7 @@ function filterproject(data) {
         })
         .hide();
 
+}
 }
 
 $(document).on('keyup change', '#calculate_tokens', function () {
