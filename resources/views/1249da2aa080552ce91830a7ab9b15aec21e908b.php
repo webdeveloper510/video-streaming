@@ -247,11 +247,11 @@
      <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
     <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>" width="100%">
 
-<audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>"   poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" disablePictureInPicture>
+<video controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>"   poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" disablePictureInPicture>
 
-<source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
+<source src="<?php echo e(url('storage/app/public/video/'.$aud->media)); ?>" type="video/mp4">
 Your browser does not support the audio tag.
-</audio>
+</video>
 <div class="pricetime">
                   <div class="text-left">
                   <h6 class="text-white"><?php echo e($aud->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
