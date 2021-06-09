@@ -52,7 +52,7 @@
 <p>You take full responsibility for maintaining reasonable security precautions for your account. You are responsible for protecting and updating any login account provided to you for the Website and Services. You must protect the confidentiality of your login details, and you should change your password periodically. You are responsible for ensuring all User provided software installed by you on the Website and Services is updated and patched following industry best practice. We make no warranty express or implied for the security and operability of 3rd party software or scripts installed or run by you on the Website and Services.</p>
 <h3 class="my-2">Enforcement</h3>
 <p>We reserve our right to be the sole arbiter in determining the seriousness of each infringement and to immediately take corrective actions, including but not limited to:</p>
-<ul>
+<ul> 
 	<li>Suspending or terminating your Service with or without notice upon any violation of this Policy. Any violations may also result in the immediate suspension or termination of your account.</li>
 	<li>Disabling or removing any content which is prohibited by this Policy, including to prevent harm to others or to us or the Website and Services, as determined by us in our sole discretion.</li>
 	<li>Reporting violations to law enforcement as determined by us in our sole discretion.</li>

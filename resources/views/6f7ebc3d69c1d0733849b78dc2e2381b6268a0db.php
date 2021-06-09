@@ -118,18 +118,19 @@ tr.shown td.details-control {
               <h2 class="text-center"></h2>
                 <div class="dropreq text-right">
                 <select class="custom-select col-md-4" id="select_option" onchange="filterproject(this)">
-                    <option >All</option>
+                    <option value>All</option>
                     <option value="new" <?php echo e(($box) == 'new' ? 'selected' : ''); ?>>New</option>
                     <option value="process" <?php echo e(($box) == 'process' ? 'selected' : ''); ?>>In Process</option>
                     <option value="due" <?php echo e(($box) == 'due' ? 'selected' : ''); ?>>Due</option>
                     <option value="Expired">Expired</option>
+                    <option value="cancelled">Cancelled</option>
                   </select>
                 </div>
                 <div class="table-responsive">
                 <button id="btn-show-all-children1" type="button">Expand All</button>
-<button id="btn-hide-all-children1" type="button">Collapse All</button>
+                <button id="btn-hide-all-children1" type="button">Collapse All</button>
 <hr>
-<table id="example1" class="display" cellspacing="0" width="100%">
+<table id="example1" class="display filteration_table" cellspacing="0" width="100%">
     <thead>
         <tr>
                        <th></th>
@@ -177,7 +178,7 @@ tr.shown td.details-control {
           <?php echo e(Form::token()); ?>
 
           <?php echo e(Form::label('Your Description', 'Your Description')); ?> 
-                <?php echo e(Form::textarea('Description',null,['class'=>'form-control', 'rows' => 4, 'cols' => 40])); ?>
+                <?php echo e(Form::textarea('Description',null,['class'=>'form-control', 'rows' => 4, 'cols' => 40, 'required'])); ?>
 
 
        <input type="hidden" name="reqId" value="" id="reqid">
@@ -214,7 +215,7 @@ tr.shown td.details-control {
           <?php echo e(Form::token()); ?>      
               <div class="form-group">
             <label for="exampleInputEmail1">Chosse Reason :</label>
-            <select class="form-control" name="reason">
+            <select class="form-control" name="reason" required>
             <option selected>Choose...</option>
               <option value="I do not offer this kind of additional requests.">I do not offer this kind of additional requests.</option>
               <option value="Sorry, I receive to many orders right now">Sorry, I receive to many orders right now.</option>
@@ -224,7 +225,7 @@ tr.shown td.details-control {
         <input type="hidden" name="offerid" value="" class="offer_id"/>
           <div class="form-group">
           <label> Or write a specific Message for your Customer :</label>
-            <textarea class="form-control" name="reason_cancel" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" name="reason_cancel" required id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="form-group text-center">
          <label> Do you really want to cancel this Order ? </label>

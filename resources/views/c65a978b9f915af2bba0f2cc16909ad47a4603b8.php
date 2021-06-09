@@ -1,11 +1,50 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <link rel="stylesheet" href="<?php echo e(asset('design/withdraw.css')); ?>" />
 <section class="background1">
-        <div class="row">
+         
+
+        <div class="row mt-5 ">
           <div class="col"></div>
-          <div class="col-lg-10">
+          <div class="col-lg-10 mt-4">
+          <div class="card">
+            <div class="card-header text-center">
+               <h3>Payout to your Account </h3>
+            </div>
+            <div class="card-body">
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Period</th>
+                    <th scope="col">Method</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
+   <div class="float-right mr-3">
+   <a style="cursor: pointer;" data-toggle="modal" data-target="#payment"><i class="material-icons">my_location</i></a>
+   </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
       <div class="data">
       <?php if($levelData): ?>
@@ -22,7 +61,7 @@
          <h3> Lvl0 <small>(you save)</small>: 0%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-0); ?>%</span></h3>
-         <?php endif; ?>
+         <?php endif; ?>                                      
       </div>
   
        </span>
@@ -67,7 +106,7 @@
             <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
            </div> 
           
-         </span>
+         </span>                 
          </h6>
          </div>
        </div>
@@ -152,12 +191,52 @@
   <div class="col"></div>
    </div>
 </section>  
-       
+      
+<!-- Modal -->
+<div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Payment Method</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+
+
+      <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-6 col-form-label">Paxum Account</label>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-primary" type="button">Enter payout <br> Information</button>
+              </div>
+            </div>
+          </form>
+          <p class="text-center my-3">OR</p>
+          <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-6 col-form-label">Bank Account</label>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-primary" type="button">Enter payout <br> Information</button>
+              </div>
+            </div>
+          </form>
+               <button class="btn btn-primary" type="button">Save</button>
+      </div>
+     
+    </div>
+  </div>
+</div>
       <!-- End Navbar -->
      <style>
   .background1{
     height:unset !important;
   }
+  .overlay1 {
+    margin-top: 7% !important;
+}
+
  </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

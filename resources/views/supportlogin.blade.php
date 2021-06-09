@@ -29,6 +29,7 @@
 
 
                     {{Form::label('Username', 'U&#8204;sername')}}
+
                     {{Form::text('data_email_field', '',['class'=>'form-control fields','readonly','spellcheck'=>'false' ,'autocomplete'=>'off'])}}
                     @if($errors->first('data_email_field'))
                     <div class="alert alert-danger">
@@ -139,6 +140,7 @@
     </script>
 
     <script>
+
       $('.fields').focus(function(){
           $(this).removeAttr('readonly');
       })
