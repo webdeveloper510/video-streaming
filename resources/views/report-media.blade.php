@@ -40,7 +40,35 @@
           </div>
       </div>
     </div>
-   
+    @foreach($reports as $is_not_veryfy)
+
+      <div class="row media">
+          <div class="col-md-4">
+          @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3>{{$is_not_veryfy->reason}}</h3>
+                <p> {{$is_not_veryfy->description}} </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                         <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},1)">Mark as legal</button>
+                          <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},-1)">illegal + delete</button>
+                        </div>
+                </div>
+           </div>
+       </div>
+
+
+@endforeach
 
 
 
@@ -221,7 +249,8 @@
 
       </div>
     </div>
-
+    </div>
+    </div>
     @foreach($notVerified as $is_not_veryfy)
 
 <div class="row media" style="{{$is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'}}">
