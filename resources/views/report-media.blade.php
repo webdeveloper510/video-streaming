@@ -95,18 +95,64 @@
                 <p> {{$is_not_veryfy->description}} </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
-                        </div>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
                 </div>
            </div>
        </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
+    <div class="row media">
+          <div class="col-md-4">
+          @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3>{{$is_not_veryfy->title}}</h3>
+                <p> {{$is_not_veryfy->description}} </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+    <div class="row media">
+          <div class="col-md-4">
+          @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3>{{$is_not_veryfy->title}}</h3>
+                <p> {{$is_not_veryfy->description}} </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
     </div>
   </div>
 </div>
@@ -138,8 +184,8 @@
                 <p> {{$is_not_veryfy->description}} </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                         <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
                         </div>
                 </div>
            </div>
