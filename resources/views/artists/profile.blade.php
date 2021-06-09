@@ -242,11 +242,11 @@
      <a href="{{url('artistVideo/'.$aud->id)}}">
     <img src="{{$aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')}}" width="100%">
 
-<audio controls controlsList="nodownload" id="audio_{{$aud->id}}"   poster="{{url('storage/app/public/uploads/'.$aud->audio_pic) }}" disablePictureInPicture>
+<video controls controlsList="nodownload" id="audio_{{$aud->id}}"   poster="{{url('storage/app/public/uploads/'.$aud->audio_pic) }}" disablePictureInPicture>
 
-<source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="audio/mp3">
+<source src="{{url('storage/app/public/video/'.$aud->media) }}" type="video/mp4">
 Your browser does not support the audio tag.
-</audio>
+</video>
 <div class="pricetime">
                   <div class="text-left">
                   <h6 class="text-white">{{$aud->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
