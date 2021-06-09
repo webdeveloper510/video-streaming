@@ -178,6 +178,19 @@
     </div>
     </div>
     </div>
+
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+
+  @foreach($reports as $is_not_veryfy)
+    <div class="carousel-item active">
     @foreach($notVerified as $is_not_veryfy)
 
 <div class="row media" style="{{$is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'}}">
@@ -235,6 +248,8 @@
 
 </div>
 </div>
+
+
       @elseif($is_not_veryfy->type=='audio' && $is_not_veryfy->deletion=='')
       <div class="col-md-4">
       <audio width="100%" controls>
@@ -296,7 +311,20 @@
       @endif
  </div>
 
-@endforeach
+    </div>
+    @endforeach
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+  
 
     </section>
   
