@@ -540,7 +540,7 @@
             <div class="container my-4">
                 <div class="slider_tittle">
                     <h3 class="tittle">
-                        <a href="<?php echo e(url('/seeall/offer')); ?>">Service(s)</a>
+                        <a href="<?php echo e(url('/seeall/offer')); ?>">Services</a>
                     </h3>
                     <a href="<?php echo e(url('/seeall/offer')); ?>">
                         <button class="btn btn-primary seemore" type="button">See All</button>
