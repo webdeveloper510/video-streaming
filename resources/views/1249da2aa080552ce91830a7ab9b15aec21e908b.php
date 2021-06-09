@@ -208,7 +208,7 @@
                 <button class="btn btn-sm btn-light delete" table="media" img-src="<?php echo e($detail->audio_pic); ?>" data-url="<?php echo e($detail->media); ?>" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
-              <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
+              <?php if($detail->duration=='' || $detail->duration=='0NaN:0NaN:0NaN'): ?>
  
           <script>
             //console.log('eeee');
@@ -266,7 +266,7 @@ Your browser does not support the audio tag.
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-<?php if($aud->duration=='' || $aud->duration=='NaN:NaN:NaN'): ?>
+<?php if($aud->duration=='' || $aud->duration=='0NaN:0NaN:0NaN'): ?>
           <script>
            var video;
             var id;
