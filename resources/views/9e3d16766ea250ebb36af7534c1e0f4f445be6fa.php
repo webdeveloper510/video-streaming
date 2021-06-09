@@ -107,6 +107,13 @@
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
+
+            <div class=" mt-3 text-white file1" style="display:none;">
+            <label class="media_label12">Audio/Video</label>
+               <button type="button" id="browse"></button>
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
             
             <div class=" mt-3 text-white thumbnail" style="display:none;">   
             <label class="thumbnail1"></label>        
@@ -255,6 +262,7 @@ section.background1 {
         "onedrive"
       ],
       waitForEncoding: true,
+      statusBar: '#myForm .progress',
       params: {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },

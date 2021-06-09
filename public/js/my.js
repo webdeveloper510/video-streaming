@@ -2731,10 +2731,11 @@ function getPaz(a) {
 $(document).on('click', '.select_media_pic', function () {
 
     $('.thumbnail').show();
-    $('.file').show();
     var value = $(this).val();
 
     if (value == 'audio') {
+        $('.file1').show();
+
                     $('.video').removeAttr('required');
                     $('.audio').attr('required',true);
 					$('.media_label').text('Upload Sample Audio (~30s)');
@@ -2747,6 +2748,7 @@ $(document).on('click', '.select_media_pic', function () {
 
 			}
 			else{
+                $('.file').show();
                 $('.audio').removeAttr('required');
                 $('.video').attr('required',true);
 				$('.media_label12').text('Video');
@@ -3053,8 +3055,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                  console.log(response);
-                   return false;
+                //console.log(response);
+                //    return false;
 
                     if (response.errors) {
 
