@@ -235,7 +235,7 @@
        
 
         <!-- Modal -->
-        <div class="modal fade mt-5" id="panxum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade " id="panxum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -244,7 +244,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body py-4">
+              <div class="modal-body py-5">
               <form>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email </label>
@@ -254,7 +254,7 @@
                     <label for="exampleInputPassword1">Reference</label>
                     <input type="text" class="form-control" placeholder="Optional">
                   </div>
-                  <div class="text-center">
+                  <div class="text-center my-3">
                   <button type="submit" class="btn btn-primary">Save</button>
                   </div>
                 </form>
