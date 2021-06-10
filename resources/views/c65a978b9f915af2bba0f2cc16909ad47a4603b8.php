@@ -218,7 +218,7 @@
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-6 col-form-label">Bank Account</label>
               <div class="col-sm-6">
-                <button class="btn btn-outline-primary" type="button">Enter payout <br> Information</button>
+                <button class="btn btn-outline-primary"data-toggle="modal" data-target="#bank" type="button">Enter payout <br> Information</button>
               </div>
             </div>
           </form>
