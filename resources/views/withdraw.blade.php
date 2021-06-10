@@ -304,10 +304,10 @@
 
                       <div class="form-group">
                         <label >BIC</label>
-                        <input type="password" class="form-control" >
+                        <input type="text" class="form-control" >
                       </div>
                     
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                     </div>
                     
