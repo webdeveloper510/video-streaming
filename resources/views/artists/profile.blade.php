@@ -244,7 +244,7 @@
 
 <video controls controlsList="nodownload" id="audio_{{$aud->id}}"   poster="{{url('storage/app/public/uploads/'.$aud->audio_pic) }}" disablePictureInPicture>
 
-<source src="{{url('storage/app/public/audio/'.$aud->media) }}" type="video/mp4">
+<source src="{{url('storage/app/public/video/'.$aud->media) }}" type="video/mp4">
 Your browser does not support the audio tag.
 </video>
 <div class="pricetime">
