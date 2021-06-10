@@ -326,6 +326,9 @@
 .set:hover {
     opacity: 0.7;
 }
+i.material-icons.set {
+    font-size: 27px;
+}
  </style>
 
  @include('artists.dashboard_footer')
