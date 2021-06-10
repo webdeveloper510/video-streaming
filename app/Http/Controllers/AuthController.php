@@ -805,7 +805,7 @@ else{
         $data=$request->all();
         $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
         $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
-          $size  = $request->media->getSize();
+          $size  = filesize($fileName);
          $data['size'] = number_format($size / 1048576,2);
         unset($data['_token']);
         $data['media']=$fileName;
