@@ -818,6 +818,7 @@ else{
         
         unset($data['audio_cat']);
         unset($data['video_cat']);
+        unset($data['transloadit']);
 
         if($data){
 
