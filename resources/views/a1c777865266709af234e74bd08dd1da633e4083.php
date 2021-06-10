@@ -43,7 +43,7 @@
                   <a class="nav-link " id="menu4-tab" data-toggle="tab"  role="tab" aria-controls="menu4" aria-selected="true" href="#menu4">Artists</a>
                   </li>
                   <li  class="link_click nav-item" role="presentation" >
-                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Offers</a>
+                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Service(s)</a>
                   </li>
                   </ul>
                    
@@ -370,7 +370,7 @@
 
 
                   <div class="tab-pane fade " id="menu2" role="tabpanel" aria-labelledby="menu2-tab">
-                      <h3 style="color: #fff;">Offers</h3>
+                      <h3 style="color: #fff;">Service(s)</h3>
                   <div class="row">
                   <div class="col-6">
                     <div class="dropdown12 text-white" id="video">
@@ -680,7 +680,7 @@
                   <a class="nav-link " id="menu4-tab" data-toggle="tab"  role="tab" aria-controls="menu4" aria-selected="true" href="#menu4">Artists</a>
                   </li>
                   <li  class="link_click nav-item" role="presentation" >
-                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Offers</a>
+                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Service(s)</a>
                   </li>
                   </ul>
                    
@@ -1030,7 +1030,7 @@
 
 
                   <div class="tab-pane fade " id="menu2" role="tabpanel" aria-labelledby="menu2-tab">
-                      <h3 style="color: #fff;">Offers</h3>
+                      <h3 style="color: #fff;">Service(s)</h3>
                   <div class="row">
                   <div class="col-6">
                     <div class="dropdown12 text-white" id="video">

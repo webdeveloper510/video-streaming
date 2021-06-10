@@ -540,7 +540,7 @@
             <div class="container my-4">
                 <div class="slider_tittle">
                     <h3 class="tittle">
-                        <a href="<?php echo e(url('/seeall/offer')); ?>">Offers</a>
+                        <a href="<?php echo e(url('/seeall/offer')); ?>">Service(s)</a>
                     </h3>
                     <a href="<?php echo e(url('/seeall/offer')); ?>">
                         <button class="btn btn-primary seemore" type="button">See All</button>
@@ -700,7 +700,7 @@
                     <div class="col-6">
                            <div class="">
                                <h3><?php echo e($val->offercount); ?> </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
+                               <h5 class="text-dark">Service(s)</h3>
                                </div>
 
                            </div>

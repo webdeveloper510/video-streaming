@@ -32,6 +32,7 @@
 
                     <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
 
+
                     <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','readonly','spellcheck'=>'false' ,'autocomplete'=>'off'])); ?>
 
                     <?php if($errors->first('data_email_field')): ?>
@@ -147,6 +148,7 @@
     </script>
 
     <script>
+
       $('.fields').focus(function(){
           $(this).removeAttr('readonly');
       })

@@ -770,24 +770,14 @@ else{
   {
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
-
-print_r($request->all());die;
-      if($request->media){
+      if($request->radio=='video'){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
               $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
               $ext =$request->media->getClientOriginalExtension();
-              $filePath= $ext=='mp3' ? $request->media->storeAs('audio', $fileName, 'public') : $request->media->storeAs('video', $fileName, 'public');
-              
-              /*-----------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
-              
-     /*-------------------------------------------------------------------------------------------Convert Audio To Video-----------------------------------------------------------------------------------*/
-                    
-                                //print_r($request->all());die;
-                                
-                                
-                 $size  = $request->media->getSize();
+              $filePath= $request->media->storeAs('video', $fileName, 'public');
+                $size  = $request->media->getSize();
                $data['size'] = number_format($size / 1048576,2);
               unset($data['_token']);
               $data['media']=$fileName;
@@ -796,8 +786,8 @@ print_r($request->all());die;
               unset($data['thumbnail_pic']);
               $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
-              $data['type']=  $ext=='mp3' ? 'audio' : 'video'; 
-              $data['catid']=  $ext=='mp3' ? $data['audio_cat'] :$data['video_cat'];
+              $data['type']= 'video'; 
+              $data['catid']= $data['video_cat'];
               
               unset($data['audio_cat']);
               unset($data['video_cat']);
@@ -805,15 +795,61 @@ print_r($request->all());die;
                 if($filePath){
 
                 $update_data = $this->model->uploadContentProvider($data);
-                  if($update_data){
-                      return response()->json(array('status'=>1, 'messge'=>'Content Uploaded!'));
-                    }
-                    else
-                    {
-                        return response()->json(array('status'=>0, 'messge'=>'Some Eror!'));
-                    }
               }
       }
+
+      else{
+        $fileName = $this->saveContent($request);
+        $data=$request->all();
+        $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
+        $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
+          $size  = $request->media->getSize();
+         $data['size'] = number_format($size / 1048576,2);
+        unset($data['_token']);
+        $data['media']=$fileName;
+        $data['audio_pic'] = $audio_pics ? $audio_pics : '';
+        unset($data['thumbnail_pic']);
+        $data['convert'] = $data['convert'] ? $data['convert'] : '';
+
+        $data['type']= 'audio'; 
+        $data['catid']= $data['audio_cat'];
+        
+        unset($data['audio_cat']);
+        unset($data['video_cat']);
+
+        if($data){
+
+          $update_data = $this->model->uploadContentProvider($data);
+
+        }
+
+
+      }
+
+      if($update_data){
+        return response()->json(array('status'=>1, 'messge'=>'Content Uploaded!'));
+      }
+      else
+      {
+          return response()->json(array('status'=>0, 'messge'=>'Some Eror!'));
+      }
+  }
+
+
+  public function saveContent($data){
+
+    $path = storage_path('app/public/video/');
+    $ch     =   curl_init($data->transloadit);
+    $dir            =   $path;
+    $fileName       =   basename($data->transloadit);
+    $saveFilePath   =   $dir . $fileName;
+    $fp             =   fopen($saveFilePath, 'wb');
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $execute = curl_exec($ch);
+    curl_close($ch);
+    fclose($fp);
+    return $execute==1 ? $fileName : 0;
   }
 
 public function getResponse(){
