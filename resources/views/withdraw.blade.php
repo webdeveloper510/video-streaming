@@ -323,7 +323,9 @@
   .overlay1 {
     margin-top: 7% !important;
 }
-
+.float-right.mr-3 a:hover {
+    opacity: 0.7;
+}
  </style>
 
  @include('artists.dashboard_footer')
