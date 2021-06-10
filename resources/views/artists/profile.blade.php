@@ -203,7 +203,7 @@
                 <button class="btn btn-sm btn-light delete" table="media" img-src="{{$detail->audio_pic}}" data-url="{{$detail->media}}" data-id="{{$detail->id}}"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
-              @if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN')
+              @if($detail->duration=='' || $detail->duration=='0NaN:0NaN:0NaN')
  
           <script>
             //console.log('eeee');
@@ -261,7 +261,7 @@ Your browser does not support the audio tag.
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="{{$aud->id}}"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-@if($aud->duration=='' || $aud->duration=='NaN:NaN:NaN')
+@if($aud->duration=='' || $aud->duration=='0NaN:0NaN:0NaN')
           <script>
            var video;
             var id;

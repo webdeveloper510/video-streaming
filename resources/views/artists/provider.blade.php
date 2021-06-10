@@ -276,6 +276,7 @@ section.background1 {
             width: 1024,
             zoom: false
           },
+          
           merged: {
             use: {
               steps: [
