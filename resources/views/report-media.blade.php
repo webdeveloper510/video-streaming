@@ -71,9 +71,10 @@
 @endforeach
 
 
-
-  </div>
+</div>
 </section>
+
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -96,15 +97,16 @@
            </div>
            <div class="col-md-8">
              <div class="reportitems">
-                <h3>{{$is_not_veryfy->title}}</h3>
+                <h3>{{$is_not_veryfy->reason}}</h3>
                 <p> {{$is_not_veryfy->description}} </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
+                         <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},1)">Mark as legal</button>
+                          <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},-1)">illegal + delete</button>
+                        </div>
                 </div>
            </div>
+       </div>
        </div>
     </div>
     <div class="carousel-item">
@@ -175,9 +177,8 @@
 
 
   
-  
   </div>
-
+      <!-- History -->
   <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
   <section class="reportmeadia">
   <div class="container">
@@ -218,7 +219,7 @@
 </section>
 
 </div>
-
+                    <!-- Upload Verifying -->
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     
   <section class="reportmeadia">
@@ -242,11 +243,13 @@
                 <h3>In Queue : <span>0</span> </h3>
 
                 <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button" >Start Reviewing</button>
-          </div>
+      
+ 
+
+
       </div>
-      <div class="col-md-12 text-center my-4">
-        
-      </div>
+    </div>
+    </div>
     </div>
     @foreach($notVerified as $is_not_veryfy)
 
@@ -322,6 +325,13 @@
                   </div>
           </div>
      </div>
+
+
+
+    <!--              modal                 -->
+
+
+
      <div class="modal fade" id="legal_{{$is_not_veryfy->id}}" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
