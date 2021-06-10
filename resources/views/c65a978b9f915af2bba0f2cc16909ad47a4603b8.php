@@ -244,7 +244,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body py-4">
               <form>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email </label>
@@ -282,15 +282,15 @@
                     <div class="modal-body">
                     <form>
                       <div class="form-group">
-                        <label >Email address</label>
+                        <label >Accout no. or IBAN:</label>
                         <input type="text" class="form-control" placeholder="Enter ">
                       </div>
                       <div class="form-group">
-                        <label >Email address</label>
+                        <label >Your Name/Company:</label>
                         <input type="text" class="form-control" placeholder="Enter ">
                       </div>
                       <div class="form-group">
-                        <label >Email address</label>
+                        <label >Your Address</label>
                         <input type="text" class="form-control" placeholder="Enter ">
                       </div>
                       <div class="form-group">
@@ -303,14 +303,11 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputPassword1">BIC</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label >BIC</label>
+                        <input type="text" class="form-control" >
                       </div>
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                      <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                     </div>
                     
