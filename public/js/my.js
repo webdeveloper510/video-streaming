@@ -2748,6 +2748,8 @@ $(document).on('click', '.select_media_pic', function () {
 
 			}
 			else{
+                $('.file1').hide();
+
                 $('.file').show();
                 $('.audio').removeAttr('required');
                 $('.video').attr('required',true);
@@ -3055,8 +3057,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                console.log(response);
-                   return false;
+                // console.log(response);
+                //    return false;
 
                     if (response.errors) {
 
