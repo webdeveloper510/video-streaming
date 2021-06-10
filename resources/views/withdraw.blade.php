@@ -252,7 +252,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Refrence</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <input type="text" class="form-control" placeholder="Optional">
                   </div>
                   <div class="text-center">
                   <button type="submit" class="btn btn-primary">Save</button>
