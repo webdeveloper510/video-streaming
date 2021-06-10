@@ -1,9 +1,13 @@
-    <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
 <div class="text-center">
 <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
+<div class="float-right">
+<a href="<?php echo e(url('/logout/default')); ?>"><button class="btn btn-primery">Logout</button></a>
+</div>
 <h1 class="text-white mt-2"> Content Review</h1>
 </div>
+
 </header>
 
 
@@ -35,120 +39,165 @@
                 <h3>In Queue : <span>0</span>
           </div>
       </div>
-      <div class="col-md-12 text-center my-4">
-          <button class="btn btn-outline-primary" data-toggle="modal" data-target="#legal" type="button">Start Reviewing</button>
-      </div>
     </div>
+    <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
       <div class="row media">
           <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
           <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
             </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
            </div>
            <div class="col-md-8">
              <div class="reportitems">
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+                <h3><?php echo e($is_not_veryfy->reason); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
                      <div class="text-right buttons">
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
-                        </div>
-                </div>
-           </div>
-       </div>
-       <div class="row media">
-          <div class="col-md-4">
-          <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
-            </video>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                     <div class="text-right buttons">
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
-                        </div>
-                </div>
-           </div>
-       </div>
-       <div class="row media">
-          <div class="col-md-4">
-          <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
-            </video>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                     <div class="text-right buttons">
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                         <button class="btn btn-outline-primary" type="button" onClick="legelorNot(<?php echo e($is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid); ?>,1)">Mark as legal</button>
+                          <button class="btn btn-outline-primary" type="button" onClick="legelorNot(<?php echo e($is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid); ?>,-1)">illegal + delete</button>
                         </div>
                 </div>
            </div>
        </div>
 
+
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 
   </div>
 </section>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="carousel-item">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="carousel-item">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+  </div>
+</div>
   
   
   </div>
 
   <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
+  <section class="reportmeadia">
+  <div class="container">
+  
+    <?php $__currentLoopData = $verifyHistory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
+      <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->title); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                         <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                        </div>
+                </div>
+           </div>
+       </div>
 
-<div class="table table-responsive">
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Date_issued</th>
-      <th scope="col">Date_reviewed</th>
-      <th scope="col">Action</th>
-      <th scope="col">Type</th>
-      <th scope="col">Artist</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+    
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
 
-</div>
+  </div>
+</section>
 
 </div>
 
@@ -174,32 +223,127 @@
           <div class="text-center">
                 <h3>In Queue : <span>0</span> </h3>
 
-                <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button">Start Reviewing</button>
+                <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button" >Start Reviewing</button>
           </div>
       </div>
       <div class="col-md-12 text-center my-4">
         
       </div>
     </div>
-    <div class="row media">
-          <div class="col-md-4">
+    <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+<div class="row media" style="<?php echo e($is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
+  <?php if($is_not_veryfy->type=='video' && $is_not_veryfy->deletion==''): ?>
+    <div class="col-md-4">
           <video width="100%" controls>
-            <source src="movie.mp4" type="video/mp4">
+                <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
             </video>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3> Report item title</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
-                     <div class="text-right buttons">
-                         <button class="btn btn-outline-primary" type="button">deny</button>
-                          <button class="btn btn-outline-primary" type="button">Permit </button>
-                        </div>
-                </div>
-           </div>
-       </div>
     </div>
+    <div class="col-md-8">
+       <div class="reportitems">
+          <h3>
+             <?php echo e($is_not_veryfy->title); ?>
+
+          </h3>
+          <p> 
+             <?php echo e($is_not_veryfy->description); ?> 
+          </p>
+               <div class="text-right buttons">
+               <button class="btn btn-primary" data-toggle="modal" data-target="#legal_<?php echo e($is_not_veryfy->id); ?>" type="button" onClick="startReviw(<?php echo e($is_not_veryfy->id); ?>)">Start Review</button>
+
+                  </div>
+          </div>
+     </div>
+     <div class="modal fade" id="legal_<?php echo e($is_not_veryfy->id); ?>" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+ 
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+ <div class="data">
+    <h3>Title : <?php echo e($is_not_veryfy->title); ?></h3>
+    <p>Artist</p>
+    <video width="100%" height="340" controls>
+    <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p class="text-center">Trustlevel : <span>0</span></p>
+
+  <div class="row">
+    <div class="col-md-6 text-center">
+       <button class="btn btn-primary" type="button" oNClick="permit(<?php echo e($is_not_veryfy->id); ?>,true)">Permit</button>
+    </div>
+   <div class="col-md-6 text-center">
+      <button class="btn btn-primary" type="button" onClick="permit(<?php echo e($is_not_veryfy->id); ?>,false)">Deny</button>
+   </div>
+ </div>
+ <p><b>Description :<?php echo e($is_not_veryfy->description); ?></b> ..........</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+      <?php elseif($is_not_veryfy->type=='audio' && $is_not_veryfy->deletion==''): ?>
+      <div class="col-md-4">
+      <audio width="100%" controls>
+      <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+      </audio>
+      </div>
+      <div class="col-md-8">
+       <div class="reportitems">
+          <h3><?php echo e($is_not_veryfy->title); ?></h3>
+          <p> <?php echo e($is_not_veryfy->description); ?> </p>
+               <div class="text-right buttons">
+               <button class="btn btn-primary " data-toggle="modal" data-target="#legal_<?php echo e($is_not_veryfy->id); ?>" type="button" onClick="startReviw(<?php echo e($is_not_veryfy->id); ?>)">Start Review</button>
+                   <button class="btn btn-outline-primary" type="button">Mark as legal</button>
+                    <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                  </div>
+          </div>
+     </div>
+     <div class="modal fade" id="legal_<?php echo e($is_not_veryfy->id); ?>" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+ 
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+ <div class="data">
+    <h3>Title : <?php echo e($is_not_veryfy->title); ?></h3>
+    <p>Artist</p>
+    <video width="100%" height="340" controls>
+    <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p class="text-center">Trustlevel : <span>0</span></p>
+
+  <div class="row">
+    <div class="col-md-6 text-center">
+       <button class="btn btn-primary" type="button" onClick="permit(<?php echo e($is_not_veryfy->id); ?>,true)">Permit</button>
+    </div>
+   <div class="col-md-6 text-center">
+      <button class="btn btn-primary" type="button" onClick="permit(<?php echo e($is_not_veryfy->id); ?>,false)">Deny</button>
+   </div>
+ </div>
+ <p><b>Description :<?php echo e($is_not_veryfy->description); ?></b> ..........</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+      <?php endif; ?>
+ </div>
+
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
     </section>
   
   </div>
@@ -209,42 +353,7 @@
 
 <!-- Modal -->
 
-<div class="modal fade" id="legal" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-       
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <div class="data">
-          <h3>Title</h3>
-          <p>Artist</p>
-          <video width="100%" height="340" controls>
-          <source src="movie.mp4" type="video/mp4">
-          <source src="movie.ogg" type="video/ogg">
-          Your browser does not support the video tag.
-        </video>
-        <p class="text-center">Trustlevel : <span>0</span></p>
 
-        <div class="row">
-          <div class="col-md-6 text-center">
-             <button class="btn btn-primary" type="button">Mark as legal</button>
-          </div>
-         <div class="col-md-6 text-center">
-            <button class="btn btn-primary" type="button">illegal + delete</button>
-         </div>
-       </div>
-       <p><b>Description :</b> ..........</p>
-  </div>
-  </div>
-      </div>
-      
-    </div>
-  </div>
-</div>
 
 
 <!-- Modal -->
@@ -313,6 +422,11 @@ li.nav-item  a{
 header {
     background: #7b0000;
     padding: 11px;
+}
+.float-right {
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
   </style>
 

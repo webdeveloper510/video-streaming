@@ -2,11 +2,12 @@
 <header>
 <div class="text-center">
 <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-<h1 class="text-white mt-2"> Content Review</h1>
-</div>
-<div class="text-right">
+<div class="float-right">
 <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
 </div>
+<h1 class="text-white mt-2"> Content Review</h1>
+</div>
+
 </header>
 
 
@@ -73,6 +74,88 @@
 
   </div>
 </section>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <div class="row media">
+          <div class="col-md-4">
+          @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3>{{$is_not_veryfy->title}}</h3>
+                <p> {{$is_not_veryfy->description}} </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="carousel-item">
+    <div class="row media">
+          <div class="col-md-4">
+          @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3>{{$is_not_veryfy->title}}</h3>
+                <p> {{$is_not_veryfy->description}} </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+    <div class="carousel-item">
+    <div class="row media">
+          <div class="col-md-4">
+          @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3>{{$is_not_veryfy->title}}</h3>
+                <p> {{$is_not_veryfy->description}} </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                     <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
+                            </div>
+                </div>
+           </div>
+       </div>
+    </div>
+  </div>
+</div>
   
   
   </div>
@@ -80,18 +163,7 @@
   <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
   <section class="reportmeadia">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>Oldest : <span>0h</span>
-          </div>
-      </div>
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>In Queue : <span>0</span>
-          </div>
-      </div>
-    </div>
+  
     @foreach($verifyHistory as $is_not_veryfy)
 
       <div class="row media">
@@ -112,8 +184,8 @@
                 <p> {{$is_not_veryfy->description}} </p>
                      <div class="text-right buttons">
                      <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                         <button class="btn btn-outline-primary" type="button">Mark as legal</button>
-                          <button class="btn btn-outline-primary" type="button">illegal + delete</button>
+                         <button class="btn btn-outline-primary" type="button">Permit</button>
+                          <button class="btn btn-outline-primary" type="button">Deny</button>
                         </div>
                 </div>
            </div>
@@ -349,6 +421,11 @@ li.nav-item  a{
 header {
     background: #7b0000;
     padding: 11px;
+}
+.float-right {
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
   </style>
 

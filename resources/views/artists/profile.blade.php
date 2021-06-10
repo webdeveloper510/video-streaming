@@ -45,7 +45,7 @@
           </div>
           <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-link tabss" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Offers</a>
+    <a class="nav-link tabss" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Service(s)</a>
     <a class="nav-link tabss {{$collection_selection ? '' : 'active'}}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
     <a class="nav-link tabss {{$collection_selection ? 'active' : ''}}" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Collection</a>
   </div>
@@ -56,7 +56,7 @@
 
   <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
   
-   <h2> Offers</h2>
+   <h2> Service(s)</h2>
           <div class="container">
    <div class="row mb-5">
     @if($offerData)
@@ -401,7 +401,7 @@ Your browser does not support the audio tag.
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Edit Offer</h4>
+            <h4 class="modal-title" id="myModalLabel">Edit Service</h4>
                 <button type="button" class="close" data-dismiss="modal" data-toggle="#myModal" aria-hidden="true">&times;</button>
                 
                 <div class="alert alert-success" role="alert" style="display:none">

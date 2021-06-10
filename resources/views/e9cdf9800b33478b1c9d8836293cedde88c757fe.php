@@ -7,7 +7,7 @@
 <!-- <h5>Audio/Video</h5> -->
 <h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  <?php echo e($offer[0]->count); ?> </h3>
 </div>
-<p>Sample</p>
+
 <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <?php 
 $GLOBALS['id'] = $offerdata->id;

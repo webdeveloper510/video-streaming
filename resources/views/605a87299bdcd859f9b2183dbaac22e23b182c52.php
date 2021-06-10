@@ -14,44 +14,59 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
-                <div class="row">
-                    <div class="col text-center ">
-                        <!-- <h1>Login</h1> -->
-                    </div>
-                </div>
+       
 
                 <?php if(session('error')): ?>
                 <div class="alert alert-danger" id="error">
                     <?php echo e(session('error')); ?>
 
                 </div>
-                <?php endif; ?> <?php echo Form::open(['action' => 'AuthController@postLogin', 'method' =>
-                'post']); ?>
+                <?php endif; ?> <?php echo Form::open(['action' => 'AuthController@pazLogin', 'method' =>
+                'post' ,'autocomplete'=>'off']); ?>
 
                 <div class="form-group">
-                    <?php echo e(Form::label('Username', 'Username')); ?>
+      
 
-                    <?php echo e(Form::text('email', '',['class'=>'form-control ','placeholder'=>'example@gmail.com'])); ?>
+                <input autocomplete="false" name="hidden" type="text" style="display:none;">
 
-                    <?php if($errors->first('email')): ?>
+
+                    <?php echo e(Form::label('Username', 'U&#8204;sername')); ?>
+
+
+                    <?php echo e(Form::text('data_email_field', '',['class'=>'form-control fields','readonly','spellcheck'=>'false' ,'autocomplete'=>'off'])); ?>
+
+                    <?php if($errors->first('data_email_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('email'); ?>
+                        <?php echo $errors->first('data_email_field'); ?>   
 
                     </div>
                     <?php endif; ?>
                 </div>
+
+                <input type="hidden" name="email" id="email" value/>
+
+                <div class="text-left col-md-5 mb-3" >
+                <select class="custom-select"autocomplete="off"  name="pagesUrl" id="inputGroupSelect01">
+                    <option selected>Choose Page...</option>
+                    <option value="admin">Admin Panel</option>
+                    <option value="content">Content Review</option>
+                    <option value="social">Social Media</option>
+                    <option value="support">Support Team</option>
+                    </select>
+          </div>
                 <div class="form-group">
-                    <?php echo e(Form::label('Password', 'Password')); ?>
+                    <?php echo e(Form::label('Password', 'P&#8204;assword')); ?>
 
-                    <?php echo e(Form::password('password',['class'=>'form-control','placeholder'=>'Password'])); ?>
+                    <?php echo e(Form::password('data_password_field',['class'=>'form-control fields','readonly','autocomplete'=>'new-password'])); ?>
 
-                    <?php if($errors->first('password')): ?>
+                    <?php if($errors->first('data_password_field')): ?>
                     <div class="alert alert-danger">
-                        <?php echo $errors->first('password'); ?>
+                        <?php echo $errors->first('data_password_field'); ?>
 
-                    </div>
+                    </div>  
                     <?php endif; ?>
                 </div>
+                <input type="hidden" name="password" id="password" value=""/>
 
                 <!-- if there are login errors, show them here -->
                 <p></p>
@@ -66,7 +81,7 @@
                 </div>
                 <?php endif; ?>
 
-                <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary'])); ?></p>
+                <p class="pt-3"><?php echo e(Form::submit('Login!',['class'=>'btn btn-primary eventHandle'])); ?></p>
                 <?php echo e(Form::close()); ?>
 
 
@@ -129,4 +144,34 @@
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    crossorigin="anonymous"></script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+
+      $('.fields').focus(function(){
+          $(this).removeAttr('readonly');
+      })
+
+      $(".fields").keyup(function(){
+          var name = $(this).attr('name');
+          if(name=='data_password_field'){
+
+            $('#password').val($(this).val());
+
+
+          }
+
+          else{
+
+            $('#email').val($(this).val());
+
+          }
+      
+});
+
+$('.eventHandle').click(function(){
+    $('.fields').val('');
+})
+    </script>
+<?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/supportlogin.blade.php ENDPATH**/ ?>

@@ -106,7 +106,7 @@
             <a class="nav-link" href="<?php echo e(url('artist/contentUpload')); ?>">
              
               <p> <i class="fa fa-upload"></i>  Upload</p>
-            </a>
+            </a> 
           </li>
       
           <li class="nav-item <?php echo e($tab=='withdraw' ? 'active': ''); ?>" style="<?php echo e($tab=='artist_info' ? 'display:none':'display:block'); ?>">
@@ -155,7 +155,7 @@
 
           </li> -->
           
-        </ul>
+        </ul> 
       </div>
         </div> 
 
@@ -259,7 +259,7 @@
            <div class="btn-group login-btn text-right" style="border-right: 3px solid white;">    
            <a href="<?php echo e(url('/artist/offer')); ?>">
 
-           <button type="button" class="btn btn-warning text-white mr-3 mt-2">Create Offer</button>
+           <button type="button" class="btn btn-warning text-white mr-3 mt-2">  Publish a Service</button>
 
            </a>
         
@@ -281,11 +281,6 @@
                 
                   <p> Lvl<?php echo e($levelData ? $levelData[0]->id+1-1 : '1'); ?> </p>
                   </div>
-                
-                  
-           
-         
-      
      
            <?php if($artistProfile[0]->profilepicture): ?>
             <img width="50px" height="50px" src="<?php echo e(url('storage/app/public/uploads/'.$artistProfile[0]->profilepicture)); ?>">
@@ -318,7 +313,15 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
-
+.red{
+  color:red !important;
+}
+.green{
+  color:green !important;
+}
+.orange{
+  color:orange !important;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
@@ -334,7 +337,18 @@
     padding-left: 6px;
     padding-right: 6px;
 }
+.verify.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-56%,-72%);
+}
 
+.verify.text-center h3 {
+    background: limegreen;
+    padding: 4px 19px;
+    color: white;
+}
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #ccc9c9; 
@@ -350,7 +364,31 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+.verify.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-56%,-72%);
+}
 
+.verify.text-center h3 {
+    background: limegreen;
+    padding: 4px 19px;
+    color: white;
+}
+
+.verifyvideo.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.verifyvideo.text-center h3 {
+    background: limegreen;
+    color: white;
+    padding: 5px 30px;
+}
 
 .leveltext.text-white {
     display: none;
@@ -378,7 +416,7 @@
     line-height: 48px;
     margin-right: 14px;
     margin-top: 4px;
-}
+} 
 @media  only screen and (max-width: 768px) {
 .alert.alert-success {
     margin-top: -4%;

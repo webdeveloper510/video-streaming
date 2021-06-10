@@ -178,7 +178,7 @@
                                 
                                 <div class="post">
                                     <h3>Description for the Post :</h3>
-
+.
                                     <p><?php echo e($info->description); ?></p>
                                     <div class="text-right mr-3">
                                         <button class="btn btn-outline-primary" type="button">Copy</button>
@@ -243,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>

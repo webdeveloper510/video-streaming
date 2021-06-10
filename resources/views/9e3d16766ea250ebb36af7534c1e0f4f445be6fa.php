@@ -54,6 +54,8 @@
 
             <input type="hidden" name="created_at" value="" class="created_at"/>
 
+                <input type="hidden" name="transloadit" value="" class="transloadit"/>
+                
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
          
@@ -100,7 +102,7 @@
             
             <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
-                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
+                <?php echo e(Form::file('media',['class'=>'form-control file_input','id'=>'browse'])); ?>
 
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
@@ -240,35 +242,90 @@ section.background1 {
  <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
+<script>
+  document.getElementById("browse").addEventListener("click", function () {
+    var uppy = window.Robodog.pick({
+      providers: [
+        "instagram",
+        "url",
+        "webcam",
+        "dropbox",
+        "google-drive",
+        "facebook",
+        "onedrive"
+      ],
+      waitForEncoding: true,
+      params: {
+        // To avoid tampering, use Signature Authentication
+        auth: { key: "995b974268854de2b10f3f6844566287" },
+        // To hide your `steps`, use a `template_id` instead
+        steps: {
+          ":original": {
+            robot: "/upload/handle"
+          },
+          imported_image: {
+            robot: "/http/import",
+            url: "https://demos.transloadit.com/inputs/chameleon.jpg"
+          },
+          resized_image: {
+            use: "imported_image",
+            robot: "/image/resize",
+            result: true,
+            height: 768,
+            imagemagick_stack: "v2.0.7",
+            resize_strategy: "fillcrop",
+            width: 1024,
+            zoom: false
+          },
+          merged: {
+            use: {
+              steps: [
+                { name: ":original", as: "audio" },
+                { name: "resized_image", as: "image" }
+              ]
+            },
+            robot: "/video/merge",
+            result: true,
+            ffmpeg_stack: "v4.3.1",
+            preset: "ipad-high"
+          }
+        }
+      }
+    })
+      .then(function (bundle) {
+        // Due to `waitForEncoding: true` this is fired after encoding is done.
+        // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
+        // for Async Mode where your back-end receives the encoding results
+        // so that your user can be on their way as soon as the upload completes.
+        console.log(bundle.transloadit); // Array of Assembly Statuses
+        console.log(bundle.results); // Array of all encoding results
+      })
+      .catch(console.error);
+  });
+</script>
+
   <script type="text/javascript">
 // window.Robodog.form('#myForm', {
 //       statusBar: '#myForm .progress',
 //       waitForEncoding: false,
+//       modal: true,
 //       waitForMetadata: true,
-//      submitOnSuccess: false,
+//       submitOnSuccess: false,
 //       alwaysRunAssembly: false,
 //       closeAfterFinish:true,
 //       autoProceed: false,
-//       restrictions: {
-//     maxFileSize: null,
-//     minFileSize: null,
-//     maxTotalFileSize: null,
-//     maxNumberOfFiles: 1,
-//     minNumberOfFiles: null,
-//     allowedFileTypes: null
-//   },
 //   params: {
-//     auth: { key: '995b974268854de2b10f3f6844566287' },
-//     triggerUploadOnSubmit: false,
-//     steps: {
+//      auth: { key: '995b974268854de2b10f3f6844566287' },
+//      triggerUploadOnSubmit: false,
+//      steps: {
 //       ':original': {
-//         robot: '/upload/handle'
+//          robot: '/upload/handle'
 //       },
 //       files_filtered: {
-//         use: ':original',
-//         robot: '/file/filter',
-//         result: true,
-//         accepts: [['${file.mime}','regex','audio']]
+//          use: ':original',
+//          robot: '/file/filter',
+//          result: true,
+//          accepts: [['${file.mime}','regex','audio']]
 //       },
 //       imported_image: {
 //         robot: '/http/import',
@@ -311,187 +368,107 @@ section.background1 {
 //   }
 //  }
 // }).on('transloadit:assembly-created', (assembly) => {
-//       console.log(">>> onStart", assembly);
+//       //console.log(">>> onStart", assembly);
 //     })
 //     .on('upload-progress', (bytesIn, totalBytes) => {
-//       console.log(">>> onProgress", bytesIn, totalBytes);
+//       //console.log(">>> onProgress", bytesIn, totalBytes);
 //     })
 //     .on('transloadit:complete', (assembly) => {
 //       console.log('>> onSuccess: Assembly finished successfully with', assembly);
-//       callajax(assembly);
+//       //callajax(assembly);
 //     })
 //     .on('transloadit:assembly-executing', () => {
-//       console.log('>> Uploading finished!');
+//       //console.log('>> Uploading finished!');
 //     })
 //     .on('transloadit:upload', (uploadedFile) => {
-//       console.log('>> Upload added', uploadedFile);
+//      // console.log('>> Upload added', uploadedFile);
 //     })
 //     .on('transloadit:result', (stepName, result) => {
-//       console.log('>> Result added', stepName, result);
+//       //console.log('>> Result added', stepName, result);
 //     })
 //     .on('error', (error) => {
-//       console.log('>> Assembly got an error:', error);
+//       //console.log('>> Assembly got an error:', error);
 //       if (error.assembly) {
 //         console.log(`>> Assembly ID ${error.assembly.assembly_id} failed!`);
 //         console.log(error.assembly);
 //       }
 //     })
+
     
-//     function callajax(assembly){
-//              var form = $("#myForm");
-//             var formData = new FormData($(form)[0]);
-// 		     formData["assembly"] = assembly;
-//             $('.loader').show();
-//             $('.percentage').html('0');
-//             $.ajaxSetup({
-//                 headers: {
-//                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//                 }
-//             });
-//             $.ajax({
-//                 url: APP_URL + "/postContent",
-//                 type: "POST",
-//                 data: formData,
-//                 processData: false,
-//                 contentType: false,
-//                 xhr: function () {
-//                     var xhr = $
-//                         .ajaxSettings
-//                         .xhr();
-//                     if (xhr.upload) {
-//                         xhr
-//                             .upload
-//                             .addEventListener('progress', function (event) {
-//                                 var percent = 0;
-//                                 var position = event.loaded || event.position;
-//                                 var total = event.total;
-//                                 if (event.lengthComputable) {
-//                                     percent = Math.ceil(position / total * 100);
-//                                 }
-//                                 $('#top_title').html('Uploding...' + percent + '%');
-//                                 $('.percentage').html(percent + '%');
-//                                 if (percent == 100) {
-//                                     $('.loader').hide();
-//                                 }
-//                             }, true);
-//                     }
-//                     return xhr;
-//                 },
-//                 success: function (response) {
+    function callajax(assembly){
+             var form = $("#myForm");
+            var formData = new FormData($(form)[0]);
+		     formData["assembly"] = assembly;
+            $('.loader').show();
+            $('.percentage').html('0');
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: APP_URL + "/postContent",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                xhr: function () {
+                    var xhr = $
+                        .ajaxSettings
+                        .xhr();
+                    if (xhr.upload) {
+                        xhr
+                            .upload
+                            .addEventListener('progress', function (event) {
+                                var percent = 0;
+                                var position = event.loaded || event.position;
+                                var total = event.total;
+                                if (event.lengthComputable) {
+                                    percent = Math.ceil(position / total * 100);
+                                }
+                                $('#top_title').html('Uploding...' + percent + '%');
+                                $('.percentage').html(percent + '%');
+                                if (percent == 100) {
+                                    $('.loader').hide();
+                                }
+                            }, true);
+                    }
+                    return xhr;
+                },
+                success: function (response) {
 
-//                     console.log(response);
-//                     return false;
+                    console.log(response);
+                    return false;
 
-//                     if (response.errors) {
+                    if (response.errors) {
 
-//                         jQuery.each(response.errors, function (key, value) {
-//                             jQuery('.alert-danger').show();
-//                             jQuery('.alert-danger').append('<p>' + value + '</p>');
-//                         });
-//                     } else {
-//                         $('.loader').hide();
-//                         //$('.percentage').hide();
-//                         if (response.status == 1) {
-//                             $('#success').show();
-//                             $('#success').html(response.messge);
+                        jQuery.each(response.errors, function (key, value) {
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').append('<p>' + value + '</p>');
+                        });
+                    } else {
+                        $('.loader').hide();
+                        //$('.percentage').hide();
+                        if (response.status == 1) {
+                            $('#success').show();
+                            $('#success').html(response.messge);
 
-//                             setTimeout(function () {
-//                                 location.reload();
-//                             }, 2000);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
 
-//                             // location.reload(); $('.popup_close').trigger('click');
+                            // location.reload(); $('.popup_close').trigger('click');
 
-//                         } else {
+                        } else {
 
-//                             $('#error').show();
-//                             $('#error').html(response.messge);
+                            $('#error').show();
+                            $('#error').html(response.messge);
 
-//                         }
+                        }
 
-//                     }
-//                 }
-//             });
-//     }
-
-
-
-
-
-
-
-  //  $('#myForm').transloadit({
-  //     wait: true,
-  //     triggerUploadOnSubmit: true
-  //    autoSubmit: false,
-  //     // alwaysRunAssembly: false,
-  //     // closeAfterFinish:true,
-  //      //autoProceed: false,
-  //     params: {
-  //       auth: {
-  //         // To avoid tampering use signatures:
-  //         // https://transloadit.com/docs/api/#authentication
-  //         key: '995b974268854de2b10f3f6844566287',
-  //       },
-  //       // It's often better store encoding instructions in your account
-  //       // and use a `template_id` instead of adding these steps inline
-  //       steps: {
-  //         ':original': {
-  //           robot: '/upload/handle'
-  //         },
-  //        files_filtered: {
-  //           use: ':original',
-  //           robot: '/file/filter',
-  //           result: true,
-  //           accepts: [['${file.mime}','regex','audio']],
-  //           error_on_decline: true
-  //         },
-  //         imported_image: {
-  //           robot: '/http/import',
-  //           url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-  //         },
-  //         resized_image: {
-  //           use: 'imported_image',
-  //           robot: '/image/resize',
-  //           result: true,
-  //           height: 768,
-  //           imagemagick_stack: 'v2.0.7',
-  //           resize_strategy: 'fillcrop',
-  //           width: 1024,
-  //           zoom: false
-  //         },
-  //         merged: {
-  //           use: {
-  //               'steps':[
-  //                   {
-  //                   'name':':original',
-  //                   'as':'audio'
-                        
-  //                   },
-  //                   {
-  //                   'name':'resized_image',
-  //                   'as':'image'
-                        
-  //                   }
-  //                   ]
-                
-  //           },
-  //           robot: '/video/merge',
-  //           result: true,
-  //           ffmpeg_stack: 'v4.3.1',
-  //           preset: 'ipad-high'
-  //         },
-  //         exported: {
-  //           use: ['imported_image','resized_image','merged',':original'],
-  //           robot: '/s3/store',
-  //           credentials: "",
-  //          "path": "uploads/${file.id}.${file.ext}"
-  //         }
-  //       },
-        
-  //     },
-  //   onResult: function(step, result) {
-  //       console.log(result.ssl_url);
-  //     }
-  //   });
+                    }
+                }
+            });
+    }
 
 </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists/provider.blade.php ENDPATH**/ ?>
