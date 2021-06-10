@@ -234,7 +234,7 @@ section.background1 {
   <script type="text/javascript">
 window.Robodog.form('#myForm', {
       statusBar: '#myForm .progress',
-      waitForEncoding: false,
+      waitForEncoding: true,
       waitForMetadata: true,
      submitOnSuccess: false,
       alwaysRunAssembly: false,
