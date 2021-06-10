@@ -242,66 +242,76 @@ section.background1 {
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
 <script>
   document.getElementById("browse").addEventListener("click", function () {
-    var uppy = window.Robodog.pick({
-      providers: [
-        "instagram",
-        "url",
-        "webcam",
-        "dropbox",
-        "google-drive",
-        "facebook",
-        "onedrive"
-      ],
-      waitForEncoding: true,
-      statusBar: '#myForm .progress',
-      params: {
-        // To avoid tampering, use Signature Authentication
-        auth: { key: "995b974268854de2b10f3f6844566287" },
-        // To hide your `steps`, use a `template_id` instead
-        steps: {
-          ":original": {
-            robot: "/upload/handle"
+  var uppy = window.Robodog.pick({
+    providers: [
+      "instagram",
+      "url",
+      "webcam",
+      "dropbox",
+      "google-drive",
+      "facebook",
+      "onedrive"
+    ],
+    waitForEncoding: true,
+    statusBar: '#myForm .progress',
+    params: {
+      // To avoid tampering, use Signature Authentication
+      auth: { key: "995b974268854de2b10f3f6844566287" },
+      // To hide your `steps`, use a `template_id` instead
+      steps: {
+        ":original": {
+          robot: "/upload/handle"
+        },
+        "filtered_image": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "image"]
+          ]
+        },
+        "filtered_audio": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "audio"]
+          ]
+        },
+        resized_image: {
+          use: "filtered_image",
+          robot: "/image/resize",
+          result: true,
+          height: 768,
+          imagemagick_stack: "v2.0.7",
+          resize_strategy: "fillcrop",
+          width: 1024,
+          zoom: false
+        },
+        merged: {
+          use: {
+            steps: [
+              { name: "filtered_audio", as: "audio" },
+              { name: "resized_image", as: "image" }
+            ]
           },
-          imported_image: {
-            robot: "/http/import",
-            url: "https://demos.transloadit.com/inputs/chameleon.jpg"
-          },
-          resized_image: {
-            use: "imported_image",
-            robot: "/image/resize",
-            result: true,
-            height: 768,
-            imagemagick_stack: "v2.0.7",
-            resize_strategy: "fillcrop",
-            width: 1024,
-            zoom: false
-          },
-          merged: {
-            use: {
-              steps: [
-                { name: ":original", as: "audio" },
-                { name: "resized_image", as: "image" }
-              ]
-            },
-            robot: "/video/merge",
-            result: true,
-            ffmpeg_stack: "v4.3.1",
-            preset: "ipad-high"
-          }
+          robot: "/video/merge",
+          result: true,
+          ffmpeg_stack: "v4.3.1",
+          preset: "ipad-high"
         }
       }
-    })
-      .then(function (bundle) {
-        // Due to `waitForEncoding: true` this is fired after encoding is done.
-        // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
-        // for Async Mode where your back-end receives the encoding results
-        // so that your user can be on their way as soon as the upload completes.
-       var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
-        $('.transloadit').val(url);
-        //console.log(bundle.results); // Array of all encoding results
-      })
-      .catch(console.error);
-  });
+    }
+  })
+  .then(function (bundle) {
+    // Due to `waitForEncoding: true` this is fired after encoding is done.
+    // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
+    // for Async Mode where your back-end receives the encoding results
+    // so that your user can be on their way as soon as the upload completes.
+    var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
+    $('.transloadit').val(url);
+    //console.log(bundle.results); // Array of all encoding results
+  })
+  .catch(console.error);
+});
 </script>
 
   <script type="text/javascript">
