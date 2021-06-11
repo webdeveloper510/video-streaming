@@ -14,7 +14,7 @@
          
          <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown23" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Create Offer
+              Publish a Service
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
@@ -26,7 +26,7 @@
           
         </ul>
         </div>
-        <h2 class="text-center text-white ">Create Offer</h2>
+        <h2 class="text-center text-white "> Publish a Service </h2>
 
      
         

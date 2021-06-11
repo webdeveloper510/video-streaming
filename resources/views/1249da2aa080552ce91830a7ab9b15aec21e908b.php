@@ -72,6 +72,7 @@
         <div class="col-md-2 mt-5">
         <div class="verify text-center">
                   <h3>Verifying...</h3>
+                  <a href=""  data-toggle="modal" data-target="#denied">Denied</a>
                </div>
           <?php if($offer->type=='video'): ?>
         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
@@ -781,6 +782,36 @@ Your browser does not support the audio tag.
                       </div>
                     </div>
                   </div>
+                     
+
+                     <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#denied">
+              Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <p>We have found this Content to be categorized as
+                        harmful / misleading / underge.<br>
+                        If we learn that such Content was actively pusued, your account will be 
+                        terminated.<br>
+                        If you believe you are being treated wrong, please reach out to our support via ticket or directly at 
+                        at artist@pornartistzone.com
+                        </p>
+                  </div>
+                  <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
 <style>
 
 video:hover {

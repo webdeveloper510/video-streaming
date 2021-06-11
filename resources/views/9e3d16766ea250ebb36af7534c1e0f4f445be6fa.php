@@ -303,7 +303,7 @@ section.background1 {
               use: {
                 steps: [
                   { name: ":filtered_audio", as: "audio" },
-                  { name: "filtered_image", as: "image" }
+                  { name: "resized_image", as: "image" }
                 ]
               },
               robot: "/video/merge",
