@@ -771,7 +771,7 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-  print_r($request->all());die;
+  //print_r($request->all());die;
       if($request->radio=='video'){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
@@ -802,9 +802,9 @@ else{
 
       else{
         $fileName = $this->saveContent($request);
+        $imagename = $this->saveTransloaditImage($request);
         $data=$request->all();
-        $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
-        $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
+        $audio_pics = $imagename;
           $size  = filesize($fileName);
          $data['size'] = number_format($size / 1048576,2);
         unset($data['_token']);
@@ -819,6 +819,7 @@ else{
         unset($data['audio_cat']);
         unset($data['video_cat']);
         unset($data['transloadit']);
+        unset($data['transloadit_image']);
 
         if($data){
 
@@ -853,6 +854,23 @@ else{
     curl_close($ch);
     fclose($fp);
     return $execute==1 ? $fileName : 0;
+  }
+
+  public function saveTransloaditImage($data){
+
+    $path = storage_path('app/public/uploads/');
+    $ch     =   curl_init($data->transloadit_image);
+    $dir            =   $path;
+    $fileName       =   basename($data->transloadit_image);
+    $saveFilePath   =   $dir . $fileName;
+    $fp             =   fopen($saveFilePath, 'wb');
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $execute = curl_exec($ch);
+    curl_close($ch);
+    fclose($fp);
+    return $execute==1 ? $fileName : 0;
+
   }
 
 public function getResponse(){

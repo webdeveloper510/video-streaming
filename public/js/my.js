@@ -2730,7 +2730,6 @@ function getPaz(a) {
 
 $(document).on('click', '.select_media_pic', function () {
 
-    $('.thumbnail').show();
     
     var value = $(this).val();
 
@@ -2743,6 +2742,8 @@ $(document).on('click', '.select_media_pic', function () {
 					$('.label12').text('Overview  Audio (~30s)');
 					$('.media_label12').text('Audio');
 					$('.thumbnail1').text('Image Upload');
+                    $('.thumbnail').hide();
+
 					$('.convert').hide();
 					$('.audio').show();
 					$('.video').hide()
@@ -2750,6 +2751,7 @@ $(document).on('click', '.select_media_pic', function () {
 			}
 			else{
                 $('.file1').hide();
+                $('.thumbnail').show();
 
                 $('.file').show();
                 $('.audio').removeAttr('required');
@@ -3058,8 +3060,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                console.log(response);
-                   return false;
+                // console.log(response);
+                //    return false;
 
                     if (response.errors) {
 
