@@ -300,7 +300,7 @@ section.background1 {
           merged: {
             use: {
               steps: [
-                { name: ":filtered_audio", as: "audio" },
+                { name: "filtered_audio", as: "audio" },
                 { name: "filtered_image", as: "image" }
               ]
             },
