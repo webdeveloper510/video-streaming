@@ -12,7 +12,7 @@
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{url('artist/offer')}}">Publish a Service </a>
+            <a class="dropdown-item" href="{{url('artist/offer')}}">Create Offer</a>
         </div>
          
 
@@ -259,10 +259,10 @@ section.background1 {
         auth: { key: "995b974268854de2b10f3f6844566287" },
         // To hide your `steps`, use a `template_id` instead
         steps: {
-            ":original": {
-              robot: "/upload/handle"
-            },
-            "filtered_image": {
+          ":original": {
+            robot: "/upload/handle"
+          },
+          "filtered_image": {
           use: ":original",
           robot: "/file/filter",
           accepts: [
@@ -276,38 +276,35 @@ section.background1 {
             ["${file.mime}", "regex", "audio"]
           ]
         },
-            // imported_image: {
-            //   robot: "/http/import",
-            //   url: "https://demos.transloadit.com/inputs/chameleon.jpg"
-            // },
-            resized_image: {
-              use: "imported_image",
-              robot: "/image/resize",
-              result: true,
-              height: 768,
-              imagemagick_stack: "v2.0.7",
-              resize_strategy: "fillcrop",
-              width: 1024,
-              zoom: false
+         
+          resized_image: {
+            use: "filtered_image",
+            robot: "/image/resize",
+            result: true,
+            height: 768,
+            imagemagick_stack: "v2.0.7",
+            resize_strategy: "fillcrop",
+            width: 1024,
+            zoom: false
+          },
+          
+          merged: {
+            use: {
+              steps: [
+                { name: ":filtered_audio", as: "audio" },
+                { name: "filtered_image", as: "image" }
+              ]
             },
-            merged: {
-              use: {
-                steps: [
-                  { name: ":filtered_audio", as: "audio" },
-                  { name: "resized_image", as: "image" }
-                ]
-              },
-              robot: "/video/merge",
-              result: true,
-              ffmpeg_stack: "v4.3.1",
-              preset: "ipad-high"
-            }
+
+            robot: "/video/merge",
+            result: true,
+            ffmpeg_stack: "v4.3.1",
+            preset: "ipad-high"
+          }
         }
       }
     })
       .then(function (bundle) {
-        console.log(bundle)
-        //console.log(bundle)
         // Due to `waitForEncoding: true` this is fired after encoding is done.
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
