@@ -12,7 +12,7 @@
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="{{url('artist/offer')}}">Publish a Service </a>
+            <a class="dropdown-item" href="{{url('artist/offer')}}">Create Offer</a>
         </div>
          
 
@@ -52,6 +52,7 @@
             <input type="hidden" name="created_at" value="" class="created_at"/>
 
                 <input type="hidden" name="transloadit" value="" class="transloadit"/>
+                <input type="hidden" name="transloadit_image" value="" class="transloadit_image"/>
                 
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
@@ -262,12 +263,23 @@ section.background1 {
           ":original": {
             robot: "/upload/handle"
           },
-          imported_image: {
-            robot: "/http/import",
-            url: "https://demos.transloadit.com/inputs/chameleon.jpg"
-          },
+          "filtered_image": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "image"]
+          ]
+        },
+        "filtered_audio": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "audio"]
+          ]
+        },
+         
           resized_image: {
-            use: "imported_image",
+            use: "filtered_image",
             robot: "/image/resize",
             result: true,
             height: 768,
@@ -280,8 +292,8 @@ section.background1 {
           merged: {
             use: {
               steps: [
-                { name: ":original", as: "audio" },
-                { name: "resized_image", as: "image" }
+                { name: "filtered_audio", as: "audio" },
+                { name: "filtered_image", as: "image" }
               ]
             },
             robot: "/video/merge",
@@ -293,12 +305,17 @@ section.background1 {
       }
     })
       .then(function (bundle) {
+
+        // console.log(bundle.results);
+        // console.log(bundle.transloadit);
         // Due to `waitForEncoding: true` this is fired after encoding is done.
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
         // so that your user can be on their way as soon as the upload completes.
        var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
+       var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
         $('.transloadit').val(url);
+        $('.transloadit_image').val(url1);
         //console.log(bundle.results); // Array of all encoding results
       })
       .catch(console.error);
