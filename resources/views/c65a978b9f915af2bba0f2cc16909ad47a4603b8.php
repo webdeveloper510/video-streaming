@@ -326,6 +326,9 @@
 .set:hover {
     opacity: 0.7;
 }
+i.material-icons.set {
+    font-size: 27px;
+}
  </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
