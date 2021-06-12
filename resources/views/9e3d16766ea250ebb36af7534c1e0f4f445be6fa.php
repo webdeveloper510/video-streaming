@@ -313,7 +313,7 @@ section.background1 {
             ffmpeg_stack: "v4.3.1",
             preset: "ipad-high"
           }
-        }
+        },
         'notify_url':url+'/postContent'
       }
     })
