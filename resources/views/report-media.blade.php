@@ -182,9 +182,19 @@
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+@foreach($reports as $is_not_veryfy)
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+    @if($is_not_veryfy->type=='video')
+          <video width="100%" controls>
+            <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
+            </video>
+            @else
+            <audio width="100%" controls>
+            <source src="{{url('storage/app/public/audio/'.$is_not_veryfy->media)}}" type="audio/mp3">
+            </audio>
+            @endif
+    </li>
+    @endforeach
   </ol>
   <div class="carousel-inner">
 
