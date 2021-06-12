@@ -763,7 +763,7 @@ else{
       'title'=>'required|max:30',
       'price'=>'required|max:50000',
       //'category'=>'required', 
-      'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
+      //'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
   ]);
         
   if ($validator->fails())
