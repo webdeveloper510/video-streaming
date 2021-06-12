@@ -304,6 +304,9 @@ section.background1 {
       }
     })
       .then(function (bundle) {
+
+        console.log(bundle.results);
+        console.log(bundle.transloadit);
         // Due to `waitForEncoding: true` this is fired after encoding is done.
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
