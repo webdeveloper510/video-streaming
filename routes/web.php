@@ -109,6 +109,8 @@ Route::post('ajax-request', 'artist@cartSbmit');
 
 Route::post('libraryAdded', 'AuthController@addInLibrary');
 
+Route::post('updatedCancelStatus','AuthController@CancelStatus');
+
 
 Route::post('subscribe','artist@subscribe');
 

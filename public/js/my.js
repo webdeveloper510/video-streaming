@@ -2588,7 +2588,8 @@ $(document).ready(function () {
         ],
         "createdRow": (row, data, dataIndex) => {
             var text = $('td', row).eq(5).text();
-            //console.log(text);
+            text=='Expired' ? updatedStatus(data.id):'';
+            //console.log(data);
             if(data.status=='new')
             {
                 $('td', row).eq(5).addClass('green');           
@@ -2601,7 +2602,7 @@ $(document).ready(function () {
             
             }
 
-            if(data.status=='process' && text!='Expired')
+            if(data.status=='process')
             {
                 $('td', row).eq(5).addClass('orange');           
             
@@ -2671,6 +2672,28 @@ $(document).ready(function () {
     });
 
 });
+
+function updatedStatus(id){
+
+   // event.preventDefault();
+    //console.log(id);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/updatedCancelStatus",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {'id':id},
+
+        success: function (data) {
+
+            console.log(data);
+
+        }
+    });
+
+}
 
 function selectUsername(a){
     var length = $(a).val();
