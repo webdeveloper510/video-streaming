@@ -801,25 +801,26 @@ else{
       }
 
       else{
-        $fileName = $this->saveContent($request);
-        $imagename = $this->saveTransloaditImage($request);
+      
         $data=$request->all();
-        $audio_pics = $imagename;
-          $size  = filesize($fileName);
+        $audio_pics = '';
+          $size  = '';
          $data['size'] = number_format($size / 1048576,2);
         unset($data['_token']);
-        $data['media']=$fileName;
+        $data['media']='';
         $data['audio_pic'] = $audio_pics ? $audio_pics : '';
         unset($data['thumbnail_pic']);
         $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
         $data['type']= 'audio'; 
+        $data['assembly_id']=$data['assembly_id'];
         $data['catid']= $data['audio_cat'];
         
         unset($data['audio_cat']);
         unset($data['video_cat']);
         unset($data['transloadit']);
         unset($data['transloadit_image']);
+        unset($data['assembly_id']);
 
         if($data){
 
@@ -839,13 +840,32 @@ else{
       }
   }
 
+  public function notifyUrl(Request $request){
+    echo "yes";
+    print_r($request->all());die;
+    if($request){
+    $assem_id = $request['assembly_id'];
+    $fileName = $this->saveContent($request);
+   // $size=filesize($fileName);
+    $imagename = $this->saveTransloaditImage($request);
+    $data = array('media'=>$fileName,'audio_pic'=>$imagename);
+
+    $this->model->UpdateData('media','assembly_id',$data,$assem_id);
+    
+    }
+  }
+
 
   public function saveContent($data){
 
+    $media_url = $data['results']['merged']->ssl_url;
+
     $path = storage_path('app/public/video/');
-    $ch     =   curl_init($data->transloadit);
+    //$ch     =   curl_init($data->transloadit);
+    $ch     =   curl_init($media_url);
     $dir            =   $path;
-    $fileName       =   basename($data->transloadit);
+    //$fileName       =   basename($data->transloadit);
+    $fileName       =   basename($media_url);
     $saveFilePath   =   $dir . $fileName;
     $fp             =   fopen($saveFilePath, 'wb');
     curl_setopt($ch, CURLOPT_FILE, $fp);
@@ -858,10 +878,15 @@ else{
 
   public function saveTransloaditImage($data){
 
+    $image_url = $data['results']['resized_image']->ssl_url;
+
+
     $path = storage_path('app/public/uploads/');
-    $ch     =   curl_init($data->transloadit_image);
+   // $ch     =   curl_init($data->transloadit_image);
+    $ch     =   curl_init($image_url);
     $dir            =   $path;
-    $fileName       =   basename($data->transloadit_image);
+   // $fileName       =   basename($data->transloadit_image);
+    $fileName       =   basename($image_url);
     $saveFilePath   =   $dir . $fileName;
     $fp             =   fopen($saveFilePath, 'wb');
     curl_setopt($ch, CURLOPT_FILE, $fp);

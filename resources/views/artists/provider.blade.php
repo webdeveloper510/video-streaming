@@ -53,6 +53,7 @@
 
                 <input type="hidden" name="transloadit" value="" class="transloadit"/>
                 <input type="hidden" name="transloadit_image" value="" class="transloadit_image"/>
+                <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
                 
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
@@ -304,20 +305,22 @@ section.background1 {
             preset: "ipad-high"
           }
         },
-        'notify_url':url+'/postContent'
+        'notify_url':url+'/notify_me'
       }
     })
       .then(function (bundle) {
 
         console.log(bundle.results);
-        console.log(bundle.transloadit);
+        //console.log(bundle.transloadit);
         // Due to `waitForEncoding: true` this is fired after encoding is done.
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
         // so that your user can be on their way as soon as the upload completes.
        var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
        var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
+       var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
         $('.transloadit').val(url);
+        $('.assembly_id').val(bundle.results[0].assembly_id)
         $('.transloadit_image').val(url1);
         //console.log(bundle.results); // Array of all encoding results
       })
