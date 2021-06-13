@@ -242,6 +242,8 @@ section.background1 {
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
 <script>
+  var url = $('#base_url').attr('data-url');
+  console.log(url);
   document.getElementById("browse").addEventListener("click", function () {
     var uppy = window.Robodog.pick({
       providers: [
@@ -253,7 +255,7 @@ section.background1 {
         "facebook",
         "onedrive"
       ],
-      waitForEncoding: true,
+      waitForEncoding: false,
       statusBar: '#myForm .progress',
       params: {
         // To avoid tampering, use Signature Authentication
@@ -302,12 +304,13 @@ section.background1 {
             preset: "ipad-high"
           }
         }
+        'notify_url':url+'/postContent'
       }
     })
       .then(function (bundle) {
 
-        // console.log(bundle.results);
-        // console.log(bundle.transloadit);
+        console.log(bundle.results);
+        console.log(bundle.transloadit);
         // Due to `waitForEncoding: true` this is fired after encoding is done.
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
