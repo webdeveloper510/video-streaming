@@ -2587,8 +2587,8 @@ $(document).ready(function () {
             
         ],
         "createdRow": (row, data, dataIndex) => {
-       
-            //console.log(data.status);
+            var text = $('td', row).eq(5).text();
+            //console.log(text);
             if(data.status=='new')
             {
                 $('td', row).eq(5).addClass('green');           
@@ -2601,7 +2601,7 @@ $(document).ready(function () {
             
             }
 
-            if(data.status=='process')
+            if(data.status=='process' && text!='Expired')
             {
                 $('td', row).eq(5).addClass('orange');           
             
