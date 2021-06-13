@@ -3084,7 +3084,7 @@ if ($("#myForm").length > 0) {
                 success: function (response) {
 
                 //console.log(response);
-                //    return false;
+                //    return false;  
 
                     if (response.errors) {
 
