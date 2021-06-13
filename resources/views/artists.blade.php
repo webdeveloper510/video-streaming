@@ -100,7 +100,7 @@ hr{
                     <div class="col-6">
                            <div class="">
                                <h3>{{$artist->count ? $artist->count : 0}}</h3>
-                               <h5>Offer(S)</h3>
+                               <h5>Service(S)</h3>
                                </div>
 
                            </div>
