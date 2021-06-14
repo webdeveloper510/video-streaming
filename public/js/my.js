@@ -2587,8 +2587,9 @@ $(document).ready(function () {
             
         ],
         "createdRow": (row, data, dataIndex) => {
-       
-            //console.log(data.status);
+            var text = $('td', row).eq(5).text();
+            text=='Expired' ? updatedStatus(data.id):'';
+            //console.log(data);
             if(data.status=='new')
             {
                 $('td', row).eq(5).addClass('green');           
@@ -2671,6 +2672,28 @@ $(document).ready(function () {
     });
 
 });
+
+function updatedStatus(id){
+
+   // event.preventDefault();
+    //console.log(id);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/updatedCancelStatus",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {'id':id},
+
+        success: function (data) {
+
+            console.log(data);
+
+        }
+    });
+
+}
 
 function selectUsername(a){
     var length = $(a).val();
@@ -3060,8 +3083,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                // console.log(response);
-                //    return false;
+                //console.log(response);
+                //    return false;  
 
                     if (response.errors) {
 

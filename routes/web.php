@@ -109,8 +109,12 @@ Route::post('ajax-request', 'artist@cartSbmit');
 
 Route::post('libraryAdded', 'AuthController@addInLibrary');
 
+Route::post('updatedCancelStatus','AuthController@CancelStatus');
+
 
 Route::post('subscribe','artist@subscribe');
+
+Route::post('notify_me','AuthController@notifyUrl');
 
 Route::post('report','AuthController@reportVideo');
 
