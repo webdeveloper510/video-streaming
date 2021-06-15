@@ -319,10 +319,10 @@ class AuthController extends Controller
       $history = $this->model->getHistoryVerifiedContent('media');
 
       $reports = $this->model->getReportVerifiedContent('media');
-//       echo "<pre>";
-//       print_r($notVerifiedContent);
-//       print_r($history);
-//       print_r($reports);
+      // echo "<pre>";
+      // // print_r($notVerifiedContent);
+      // // print_r($history);
+      // print_r($notVerifiedContent);
 
 // die;
 
@@ -1901,7 +1901,7 @@ public function readNotification(Request $request){
         $offerInfo['status'] = 'new';
         $offerInfo['is_seen'] = 'no';
         $offerInfo['choice'] = $request->duration;
-        $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additioal Requests' ;
+        $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additional Requests' ;
 
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
         //print_r($requestData);die;
