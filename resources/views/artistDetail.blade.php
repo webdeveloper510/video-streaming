@@ -95,7 +95,7 @@
     @endforeach
     @else
           <div class="artistoffer1">
-            <h4>No Offer available</h4>
+            <h4>No Publish a Service available</h4>
           </div>
           @endif
    </div>
