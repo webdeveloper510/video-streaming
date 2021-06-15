@@ -2218,8 +2218,12 @@ function filterproject(data) {
 
     var value = data.value;
 
+    var name = $(data)
+    .find(":selected")
+    .val();
 
-
+    name == '' ? dataTable('All') : name;
+    dataTableInitialise();
     var dataset = $('.filteration_table tbody').find('tr ');
 
 
@@ -2250,6 +2254,7 @@ function filterproject1(data){
 
     var value = data.value;
 
+ 
 
 
     var dataset = $('.filteration_table tbody').find('tr ');
@@ -2542,10 +2547,85 @@ $(document).ready(function () {
 
     //console.log(name);
 
-    var table1 = $('#example1').DataTable({
+    var table1 = dataTable(name);
+
+    dataTableInitialise(table1);
+
+    // Add event listener for opening and closing details
+
+
+});
+
+function dataTableInitialise(table1){
+    $('#example1 tbody').on('click', 'td', function () {
+        //console.log('yes');
+        var tr = $(this)
+        var row = table1.row(tr);
+
+        if (row.child.isShown()) {
+           // console.log('ssdssss');
+
+            // This row is already open - close it
+            row
+                .child
+                .hide();
+            tr.removeClass('shown');
+        } else {
+
+            // Open this row
+            row
+                .child(format(row.data(), 'offer'))
+                .show();
+            tr.addClass('shown');
+        }
+    });
+
+    // Handle click on "Expand All" button
+    $('#btn-show-all-children1').on('click', function () {
+        // Enumerate all rows
+        table1
+            .rows()
+            .every(function () {
+                // If row has details collapsed
+                if (!this.child.isShown()) {
+                    // Open this row
+                    this
+                        .child(format(this.data(), 'offer'))
+                        .show();
+                    $(this.node()).addClass('shown');
+                }
+            });
+    });
+
+    // Handle click on "Collapse All" button
+    $('#btn-hide-all-children1').on('click', function () {
+        // Enumerate all rows
+        table1
+            .rows()
+            .every(function () {
+                // If row has details expanded
+                if (this.child.isShown()) {
+                    // Collapse row details
+                    this
+                        .child
+                        .hide();
+                    $(this.node()).removeClass('shown');
+                }
+            });
+    });
+}
+
+
+function dataTable(name){
+
+    //console.log(name);return false;
+    
+    return $('#example1').DataTable({
         'ajax': name != 'All'
             ? APP_URL + '/artist/getRequests/orders/' + name
             : APP_URL + '/artist/getRequests/orders',
+            destroy: true,
+
         'columns': [
             {
                 'className': 'details-control',
@@ -2555,7 +2635,7 @@ $(document).ready(function () {
             },
              {
             'data': 'title'
-            }, 
+            },   
             {
                 'data': 'type'
             }, 
@@ -2611,68 +2691,7 @@ $(document).ready(function () {
             
         //  'order': [[1, 'asc']]
     });
-
-    // Add event listener for opening and closing details
-    $('#example1 tbody').on('click', 'td', function () {
-        console.log('yes');
-        var tr = $(this)
-        var row = table1.row(tr);
-
-        if (row.child.isShown()) {
-           // console.log('ssdssss');
-
-            // This row is already open - close it
-            row
-                .child
-                .hide();
-            tr.removeClass('shown');
-        } else {
-            console.log('sssddsdsss');
-
-            // Open this row
-            row
-                .child(format(row.data(), 'offer'))
-                .show();
-            tr.addClass('shown');
-        }
-    });
-
-    // Handle click on "Expand All" button
-    $('#btn-show-all-children1').on('click', function () {
-        // Enumerate all rows
-        table1
-            .rows()
-            .every(function () {
-                // If row has details collapsed
-                if (!this.child.isShown()) {
-                    // Open this row
-                    this
-                        .child(format(this.data(), 'offer'))
-                        .show();
-                    $(this.node()).addClass('shown');
-                }
-            });
-    });
-
-    // Handle click on "Collapse All" button
-    $('#btn-hide-all-children1').on('click', function () {
-        // Enumerate all rows
-        table1
-            .rows()
-            .every(function () {
-                // If row has details expanded
-                if (this.child.isShown()) {
-                    // Collapse row details
-                    this
-                        .child
-                        .hide();
-                    $(this.node()).removeClass('shown');
-                }
-            });
-    });
-
-});
-
+}
 function updatedStatus(id){
 
    // event.preventDefault();

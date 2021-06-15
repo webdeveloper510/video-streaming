@@ -886,6 +886,8 @@ public function getRespectedSub($data){
 
        $userId =$user->id;
 
+       //print_r($sts);die;
+
       //DB::enableQueryLog();
       //echo "h";die;
 
@@ -896,7 +898,7 @@ public function getRespectedSub($data){
       ->where('offer.artistid',$userId)
       ->groupBy("offer.id","offer.title","offer.paid_status","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
        
-      if ($sts) {
+      if ($sts!='') {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }      
@@ -3444,7 +3446,7 @@ public function deleteIllegeContent($id){
 
     public function getAllData($table){
 
-      return DB::table($table)->pluck('timeframe')->toArray();
+             return DB::table($table)->pluck('timeframe')->toArray();
 
     } 
 
