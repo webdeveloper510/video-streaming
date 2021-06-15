@@ -3,11 +3,11 @@
 <section class="background1">
          
 
-        <div class="row">
+        <div class="row mt-5 ">
           <div class="col"></div>
-          <div class="col-lg-10">
+          <div class="col-lg-10 mt-4">
           <div class="card">
-            <div clas="card-header">
+            <div class="card-header text-center">
                <h3>Payout to your Account </h3>
             </div>
             <div class="card-body">
@@ -42,8 +42,8 @@
           </div>
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
-   <div class="float-right">
-   <i class="material-icons">my_location</i>
+   <div class="float-right pr-3">
+   <a style="cursor: pointer;" data-toggle="modal" data-target="#payment"><i class="material-icons set">settings</i></a>
    </div>
       <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
       <div class="data">
@@ -61,7 +61,7 @@
          <h3> Lvl0 <small>(you save)</small>: 0%</h3>
          <hr>
          <h3>Current Fee : <span><?php echo e(20-0); ?>%</span></h3>
-         <?php endif; ?>
+         <?php endif; ?>                                      
       </div>
   
        </span>
@@ -106,7 +106,7 @@
             <p>Every time we collect our service fee on the customers token purchase you get 10% of it passively</p>
            </div> 
           
-         </span>
+         </span>                 
          </h6>
          </div>
        </div>
@@ -191,12 +191,144 @@
   <div class="col"></div>
    </div>
 </section>  
+      
+<!-- Modal -->
+<div class="modal fade" id="payment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Payment Method</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+
+
+      <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-6 col-form-label">Paxum Account</label>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-primary"data-toggle="modal" data-target="#panxum" type="button">Enter payout <br> Information</button>
+              </div>
+            </div>
+          </form>
+          <p class="text-center my-3">OR</p>
+          <form>
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-6 col-form-label">Bank Account</label>
+              <div class="col-sm-6">
+                <button class="btn btn-outline-primary"data-toggle="modal" data-target="#bank" type="button">Enter payout <br> Information</button>
+              </div>
+            </div>
+          </form>
+               <button class="btn btn-primary" type="button">Save</button>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+       <!-- Paxun Account popup -->
+
        
+
+        <!-- Modal -->
+        <div class="modal fade " id="panxum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Paxum Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body py-5">
+              <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email </label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Reference</label>
+                    <input type="text" class="form-control" placeholder="Optional">
+                  </div>
+                  <div class="text-center my-3">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+
+
+<!-- Bank Account popup -->
+
+            
+
+              <!-- Modal -->
+              <div class="modal fade" id="bank" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Bank Account</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label >Accout no. or IBAN:</label>
+                        <input type="text" class="form-control" placeholder="Enter ">
+                      </div>
+                      <div class="form-group">
+                        <label >Your Name/Company:</label>
+                        <input type="text" class="form-control" placeholder="Enter ">
+                      </div>
+                      <div class="form-group">
+                        <label >Your Address</label>
+                        <input type="text" class="form-control" placeholder="Enter ">
+                      </div>
+                      <div class="form-group">
+                        <label >Bank Name </label>
+                        <input type="text" class="form-control" placeholder="Enter ">
+                      </div>
+                      <div class="form-group">
+                        <label >Bank address</label>
+                        <input type="text" class="form-control" placeholder="Enter ">
+                      </div>
+
+                      <div class="form-group">
+                        <label >BIC</label>
+                        <input type="text" class="form-control" >
+                      </div>
+                    
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
       <!-- End Navbar -->
      <style>
   .background1{
     height:unset !important;
   }
+  .overlay1 {
+    margin-top: 7% !important;
+}
+.set:hover {
+    opacity: 0.7;
+}
+i.material-icons.set {
+    font-size: 27px;
+}
  </style>
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
