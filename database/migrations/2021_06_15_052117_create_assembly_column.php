@@ -15,6 +15,7 @@ class CreateAssemblyColumn extends Migration
     {
         Schema::table('media', function (Blueprint $table) {
             //
+            $table->string('assembly_id')->default('');
         });
     }
 
@@ -27,7 +28,6 @@ class CreateAssemblyColumn extends Migration
     {
         Schema::table('media', function (Blueprint $table) {
             //
-            $table->string('assembly_id')->default('');
         });
     }
 }

@@ -72,6 +72,7 @@
         <div class="col-md-2 mt-5">
         <div class="verify text-center">
                   <h3>Verifying...</h3>
+                  <a href=""  data-toggle="modal" data-target="#denied">Denied</a>
                </div>
           <?php if($offer->type=='video'): ?>
         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
@@ -122,8 +123,8 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
           <div class="artistoffer1 pt-4">
-            <h4> No Offer created yet </h4>
-            <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
+            <h4> No Service published yet </h4>
+            <a href="<?php echo e(url('artist/offer')); ?>">Publish a Service </a>
           </div>
           <?php endif; ?>
    </div>
@@ -208,7 +209,7 @@
                 <button class="btn btn-sm btn-light delete" table="media" img-src="<?php echo e($detail->audio_pic); ?>" data-url="<?php echo e($detail->media); ?>" data-id="<?php echo e($detail->id); ?>"><i class="fa fa-trash-o"></i></button>
                 </div>               
               </div>             
-              <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
+              <?php if($detail->duration=='' || $detail->duration=='0NaN:0NaN:0NaN'): ?>
  
           <script>
             //console.log('eeee');
@@ -245,13 +246,13 @@
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
-    <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>" width="100%">
+    <!-- <img src="<?php echo e($aud->audio_pic ?  url('storage/app/public/uploads/'.$aud->audio_pic) : asset('images/logos/voice.jpg')); ?>" width="100%"> -->
 
-<audio controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>"   poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" disablePictureInPicture>
+<video width="100%" controls controlsList="nodownload" id="audio_<?php echo e($aud->id); ?>" poster="<?php echo e(url('storage/app/public/uploads/'.$aud->audio_pic)); ?>" disablePictureInPicture>
 
-<source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
+<source src="<?php echo e(url('storage/app/public/video/'.$aud->media)); ?>" type="video/mp4">
 Your browser does not support the audio tag.
-</audio>
+</video>
 <div class="pricetime">
                   <div class="text-left">
                   <h6 class="text-white"><?php echo e($aud->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
@@ -266,7 +267,7 @@ Your browser does not support the audio tag.
 <button class="btn btn-sm btn-light delete trans1" table="media" data-id="<?php echo e($aud->id); ?>"><i class="fa fa-trash-o"></i></button>
 </div>
 </div>
-<?php if($aud->duration=='' || $aud->duration=='NaN:NaN:NaN'): ?>
+<?php if($aud->duration=='' || $aud->duration=='0NaN:0NaN:0NaN'): ?>
           <script>
            var video;
             var id;
@@ -781,6 +782,36 @@ Your browser does not support the audio tag.
                       </div>
                     </div>
                   </div>
+                     
+
+                     <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#denied">
+              Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <p>We have found this Content to be categorized as
+                        harmful / misleading / underge.<br>
+                        If we learn that such Content was actively pusued, your account will be 
+                        terminated.<br>
+                        If you believe you are being treated wrong, please reach out to our support via ticket or directly at 
+                        at artist@pornartistzone.com
+                        </p>
+                  </div>
+                  <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
 <style>
 
 video:hover {

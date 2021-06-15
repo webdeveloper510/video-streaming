@@ -299,6 +299,7 @@ section.background1 {
                 { name: "filtered_image", as: "image" }
               ]
             },
+
             robot: "/video/merge",
             result: true,
             ffmpeg_stack: "v4.3.1",

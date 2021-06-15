@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 </div>
-
+ 
             </div>
             <div class="col-md-12">
                 <div class="row">
@@ -70,7 +70,7 @@
                     <ul>
                     <li>PAZ-Messenger</li>
                     <li>PAZ-Feed</li>
-                    <li>Projects</li>
+                    <li>Projects</li> 
                     <li>PAZ-Live</li>
                     </ul>
                 </div>
@@ -119,7 +119,7 @@ button.btn.btn-link.btn-block.text-left.ques1 {
     padding: 3px;
 }
 .card-body.ques {
-    font-size: 16px;
+    font-size: 16px; 
     padding-left: 21px;
 }
 }

@@ -55,7 +55,7 @@
 
                   <div class="tab-content">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                      <h3 style="color: #fff;">Video</h3>
+                      <h3 style="color: #fff;">Videos</h3>
                   <div class="row">
                   <div class="col-6">
                     <div class="dropdown12 text-white">
@@ -671,16 +671,16 @@
                 <ul class="subnav" style="display: none">
                 <ul class="nav nav-tabs text-center">
                   <li class="active link_click nav-item" role="presentation">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" href="#home">Video</a>
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true" href="#home">Videos</a>
                   </li>
                   <li class="link_click nav-item" role="presentation">
-                  <a class="nav-link " id="menu1-tab" data-toggle="tab"  role="tab" aria-controls="menu1" aria-selected="true" href="#menu1">Audio</a>
+                  <a class="nav-link " id="menu1-tab" data-toggle="tab"  role="tab" aria-controls="menu1" aria-selected="true" href="#menu1">Audios</a>
                   </li>
                   <li class="link_click nav-item" role="presentation">
                   <a class="nav-link " id="menu4-tab" data-toggle="tab"  role="tab" aria-controls="menu4" aria-selected="true" href="#menu4">Artists</a>
                   </li>
                   <li  class="link_click nav-item" role="presentation" >
-                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Service(s)</a>
+                  <a class="nav-link " id="menu2-tab" data-toggle="tab"  role="tab" aria-controls="menu2" aria-selected="true" href="#menu2">Services</a>
                   </li>
                   </ul>
                    
@@ -795,7 +795,7 @@
 
 
                   <div class="tab-pane fade " id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
-                    <h3 style="color: #fff;">Audio</h3>
+                    <h3 style="color: #fff;">Audios</h3>
                       <div class="row">
                     <div class="col-6">
                     <div class="dropdown12 text-white">

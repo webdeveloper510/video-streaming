@@ -40,18 +40,28 @@
           </div>
       </div>
     </div>
-    <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+ 
 
-      <div class="row media">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+
+  <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <div class="carousel-item active">
+    <div class="row media">
           <div class="col-md-4">
           <?php if($is_not_veryfy->type=='video'): ?>
           <video width="100%" controls>
             <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
             </video>
             <?php else: ?>
-            <audio width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
-            </audio>
+            <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
             <?php endif; ?>
            </div>
            <div class="col-md-8">
@@ -66,100 +76,36 @@
                 </div>
            </div>
        </div>
+       </div>
+    </div>
+    
 
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
-
+    </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </div>
-</section>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-    <div class="row media">
-          <div class="col-md-4">
-          <?php if($is_not_veryfy->type=='video'): ?>
-          <video width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-            </video>
-            <?php else: ?>
-            <audio width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
-            </audio>
-            <?php endif; ?>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3><?php echo e($is_not_veryfy->title); ?></h3>
-                <p> <?php echo e($is_not_veryfy->description); ?> </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
-                </div>
-           </div>
-       </div>
-    </div>
-    <div class="carousel-item">
-    <div class="row media">
-          <div class="col-md-4">
-          <?php if($is_not_veryfy->type=='video'): ?>
-          <video width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-            </video>
-            <?php else: ?>
-            <audio width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
-            </audio>
-            <?php endif; ?>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3><?php echo e($is_not_veryfy->title); ?></h3>
-                <p> <?php echo e($is_not_veryfy->description); ?> </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
-                </div>
-           </div>
-       </div>
-    </div>
-    <div class="carousel-item">
-    <div class="row media">
-          <div class="col-md-4">
-          <?php if($is_not_veryfy->type=='video'): ?>
-          <video width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-            </video>
-            <?php else: ?>
-            <audio width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
-            </audio>
-            <?php endif; ?>
-           </div>
-           <div class="col-md-8">
-             <div class="reportitems">
-                <h3><?php echo e($is_not_veryfy->title); ?></h3>
-                <p> <?php echo e($is_not_veryfy->description); ?> </p>
-                     <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                          <button class="btn btn-outline-primary" type="button">Deny</button>
-                            </div>
-                </div>
-           </div>
-       </div>
-    </div>
-  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-  
+
+
+</div>
+</section>
+
+
+
+
+
+
+
   
   </div>
-
+      <!-- History -->
   <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
   <section class="reportmeadia">
   <div class="container">
@@ -173,9 +119,9 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
             </video>
             <?php else: ?>
-            <audio width="100%" controls>
-            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
-            </audio>
+            <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
             <?php endif; ?>
            </div>
            <div class="col-md-8">
@@ -200,7 +146,7 @@
 </section>
 
 </div>
-
+                    <!-- Upload Verifying -->
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     
   <section class="reportmeadia">
@@ -224,12 +170,78 @@
                 <h3>In Queue : <span>0</span> </h3>
 
                 <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button" >Start Reviewing</button>
-          </div>
-      </div>
-      <div class="col-md-12 text-center my-4">
-        
+      
+ 
+
+
       </div>
     </div>
+    </div>
+    </div>
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+    <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+    </li>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  </ol>
+  <div class="carousel-inner">
+
+  <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <div class="carousel-item active">
+    <div class="row media">
+          <div class="col-md-4">
+          <?php if($is_not_veryfy->type=='video'): ?>
+          <video width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+            </video>
+            <?php else: ?>
+            <audio width="100%" controls>
+            <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
+            </audio>
+            <?php endif; ?>
+           </div>
+           <div class="col-md-8">
+             <div class="reportitems">
+                <h3><?php echo e($is_not_veryfy->reason); ?></h3>
+                <p> <?php echo e($is_not_veryfy->description); ?> </p>
+                     <div class="text-right buttons">
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
+                         <button class="btn btn-outline-primary" type="button" onClick="legelorNot(<?php echo e($is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid); ?>,1)">Mark as legal</button>
+                          <button class="btn btn-outline-primary" type="button" onClick="legelorNot(<?php echo e($is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid); ?>,-1)">illegal + delete</button>
+                        </div>
+                </div>
+           </div>
+       </div>
+       </div>
+    </div>
+    
+
+    </div>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="row media" style="<?php echo e($is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'); ?>">
@@ -290,9 +302,9 @@
 </div>
       <?php elseif($is_not_veryfy->type=='audio' && $is_not_veryfy->deletion==''): ?>
       <div class="col-md-4">
-      <audio width="100%" controls>
-      <source src="<?php echo e(url('storage/app/public/audio/'.$is_not_veryfy->media)); ?>" type="audio/mp3">
-      </audio>
+      <video width="100%" controls>
+      <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
+      </video>
       </div>
       <div class="col-md-8">
        <div class="reportitems">
@@ -305,6 +317,13 @@
                   </div>
           </div>
      </div>
+
+
+
+    <!--              modal                 -->
+
+
+
      <div class="modal fade" id="legal_<?php echo e($is_not_veryfy->id); ?>" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
@@ -403,6 +422,13 @@
     position: absolute;
     top: 0;
     right: 20px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #0000001a no-repeat center center;
+    background-size: 100% 100%;
 }
 li.nav-item {
     width: 33.33%;

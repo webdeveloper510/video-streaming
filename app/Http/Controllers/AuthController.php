@@ -319,10 +319,10 @@ class AuthController extends Controller
       $history = $this->model->getHistoryVerifiedContent('media');
 
       $reports = $this->model->getReportVerifiedContent('media');
-//       echo "<pre>";
-//       print_r($notVerifiedContent);
-//       print_r($history);
-//       print_r($reports);
+      // echo "<pre>";
+      // // print_r($notVerifiedContent);
+      // // print_r($history);
+      // print_r($notVerifiedContent);
 
 // die;
 
@@ -1852,31 +1852,31 @@ public function readNotification(Request $request){
 
     public function passwordReset(Request $req){
 
-      $messages = [
-        'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)and minimum 8 characters all together",
-    ];
-       // print_r($_POST); die;
-        $this->validate($req,[
-          'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
-          'password.regex'=>"Password must contain at least one number, one character and one special character",
-          'confirm' => 'min:8'
-      ], $messages
-      
-      );
+            $messages = [
+              'password.regex'=>"Password must contain at least one number, one character and one special character (@#%^&,.)and minimum 8 characters all together",
+          ];
+            // print_r($_POST); die;
+              $this->validate($req,[
+                'password' => 'min:8|required_with:confirm|same:confirm|regex:/^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.,()]).{8,}$/',
+                'password.regex'=>"Password must contain at least one number, one character and one special character",
+                'confirm' => 'min:8'
+            ], $messages
+            
+            );
 
-    $email = Session::get('email');
+          $email = Session::get('email');
 
-    $confirm = $req->confirm;
+          $confirm = $req->confirm;
 
-    $update = $this->model->updatePassword($email,md5($confirm));
+          $update = $this->model->updatePassword($email,md5($confirm));
 
-    if($update!=''){
-      return redirect('/reset')->with('success','Reset Successfull!');
-    }
+        if($update!=''){
+          return redirect('/reset')->with('success','Reset Successfull!');
+        }
 
-    else{
-      return redirect('/reset')->with('error','Not Reset!');
-    }
+        else{
+          return redirect('/reset')->with('error','Not Reset!');
+        }
     
     }
 
@@ -1901,7 +1901,7 @@ public function readNotification(Request $request){
         $offerInfo['status'] = 'new';
         $offerInfo['is_seen'] = 'no';
         $offerInfo['choice'] = $request->duration;
-        $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additioal Requests' ;
+        $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additional Requests' ;
 
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
         //print_r($requestData);die;
