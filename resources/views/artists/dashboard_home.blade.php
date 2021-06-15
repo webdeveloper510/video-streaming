@@ -653,18 +653,7 @@
             @endif
 
             </div>
-             <!-- <div class="card">
-             <h5 class="card-title text-left pt-3 pl-3">New Messages:</h5>
-             <hr>
-              <div class="card-body">
-                <h5 class="card-title">Clint Name :</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.<span class="text-right ml-5 pl-5"><a href="#">Ready</a></span></p>
-               
-                <h5 class="card-title">Clint Name :</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.<span class="text-right ml-5 pl-5"><a href="#">Ready</a></span></p>
-               
-              </div>
-            </div> -->
+            
            
     </div>
     <div class="col-md-4">
@@ -714,7 +703,7 @@
                   <div class="col-4">
                   <p class="card-text " style="    font-size: 20px;"><span  style="{{$social_count < 5  ? 'display:block':'display:none'}}"><i class="fa fa-times"></i></span><span class="text-right cross" style="{{$social_count < 5 ? 'display:none':'display:block'}}"><i class="fa fa-check"></i></span></p>
                   </div>
-                  <div class="col-8 mt-2">
+                  <div class="col-8 mt-2"> 
                   <p class="card-text"  style="    font-size: 20px;">3 audio or video for collection :  </p>
                   </div>
                   <div class="col-4 mt-2">
