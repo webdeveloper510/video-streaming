@@ -3297,9 +3297,7 @@ function deleteName(id,appname,name){
         data: {'id':id,'social_name':appname,'username':name},
 
         success: function (data) {
-
            // console.log(data);return false;
-
             if (data == 1) {
 
                 alert("Successfully deleted!");
