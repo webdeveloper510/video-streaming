@@ -2224,6 +2224,8 @@ function filterproject(data) {
 
     name == '' ? dataTable('All') : name;
     dataTableInitialise();
+    var table1 = name == '' ? dataTable('All') : name;
+    dataTableInitialise(table1);
     var dataset = $('.filteration_table tbody').find('tr ');
 
 
@@ -2253,11 +2255,8 @@ function filterproject(data) {
 function filterproject1(data){
 
     var value = data.value;
-
  
-
-
-    var dataset = $('.filteration_table tbody').find('tr ');
+  var dataset = $('.filteration_table tbody').find('tr ');
 
 
     if(data.text=='all'){
@@ -2557,7 +2556,10 @@ $(document).ready(function () {
 });
 
 function dataTableInitialise(table1){
-    $('#example1 tbody').on('click', 'td', function () {
+     $('#example1 tbody').off('click', 'tr'); 
+    $('#example1 tbody').on('click', 'tr', function () {
+    //console.log(table1);
+   
         //console.log('yes');
         var tr = $(this)
         var row = table1.row(tr);
@@ -2624,6 +2626,8 @@ function dataTable(name){
         'ajax': name != 'All'
             ? APP_URL + '/artist/getRequests/orders/' + name
             : APP_URL + '/artist/getRequests/orders',
+
+            
             destroy: true,
 
         'columns': [
