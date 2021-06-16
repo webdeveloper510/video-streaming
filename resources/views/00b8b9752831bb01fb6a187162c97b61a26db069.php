@@ -55,7 +55,7 @@
           <div class="form-group">
               <?php echo e(Form::radio('user', 'contentprovider', true)); ?> Artist
 
-               <?php echo e(Form::radio('user', 'users', false )); ?>  Customer 
+               <?php echo e(Form::radio('user', 'users', false )); ?>  Consumer  
           </div> 
 
             
