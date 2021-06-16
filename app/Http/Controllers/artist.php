@@ -906,7 +906,9 @@ class artist extends Controller
     //print_r($req->all());die;
 
     $fileName = time().'_'.$req->media->getClientOriginalName();
+
     $ext =$req->media->getClientOriginalExtension();
+
     if($req->audio_pic){
 
       $audio_pics = time().'_'.$req->audio_pic->getClientOriginalName();
@@ -923,7 +925,7 @@ class artist extends Controller
     unset($data['_token']);
     $data['deliever_media']=$fileName;
     $data['type']=  $ext=='mp4' ? 'video' : 'audio';
-    $updateStatus['status'] = 'delievered';
+    $updateStatus['status'] = 'verifying';
 
     $return_data = $this->model->UpdateData('offer','id',$data,$req['offerid']);
     
@@ -933,7 +935,7 @@ class artist extends Controller
 
 
 
-    $done = $this->model->addonContentProvider($req);
+   // $done = $this->model->addonContentProvider($req);
     
     //print_r($done);die;
 

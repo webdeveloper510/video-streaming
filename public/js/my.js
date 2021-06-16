@@ -1553,7 +1553,10 @@ function startReviw(id){
 
         success: function (data) {
 
-            console.log(data);
+           if(data=='Already Reviewing'){
+               
+               alert('Already Watched');
+           }
 
         }
 

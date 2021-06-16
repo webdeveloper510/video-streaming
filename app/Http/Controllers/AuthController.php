@@ -312,6 +312,8 @@ class AuthController extends Controller
 
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
+      $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
+
       // echo "<pre>";
 
       // print_r($notVerifiedContent);die;
@@ -2055,11 +2057,10 @@ public function readNotification(Request $request){
 
       public function verifyMedia(Request $req){
 
-        //print_r($req->all());
 
-        $return = $this->model->insertVerifyMediaData($req->all());
+            $return = $this->model->insertVerifyMediaData($req->all());
 
-        return $return;
+            return $return;
 
       }
 
