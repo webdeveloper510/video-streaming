@@ -31,16 +31,36 @@
     <div class="row">
       <div class="col-md-6">
           <div class="text-center">
-                <h3>Oldest : <span>0h</span>
+                <h3>Oldest : <span>0h</span></h3>
           </div>
       </div>
       <div class="col-md-6">
           <div class="text-center">
-                <h3>In Queue : <span>0</span>
+                <h3>In Queue : <span>0</span> </h3>
           </div>
       </div>
     </div>
  
+
+
+  <div class="row">
+
+  <div class="col-md-9">
+    
+  </div>
+  <div class="col-md-3">
+
+  </div>
+  </div> 
+
+
+
+
+
+
+
+
+
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
@@ -179,7 +199,170 @@
     </div>
     </div>
 
+       <div class="row">
+         <div class="col-md-3">
 
+         <div class="text-center">
+                 <h3>Oldest : <span>0h</span></h3>
+                 <h3>Profile & Background pictures : (<span>0</span>)</h3>
+                 <a class="btn btn-outline-primary" href="#">start Reviw</a>
+         </div>
+         <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+         </div>
+         <div class="col-md-3">
+
+            <div class="text-center">
+                    <h3>Oldest : <span>0h</span></h3>
+                    <h3>Services : (<span>0</span>)</h3>
+                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            <div class="col-md-3">
+
+            <div class="text-center">
+                    <h3>Oldest : <span>0h</span></h3>
+                    <h3>Overview : (<span>0</span>)</h3>
+                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            <div class="col-md-3">
+
+            <div class="text-center">
+                    <h3>Oldest : <span>0h</span></h3>
+                    <h3>collection : (<span>0</span>)</h3>
+                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+      
+
+
+       </div>
+
+
+
+
+
+
+<!-- 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
 @foreach($reports as $is_not_veryfy)
@@ -239,10 +422,10 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div> -->
 
 
-    @foreach($notVerified as $is_not_veryfy)
+    <!-- @foreach($notVerified as $is_not_veryfy)
 
 <div class="row media" style="{{$is_not_veryfy->deletion!=1 && $is_not_veryfy->team_user_id == $teamLogin->id || $is_not_veryfy->team_user_id=='' ? 'display:block' : 'display:none'}}">
   @if($is_not_veryfy->type=='video' && $is_not_veryfy->deletion=='')
@@ -316,7 +499,7 @@
                   </div>
           </div>
      </div>
-
+ -->
 
 
     <!--              modal                 -->
