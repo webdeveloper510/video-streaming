@@ -312,6 +312,8 @@ class AuthController extends Controller
 
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
+      $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
+
       // echo "<pre>";
 
       // print_r($notVerifiedContent);die;
