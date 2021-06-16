@@ -180,7 +180,7 @@ label.error {
 
 .loader img {
     background: #ffffff61;
-    /* border-radius: 50%; */
+    
 }
 
 .modal-content {
@@ -312,11 +312,7 @@ section.background1 {
       .then(function (bundle) {
 
         console.log(bundle.results);
-        //console.log(bundle.transloadit);
-        // Due to `waitForEncoding: true` this is fired after encoding is done.
-        // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
-        // for Async Mode where your back-end receives the encoding results
-        // so that your user can be on their way as soon as the upload completes.
+      
        var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
        var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
        var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
