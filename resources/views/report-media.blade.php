@@ -207,6 +207,7 @@
                  <h3>Profile & Background pictures : (<span>0</span>)</h3>
                  <a class="btn btn-outline-primary" href="#">start Review</a>
          </div>
+         <div class="table-responsive">
          <table class="table">
             <thead>
               <tr>
@@ -227,6 +228,7 @@
             </tbody>
           </table>
          </div>
+         </div>
          <div class="col-md-3">
 
             <div class="text-center">
@@ -234,6 +236,7 @@
                     <h3>Services : (<span>0</span>)</h3>
                     <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
+            <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
@@ -254,6 +257,7 @@
               </tbody>
             </table>
             </div>
+            </div>
             <div class="col-md-3">
 
             <div class="text-center">
@@ -261,6 +265,7 @@
                     <h3>Overview : (<span>0</span>)</h3>
                     <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
+            <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
@@ -279,6 +284,7 @@
               </tbody>
             </table>
             </div>
+            </div>
             <div class="col-md-3">
 
             <div class="text-center">
@@ -286,6 +292,7 @@
                     <h3>collection : (<span>0</span>)</h3>
                     <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
+            <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
@@ -305,6 +312,7 @@
               @endforeach
               </tbody>
             </table>
+            </div>
             </div>
       
 
