@@ -3253,6 +3253,8 @@ public function insertVerifyMediaData($data){
 
     if(count($exist) > 0){
 
+      return 'Already Reviewing';
+
     }
 
     else{

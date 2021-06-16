@@ -70,10 +70,10 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <div class="verify text-center">
+        <div class="verify text-center" style="<?php echo e($offer->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
-                  <a href=""  data-toggle="modal" data-target="#denied">Denied</a>
                </div>
+               <a href=""  data-toggle="modal" data-target="#denied" style="<?php echo e($offer->is_verified== -1 ? 'display:block' : 'display:none'); ?>">Denied</a>
           <?php if($offer->type=='video'): ?>
         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
@@ -123,8 +123,8 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php else: ?>
           <div class="artistoffer1 pt-4">
-            <h4> No Offer created yet </h4>
-            <a href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
+            <h4> No Service published yet </h4>
+            <a href="<?php echo e(url('artist/offer')); ?>">Publish a Service </a>
           </div>
           <?php endif; ?>
    </div>

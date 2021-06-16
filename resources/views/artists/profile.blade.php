@@ -67,10 +67,10 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <div class="verify text-center">
+        <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
-                  <a href=""  data-toggle="modal" data-target="#denied">Denied</a>
                </div>
+               <a href=""  data-toggle="modal" data-target="#denied" style="{{$offer->is_verified== -1 ? 'display:block' : 'display:none'}}">Denied</a>
           @if($offer->type=='video')
         <video width="100%"  poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">

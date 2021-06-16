@@ -2055,11 +2055,10 @@ public function readNotification(Request $request){
 
       public function verifyMedia(Request $req){
 
-        //print_r($req->all());
 
-        $return = $this->model->insertVerifyMediaData($req->all());
+            $return = $this->model->insertVerifyMediaData($req->all());
 
-        return $return;
+            return $return;
 
       }
 
