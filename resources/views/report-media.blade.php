@@ -205,7 +205,7 @@
          <div class="text-center">
                  <h3>Oldest : <span>0h</span></h3>
                  <h3>Profile & Background pictures : (<span>0</span>)</h3>
-                 <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                 <a class="btn btn-outline-primary" href="#">start Review</a>
          </div>
          <table class="table">
             <thead>
@@ -232,7 +232,7 @@
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Services : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                    <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
             <table class="table">
               <thead>
@@ -259,7 +259,7 @@
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Overview : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                    <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
             <table class="table">
               <thead>
@@ -284,7 +284,7 @@
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>collection : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                    <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
             <table class="table">
               <thead>
