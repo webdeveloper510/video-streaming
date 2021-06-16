@@ -12,7 +12,7 @@
  </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <a class="dropdown-item" href="<?php echo e(url('artist/offer')); ?>">Create Offer</a>
+            <a class="dropdown-item" href="<?php echo e(url('artist/offer')); ?>">Publish a Service </a>
         </div>
          
 
@@ -55,6 +55,8 @@
             <input type="hidden" name="created_at" value="" class="created_at"/>
 
                 <input type="hidden" name="transloadit" value="" class="transloadit"/>
+                <input type="hidden" name="transloadit_image" value="" class="transloadit_image"/>
+                <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
                 
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
@@ -102,8 +104,15 @@
             
             <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
-                <?php echo e(Form::file('media',['class'=>'form-control file_input','id'=>'browse'])); ?>
+                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+
+            <div class=" mt-3 text-white file1" style="display:none;">
+            <label class="media_label12">Audio/Video</label>
+               <button type="button" id="browse">Choose File</button>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -243,6 +252,8 @@ section.background1 {
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
 <script>
+  var url = $('#base_url').attr('data-url');
+ // console.log(url);
   document.getElementById("browse").addEventListener("click", function () {
     var uppy = window.Robodog.pick({
       providers: [
@@ -254,7 +265,8 @@ section.background1 {
         "facebook",
         "onedrive"
       ],
-      waitForEncoding: true,
+      waitForEncoding: false,
+      statusBar: '#myForm .progress',
       params: {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
@@ -263,12 +275,23 @@ section.background1 {
           ":original": {
             robot: "/upload/handle"
           },
-          imported_image: {
-            robot: "/http/import",
-            url: "https://demos.transloadit.com/inputs/chameleon.jpg"
-          },
+          "filtered_image": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "image"]
+          ]
+        },
+        "filtered_audio": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "audio"]
+          ]
+        },
+         
           resized_image: {
-            use: "imported_image",
+            use: "filtered_image",
             robot: "/image/resize",
             result: true,
             height: 768,
@@ -277,28 +300,39 @@ section.background1 {
             width: 1024,
             zoom: false
           },
+          
           merged: {
             use: {
               steps: [
-                { name: ":original", as: "audio" },
-                { name: "resized_image", as: "image" }
+                { name: "filtered_audio", as: "audio" },
+                { name: "filtered_image", as: "image" }
               ]
             },
+
             robot: "/video/merge",
             result: true,
             ffmpeg_stack: "v4.3.1",
             preset: "ipad-high"
           }
-        }
+        },
+        'notify_url':url+'/notify_me'
       }
     })
       .then(function (bundle) {
+
+        console.log(bundle.results);
+        //console.log(bundle.transloadit);
         // Due to `waitForEncoding: true` this is fired after encoding is done.
         // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
         // for Async Mode where your back-end receives the encoding results
         // so that your user can be on their way as soon as the upload completes.
-        console.log(bundle.transloadit); // Array of Assembly Statuses
-        console.log(bundle.results); // Array of all encoding results
+       var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
+       var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
+       var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
+        $('.transloadit').val(url);
+        $('.assembly_id').val(bundle.results[0].assembly_id)
+        $('.transloadit_image').val(url1);
+        //console.log(bundle.results); // Array of all encoding results
       })
       .catch(console.error);
   });
@@ -465,7 +499,7 @@ section.background1 {
                             $('#error').html(response.messge);
 
                         }
-
+  
                     }
                 }
             });
