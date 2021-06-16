@@ -40,23 +40,7 @@
           </div>
       </div>
     </div>
- 
-
-
-  <div class="row">
-
-  <div class="col-md-9">
-    
-  </div>
-  <div class="col-md-3">
-
-  </div>
-  </div> 
-
-
-
-
-
+  
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -247,7 +231,6 @@
             </div>
             </div>
             <div class="col-md-3">
-
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Overview : (<span>0</span>)</h3>
