@@ -2222,7 +2222,7 @@ function filterproject(data) {
     .find(":selected")
     .val();
 
-    var table1 = name == '' ? dataTable('All') : name;
+    var table1 = name == '' ? dataTable('All') : dataTable(name);
     dataTableInitialise(table1);
     var dataset = $('.filteration_table tbody').find('tr ');
 
@@ -2253,9 +2253,6 @@ function filterproject(data) {
 function filterproject1(data){
 
     var value = data.value;
-
- 
-
 
     var dataset = $('.filteration_table tbody').find('tr ');
 
