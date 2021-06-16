@@ -177,7 +177,7 @@
          <div class="text-center">
                  <h3>Oldest : <span>0h</span></h3>
                  <h3>Profile & Background pictures : (<span>0</span>)</h3>
-                 <a class="btn btn-outline-primary" href="#">start Review</a>
+                 <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a>
          </div>
          <div class="table-responsive">
          <table class="table">
@@ -206,7 +206,7 @@
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Services : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Review</a>
+                    <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a>
             </div>
             <div class="table-responsive">
             <table class="table">
@@ -234,7 +234,7 @@
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Overview : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Review</a>
+                    <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a>
             </div>
             <div class="table-responsive">
             <table class="table">
@@ -261,15 +261,15 @@
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>collection : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Review</a>
+                    <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a>
             </div>
             <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
+                  <th scope="col">File Name	</th>
+                  <th scope="col">Artist</th>
                 
                 </tr>
               </thead>

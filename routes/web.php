@@ -56,6 +56,8 @@ Route::get('userWithdraw', 'AuthController@draw')->middleware('authentication');
 
 Route::get('show/{id}', 'AuthController@subcat_video');
 
+Route::get('showContent/{text}', 'AuthController@contentReview');
+
 Route::get('verify/{id}/{type}', 'AuthController@verifyEmail');
 
 Route::get('stripe', array('as' => 'stripe.stripe','uses' => 'AuthController@payWithStripe'));
