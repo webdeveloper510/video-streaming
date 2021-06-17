@@ -70,6 +70,9 @@
         <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
+               <div class="verifyvideo den text-center" >
+                  <h3>Denied</h3>
+            </div>
                <a href=""  data-toggle="modal" data-target="#denied" style="{{$offer->is_verified== -1 ? 'display:block' : 'display:none'}}">Denied</a>
           @if($offer->type=='video')
         <video width="100%"  poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}"   controlsList="nodownload" disablePictureInPicture>
@@ -177,6 +180,9 @@
             <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
             </div>
+            <div class="verifyvideo den text-center" >
+                  <h3>Denied</h3>
+            </div>
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="{{$detail->id}}" data-id="{{$detail->price}}">
@@ -238,6 +244,9 @@
 <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
+               <div class="verifyvideo den text-center" >
+                  <h3>Denied</h3>
+            </div>
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="{{url('artistVideo/'.$aud->id)}}">
@@ -805,6 +814,9 @@ video:hover {
 }
 .coverimg {
     margin-top: 37px;
+}
+.verifyvideo.text-center.den{
+  background:red !important;
 }
 @media only screen and (max-width: 768px) {
 .coverimg img {
