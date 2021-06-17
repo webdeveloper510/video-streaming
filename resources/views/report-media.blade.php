@@ -121,9 +121,6 @@
 <!-- Upload Verifying -->
 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-
-
-
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item tb1">
     <a class="nav-link active" id="Background-tab" data-toggle="tab" href="#Background" role="tab" aria-controls="Background" aria-selected="true">Profile & Background pictures (<span>0</span>) <br>
