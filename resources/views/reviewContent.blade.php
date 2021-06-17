@@ -20,7 +20,14 @@
   <source src="movie.ogg" type="video/ogg">
 </video>
 
-<
+div class="row">
+    <div class="col-md-6 text-center">
+       <button class="btn btn-primary" type="button" >Permit</button>
+    </div>
+   <div class="col-md-6 text-center">
+      <button class="btn btn-primary" type="button" >Deny</button>
+   </div>
+ </div>
   </div>
   <div class="col-md-3">
      <div class="row">
