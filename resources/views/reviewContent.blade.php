@@ -20,9 +20,9 @@
       </video>
 
 <div class="text-center">
-       <button class="btn btn-primary" type="button" onClick="permit(true)">Permit</button>
+       <button class="btn btn-outline-success" type="button" onClick="permit(true)">Permit</button>
    
-      <button class="btn btn-primary" type="button" onClick="permit(false)">Deny</button>
+      <button class="btn btn-outline-danger" type="button" onClick="permit(false)">Deny</button>
     </div>
 <input type="hidden" class="verify_id" value=""/>
   </div>
