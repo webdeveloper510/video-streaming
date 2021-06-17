@@ -11,11 +11,11 @@
 </header>
 
 
-<div class="container-fluid">
+<div class="container-fluid mb-5">
 <div class="row">
   <div class="col-md-9">
      
-      <video width="100%" height="100%" controls>
+      <video width="100%"  controls>
         <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" type="video/mp4">
       </video>
 
