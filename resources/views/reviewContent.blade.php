@@ -19,10 +19,10 @@
         <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" type="video/mp4">
       </video>
 
-<div class="text-center">
-       <button class="btn btn-primary" type="button" >Permit</button>
+<div class="text-center py-4" >
+       <button class="btn btn-outline-primary px-3" type="button" >Permit</button>
    
-      <button class="btn btn-primary" type="button" >Deny</button>
+      <button class="btn btn-outline-primary px-3" type="button" >Deny</button>
     </div>
 
   </div>
