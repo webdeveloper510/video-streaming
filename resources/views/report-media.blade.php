@@ -410,6 +410,7 @@
    }
    ul.nav.nav-tabs li.nav-item.tb1 {
     width: 20% !important;
+    margin-bottom:20px;
 }
 </style>
 @include('layouts.footer')
