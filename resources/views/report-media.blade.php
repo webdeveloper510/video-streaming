@@ -297,6 +297,18 @@
 
 
 
+  <div class="row">
+    <div class="col-md-6 text-center">
+       <button class="btn btn-primary verify_id" type="button" onClick="permit({{$is_not_veryfy->id}},true)">Permit</button>
+    </div>
+   <div class="col-md-6 text-center">
+      <button class="btn btn-primary verify_id" type="button" onClick="permit({{$is_not_veryfy->id}},false)">Deny</button>
+   </div>
+ </div>
+ <p><b>Description :{{$is_not_veryfy->description}}</b> ..........</p>
+</div>
+</div>
+</div>
 
    <section class="reportmeadia">
       <div class="modal fade" id="legal_{{$is_not_veryfy->id}}" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">

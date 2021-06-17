@@ -1541,7 +1541,9 @@ function getSrcUrl(a){
 /**----------------------------------------------------------Start Reviewing------------------------------------------------------------------ */
 
 
-function startReviw(id){
+function startReviw(a,id,type){
+    var src = $(a).children().find('source').attr("src");
+    
     $.ajax({
         type: 'POST',
         url: APP_URL + "/verifyVideo",
@@ -1549,13 +1551,17 @@ function startReviw(id){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id},
+        data:{'videoid':id,'type':type},
 
         success: function (data) {
 
            if(data=='Already Reviewing'){
-               
+                
                alert('Already Watched');
+           }
+           else{
+               $('#first').attr('src',src);
+               $('.verify_id').val(id);
            }
 
         }
@@ -1563,7 +1569,7 @@ function startReviw(id){
     });
 }
 
-function permit(id,status){
+function permit(status){
     //console.log(id);
     $.ajax({
         type: 'POST',
