@@ -8,7 +8,7 @@
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo  den text-center cover" >
-                  <h3>Denied</h3>
+               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
         <div class="overlayartist text-center">
            <img src=" {{asset('images/loaderartist.gif')}}" class="img-fluid cover_loader" style="display:none">
@@ -77,7 +77,7 @@
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo den text-center" >
-                  <h3>Denied</h3>
+                  <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
                <a href=""  data-toggle="modal" data-target="#denied" style="{{$offer->is_verified== -1 ? 'display:block' : 'display:none'}}">Denied</a>
           @if($offer->type=='video')
@@ -187,7 +187,7 @@
                   <h3>Verifying...</h3>
             </div>
             <div class="verifyvideo den text-center" >
-                  <h3>Denied</h3>
+            <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
                <div class="checkall" style="display:none">
                <form> 
@@ -251,7 +251,7 @@
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo den text-center" >
-                  <h3>Denied</h3>
+               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
@@ -374,7 +374,7 @@ Your browser does not support the audio tag.
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo den text-center" >
-                  <h3>Denied</h3>
+               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
           @if(isset($random[0]->type)&&$random[0]->type=='video')
             <video width="100%" height="100%" id="get_duration"  poster="{{url('storage/app/public/uploads/'.$random[0]->audio_pic) }}" controls List="nodownload" disablePictureInPicture>
@@ -767,10 +767,7 @@ Your browser does not support the audio tag.
                   </div>
                      
 
-                     <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#denied">
-              Launch demo modal
-            </button>
+                    
 
             <!-- Modal -->
             <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
