@@ -2111,4 +2111,9 @@ public function readNotification(Request $request){
 
         }
 
+        public function contentReview(){
+
+                  return view('reviewContent');
+        }
+
 }
