@@ -537,6 +537,11 @@ public function getSocialName($id){
       });
 }
 
+public function getArtistnotVerified(){
+
+        return DB::table('contentprovider')->where('is_verified',0)->get();
+}
+
 public function getArtists($flag){
 
     if($flag=='No'){
@@ -3305,9 +3310,12 @@ public function customer_issue($data){
 
 public function getNotVerifiedContent($table){
 
+  $where = $table=='media'  ? 'contentProviderid' : 'artistid';
+
          $data = DB::table($table)
         ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
-        ->select($table.'.*','video_verified.team_user_id','video_verified.mediaid','video_verified.is_deleted as deletion')
+        ->leftjoin('contentprovider','contentprovider.id','=',$table.'.'.$where)
+        ->select($table.'.*','video_verified.team_user_id','contentprovider.nickname','video_verified.mediaid','video_verified.is_deleted as deletion')
         ->where(array($table.'.is_verified'=>0,$table.'.is_deleted'=>0))
         ->get();
         // echo "<pre>";

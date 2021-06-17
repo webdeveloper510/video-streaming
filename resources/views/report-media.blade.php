@@ -211,30 +211,19 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
+                <th scope="col">File Name</th>
+                <th scope="col">Artist</th>
               
               </tr>
             </thead>
             <tbody>
+            @foreach($artists as $artist)
               <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>{{$artist->profilepicture}}</td>
+                <td>{{$artist->nickname}}</td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
          </div>
@@ -249,30 +238,19 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
+                  <th scope="col">filename</th>
+                  <th scope="col">Artist</th>
                 
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              @foreach($services as $services)
+              <tr>
+                <th scope="row">1</th>
+                <td>{{$services->media}}</td>
+                <td>{{$services->nickname}}</td>
+              </tr>
+              @endforeach
               </tbody>
             </table>
             </div>
