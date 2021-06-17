@@ -21,40 +21,7 @@
                   @endforeach
                   <h1>{{$_GLOBEL['count']}}</h1>
                   <h4>Order  Due</h4>
-                  <!-- <div class="row">
-                     <div class="col-6">
-                     <?php 
-                        $_GLOBEL['count'] =0;
-                        ?>
-                         @foreach($count_due_project as $data)
-                             @if(date('Y-m-d')== $data->dates)
-                               <?php 
-                        $_GLOBEL['count']= $_GLOBEL['count']+1;
-                        ?>
-                             @endif
-                         @endforeach
-                         
-                           <h1>{{$_GLOBEL['count']}}</h1>
-                                 <h4>Order </h4>
-                           </div> 
-                     
-                     <div class="col-6">
-                     <?php 
-                        $_GLOBEL['count'] =0;
-                        ?>
-                         @foreach($count_due_project as $data)
-                             @if(date('Y-m-d')== $data->dates)
-                               <?php 
-                        $_GLOBEL['count']= $_GLOBEL['count']+1;
-                        ?>
-                             @endif
-                         @endforeach
-                         
-                           <h1>{{$_GLOBEL['count']}}</h1>
-                                 <h4>Project </h4>
-                           </div> 
-                     
-                     </div> -->
+                 
                </div>
             </a>
          </div>
@@ -64,20 +31,7 @@
                <div class="columesdashboard1">
                   <h1>{{$process_total}}</h1>
                   <h4>Order In Process </h4>
-                  <!-- <div class="row">
-                     <div class="col-6">
-                     
-                                 <h1>{{$process_total}}</h1>
-                                 <h4>Order </h4>
-                           </div> 
-                     
-                     <div class="col-6">
-                     
-                                 <h1>{{$process_total}}</h1>
-                                 <h4>Project </h4>
-                           </div> 
-                     
-                     </div> -->
+                 
                </div>
             </a>
          </div>
@@ -114,44 +68,7 @@
          </div>
       </div>
       <div class="row">
-         <!-- <div class="col-md-12">
-            <div class="card" style="{{$existTimeFrame>=1 ? 'display:none': 'display:block'}}">
-                <div class="week">
-                <h5 class="card-title text-left pt-3 pl-3">We want to thank you for your early support!<br> You will be automatically promoted from us in the marked timeframe!</h5>
-                 <hr>
-             <div class="row">
-                   <div class="col-md-4">
-                     <button class="btn btn-info send_time" type="button" value='1+2' style="{{array_key_exists('1+2',$count_time_fame) && $count_time_fame['1+2']=='6' ? 'color:grey' : ''}}">Week 1+2</button>
-                     <button class="btn btn-info send_time" type="button" value='3+4' style="{{array_key_exists('3+4',$count_time_fame) && $count_time_fame['3+4']=='6' ? 'color:grey' : ''}}">Week 3+4</button>
-                     <button class="btn btn-info send_time" type="button" value='5+6' style="{{array_key_exists('5+6',$count_time_fame) && $count_time_fame['5+6']=='6' ? 'color:grey' : ''}}">Week 5+6</button>
-                     <button class="btn btn-info send_time" type="button" value='7+8' style="{{array_key_exists('7+8',$count_time_fame) && $count_time_fame['7+8']=='6' ? 'color:grey' : ''}}">Week 7+8</button>
-                   
-                   </div>
-                <div class="col-md-4">
-                <button class="btn btn-info send_time" type="button" style="{{array_key_exists('9+10',$count_time_fame) && $count_time_fame['9+10']=='6' ? 'color:grey' : ''}}">Week 9+10</button>
-                <button class="btn btn-info send_time" type="button" style="{{array_key_exists('11+12',$count_time_fame) && $count_time_fame['11+12']=='6' ? 'color:grey' : ''}}">Week 11+12</button>
-                 <button class="btn btn-info send_time" type="button" style="{{array_key_exists('13+14',$count_time_fame) && $count_time_fame['13+14']=='6' ? 'color:grey' : ''}}">Week 13+14</button>
-                 <button class="btn btn-info send_time" type="button" style="{{array_key_exists('15+16',$count_time_fame) && $count_time_fame['15+16']=='6' ? 'color:grey' : ''}}">Week 15+16</button>
-                </div>
-                <div class="col-md-4 ">
-                
-                 <button class="btn btn-info send_time" type="button" style="{{array_key_exists('17+18',$count_time_fame) && $count_time_fame['17+18']=='6' ? 'color:grey' : ''}}">Week 17+18</button>
-                 <button class="btn btn-info send_time" type="button" style="{{array_key_exists('19+20',$count_time_fame) && $count_time_fame['19+20']=='6' ? 'color:grey' : ''}}">Week 19+20</button>
-                 <button class="btn btn-info send_time" type="button" style="{{array_key_exists('21+22',$count_time_fame) && $count_time_fame['21+22']=='6' ? 'color:grey' : ''}}">Week 21+22</button>
-                 <button class="btn btn-info send_time" type="button" style="{{array_key_exists('23+24',$count_time_fame) && $count_time_fame['23+24']=='6' ? 'color:grey' : ''}}">Week 23+24</button>
-                </div>
-             </div>
-             <h5 class="customer1 text-center pt-3 pl-3">--- weeks are counted from the start of customertraffic---</h5>
-                 <div class="text-right">
-                 To Confirm your promotion please type {{$timeArray}} :
-                   <input type="text" value="" id="timeframe"/>
-            
-                 <button class="btn btn-primary" type="button" id="timeFrame">Activate</button>
-            
-                 </div>
-               </div>
-            </div>
-            </div> -->
+       
          <div class="col-md-4">
             <div class="card" style=" height: 420px;">
                <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
