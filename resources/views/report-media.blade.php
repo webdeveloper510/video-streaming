@@ -57,11 +57,6 @@
 
 
 
-
-
-
-
-
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -116,13 +111,6 @@
 
 </div>
 </section>
-
-
-
-
-
-
-
   
   </div>
       <!-- History -->
@@ -563,7 +551,7 @@
           <video width="100%" height="340" controls>
           <source src="movie.mp4" type="video/mp4">
           <source src="movie.ogg" type="video/ogg">
-          Your browser does not support the video tag.
+        
         </video>
         <p class="text-center">Trustlevel : <span>0</span></p>
 
