@@ -44,5 +44,42 @@
 
 </div>
 </div>
-
+<style>
+   .text-right.buttons {
+   position: absolute;
+   top: 0;
+   right: 20px;
+   }
+   .carousel-control-next-icon, .carousel-control-prev-icon {
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   background: #0000001a no-repeat center center;
+   background-size: 100% 100%;
+   }
+   li.nav-item {
+   width: 33.33%;
+   text-align: center;
+   padding: 10px;
+   background: #7b0000;
+   color: white !important;
+   }
+   li.nav-item  a{
+   color:white;
+   }
+   .row.media {
+   border: 1px solid black;
+   padding: 13px;
+   margin-bottom: 12px;
+   }
+   header {
+   background: #7b0000;
+   padding: 11px;
+   }
+   .float-right {
+   position: absolute;
+   right: 20px;
+   top: 20px;
+   }
+</style>
 @include('layouts.footer')
