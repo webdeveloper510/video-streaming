@@ -4,6 +4,12 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
+        <div class="verify text-center cover" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
+                  <h3>Verifying...</h3>
+               </div>
+               <div class="verifyvideo  den text-center cover" >
+                  <h3>Denied</h3>
+            </div>
         <div class="overlayartist text-center">
            <img src=" {{asset('images/loaderartist.gif')}}" class="img-fluid cover_loader" style="display:none">
         </div>
