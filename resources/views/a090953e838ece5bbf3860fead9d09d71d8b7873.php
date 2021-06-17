@@ -24,7 +24,7 @@
               <li><a href="<?php echo e(url('/cookie')); ?>"><i class="fa fa-angle-right"></i> Cookie Policy</a></li>
             
               <li><a href="<?php echo e(url('/disclaimer')); ?>"><i class="fa fa-angle-right"></i> Disclaimer</a></li>
-              <li><a href="<?php echo e(url('/userWithdraw')); ?>"><i class="fa fa-angle-right"></i>  Withdrawal</a></li> 
+              <!-- <li><a href="<?php echo e(url('/userWithdraw')); ?>"><i class="fa fa-angle-right"></i>  Withdrawal</a></li>  -->
               <li><a href="#" data-toggle="modal" data-target="#exampleModal10"><i class="fa fa-angle-right"></i> Contact Us</a></li>
               <li><a href="<?php echo e(url('/legal-notice')); ?>"><i class="fa fa-angle-right"></i>  Legal Notice</a></li> 
                 <!-- Modal -->

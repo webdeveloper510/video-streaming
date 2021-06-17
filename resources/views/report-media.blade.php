@@ -205,8 +205,9 @@
          <div class="text-center">
                  <h3>Oldest : <span>0h</span></h3>
                  <h3>Profile & Background pictures : (<span>0</span>)</h3>
-                 <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                 <a class="btn btn-outline-primary" href="#">start Review</a>
          </div>
+         <div class="table-responsive">
          <table class="table">
             <thead>
               <tr>
@@ -227,13 +228,15 @@
             </tbody>
           </table>
          </div>
+         </div>
          <div class="col-md-3">
 
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Services : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                    <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
+            <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
@@ -254,13 +257,15 @@
               </tbody>
             </table>
             </div>
+            </div>
             <div class="col-md-3">
 
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>Overview : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                    <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
+            <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
@@ -279,13 +284,15 @@
               </tbody>
             </table>
             </div>
+            </div>
             <div class="col-md-3">
 
             <div class="text-center">
                     <h3>Oldest : <span>0h</span></h3>
                     <h3>collection : (<span>0</span>)</h3>
-                    <a class="btn btn-outline-primary" href="#">start Reviw</a>
+                    <a class="btn btn-outline-primary" href="#">start Review</a>
             </div>
+            <div class="table-responsive">
             <table class="table">
               <thead>
                 <tr>
@@ -306,13 +313,39 @@
               </tbody>
             </table>
             </div>
+            </div>
       
 
 
        </div>
 
 
+<div class="row">
+  <div class="col-md-9">
+     
+<video width="100%" height="100%" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+</video>
 
+  </div>
+  <div class="col-md-3">
+     <div class="row">
+        <div class="col-4">
+         
+<video width="100%" height="100%" controls>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+</video>
+        </div>
+        <div class="col-8">
+         <h5> Video title</h5>
+        </div>
+     </div>
+  </div>
+
+
+</div>
 
 
 
