@@ -125,34 +125,36 @@
 
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
+  <li class="nav-item tb1">
     <a class="nav-link active" id="Background-tab" data-toggle="tab" href="#Background" role="tab" aria-controls="Background" aria-selected="true">Profile & Background pictures : (<span>0</span>) <br>
-    Oldest : <span>0h</span></a>
+    Oldest : <span>0h</span><br>
+    <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a></a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item tb1">
     <a class="nav-link" id="Services-tab" data-toggle="tab" href="#Services" role="tab" aria-controls="Services" aria-selected="false">Services : (<span>0</span>)<br>
-    Oldest : <span>0h</span></a>
+    Oldest : <span>0h</span><br>
+    <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a></a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item tb1">
     <a class="nav-link" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="false">Overview : (<span>0</span>)
-    <br> Oldest : <span>0h</span></a>
+    <br> Oldest : <span>0h</span><br>
+    <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a></a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item tb1">
     <a class="nav-link" id="Collection-tab" data-toggle="tab" href="#Collection" role="tab" aria-controls="Collection" aria-selected="false">Collection : (<span>0</span>)
-    <br> Oldest : <span>0h</span></a>
+    <br> Oldest : <span>0h</span><br>
+    <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a></a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item tb1">
     <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Offer : (<span>0</span>)
-    <br> Oldest : <span>0h</span></a>
+    <br> Oldest : <span>0h</span><br>
+    <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a></a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
 
 <!-- Background tab -->
   <div class="tab-pane fade show active" id="Background" role="tabpanel" aria-labelledby="Background-tab">
-    <div class="text-center">
-         <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a>
-    </div>
   
   <div class="table-responsive mb-5">
                <table class="table">
@@ -181,7 +183,7 @@
   <div class="tab-pane fade" id="Services" role="tabpanel" aria-labelledby="Services-tab">
 
   <div class="text-center">
-        <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a>
+        
     </div>
 
   <div class="table-responsive">
@@ -210,7 +212,7 @@
   <div class="tab-pane fade" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
 
   <div class="text-center">
-       <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a>
+      
     </div>
   <div class="table-responsive">
                <table class="table">
@@ -236,7 +238,7 @@
   <div class="tab-pane fade" id="Collection" role="tabpanel" aria-labelledby="Collection-tab">
 
   <div class="text-center">
-         <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a>
+         
     </div>
   <div class="table-responsive">
                <table class="table">
@@ -263,7 +265,7 @@
 <!-- Offer tab -->
   <div class="tab-pane fade" id="Offer" role="tabpanel" aria-labelledby="Offer-tab">
   <div class="text-center">
-         <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a>
+        
     </div>
   <div class="table-responsive">
                <table class="table">
