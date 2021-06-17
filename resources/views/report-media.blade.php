@@ -120,15 +120,41 @@
 </div>
 <!-- Upload Verifying -->
 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-   <section class="reportmeadia">
-      <div class="row">
-         <div class="col-md-3">
-            <div class="text-center">
-               <h3>Oldest : <span>0h</span></h3>
-               <h3>Profile & Background pictures : (<span>0</span>)</h3>
-               <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a>
-            </div>
-            <div class="table-responsive">
+
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="Background-tab" data-toggle="tab" href="#Background" role="tab" aria-controls="Background" aria-selected="true">Profile & Background pictures : (<span>0</span>) <br>
+    Oldest : <span>0h</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="Services-tab" data-toggle="tab" href="#Services" role="tab" aria-controls="Services" aria-selected="false">Services : (<span>0</span>)<br>
+    Oldest : <span>0h</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="false">Overview : (<span>0</span>)
+    <br> Oldest : <span>0h</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="Collection-tab" data-toggle="tab" href="#Collection" role="tab" aria-controls="Collection" aria-selected="false">Collection : (<span>0</span>)
+    <br> Oldest : <span>0h</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Offer : (<span>0</span>)
+    <br> Oldest : <span>0h</span></a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+
+<!-- Background tab -->
+  <div class="tab-pane fade show active" id="Background" role="tabpanel" aria-labelledby="Background-tab">
+    <div class="text-center">
+         <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a>
+    </div>
+  
+  <div class="table-responsive mb-5">
                <table class="table">
                   <thead>
                      <tr>
@@ -148,14 +174,17 @@
                   </tbody>
                </table>
             </div>
-         </div>
-         <div class="col-md-3">
-            <div class="text-center">
-               <h3>Oldest : <span>0h</span></h3>
-               <h3>Services : (<span>0</span>)</h3>
-               <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a>
-            </div>
-            <div class="table-responsive">
+  
+  </div>
+
+  <!-- Services tab -->
+  <div class="tab-pane fade" id="Services" role="tabpanel" aria-labelledby="Services-tab">
+
+  <div class="text-center">
+        <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a>
+    </div>
+
+  <div class="table-responsive">
                <table class="table">
                   <thead>
                      <tr>
@@ -175,14 +204,15 @@
                   </tbody>
                </table>
             </div>
-         </div>
-         <div class="col-md-3">
-            <div class="text-center">
-               <h3>Oldest : <span>0h</span></h3>
-               <h3>Overview : (<span>0</span>)</h3>
-               <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a>
-            </div>
-            <div class="table-responsive">
+  </div>
+
+  <!-- Overview tab -->
+  <div class="tab-pane fade" id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
+
+  <div class="text-center">
+       <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a>
+    </div>
+  <div class="table-responsive">
                <table class="table">
                   <thead>
                      <tr>
@@ -200,14 +230,15 @@
                   </tbody>
                </table>
             </div>
-         </div>
-         <div class="col-md-3">
-            <div class="text-center">
-               <h3>Oldest : <span>0h</span></h3>
-               <h3>collection : (<span>0</span>)</h3>
-               <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a>
-            </div>
-            <div class="table-responsive">
+  </div>
+
+  <!-- Collection tab -->
+  <div class="tab-pane fade" id="Collection" role="tabpanel" aria-labelledby="Collection-tab">
+
+  <div class="text-center">
+         <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a>
+    </div>
+  <div class="table-responsive">
                <table class="table">
                   <thead>
                      <tr>
@@ -227,8 +258,45 @@
                   </tbody>
                </table>
             </div>
-         </div>
-      </div>
+  </div>
+
+<!-- Offer tab -->
+  <div class="tab-pane fade" id="Offer" role="tabpanel" aria-labelledby="Offer-tab">
+  <div class="text-center">
+         <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a>
+    </div>
+  <div class="table-responsive">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">File Name	</th>
+                        <th scope="col">Artist</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @foreach($notVerified as $notVerified)
+                     <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$notVerified->media}}</td>
+                        <td>{{$notVerified->nickname}}</td>
+                     </tr>
+                     @endforeach
+                  </tbody>
+               </table>
+            </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+   <section class="reportmeadia">
       <div class="modal fade" id="legal_{{$is_not_veryfy->id}}" tabindex="-1" role="dialog" aria-labelledby="legalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
             <div class="modal-content">
