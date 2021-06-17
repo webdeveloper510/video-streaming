@@ -405,5 +405,8 @@
    right: 20px;
    top: 20px;
    }
+   .tab-content{
+     padding: 0 !important;
+   }
 </style>
 @include('layouts.footer')
