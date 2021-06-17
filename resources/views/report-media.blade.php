@@ -142,34 +142,7 @@
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     
   <section class="reportmeadia">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>Oldest : <span>0h</span> </h3>
-
-                <select class="custom-select my-2"">
-                    <option selected>All</option>
-                    <option value="1">Audio</option>
-                    <option value="2">Video</option>
-                    <option value="3">Projects</option>
-                    <option value="4">Orders</option>
-                  </select>
-          </div>
-      </div>
-      <div class="col-md-6">
-          <div class="text-center">
-                <h3>In Queue : <span>0</span> </h3>
-
-                <button class="btn btn-outline-primary my-2"  data-toggle="modal" data-target="#deny" type="button" >Start Reviewing</button>
-      
- 
-
-
-      </div>
-    </div>
-    </div>
-    </div>
+  
 
        <div class="row">
          <div class="col-md-3">
