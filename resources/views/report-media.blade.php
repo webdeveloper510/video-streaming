@@ -296,7 +296,6 @@
 
 
 
-    <!--              modal                 -->
 
 
 
@@ -334,10 +333,8 @@
 
 </div>
 </div>
-      @endif
  </div>
 
-@endforeach
 
     </section>
   

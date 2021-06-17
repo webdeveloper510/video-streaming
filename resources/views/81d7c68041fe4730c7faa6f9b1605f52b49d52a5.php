@@ -18,7 +18,7 @@
         </div>
         <div class="col-8">
          <h5> Video title</h5>
-        </div>
+        </div>  
      </div>
   </div>
 
