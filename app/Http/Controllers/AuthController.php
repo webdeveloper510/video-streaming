@@ -122,32 +122,23 @@ class AuthController extends Controller
 
     public function search(){
 
-
-
        $session_type =   Session::get('userType');
 
        Session::forget('SessionmultipleIds');
 
-       if($session_type=='contentUser'){
+            if($session_type=='contentUser'){
 
             return redirect('artists/dashboard');
-       }
+
+          }
 
            $data=Session::get('filterData');     
 
 
-           //print_r($data);die;
-
-
-           
             $recentSelected = Session::get('recentSearch');
 
        
-
-               unset($data['_token']);
-
-                //print_r($data);die;
-              
+            unset($data['_token']);
 
 
          $search_data = $this->model->getVedio($data);  // GET SUBCATEGORY ID AND DATA USING FILTER 
