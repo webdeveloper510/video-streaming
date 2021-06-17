@@ -364,7 +364,12 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-       
+        <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
+                  <h3>Verifying...</h3>
+               </div>
+               <div class="verifyvideo den text-center" >
+                  <h3>Denied</h3>
+            </div>
           @if(isset($random[0]->type)&&$random[0]->type=='video')
             <video width="100%" height="100%" id="get_duration"  poster="{{url('storage/app/public/uploads/'.$random[0]->audio_pic) }}" controls List="nodownload" disablePictureInPicture>
                       <source src="{{isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4' }}" type="video/mp4">
