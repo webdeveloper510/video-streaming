@@ -21,7 +21,6 @@
                   @endforeach
                   <h1>{{$_GLOBEL['count']}}</h1>
                   <h4>Order  Due</h4>
-                 
                </div>
             </a>
          </div>
@@ -31,7 +30,6 @@
                <div class="columesdashboard1">
                   <h1>{{$process_total}}</h1>
                   <h4>Order In Process </h4>
-                 
                </div>
             </a>
          </div>
@@ -41,20 +39,6 @@
                <div class="columesdashboard2">
                   <h1>{{$count_new_projects}}</h1>
                   <h4 class="text-center">New Order  </h4>
-                  <!-- <div class="row">
-                     <div class="col-6">
-                     
-                         <h1>{{$count_new_projects}}</h1>
-                                 <h4>New </h4>
-                           </div> 
-                     
-                     <div class="col-6">
-                     
-                           <h1>{{$count_new_projects}}</h1>
-                                 <h4>Order </h4>
-                           </div> 
-                     
-                     </div> -->
                </div>
             </a>
          </div>
@@ -68,7 +52,6 @@
          </div>
       </div>
       <div class="row">
-       
          <div class="col-md-4">
             <div class="card" style=" height: 420px;">
                <h5 class="card-title text-left pt-3 pl-3">Your Info:</h5>
