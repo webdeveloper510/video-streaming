@@ -341,6 +341,9 @@ class AuthController extends Controller
 
       $verify = array('is_verified'=>$is_verified);
 
+
+      $type = $req->type;  // Update verify based on type pending 
+
       $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
 
       if($updated){

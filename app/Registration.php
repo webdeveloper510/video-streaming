@@ -3267,7 +3267,8 @@ public function insertVerifyMediaData($data){
       'created_at'=>now(),
       'updated_at'=>now(),
       'team_user_id'=>$sessionLogin->id,
-      'mediaid'=>$data['videoid']
+      'mediaid'=>$data['videoid'],
+      'video_type'=>$data['type']
     );
 
     return DB::table('video_verified')->insert($verifyData);
