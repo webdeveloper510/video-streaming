@@ -50,6 +50,26 @@
           
           </div>
           <nav>
+          <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <p>We have found this Content to be categorized as
+                        harmful / misleading / underge.<br>
+                        If we learn that such Content was actively pusued, your account will be 
+                        terminated.<br>
+                        If you believe you are being treated wrong, please reach out to our support via ticket or directly at 
+                        at artist@pornartistzone.com
+                        </p>
+                  </div>
+                  <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-link tabss" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Service(s)</a>
     <a class="nav-link tabss {{$collection_selection ? '' : 'active'}}" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
@@ -770,26 +790,7 @@ Your browser does not support the audio tag.
                     
 
             <!-- Modal -->
-            <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  
-                  <div class="modal-body">
-                    <p>We have found this Content to be categorized as
-                        harmful / misleading / underge.<br>
-                        If we learn that such Content was actively pusued, your account will be 
-                        terminated.<br>
-                        If you believe you are being treated wrong, please reach out to our support via ticket or directly at 
-                        at artist@pornartistzone.com
-                        </p>
-                  </div>
-                  <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
+          
 
 
 <style>
