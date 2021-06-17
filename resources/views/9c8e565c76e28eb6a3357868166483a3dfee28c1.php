@@ -219,7 +219,7 @@
             <tbody>
             <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row"><?php echo e($loop->iteration); ?></th>
                 <td><?php echo e($artist->profilepicture); ?></td>
                 <td><?php echo e($artist->nickname); ?></td>
               </tr>
@@ -246,7 +246,7 @@
               <tbody>
               <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $services): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row"><?php echo e($loop->iteration); ?></th>
                 <td><?php echo e($services->media); ?></td>
                 <td><?php echo e($services->nickname); ?></td>
               </tr>
@@ -271,24 +271,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+              </tr>
               </tbody>
             </table>
             </div>
@@ -309,24 +296,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notVerified): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <tr>
+                <th scope="row"><?php echo e($loop->iteration); ?></th>
+                <td><?php echo e($notVerified->media); ?></td>
+                <td><?php echo e($notVerified->nickname); ?></td>
+              </tr>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </tbody>
             </table>
             </div>

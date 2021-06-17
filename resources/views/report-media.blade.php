@@ -219,7 +219,7 @@
             <tbody>
             @foreach($artists as $artist)
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$artist->profilepicture}}</td>
                 <td>{{$artist->nickname}}</td>
               </tr>
@@ -246,7 +246,7 @@
               <tbody>
               @foreach($services as $services)
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$services->media}}</td>
                 <td>{{$services->nickname}}</td>
               </tr>
@@ -271,24 +271,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+              </tr>
               </tbody>
             </table>
             </div>
@@ -309,24 +296,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+              @foreach($notVerified as $notVerified)
+              <tr>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$notVerified->media}}</td>
+                <td>{{$notVerified->nickname}}</td>
+              </tr>
+              @endforeach
               </tbody>
             </table>
             </div>
