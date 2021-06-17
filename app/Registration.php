@@ -3317,11 +3317,16 @@ public function getNotVerifiedContent($table){
         ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
         ->leftjoin('contentprovider','contentprovider.id','=',$table.'.'.$where)
         ->select($table.'.*','video_verified.team_user_id','contentprovider.nickname','video_verified.mediaid','video_verified.is_deleted as deletion')
-        ->where(array($table.'.is_verified'=>0,$table.'.is_deleted'=>0))
-        ->get();
+        ->where(array($table.'.is_verified'=>0,$table.'.is_deleted'=>0));
+          if($table=='offer'){
+
+                $data = $data->where('by_created',1);
+
+          }
+          
         // echo "<pre>";
         // print_r($data);die;
-        return $data;
+        return $data->get();
 }
 
 public function getHistoryVerifiedContent($table){

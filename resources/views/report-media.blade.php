@@ -142,7 +142,6 @@
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     
   <section class="reportmeadia">
-  
 
        <div class="row">
          <div class="col-md-3">

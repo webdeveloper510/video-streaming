@@ -2111,9 +2111,35 @@ public function readNotification(Request $request){
 
         }
 
-        public function contentReview(){
+        public function contentReview($text){
 
-                  return view('reviewContent');
+          $sessionLogin = Session::get('pazLogin');
+
+          if($text=='offer'){
+
+            $notVerifyContent = $this->model->getNotVerifiedContent('offer');
+
+          }
+
+          if($text=='collection'){
+
+            $notVerifyContent = $this->model->getNotVerifiedContent('media');
+
+          }
+
+          if($text=='picture'){
+
+            $artists = $this->model->getArtistnotVerified();
+
+
+          }
+
+
+    
+    
+    
+                  return view('reviewContent',['artists'=>$artists,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifyContent]);
+
         }
 
 }
