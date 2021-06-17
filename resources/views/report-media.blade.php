@@ -131,22 +131,22 @@
     <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a></a>
   </li>
   <li class="nav-item tb1">
-    <a class="nav-link" id="Services-tab" data-toggle="tab" href="#Services" role="tab" aria-controls="Services" aria-selected="false">Services (<span>0</span>)<br>
+    <a class="nav-link" id="Services-tab" data-toggle="tab" href="#Services" role="tab" aria-controls="Services" aria-selected="false">Services (<span>0</span>)<br><br>
     Oldest : <span>0h</span><br>
     <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a></a>
   </li>
   <li class="nav-item tb1">
-    <a class="nav-link" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="false">Overview (<span>0</span>)
+    <a class="nav-link" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="false">Overview (<span>0</span>)<br>
     <br> Oldest : <span>0h</span><br>
     <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a></a>
   </li>
   <li class="nav-item tb1">
-    <a class="nav-link" id="Collection-tab" data-toggle="tab" href="#Collection" role="tab" aria-controls="Collection" aria-selected="false">Collection (<span>0</span>)
+    <a class="nav-link" id="Collection-tab" data-toggle="tab" href="#Collection" role="tab" aria-controls="Collection" aria-selected="false">Collection (<span>0</span>)<br>
     <br> Oldest : <span>0h</span><br>
     <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a></a>
   </li>
   <li class="nav-item tb1">
-    <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Orders (<span>0</span>)
+    <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Orders (<span>0</span>)<br>
     <br> Oldest : <span>0h</span><br>
     <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a></a>
   </li>
