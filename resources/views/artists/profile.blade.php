@@ -815,7 +815,8 @@ video:hover {
 .coverimg {
     margin-top: 37px;
 }
-.verifyvideo.text-center.den{
+.verifyvideo.text-center.den h3 {
+
   background:red !important;
 }
 @media only screen and (max-width: 768px) {
