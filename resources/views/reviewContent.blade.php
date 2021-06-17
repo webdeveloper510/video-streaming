@@ -18,13 +18,22 @@
       <video width="100%"  controls>
         <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
       </video>
-
+      <div class="float-left">
+            <h3>Trustlevel : <span>0</span></h3>
+      </div>
 <div class="text-center my-3">
        <button class="btn btn-outline-success" type="button" onClick="permit(true)">Permit</button>
        &nbsp;	&nbsp;	&nbsp;	&nbsp;
       <button class="btn btn-outline-danger" type="button" onClick="permit(false)">Deny</button>
     </div>
 <input type="hidden" class="verify_id" value=""/>
+<div class="text-left description12">
+    <h3>Description: <small>...</small></h3>
+</div>
+<div class="text-left description1">
+    <h3>About Me: <small>...</small></h3>
+</div>
+   
   </div>
   <div class="col-md-3">
   @foreach($notVerified as $content)
