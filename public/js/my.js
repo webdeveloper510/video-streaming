@@ -1542,7 +1542,9 @@ function getSrcUrl(a){
 
 
 function startReviw(a,id,type){
-    var src = $(a).children().find('source').attr("src");
+
+    var src = $(a).find('source').attr("src");
+    var id = $('.verify_id').val();
     
     $.ajax({
         type: 'POST',
@@ -1555,22 +1557,28 @@ function startReviw(a,id,type){
 
         success: function (data) {
 
-           if(data=='Already Reviewing'){
+            console.log(data);
+
+        //    if(data=='Already Reviewing'){
                 
-               alert('Already Watched');
-           }
-           else{
-               $('#first').attr('src',src);
-               $('.verify_id').val(id);
-           }
+        //        alert('Already Watched');
+        //    }
+        //    else{
+        //        $('#first').attr('src',src);
+        //        $('.verify_id').val(id);
+        //    }
 
         }
 
     });
 }
 
-function permit(status){
-    //console.log(id);
+function permit(a,status,data,type){
+
+    var id =  $(a).attr('data-id');
+
+    console.log($(data).length);
+    console.log(id);
     $.ajax({
         type: 'POST',
         url: APP_URL + "/isVerifiedOrNot",
@@ -1578,7 +1586,7 @@ function permit(status){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id, 'bool':status},
+        data:{'videoid':id, 'bool':status,'type':type},
 
         success: function (data) {
 

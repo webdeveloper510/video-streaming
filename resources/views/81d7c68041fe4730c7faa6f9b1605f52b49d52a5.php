@@ -16,19 +16,19 @@
   <div class="col-md-9">
      
       <video width="100%"  controls>
-        <source src="<?php echo e(url('storage/app/public/video/'.$notVerified[0]->media)); ?>" type="video/mp4">
+        <source src="<?php echo e(url('storage/app/public/video/'.$notVerified[0]->media)); ?>" id="first" type="video/mp4">
       </video>
 
 <div class="text-center">
-       <button class="btn btn-primary" type="button" onClick="permit(true)">Permit</button>
+       <button class="btn btn-primary" type="button" data-id="<?php echo e($notVerified[0]->id); ?>" onClick="permit(true,<?php echo e(json_encode($notVerified)); ?>)">Permit</button>
    
-      <button class="btn btn-primary" type="button" onClick="permit(false)">Deny</button>
+      <button class="btn btn-primary" type="button" data-id="<?php echo e($notVerified[0]->id); ?>" onClick="permit(false)">Deny</button>
     </div>
 <input type="hidden" class="verify_id" value=""/>
   </div>
   <div class="col-md-3">
   <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-     <div class="row mb-2">
+     <div class="row mb-2" id="<?php echo e($content->id); ?>">
     
               <div class="col-5" onClick="startReviw(this,<?php echo e($content->id); ?>,'<?php echo e($type); ?>')">
                   <video width="100%" height="100%" class="video" controls>

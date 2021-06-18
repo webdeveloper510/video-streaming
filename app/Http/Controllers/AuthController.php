@@ -330,6 +330,16 @@ class AuthController extends Controller
       return view('legal-notice');
     }
 
+    
+    public function verifyMedia(Request $req){
+
+
+      $return = $this->model->insertVerifyMediaData($req->all());
+
+      return $return;
+
+}
+
     public function isVerifyOrNot(Request $req){
 
       if($req->bool=='true'){
@@ -2051,14 +2061,6 @@ public function readNotification(Request $request){
                 //print_r($req->all());
       }
 
-      public function verifyMedia(Request $req){
-
-
-            $return = $this->model->insertVerifyMediaData($req->all());
-
-            return $return;
-
-      }
 
       public function reportVideo(Request $req){
 
