@@ -11,7 +11,7 @@
 </header>
 
 
-<div class="container-fluid mb-5">
+<div class="container-fluid mt-5">
 <div class="row">
   <div class="col-md-9">
      
@@ -24,25 +24,64 @@
    
       <button class="btn btn-primary" type="button" onClick="permit(false)">Deny</button>
     </div>
-
+<input type="hidden" class="verify_id" value=""/>
   </div>
   <div class="col-md-3">
-     <div class="row">
-     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              <div class="col-5" onClick="selectVideo(<?php echo e($content->id); ?>)">
-                  <video width="100%" height="100%" controls>
+  <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+     <div class="row mb-2">
+    
+              <div class="col-5" onClick="startReviw(this,<?php echo e($content->id); ?>,'<?php echo e($type); ?>')">
+                  <video width="100%" height="100%" class="video" controls>
                     <source src="<?php echo e(url('storage/app/public/video/'.$content->media)); ?>" type="video/mp4">
                   </video>
               </div>
                 <div class="col-7">
                     <h5><?php echo e($content->title); ?></h5>
                 </div>   
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+            
      </div>
+     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
   </div>
 
 
 </div>
 </div>
-
+<style>
+   .text-right.buttons {
+   position: absolute;
+   top: 0;
+   right: 20px;
+   }
+   .carousel-control-next-icon, .carousel-control-prev-icon {
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   background: #0000001a no-repeat center center;
+   background-size: 100% 100%;
+   }
+   li.nav-item {
+   width: 33.33%;
+   text-align: center;
+   padding: 10px;
+   background: #7b0000;
+   color: white !important;
+   }
+   li.nav-item  a{
+   color:white;
+   }
+   .row.media {
+   border: 1px solid black;
+   padding: 13px;
+   margin-bottom: 12px;
+   }
+   header {
+   background: #7b0000;
+   padding: 11px;
+   }
+   .float-right {
+   position: absolute;
+   right: 20px;
+   top: 20px;
+   }
+</style>
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/reviewContent.blade.php ENDPATH**/ ?>

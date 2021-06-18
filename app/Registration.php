@@ -3253,8 +3253,9 @@ public function insertVerifyMediaData($data){
 
   $sessionLogin = Session::get('pazLogin');
 
+  $exist = DB::table('video_verified')->where(array('mediaid'=>$data['videoid'],'video_type'=>$data['type']))->get()->toArray();
 
-    $exist = $this->selectDataById('mediaid','video_verified',$data['videoid']);
+ // $exist = $this->selectDataById('mediaid','video_verified',$data['videoid']);
 
     if(count($exist) > 0){
 

@@ -2138,7 +2138,7 @@ public function readNotification(Request $request){
     
     
     
-                  return view('reviewContent',['artists'=>$artists,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifyContent]);
+                  return view('reviewContent',['type'=>$text,'artists'=>$artists,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifyContent]);
 
         }
 
