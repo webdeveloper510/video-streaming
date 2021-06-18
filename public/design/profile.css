@@ -79,7 +79,12 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
 .col-md-4.mb-3.play1:hover .overlayplay1 {
   opacity: 1;
 }
-
+.cover {
+    position: absolute;
+    left: 50%;
+    top: 22% !important;
+    transform: translate(-50%,-50%) !important;
+}
 
 .overlayplay1 {
     position: absolute;
