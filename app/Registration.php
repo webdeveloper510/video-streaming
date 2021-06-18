@@ -3323,10 +3323,10 @@ public function getNotVerifiedContent($table){
                 $data = $data->where('by_created',1);
 
           }
-          $data->get();
+          
         // echo "<pre>";
         // print_r($data);die;
-        return $data;
+        return $data->get();
 }
 
 public function getHistoryVerifiedContent($table){
