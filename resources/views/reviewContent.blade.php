@@ -11,7 +11,7 @@
 </header>
 
 
-<div class="container-fluid mb-5">
+<div class="container-fluid mt-5">
 <div class="row">
   <div class="col-md-9">
      
@@ -27,8 +27,9 @@
 
   </div>
   <div class="col-md-3">
-     <div class="row">
-     @foreach($notVerified as $content)
+  @foreach($notVerified as $content)
+     <div class="row mb-2">
+    
               <div class="col-5">
                   <video width="100%" height="100%" controls>
                     <source src="{{url('storage/app/public/video/'.$content->media)}}" type="video/mp4">
@@ -37,12 +38,50 @@
                 <div class="col-7">
                     <h5>{{$content->title}}</h5>
                 </div>   
-                @endforeach 
+            
      </div>
+     @endforeach 
   </div>
 
 
 </div>
 </div>
-
+<style>
+   .text-right.buttons {
+   position: absolute;
+   top: 0;
+   right: 20px;
+   }
+   .carousel-control-next-icon, .carousel-control-prev-icon {
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   background: #0000001a no-repeat center center;
+   background-size: 100% 100%;
+   }
+   li.nav-item {
+   width: 33.33%;
+   text-align: center;
+   padding: 10px;
+   background: #7b0000;
+   color: white !important;
+   }
+   li.nav-item  a{
+   color:white;
+   }
+   .row.media {
+   border: 1px solid black;
+   padding: 13px;
+   margin-bottom: 12px;
+   }
+   header {
+   background: #7b0000;
+   padding: 11px;
+   }
+   .float-right {
+   position: absolute;
+   right: 20px;
+   top: 20px;
+   }
+</style>
 @include('layouts.footer')
