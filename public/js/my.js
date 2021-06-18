@@ -1563,7 +1563,12 @@ function startReviw(id){
     });
 }
 
-function permit(id,status){
+
+function selectVideo(id){
+    
+}
+
+function permit(status){
     //console.log(id);
     $.ajax({
         type: 'POST',

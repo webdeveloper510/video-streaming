@@ -292,10 +292,10 @@
 
   <div class="row">
     <div class="col-md-6 text-center">
-       <button class="btn btn-primary" type="button" onClick="permit({{$is_not_veryfy->id}},true)">Permit</button>
+       <button class="btn btn-primary verify_id" type="button" onClick="permit({{$is_not_veryfy->id}},true)">Permit</button>
     </div>
    <div class="col-md-6 text-center">
-      <button class="btn btn-primary" type="button" onClick="permit({{$is_not_veryfy->id}},false)">Deny</button>
+      <button class="btn btn-primary verify_id" type="button" onClick="permit({{$is_not_veryfy->id}},false)">Deny</button>
    </div>
  </div>
  <p><b>Description :{{$is_not_veryfy->description}}</b> ..........</p>

@@ -20,9 +20,9 @@
       </video>
 
 <div class="text-center">
-       <button class="btn btn-primary" type="button" >Permit</button>
+       <button class="btn btn-primary" type="button" onClick="permit(true)">Permit</button>
    
-      <button class="btn btn-primary" type="button" >Deny</button>
+      <button class="btn btn-primary" type="button" onClick="permit(false)">Deny</button>
     </div>
 
   </div>
