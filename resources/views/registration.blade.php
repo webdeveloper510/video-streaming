@@ -68,8 +68,6 @@
                 @endif
                 <div class="alert alert-danger alreadyNickname" id="nickname" style="display:none">
                 </div>
-               
-
             </div>
           </div>
           <div class="row align-items-center mt-4">
