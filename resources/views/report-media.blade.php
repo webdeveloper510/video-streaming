@@ -148,7 +148,7 @@
           <div class="text-center">
                 <h3>Oldest : <span>0h</span> </h3>
 
-                <select class="custom-select my-2"">
+                <select class="custom-select my-2">
                     <option selected>All</option>
                     <option value="1">Audio</option>
                     <option value="2">Video</option>
