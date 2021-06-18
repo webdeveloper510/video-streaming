@@ -1556,7 +1556,7 @@ function startReviw(a,id,type){
         success: function (data) {
 
            if(data=='Already Reviewing'){
-               
+                
                alert('Already Watched');
            }
            else{
