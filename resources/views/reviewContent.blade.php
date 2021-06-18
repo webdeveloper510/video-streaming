@@ -39,7 +39,7 @@
                 <div class="col-8">
                     <h5>{{$content->title}}</h5>
                 </div>   
-                @foreach 
+                @endforeach 
      </div>
   </div>
 
