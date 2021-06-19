@@ -335,20 +335,27 @@ class AuthController extends Controller
 
       $array_data = $req->data;
 
+      print_r($array_data);
+
 
       $return = $this->model->insertVerifyMediaData($req->all());
 
       $video_id = $return[0]->mediaid;
 
-      $colors = array("blue","green","red");
+      echo $video_id;
+
+     // $colors = array("blue","green","red");
 
     if (($key = array_search($video_id, $array_data)) !== false) {
       print_r($req->all());
         echo $key;die;
         unset($array_data[$key]);
     }
+    else{
+      echo 0;
+    }
 
-      return $return;
+     // return $return;
 
 }
 
