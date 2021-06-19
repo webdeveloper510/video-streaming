@@ -1541,7 +1541,7 @@ function getSrcUrl(a){
 /**----------------------------------------------------------Start Reviewing------------------------------------------------------------------ */
 
 
-function startReviw(a,id,type){
+function startReviw(a,type,data){
 
     var src = $(a).find('source').attr("src");
     var id = $('.verify_id').val();
@@ -1553,11 +1553,11 @@ function startReviw(a,id,type){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id,'type':type},
+        data:{'videoid':id,'type':type,'data':data},
 
         success: function (data) {
 
-            console.log(data);
+            console.log(data);return false;
 
         //    if(data=='Already Reviewing'){
                 

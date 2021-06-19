@@ -332,6 +332,9 @@ class AuthController extends Controller
 
     
     public function verifyMedia(Request $req){
+      
+      echo "<pre>";
+      print_r($req->all());die;
 
 
       $return = $this->model->insertVerifyMediaData($req->all());
@@ -348,13 +351,13 @@ class AuthController extends Controller
       else{
         $is_verified= -1;
       }
-
+      $table = $req->type=='offer' ? 'offer' : 'media';
       $verify = array('is_verified'=>$is_verified);
 
 
       $type = $req->type;  // Update verify based on type pending 
 
-      $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
+      $updated = $this->model->UpdateData($table,'id',$verify,$req->videoid);
 
       if($updated){
         $verify1 = array('is_deleted'=>1);
