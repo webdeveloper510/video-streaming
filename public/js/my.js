@@ -1554,10 +1554,25 @@ function startReviw(a,type,data){
         },
 
         data:{'videoid':id,'type':type,'data':data},
+        dataType: 'JSON',
 
-        success: function (data) {
+        success: function (response) { 
+            
+                  if(typeof response =='object')
+                    {
+                        console.log('rrr');
+                        var id = response[1].id;
 
-            console.log(data);return false;
+                        var src = storage_url+ '/video/' + response[1].media;
+
+                        $('#first').attr('src',src);
+                        $('.verify_id').val(id);
+                    }
+                    else{
+
+                    }
+
+        
 
         //    if(data=='Already Reviewing'){
                 
@@ -1577,8 +1592,6 @@ function permit(a,status,data,type){
 
     var id =  $(a).attr('data-id');
 
-    console.log($(data).length);
-    console.log(id);
     $.ajax({
         type: 'POST',
         url: APP_URL + "/isVerifiedOrNot",

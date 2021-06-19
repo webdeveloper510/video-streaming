@@ -20,9 +20,9 @@
       </video>
 
 <div class="text-center">
-       <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,c)">Permit</button>
+       <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
    
-      <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},{{$type}})">Deny</button>
+      <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
     </div>
 <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
   </div>
