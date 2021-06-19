@@ -344,18 +344,32 @@ class AuthController extends Controller
 
       echo $video_id;
 
-     // $colors = array("blue","green","red");
+      if($return){
 
-    if (($key = array_search($video_id, $array_data)) !== false) {
-      print_r($req->all());
-        echo $key;die;
-        unset($array_data[$key]);
-    }
+              foreach($array_data as $key=>$val){
+
+                if($val['id']==$video_id){
+
+                  echo "yes";
+
+                  unset($array_data[$key]);
+
+                }
+
+                
+            }
+
+            print_r($array_data);
+
+      }
+
+     
     else{
-      echo 0;
+
+      return $return;
+
     }
 
-     // return $return;
 
 }
 
