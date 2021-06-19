@@ -335,7 +335,7 @@ class AuthController extends Controller
 
       $array_data = $req->data;
 
-     // print_r($array_data);
+      print_r($array_data);
 
 
       $return = $this->model->insertVerifyMediaData($req->all());
