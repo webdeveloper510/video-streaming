@@ -332,12 +332,21 @@ class AuthController extends Controller
 
     
     public function verifyMedia(Request $req){
-      
-      echo "<pre>";
-      print_r($req->all());die;
+
+      $array_data = $req->data;
 
 
       $return = $this->model->insertVerifyMediaData($req->all());
+
+      $video_id = $return[0]->mediaid;
+
+      $colors = array("blue","green","red");
+
+    if (($key = array_search($video_id, $array_data)) !== false) {
+      print_r($req->all());
+        echo $key;die;
+        unset($array_data[$key]);
+    }
 
       return $return;
 

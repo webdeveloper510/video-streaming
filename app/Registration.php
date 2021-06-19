@@ -3259,7 +3259,7 @@ public function insertVerifyMediaData($data){
 
     if(count($exist) > 0){
 
-     return 0;
+     return $exist;
 
     }
 
