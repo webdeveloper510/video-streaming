@@ -319,7 +319,7 @@
           <div class="row mb-5">
             
             <div class="col-md-4 mb-3">
-            <video width="100%" height="100%" controls>
+            <video width="100%" height="100%" controls> 
                 <source src="movie.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                 Your browser does not support the video tag.
@@ -458,7 +458,7 @@ ul.nav.nav-tabs li a {
     color: #f1f1f1;
     width: 41%;
     opacity: 0;
-    z-index: 999999999;
+    z-index: 999999999; 
     color: white;
     font-size: 20px;
     padding: 20px;
