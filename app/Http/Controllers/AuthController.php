@@ -330,6 +330,49 @@ class AuthController extends Controller
       return view('legal-notice');
     }
 
+    
+    public function verifyMedia(Request $req){
+
+      $array_data = $req->data;
+
+     // print_r($array_data);
+
+
+      $return = $this->model->insertVerifyMediaData($req->all());
+
+      $video_id = $return[0]->mediaid;
+
+      //echo $video_id;
+
+      if($return){
+
+              foreach($array_data as $key=>$val){
+
+                if($val['id']==$video_id){
+
+                  //echo "yes";
+
+                  unset($array_data[$key]);
+
+                }
+
+                
+            }
+            return response()->json($array_data);
+           // return $array_data;
+
+      }
+
+     
+    else{
+
+      return $return;
+
+    }
+
+
+}
+
     public function isVerifyOrNot(Request $req){
 
       if($req->bool=='true'){
@@ -338,13 +381,13 @@ class AuthController extends Controller
       else{
         $is_verified= -1;
       }
-
+      $table = $req->type=='offer' ? 'offer' : 'media';
       $verify = array('is_verified'=>$is_verified);
 
 
       $type = $req->type;  // Update verify based on type pending 
 
-      $updated = $this->model->UpdateData('media','id',$verify,$req->videoid);
+      $updated = $this->model->UpdateData($table,'id',$verify,$req->videoid);
 
       if($updated){
         $verify1 = array('is_deleted'=>1);
@@ -2051,14 +2094,6 @@ public function readNotification(Request $request){
                 //print_r($req->all());
       }
 
-      public function verifyMedia(Request $req){
-
-
-            $return = $this->model->insertVerifyMediaData($req->all());
-
-            return $return;
-
-      }
 
       public function reportVideo(Request $req){
 

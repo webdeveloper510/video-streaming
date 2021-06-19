@@ -15,31 +15,22 @@
 <div class="row">
   <div class="col-md-9">
      
-      <video width="100%"  controls>
+      <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
         <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
       </video>
-      <div class="float-left">
-            <h3>Trustlevel : <span>0</span></h3>
-      </div>
-<div class="text-center my-3">
-       <button class="btn btn-outline-success" type="button" onClick="permit(true)">Permit</button>
-       &nbsp;	&nbsp;	&nbsp;	&nbsp;
-      <button class="btn btn-outline-danger" type="button" onClick="permit(false)">Deny</button>
-    </div>
-<input type="hidden" class="verify_id" value=""/>
-<div class="text-left description12">
-    <h3>Description: <small>...</small></h3>
-</div>
-<div class="text-left description1">
-    <h3>About Me: <small>...</small></h3>
-</div>
+
+<div class="text-center">
+       <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
    
+      <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+    </div>
+<input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
   </div>
   <div class="col-md-3">
   @foreach($notVerified as $content)
-     <div class="row mb-2">
+     <div class="row mb-2" id="{{$content->id}}">
     
-              <div class="col-5" onClick="startReviw(this,{{$content->id}},'{{$type}}')">
+              <div class="col-5">
                   <video width="100%" height="100%" class="video" controls>
                     <source src="{{url('storage/app/public/video/'.$content->media)}}" type="video/mp4">
                   </video>

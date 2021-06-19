@@ -1541,8 +1541,10 @@ function getSrcUrl(a){
 /**----------------------------------------------------------Start Reviewing------------------------------------------------------------------ */
 
 
-function startReviw(a,id,type){
-    var src = $(a).children().find('source').attr("src");
+function startReviw(a,type,data){
+
+    var src = $(a).find('source').attr("src");
+    var id = $('.verify_id').val();
     
     $.ajax({
         type: 'POST',
@@ -1551,26 +1553,66 @@ function startReviw(a,id,type){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id,'type':type},
+        data:{'videoid':id,'type':type,'data':data},
+        dataType: 'JSON',
 
-        success: function (data) {
+        success: function (response) { 
+            
+                  if(typeof response =='object' && response!='')
+                    {
+                        var id = response[1].id;
 
-           if(data=='Already Reviewing'){
+                        var src = storage_url+ '/video/' + response[1].media;
+
+                         $('#first').attr('src',src); 
+                        $('.verify_id').val(id);
+                        $('#sample_video').get(0).play();
+                        $('#sample_video').attr('controls',true);
+                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                    }
+
+                    else if(response==''){
+
+                        alert('Already Watched this video by another');
+
+                        //console.log('dddd');
+
+                        // $('#sample_video').get(0).play();
+
+                        // $('#sample_video').attr('controls',true);
+
+                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                    }
+
+                    else{
+
+                        $('#sample_video').get(0).play();
+
+                           $('#sample_video').attr('controls',true);
+
+                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                    }
+
+        
+
+        //    if(data=='Already Reviewing'){
                 
-               alert('Already Watched');
-           }
-           else{
-               $('#first').attr('src',src);
-               $('.verify_id').val(id);
-           }
+        //        alert('Already Watched');
+        //    }
+        //    else{
+        //        $('#first').attr('src',src);
+        //        $('.verify_id').val(id);
+        //    }
 
         }
 
     });
 }
 
-function permit(status){
-    //console.log(id);
+function permit(a,status,data,type){
+
+    var id =  $(a).attr('data-id');
+
     $.ajax({
         type: 'POST',
         url: APP_URL + "/isVerifiedOrNot",
@@ -1578,7 +1620,7 @@ function permit(status){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id, 'bool':status},
+        data:{'videoid':id, 'bool':status,'type':type},
 
         success: function (data) {
 
