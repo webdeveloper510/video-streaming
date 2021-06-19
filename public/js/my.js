@@ -1571,13 +1571,24 @@ function startReviw(a,type,data){
                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
-                    else{
+                    else if(response==''){
+
+                        alert('Already Watched this video by another');
 
                         //console.log('dddd');
 
+                        // $('#sample_video').get(0).play();
+
+                        // $('#sample_video').attr('controls',true);
+
+                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                    }
+
+                    else{
+
                         $('#sample_video').get(0).play();
 
-                        $('#sample_video').attr('controls',true);
+                           $('#sample_video').attr('controls',true);
 
                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
