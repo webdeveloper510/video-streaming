@@ -152,7 +152,7 @@
             <div class="col"></div>
          </div>
       </div>
-      <!-- Button trigger modal -->
+      
       <!-- Modal -->
       <div class="modal fade" id="open" tabindex="-1" aria-labelledby="openLabel" aria-hidden="true">
          <div class="modal-dialog">
