@@ -38,7 +38,6 @@ $GLOBALS['price'] = $offerdata->price;
 	</div>
   <div class="col">
       <h3>Media</h3>
-      
       <p>video</p>
   </div>
   <div class="col">
@@ -58,9 +57,6 @@ $GLOBALS['price'] = $offerdata->price;
       <p>{{$offerdata->delieveryspeed}} Days</p>
 	</div>
 </div>
-
-
-
 
 @endforeach
 
