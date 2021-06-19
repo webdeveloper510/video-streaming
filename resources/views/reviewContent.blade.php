@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-md-9">
      
-      <video width="100%" onplay="startReviw(this,{{$type}},{{json_encode($notVerified)}},{{$type}})">
+      <video width="100%" onClick="startReviw(this,{{$type}},{{json_encode($notVerified)}},{{$type}})">
         <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
       </video>
 
