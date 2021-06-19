@@ -1568,7 +1568,7 @@ function startReviw(a,type,data){
                         $('.verify_id').val(id);
                         $('#sample_video').get(0).play();
                         $('#sample_video').attr('controls',true);
-                        $('#sample_video').prop("onclick", null).attr("onclick", null)
+                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
                     else{
@@ -1579,7 +1579,7 @@ function startReviw(a,type,data){
 
                         $('#sample_video').attr('controls',true);
 
-                        $('#sample_video').prop("onclick", null).attr("onclick", null)
+                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
         
