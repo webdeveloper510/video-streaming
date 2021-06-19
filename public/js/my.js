@@ -1560,7 +1560,7 @@ function startReviw(a,type,data){
             
                   if(typeof response =='object' && response!='')
                     {
-                        console.log('rrr');
+                        console.log('yes');
                         var id = response[1].id;
 
                         var src = storage_url+ '/video/' + response[1].media;
@@ -1568,8 +1568,13 @@ function startReviw(a,type,data){
                         $('#first').attr('src',src);
                         $('.verify_id').val(id);
                         $('#sample_video').get(0).play();
+                        $('#sample_video').;
+
                     }
+
                     else{
+                        console.log('dddd');
+
                         $('#sample_video').get(0).play();
                     }
 

@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-md-9">
      
-      <video width="100%" onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($notVerified)); ?>)">
+      <video width="100%" id="sample_video" onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($notVerified)); ?>)">
         <source src="<?php echo e(url('storage/app/public/video/'.$notVerified[0]->media)); ?>" id="first" type="video/mp4">
       </video>
 
