@@ -335,14 +335,14 @@ class AuthController extends Controller
 
       $array_data = $req->data;
 
-      print_r($array_data);
+     // print_r($array_data);
 
 
       $return = $this->model->insertVerifyMediaData($req->all());
 
       $video_id = $return[0]->mediaid;
 
-      echo $video_id;
+      //echo $video_id;
 
       if($return){
 
@@ -350,7 +350,7 @@ class AuthController extends Controller
 
                 if($val['id']==$video_id){
 
-                  echo "yes";
+                  //echo "yes";
 
                   unset($array_data[$key]);
 
