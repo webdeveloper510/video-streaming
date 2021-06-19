@@ -1568,7 +1568,7 @@ function startReviw(a,type,data){
                         $('#first').attr('src',src);
                         $('.verify_id').val(id);
                         $('#sample_video').get(0).play();
-                        $('#sample_video').;
+                        $('#sample_video');
 
                     }
 
