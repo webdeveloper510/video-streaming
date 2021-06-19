@@ -1558,7 +1558,7 @@ function startReviw(a,type,data){
 
         success: function (response) { 
             
-                  if(typeof response =='object')
+                  if(typeof response =='object' && response!='')
                     {
                         console.log('rrr');
                         var id = response[1].id;
