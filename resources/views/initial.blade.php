@@ -81,8 +81,8 @@
                <div class="container">
                     <div class="col-md-12">
                     <p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
-                            Button with data-target
+                        <button class="btn btn-primary form-control btn-lg" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
+                        Artist Highlights
                         </button>
                         </p>
                         <div class="collapse" id="artist">
@@ -162,8 +162,8 @@
                 <div class="container">
                     <div class="col-md-12">
                     <p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
-                            Button with data-target
+                        <button class="btn btn-primary form-control btn-lg" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
+                        Consumer Highlights
                         </button>
                         </p>
                         <div class="collapse" id="consumer">
