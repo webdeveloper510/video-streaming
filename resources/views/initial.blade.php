@@ -81,7 +81,7 @@
                <div class="container">
                     <div class="col-md-12">
                     <p>
-                        <button class="btn btn-primary form-control btn-lg" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
                         Artist Highlights
                         </button>
                         </p>
@@ -162,7 +162,7 @@
                 <div class="container">
                     <div class="col-md-12">
                     <p>
-                        <button class="btn btn-primary form-control btn-lg" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
                         Consumer Highlights
                         </button>
                         </p>
