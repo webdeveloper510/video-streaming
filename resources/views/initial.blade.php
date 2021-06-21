@@ -79,6 +79,7 @@
                   THE ART OF PORN IS FINALLY VALUED
                </h3>
                <div class="container">
+               <div class="row">
                     <div class="col-md-6">
                     <p>
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
@@ -92,6 +93,7 @@
                         Consumer Highlights
                         </button>
                         </p>
+                        </div>
                         </div>
                         <div class="collapse" id="artist">
                         <div class="card card-body">
