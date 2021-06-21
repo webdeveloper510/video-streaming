@@ -2749,7 +2749,7 @@ public function updatePassword($email,$password){
 public function buyofferVideo($data,$offer){
 
 
-  //print_r($offer);die;
+  //print_r($data);die;
 
       unset($data['_token']);
 
@@ -2779,14 +2779,14 @@ public function buyofferVideo($data,$offer){
 
         $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
 
-      // print_r($userid);die;
+       //print_r($data);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
        
         
 
        $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
        
-
+      // print_r($done);die;
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
          //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
@@ -2872,14 +2872,24 @@ public function deductUserTokens($uid,$token){
 
 public function insertReservedTable($data,$vid)
 {
+
+  //print_r($data);
+
     
-        $session_data =   Session::get('User');
+    $session_data =   Session::get('User');
 
     $userid =  $session_data->id;
 
   $deducted  = $this->deductUserTokens($userid,$data['price']);
 
-  if($deducted){
+  //  print_r($data);
+  //  print_r($deducted);
+
+
+
+  if($deducted || $data['price']==0){
+
+   // echo "yes";die;
 
     $data  = array(
       'created_at'=>$data['created_at'],
@@ -3529,7 +3539,7 @@ public function deleteIllegeContent($id){
     public function cancelOrder($data){
       $offer_data = $this->selectDataById('id','offer',$data['offerid']);
 
-      //print_r($offer_data);die;
+     // print_r($offer_data);die;
 
       $update_offer = array(
         'status'=>'cancelled',

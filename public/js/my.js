@@ -1593,16 +1593,6 @@ function startReviw(a,type,data){
                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
-        
-
-        //    if(data=='Already Reviewing'){
-                
-        //        alert('Already Watched');
-        //    }
-        //    else{
-        //        $('#first').attr('src',src);
-        //        $('.verify_id').val(id);
-        //    }
 
         }
 
@@ -1742,9 +1732,9 @@ $(document).on('submit', '#form_sub', function (event) {
 
         success: function (data) {
 
-          //console.log(data);
+        //   console.log(data);
 
-          //return false;
+        //   return false;
             if (data.status == 1) {
                 if(visiblie==1){
 
@@ -1809,7 +1799,7 @@ $(document).on('submit', '#report', function (event) {
 
 
 
-$(document).on('click', '.popup_notification', function (event) {
+$(document).on('click', '.visible_popup', function (event) {
     event.preventDefault();
     $.ajax({
         type: 'POST',
@@ -2426,6 +2416,8 @@ $(document).on('submit', '#cancelOrder', function (event) {
         data: $(this).serialize(),
 
         success: function (data) {
+
+            //console.log(data);return false;
 
             if(data==1){
                 alert('Canceled');
