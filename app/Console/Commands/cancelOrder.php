@@ -43,7 +43,7 @@ class cancelOrder extends Command
         //return 0;
         $data = DB::table('offer')
         ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
-        ->where('by_created',1)
+        ->where('userid','!=',0)
         ->get()->toArray();
         
            $data1 = DB::table('offer')
@@ -75,7 +75,7 @@ class cancelOrder extends Command
         $thirtyDaysUnix = strtotime('+30 days', strtotime($date));
          $expiryDate = date("Y-m-d", $thirtyDaysUnix);
 
-                $ids1 = $v->id;
+            $ids1 = $v->id;
              $update1 =  DB::table('offer')->where('id',$ids1)->update([
             'status'=>'Expired'
              ]);
