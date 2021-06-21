@@ -79,12 +79,20 @@
                   THE ART OF PORN IS FINALLY VALUED
                </h3>
                <div class="container">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                     <p>
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
                         Artist Highlights
                         </button>
                         </p>
+                        </div>
+                        </div class="col-md-6">
+                        <p>
+                        <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
+                        Consumer Highlights
+                        </button>
+                        </p>
+                        </div>
                         <div class="collapse" id="artist">
                         <div class="card card-body">
                         <div class="row my-5">
@@ -161,11 +169,7 @@
                </div>
                 <div class="container">
                     <div class="col-md-12">
-                    <p>
-                        <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
-                        Consumer Highlights
-                        </button>
-                        </p>
+                   
                         <div class="collapse" id="consumer">
                         <div class="row">
                   <div class="col"></div>
