@@ -42,12 +42,12 @@ class cancelOrder extends Command
     {
         //return 0;
         $data = DB::table('offer')
-        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
+        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
         ->where('userid','!=',0)
         ->get()->toArray();
         
            $data1 = DB::table('offer')
-        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates1'))
+        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
         ->where('userid','!=',0)
         ->get()->toArray();
 
@@ -57,7 +57,7 @@ class cancelOrder extends Command
 
         foreach($data as $k=>$v){
 
-            if(date('Y-m-d')==$v->dates){
+            if(date('Y-m-d')==$v->dates && $v->status=='new' || $v->status=='process'){
 
                 $ids[] = $v->id;
                // echo 'yes';
@@ -69,7 +69,7 @@ class cancelOrder extends Command
         ]);
            foreach($data1 as $k=>$v){
 
-            if(date('Y-m-d')==$v->dates1){
+            if(date('Y-m-d')==$v->dates1 && $v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled'){
                 
             $date = $v->dates1;
         $thirtyDaysUnix = strtotime('+30 days', strtotime($date));
