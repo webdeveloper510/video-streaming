@@ -233,41 +233,40 @@
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Easy and fast Signup Process</p>
+                                        Quick and Easy Signup Process  </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Setup several Offers with your favourite categories
+                                        Publish as many Services as You want
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Sell unlimited Video and Audio Content
+                                        You choose how much Your Videos and Audios are worth
 
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Referral Program for Lifetime Passive Revenue Stream
+                                        Invite Artists and Consumers gain Bonus Payouts and generate passive Revenue Streams
 
                                     </p>
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Additional Promoting of your Profile through our Social Media box
+                                        Setup your Posts for Social Media on our Dashboard and we will be happy to help you share them on our Channels
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Service fee reduction with every level you rise
+                                        Start with 80% Commission Rate and Push it Higher with every Level You Rise
 
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Fee free account at level 10
+                                        Have a permanent 100% Commission Rate at Level 10
 
                                     </p>
                                     <!-- <p> <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10
                                     Artists to achieve level 10 and receive a trophy </p> -->
                                     <p>
-                                        <i class="fa fa-check" style="font-size:24px"></i>Share your ideas for future
-                                        developments on the platform and let us grow together
+                                        <i class="fa fa-check" style="font-size:24px"></i>Share your Ideas with us and vote for upcoming Features
                                     </p>
                                     <!-- <p> <i class="fa fa-check" style="font-size:24px"></i>Commit now and get
                                     promoted for free </p> -->
@@ -296,7 +295,7 @@
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Free Registration
+                                        Free Registrat ion
                                     </p>
 
                                     <p>
@@ -306,11 +305,11 @@
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Order exclusive Custom Content</p>
+                                        Order Exclusive Content</p>
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Make Additional Requests</p>
+                                        Fully Customizable Additional Requests</p>
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
@@ -318,11 +317,11 @@
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Unlimited Streaming 24/7
+                                        Access and Stream Videos and Audios from Your Library
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Build your own Playlists
+                                        Build  Playlists
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>

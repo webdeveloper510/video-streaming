@@ -182,8 +182,7 @@
                                                             <p>artistname</p>
                                                         </div>
 
-                                                    </div>
-</a>
+                                                    </div> </a>
                                                     <!------------end list------------------>
 
                                                 </div>
