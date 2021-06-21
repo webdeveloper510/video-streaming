@@ -224,6 +224,7 @@
 
 
                     <div class="row mt-5">
+                    <div class="col"></div>
                         <div class="col-md-6">
                             <div class="user1 mb-3">
                                 <div class="user-head text-center text-white">
@@ -284,8 +285,13 @@
                             </div>
 
                         </div>
+                        <div class="col"></div>
+                        </div>
+                        <div class="row">
+                        <div class="col"></div>
 
-                        <div class="col-md-6">
+
+                        <div class="col-md-8">
                             <div class="user1 mb-3">
                                 <div class="user-head text-center text-white">
                                     <h3>Consumer 
@@ -347,6 +353,7 @@
                             </div>
 
                         </div>
+                        <div class="col"></div>
 
                     </div>
 
