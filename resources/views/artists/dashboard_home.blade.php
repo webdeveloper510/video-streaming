@@ -721,6 +721,29 @@
                   </div>
                </div>
             </div>
+            <!-- Identity -->
+            <div class="col-md-4">
+               <div class="card" >
+                  <div class="card-body text-center">
+                   
+                     <form>
+                        <div class="form-group row">
+                           <label  class="col-sm-2 col-form-label">Identity Check</label>
+                           <div class="col-sm-10">
+                           <input type="file" class="custom-file-input">
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label  class="col-sm-2 col-form-label">File name</label>
+                           <button type="button" class="btn btn-danger">Failed</button>
+                           <div class="col-sm-10">
+                              <button type="submit" class="btn btn-outline-primary">Submit</button>
+                           </div>
+                        </div>
+                        </form>
+                     </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
