@@ -2759,21 +2759,28 @@ function updatedStatus(id){
 
 }
 
-function showOffset() {
-  
-    // Date object
-    var date = new Date();
-      
-    // Offset variable will store 
-    // timezone offset between 
-    // UTC and your local time   
-    var offset = date.getTimezoneOffset();
+function DisplayCityTime(city, offset) {
+    // Date object for current location
+    var aDate = new Date();
 
-console.log(offset+"minutes")
+    // UTC time in msec
+    var utc = aDate.getTime() + (aDate.getTimezoneOffset() * 60000);
+
+    // Date object for the requested city
+    var newdate = new Date(utc + (3600000*offset));
+
+    console.log("Your Time Zone is" + aDate.getTimezoneOffset() * 60000);
+
+    console.log("UTC is" + utc);
+
+    console.log("The local time for city : "+ city +" is "+ newdate.toLocaleString());
+
+
+    // return time as a string
+    return "The local time for city : "+ city +" is "+ newdate.toLocaleString();
 }
 
-showOffset();
-
+console.log(DisplayCityTime('Montreal', '+5.30'));
 
 // function getTimezone() {
 //     offset = new Date().getTimezoneOffset();
