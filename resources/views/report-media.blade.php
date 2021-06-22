@@ -271,9 +271,9 @@
 
 <!-- Identity check tab -->
 <div class="tab-pane fade" id="pills-Identity" role="tabpanel" aria-labelledby="pills-Identity-tab">
-   <section class="reportmeadia">
+   <section class="reportmeadia text-center">
       <div class="container">
-      <table class="table text-center">
+      <table class="table ">
          <thead class="thead-dark">
             <tr>
                <th scope="col">#</th>
