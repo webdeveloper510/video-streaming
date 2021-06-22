@@ -2758,29 +2758,73 @@ function updatedStatus(id){
     });
 
 }
+function time(){
 
-function DisplayCityTime(city, offset) {
-    // Date object for current location
-    var aDate = new Date();
+//     const date1 = new Date("2021-06-22 19:26:57");
+// const date2 = new Date("2021-06-21 19:26:57 UTC");
+// const date3 = new Date("2021-06-21 19:26:57 UTC+02:00");
 
-    // UTC time in msec
-    var utc = aDate.getTime() + (aDate.getTimezoneOffset() * 60000);
+// console.log("UTC Date" + date2);
+// console.log("Your time" + date3);
 
-    // Date object for the requested city
-    var newdate = new Date(utc + aDate.getTimezoneOffset()/60);
+    var today = new Date();
+    var localTime = today.getTime();
+    console.log("local Time" + localTime);
+    var localOffset = today.getTimezoneOffset(); 
+    console.log("local Time in minutes" + localOffset);
+    var localOffset1 = today.getTimezoneOffset()*60000; 
+    console.log("local Time in msec" + localOffset1);
+    var utc = localTime + localOffset1;
+    console.log("Current UTC Time" + utc);
 
-    console.log("Your Time Zone is" + aDate.getTimezoneOffset()/60);
+    var india = utc + (3600000*5.5);
 
-    console.log("UTC is" + utc);
+    console.log("local time  India" + india);
 
-    console.log("The local time for city : "+ city +" is "+ newdate.toLocaleString());
+    var nd = new Date(india);
+
+    console.log("Expected Time" + nd.toLocaleString());
 
 
-    // return time as a string
-    return "The local time for city : "+ city +" is "+ newdate.toLocaleString();
+
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    // var dateTime = date+' '+time;
+// var  date = new Date ( dateTime );
+// console.log("UTC TIME", date)
+// console.log("LOCAL TIME", date.toLocaleString() );
+    // var date = new Date('2021-06-21 19:26:57');
+    
+    // // Coverting to local datetime 
+    // console.log(date.toString());
+    
+    // // Coverting local datetime back to UTC
+    // console.log(date.toUTCString());
 }
 
-console.log(DisplayCityTime('Montreal', '+5.30'));
+console.log(time());
+// function DisplayCityTime(city, offset) {
+//     // Date object for current location
+//     var aDate = new Date();
+
+//     // UTC time in msec
+//     var utc = aDate.getTime() + (aDate.getTimezoneOffset() * 60000);
+
+//     // Date object for the requested city
+//     var newdate = new Date(utc + aDate.getTimezoneOffset()/60);
+
+//     console.log("Your Time Zone is" + aDate.getTimezoneOffset()/60);
+
+//     console.log("UTC is" + utc);
+
+//     console.log("The local time for city : "+ city +" is "+ newdate.toLocaleString());
+
+
+//     // return time as a string
+//     return "The local time for city : "+ city +" is "+ newdate.toLocaleString();
+// }
+
+// console.log(DisplayCityTime('Montreal', '+5.30'));
 
 // function getTimezone() {
 //     offset = new Date().getTimezoneOffset();

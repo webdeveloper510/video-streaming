@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 use Schema;
+
 use Illuminate\Support\ServiceProvider;
 use App\Registration;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\DateTime;
 
+use App\Http\Controllers\Timezone;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -45,6 +48,8 @@ class AppServiceProvider extends ServiceProvider
 
                $count = $array['count'];
 
+              //  $today = new DateTime("now", new DateTimeZone('America/New_York') );
+              //  echo $today->format('Y-m-d');
 
                $data=Session::get('User');
                
