@@ -2779,14 +2779,14 @@ public function buyofferVideo($data,$offer){
 
         $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
 
-      // print_r($userid);die;
+       print_r($reserved_exist);
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
        
         
 
        $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
        
-
+       print_r($done);die;
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
 
          //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
@@ -3529,7 +3529,7 @@ public function deleteIllegeContent($id){
     public function cancelOrder($data){
       $offer_data = $this->selectDataById('id','offer',$data['offerid']);
 
-      //print_r($offer_data);die;
+     // print_r($offer_data);die;
 
       $update_offer = array(
         'status'=>'cancelled',
