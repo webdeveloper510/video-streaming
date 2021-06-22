@@ -2759,6 +2759,30 @@ function updatedStatus(id){
 
 }
 
+function showOffset() {
+  
+    // Date object
+    var date = new Date();
+      
+    // Offset variable will store 
+    // timezone offset between 
+    // UTC and your local time   
+    var offset = date.getTimezoneOffset();
+
+console.log(offset+"minutes")
+}
+
+showOffset();
+
+
+// function getTimezone() {
+//     offset = new Date().getTimezoneOffset();
+//     formatted = -(offset / 60);
+//     console.log(formatted);
+//     // document.querySelector('.output').textContent
+//     //         = formatted;
+// }
+// getTimezone();
 function selectUsername(a){
     var length = $(a).val();
     var html='';

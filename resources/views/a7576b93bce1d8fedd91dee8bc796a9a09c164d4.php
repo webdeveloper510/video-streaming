@@ -219,7 +219,7 @@ tr.shown td.details-control {
             <option selected>Choose...</option>
               <option value="I do not offer this kind of additional requests.">I do not offer this kind of additional requests.</option>
               <option value="Sorry, I receive to many orders right now">Sorry, I receive to many orders right now.</option>
-              <option value="I am not available right now. (Block this customer)">I am not available right now. (Block this customer)</option>
+              <option value="I am not available right now. (Block this customer)">I am not available right now.</option>
             </select>
           </div>
         <input type="hidden" name="offerid" value="" class="offer_id"/>
