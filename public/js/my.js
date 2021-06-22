@@ -1799,7 +1799,7 @@ $(document).on('submit', '#report', function (event) {
 
 
 
-$(document).on('click', '.popup_notification', function (event) {
+$(document).on('click', '.visible_popup', function (event) {
     event.preventDefault();
     $.ajax({
         type: 'POST',
@@ -2417,7 +2417,7 @@ $(document).on('submit', '#cancelOrder', function (event) {
 
         success: function (data) {
 
-            console.log(data);return false;
+            //console.log(data);return false;
 
             if(data==1){
                 alert('Canceled');
