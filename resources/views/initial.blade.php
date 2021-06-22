@@ -190,7 +190,7 @@
                     <div class="col-6">
                            <div class="">
                                <h3>{{$val->offercount}} </h3>
-                               <h5 class="text-dark">Offer(S)</h3>
+                               <h5 class="text-dark">Service(s)</h3>
                                </div>
 
                            </div>

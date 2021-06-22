@@ -13,6 +13,7 @@
         </div>
         @endif
 <div class="row">
+
   @if($offer)
 	@foreach($offer as $val)
 	<div class="col-md-4 showoffer1">
