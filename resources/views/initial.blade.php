@@ -1055,6 +1055,75 @@
                   style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;">
                   THE ART OF PORN IS FINALLY VALUED
                </h3>
+               <div class="container">
+                    <div class="col-md-12">
+                    <p>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Button with data-target
+                        </button>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                        <div class="row my-5">
+                  <div class="col"></div>
+                  <div class="col-md-8">
+                     <div class="user1 mb-3">
+                        <div class="user-head text-center text-white"style="background:#8F00FF !important;">
+                           <h3>Artist</h3>
+                        </div>
+                        <div class="user-body">
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Quick and Easy Signup Process  
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Publish as many Services as You want
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              You choose how much Your Videos and Audios are worth
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Invite Artists and Consumers gain Bonus Payouts and generate passive Revenue Streams
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Setup your Posts for Social Media on our Dashboard and we will be happy to help you share them on our Channels
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Start with 80% Commission Rate and Push it Higher with every Level You Rise
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Have a permanent 100% Commission Rate at Level 10
+                           </p>
+                           <!-- <p> <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10
+                              Artists to achieve level 10 and receive a trophy </p> -->
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>Share your Ideas with us and vote for upcoming Features
+                           </p>
+                           <!-- <p> <i class="fa fa-check" style="font-size:24px"></i>Commit now and get
+                              promoted for free </p> -->
+                           <div class="reward mt-2">
+                              <h2>Get rewarded with 100 PAZ Tokens!</h2>
+                           </div>
+                           <div class="col-md-12 text-center mt-2">
+                              <button type="button" class="btn btn-primary btn-lg">
+                              <a href="{{url('/checkUser/artist')}}">Join Now</a>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col"></div>
+               </div>
+                        </div>
+                        </div>
+                    </div>
+               </div>
                <div class="container row my-4">
                   <div class="col-md-6 mb-3 text-center">
                      <a href="{{url('/register')}}">
@@ -1142,62 +1211,7 @@
                      </a>
                   </div>
                </div>
-               <div class="row my-5">
-                  <div class="col"></div>
-                  <div class="col-md-8">
-                     <div class="user1 mb-3">
-                        <div class="user-head text-center text-white"style="background:#8F00FF !important;">
-                           <h3>Artist</h3>
-                        </div>
-                        <div class="user-body">
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Quick and Easy Signup Process  
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Publish as many Services as You want
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              You choose how much Your Videos and Audios are worth
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Invite Artists and Consumers gain Bonus Payouts and generate passive Revenue Streams
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Setup your Posts for Social Media on our Dashboard and we will be happy to help you share them on our Channels
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Start with 80% Commission Rate and Push it Higher with every Level You Rise
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Have a permanent 100% Commission Rate at Level 10
-                           </p>
-                           <!-- <p> <i class="fa fa-check" style="font-size:24px"></i>Be under the first 10
-                              Artists to achieve level 10 and receive a trophy </p> -->
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>Share your Ideas with us and vote for upcoming Features
-                           </p>
-                           <!-- <p> <i class="fa fa-check" style="font-size:24px"></i>Commit now and get
-                              promoted for free </p> -->
-                           <div class="reward mt-2">
-                              <h2>Get rewarded with 100 PAZ Tokens!</h2>
-                           </div>
-                           <div class="col-md-12 text-center mt-2">
-                              <button type="button" class="btn btn-primary btn-lg">
-                              <a href="{{url('/checkUser/artist')}}">Join Now</a>
-                              </button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col"></div>
-               </div>
+               
                <div class="row">
                   <div class="col"></div>
                   <div class="col-md-8">
