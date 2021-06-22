@@ -57,7 +57,7 @@ class cancelOrder extends Command
 
         foreach($data as $k=>$v){
 
-            if(date('Y-m-d')==$v->dates && $v->status=='due' || $v->status!='process'){
+            if(date('Y-m-d')==$v->dates && $v->status=='new' || $v->status=='process'){
 
                 $ids[] = $v->id;
                // echo 'yes';
