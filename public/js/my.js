@@ -2706,7 +2706,7 @@ function dataTable(name){
                 'data': 'dates_submision',
                 render: function (data, type, row) {
                     // console.log(data);
-                    return data + '(24:00)';
+                    return data + '23:59)';
                 }
             }
             
