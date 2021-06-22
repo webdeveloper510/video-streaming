@@ -729,15 +729,15 @@
                    
                      <form>
                         <div class="form-group row">
-                           <label  class="col-sm-2 col-form-label">Identity Check</label>
-                           <div class="col-sm-10">
-                           <input type="file" class="custom-file-input">
+                           <label  class="col-sm-6 col-form-label">Identity Check</label>
+                           <div class="col-sm-6">
+                           <input type="file" class="form-control-file" id="exampleFormControlFile1">
                            </div>
                         </div>
                         <div class="form-group row">
-                           <label  class="col-sm-2 col-form-label">File name</label>
+                           <label  class="col-sm-6 col-form-label">File name</label>
                            <button type="button" class="btn btn-danger">Failed</button>
-                           <div class="col-sm-10">
+                           <div class="col-sm-6">
                               <button type="submit" class="btn btn-outline-primary">Submit</button>
                            </div>
                         </div>
