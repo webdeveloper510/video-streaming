@@ -2769,7 +2769,7 @@ function DisplayCityTime(city, offset) {
     // Date object for the requested city
     var newdate = new Date(utc + (3600000*offset));
 
-    console.log("Your Time Zone is" + aDate.getTimezoneOffset() * 60000);
+    console.log("Your Time Zone is" + aDate.getTimezoneOffset()/60);
 
     console.log("UTC is" + utc);
 
