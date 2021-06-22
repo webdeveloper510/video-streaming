@@ -735,8 +735,9 @@
                            </div>
                         </div>
                         <div class="form-group row">
-                           <label  class="col-sm-6 col-form-label">File name</label>
-                           <button type="button" class="btn btn-danger">Failed</button>
+                           <label  class="col-sm-6 col-form-label">File name <br>
+                           <button type="button" class="btn btn-danger">Failed</button></label>
+                           
                            <div class="col-sm-6">
                               <button type="submit" class="btn btn-outline-primary">Submit</button>
                            </div>
