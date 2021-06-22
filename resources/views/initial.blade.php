@@ -223,11 +223,11 @@
 
 
 
-                    <div class="row mt-5">
+                    <div class="row my-5">
                     <div class="col"></div>
                         <div class="col-md-8">
                             <div class="user1 mb-3">
-                                <div class="user-head text-center text-white">
+                                <div class="user-head text-center text-white"style="background:#8F00FF !important;">
                                     <h3>Artist</h3>
                                 </div>
                                 <div class="user-body">
@@ -293,7 +293,7 @@
 
                         <div class="col-md-8">
                             <div class="user1 mb-3">
-                                <div class="user-head text-center text-white">
+                                <div class="user-head text-center text-white" >
                                     <h3>Consumer 
                                     </h3>
                                 </div>
@@ -301,7 +301,7 @@
 
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Free Registrat ion
+                                        Free Registration
                                     </p>
 
                                     <p>
