@@ -95,6 +95,71 @@
                         </p>
                         </div>
                         </div>
+                        <div class="container">
+                    <div class="col-md-12">
+                   
+                        <div class="collapse" id="consumer">
+                        <div class="row">
+                  <div class="col"></div>
+                  <div class="col-md-8">
+                     <div class="user1 mb-3">
+                        <div class="user-head text-center text-white" >
+                           <h3>Consumer 
+                           </h3>
+                        </div>
+                        <div class="user-body">
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Free Registration
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Zero monthly fees
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Order Exclusive Content
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Fully Customizable Additional Requests
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Download your Orders
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Access and Stream Videos and Audios from Your Library
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Build  Playlists
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Explore our Advanced Filter Options
+                           </p>
+                           <p>
+                              <i class="fa fa-check" style="font-size:24px"></i>
+                              Enjoy Reduced Advertising
+                           </p>
+                           <div class="reward1">
+                              <h2>Get 10% OFF YOUR FIRST TOKEN PURCHASE! LIMITED TIME ONLY!</h2>
+                           </div>
+                           <div class="col-md-12 text-center  ">
+                              <button type="button" class="btn btn-primary btn-lg px-3">
+                              <a href="{{url('/checkUser/user')}}">Join Now
+                              </a>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col"></div>
+               </div>
+                        </div>
+                  
                         <div class="collapse" id="artist">
                         <div class="card card-body">
                         <div class="row my-5">
@@ -169,71 +234,7 @@
                      </a>
                   </div>
                </div>
-                <div class="container">
-                    <div class="col-md-12">
-                   
-                        <div class="collapse" id="consumer">
-                        <div class="row">
-                  <div class="col"></div>
-                  <div class="col-md-8">
-                     <div class="user1 mb-3">
-                        <div class="user-head text-center text-white" >
-                           <h3>Consumer 
-                           </h3>
-                        </div>
-                        <div class="user-body">
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Free Registration
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Zero monthly fees
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Order Exclusive Content
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Fully Customizable Additional Requests
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Download your Orders
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Access and Stream Videos and Audios from Your Library
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Build  Playlists
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Explore our Advanced Filter Options
-                           </p>
-                           <p>
-                              <i class="fa fa-check" style="font-size:24px"></i>
-                              Enjoy Reduced Advertising
-                           </p>
-                           <div class="reward1">
-                              <h2>Get 10% OFF YOUR FIRST TOKEN PURCHASE! LIMITED TIME ONLY!</h2>
-                           </div>
-                           <div class="col-md-12 text-center  ">
-                              <button type="button" class="btn btn-primary btn-lg px-3">
-                              <a href="{{url('/checkUser/user')}}">Join Now
-                              </a>
-                              </button>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col"></div>
-               </div>
-                        </div>
-                  
+               
                     </div>
                </div>
             </div>
