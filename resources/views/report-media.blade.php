@@ -231,7 +231,7 @@
    </div>
    </div>
 </section> -->
-</div>
+
 <!-- History -->
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
    <section class="reportmeadia">
