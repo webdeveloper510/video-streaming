@@ -273,7 +273,7 @@
 <div class="tab-pane fade" id="pills-Identity" role="tabpanel" aria-labelledby="pills-Identity-tab">
    <section class="reportmeadia">
       <div class="container">
-      <table class="table">
+      <table class="table text-center">
          <thead class="thead-dark">
             <tr>
                <th scope="col">#</th>
@@ -289,8 +289,8 @@
                File name</td>
                <td>5</td>
                <td>
-               <button class="btn btn-outline-primary" type="button">Confirm</button>
-                     <button class="btn btn-outline-primary" type="button">Deny</button>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button>
                </td>
             </tr>
             <tr>
@@ -299,8 +299,8 @@
                File name</td>
                <td>5</td>
                <td>
-               <button class="btn btn-outline-primary" type="button">Confirm</button>
-                     <button class="btn btn-outline-primary" type="button">Deny</button>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button>
                </td>
             </tr>
             <tr>
@@ -309,8 +309,8 @@
                File name</td>
                <td>5</td>
                <td>
-               <button class="btn btn-outline-primary" type="button">Confirm</button>
-                     <button class="btn btn-outline-primary" type="button">Deny</button>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button>
                </td>
             </tr>
          </tbody>
