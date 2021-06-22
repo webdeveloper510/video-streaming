@@ -267,6 +267,21 @@
 </div>
 <!-- Upload Verifying -->
 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+<div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="text-center">
+                  <h3>Oldest : <span>0h</span></h3>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="text-center">
+                  <h3>In Queue : <span>0</span> </h3>
+               </div>
+            </div>
+         </div>
+      </div>
    <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item tb1">
          <a class="nav-link active" id="Background-tab" data-toggle="tab" href="#Background" role="tab" aria-controls="Background" aria-selected="true">Profile & Background pictures (<span>0</span>) <br>
