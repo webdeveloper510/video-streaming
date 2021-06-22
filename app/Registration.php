@@ -2749,7 +2749,7 @@ public function updatePassword($email,$password){
 public function buyofferVideo($data,$offer){
 
 
-  print_r($data);die;
+  //print_r($data);die;
 
       unset($data['_token']);
 
@@ -2873,6 +2873,7 @@ public function deductUserTokens($uid,$token){
 public function insertReservedTable($data,$vid)
 {
 
+  print_r($data);
 
     
     $session_data =   Session::get('User');
