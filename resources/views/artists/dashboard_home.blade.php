@@ -731,7 +731,7 @@
                         <div class="form-group row">
                            <label  class="col-sm-6 col-form-label">Identity Check</label>
                            <div class="col-sm-6">
-                           <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                           <input class="custom-file-input file_input"  type="file">
                            </div>
                         </div>
                         <div class="form-group row">
