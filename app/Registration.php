@@ -2882,11 +2882,14 @@ public function insertReservedTable($data,$vid)
 
   $deducted  = $this->deductUserTokens($userid,$data['price']);
 
-  // print_r($deducted);
+   print_r($data);
+   print_r($deducted);
 
-  // die;
+
 
   if($deducted!=''){
+
+    echo "yes";die;
 
     $data  = array(
       'created_at'=>$data['created_at'],
