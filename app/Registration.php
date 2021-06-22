@@ -2873,15 +2873,17 @@ public function deductUserTokens($uid,$token){
 public function insertReservedTable($data,$vid)
 {
 
-  print_r($data);
 
-  die;
     
     $session_data =   Session::get('User');
 
     $userid =  $session_data->id;
 
   $deducted  = $this->deductUserTokens($userid,$data['price']);
+
+  print_r($deducted);
+
+  die;
 
   if($deducted){
 
