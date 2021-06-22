@@ -731,7 +731,7 @@
                         <div class="form-group row">
                            <label  class="col-sm-6 col-form-label">Identity Check</label>
                            <div class="col-sm-6">
-                           <input class="custom-file-input file_input"  type="file">
+                           <input class="custom-file-input file_input"  type="file"  style="opacity:1; z-index:0;">
                            </div>
                         </div>
                         <div class="form-group row">
