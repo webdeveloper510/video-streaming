@@ -65,7 +65,7 @@ class cancelOrder extends Command
             }
         }
            $update =  DB::table('offer')->whereIn('id',$ids)->update([
-            'status'=>'due'
+            'status'=>'due'  
         ]);
            foreach($data1 as $k=>$v){
 
