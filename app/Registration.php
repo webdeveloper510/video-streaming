@@ -2779,7 +2779,7 @@ public function buyofferVideo($data,$offer){
 
         $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
 
-       print_r($data);die;
+       //print_r($data);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
        
         
