@@ -2007,7 +2007,7 @@ $(document).ready(function () {
    $('.timezone').val(hours);
    $('.created_at').val(dateTime)
    $('.updated_at').val(dateTime)
-   console.log("hours" + parseFloat(330/60));
+   //console.log("hours" + parseFloat(330/60));
 
    //console.log(dateTime)
     // Delete
