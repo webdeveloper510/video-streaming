@@ -48,8 +48,8 @@ class AppServiceProvider extends ServiceProvider
 
                $count = $array['count'];
 
-               $today = new DateTime("now", new DateTimeZone('America/New_York') );
-               echo $today->format('Y-m-d');
+              //  $today = new DateTime("now", new DateTimeZone('America/New_York') );
+              //  echo $today->format('Y-m-d');
 
                $data=Session::get('User');
                
