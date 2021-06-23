@@ -5,7 +5,7 @@ use Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Registration;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\DateTime;
+use DateTime;
 
 class AppServiceProvider extends ServiceProvider
 {
