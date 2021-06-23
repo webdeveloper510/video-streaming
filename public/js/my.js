@@ -2759,13 +2759,19 @@ function updatedStatus(id){
 
 }
 function time(){
-    var date = new Date('2021-06-21 19:26:57');
+
+    var cache_time = "2019-06-22 10:36:06";
+
+var  date = new Date ( cache_time + "Z" );
+console.log("UTC TIME", date.toISOString())
+console.log("LOCAL TIME", date.toLocaleString() );
+    // var date = new Date('2021-06-21 19:26:57');
     
-    // Coverting to local datetime 
-    console.log(date.toString());
+    // // Coverting to local datetime 
+    // console.log(date.toString());
     
-    // Coverting local datetime back to UTC
-    console.log(date.toUTCString());
+    // // Coverting local datetime back to UTC
+    // console.log(date.toUTCString());
 }
 
 console.log(time());
