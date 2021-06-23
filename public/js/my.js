@@ -2772,7 +2772,7 @@ function time(){
     console.log("local Time" + localTime);
     var localOffset = today.getTimezoneOffset(); 
     console.log("local Time in minutes" + localOffset);
-    var localOffset1 = d.getTimezoneOffset()*60000; 
+    var localOffset1 = today.getTimezoneOffset()*60000; 
     console.log("local Time in msec" + localOffset1);
     var utc = localTime + localOffset1;
     console.log("Current UTC Time" + utc);
