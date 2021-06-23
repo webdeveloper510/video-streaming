@@ -173,7 +173,9 @@ var nd = new Date(respectedCountry);
 
 //console.log("Expected Time" + nd.toLocaleString());
 
-var RespectedTime = nd.toLocaleString();
+var RespectedTime = nd.toLocaleString().toISOString();
+
+console.log(RespectedTime);
 
 var timeArtist = RespectedTime.split(',');
 
