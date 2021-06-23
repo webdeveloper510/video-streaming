@@ -2411,9 +2411,19 @@ function format(d, type) {
 /*-------------------------------------Cancel Order-----------------------------------------------------------*/
 
 
-$(document).on('submit', '#cancelOrder', function (event) {
-    event.preventDefault();
-    //console.log(formData);return false;
+$("#cancelOrder").validate({
+
+    rules: {
+        reason: {
+            required: '#reason_cancel:blank'
+        },
+        reason_cancel:{
+            required: '#reason:blank'
+        }
+    },
+  submitHandler: function (form) {
+    var form = $("#cancelOrder");
+
     $.ajax({
         type: 'POST',
         url: APP_URL + "/cancelOrder",
@@ -2421,7 +2431,7 @@ $(document).on('submit', '#cancelOrder', function (event) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data: $(this).serialize(),
+        data: $(form).serialize(),
 
         success: function (data) {
 
@@ -2437,6 +2447,7 @@ $(document).on('submit', '#cancelOrder', function (event) {
 
         }
     });
+}
 
 });
 
@@ -3223,6 +3234,8 @@ if ($("#create_offer").length > 0) {
             }
         },
         submitHandler: function (form) {
+
+            
             //event.preventDefault();
             var form = $("#create_offer");
             var formData = new FormData($(form)[0]);
