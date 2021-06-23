@@ -2772,7 +2772,7 @@ function time(){
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date+' '+time;
 
-var  date = new Date ( dateTime + "+HH:MM" );
+var  date = new Date ( dateTime );
 console.log("UTC TIME", date)
 console.log("LOCAL TIME", date.toLocaleString() );
     // var date = new Date('2021-06-21 19:26:57');
