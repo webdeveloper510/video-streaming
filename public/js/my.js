@@ -2758,29 +2758,39 @@ function updatedStatus(id){
     });
 
 }
-
-function DisplayCityTime(city, offset) {
-    // Date object for current location
-    var aDate = new Date();
-
-    // UTC time in msec
-    var utc = aDate.getTime() + (aDate.getTimezoneOffset() * 60000);
-
-    // Date object for the requested city
-    var newdate = new Date(utc + aDate.getTimezoneOffset()/60);
-
-    console.log("Your Time Zone is" + aDate.getTimezoneOffset()/60);
-
-    console.log("UTC is" + utc);
-
-    console.log("The local time for city : "+ city +" is "+ newdate.toLocaleString());
-
-
-    // return time as a string
-    return "The local time for city : "+ city +" is "+ newdate.toLocaleString();
+function time(){
+    var date = new Date('Tue, 21 Apr 2020 09:20:30 GMT');
+    
+    // Coverting to local datetime 
+    console.log(date.toString());
+    
+    // Coverting local datetime back to UTC
+    console.log(date.toUTCString());
 }
 
-console.log(DisplayCityTime('Montreal', '+5.30'));
+console.log(time());
+// function DisplayCityTime(city, offset) {
+//     // Date object for current location
+//     var aDate = new Date();
+
+//     // UTC time in msec
+//     var utc = aDate.getTime() + (aDate.getTimezoneOffset() * 60000);
+
+//     // Date object for the requested city
+//     var newdate = new Date(utc + aDate.getTimezoneOffset()/60);
+
+//     console.log("Your Time Zone is" + aDate.getTimezoneOffset()/60);
+
+//     console.log("UTC is" + utc);
+
+//     console.log("The local time for city : "+ city +" is "+ newdate.toLocaleString());
+
+
+//     // return time as a string
+//     return "The local time for city : "+ city +" is "+ newdate.toLocaleString();
+// }
+
+// console.log(DisplayCityTime('Montreal', '+5.30'));
 
 // function getTimezone() {
 //     offset = new Date().getTimezoneOffset();
