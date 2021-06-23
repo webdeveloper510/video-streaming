@@ -2759,7 +2759,7 @@ function updatedStatus(id){
 
 }
 function time(){
-    var date = new Date('Tue, 21 Apr 2020 09:20:30 GMT');
+    var date = new Date('2021-06-21 19:26:57');
     
     // Coverting to local datetime 
     console.log(date.toString());
