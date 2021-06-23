@@ -146,7 +146,7 @@
 
         <script>
     var today = new Date();
-    console.log(today);
+    //console.log(today);
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var dateTime = date+' '+time;
@@ -170,6 +170,8 @@ var respectedCountry = utc + (3600000*timeOffset);
 //console.log("local time  country" + respectedCountry);
 
 var nd = new Date(respectedCountry);
+
+console.log("My time" + nd);
 
 //console.log("Expected Time" + nd.toLocaleString());
 
