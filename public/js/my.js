@@ -2768,7 +2768,7 @@ function time(){
 // console.log("Your time" + date3);
 
     var today = new Date();
-    var localTime = d.getTime();
+    var localTime = today.getTime();
     console.log("local Time" + localTime);
     var localOffset = d.getTimezoneOffset(); 
     console.log("local Time in minutes" + localOffset);
