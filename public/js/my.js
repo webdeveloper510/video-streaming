@@ -2021,7 +2021,7 @@ $(document).ready(function () {
 
    console.log("local time  India" + respectedCountry);
 
-   var nd = new Date(india);
+   var nd = new Date(respectedCountry);
 
    console.log("Expected Time" + nd.toLocaleString());
 
