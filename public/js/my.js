@@ -2003,39 +2003,11 @@ $(document).ready(function () {
   // console.log("local Time" + localTime);
    var localOffset = today.getTimezoneOffset(); 
   // console.log("local Time in minutes" + localOffset);
-   var hours = Math.floor(localOffset / 60);           
+   var hours = parseFloat(localOffset / 60);           
    $('.timezone').val(hours);
    $('.created_at').val(dateTime)
    $('.updated_at').val(dateTime)
-
-   /**-----------------------------------Time Zone using offset--------------------------------------------- */
-   var timeOffset = $('.timezone').val();
-
-   console.log("local Time in minutes" + localOffset);
-   var localOffset1 = today.getTimezoneOffset()*60000; 
-   console.log("local Time in msec" + localOffset1);
-   var utc = localTime + localOffset1;
-   console.log("Current UTC Time" + utc);
-
-   var respectedCountry = utc + (3600000*timeOffset);
-
-   console.log("local time  India" + respectedCountry);
-
-   var nd = new Date(respectedCountry);
-
-   console.log("Expected Time" + nd.toLocaleString());
-
-   var RespectedTime = nd.toLocaleString();
-
-   var timeArtist = RespectedTime.split(',');
-
-   var day = timeArtist[0].getFullYear()+'-'+(timeArtist[0].getMonth()+1)+'-'+timeArtist[0].getDate();
-
-   var time1 =  timeArtist[1].getHours() + ":" + timeArtist[1].getMinutes() + ":" + timeArtist[1].getSeconds();
-
-   $('.artist_time_at').val(day+' '+time1)
-
-   $('.artist_updated_at').val(day+' '+time1)
+   console.log("hours" + parseFloat(330/60));
 
    //console.log(dateTime)
     // Delete

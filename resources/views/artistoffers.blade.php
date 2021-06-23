@@ -155,7 +155,9 @@
   // console.log("local Time" + localTime);
    var localOffset = today.getTimezoneOffset(); 
   // console.log("local Time in minutes" + localOffset);
-   var hours = Math.floor(localOffset / 60); 
+   var hours = Math.floor(localOffset / 60);
+   
+   console.log("hours" + Math.floor(330/60));
 
     var timeOffset = $('.timezone').val();
 
