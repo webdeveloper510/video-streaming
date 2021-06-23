@@ -1998,6 +1998,7 @@ $(document).ready(function () {
    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
    var dateTime = date+' '+time;
+   console.log(dateTime);
    var localTime = today.getTime();
   // console.log("local Time" + localTime);
    var localOffset = today.getTimezoneOffset(); 
@@ -2793,55 +2794,55 @@ function updatedStatus(id){
     });
 
 }
-function time(){
+// function time(){
 
-//     const date1 = new Date("2021-06-22 19:26:57");
-// const date2 = new Date("2021-06-21 19:26:57 UTC");
-// const date3 = new Date("2021-06-21 19:26:57 UTC+02:00");
+// //     const date1 = new Date("2021-06-22 19:26:57");
+// // const date2 = new Date("2021-06-21 19:26:57 UTC");
+// // const date3 = new Date("2021-06-21 19:26:57 UTC+02:00");
 
-// console.log("UTC Date" + date2);
-// console.log("Your time" + date3);
+// // console.log("UTC Date" + date2);
+// // console.log("Your time" + date3);
 
-    var today = new Date();
+//     var today = new Date();
 
-    var localTime = today.getTime();
+//     var localTime = today.getTime();
 
-    var timeOffset = $('.timezone').val();
+//     var timeOffset = $('.timezone').val();
 
-    console.log("local Time" + localTime);
-    var localOffset = today.getTimezoneOffset(); 
-    console.log("local Time in minutes" + localOffset);
-    var localOffset1 = today.getTimezoneOffset()*60000; 
-    console.log("local Time in msec" + localOffset1);
-    var utc = localTime + localOffset1;
-    console.log("Current UTC Time" + utc);
+//     console.log("local Time" + localTime);
+//     var localOffset = today.getTimezoneOffset(); 
+//     console.log("local Time in minutes" + localOffset);
+//     var localOffset1 = today.getTimezoneOffset()*60000; 
+//     console.log("local Time in msec" + localOffset1);
+//     var utc = localTime + localOffset1;
+//     console.log("Current UTC Time" + utc);
 
-    var respectedCountry = utc + (3600000*timeOffset);
+//     var respectedCountry = utc + (3600000*timeOffset);
 
-    console.log("local time  India" + respectedCountry);
+//     console.log("local time  India" + respectedCountry);
 
-    var nd = new Date(india);
+//     var nd = new Date(india);
 
-    console.log("Expected Time" + nd.toLocaleString());
+//     console.log("Expected Time" + nd.toLocaleString());
 
 
 
-    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    // var dateTime = date+' '+time;
-// var  date = new Date ( dateTime );
-// console.log("UTC TIME", date)
-// console.log("LOCAL TIME", date.toLocaleString() );
-    // var date = new Date('2021-06-21 19:26:57');
+//     // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+//     // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+//     // var dateTime = date+' '+time;
+// // var  date = new Date ( dateTime );
+// // console.log("UTC TIME", date)
+// // console.log("LOCAL TIME", date.toLocaleString() );
+//     // var date = new Date('2021-06-21 19:26:57');
     
-    // // Coverting to local datetime 
-    // console.log(date.toString());
+//     // // Coverting to local datetime 
+//     // console.log(date.toString());
     
-    // // Coverting local datetime back to UTC
-    // console.log(date.toUTCString());
-}
+//     // // Coverting local datetime back to UTC
+//     // console.log(date.toUTCString());
+// }
 
-console.log(time());
+// console.log(time());
 // function DisplayCityTime(city, offset) {
 //     // Date object for current location
 //     var aDate = new Date();
