@@ -158,27 +158,33 @@
 
     var timeOffset = $('.timezone').val();
 
-console.log("local Time in minutes" + localOffset);
+//console.log("local Time in minutes" + localOffset);
 var localOffset1 = today.getTimezoneOffset()*60000; 
-console.log("local Time in msec" + localOffset1);
+//console.log("local Time in msec" + localOffset1);
 var utc = localTime + localOffset1;
-console.log("Current UTC Time" + utc);
+//console.log("Current UTC Time" + utc);
 
 var respectedCountry = utc + (3600000*timeOffset);
 
-console.log("local time  country" + respectedCountry);
+//console.log("local time  country" + respectedCountry);
 
 var nd = new Date(respectedCountry);
 
-console.log("Expected Time" + nd.toLocaleString());
+//console.log("Expected Time" + nd.toLocaleString());
 
 var RespectedTime = nd.toLocaleString();
 
 var timeArtist = RespectedTime.split(',');
 
+console.log(timeArtist);
+
 var day = timeArtist[0].getFullYear()+'-'+(timeArtist[0].getMonth()+1)+'-'+timeArtist[0].getDate();
 
+console.log(day);
+
 var time1 =  timeArtist[1].getHours() + ":" + timeArtist[1].getMinutes() + ":" + timeArtist[1].getSeconds();
+
+console.log(time1);
 
 $('.artist_time_at').val(day+' '+time1)
 
