@@ -5,8 +5,9 @@ use Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Registration;
 use Illuminate\Support\Facades\Session;
-use DateTime;
+use App\Http\Controllers\DateTime;
 
+use App\Http\Controllers\Timezone;
 class AppServiceProvider extends ServiceProvider
 {
     /**
