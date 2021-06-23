@@ -141,7 +141,6 @@
               </div>
             </div>
 
-
         @include('layouts.footer')
 
         <script>
@@ -174,7 +173,7 @@ var utc = localTime + localOffset1;
 
 
 
-var respectedCountry = utc + (3600000*2.0);
+var respectedCountry = utc + (3600000*timeOffset);
 
 //console.log("local time  country" + respectedCountry);
 
