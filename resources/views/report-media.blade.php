@@ -18,6 +18,9 @@
    <li class="nav-item">
       <a class="nav-link" id="pills-history-tab" data-toggle="pill" href="#pills-history" role="tab" aria-controls="pills-history" aria-selected="false">History</a>
    </li>
+   <li class="nav-item">
+      <a class="nav-link" id="pills-Identity-tab" data-toggle="pill" href="#pills-Identity" role="tab" aria-controls="pills-Identity" aria-selected="false">Contract & Identity Check</a>
+   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -265,8 +268,75 @@
       </div>
    </section>
 </div>
+
+<!-- Identity check tab -->
+<div class="tab-pane fade" id="pills-Identity" role="tabpanel" aria-labelledby="pills-Identity-tab">
+   <section class="reportmeadia text-center">
+      <div class="container">
+      <table class="table ">
+         <thead class="thead-dark">
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">File Name</th>
+               <th scope="col">Content Waiting</th>
+               <th scope="col">Action</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="row">1</th>
+               <td><h6>Artist name</h6><br>
+               File name</td>
+               <td>5</td>
+               <td>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button>
+               </td>
+            </tr>
+            <tr>
+               <th scope="row">2</th>
+               <td><h6>Artist name</h6><br>
+               File name</td>
+               <td>5</td>
+               <td>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button>
+               </td>
+            </tr>
+            <tr>
+               <th scope="row">3</th>
+               <td><h6>Artist name</h6><br>
+               File name</td>
+               <td>5</td>
+               <td>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button>
+               </td>
+            </tr>
+         </tbody>
+         </table>
+
+
+      </div>
+   </section>
+</div>
 <!-- Upload Verifying -->
 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+<div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="text-center">
+                  <h3>Oldest : <span>0h</span></h3>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="text-center">
+                  <h3>In Queue : <span>0</span> </h3>
+               </div>
+            </div>
+         </div>
+      </div>
    <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item tb1">
          <a class="nav-link active" id="Background-tab" data-toggle="tab" href="#Background" role="tab" aria-controls="Background" aria-selected="true">Profile & Background pictures (<span>0</span>) <br>
@@ -498,7 +568,7 @@
    background-size: 100% 100%;
    }
    li.nav-item {
-   width: 33.33%;
+   width: 25%;
    text-align: center;
    padding: 10px;
    background: #7b0000;
