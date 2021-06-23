@@ -2768,13 +2768,31 @@ function time(){
 // console.log("Your time" + date3);
 
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
+    var localTime = d.getTime();
+    console.log("local Time" + localTime);
+    var localOffset = d.getTimezoneOffset(); 
+    console.log("local Time in minutes" + localOffset);
+    var localOffset1 = d.getTimezoneOffset()*60000; 
+    console.log("local Time in msec" + localOffset1);
+    var utc = localTime + localOffset1;
+    console.log("Current UTC Time" + utc);
 
-var  date = new Date ( dateTime );
-console.log("UTC TIME", date)
-console.log("LOCAL TIME", date.toLocaleString() );
+    var india = utc + (3600000*5.5);
+
+    console.log("local time  India" + india);
+
+    var nd = new Date(india);
+
+    console.log("Expected Time" + nd.toLocaleString());
+
+
+
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    // var dateTime = date+' '+time;
+// var  date = new Date ( dateTime );
+// console.log("UTC TIME", date)
+// console.log("LOCAL TIME", date.toLocaleString() );
     // var date = new Date('2021-06-21 19:26:57');
     
     // // Coverting to local datetime 
