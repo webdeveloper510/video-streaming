@@ -2760,9 +2760,12 @@ function updatedStatus(id){
 }
 function time(){
 
-    var cache_time = "2021-06-22 10:36:06";
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
 
-var  date = new Date ( cache_time + "Z" );
+var  date = new Date ( dateTime + "Z" );
 console.log("UTC TIME", date.toISOString())
 console.log("LOCAL TIME", date.toLocaleString() );
     // var date = new Date('2021-06-21 19:26:57');
