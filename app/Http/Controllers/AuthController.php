@@ -846,7 +846,7 @@ else{
         $data=$request->all();
         $audio_pics = '';
           $size  = '';
-         $data['size'] = number_format($size / 1048576,2);
+         $data['size'] = '0';
         unset($data['_token']);
         $data['media']='';
         $data['audio_pic'] = $audio_pics ? $audio_pics : '';
@@ -882,11 +882,11 @@ else{
   }
 
   public function notifyUrl(Request $request){
-    echo "yes";
-    print_r($request->all());die;
-    if($request){
-    $assem_id = $request['assembly_id'];
-    $fileName = $this->saveContent($request);
+
+    $data = json_decode($request->all());
+    if($data){
+    $assem_id = $data['assembly_id'];
+    $fileName = $this->saveContent($data);
    // $size=filesize($fileName);
     $imagename = $this->saveTransloaditImage($request);
     $data = array('media'=>$fileName,'audio_pic'=>$imagename);
@@ -899,7 +899,7 @@ else{
 
   public function saveContent($data){
 
-    $media_url = $data['results']['merged']->ssl_url;
+    $media_url = $data['results']['merged']['ssl_url'];
 
     $path = storage_path('app/public/video/');
     //$ch     =   curl_init($data->transloadit);
@@ -919,7 +919,7 @@ else{
 
   public function saveTransloaditImage($data){
 
-    $image_url = $data['results']['resized_image']->ssl_url;
+    $image_url = $data['results']['resized_image']['ssl_url'];
 
 
     $path = storage_path('app/public/uploads/');
