@@ -78,8 +78,8 @@
         <input type="hidden" name="user_id" value="{{$GLOBALS['id'].'_'.$GLOBALS['user_id']}}"/>
         <input type="hidden" name="price" id="offer_pay" value="{{$offerdata->max*$GLOBALS['price']}}"/>
         <input type="hidden" name="timezone" class="timezone" value="{{$offerdata->timezone}}"/>
-        <input type="hidden" name="artist_time_at" class="created_at" value=""/>
-        <input type="hidden" name="artist_updated_at" class="updated_at" value="{{$offerdata->category}}"/>
+        <input type="hidden" name="created_at" class="artist_time_at" value=""/>
+        <input type="hidden" name="updated_at" class="artist_updated_at" value="{{$offerdata->category}}"/>
 
         <input type="hidden" name="art_id" value="{{$GLOBALS['artistid']}}">
          
