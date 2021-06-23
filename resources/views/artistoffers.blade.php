@@ -179,9 +179,9 @@ console.log("My time" + nd);
 
 // console.log(RespectedTime);
 
-var timeArtist = RespectedTime.split(',');
+//var timeArtist = RespectedTime.split(',');
 
-console.log(timeArtist);
+//console.log(timeArtist);
 
 var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
 
