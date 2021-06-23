@@ -175,21 +175,22 @@ console.log("My time" + nd);
 
 //console.log("Expected Time" + nd.toLocaleString());
 
-var RespectedTime = nd.toLocaleString().toISOString();
+// var RespectedTime = nd.toLocaleString().toISOString();
 
-console.log(RespectedTime);
+// console.log(RespectedTime);
 
 var timeArtist = RespectedTime.split(',');
 
 console.log(timeArtist);
 
-var day = timeArtist[0].getFullYear()+'-'+(timeArtist[0].getMonth()+1)+'-'+timeArtist[0].getDate();
+var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
 
-console.log(day);
+//console.log(day);
 
-var time1 =  timeArtist[1].getHours() + ":" + timeArtist[1].getMinutes() + ":" + timeArtist[1].getSeconds();
+var time1 =  nd.getHours() + ":" + nd.getMinutes() + ":" + nd.getSeconds();
 
 console.log(time1);
+console.log(day);
 
 $('.artist_time_at').val(day+' '+time1)
 
