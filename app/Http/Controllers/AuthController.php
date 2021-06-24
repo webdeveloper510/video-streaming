@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Registration;
 
-use App\Http\Controllers\DateTime;
+use DateTime;
 
-use App\Http\Controllers\Timezone;
+use Timezone;
 
 use App\Classes\includeClass;
 
