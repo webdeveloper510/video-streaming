@@ -366,7 +366,7 @@ class artist extends Controller
 
       // echo "<pre>";
 
-      // print_r($allArtistsVideo);die;
+      // print_r($allArtistsAudio);die;
 
       $quality = $this->model->getQuality();
 
