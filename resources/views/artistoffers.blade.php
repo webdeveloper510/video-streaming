@@ -172,7 +172,7 @@ console.log("utc" + utc);
 
 //console.log("Current UTC Time" + utc);
 
-var respectedCountry = utc + (3600000*timeOffset);
+var respectedCountry = utc + (3600000*2);
 
 console.log("local time  country" + respectedCountry);
 
