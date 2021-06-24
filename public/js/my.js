@@ -1557,9 +1557,12 @@ function startReviw(a,type,data){
         dataType: 'JSON',
 
         success: function (response) { 
+
+            console.log(response);
             
                   if(typeof response =='object' && response!='')
                     {
+                        console.log('object');
                         var id = response[1].id;
 
                         var src = storage_url+ '/video/' + response[1].media;
@@ -1585,6 +1588,7 @@ function startReviw(a,type,data){
                     }
 
                     else{
+                        console.log('ddddd');
 
                         $('#sample_video').get(0).play();
 
