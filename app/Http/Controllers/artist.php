@@ -364,9 +364,9 @@ class artist extends Controller
 
       $allArtistOffer =      $this->model->getArtistOffer($userid,'artist');
 
-      // echo "<pre>";
+      echo "<pre>";
 
-      // print_r($allArtistsVideo);die;
+      print_r($allArtistsAudio);die;
 
       $quality = $this->model->getQuality();
 
