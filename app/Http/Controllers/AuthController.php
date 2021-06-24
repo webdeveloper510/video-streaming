@@ -883,9 +883,11 @@ else{
 
   public function notifyUrl(Request $request){
 
+    echo "yes";
+
     $data = json_decode($request->transloadit);
 
-    print_r($data);die;
+    //print_r($data);die;
 
     if($data){
 
