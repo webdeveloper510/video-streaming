@@ -722,17 +722,17 @@
                    
                      <form>
      
-                        <div class="form-group ">
-                          
-                           
-                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
-                           
+                        <div class="form-group ">            
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                         <div class="form-group text-center">
                            <label  class="form-label">File name </label>
-                           <button type="button" class="btn btn-danger">Failed</button>
-                              <button type="submit" class="btn btn-outline-primary">Submit</button>
+                           
+                             
                         </div>
+                        <button type="button" class="btn btn-danger my-3">Failed</button>
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
                         </form>
                      </div>
                </div>
@@ -748,7 +748,8 @@
                      <form>
      
                         <div class="form-group ">
-                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                            
                         </div>
                         <div class="form-group text-center">
