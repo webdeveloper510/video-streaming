@@ -360,7 +360,7 @@ class AuthController extends Controller
                 
             }
 
-            $arrext = array_keys($extensions);
+            $arrext = array_keys($array_data);
             print_r($arrext);die;
 
            // print_r($array_data);die;

@@ -22,12 +22,13 @@
       </div>
       <div class="col-md-3">
          <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+         
          <div class="row mb-2" id="<?php echo e($content->id); ?>">
-            <div class="col-5">
-               <video width="100%" height="100%" class="video" controls>
-                  <source src="<?php echo e(url('storage/app/public/video/'.$content->media)); ?>" type="video/mp4">
-               </video>
-            </div>
+               <div class="col-5">
+                  <video width="100%" height="100%" class="video" controls>
+                     <source src="<?php echo e(url('storage/app/public/video/'.$content->media)); ?>" type="video/mp4">
+                  </video>
+               </div>
             <div class="col-7">
                <h5><?php echo e($content->title); ?></h5>
             </div>
