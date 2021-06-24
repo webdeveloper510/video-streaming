@@ -1566,8 +1566,8 @@ function startReviw(a,type,data){
 
                          $('#first').attr('src',src); 
                         $('.verify_id').val(id);
-                        $('#sample_video').get(0).play();
-                        $('#sample_video').attr('controls',true);
+                        //$('#sample_video').get(0).play();
+                       // $('#sample_video').attr('controls',true);
                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
@@ -1610,12 +1610,22 @@ function permit(a,status,data,type){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id, 'bool':status,'type':type},
+        data:{'videoid':id, 'bool':status,'data':data,'type':type},
 
         success: function (data) {
 
-            if(data==1){
-                location.reload();
+            if(typeof response =='object' && response!='')
+            {
+                var nextid = response[1].id;
+
+                var src = storage_url+ '/video/' + response[1].media;
+
+                 $('#first').attr('src',src); 
+                $('.verify_id').val(nextid);
+                $('#'+id).remove();
+                //$('#sample_video').get(0).play();
+               // $('#sample_video').attr('controls',true);
+                //$('#sample_video').prop("onclick", null).attr("onclick", null)
             }
             else{
                 alert('some error');
@@ -1995,11 +2005,21 @@ $(document).ready(function () {
 
    /**-------------------------------------- Get Currnt Date and Time ------------------------------------------------------------------- */
    var today = new Date();
+
+   //console.log(today);return false;
    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
    var dateTime = date+' '+time;
+  // console.log(dateTime);
+   var localTime = today.getTime();
+  // console.log("local Time" + localTime);
+   var localOffset = today.getTimezoneOffset(); 
+  // console.log("local Time in minutes" + localOffset);
+   var hours = parseFloat(localOffset / 60);           
+   $('.timezone').val(hours);
    $('.created_at').val(dateTime)
    $('.updated_at').val(dateTime)
+   //console.log("hours" + parseFloat(330/60));
 
    //console.log(dateTime)
     // Delete
@@ -2299,6 +2319,7 @@ function filterproject1(data){
 
 
     if(data.text=='all'){
+        
         dataset.show();
     }
 
@@ -2382,7 +2403,8 @@ function format(d, type) {
                 '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
                 'submit(this)"' + disabled + '>'+text+'</button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">Cancel</button>'+
         '</div></div></div></div>';
-    } else {
+    } 
+    else {  
         updateStatus(d.id, type);
         return '<div class="project"><div class="row"><div class="col"><div class="description' +
                 's"><h3 class="description">Description :</h3><p>' + d.description + '</p></div' +
@@ -2403,9 +2425,19 @@ function format(d, type) {
 /*-------------------------------------Cancel Order-----------------------------------------------------------*/
 
 
-$(document).on('submit', '#cancelOrder', function (event) {
-    event.preventDefault();
-    //console.log(formData);return false;
+$("#cancelOrder").validate({
+
+    rules: {
+        reason: {
+            required: '#reason_cancel:blank'
+        },
+        reason_cancel:{
+            required: '#reason:blank'
+        }
+    },
+  submitHandler: function (form) {
+    var form = $("#cancelOrder");
+
     $.ajax({
         type: 'POST',
         url: APP_URL + "/cancelOrder",
@@ -2413,22 +2445,25 @@ $(document).on('submit', '#cancelOrder', function (event) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data: $(this).serialize(),
+        data: $(form).serialize(),
 
         success: function (data) {
 
             //console.log(data);return false;
 
             if(data==1){
+
                 alert('Canceled');
             }
 
             else{
+
                 alert('Some Error');
             }
 
         }
     });
+}
 
 });
 
@@ -2758,82 +2793,7 @@ function updatedStatus(id){
     });
 
 }
-function time(){
 
-//     const date1 = new Date("2021-06-22 19:26:57");
-// const date2 = new Date("2021-06-21 19:26:57 UTC");
-// const date3 = new Date("2021-06-21 19:26:57 UTC+02:00");
-
-// console.log("UTC Date" + date2);
-// console.log("Your time" + date3);
-
-    var today = new Date();
-    var localTime = today.getTime();
-    console.log("local Time" + localTime);
-    var localOffset = today.getTimezoneOffset(); 
-    console.log("local Time in minutes" + localOffset);
-    var localOffset1 = today.getTimezoneOffset()*60000; 
-    console.log("local Time in msec" + localOffset1);
-    var utc = localTime + localOffset1;
-    console.log("Current UTC Time" + utc);
-
-    var india = utc + (3600000*5.5);
-
-    console.log("local time  India" + india);
-
-    var nd = new Date(india);
-
-    console.log("Expected Time" + nd.toLocaleString());
-
-
-
-    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    // var dateTime = date+' '+time;
-// var  date = new Date ( dateTime );
-// console.log("UTC TIME", date)
-// console.log("LOCAL TIME", date.toLocaleString() );
-    // var date = new Date('2021-06-21 19:26:57');
-    
-    // // Coverting to local datetime 
-    // console.log(date.toString());
-    
-    // // Coverting local datetime back to UTC
-    // console.log(date.toUTCString());
-}
-
-console.log(time());
-// function DisplayCityTime(city, offset) {
-//     // Date object for current location
-//     var aDate = new Date();
-
-//     // UTC time in msec
-//     var utc = aDate.getTime() + (aDate.getTimezoneOffset() * 60000);
-
-//     // Date object for the requested city
-//     var newdate = new Date(utc + aDate.getTimezoneOffset()/60);
-
-//     console.log("Your Time Zone is" + aDate.getTimezoneOffset()/60);
-
-//     console.log("UTC is" + utc);
-
-//     console.log("The local time for city : "+ city +" is "+ newdate.toLocaleString());
-
-
-//     // return time as a string
-//     return "The local time for city : "+ city +" is "+ newdate.toLocaleString();
-// }
-
-// console.log(DisplayCityTime('Montreal', '+5.30'));
-
-// function getTimezone() {
-//     offset = new Date().getTimezoneOffset();
-//     formatted = -(offset / 60);
-//     console.log(formatted);
-//     // document.querySelector('.output').textContent
-//     //         = formatted;
-// }
-// getTimezone();
 function selectUsername(a){
     var length = $(a).val();
     var html='';
@@ -3222,7 +3182,7 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                //console.log(response);
+                // console.log(response);
                 //    return false;  
 
                     if (response.errors) {
@@ -3290,6 +3250,8 @@ if ($("#create_offer").length > 0) {
             }
         },
         submitHandler: function (form) {
+
+            
             //event.preventDefault();
             var form = $("#create_offer");
             var formData = new FormData($(form)[0]);

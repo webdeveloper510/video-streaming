@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Registration;
 
-use App\Http\Controllers\DateTime;
+use DateTime;
 
-use App\Http\Controllers\Timezone;
+use Timezone;
 
 use App\Classes\includeClass;
 
@@ -375,6 +375,8 @@ class AuthController extends Controller
 
     public function isVerifyOrNot(Request $req){
 
+      $array_data = $req->data;
+
       if($req->bool=='true'){
         $is_verified = 1;
       }
@@ -392,9 +394,25 @@ class AuthController extends Controller
       if($updated){
         $verify1 = array('is_deleted'=>1);
 
-          $delete = $this->model->UpdateData('video_verified','mediaid',$verify1,$req->videoid);
+          $done = $this->model->UpdateDatainVideoVerified($verify1,$req->all());
 
-          return $delete;
+          if($done){
+
+            foreach($array_data as $key=>$val){
+
+              if($val['id']==$req->videoid){
+
+                //echo "yes";
+
+                unset($array_data[$key]);
+
+              }
+
+              
+          }
+          return response()->json($array_data);
+          
+          }
       }
 
     }
@@ -812,7 +830,7 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-  print_r($request->all());die;
+  //print_r($request->all());die;
       if($request->radio=='video'){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
@@ -846,7 +864,7 @@ else{
         $data=$request->all();
         $audio_pics = '';
           $size  = '';
-         $data['size'] = number_format($size / 1048576,2);
+         $data['size'] = '0';
         unset($data['_token']);
         $data['media']='';
         $data['audio_pic'] = $audio_pics ? $audio_pics : '';
@@ -882,13 +900,21 @@ else{
   }
 
   public function notifyUrl(Request $request){
+
     echo "yes";
-    print_r($request->all());die;
-    if($request){
-    $assem_id = $request['assembly_id'];
-    $fileName = $this->saveContent($request);
-   // $size=filesize($fileName);
+
+    $data = json_decode($request->transloadit);
+
+    //print_r($data);die;
+
+    if($data){
+
+    $assem_id = $data['assembly_id'];
+
+    $fileName = $this->saveContent($data);
+
     $imagename = $this->saveTransloaditImage($request);
+
     $data = array('media'=>$fileName,'audio_pic'=>$imagename);
 
     $this->model->UpdateData('media','assembly_id',$data,$assem_id);
@@ -899,10 +925,12 @@ else{
 
   public function saveContent($data){
 
-    $media_url = $data['results']['merged']->ssl_url;
+    $media_url = $data['results']['merged'][0]['ssl_url'];
 
     $path = storage_path('app/public/video/');
+
     //$ch     =   curl_init($data->transloadit);
+
     $ch     =   curl_init($media_url);
     $dir            =   $path;
     //$fileName       =   basename($data->transloadit);
@@ -919,22 +947,33 @@ else{
 
   public function saveTransloaditImage($data){
 
-    $image_url = $data['results']['resized_image']->ssl_url;
+    $image_url = $data['results']['resized_image'][0]['ssl_url'];
 
 
     $path = storage_path('app/public/uploads/');
+
    // $ch     =   curl_init($data->transloadit_image);
+
     $ch     =   curl_init($image_url);
+
     $dir            =   $path;
-   // $fileName       =   basename($data->transloadit_image);
+
     $fileName       =   basename($image_url);
+
     $saveFilePath   =   $dir . $fileName;
+
     $fp             =   fopen($saveFilePath, 'wb');
+
     curl_setopt($ch, CURLOPT_FILE, $fp);
+
     curl_setopt($ch, CURLOPT_HEADER, 0);
+
     $execute = curl_exec($ch);
+
     curl_close($ch);
+
     fclose($fp);
+
     return $execute==1 ? $fileName : 0;
 
   }
@@ -969,6 +1008,10 @@ public function artistselling(){
 
   }
   public function artistoffers($id){
+
+    $date = new DateTime();
+
+     //echo $date->getTimestamp();
 
     $data = $this->model->getofferByid($id);
 

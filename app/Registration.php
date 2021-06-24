@@ -1018,14 +1018,16 @@ public function getRespectedSub($data){
 
        if($table=='offer'){
 
-           $data = $data->where('artistid',$userid)->get()->toArray();
+           $data = $data->where('artistid',$userid)
+           ->where('userid','!=',0)
+           ->get()->toArray();
 
        }
 
        else{
 
         $data = $data->get()->toArray();
-
+ 
        }
 
        //print_r($data);die;
@@ -3287,6 +3289,15 @@ public function insertVerifyMediaData($data){
 
   }
 
+
+}
+
+public function UpdateDatainVideoVerified($update,$data){
+
+
+ return DB::table('video_verified')
+  ->where(array('mediaid'=>$data['videoid'],'video_type'=>$data['type']))
+  ->update($update);
 
 }
 

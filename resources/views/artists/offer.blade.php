@@ -168,6 +168,7 @@
                <br>
                <input type="hidden" class="created_at" name="created_at" value=""/>
                <input type="hidden" class="updated_at" name="updated_at" value=""/>
+               <input type="hidden" class="timezone" name="timezone" value=""/>
                
                
               <video width="200"   id="video_choose" controls style="display:none;">
