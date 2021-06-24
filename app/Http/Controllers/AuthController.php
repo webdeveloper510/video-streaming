@@ -361,7 +361,7 @@ class AuthController extends Controller
             }
 
             $arrext = array_keys($array_data);
-            print_r($arrext);die;
+            print_r($arrext[0]);die;
 
            // print_r($array_data);die;
             return response()->json($data);
