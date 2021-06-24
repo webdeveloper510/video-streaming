@@ -1557,6 +1557,8 @@ function startReviw(a,type,data){
         dataType: 'JSON',
 
         success: function (response) { 
+
+            console.log(response);
             
                   if(typeof response =='object' && response!='')
                     {
