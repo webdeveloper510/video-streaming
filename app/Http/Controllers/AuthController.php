@@ -884,11 +884,15 @@ else{
   public function notifyUrl(Request $request){
 
     $data = json_decode($request->all());
+
     if($data){
+
     $assem_id = $data['assembly_id'];
+
     $fileName = $this->saveContent($data);
-   // $size=filesize($fileName);
+
     $imagename = $this->saveTransloaditImage($request);
+
     $data = array('media'=>$fileName,'audio_pic'=>$imagename);
 
     $this->model->UpdateData('media','assembly_id',$data,$assem_id);
@@ -899,10 +903,12 @@ else{
 
   public function saveContent($data){
 
-    $media_url = $data['results']['merged']['ssl_url'];
+    $media_url = $data['results']['merged'][0]['ssl_url'];
 
     $path = storage_path('app/public/video/');
+
     //$ch     =   curl_init($data->transloadit);
+
     $ch     =   curl_init($media_url);
     $dir            =   $path;
     //$fileName       =   basename($data->transloadit);
@@ -919,22 +925,33 @@ else{
 
   public function saveTransloaditImage($data){
 
-    $image_url = $data['results']['resized_image']['ssl_url'];
+    $image_url = $data['results']['resized_image'][0]['ssl_url'];
 
 
     $path = storage_path('app/public/uploads/');
+
    // $ch     =   curl_init($data->transloadit_image);
+
     $ch     =   curl_init($image_url);
+
     $dir            =   $path;
-   // $fileName       =   basename($data->transloadit_image);
+
     $fileName       =   basename($image_url);
+
     $saveFilePath   =   $dir . $fileName;
+
     $fp             =   fopen($saveFilePath, 'wb');
+
     curl_setopt($ch, CURLOPT_FILE, $fp);
+
     curl_setopt($ch, CURLOPT_HEADER, 0);
+
     $execute = curl_exec($ch);
+
     curl_close($ch);
+
     fclose($fp);
+
     return $execute==1 ? $fileName : 0;
 
   }
