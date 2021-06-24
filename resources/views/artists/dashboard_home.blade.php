@@ -704,7 +704,7 @@
             </div>
             </div>
             <div class="col-md-4">
-               <div class="card" >
+               <div class="card" style="height: 310px;">
                   <div class="card-body text-center">
                      <h4 class="card-title">Download Our Logo</h4>
                      <img src="{{asset('images/logos/good_quality_logo.png')}}" download class="img-fliud w-100 logodownload">
@@ -714,7 +714,7 @@
             </div>
             <!-- Identity -->
             <div class="col-md-4">
-               <div class="card" >
+               <div class="card" style="height: 310px;" >
                <div class="card-head text-center">
                     <h3>Identity Check</h3>
                </div>
@@ -740,7 +740,7 @@
             </div>
             <!-- Identity -->
             <div class="col-md-4">
-               <div class="card" >
+               <div class="card" style="height: 310px;" >
                <div class="card-head text-center">
                     <h3>Artist Agreement</h3>
                </div>
