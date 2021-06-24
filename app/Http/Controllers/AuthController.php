@@ -344,7 +344,7 @@ class AuthController extends Controller
 
       //echo $video_id;
 
-      if($return){
+      if(is_array($return)){
 
               foreach($array_data as $key=>$val){
 
@@ -352,7 +352,7 @@ class AuthController extends Controller
 
                   //echo "yes";
 
-                  unset($array_data[$key]);
+                  unset($val[$key]);
 
                 }
 
@@ -360,7 +360,7 @@ class AuthController extends Controller
             }
 
            // print_r($array_data);die;
-            return response()->json($array_data);
+            return response()->json($val);
            // return $array_data;
 
       }

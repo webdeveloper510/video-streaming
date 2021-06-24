@@ -1562,7 +1562,7 @@ function startReviw(a,type,data){
                   if(typeof response =='object' && response!='')
                     {
                         //console.log('object');
-                        var id = response[0].id;
+                        var id = response[1].id;
 
                         var src = storage_url+ '/video/' + response[0].media;
 
