@@ -1557,14 +1557,14 @@ function startReviw(a,type,data){
 
         success: function (response) { 
 
-         console.log(response);return false;
+         //console.log(response);return false;
             
                   if(typeof response =='object' && response!='')
                     {
                         //console.log('object');
-                        var id = response[1].id;
+                        var id = response.id;
 
-                        var src = storage_url+ '/video/' + response[0].media;
+                        var src = storage_url+ '/video/' + response.media;
 
                          $('#first').attr('src',src); 
                         $('.verify_id').val(id);
@@ -1587,7 +1587,7 @@ function startReviw(a,type,data){
                     }
 
                     else{
-                        console.log('ddddd');
+                       // console.log('ddddd');
 
                         $('#sample_video').get(0).play();
 
