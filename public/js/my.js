@@ -2000,7 +2000,7 @@ $(document).ready(function () {
    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
    var dateTime = date+' '+time;
-   console.log(dateTime);
+  // console.log(dateTime);
    var localTime = today.getTime();
   // console.log("local Time" + localTime);
    var localOffset = today.getTimezoneOffset(); 
