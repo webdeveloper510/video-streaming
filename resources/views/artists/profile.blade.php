@@ -206,7 +206,7 @@
             <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
             </div>
-            <div class="verifyvideo den text-center" >
+            <div class="verifyvideo den text-center" style="{{$detail->is_verified==-1 ? 'display:block' : 'display:none'}}">
             <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
                <div class="checkall" style="display:none">
@@ -270,7 +270,7 @@
 <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
-               <div class="verifyvideo den text-center" >
+               <div class="verifyvideo den text-center" style="{{$detail->is_verified== -1 ? 'display:block' : 'display:none'}}">
                <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
    <div class="checkall" style="display:none"><form> 
