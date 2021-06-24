@@ -22,6 +22,7 @@
       </div>
       <div class="col-md-3">
          @foreach($notVerified as $content)
+         
          <div class="row mb-2" id="{{$content->id}}">
             <div class="col-5">
                <video width="100%" height="100%" class="video" controls>
