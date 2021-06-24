@@ -146,7 +146,6 @@
 
         <script>
     var today = new Date();
-    
     console.log("Topday" + today);
 
     // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -156,37 +155,33 @@
     // var dateTime = date+' '+time;
 
 
+
     var localTime = today.getTime();
 
-    console.log("My Time:"+localTime);
 
    var localOffset = today.getTimezoneOffset(); 
 
-   console.log("Minutes"+" " + localOffset)
-   
+   console.log("Local Time Offset in Minutes" +" " + localOffset);
 
     var timeOffset = $('.timezone').val();
 
-    console.log("timezone" + timeOffset);
 
-//console.log("local Time in minutes" + localOffset);
 var localOffset1 = today.getTimezoneOffset()*60000; 
-//console.log("local Time in msec" + localOffset1);
+
+
 var utc = localTime + localOffset1;
 
-console.log("utc" + utc);
 
-//console.log("Current UTC Time" + utc);
 
 var respectedCountry = utc + (3600000*2.0);
 
-console.log("local time  country" + respectedCountry);
+//console.log("local time  country" + respectedCountry);
 
 var nd = new Date(respectedCountry);
 
-console.log("My time" + nd);
+//console.log("My time" + nd);
 
-console.log("Expected Time" + nd.toLocaleString());
+//console.log("Expected Time" + nd.toLocaleString());
 
 // var RespectedTime = nd.toLocaleString().toISOString();
 
@@ -198,7 +193,7 @@ console.log("Expected Time" + nd.toLocaleString());
 
 var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
 
-console.log("Day" + day);
+//console.log("Day" + day);
 
 var time1 =  nd.getHours() + ":" + nd.getMinutes() + ":" + nd.getSeconds();
 

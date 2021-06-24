@@ -151,21 +151,29 @@
 
         <script>
     var today = new Date();
-
     console.log("Topday" + today);
 
-    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
-    // var dateTime = date+' '+time;
+    var dateTime = date+' '+time;
+
+
+    var stillUtc = moment.utc(dateTime).toDate();
+
+    console.log("Still UTC" + stillUtc)
+
+    var local = moment(stillUtc).local().format('YYYY-MM-DD HH:mm:ss');
+
+    console.log("Local Time Zone UTC" + local)
+
 
 
     var localTime = today.getTime();
 
-    console.log("My Time:"+localTime);
 
-   var localOffset = today.getUTCMinutes(); 
+   var localOffset = today.getTimezoneOffset(); 
 
    console.log("Minutes"+" " + localOffset)
    
