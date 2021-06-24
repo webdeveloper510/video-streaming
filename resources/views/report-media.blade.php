@@ -243,7 +243,7 @@
   <div class="input-group">
     <input type="search" class="form-control" placeholder="Search">
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button">Button</button>
+    <button class="btn btn-outline-secondary" type="button">Search</button>
   </div>
 </div>
   </div>
@@ -321,20 +321,23 @@
          <thead class="thead-dark">
             <tr>
                <th scope="col">#</th>
-               <th scope="col">File Name</th>
                <th scope="col">Artist</th>
-               <th scope="col">Type</th>
-               <th scope="col">Action</th>
-               <th scope="col">Date</th>
+               <th scope="col">Content_Waiting</th>
+               <th scope="col">Contract</th>
+               <th scope="col">ID Check</th>
+               <th scope="col">Date_of_Registration</th>
             </tr>
          </thead>
          <tbody>
             <tr>
                <th scope="row">1</th>
-               <td>File name</td>
-               <td>Artist name</td>
-               <td>5</td>
+               <td> name</td>
+               <td>0</td>
+               <td>filename.pdf <br>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button></td>
                <td>
+               filename.png <br>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
@@ -342,10 +345,13 @@
             </tr>
             <tr>
                <th scope="row">2</th>
-               <td>File name</td>
-               <td>Artist name</td>
-               <td>5</td>
+               <td> name</td>
+               <td>0</td>
+               <td>filename.pdf <br>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button></td>
                <td>
+               filename.png <br>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
@@ -353,10 +359,13 @@
             </tr>
             <tr>
                <th scope="row">3</th>
-               <td>File name</td>
-               <td>Artist name</td>
-               <td>5</td>
+               <td> name</td>
+               <td>0</td>
+               <td>filename.pdf <br>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button></td>
                <td>
+               filename.png <br>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
