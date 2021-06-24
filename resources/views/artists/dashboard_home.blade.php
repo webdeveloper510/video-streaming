@@ -734,6 +734,26 @@
                      </div>
                </div>
             </div>
+            <!-- Identity -->
+            <div class="col-md-4">
+               <div class="card" >
+                  <div class="card-body text-center">
+                   
+                     <form>
+     
+                        <div class="form-group ">
+                           <label class="text-center">Artist Agreement</label>
+                           
+                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
+                           
+                        </div>
+                        <div class="form-group text-center">
+                              <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        </div>
+                        </form>
+                     </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
