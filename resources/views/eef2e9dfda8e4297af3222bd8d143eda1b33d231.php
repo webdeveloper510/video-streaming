@@ -2,17 +2,15 @@
 
 <div class="container">
 
-<div class="offer ">
-<h4 style=" margin-top: 10% !important;"><?php echo e($offer[0]->title); ?></h4> 
+<div class="offer mt-5">
+<h4 ><?php echo e($offer[0]->title); ?></h4> 
 <!-- <h5>Audio/Video</h5> -->
 <a href="<?php echo e(url('artistDetail/'.$offer[0]->artistid)); ?>"><h3><?php echo e($offer[0]->nickname); ?> <i class="fa fa-star"></i>  761 </h3></a>
-<div class="text-right">
+<div class="text-right mb-4">
 <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>"  onclick="subscribe(<?php echo e($offer[0]->artistid); ?>,true)" id="subscribe" >Subscribe </button>
     
  <button class="btn btn-secondary text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe1"  id="unsubscribe" >Subscribed </button>
 </div>
-
-
 
         <!------------------------------------ Modal  unSubscribe------------------------------->
         <div class="modal fade" id="Unsubscribe1" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
@@ -31,7 +29,7 @@
             </div>
           </div>
         </div>
-        <p>Sample</p>
+      
         <?php $__currentLoopData = $offer; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offerdata): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php 
         $GLOBALS['id'] = $offerdata->id;
@@ -54,7 +52,7 @@
           <div class="col">
               <h3>Duration</h3>
               <p><?php echo e($offerdata->min); ?>Min -<?php echo e($offerdata->max); ?> Min</p>
-          </div>
+          </div>  
           <div class="col">
               <h3>Media</h3>
               <p>video</p>
@@ -80,8 +78,9 @@
 
         <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
         <input type="hidden" name="price" id="offer_pay" value="<?php echo e($offerdata->max*$GLOBALS['price']); ?>"/>
-        <input type="hidden" name="created_at" class="created_at" value=""/>
-        <input type="hidden" name="updated_at" class="updated_at" value=""/>
+        <input type="hidden" name="timezone" class="timezone" value="<?php echo e($offerdata->timezone); ?>"/>
+        <input type="hidden" name="created_at" class="artist_time_at" value=""/>
+        <input type="hidden" name="updated_at" class="artist_updated_at" value=""/>
 
         <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
          
@@ -134,15 +133,15 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                   <h2 class="text-center"> Order Successful!</h2>
-                   <p> You can check your order status anytime  under : My Order</p>
-
-                   <p><input type="checkbox" class="popup_not" aria-label="Checkbox for following text input"> Do not show again</p>
-
+                      <h2 class="text-center"> Order Successful!</h2>
+                      <p> You can check your order status anytime  under : My Order</p>
+                      <p><input type="checkbox" class="visible_popup" aria-label="Checkbox for following text input"> 
+                            Do not show again
+                      </p>
                   </div>
-                  <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">Close</button>
-                  </div>
+                      <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reloadPage()">Close</button>
+                      </div>
                 </div>
               </div>
             </div>
@@ -151,11 +150,66 @@
         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <script>
-        
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
-    $('.created_at').val(dateTime)
-    $('.updated_at').val(dateTime)
+
+    console.log("Topday" + today);
+
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    // var dateTime = date+' '+time;
+
+
+    var localTime = today.getTime();
+
+    console.log("My Time:"+localTime);
+
+   var localOffset = today.getUTCMinutes(); 
+
+   console.log("Minutes"+" " + localOffset)
+   
+
+    var timeOffset = $('.timezone').val();
+
+    console.log("timezone" + timeOffset);
+
+//console.log("local Time in minutes" + localOffset);
+var localOffset1 = today.getTimezoneOffset()*60000; 
+//console.log("local Time in msec" + localOffset1);
+var utc = localTime + localOffset1;
+
+console.log("utc" + utc);
+
+//console.log("Current UTC Time" + utc);
+
+var respectedCountry = utc + (3600000*2.0);
+
+console.log("local time  country" + respectedCountry);
+
+var nd = new Date(respectedCountry);
+
+console.log("My time" + nd);
+
+console.log("Expected Time" + nd.toLocaleString());
+
+// var RespectedTime = nd.toLocaleString().toISOString();
+
+// console.log(RespectedTime);
+
+//var timeArtist = RespectedTime.split(',');
+
+//console.log(timeArtist);
+
+var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
+
+console.log("Day" + day);
+
+var time1 =  nd.getHours() + ":" + nd.getMinutes() + ":" + nd.getSeconds();
+
+console.log(time1);
+
+$('.artist_time_at').val(day+' '+time1)
+
+$('.artist_updated_at').val(day+' '+time1)
         </script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistoffers.blade.php ENDPATH**/ ?>
