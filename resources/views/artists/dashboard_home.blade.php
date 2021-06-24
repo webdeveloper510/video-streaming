@@ -718,19 +718,17 @@
                   <div class="card-body text-center">
                    
                      <form>
-                        <div class="form-group row">
-                           <label  class="col-sm-6 col-form-label">Identity Check</label>
-                           <div class="col-sm-6">
-                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
-                           </div>
-                        </div>
-                        <div class="form-group row">
-                           <label  class="col-sm-6 col-form-label">File name <br>
-                           <button type="button" class="btn btn-danger">Failed</button></label>
+     
+                        <div class="form-group ">
+                           <label class="text-center">Identity Check</label>
                            
-                           <div class="col-sm-6">
+                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
+                           
+                        </div>
+                        <div class="form-group text-center">
+                           <label  class="form-label">File name </label>
+                           <button type="button" class="btn btn-danger">Failed</button>
                               <button type="submit" class="btn btn-outline-primary">Submit</button>
-                           </div>
                         </div>
                         </form>
                      </div>
