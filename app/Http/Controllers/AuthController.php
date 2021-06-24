@@ -883,7 +883,7 @@ else{
 
   public function notifyUrl(Request $request){
 
-    $data = json_decode($request->all());
+    $data = json_decode($request->transloadit);
 
     if($data){
 
