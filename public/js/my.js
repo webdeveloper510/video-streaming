@@ -1996,7 +1996,7 @@ $(document).ready(function () {
    /**-------------------------------------- Get Currnt Date and Time ------------------------------------------------------------------- */
    var today = new Date(1624481197);
 
-   console.log(today);return false;
+   //console.log(today);return false;
    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
    var dateTime = date+' '+time;

@@ -972,7 +972,7 @@ public function artistselling(){
 
     $date = new DateTime();
 
-     echo $date->getTimestamp();die;
+     //echo $date->getTimestamp();
 
     $data = $this->model->getofferByid($id);
 
