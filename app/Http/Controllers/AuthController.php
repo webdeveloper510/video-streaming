@@ -358,6 +358,8 @@ class AuthController extends Controller
 
                 
             }
+
+            print_r($array_data);die;
             return response()->json($array_data);
            // return $array_data;
 
@@ -411,7 +413,7 @@ class AuthController extends Controller
               
           }
           return response()->json($array_data);
-          
+
           }
       }
 

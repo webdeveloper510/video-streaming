@@ -1558,7 +1558,7 @@ function startReviw(a,type,data){
 
         success: function (response) { 
 
-         console.log(response);
+         console.log(response);return false;
             
                   if(typeof response =='object' && response!='')
                     {
