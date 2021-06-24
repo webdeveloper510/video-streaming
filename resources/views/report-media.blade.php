@@ -278,40 +278,45 @@
             <tr>
                <th scope="col">#</th>
                <th scope="col">File Name</th>
-               <th scope="col">Content Waiting</th>
+               <th scope="col">Artist</th>
+               <th scope="col">Type</th>
                <th scope="col">Action</th>
+               <th scope="col">Date</th>
             </tr>
          </thead>
          <tbody>
             <tr>
                <th scope="row">1</th>
-               <td><h6>Artist name</h6><br>
-               File name</td>
+               <td>File name</td>
+               <td>Artist name</td>
                <td>5</td>
                <td>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
+               <td> 25-06-2021</td>
             </tr>
             <tr>
                <th scope="row">2</th>
-               <td><h6>Artist name</h6><br>
-               File name</td>
+               <td>File name</td>
+               <td>Artist name</td>
                <td>5</td>
                <td>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
+               <td> 25-06-2021</td>
             </tr>
             <tr>
                <th scope="row">3</th>
-               <td><h6>Artist name</h6><br>
-               File name</td>
+               <td>File name</td>
+               <td>Artist name</td>
                <td>5</td>
                <td>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
+               <td> 25-06-2021</td>
             </tr>
          </tbody>
          </table>
