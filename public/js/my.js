@@ -1554,7 +1554,6 @@ function startReviw(a,type,data){
         },
 
         data:{'videoid':id,'type':type,'data':data},
-        dataType: 'JSON',
 
         success: function (response) { 
 
