@@ -1558,19 +1558,19 @@ function startReviw(a,type,data){
 
         success: function (response) { 
 
-            console.log(response);
+           // console.log(response);
             
                   if(typeof response =='object' && response!='')
                     {
-                        console.log('object');
-                        var id = response[1].id;
+                        //console.log('object');
+                        var id = response[0].id;
 
-                        var src = storage_url+ '/video/' + response[1].media;
+                        var src = storage_url+ '/video/' + response[0].media;
 
                          $('#first').attr('src',src); 
                         $('.verify_id').val(id);
-                        //$('#sample_video').get(0).play();
-                       // $('#sample_video').attr('controls',true);
+                        $('#sample_video').get(0).play();
+                        $('#sample_video').attr('controls',true);
                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
