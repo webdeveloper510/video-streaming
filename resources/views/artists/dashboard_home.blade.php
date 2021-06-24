@@ -788,6 +788,10 @@
    border-radius: 16px;
    color: white;
    }
+   .form-group {
+    padding-bottom: 10px;
+    position: unset;
+    }
    .amountmedia {
    max-height: 160px;
    overflow-y: scroll;
