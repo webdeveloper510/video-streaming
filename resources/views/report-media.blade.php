@@ -334,11 +334,11 @@
                <th scope="row">1</th>
                <td> name</td>
                <td>0</td>
-               <td>filename.pdf <br>
+               <td class="text-center"> <h5>filename.pdf </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
-               <td>
-               filename.png <br>
+               <td class="text-center">
+               <h5>filename.png </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
@@ -348,11 +348,11 @@
                <th scope="row">2</th>
                <td> name</td>
                <td>0</td>
-               <td class="text-center"> <h3>filename.pdf </h3><br>
+               <td class="text-center"> <h5>filename.pdf </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
                <td class="text-center">
-               <h3>filename.png </h3><br>
+               <h5>filename.png </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
@@ -362,11 +362,11 @@
                <th scope="row">3</th>
                <td> name</td>
                <td>0</td>
-               <td>filename.pdf <br>
+               <td class="text-center"> <h5>filename.pdf </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
-               <td>
-               filename.png <br>
+               <td class="text-center">
+               <h5>filename.png </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
