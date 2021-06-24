@@ -3292,6 +3292,15 @@ public function insertVerifyMediaData($data){
 
 }
 
+public function UpdateDatainVideoVerified($update,$data){
+
+
+ return DB::table('video_verified')
+  ->where(array('mediaid'=>$data['videoid'],'video_type'=>$data['type']))
+  ->update($update);
+
+}
+
 
 public function getSocialInfo($type){
 

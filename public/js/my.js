@@ -1566,8 +1566,8 @@ function startReviw(a,type,data){
 
                          $('#first').attr('src',src); 
                         $('.verify_id').val(id);
-                        $('#sample_video').get(0).play();
-                        $('#sample_video').attr('controls',true);
+                        //$('#sample_video').get(0).play();
+                       // $('#sample_video').attr('controls',true);
                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
                     }
 
@@ -1610,12 +1610,21 @@ function permit(a,status,data,type){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id, 'bool':status,'type':type},
+        data:{'videoid':id, 'bool':status,'data':data,'type':type},
 
         success: function (data) {
 
-            if(data==1){
-                location.reload();
+            if(typeof response =='object' && response!='')
+            {
+                var id = response[1].id;
+
+                var src = storage_url+ '/video/' + response[1].media;
+
+                 $('#first').attr('src',src); 
+                $('.verify_id').val(id);
+                //$('#sample_video').get(0).play();
+               // $('#sample_video').attr('controls',true);
+                //$('#sample_video').prop("onclick", null).attr("onclick", null)
             }
             else{
                 alert('some error');

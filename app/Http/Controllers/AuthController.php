@@ -375,6 +375,8 @@ class AuthController extends Controller
 
     public function isVerifyOrNot(Request $req){
 
+      $array_data = $req->data;
+
       if($req->bool=='true'){
         $is_verified = 1;
       }
@@ -392,9 +394,25 @@ class AuthController extends Controller
       if($updated){
         $verify1 = array('is_deleted'=>1);
 
-          $delete = $this->model->UpdateData('video_verified','mediaid',$verify1,$req->videoid);
+          $done = $this->model->UpdateDatainVideoVerified($verify1,$req->all());
 
-          return $delete;
+          if($done){
+
+            foreach($array_data as $key=>$val){
+
+              if($val['id']==$req->videoid){
+
+                //echo "yes";
+
+                unset($array_data[$key]);
+
+              }
+
+              
+          }
+          return response()->json($array_data);
+          
+          }
       }
 
     }
