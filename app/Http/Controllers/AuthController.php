@@ -885,6 +885,8 @@ else{
 
     $data = json_decode($request->transloadit);
 
+    print_r($data);die;
+
     if($data){
 
     $assem_id = $data['assembly_id'];
