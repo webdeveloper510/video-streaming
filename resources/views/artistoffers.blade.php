@@ -146,7 +146,8 @@
 
         <script>
     var today = new Date();
-    console.log("Topday" + today);
+
+    //console.log("Topday" + today);
 
     // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
