@@ -311,13 +311,13 @@ section.background1 {
     })
       .then(function (bundle) {
 
-        console.log(bundle);return false;
+        //console.log(bundle);return false;
       
       // var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
        //var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
        //var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
        // $('.transloadit').val(url);
-        $('.assembly_id').val(bundle.results[0].assembly_id)
+        $('.assembly_id').val(bundle.transloadit[0].assembly_id)
         //$('.transloadit_image').val(url1);
         //console.log(bundle.results); // Array of all encoding results
       })
