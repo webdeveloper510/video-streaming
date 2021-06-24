@@ -238,7 +238,10 @@
 <!-- History -->
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
 
-<div class="row">
+
+<section class="reportmeadia text-center">
+      <div class="container">
+      <div class="row my-3">
   <div class="col-md-6">
   <div class="input-group">
     <input type="search" class="form-control" placeholder="Search">
@@ -258,8 +261,6 @@
 
   </div>
 </div>
-<section class="reportmeadia text-center">
-      <div class="container">
       <table class="table ">
          <thead class="thead-dark">
             <tr>
