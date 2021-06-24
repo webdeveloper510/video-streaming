@@ -1018,7 +1018,9 @@ public function getRespectedSub($data){
 
        if($table=='offer'){
 
-           $data = $data->where(array('artistid'=>$userid,'userid'=>'!=',0))->get()->toArray();
+           $data = $data->where('artistid',$userid)
+           ->where('userid','!=',0)
+           ->get()->toArray();
 
        }
 
