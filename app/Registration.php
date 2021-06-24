@@ -1027,7 +1027,7 @@ public function getRespectedSub($data){
        else{
 
         $data = $data->get()->toArray();
-
+ 
        }
 
        //print_r($data);die;
