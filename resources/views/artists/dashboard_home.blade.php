@@ -9,17 +9,7 @@
             <!-- <h3 class="text-center">Due</h3> -->
             <a href="{{url('artist/requests/due')}}">
                <div class="columesdashboard">
-                  <?php 
-                     $_GLOBEL['count'] =0;
-                     ?>
-                  @foreach($count_due_project as $data)
-                  @if(date('Y-m-d')== $data->dates)
-                  <?php 
-                     $_GLOBEL['count']= $_GLOBEL['count']+1;
-                     ?>
-                  @endif
-                  @endforeach
-                  <h1>{{$_GLOBEL['count']}}</h1>
+                  <h1>{{$count_due_offer}}</h1>
                   <h4>Order  Due</h4>
                </div>
             </a>
