@@ -715,12 +715,15 @@
             <!-- Identity -->
             <div class="col-md-4">
                <div class="card" >
+               <div class="card-head text-center">
+                    <h3>Identity Check</h3>
+               </div>
                   <div class="card-body text-center">
                    
                      <form>
      
                         <div class="form-group ">
-                           <label class="text-center">Identity Check</label>
+                          
                            
                            <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
                            
@@ -737,13 +740,14 @@
             <!-- Identity -->
             <div class="col-md-4">
                <div class="card" >
+               <div class="card-head text-center">
+                    <h3>Artist Agreement</h3>
+               </div>
                   <div class="card-body text-center">
                    
                      <form>
      
                         <div class="form-group ">
-                           <label class="text-center">Artist Agreement</label>
-                           
                            <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
                            
                         </div>
