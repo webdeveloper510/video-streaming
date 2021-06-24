@@ -354,13 +354,15 @@ class AuthController extends Controller
 
                   unset($val[$key]);
 
+                  $data[] = $val;
+
                 }
 
                 
             }
 
            // print_r($array_data);die;
-            return response()->json($val);
+            return response()->json($data);
            // return $array_data;
 
       }
