@@ -2307,6 +2307,7 @@ function filterproject1(data){
 
 
     if(data.text=='all'){
+        
         dataset.show();
     }
 
@@ -2390,7 +2391,8 @@ function format(d, type) {
                 '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
                 'submit(this)"' + disabled + '>'+text+'</button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">Cancel</button>'+
         '</div></div></div></div>';
-    } else {
+    } 
+    else {  
         updateStatus(d.id, type);
         return '<div class="project"><div class="row"><div class="col"><div class="description' +
                 's"><h3 class="description">Description :</h3><p>' + d.description + '</p></div' +
@@ -2438,10 +2440,12 @@ $("#cancelOrder").validate({
             //console.log(data);return false;
 
             if(data==1){
+
                 alert('Canceled');
             }
 
             else{
+
                 alert('Some Error');
             }
 

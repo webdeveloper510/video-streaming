@@ -161,15 +161,20 @@
 
     var timeOffset = $('.timezone').val();
 
+    console.log("timezone" + timeOffset);
+
 //console.log("local Time in minutes" + localOffset);
 var localOffset1 = today.getTimezoneOffset()*60000; 
 //console.log("local Time in msec" + localOffset1);
 var utc = localTime + localOffset1;
+
+console.log("utc" + utc);
+
 //console.log("Current UTC Time" + utc);
 
 var respectedCountry = utc + (3600000*timeOffset);
 
-//console.log("local time  country" + respectedCountry);
+console.log("local time  country" + respectedCountry);
 
 var nd = new Date(respectedCountry);
 
@@ -187,12 +192,11 @@ console.log("My time" + nd);
 
 var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
 
-//console.log(day);
+console.log("Day" + day);
 
 var time1 =  nd.getHours() + ":" + nd.getMinutes() + ":" + nd.getSeconds();
 
 console.log(time1);
-console.log(day);
 
 $('.artist_time_at').val(day+' '+time1)
 

@@ -732,6 +732,7 @@
                   </div>
                </div>
             </div>
+            </div>
             <div class="col-md-4">
                <div class="card" >
                   <div class="card-body text-center">
@@ -739,6 +740,30 @@
                      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download class="img-fliud w-100 logodownload">
                      <a href="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
                   </div>
+               </div>
+            </div>
+            <!-- Identity -->
+            <div class="col-md-4">
+               <div class="card" >
+                  <div class="card-body text-center">
+                   
+                     <form>
+                        <div class="form-group row">
+                           <label  class="col-sm-6 col-form-label">Identity Check</label>
+                           <div class="col-sm-6">
+                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
+                           </div>
+                        </div>
+                        <div class="form-group row">
+                           <label  class="col-sm-6 col-form-label">File name <br>
+                           <button type="button" class="btn btn-danger">Failed</button></label>
+                           
+                           <div class="col-sm-6">
+                              <button type="submit" class="btn btn-outline-primary">Submit</button>
+                           </div>
+                        </div>
+                        </form>
+                     </div>
                </div>
             </div>
          </div>
