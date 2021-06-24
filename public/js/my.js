@@ -1616,12 +1616,13 @@ function permit(a,status,data,type){
 
             if(typeof response =='object' && response!='')
             {
-                var id = response[1].id;
+                var nextid = response[1].id;
 
                 var src = storage_url+ '/video/' + response[1].media;
 
                  $('#first').attr('src',src); 
-                $('.verify_id').val(id);
+                $('.verify_id').val(nextid);
+                $('#'+id).remove();
                 //$('#sample_video').get(0).play();
                // $('#sample_video').attr('controls',true);
                 //$('#sample_video').prop("onclick", null).attr("onclick", null)
