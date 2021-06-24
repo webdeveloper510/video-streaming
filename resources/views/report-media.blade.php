@@ -348,11 +348,11 @@
                <th scope="row">2</th>
                <td> name</td>
                <td>0</td>
-               <td>filename.pdf <br>
+               <td class="text-center"> <h3>filename.pdf </h3><br>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
-               <td>
-               filename.png <br>
+               <td class="text-center">
+               <h3>filename.png </h3><br>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
