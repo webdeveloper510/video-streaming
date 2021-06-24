@@ -726,13 +726,13 @@
                         <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
                         </div>
-                        <div class="form-group text-center">
+                        <div class="form-group text-center mt-3">
                            <label  class="form-label">File name </label>
                            
                              
                         </div>
                         
-                        <button type="button" class="btn btn-danger my-3">Failed</button> <br>
+                        <button type="button" class="btn btn-danger my-4">Failed</button> <br>
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
                         </form>
                      </div>
