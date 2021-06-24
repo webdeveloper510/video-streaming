@@ -970,6 +970,10 @@ public function artistselling(){
   }
   public function artistoffers($id){
 
+    $date = new DateTime();
+
+     echo $date->getTimestamp();die;
+
     $data = $this->model->getofferByid($id);
 
      $artId = $data[0]->artistid;

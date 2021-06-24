@@ -145,9 +145,9 @@
         @include('layouts.footer')
 
         <script>
-    var today = new Date();
+    var today = new Date(0);
 
-    //console.log("Topday" + today);
+    console.log("Topday" + today);
 
     // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
@@ -162,7 +162,7 @@
 
    var localOffset = today.getTimezoneOffset(); 
 
-   console.log("Local Time Offset in Minutes" +" " + localOffset);
+   //console.log("Local Time Offset in Minutes" +" " + localOffset);
 
     var timeOffset = $('.timezone').val();
 

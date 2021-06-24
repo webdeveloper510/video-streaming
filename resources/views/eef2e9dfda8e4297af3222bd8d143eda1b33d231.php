@@ -150,23 +150,15 @@
         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <script>
-    var today = new Date();
+    var today = new Date(0);
+
     console.log("Topday" + today);
 
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
-    var dateTime = date+' '+time;
-
-
-    var stillUtc = moment.utc(dateTime).toDate();
-
-    console.log("Still UTC" + stillUtc)
-
-    var local = moment(stillUtc).local().format('YYYY-MM-DD HH:mm:ss');
-
-    console.log("Local Time Zone UTC" + local)
+    // var dateTime = date+' '+time;
 
 
 
@@ -175,31 +167,27 @@
 
    var localOffset = today.getTimezoneOffset(); 
 
-   console.log("Minutes"+" " + localOffset)
-   
+   //console.log("Local Time Offset in Minutes" +" " + localOffset);
 
     var timeOffset = $('.timezone').val();
 
-    console.log("timezone" + timeOffset);
 
-//console.log("local Time in minutes" + localOffset);
 var localOffset1 = today.getTimezoneOffset()*60000; 
-//console.log("local Time in msec" + localOffset1);
+
+
 var utc = localTime + localOffset1;
 
-console.log("utc" + utc);
 
-//console.log("Current UTC Time" + utc);
 
 var respectedCountry = utc + (3600000*2.0);
 
-console.log("local time  country" + respectedCountry);
+//console.log("local time  country" + respectedCountry);
 
 var nd = new Date(respectedCountry);
 
-console.log("My time" + nd);
+//console.log("My time" + nd);
 
-console.log("Expected Time" + nd.toLocaleString());
+//console.log("Expected Time" + nd.toLocaleString());
 
 // var RespectedTime = nd.toLocaleString().toISOString();
 
@@ -211,7 +199,7 @@ console.log("Expected Time" + nd.toLocaleString());
 
 var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
 
-console.log("Day" + day);
+//console.log("Day" + day);
 
 var time1 =  nd.getHours() + ":" + nd.getMinutes() + ":" + nd.getSeconds();
 
