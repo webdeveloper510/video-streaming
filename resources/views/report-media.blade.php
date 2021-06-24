@@ -279,8 +279,7 @@
                <td>Artist name</td>
                <td>5</td>
                <td>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button>
+                   Deny
                </td>
                <td> 25-06-2021</td>
             </tr>
@@ -290,8 +289,7 @@
                <td>Artist name</td>
                <td>5</td>
                <td>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button>
+               Confirm
                </td>
                <td> 25-06-2021</td>
             </tr>
@@ -301,8 +299,7 @@
                <td>Artist name</td>
                <td>5</td>
                <td>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button>
+               Deny
                </td>
                <td> 25-06-2021</td>
             </tr>
