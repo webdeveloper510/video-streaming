@@ -1994,7 +1994,7 @@ $(document).on('submit', '#edit_Video_info', function (event) {
 $(document).ready(function () {
 
    /**-------------------------------------- Get Currnt Date and Time ------------------------------------------------------------------- */
-   var today = new Date(1624481197);
+   var today = new Date();
 
    //console.log(today);return false;
    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
