@@ -9,7 +9,7 @@
             <!-- <h3 class="text-center">Due</h3> -->
             <a href="{{url('artist/requests/due')}}">
                <div class="columesdashboard">
-                  <h1>{{$count_due_offer ? $count_due_offer : 0}}</h1>
+                  <h1>{{$count_due_project ? $count_due_project : 0}}</h1>
                   <h4>Order  Due</h4>
                </div>
             </a>
