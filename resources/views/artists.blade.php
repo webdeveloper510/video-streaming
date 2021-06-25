@@ -22,8 +22,7 @@
         background:black;
         color:white;
       }
-
-      .artist .profileImage {
+    .artist .profileImage {
     width: 125px;
     height: 125px;
     border-radius: 50%;
@@ -127,5 +126,6 @@ hr{
 
    </div>
 </div>
+<div class="center"></div>
   </body>
   @include('layouts.footer')

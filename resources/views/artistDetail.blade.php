@@ -233,61 +233,10 @@
                   </div>
                </div>
                <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
-               <!-- <div class="filter_div" id="playlist">
-                  <h3>Playlists</h3>
-                   <div class="row mb-5 pb-5">
-                   @foreach ($playlist as $play)
-                     <?php 
-                     $videos = explode(',',$play->videos);
-                     $count = count($videos);
-                     //print_r($videos);
-                     ?>
-                     <div class="col-md-4 mb-3 play1">
-                     <a href="{{url('playlist/'.$play->id)}}">
-                         <div class="overlayplay1">
-                             <h2 class="text-white">{{$count}}</h2>
-                              <i class="fa fa-play"></i>
-                         </div>
-                         </a>
-                     <video width="100%" class="hoverVideo" height="250" controls controlsList="nodownload" disablePictureInPicture>
-                         <source src="{{url('storage/app/public/video/'.$videos[0]) }}" type="video/mp4">
-                         
-                         Your browser does not support the video tag.
-                     </video>
-                  
-                     
-                  <h4 class="text-center mb-5">{{$play->playlistname}}</h4>
-                     </div>
-                    @endforeach
-                   </div>
-                  </div> -->
+           
             </div>
             <!-- --------------Long videos -------------------->
          </div>
-         <!-- <div class="choose1" style="display:none;">
-            <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-             <div class="row ">
-                <div class="col-md-12">
-                     <h4><span class="count">0</span>Item  Selected</h4>
-                </div>
-                <div class="col-md-12">
-                     <ul class="selected">
-                      
-                     </ul>
-                </div>
-                <div class="col-md-12 price">
-                     <h4>Price : <span class="paz">0</span>PAZ</h4>
-                </div>
-              <div class="col-md-12 pt-3 text-center">
-                       <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
-              </div>
-              <div class="col-md-12 pt-3 text-center">
-                     <button type="button" class="btn btn-primary addTowishlist" >Add To Wishlist </button>
-              </div>
-             </div>
-            </div> -->
          <div class="choose1" style="display:none;">
             <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
             <span aria-hidden="true">&times;</span>
