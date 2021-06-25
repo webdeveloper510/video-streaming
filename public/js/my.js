@@ -111,6 +111,10 @@ $(document).ready(function () {
 
         var original_media = d.deliever_media;
 
+        var reward = ( d.price * d.choice);
+
+        var price = d.userdescription!='No Additional Requests' ? reward + parseInt(d.additional_price) : reward;
+
         var folder = d.type == 'video'
             ? 'video'
             : 'audio';
