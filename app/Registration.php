@@ -1868,7 +1868,7 @@ public function getRefersArtist($id){
 
       $insert  = DB::table('offer')->insertGetId($data);
 
-      $inserted = $this->insertReservedTable($data,$offer['id'],$insert);
+      $inserted = $this->insertReservedTable($data,$data['id'],$insert);
 
 
           $array= array(
