@@ -1812,9 +1812,9 @@ public function getRefersArtist($id){
 
       //echo "buy";
   
-      $insert = DB::table('user_video')->insert($video_data);
+      $insert = DB::table('user_video')->insertGetId($video_data);
 
-      return $insert ? 1 : 0;
+      return $insert ? $insert : 0;
       
     }
 
@@ -2785,9 +2785,9 @@ public function buyofferVideo($data,$offer){
        //print_r($data);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
        
-        
+       $done = $this->insertReservedTable($data,$offer['id'],$return);
 
-       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
+      // $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
        
       // print_r($done);die;
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
@@ -2873,7 +2873,7 @@ public function deductUserTokens($uid,$token){
         return $update;
 }
 
-public function insertReservedTable($data,$vid)
+public function insertReservedTable($data,$vid,$customer_id)
 {
 
   //print_r($data);
@@ -2901,6 +2901,7 @@ public function insertReservedTable($data,$vid)
       'tokens'=>$data['price'],
       'userid'=>$userid,
       'artistid'=>$data['art_id'],
+      'customer_order_id'=>$customer_id
 
     );
 
@@ -3562,7 +3563,7 @@ public function deleteIllegeContent($id){
       $updateStatus = $this->UpdateData('offer','id',$update_offer,$data['offerid']);
       if($updateStatus){
           $getToken = DB::table('reserved_tokens')
-          ->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))
+          ->where(array('customer_order_id'=>$data['offerid']))
           ->get()->toArray();
 
           $update = DB::table('users')->where('id',$offer_data[0]->userid)->update([
@@ -3580,7 +3581,7 @@ public function deleteIllegeContent($id){
 
           DB::table('notification')->insert($notification);
 
-      $delete =  DB::table('reserved_tokens')->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))->delete();
+      $delete =  DB::table('reserved_tokens') ->where(array('customer_order_id'=>$data['offerid']))->delete();
 
           return $delete ? 1 : 0;
 
