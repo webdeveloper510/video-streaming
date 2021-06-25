@@ -286,9 +286,9 @@ class artist extends Controller
       $total_process_offer = $count_process_offer + $count_process_project;
 
       $count_due_offer = $this->model->count_due_offer('offer');
-      // echo "<pre>";
+      echo "<pre>";
 
-      // print_r($count_due_offer);die;
+      print_r($count_due_offer);die;
 
      
 
