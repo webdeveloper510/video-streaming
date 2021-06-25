@@ -1631,6 +1631,9 @@ function permit(a,status,data,type){
             {
                 var nextid = data.id;
 
+                console.log('yes');
+                console.log(nextid);
+
                 var src = storage_url+ '/video/' + data.media;
 
                  $('#first').attr('src',src); 
