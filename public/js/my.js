@@ -2374,6 +2374,8 @@ function format(d, type) {
 
     $('.offer_id').val(d.id);
 
+    var reward = ( d.price * d.choice) + parseInt(d.additional_price);
+
 console.log(d);
     var disabled = d.remaining_days < 0 || d.paid_status==1
         ? 'disabled'
@@ -2404,7 +2406,7 @@ console.log(d);
                 '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
                 'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
                 'p </p></td></tr><tr><td colspan="2">Reward:<span class="Reward" style="color: ' +
-                'gold !important;">' + ((d.price* d.choice) + d.additional_price) + '<b style="color: gold !important;font-family' +
+                'gold !important;">' + reward ? reward : 0 + '<b style="color: gold !important;font-family' +
                 ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr><td colspan="' +
                 '2"><div class="col-md-12"><form class="uploadOffer" method="post" enctype="mul' +
                 'tipart/form-data"><label>' + file +
