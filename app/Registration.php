@@ -3575,7 +3575,7 @@ public function deleteIllegeContent($id){
             'artistid'=>$offer_data[0]->artistid,
             'userid'=>$offer_data[0]->userid,
             'notificationfor'=>'user',
-            'message'=>'Your order' .$offer_data[0]->title.' has canceled and your tokens have been returned',
+            'message'=>'Your order'.' ' .$offer_data[0]->title.' has canceled and your tokens have been returned',
           );
 
           DB::table('notification')->insert($notification);

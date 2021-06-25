@@ -2000,6 +2000,12 @@ public function readNotification(Request $request){
         $offerInfo['choice'] = $request->duration;
         $offerInfo['userdescription'] = $request->description ? $request->description : 'No Additional Requests' ;
 
+        // print_r($request->all());
+
+        // print_r($offerInfo);
+
+        die;
+
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
         //print_r($requestData);die;
 
