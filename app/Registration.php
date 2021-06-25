@@ -1020,6 +1020,7 @@ public function getRespectedSub($data){
 
            $data = $data->where('artistid',$userid)
            ->where('userid','!=',0)
+           ->where('status','due')
            ->count();
 
        }
