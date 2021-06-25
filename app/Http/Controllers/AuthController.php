@@ -2004,7 +2004,7 @@ public function readNotification(Request $request){
 
         // print_r($offerInfo);
 
-        die;
+        //die;
 
         $requestData = $this->model->buyofferVideo($request->all(),$offerInfo);
         //print_r($requestData);die;
