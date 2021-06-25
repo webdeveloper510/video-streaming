@@ -2375,8 +2375,7 @@ function format(d, type) {
     $('.offer_id').val(d.id);
 
     var reward = ( d.price * d.choice) + parseInt(d.additional_price);
-
-console.log(d);
+    
     var disabled = d.remaining_days < 0 || d.paid_status==1
         ? 'disabled'
         : ''
