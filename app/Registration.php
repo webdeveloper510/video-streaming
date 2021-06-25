@@ -1736,7 +1736,7 @@ public function getRefersArtist($id){
        
          $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
 
-        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
+        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal','') : $this->insertUserVideo($userid,$vid,$token,'normal','');
 
           return $return;
 
@@ -1745,7 +1745,7 @@ public function getRefersArtist($id){
 
     }
 
-    public function updateUserVideo($uid,$video,$tok,$type){         
+    public function updateUserVideo($uid,$video,$tok,$type,$reserved){         
 
       if(isset($video['choice'])){
 
@@ -1761,7 +1761,7 @@ public function getRefersArtist($id){
           unset($video['count']);
           
         
-        $done = $this->insertOffer($video);
+        $done = $this->insertOffer($video,$reserved);
 
 
           //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
@@ -1785,7 +1785,7 @@ public function getRefersArtist($id){
       return $update;
     }
 
-    public function insertUserVideo($uid,$video,$tok,$type){
+    public function insertUserVideo($uid,$video,$tok,$type,$reserved){
 
     
 
@@ -1800,7 +1800,7 @@ public function getRefersArtist($id){
       unset($video['category']);
       unset($video['count']);
 
-      $done = $this->insertOffer($video);
+      $done = $this->insertOffer($video,$reserved);
       //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($video_id,$video):$this->insertOffer($video);
 
       }
@@ -1856,7 +1856,7 @@ public function getRefersArtist($id){
 
     }
 
-    public function insertOffer($data){
+    public function insertOffer($data,$reserved){
 
        // print_r($data);die;
 
@@ -1868,7 +1868,13 @@ public function getRefersArtist($id){
 
       $insert  = DB::table('offer')->insertGetId($data);
 
-      $inserted = $this->insertReservedTable($data,$data['id'],$insert);
+      if($reserved!=''){
+
+        $inserted = $this->insertReservedTable($reserved,$data['id'],$insert);
+
+
+      }
+
 
 
           $array= array(
@@ -2787,7 +2793,7 @@ public function buyofferVideo($data,$offer){
         $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
 
        //print_r($data);die;
-       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
+       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer',$data) : $this->insertUserVideo($userid,$offer,$token,'offer',$data);
        
        //$done = $this->insertReservedTable($data,$offer['id'],$return);
 
@@ -2799,7 +2805,7 @@ public function buyofferVideo($data,$offer){
          //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
          //print_r($done);die;
-          $return = $done!='' ? 1 : 0;
+          $return = $return!='' ? 1 : 0;
     }
 
     else{
