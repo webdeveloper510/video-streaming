@@ -237,34 +237,76 @@
 
 <!-- History -->
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
-   <section class="reportmeadia">
+
+
+<section class="reportmeadia text-center">
       <div class="container">
-         <?php $__currentLoopData = $verifyHistory; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-         <div class="row media">
-            <div class="col-md-4">
-               <?php if($is_not_veryfy->type=='video'): ?>
-               <video width="100%" controls>
-                  <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-               </video>
-               <?php else: ?>
-               <video width="100%" controls>
-                  <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-               </video>
-               <?php endif; ?>
-            </div>
-            <div class="col-md-8">
-               <div class="reportitems">
-                  <h3><?php echo e($is_not_veryfy->title); ?></h3>
-                  <p> <?php echo e($is_not_veryfy->description); ?> </p>
-                  <div class="text-right buttons">
-                     <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                     <button class="btn btn-outline-primary" type="button">Permit</button>
-                     <button class="btn btn-outline-primary" type="button">Deny</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      <div class="row my-3">
+  <div class="col-md-6">
+  <div class="input-group">
+    <input type="search" class="form-control" placeholder="Search">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Search</button>
+  </div>
+</div>
+  </div>
+
+  <div class="col-md-6">
+  <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+    <option selected>Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+
+  </div>
+</div>
+      <table class="table ">
+         <thead class="thead-dark">
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">File Name</th>
+               <th scope="col">Artist</th>
+               <th scope="col">Type</th>
+               <th scope="col">Action</th>
+               <th scope="col">Date</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="row">1</th>
+               <td>File name</td>
+               <td>Artist name</td>
+               <td>5</td>
+               <td>
+                   Deny
+               </td>
+               <td> 25-06-2021</td>
+            </tr>
+            <tr>
+               <th scope="row">2</th>
+               <td>File name</td>
+               <td>Artist name</td>
+               <td>5</td>
+               <td>
+               Confirm
+               </td>
+               <td> 25-06-2021</td>
+            </tr>
+            <tr>
+               <th scope="row">3</th>
+               <td>File name</td>
+               <td>Artist name</td>
+               <td>5</td>
+               <td>
+               Deny
+               </td>
+               <td> 25-06-2021</td>
+            </tr>
+         </tbody>
+         </table>
+
+
       </div>
    </section>
 </div>
@@ -277,41 +319,55 @@
          <thead class="thead-dark">
             <tr>
                <th scope="col">#</th>
-               <th scope="col">File Name</th>
-               <th scope="col">Content Waiting</th>
-               <th scope="col">Action</th>
+               <th scope="col">Artist</th>
+               <th scope="col">Content_Waiting</th>
+               <th scope="col">Contract</th>
+               <th scope="col">ID Check</th>
+               <th scope="col">Date_of_Registration</th>
             </tr>
          </thead>
          <tbody>
             <tr>
                <th scope="row">1</th>
-               <td><h6>Artist name</h6><br>
-               File name</td>
-               <td>5</td>
-               <td>
+               <td> name</td>
+               <td>0</td>
+               <td class="text-center"> <h5>filename.pdf </h5>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button></td>
+               <td class="text-center">
+               <h5>filename.png </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
+               <td> 25-06-2021</td>
             </tr>
             <tr>
                <th scope="row">2</th>
-               <td><h6>Artist name</h6><br>
-               File name</td>
-               <td>5</td>
-               <td>
+               <td> name</td>
+               <td>0</td>
+               <td class="text-center"> <h5>filename.pdf </h5>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button></td>
+               <td class="text-center">
+               <h5>filename.png </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
+               <td> 25-06-2021</td>
             </tr>
             <tr>
                <th scope="row">3</th>
-               <td><h6>Artist name</h6><br>
-               File name</td>
-               <td>5</td>
-               <td>
+               <td> name</td>
+               <td>0</td>
+               <td class="text-center"> <h5>filename.pdf </h5>
+               <button class="btn btn-success" type="button">Confirm</button>
+                     <button class="btn btn-danger" type="button">Deny</button></td>
+               <td class="text-center">
+               <h5>filename.png </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
+               <td> 25-06-2021</td>
             </tr>
          </tbody>
          </table>

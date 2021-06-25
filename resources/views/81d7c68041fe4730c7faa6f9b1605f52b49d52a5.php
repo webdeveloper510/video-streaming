@@ -15,7 +15,7 @@
             <source src="<?php echo e(url('storage/app/public/video/'.$notVerified[0]->media)); ?>" id="first" type="video/mp4">
          </video>
          <div class="text-center">
-            <button class="btn btn-primary" type="button" data-id="<?php echo e($notVerified[0]->id); ?>" onClick="permit(this,false,<?php echo e(json_encode($notVerified)); ?>,'<?php echo e($type); ?>')">Permit</button>
+            <button class="btn btn-primary" type="button" data-id="<?php echo e($notVerified[0]->id); ?>" onClick="permit(this,true,<?php echo e(json_encode($notVerified)); ?>,'<?php echo e($type); ?>')">Permit</button>
             <button class="btn btn-primary" type="button" data-id="<?php echo e($notVerified[0]->id); ?>" onClick="permit(this,false,<?php echo e(json_encode($notVerified)); ?>,'<?php echo e($type); ?>')">Deny</button>
          </div>
          <input type="hidden" class="verify_id" value="<?php echo e($notVerified[0]->id); ?>"/>

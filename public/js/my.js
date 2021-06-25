@@ -1569,7 +1569,7 @@ function startReviw(a,type,data){
             
                   if(typeof response =='object' && response!='')
                     {
-                        //console.log('object');
+                        console.log('object');
                         var id = response.id;
 
                         var src = storage_url+ '/video/' + response.media;
@@ -1595,7 +1595,7 @@ function startReviw(a,type,data){
                     }
 
                     else{
-                       // console.log('ddddd');
+                        console.log('ddddd');
 
                         $('#sample_video').get(0).play();
 
@@ -1612,7 +1612,7 @@ function startReviw(a,type,data){
 
 function permit(a,status,data,type){
 
-    var id =  $(a).attr('data-id');
+    var id =   $(a).attr('data-id');
 
     $.ajax({
         type: 'POST',
@@ -2404,7 +2404,7 @@ function format(d, type) {
                 '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
                 'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
                 'p </p></td></tr><tr><td colspan="2">Reward:<span class="Reward" style="color: ' +
-                'gold !important;">' + d.price + '<b style="color: gold !important;font-family' +
+                'gold !important;">' + (d.price* d.choice + d.additional_price) + '<b style="color: gold !important;font-family' +
                 ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr><td colspan="' +
                 '2"><div class="col-md-12"><form class="uploadOffer" method="post" enctype="mul' +
                 'tipart/form-data"><label>' + file +

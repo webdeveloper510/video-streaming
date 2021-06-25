@@ -381,6 +381,8 @@ class AuthController extends Controller
 
       $array_data = $req->data;
 
+      
+
       if($req->bool=='true'){
         $is_verified = 1;
       }
@@ -392,7 +394,7 @@ class AuthController extends Controller
 
 
       $type = $req->type;  // Update verify based on type pending 
-
+      //echo $req->videoid;die;
       $updated = $this->model->UpdateData($table,'id',$verify,$req->videoid);
 
       if($updated){
@@ -400,8 +402,8 @@ class AuthController extends Controller
 
           $done = $this->model->UpdateDatainVideoVerified($verify1,$req->all());
 
-          if($done){
-
+        
+          print_r($array_data);
             foreach($array_data as $key=>$val){
 
               if($val['id']==$req->videoid){
@@ -414,10 +416,11 @@ class AuthController extends Controller
 
               
           }
-          $arrext = reset($array_data);
+         
 
+          $arrext = reset($array_data);
           return response()->json($arrext);
-          }
+      
       }
 
     }
@@ -857,6 +860,11 @@ else{
               
               unset($data['audio_cat']);
               unset($data['video_cat']);
+              unset($data['transloadit']);
+              unset($data['transloadit_image']);
+              unset($data['assembly_id']);
+
+              //print_r($data);die;
 
                 if($filePath){
 
