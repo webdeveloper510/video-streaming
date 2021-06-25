@@ -1748,7 +1748,7 @@ $(document).on('submit', '#form_sub', function (event) {
     var visiblie = $('#popup_visibile').val();
    // console.log(visiblie);return false;
     $.ajax({
-        type: 'POST',
+        type: 'POST',  
         url: APP_URL + "/orderVideo",
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
