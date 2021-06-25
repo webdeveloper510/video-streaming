@@ -1535,7 +1535,7 @@ function showPlaylistVedio(data) {
     }
 
     $('.video_append').append(div);
-    
+
     $('.lengthVideo').html(lengthVideo);
 
 }
@@ -1624,6 +1624,8 @@ function permit(a,status,data,type){
         data:{'videoid':id, 'bool':status,'data':data,'type':type},
 
         success: function (data) {
+
+            console.log(data);
 
             if(typeof response =='object' && response!='')
             {

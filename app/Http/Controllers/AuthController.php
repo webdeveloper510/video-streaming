@@ -414,8 +414,9 @@ class AuthController extends Controller
 
               
           }
-          return response()->json($array_data);
+          $arrext = reset($array_data);
 
+          return response()->json($arrext);
           }
       }
 
