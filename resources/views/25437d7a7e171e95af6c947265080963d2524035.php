@@ -9,17 +9,7 @@
             <!-- <h3 class="text-center">Due</h3> -->
             <a href="<?php echo e(url('artist/requests/due')); ?>">
                <div class="columesdashboard">
-                  <?php 
-                     $_GLOBEL['count'] =0;
-                     ?>
-                  <?php $__currentLoopData = $count_due_project; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <?php if(date('Y-m-d')== $data->dates): ?>
-                  <?php 
-                     $_GLOBEL['count']= $_GLOBEL['count']+1;
-                     ?>
-                  <?php endif; ?>
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  <h1><?php echo e($_GLOBEL['count']); ?></h1>
+                  <h1><?php echo e($count_due_offer ? $count_due_offer : 0); ?></h1>
                   <h4>Order  Due</h4>
                </div>
             </a>
@@ -734,7 +724,7 @@
             </div>
             </div>
             <div class="col-md-4">
-               <div class="card" >
+               <div class="card" style="height: 310px;">
                   <div class="card-body text-center">
                      <h4 class="card-title">Download Our Logo</h4>
                      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download class="img-fliud w-100 logodownload">
@@ -744,23 +734,47 @@
             </div>
             <!-- Identity -->
             <div class="col-md-4">
-               <div class="card" >
+               <div class="card" style="height: 310px;" >
+               <div class="card-head text-center">
+                    <h3>Identity Check</h3>
+               </div>
                   <div class="card-body text-center">
                    
                      <form>
-                        <div class="form-group row">
-                           <label  class="col-sm-6 col-form-label">Identity Check</label>
-                           <div class="col-sm-6">
-                           <input class="custom-file-input file_input form-control"  type="file"  style="opacity:1; z-index:0;">
-                           </div>
+     
+                        <div class="form-group ">            
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
                         </div>
-                        <div class="form-group row">
-                           <label  class="col-sm-6 col-form-label">File name <br>
-                           <button type="button" class="btn btn-danger">Failed</button></label>
+                        <div class="form-group text-center mt-3">
+                           <label  class="form-label">File name </label>
                            
-                           <div class="col-sm-6">
+                             
+                        </div>
+                        
+                        <button type="button" class="btn btn-danger my-4">Failed</button> <br>
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        </form>
+                     </div>
+               </div>
+            </div>
+            <!-- Identity -->
+            <div class="col-md-4">
+               <div class="card" style="height: 310px;" >
+               <div class="card-head text-center">
+                    <h3>Artist Agreement</h3>
+               </div>
+                  <div class="card-body text-center">
+                   
+                     <form>
+     
+                        <div class="form-group ">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
+                           
+                        </div>
+                        <div class="form-group text-center mt-4">
                               <button type="submit" class="btn btn-outline-primary">Submit</button>
-                           </div>
                         </div>
                         </form>
                      </div>
@@ -795,6 +809,10 @@
    border-radius: 16px;
    color: white;
    }
+   .form-group {
+    padding-bottom: 10px;
+    position: unset;
+    }
    .amountmedia {
    max-height: 160px;
    overflow-y: scroll;

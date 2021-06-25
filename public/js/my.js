@@ -1497,20 +1497,26 @@ function showPlaylistVedio(data) {
     var videos = JSON.parse(data);
     
     $('#list').val(videos.id);
+
     var titles = videos.titles;
+
     var videos_playlist = videos.videos;
 
     $('.listname').html(videos.playlistname)
+
     $('#exampleModalCenterTitle').html(videos.playlistname);
     
     var split_title = titles.split(',');
+
     var videos_playlist = videos_playlist.split(',');
+
     var name = videos
         .names
         .split(',');
     var div = '';
     $('.video_append').html('')
     var lengthVideo=0;
+
     for (var i = 0; i < videos_playlist.length; i++) {
         
         var url = storage_url + '/video/' + videos_playlist[i];
@@ -1527,7 +1533,9 @@ function showPlaylistVedio(data) {
                 split_title[i] + "</h3><p>" + name[i] + "</p> </div></div>"
                 lengthVideo++;
     }
+
     $('.video_append').append(div);
+    
     $('.lengthVideo').html(lengthVideo);
 
 }

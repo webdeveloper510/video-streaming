@@ -171,6 +171,9 @@
     var timeOffset = $('.timezone').val();
 
 
+    var offset = timeOffset < 0 ? Math.abs(timeOffset) : '-'+timeOffset;
+
+
 var localOffset1 = today.getTimezoneOffset()*60000; 
 
 
@@ -178,7 +181,7 @@ var utc = localTime + localOffset1;
 
 
 
-var respectedCountry = utc + (3600000*2.0);
+var respectedCountry = utc + (3600000*offset);
 
 //console.log("local time  country" + respectedCountry);
 

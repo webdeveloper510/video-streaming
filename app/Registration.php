@@ -1020,7 +1020,7 @@ public function getRespectedSub($data){
 
            $data = $data->where('artistid',$userid)
            ->where('userid','!=',0)
-           ->get()->toArray();
+           ->count();
 
        }
 
@@ -3276,7 +3276,8 @@ public function insertVerifyMediaData($data){
     }
 
     else{
-    $verifyData = array(
+
+      $verifyData = array(
       'created_at'=>now(),
       'updated_at'=>now(),
       'team_user_id'=>$sessionLogin->id,
