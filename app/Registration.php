@@ -1763,6 +1763,7 @@ public function getRefersArtist($id){
         
         $done = $this->insertOffer($video);
 
+
           //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
 
@@ -1865,7 +1866,10 @@ public function getRefersArtist($id){
 
         unset($data['id']);
 
-      $insert  = DB::table('offer')->insert($data);
+      $insert  = DB::table('offer')->insertGetId($data);
+
+      $inserted = $this->insertReservedTable($data,$offer['id'],$insert);
+
 
           $array= array(
             'created_at'=>$data['created_at'],
@@ -1880,7 +1884,7 @@ public function getRefersArtist($id){
 
       $return  = $this->insertNotification($array);
 
-      return $insert ? 1 : 0;
+      return $inserted ? 1 : 0;
     }
 
     public function addToLibrary($lists){
@@ -2785,7 +2789,7 @@ public function buyofferVideo($data,$offer){
        //print_r($data);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
        
-       $done = $this->insertReservedTable($data,$offer['id'],$return);
+       //$done = $this->insertReservedTable($data,$offer['id'],$return);
 
       // $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
        
