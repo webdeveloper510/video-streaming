@@ -1636,7 +1636,7 @@ function permit(a,status,data,type){
                  $('#first').attr('src',src); 
                 $('.verify_id').val(nextid);
                 $('#'+id).remove();
-                //$('#sample_video').get(0).play();
+                $('#sample_video').get(0).play();
                // $('#sample_video').attr('controls',true);
                 //$('#sample_video').prop("onclick", null).attr("onclick", null)
             }
