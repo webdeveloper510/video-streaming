@@ -1627,11 +1627,11 @@ function permit(a,status,data,type){
 
             console.log(data);
 
-            if(typeof response =='object' && response!='')
+            if(typeof data =='object' && data!='')
             {
-                var nextid = response[1].id;
+                var nextid = data.id;
 
-                var src = storage_url+ '/video/' + response[1].media;
+                var src = storage_url+ '/video/' + data.media;
 
                  $('#first').attr('src',src); 
                 $('.verify_id').val(nextid);
