@@ -2376,7 +2376,7 @@ function format(d, type) {
 
     var reward = ( d.price * d.choice);
 
-    var price = d.userdescription ? reward + parseInt(d.additional_price) : reward;
+    var price = d.userdescription!='No Additional Requests' ? reward + parseInt(d.additional_price) : reward;
 
     var disabled = d.remaining_days < 0 || d.paid_status==1
         ? 'disabled'
