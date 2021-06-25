@@ -897,11 +897,11 @@ public function getRespectedSub($data){
       //echo "h";die;
 
       $data = \DB::table("offer")
-      ->select("users.nickname","offer.userid","offer.paid_status","offer.artistid","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)) as dates_submision"))
+      ->select("users.nickname","offer.userid","offer.paid_status","offer.artistid","offer.additional_price","offer.id","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.quality","offer.status",\DB::raw("GROUP_CONCAT(category.category) as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)) as dates_submision"))
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
-      ->groupBy("offer.id","offer.title","offer.paid_status","offer.userid","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
+      ->groupBy("offer.id","offer.title","offer.paid_status","offer.userid","offer.additional_price","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
        
       if ($sts!='') {
             //echo $sts;
@@ -1763,6 +1763,7 @@ public function getRefersArtist($id){
         
         $done = $this->insertOffer($video);
 
+
           //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
 
 
@@ -1812,9 +1813,9 @@ public function getRefersArtist($id){
 
       //echo "buy";
   
-      $insert = DB::table('user_video')->insert($video_data);
+      $insert = DB::table('user_video')->insertGetId($video_data);
 
-      return $insert ? 1 : 0;
+      return $insert ? $insert : 0;
       
     }
 
@@ -1865,7 +1866,10 @@ public function getRefersArtist($id){
 
         unset($data['id']);
 
-      $insert  = DB::table('offer')->insert($data);
+      $insert  = DB::table('offer')->insertGetId($data);
+
+      $inserted = $this->insertReservedTable($data,$data['id'],$insert);
+
 
           $array= array(
             'created_at'=>$data['created_at'],
@@ -1880,7 +1884,7 @@ public function getRefersArtist($id){
 
       $return  = $this->insertNotification($array);
 
-      return $insert ? 1 : 0;
+      return $inserted ? 1 : 0;
     }
 
     public function addToLibrary($lists){
@@ -2785,9 +2789,9 @@ public function buyofferVideo($data,$offer){
        //print_r($data);die;
        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
        
-        
+       //$done = $this->insertReservedTable($data,$offer['id'],$return);
 
-       $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
+      // $done = count($reserved_exist) > 0  && $reserved_exist[0]->artistid==$data['art_id']  ? $this->updateReservedTable($userid,$data) : $this->insertReservedTable($data,$offer['id']);
        
       // print_r($done);die;
         // $reduced =  $return ? $this->reduceTokens($checkTokn,$userid,$data['price'],$data['art_id']): 0;
@@ -2873,7 +2877,7 @@ public function deductUserTokens($uid,$token){
         return $update;
 }
 
-public function insertReservedTable($data,$vid)
+public function insertReservedTable($data,$vid,$customer_id)
 {
 
   //print_r($data);
@@ -2901,6 +2905,7 @@ public function insertReservedTable($data,$vid)
       'tokens'=>$data['price'],
       'userid'=>$userid,
       'artistid'=>$data['art_id'],
+      'customer_order_id'=>$customer_id
 
     );
 
@@ -3562,7 +3567,7 @@ public function deleteIllegeContent($id){
       $updateStatus = $this->UpdateData('offer','id',$update_offer,$data['offerid']);
       if($updateStatus){
           $getToken = DB::table('reserved_tokens')
-          ->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))
+          ->where(array('customer_order_id'=>$data['offerid']))
           ->get()->toArray();
 
           $update = DB::table('users')->where('id',$offer_data[0]->userid)->update([
@@ -3575,12 +3580,12 @@ public function deleteIllegeContent($id){
             'artistid'=>$offer_data[0]->artistid,
             'userid'=>$offer_data[0]->userid,
             'notificationfor'=>'user',
-            'message'=>'Your order' .$offer_data[0]->title.' has canceled and your tokens have been returned',
+            'message'=>'Your order'.' ' .$offer_data[0]->title.' has canceled and your tokens have been returned',
           );
 
           DB::table('notification')->insert($notification);
 
-      $delete =  DB::table('reserved_tokens')->where(array('Offermediaid'=>$offer_data[0]->offerid,'userid'=>$offer_data[0]->userid))->delete();
+      $delete =  DB::table('reserved_tokens') ->where(array('customer_order_id'=>$data['offerid']))->delete();
 
           return $delete ? 1 : 0;
 

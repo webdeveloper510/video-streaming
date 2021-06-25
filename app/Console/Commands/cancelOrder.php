@@ -42,12 +42,12 @@ class cancelOrder extends Command
     {
         //return 0;
         $data = DB::table('offer')
-        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
+        ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
         ->where('userid','!=',0)
         ->get()->toArray();
         
            $data1 = DB::table('offer')
-        ->select('id','artistid','userid','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
+        ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
         ->where('userid','!=',0)
         ->get()->toArray();
 
