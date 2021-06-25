@@ -2374,9 +2374,9 @@ function format(d, type) {
 
     $('.offer_id').val(d.id);
 
-    var reward = ( d.price * d.choice) + parseInt(d.additional_price);
+    var reward = ( d.price * d.choice);
 
-    var price = reward ? reward : 0;
+    var price = d.userdescription ? reward + parseInt(d.additional_price) : reward;
 
     var disabled = d.remaining_days < 0 || d.paid_status==1
         ? 'disabled'
