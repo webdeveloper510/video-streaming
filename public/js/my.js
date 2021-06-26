@@ -479,6 +479,9 @@ $(document).on('click', '.add_price', function () {
     $('.add_price').attr('disabled', false);
     //$(this).val())
     if ($(this).val() == 'Yes') {
+
+        $(".extra_price").children().attr("required", true);
+
         $(this).attr('disabled', true);
         $('.extra_price').show();
         $('#offer_pay').val(parseInt(total) + parseInt(add_price));
@@ -491,6 +494,8 @@ $(document).on('click', '.add_price', function () {
         $('#change_text').html("You will Pay:" + total + " PAZ");
 
     } else {
+
+        $(".extra_price").children().removeAttr('required');
 
         $(this).attr('disabled', true);
         $('.extra_price').hide();
