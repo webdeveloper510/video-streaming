@@ -520,7 +520,7 @@ $(function() {
            // document.location.href = '/submit';
         });
     }
-    )};
+    });
 $(document).on('click', '.additional_price', function () {
     alert('hello');
 })
