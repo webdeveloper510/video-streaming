@@ -57,7 +57,7 @@ class cancelOrder extends Command
 
         foreach($data as $k=>$v){
 
-            if(date('Y-m-d') == $v->dates && $v->status=='new' || $v->status=='process'){
+            if(date('Y-m-d') == $v->dates){
 
                 $ids[] = $v->id;
                 $update =  DB::table('offer')->where('id',$v->id)->update([
