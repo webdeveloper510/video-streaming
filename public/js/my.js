@@ -512,10 +512,9 @@ $(document).on('click', '.add_price', function () {
 
 })
 
-window.onpopstate = function() {
-    alert("pop!");
-  }
-
+$(window).on('popstate', function(event) {
+    alert("pop");
+   });
 $(document).on('click', '.additional_price', function () {
     alert('hello');
 })
