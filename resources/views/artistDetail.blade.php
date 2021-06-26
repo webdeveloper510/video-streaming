@@ -163,7 +163,7 @@
                         @endif
                         <div class="pricetime">
                            <div class="text-left">
-                              <h6 class="text-white">{{$detail->price}}/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                              <h6 class="text-white">{{$detail->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                            </div>
                            <div class="text-right">
                               <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
