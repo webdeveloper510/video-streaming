@@ -71,7 +71,7 @@
           </div>
           <div class="col">
               <h3>Delievery Speed</h3>
-              <p>{{$offerdata->delieveryspeed}} Days</p>
+              <p>{{$offerdata->delieveryspeed+1}} Days</p>
           </div>
         </div>
         {!!Form::open(['id'=>'form_sub',  'method' => 'post'])!!}
