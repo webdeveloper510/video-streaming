@@ -512,9 +512,15 @@ $(document).on('click', '.add_price', function () {
 
 })
 
-$(window).on('popstate', function(event) {
-    alert("pop");
-   });
+$(function() {
+    if (window.history && window.history.pushState) {
+        window.history.pushState('', null, './');
+        $(window).on('popstate', function() {
+            alert('Back button was pressed.');
+           // document.location.href = '/submit';
+        });
+    }
+    )};
 $(document).on('click', '.additional_price', function () {
     alert('hello');
 })
