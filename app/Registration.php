@@ -583,7 +583,7 @@ public function getArtistDetail($artid,$type){
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','media.id')
        ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.userid','media_seen_notification.mediaid','media_seen_notification.type as notification')
-       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0))
+       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0  ,'media.is_verified'=>1))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
 
@@ -692,7 +692,7 @@ public function getArtistDetail($artid,$type){
      ->select('offer.*', 'category.category','subscriber.count','media_seen_notification.is_seen as notificationseen','media_seen_notification.type as notiType');  
      if($user=='customer'){
 
-      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online','offer.by_created'=>1));
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online','offer.is_verified'=>1,'offer.by_created'=>1));
 
      }
      else{
