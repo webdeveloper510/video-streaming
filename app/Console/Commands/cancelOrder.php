@@ -60,13 +60,14 @@ class cancelOrder extends Command
             if(date('Y-m-d')==$v->dates && $v->status=='new' || $v->status=='process'){
 
                 $ids[] = $v->id;
+                $update =  DB::table('offer')->where('id',$v->id)->update([
+                    'status'=>'due'  
+                ]);
                // echo 'yes';
 
             }
         }
-           $update =  DB::table('offer')->whereIn('id',$ids)->update([
-            'status'=>'due'  
-        ]);
+  
            foreach($data1 as $k=>$v){
 
             if(date('Y-m-d')==$v->dates1 && $v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled'){
