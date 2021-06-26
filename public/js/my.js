@@ -1762,9 +1762,9 @@ $(document).on('submit', '#form_sub', function (event) {
 
         success: function (data) {
 
-        // console.log(data);
+        console.log(data);
 
-        //   return false;
+          return false;
             if (data.status == 1) {
                 if(visiblie==1){
 

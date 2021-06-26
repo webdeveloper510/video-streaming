@@ -1858,7 +1858,7 @@ public function getRefersArtist($id){
 
     public function insertOffer($data,$reserved){
 
-       // print_r($data);die;
+          print_r($data);die;
 
         $data['by_created'] = 0 ;
 
