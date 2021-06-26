@@ -98,7 +98,7 @@ class cancelOrder extends Command
 
             if($insert_not){
 
-                    $tokens = DB::table('reserved_tokens')->where('Offermediaid',$v->offerid)->get()->toArray();
+                    $tokens = DB::table('reserved_tokens')->where('customer_order_id',$v->id)->get()->toArray();
                     $update = DB::table('users')->where('id',$v->userid)->update([
                         'tokens' =>  DB::raw('tokens +'.$tokens[0]->tokens),            
                       ]);
