@@ -32,7 +32,7 @@
       <nav>
          <div class="nav nav-tabs" id="nav-tab" role="tablist" >
             <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-            Services
+            Service(s)
                <div id="offerSelected" class="noti1" style="display:none;"></div>
             </a>
             <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
@@ -45,7 +45,7 @@
       <div class="tab-content" id="nav-tabContent">
          <!-- ------------------------------------------Offers videos -------------------------------------------------->
          <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <h2> Services</h2>
+            <h2> Service(s)</h2>
             <div class="container">
                <div class="row mb-5">
                   @if($offerData)
@@ -83,7 +83,7 @@
                   @endforeach
                   @else
                   <div class="artistoffer1">
-                     <h4>No Publish a Service available</h4>
+                     <h4>No Service available</h4>
                   </div>
                   @endif
                </div>
