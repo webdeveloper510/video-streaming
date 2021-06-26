@@ -217,7 +217,7 @@
                         @endif
                         <div class="pricetime">
                            <div class="text-left">
-                              <h6 style="color:yellow !important;">{{ $aud->price}}/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                              <h6 style="color:yellow !important;">{{ $aud->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                            </div>
                            <div class="text-right">
                               <h6 class="text-white">{{$aud->duration}}</h6>
