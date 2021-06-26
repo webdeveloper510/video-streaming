@@ -1893,20 +1893,20 @@ public function getRefersArtist($id){
       return $inserted ? 1 : 0;
     }
 
-    // public function trialData(){
+    public function trialData(){
 
-    //   echo date('Y-m-d');
+      echo date('Y-m-d');
 
-    //   echo "<pre>";
+      echo "<pre>";
  
-    //   $data = DB::table('offer')
-    //   ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
-    //   ->where('userid','!=',0)
-    //   ->get()->toArray();
+      $data = DB::table('offer')
+      ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
+      ->where('userid','!=',0)
+      ->get()->toArray();
  
-    //   print_r($data);die;
+      print_r($data);die;
 
-    // }
+    }
 
     public function addToLibrary($lists){
 
