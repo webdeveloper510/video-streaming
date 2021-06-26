@@ -94,7 +94,7 @@ hr{
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
-                <p class="card-text">No Description....</p>
+                <p class="card-text">{{$artist->aboutme}}</p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
