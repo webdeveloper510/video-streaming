@@ -1867,7 +1867,7 @@ public function getRefersArtist($id){
         unset($data['id']);
 
       $insert  = DB::table('offer')->insertGetId($data);
-      print_r($insert);die;
+     // print_r($insert);die;
       if($reserved!=''){
 
         $inserted = $this->insertReservedTable($reserved,$data['offerid'],$insert);
