@@ -1858,7 +1858,7 @@ public function getRefersArtist($id){
 
     public function insertOffer($data,$reserved){
 
-          print_r($data);die;
+         // print_r($data);die;
 
         $data['by_created'] = 0 ;
 
@@ -1867,10 +1867,10 @@ public function getRefersArtist($id){
         unset($data['id']);
 
       $insert  = DB::table('offer')->insertGetId($data);
-
+      print_r($insert);die;
       if($reserved!=''){
 
-        $inserted = $this->insertReservedTable($reserved,$data['id'],$insert);
+        $inserted = $this->insertReservedTable($reserved,$data['offerid'],$insert);
 
 
       }
