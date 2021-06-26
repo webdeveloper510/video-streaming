@@ -928,7 +928,7 @@ public function getRespectedSub($data){
      
       if ($sts) {
             //echo $sts;
-        $data = $data->where('status', '=', $sts);
+        $data = $data->where('status', '=', $sts);  
     }
   
   // echo "<pre>";
