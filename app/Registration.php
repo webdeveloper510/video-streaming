@@ -1900,7 +1900,7 @@ public function getRefersArtist($id){
       echo "<pre>";
  
       $data = DB::table('offer')
-      ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
+      ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
       ->where('userid','!=',0)
       ->get()->toArray();
  
