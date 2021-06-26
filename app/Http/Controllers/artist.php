@@ -349,16 +349,9 @@ class artist extends Controller
 
      // $date = Carbon::now('Europe/London');
 
-     echo date('Y-m-d');
+     $this->model->trialData();
 
-     echo "<pre>";
-
-     $data = DB::table('offer')
-     ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed-1 DAY)) as dates'))
-     ->where('userid','!=',0)
-     ->get()->toArray();
-
-     print_r($data);die;
+   
 
 
       $session_data =   Session::get('User');
