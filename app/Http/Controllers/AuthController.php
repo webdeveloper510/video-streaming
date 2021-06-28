@@ -2244,6 +2244,13 @@ public function readNotification(Request $request){
 
           }
 
+          if($text=='orders'){
+
+            $notVerifyContent = $this->model->getNotVerifiedOrders('offer');
+
+          }
+
+
           if($text=='picture'){
 
             $artists = $this->model->getArtistnotVerified();

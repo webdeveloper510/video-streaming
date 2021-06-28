@@ -62,7 +62,7 @@
          <li class="nav-item tb1">
             <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Orders (<span>0</span>)<br>
             <br> Oldest : <span>0h</span><br>
-            <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a></a>
+            <a class="btn btn-outline-primary" href="{{url('showContent/orders')}}">start Review</a></a>
          </li>
       </ul>
       <div class="tab-content" id="myTabContent">
