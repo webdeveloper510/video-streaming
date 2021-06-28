@@ -351,9 +351,23 @@ class artist extends Controller
 
      //$this->model->trialData();
 
-   
+     $data1 = DB::table('offer')
+     ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
+     ->where('userid','!=',0)
+     ->get()->toArray();
 
+     foreach($data1 as $k=>$v){
 
+      if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
+        echo $v->status;
+        echo "hello";
+        echo $v->dates1;
+
+      }
+
+    }
+
+die;
       $session_data =   Session::get('User');
 
 
