@@ -2785,7 +2785,7 @@ function dataTable(name){
         ],
         "createdRow": (row, data, dataIndex) => {
             var text = $('td', row).eq(5).text();
-            text=='Expired' ? updatedStatus(data.id):'';
+           // text=='Expired' ? updatedStatus(data.id):'';
             //console.log(data);
             if(data.status=='new')
             {
