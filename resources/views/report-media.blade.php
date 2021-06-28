@@ -515,7 +515,7 @@
       <div class="tab-pane fade" id="Offer" role="tabpanel" aria-labelledby="Offer-tab">
          <div class="text-center">
          </div>
-         <div class="table-responsive">
+         <!-- <div class="table-responsive">
             <table class="table">
                <thead>
                   <tr>
@@ -534,7 +534,7 @@
                   @endforeach
                </tbody>
             </table>
-         </div>
+         </div> -->
       </div>
    </div>
 </div>
