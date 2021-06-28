@@ -307,9 +307,12 @@ class AuthController extends Controller
 
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 
+      $notVerifyContentOrder = $this->model->getNotVerifiedOrders('offer');
+
+
       // echo "<pre>";
 
-      // print_r($offer_not_VerifiedContent);die;
+      // print_r($notVerifyContentOrder);die;
 
       $history = $this->model->getHistoryVerifiedContent('media');
 
@@ -321,7 +324,7 @@ class AuthController extends Controller
 
 // die;
 
-      return view('report-media',['artists'=>$artists,'services'=>$offer_not_VerifiedContent,'reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
+      return view('report-media',['notVerifyOrder'=>$notVerifyContentOrder,'artists'=>$artists,'services'=>$offer_not_VerifiedContent,'reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {

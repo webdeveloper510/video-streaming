@@ -62,7 +62,7 @@
          <li class="nav-item tb1">
             <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Orders (<span>0</span>)<br>
             <br> Oldest : <span>0h</span><br>
-            <a class="btn btn-outline-primary" href="<?php echo e(url('showContent/collection')); ?>">start Review</a></a>
+            <a class="btn btn-outline-primary" href="<?php echo e(url('showContent/orders')); ?>">start Review</a></a>
          </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -170,11 +170,11 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notVerified): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                     <?php $__currentLoopData = $notVerifyOrder; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notVerifyOrder): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                      <tr>
                         <th scope="row"><?php echo e($loop->iteration); ?></th>
-                        <td><?php echo e($notVerified->media); ?></td>
-                        <td><?php echo e($notVerified->nickname); ?></td>
+                        <td><?php echo e($notVerifyOrder->deliever_media); ?></td>
+                        <td><?php echo e($notVerifyOrder->nickname); ?></td>
                      </tr>
                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
@@ -525,11 +525,11 @@
                   </tr>
                </thead>
                <tbody>
-                  <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notVerified): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php $__currentLoopData = $notVerifyOrder; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notVerifyOrder1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <tr>
                      <th scope="row"><?php echo e($loop->iteration); ?></th>
-                     <td><?php echo e($notVerified->media); ?></td>
-                     <td><?php echo e($notVerified->nickname); ?></td>
+                     <td><?php echo e($notVerifyOrder1->deliever_media); ?></td>
+                     <td><?php echo e($notVerifyOrder1->nickname); ?></td>
                   </tr>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                </tbody>

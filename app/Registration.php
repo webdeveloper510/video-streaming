@@ -2890,7 +2890,7 @@ public function getNotVerifiedOrders($table){
   ->leftjoin('video_verified','video_verified.mediaid','=',$table.'.id')
   ->leftjoin('contentprovider','contentprovider.id','=',$table.'.artistid')
   ->select($table.'.*','video_verified.team_user_id','contentprovider.nickname','video_verified.mediaid','video_verified.is_deleted as deletion')
-  ->where(array($table.'.is_verified'=>0,$table.'.is_deleted'=>0))
+  ->where(array($table.'.is_verified'=>0,$table.'.is_deleted'=>false))
   ->where($table.'.deliever_media','!=','')
   ->get();
 

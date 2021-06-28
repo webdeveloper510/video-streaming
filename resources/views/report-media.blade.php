@@ -170,11 +170,11 @@
                      </tr>
                   </thead>
                   <tbody>
-                     @foreach($notVerified as $notVerified)
+                     @foreach($notVerifyOrder as $notVerifyOrder)
                      <tr>
                         <th scope="row">{{$loop->iteration}}</th>
-                        <td>{{$notVerified->media}}</td>
-                        <td>{{$notVerified->nickname}}</td>
+                        <td>{{$notVerifyOrder->deliever_media}}</td>
+                        <td>{{$notVerifyOrder->nickname}}</td>
                      </tr>
                      @endforeach
                   </tbody>
@@ -525,11 +525,11 @@
                   </tr>
                </thead>
                <tbody>
-                  @foreach($notVerified as $notVerified)
+                  @foreach($notVerifyOrder as $notVerifyOrder1)
                   <tr>
                      <th scope="row">{{$loop->iteration}}</th>
-                     <td>{{$notVerified->media}}</td>
-                     <td>{{$notVerified->nickname}}</td>
+                     <td>{{$notVerifyOrder1->deliever_media}}</td>
+                     <td>{{$notVerifyOrder1->nickname}}</td>
                   </tr>
                   @endforeach
                </tbody>
