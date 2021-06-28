@@ -2608,6 +2608,7 @@ public function getallOffer($flag){
           ->select('offer.*','category.category')
           ->where('offer.offer_status','online')
           ->where('offer.by_created',1)
+          ->where('offer.is_verified',1)
           ->where('offer.is_deleted','false')
           ->take(3)
           ->get()
@@ -2620,6 +2621,7 @@ public function getallOffer($flag){
     ->select('offer.*','category.category')
     ->where('offer.offer_status','online')
     ->where('offer.by_created',1)
+    ->where('offer.is_verified',1)
     ->where('offer.is_deleted','false')
     ->paginate(30);
     return $code;
