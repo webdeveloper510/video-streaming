@@ -349,7 +349,7 @@ class artist extends Controller
 
      // $date = Carbon::now('Europe/London');
 
-     $this->model->trialData();
+    // $this->model->trialData();
 
  
       $session_data =   Session::get('User');

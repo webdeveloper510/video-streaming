@@ -1893,39 +1893,39 @@ public function getRefersArtist($id){
       return $inserted ? 1 : 0;
     }
 
-    public function trialData(){
+//     public function trialData(){
 
-      // echo date('Y-m-d');
+//       // echo date('Y-m-d');
 
-      // echo "<pre>";
+//       // echo "<pre>";
  
-      // $data = DB::table('offer')
-      // ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
-      // ->where('userid','!=',0)
-      // ->get()->toArray();
+//       // $data = DB::table('offer')
+//       // ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
+//       // ->where('userid','!=',0)
+//       // ->get()->toArray();
  
-      // print_r($data);die;
+//       // print_r($data);die;
 
-      $data1 = DB::table('offer')
-      ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
-      ->where('userid','!=',0)
-      ->get()->toArray();
+//       $data1 = DB::table('offer')
+//       ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
+//       ->where('userid','!=',0)
+//       ->get()->toArray();
  
-      foreach($data1 as $k=>$v){
+//       foreach($data1 as $k=>$v){
  
-       if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
-         echo $v->id."<br>";
-         echo $v->status."<br>";
-         echo "hello"."<br>";
-         echo $v->dates1."<br>";
+//        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
+//          echo $v->id."<br>";
+//          echo $v->status."<br>";
+//          echo "hello"."<br>";
+//          echo $v->dates1."<br>";
  
-       }
+//        }
    
-     }
+//      }
  
- die;
+//  die;
 
-    }
+//     }
 
     public function addToLibrary($lists){
 
