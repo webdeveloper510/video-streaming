@@ -3404,6 +3404,11 @@ public function getNotVerifiedContent($table){
         return $data->get();
 }
 
+public function getNotVerifiedOverview($table){
+
+      return DB::table($table)->where(array('is_verified'=>0,'profile_video'=>'yes'))->get()->toArray();
+}
+
 public function getHistoryVerifiedContent($table){
 
   $data = DB::table($table)
