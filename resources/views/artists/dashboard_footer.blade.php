@@ -31,7 +31,7 @@ function closeNav() {
   <script src="{{asset('artistdashboard/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 
   <!-- Plugin for the momentJs  -->
-  <script src="{{asset('artistdashboard/js/plugins/moment.min.js')}}"></script>
+  <!-- <script src="{{asset('artistdashboard/js/plugins/moment.min.js')}}"></script> -->
 
 
 
