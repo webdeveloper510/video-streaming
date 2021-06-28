@@ -23,6 +23,24 @@
          </div>
          <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
       </div>
+      @if($type=='overview')
+      <div class="col-md-3">
+         @foreach($notVerified as $content)
+            @if($content->profile_video=='yes')
+         <div class="row mb-2" id="{{$content->id}}">
+               <div class="col-5">
+                  <video width="100%" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
+                     <source src="{{url('storage/app/public/video/'.$content->media)}}" type="video/mp4">
+                  </video>
+               </div>
+            <div class="col-7">
+               <h5>{{$content->title}}</h5>
+            </div>
+         </div>
+      @endif
+      @endforeach 
+      </div>
+      @else
       <div class="col-md-3">
          @foreach($notVerified as $content)
          
@@ -38,6 +56,7 @@
          </div>
          @endforeach 
       </div>
+      @endif
    </div>
 </div>
 <style>
