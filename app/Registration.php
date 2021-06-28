@@ -1914,9 +1914,9 @@ public function getRefersArtist($id){
       foreach($data1 as $k=>$v){
  
        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
-         echo $v->status;
-         echo "hello";
-         echo $v->dates1;
+         echo $v->status;"<br>";
+         echo "hello";"<br>";
+         echo $v->dates1;"<br>";
  
        }
    
