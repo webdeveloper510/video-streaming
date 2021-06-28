@@ -111,6 +111,10 @@ $(document).ready(function () {
 
         var original_media = d.deliever_media;
 
+        var reward = ( d.price * d.choice);
+
+        var price = d.userdescription!='No Additional Requests' ? reward + parseInt(d.additional_price) : reward;
+
         var folder = d.type == 'video'
             ? 'video'
             : 'audio';
@@ -475,6 +479,9 @@ $(document).on('click', '.add_price', function () {
     $('.add_price').attr('disabled', false);
     //$(this).val())
     if ($(this).val() == 'Yes') {
+
+        $(".extra_price").children().attr("required", true);
+
         $(this).attr('disabled', true);
         $('.extra_price').show();
         $('#offer_pay').val(parseInt(total) + parseInt(add_price));
@@ -487,6 +494,8 @@ $(document).on('click', '.add_price', function () {
         $('#change_text').html("You will Pay:" + total + " PAZ");
 
     } else {
+
+        $(".extra_price").children().removeAttr('required');
 
         $(this).attr('disabled', true);
         $('.extra_price').hide();
@@ -503,6 +512,15 @@ $(document).on('click', '.add_price', function () {
 
 })
 
+$(function() {
+    if (window.history && window.history.pushState) {
+        window.history.pushState('', null, './');
+        $(window).on('popstate', function() {
+            alert('Back button was pressed.');
+           // document.location.href = '/submit';
+        });
+    }
+    });
 $(document).on('click', '.additional_price', function () {
     alert('hello');
 })
@@ -2767,7 +2785,7 @@ function dataTable(name){
         ],
         "createdRow": (row, data, dataIndex) => {
             var text = $('td', row).eq(5).text();
-            text=='Expired' ? updatedStatus(data.id):'';
+           // text=='Expired' ? updatedStatus(data.id):'';
             //console.log(data);
             if(data.status=='new')
             {

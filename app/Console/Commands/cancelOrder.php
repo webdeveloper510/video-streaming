@@ -57,19 +57,20 @@ class cancelOrder extends Command
 
         foreach($data as $k=>$v){
 
-            if(date('Y-m-d')==$v->dates && $v->status=='new' || $v->status=='process'){
+            if(date('Y-m-d') == $v->dates && ($v->status=='new' || $v->status=='process')){
 
                 $ids[] = $v->id;
+                $update =  DB::table('offer')->where('id',$v->id)->update([
+                    'status'=>'due'  
+                ]);
                // echo 'yes';
 
             }
         }
-           $update =  DB::table('offer')->whereIn('id',$ids)->update([
-            'status'=>'due'  
-        ]);
+  
            foreach($data1 as $k=>$v){
 
-            if(date('Y-m-d')==$v->dates1 && $v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled'){
+            if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
                 
             $date = $v->dates1;
         $thirtyDaysUnix = strtotime('+30 days', strtotime($date));
@@ -97,7 +98,7 @@ class cancelOrder extends Command
 
             if($insert_not){
 
-                    $tokens = DB::table('reserved_tokens')->where('Offermediaid',$v->offerid)->get()->toArray();
+                    $tokens = DB::table('reserved_tokens')->where('customer_order_id',$v->id)->get()->toArray();
                     $update = DB::table('users')->where('id',$v->userid)->update([
                         'tokens' =>  DB::raw('tokens +'.$tokens[0]->tokens),            
                       ]);
@@ -111,7 +112,7 @@ class cancelOrder extends Command
                                       
                         }
 
-                     return  DB::table('reserved_tokens')->where('Offermediaid',$v->offerid)->delete();
+                     return  DB::table('reserved_tokens')->where('customer_order_id',$v->id)->delete();
                      
                   
 

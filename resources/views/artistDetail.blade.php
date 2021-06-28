@@ -32,7 +32,7 @@
       <nav>
          <div class="nav nav-tabs" id="nav-tab" role="tablist" >
             <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-               Offers
+            Service(s)
                <div id="offerSelected" class="noti1" style="display:none;"></div>
             </a>
             <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
@@ -45,7 +45,7 @@
       <div class="tab-content" id="nav-tabContent">
          <!-- ------------------------------------------Offers videos -------------------------------------------------->
          <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <h2> Offers</h2>
+            <h2> Service(s)</h2>
             <div class="container">
                <div class="row mb-5">
                   @if($offerData)
@@ -70,7 +70,7 @@
                               <h2>{{$offer->title}}</h2>
                               <!-- <p>{{$offer->description}}</p> -->
                               {{$details[0]->nickname}}
-                              <br>
+                              <br> 
                               Category :{{$offer->category}}
                            </a>
                         </div>
@@ -83,7 +83,7 @@
                   @endforeach
                   @else
                   <div class="artistoffer1">
-                     <h4>No Publish a Service available</h4>
+                     <h4>No Service available</h4>
                   </div>
                   @endif
                </div>
@@ -163,7 +163,7 @@
                         @endif
                         <div class="pricetime">
                            <div class="text-left">
-                              <h6 class="text-white">{{$detail->price}}/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                              <h6 class="text-white">{{$detail->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                            </div>
                            <div class="text-right">
                               <h6 class="text-white" id="duration1_{{$detail->id}}">{{ $detail->duration ? $detail->duration :'' }}</h6>
@@ -217,7 +217,7 @@
                         @endif
                         <div class="pricetime">
                            <div class="text-left">
-                              <h6 style="color:yellow !important;">{{ $aud->price}}/<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                              <h6 style="color:yellow !important;">{{ $aud->price}}<b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
                            </div>
                            <div class="text-right">
                               <h6 class="text-white">{{$aud->duration}}</h6>

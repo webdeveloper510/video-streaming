@@ -67,7 +67,7 @@ class artist extends Controller
 
     public function showRequest($text=null){
 
-      
+  
 
       $navbaractive = 'requests';
 
@@ -349,7 +349,9 @@ class artist extends Controller
 
      // $date = Carbon::now('Europe/London');
 
+    // $this->model->trialData();
 
+ 
       $session_data =   Session::get('User');
 
 

@@ -26,7 +26,7 @@ function closeNav() {
   <!-- <script src="<?php echo e(asset('artistdashboard/js/core/bootstrap-material-design.min.js')); ?>"></script> -->
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script> -->
 
   <script src="<?php echo e(asset('artistdashboard/js/plugins/perfect-scrollbar.jquery.min.js')); ?>"></script>
 

@@ -555,6 +555,7 @@ public function getArtists($flag){
       //->leftjoin('offer','offer.artistid','=','contentprovider.id')
       ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
       ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.aboutme,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->where('contentprovider.is_verified',1)
       ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture','contentprovider.aboutme')
 
       //->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
@@ -570,6 +571,8 @@ public function getArtists($flag){
       ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
       ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
       ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->where('contentprovider.is_verified',1)
+
       ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
       ->paginate(30);
     }
@@ -583,7 +586,7 @@ public function getArtistDetail($artid,$type){
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','media.id')
        ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.userid','media_seen_notification.mediaid','media_seen_notification.type as notification')
-       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0))
+       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0  ,'media.is_verified'=>1))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
 
@@ -610,6 +613,7 @@ public function getArtistDetail($artid,$type){
 
     $overview = DB::table('media')
     ->where('contentProviderid',$id)
+    ->where('is_verified',1)
     ->where('profile_video','yes')
     ->get()
     ->toArray();
@@ -692,7 +696,7 @@ public function getArtistDetail($artid,$type){
      ->select('offer.*', 'category.category','subscriber.count','media_seen_notification.is_seen as notificationseen','media_seen_notification.type as notiType');  
      if($user=='customer'){
 
-      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online','offer.by_created'=>1));
+      $data = $offer->where(array('offer.artistid'=>$artistId,'offer.is_deleted'=>'false','offer.offer_status'=>'online','offer.is_verified'=>1,'offer.by_created'=>1));
 
      }
      else{
@@ -921,18 +925,18 @@ public function getRespectedSub($data){
       ->select("contentprovider.nickname","offer.reason_of_cancel","reserved_tokens.tokens","offer.id","offer.is_seen","offer.title","offer.offer_status","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.description","offer.deliever_media","offer.quality","offer.status",\DB::raw("category.category as catgories"),\DB::raw("DATEDIFF(DATE(DATE_ADD(offer.created_at, INTERVAL offer.delieveryspeed DAY)),now()) as remaining_days"),\DB::raw("DATE(offer.created_at) as created_at"))
       ->leftjoin("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->leftjoin("contentprovider","contentprovider.id","=","offer.artistid")
-      ->leftjoin('reserved_tokens','reserved_tokens.userid','=','offer.userid')
+      ->leftjoin('reserved_tokens','reserved_tokens.customer_order_id','=','offer.id')
       ->where('offer.userid',$userid)
       ->orderby('offer.id','desc')
       ->groupBy("offer.id","offer.title","offer.reason_of_cancel","reserved_tokens.tokens","offer.is_seen","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.deliever_media","offer.userdescription","category.category","offer.status","contentprovider.nickname");
      
       if ($sts) {
             //echo $sts;
-        $data = $data->where('status', '=', $sts);
+        $data = $data->where('status', '=', $sts);  
     }
   
-//   echo "<pre>";
-//   print_r($data->get());die;
+  // echo "<pre>";
+  // print_r($data->get());die;
          return $data->get();
     }
 
@@ -1736,7 +1740,7 @@ public function getRefersArtist($id){
        
          $value=DB::table('user_video')->where(array('userid'=>$userid,'type'=>'normal'))->get()->toArray();
 
-        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal') : $this->insertUserVideo($userid,$vid,$token,'normal');
+        $return  = count($value) > 0 ? $this->updateUserVideo($userid,$vid,$token,'normal','') : $this->insertUserVideo($userid,$vid,$token,'normal','');
 
           return $return;
 
@@ -1745,7 +1749,7 @@ public function getRefersArtist($id){
 
     }
 
-    public function updateUserVideo($uid,$video,$tok,$type){         
+    public function updateUserVideo($uid,$video,$tok,$type,$reserved){         
 
       if(isset($video['choice'])){
 
@@ -1761,7 +1765,7 @@ public function getRefersArtist($id){
           unset($video['count']);
           
         
-        $done = $this->insertOffer($video);
+        $done = $this->insertOffer($video,$reserved);
 
 
           //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($videoId,$video):$this->insertOffer($video);
@@ -1785,7 +1789,7 @@ public function getRefersArtist($id){
       return $update;
     }
 
-    public function insertUserVideo($uid,$video,$tok,$type){
+    public function insertUserVideo($uid,$video,$tok,$type,$reserved){
 
     
 
@@ -1800,7 +1804,7 @@ public function getRefersArtist($id){
       unset($video['category']);
       unset($video['count']);
 
-      $done = $this->insertOffer($video);
+      $done = $this->insertOffer($video,$reserved);
       //$done = $getOffer[0]->userid==0 || $getOffer[0]->userid==$uid ? $this->updateOffer($video_id,$video):$this->insertOffer($video);
 
       }
@@ -1856,9 +1860,9 @@ public function getRefersArtist($id){
 
     }
 
-    public function insertOffer($data){
+    public function insertOffer($data,$reserved){
 
-       // print_r($data);die;
+         // print_r($data);die;
 
         $data['by_created'] = 0 ;
 
@@ -1867,8 +1871,14 @@ public function getRefersArtist($id){
         unset($data['id']);
 
       $insert  = DB::table('offer')->insertGetId($data);
+     // print_r($insert);die;
+      if($reserved!=''){
 
-      $inserted = $this->insertReservedTable($data,$data['id'],$insert);
+        $inserted = $this->insertReservedTable($reserved,$data['offerid'],$insert);
+
+
+      }
+
 
 
           $array= array(
@@ -1886,6 +1896,40 @@ public function getRefersArtist($id){
 
       return $inserted ? 1 : 0;
     }
+
+//     public function trialData(){
+
+//       // echo date('Y-m-d');
+
+//       // echo "<pre>";
+ 
+//       // $data = DB::table('offer')
+//       // ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed DAY)) as dates'))
+//       // ->where('userid','!=',0)
+//       // ->get()->toArray();
+ 
+//       // print_r($data);die;
+
+//       $data1 = DB::table('offer')
+//       ->select('id','artistid','userid','status','title',DB::raw('DATE(DATE_ADD(created_at, INTERVAL delieveryspeed+1 DAY)) as dates1'))
+//       ->where('userid','!=',0)
+//       ->get()->toArray();
+ 
+//       foreach($data1 as $k=>$v){
+ 
+//        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
+//          echo $v->id."<br>";
+//          echo $v->status."<br>";
+//          echo "hello"."<br>";
+//          echo $v->dates1."<br>";
+ 
+//        }
+   
+//      }
+ 
+//  die;
+
+//     }
 
     public function addToLibrary($lists){
 
@@ -2565,6 +2609,7 @@ public function getallOffer($flag){
           ->select('offer.*','category.category')
           ->where('offer.offer_status','online')
           ->where('offer.by_created',1)
+          ->where('offer.is_verified',1)
           ->where('offer.is_deleted','false')
           ->take(3)
           ->get()
@@ -2577,6 +2622,7 @@ public function getallOffer($flag){
     ->select('offer.*','category.category')
     ->where('offer.offer_status','online')
     ->where('offer.by_created',1)
+    ->where('offer.is_verified',1)
     ->where('offer.is_deleted','false')
     ->paginate(30);
     return $code;
@@ -2787,7 +2833,7 @@ public function buyofferVideo($data,$offer){
         $reserved_exist = DB::table('reserved_tokens')->where(array('Offermediaid'=>$id[0],'userid'=>$userid))->get()->toArray();
 
        //print_r($data);die;
-       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer') : $this->insertUserVideo($userid,$offer,$token,'offer');
+       $return  = count($value) > 0 ? $this->updateUserVideo($userid,$offer,$token,'offer',$data) : $this->insertUserVideo($userid,$offer,$token,'offer',$data);
        
        //$done = $this->insertReservedTable($data,$offer['id'],$return);
 
@@ -2799,7 +2845,7 @@ public function buyofferVideo($data,$offer){
          //$status_succedd = $reduced  ? $this->insertPaymentStatus($userid,$data['art_id'],$id[0],$data['price']) : 0;
 
          //print_r($done);die;
-          $return = $done!='' ? 1 : 0;
+          $return = $return!='' ? 1 : 0;
     }
 
     else{

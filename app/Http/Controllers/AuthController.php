@@ -2199,7 +2199,7 @@ public function readNotification(Request $request){
       }
      
       public function CancelStatus(Request $request){
-
+    
         $status = array('status'=>'Expired');
 
         $return  = $this->model->updateData('offer','id',$status,$request->id);
