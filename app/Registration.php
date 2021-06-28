@@ -1919,7 +1919,7 @@ public function getRefersArtist($id){
          echo $v->dates1;
  
        }
- 
+   
      }
  
  die;
