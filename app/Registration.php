@@ -613,6 +613,7 @@ public function getArtistDetail($artid,$type){
 
     $overview = DB::table('media')
     ->where('contentProviderid',$id)
+    ->where('is_verified',1)
     ->where('profile_video','yes')
     ->get()
     ->toArray();
