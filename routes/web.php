@@ -83,6 +83,8 @@ Route::get('success', 'AuthController@succssPage');
 
 Route::get('notify/{id}', 'AuthController@notify'); 
 
+Route::get('admin-panel', 'AuthController@adminPanel'); 
+
 Route::get('inProcess', 'AuthController@process'); 
 
 Route::get('seeall/{text}', 'AuthController@seeall')->middleware('authentication');

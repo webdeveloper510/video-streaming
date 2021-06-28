@@ -2210,6 +2210,11 @@ public function readNotification(Request $request){
         }
 
       }
+
+      public function adminPanel(){
+
+          return view('admin-panel');
+      }
      
       public function CancelStatus(Request $request){
     
