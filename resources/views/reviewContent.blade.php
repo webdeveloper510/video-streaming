@@ -11,7 +11,10 @@
 <div class="container-fluid mt-5">
    <div class="row">
       <div class="col-md-9">
-         <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
+         <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
+            <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
+         </video> -->
+         <video width="100%" id="sample_video" >
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video>
          <div class="text-center">
@@ -25,7 +28,7 @@
          
          <div class="row mb-2" id="{{$content->id}}">
                <div class="col-5">
-                  <video width="100%" height="100%" class="video" controls>
+                  <video width="100%" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
                      <source src="{{url('storage/app/public/video/'.$content->media)}}" type="video/mp4">
                   </video>
                </div>

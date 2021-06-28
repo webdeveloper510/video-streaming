@@ -340,29 +340,32 @@ class AuthController extends Controller
 
       $return = $this->model->insertVerifyMediaData($req->all());
 
-      $video_id = $return[0]->mediaid;
+      //$video_id = $return[0]->mediaid;
 
       //echo $video_id;
 
       if(is_array($return)){
 
-              foreach($array_data as $key=>$val){
 
-                if($val['id']==$video_id){
+        return 'already';
 
-                  //echo "yes";
+            //   foreach($array_data as $key=>$val){
 
-                  unset($array_data[$key]);
+            //     if($val['id']==$video_id){
+
+            //       //echo "yes";
+
+            //       unset($array_data[$key]);
 
 
-                }
+            //     }
 
                 
-            }
+            // }
 
-            $arrext = reset($array_data);
+            // $arrext = reset($array_data);
 
-            return response()->json($arrext);
+            // return response()->json($arrext);
            // return $array_data;
 
       }
@@ -402,24 +405,34 @@ class AuthController extends Controller
 
           $done = $this->model->UpdateDatainVideoVerified($verify1,$req->all());
 
+
+          if($done){
+
+                  return 1;
+          }
+
+          else{
+           return 0;
+          }
+
         
-          print_r($array_data);
-            foreach($array_data as $key=>$val){
+          //print_r($array_data);
+          //   foreach($array_data as $key=>$val){
 
-              if($val['id']==$req->videoid){
+          //     if($val['id']==$req->videoid){
 
-                //echo "yes";
+          //       //echo "yes";
 
-                unset($array_data[$key]);
+          //       unset($array_data[$key]);
 
-              }
+          //     }
 
               
-          }
+          // }
          
 
-          $arrext = reset($array_data);
-          return response()->json($arrext);
+          // $arrext = reset($array_data);
+          // return response()->json($arrext);
       
       }
 

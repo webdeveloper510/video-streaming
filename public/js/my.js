@@ -1567,6 +1567,67 @@ function getSrcUrl(a){
 /**----------------------------------------------------------Start Reviewing------------------------------------------------------------------ */
 
 
+//function startReviw(a,type,data){
+
+//     var src = $(a).find('source').attr("src");
+//     var id = $('.verify_id').val();
+    
+//     $.ajax({
+//         type: 'POST',
+//         url: APP_URL + "/verifyVideo",
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         },
+
+//         data:{'videoid':id,'type':type,'data':data},
+
+//         success: function (response) { 
+
+//          //console.log(response);return false;
+            
+//                   if(typeof response =='object' && response!='')
+//                     {
+//                         console.log('object');
+//                         var id = response.id;
+
+//                         var src = storage_url+ '/video/' + response.media;
+
+//                          $('#first').attr('src',src); 
+//                         $('.verify_id').val(id);
+//                         $('#sample_video').get(0).play();
+//                         $('#sample_video').attr('controls',true);
+//                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
+//                     }
+
+//                     else if(response==''){
+
+//                         alert('Already Watched this video by another');
+
+//                         //console.log('dddd');
+
+//                         // $('#sample_video').get(0).play();
+
+//                         // $('#sample_video').attr('controls',true);
+
+//                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
+//                     }
+
+//                     else{
+//                         console.log('ddddd');
+
+//                         $('#sample_video').get(0).play();
+
+//                            $('#sample_video').attr('controls',true);
+
+//                         //$('#sample_video').prop("onclick", null).attr("onclick", null)
+//                     }
+
+
+//         }
+
+//     });
+// }
+
 function startReviw(a,type,data){
 
     var src = $(a).find('source').attr("src");
@@ -1584,43 +1645,54 @@ function startReviw(a,type,data){
         success: function (response) { 
 
          //console.log(response);return false;
+
+         if(response=='already'){
+             alert('Already Reviwed');
+         }
+
+         else{
+            $('#first').attr('src',src); 
+            $('.verify_id').val(id);
+            $('#sample_video').get(0).play();
+            $('#sample_video').attr('controls',true);
+         }
             
-                  if(typeof response =='object' && response!='')
-                    {
-                        console.log('object');
-                        var id = response.id;
+                //   if(typeof response =='object' && response!='')
+                //     {
+                //         console.log('object');
+                //         var id = response.id;
 
-                        var src = storage_url+ '/video/' + response.media;
+                //         var src = storage_url+ '/video/' + response.media;
 
-                         $('#first').attr('src',src); 
-                        $('.verify_id').val(id);
-                        $('#sample_video').get(0).play();
-                        $('#sample_video').attr('controls',true);
-                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
-                    }
+                //          $('#first').attr('src',src); 
+                //         $('.verify_id').val(id);
+                //         $('#sample_video').get(0).play();
+                //         $('#sample_video').attr('controls',true);
+                //         //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                //     }
 
-                    else if(response==''){
+                //     else if(response==''){
 
-                        alert('Already Watched this video by another');
+                //         alert('Already Watched this video by another');
 
-                        //console.log('dddd');
+                //         //console.log('dddd');
 
-                        // $('#sample_video').get(0).play();
+                //         // $('#sample_video').get(0).play();
 
-                        // $('#sample_video').attr('controls',true);
+                //         // $('#sample_video').attr('controls',true);
 
-                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
-                    }
+                //         //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                //     }
 
-                    else{
-                        console.log('ddddd');
+                //     else{
+                //         console.log('ddddd');
 
-                        $('#sample_video').get(0).play();
+                //         $('#sample_video').get(0).play();
 
-                           $('#sample_video').attr('controls',true);
+                //            $('#sample_video').attr('controls',true);
 
-                        //$('#sample_video').prop("onclick", null).attr("onclick", null)
-                    }
+                //         //$('#sample_video').prop("onclick", null).attr("onclick", null)
+                //     }
 
 
         }
@@ -1630,7 +1702,8 @@ function startReviw(a,type,data){
 
 function permit(a,status,data,type){
 
-    var id =   $(a).attr('data-id');
+   // var id =   $(a).attr('data-id');
+   var id = $('.verify_id').val();
 
     $.ajax({
         type: 'POST',
@@ -1645,25 +1718,33 @@ function permit(a,status,data,type){
 
             console.log(data);
 
-            if(typeof data =='object' && data!='')
-            {
-                var nextid = data.id;
+            if(data==1){
 
-                console.log('yes');
-                console.log(nextid);
+                alert('Verified');
 
-                var src = storage_url+ '/video/' + data.media;
-
-                 $('#first').attr('src',src); 
-                $('.verify_id').val(nextid);
                 $('#'+id).remove();
-                $('#sample_video').get(0).play();
-               // $('#sample_video').attr('controls',true);
-                //$('#sample_video').prop("onclick", null).attr("onclick", null)
+
             }
-            else{
-                alert('some error');
-            }
+
+            // if(typeof data =='object' && data!='')
+            // {
+            //     var nextid = data.id;
+
+            //     console.log('yes');
+            //     console.log(nextid);
+
+            //     var src = storage_url+ '/video/' + data.media;
+
+            //      $('#first').attr('src',src); 
+            //     $('.verify_id').val(nextid);
+            //     $('#'+id).remove();
+            //     $('#sample_video').get(0).play();
+            //    // $('#sample_video').attr('controls',true);
+            //     //$('#sample_video').prop("onclick", null).attr("onclick", null)
+            // }
+            // else{
+            //     alert('some error');
+            // }
         }
 
     });
