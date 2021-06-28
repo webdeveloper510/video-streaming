@@ -555,6 +555,7 @@ public function getArtists($flag){
       //->leftjoin('offer','offer.artistid','=','contentprovider.id')
       ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
       ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.aboutme,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->where('contentprovider.is_verified',1)
       ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture','contentprovider.aboutme')
 
       //->leftjoin('timeframe', 'contentprovider.id', '=','timeframe.artist_id')
@@ -570,6 +571,8 @@ public function getArtists($flag){
       ->leftjoin('media','media.contentProviderid','=','contentprovider.id')
       ->leftjoin('subscriber','subscriber.artistid','=','contentprovider.id')
       ->selectRaw('contentprovider.nickname,contentprovider.profilepicture,contentprovider.id,subscriber.count,count(media.id) as rowcount')
+      ->where('contentprovider.is_verified',1)
+
       ->groupBy('contentprovider.id','contentprovider.nickname','subscriber.count','contentprovider.profilepicture')
       ->paginate(30);
     }
