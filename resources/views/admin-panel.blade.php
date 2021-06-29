@@ -20,12 +20,14 @@
 <div class="container">
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  <div class="row">
+  <div class="row my-4">
      <div class="col-md-6">
-     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+     <div class="input-group mb-3">
+  <input type="search" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Search</button>
+  </div>
+</div>
      </div>
   </div>
   <div class="table-responsive">
@@ -136,6 +138,7 @@
   </div>
 
     </div>
+    <hr class="my-4">
     <div class="container">
     <div class="row">
      <div class="col-md-3">
@@ -154,7 +157,7 @@
      </div>
   </div>
 
-<hr class="my-4">
+
 
     <div class="table-responsive">
   <table class="table">
