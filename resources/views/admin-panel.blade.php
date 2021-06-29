@@ -216,7 +216,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="BankLabel">Modal title</h5>
+        <h5 class="modal-title" id="BankLabel">Bank Account Payouts</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -250,8 +250,10 @@
     </div>
     
   </div>
-  <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
-        <button type="button" class="btn btn-primary">Payout Initiaed </button>
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="submit" class="btn btn-primary">Payout Initiaed </button>
+  </div>
  
 </form>
       </div>
@@ -267,7 +269,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="paxumLabel">Modal title</h5>
+        <h5 class="modal-title" id="paxumLabel">Paxum Account Payouts</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -278,24 +280,23 @@
     <div class="col-md-6 mb-3">
       <label for="validationDefault01">Email Address:</label>
       <input type="email" class="form-control" id="validationDefault01"  value="Mark" required>
-      <label for="validationDefault02">Reference:</label>
-      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
+      
     </div>
     <div class="col-md-6 mb-3">
+    <label for="validationDefault02">Reference:</label>
+      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
      
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
-        <button type="button" class="btn btn-primary">Payout Initiaed </button>
  
     </div>
     
   </div>
- 
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="submit" class="btn btn-primary">Payout Initiaed </button>
+  </div>
 </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
@@ -316,6 +317,9 @@ header {
    padding: 10px;
    background: #7b0000;
    color: white !important;
+   }
+   li.nav-item a{
+    color: white !important;
    }
 </style>
 
