@@ -184,57 +184,6 @@
       </div>
    </div>
 
-<!-- <section class="reportmeadia">
-   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-         @foreach($reports as $is_not_veryfy)
-         <div class="carousel-item active">
-            <div class="row media">
-               <div class="col-md-4">
-                  @if($is_not_veryfy->type=='video')
-                  <video width="100%" controls>
-                     <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
-                  </video>
-                  @else
-                  <video width="100%" controls>
-                     <source src="{{url('storage/app/public/video/'.$is_not_veryfy->media)}}" type="video/mp4">
-                  </video>
-                  @endif
-               </div>
-               <div class="col-md-8">
-                  <div class="reportitems">
-                     <h3>{{$is_not_veryfy->reason}}</h3>
-                     <p> {{$is_not_veryfy->description}} </p>
-                     <div class="text-right buttons">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                        <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},1)">Mark as legal</button>
-                        <button class="btn btn-outline-primary" type="button" onClick="legelorNot({{$is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid}},-1)">illegal + delete</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   @endforeach
-   </div>
-   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-   <span class="sr-only">Previous</span>
-   </a>
-   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-   <span class="sr-only">Next</span>
-   </a>
-   </div>
-   </div>
-</section> -->
-
 <!-- History -->
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
 
