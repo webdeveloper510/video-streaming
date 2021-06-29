@@ -81,7 +81,7 @@
                      <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                      <tr>
                         <th scope="row"><?php echo e($loop->iteration); ?></th>
-                        <td><?php echo e($artist->profilepicture); ?></td>
+                        <td>Profile Picture:<?php echo e($artist->profilepicture); ?>, Background Picture : <?php echo e($artist->cover_photo); ?></td>
                         <td><?php echo e($artist->nickname); ?></td>
                      </tr>
                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
