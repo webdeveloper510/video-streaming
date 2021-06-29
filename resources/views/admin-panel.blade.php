@@ -8,7 +8,7 @@
       <h1 class="text-white mt-2"> Admin Panel</h1>
    </div>
 </header>
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+<ul class="nav nav-pills mb-3 px-4" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Artist</a>
   </li>
@@ -79,7 +79,9 @@
       <h3>Pay USD :$<span>0</span></h3>
      </div>
      <div class="col-md-3">
-      <h3>Total USD :$<span>0</span></h3>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Bank">
+ Start Payout
+</button>
      </div>
   </div>
 
@@ -88,7 +90,7 @@
   <table class="table">
   <thead class="thead-dark">
   <tr>
-    <th scope="col" colspan="5">Bank Account Payouts</th>
+    <th scope="col" colspan="7" class="text-center">Bank Account Payouts</th>
   </tr>
     <tr>
       <th scope="col">#</th>
@@ -146,7 +148,9 @@
       <h3>Pay USD :$<span>0</span></h3>
      </div>
      <div class="col-md-3">
-      <h3>Total USD :$<span>0</span></h3>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paxum">
+ Start Payout
+</button>
      </div>
   </div>
 
@@ -155,7 +159,7 @@
   <table class="table">
   <thead class="thead-dark">
   <tr>
-    <th scope="col" colspan="5">Paxum Account Payouts</th>
+    <th scope="col" colspan="7" class="text-center">Paxum Account Payouts</th>
   </tr>
     <tr>
       <th scope="col">#</th>
@@ -204,13 +208,71 @@
   </div>
 </div>
 </div>
+<!-- Button trigger modal -->
+
+
+<!-- Bank Modal -->
+<div class="modal fade" id="Bank" tabindex="-1" role="dialog" aria-labelledby="Bank Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="BankLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Paxum Modal -->
+<div class="modal fade" id="paxum" tabindex="-1" role="dialog" aria-labelledby="paxumLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paxumLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <style>
 
 header {
    background: #7b0000;
    padding: 11px;
    }
-
+   .float-right {
+   position: absolute;
+   right: 20px;
+   top: 20px;
+   }
+   li.nav-item {
+   width: 50%;
+   text-align: center;
+   padding: 10px;
+   background: #7b0000;
+   color: white !important;
+   }
 </style>
 
 
