@@ -10,6 +10,7 @@
 </header>
 <div class="container-fluid mt-5">
    <div class="row">
+   @if($type!='picture')
       <div class="col-md-9">
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
@@ -23,6 +24,19 @@
          </div>
          <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
       </div>
+      @else
+      <div class="col-md-9">
+         <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
+            <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
+         </video> -->
+         <img src="{{url('storage/app/public/uploads/'.$artists[0]->profilepicture)}}" id="first" width="100%" id="sample_video" >
+         <div class="text-center">
+            <button class="btn btn-primary" type="button" data-id="{{$artists[0]->id}}" onClick="permit(this,true,{{json_encode($artists)}},'{{$type}}')">Permit</button>
+            <button class="btn btn-primary" type="button" data-id="{{$artists[0]->id}}" onClick="permit(this,false,{{json_encode($artists)}},'{{$type}}')">Deny</button>
+         </div>
+         <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
+      </div>
+      @endif
       @if($type!='picture')
       <div class="col-md-3">
          @foreach($notVerified as $content)
