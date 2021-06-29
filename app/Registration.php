@@ -2866,25 +2866,42 @@ public function buyofferVideo($data,$offer){
 
 public function addonContentProvider($data){
 
-    $exists = $this->selectDataById('id','offer',$data['offerid']);
+    $exists = $this->selectDataById('id','offer',$data['videoid']);
 
-    $tokensData = $this->selectDataById('Offermediaid','reserved_tokens',$exists[0]->offerid);
+    $tokensData = $this->selectDataById('customer_order_id','reserved_tokens',$data['videoid']);
 
 
-    if($tokensData[0]->userid==$data['userid'] && $tokensData[0]->artistid==$data['artistid']){
+    //if($tokensData[0]->userid==$data['userid'] && $tokensData[0]->artistid==$data['artistid']){
 
-      $update = DB::table('contentprovider')->where(array('id'=>$data['artistid']))->update([
-        'token' =>  DB::raw('token +'.$tokensData[0]->tokens)
-      ]);
+      if($data['bool']=='true'){
 
-        $update1 = DB::table('offer')->where(array('id'=>$data['offerid']))->update([
-          'paid_status' => 1
-        
-      ]);
-
-      $status_done = $update ? $this->insertPaymentStatus($data['userid'],$data['artistid'],$exists[0]->offerid,$tokensData[0]->tokens,'order','') : 0;
+        $update = DB::table('contentprovider')->where(array('id'=>$tokensData[0]->artistid))->update([
+          'token' =>  DB::raw('token +'.$tokensData[0]->tokens)
+        ]);
   
-    }
+          $update1 = DB::table('offer')->where(array('id'=>$data['videoid']))->update([
+            'paid_status' => 1
+          
+        ]);
+
+        $status_done = $update ? $this->insertPaymentStatus($tokensData[0]->userid,$tokensData[0]->artistid,$exists[0]->offerid,$tokensData[0]->tokens,'order','') : 0;
+
+
+      }
+
+
+      else{
+
+        $status_done = $update = DB::table('users')->where(array('id'=>$tokensData[0]->userid))->update([
+          'token' =>  DB::raw('tokens +'.$tokensData[0]->tokens)
+        ]);
+
+      }
+
+    
+
+  
+    //}
 
     return $status_done ? 1 : 0;     
 
