@@ -154,6 +154,7 @@
      </div>
   </div>
 
+<hr class="my-4">
 
     <div class="table-responsive">
   <table class="table">
