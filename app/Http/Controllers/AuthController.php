@@ -390,12 +390,19 @@ class AuthController extends Controller
       
 
       if($req->bool=='true'){
+
+
         $is_verified = 1;
+
       }
       else{
+
         $is_verified= -1;
       }
       $table = $req->type=='offer' ? 'offer' : 'media';
+
+      $req->type=='orders' ? $this->model->addonContentProvider($req) : '';
+      
       $verify = array('is_verified'=>$is_verified);
 
 
