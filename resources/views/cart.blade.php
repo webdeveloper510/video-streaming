@@ -26,10 +26,6 @@ button.btn-primary:hover {
     text-align: center;
 }
 </style>
-
-
-
-
   </head>
   <body>
     <div class="container pt-5 mt-4">

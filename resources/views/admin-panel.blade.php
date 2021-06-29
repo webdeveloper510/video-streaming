@@ -8,7 +8,7 @@
       <h1 class="text-white mt-2"> Admin Panel</h1>
    </div>
 </header>
-<ul class="nav nav-pills mb-3 px-4" id="pills-tab" role="tablist">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Artist</a>
   </li>
@@ -20,12 +20,14 @@
 <div class="container">
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  <div class="row">
+  <div class="row my-4">
      <div class="col-md-6">
-     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+     <div class="input-group mb-3">
+  <input type="search" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Search</button>
+  </div>
+</div>
      </div>
   </div>
   <div class="table-responsive">
@@ -136,6 +138,7 @@
   </div>
 
     </div>
+    <hr class="my-4">
     <div class="container">
     <div class="row">
      <div class="col-md-3">
@@ -153,6 +156,7 @@
 </button>
      </div>
   </div>
+
 
 
     <div class="table-responsive">
@@ -216,17 +220,46 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="BankLabel">Modal title</h5>
+        <h5 class="modal-title" id="BankLabel">Bank Account Payouts</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <form>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault01">Account Nr/IBAN:</label>
+      <input type="text" class="form-control" id="validationDefault01"  value="Mark" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault02">Bank:</label>
+      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Name/Company:</label>
+      <input type="text" class="form-control" id="validationDefault03"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault04">Bank Address:</label>
+      <input type="text" class="form-control" id="validationDefault04"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Address:</label>
+      <input type="text" class="form-control" id="validationDefault03"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault04">BIC:</label>
+      <input type="text" class="form-control" id="validationDefault04"  required>
+    </div>
+    
+  </div>
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="submit" class="btn btn-primary">Payout Initiaed </button>
+  </div>
+ 
+</form>
       </div>
     </div>
   </div>
@@ -240,18 +273,34 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="paxumLabel">Modal title</h5>
+        <h5 class="modal-title" id="paxumLabel">Paxum Account Payouts</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <form>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault01">Email Address:</label>
+      <input type="email" class="form-control" id="validationDefault01"  value="Mark" required>
+      
+    </div>
+    <div class="col-md-6 mb-3">
+    <label for="validationDefault02">Reference:</label>
+      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
+     
+ 
+    </div>
+    
+  </div>
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="submit" class="btn btn-primary">Payout Initiaed </button>
+  </div>
+</form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+     
     </div>
   </div>
 </div>
@@ -259,7 +308,7 @@
 
 header {
    background: #7b0000;
-   padding: 11px;
+   padding: 11px;   
    }
    .float-right {
    position: absolute;
@@ -272,6 +321,9 @@ header {
    padding: 10px;
    background: #7b0000;
    color: white !important;
+   }
+   li.nav-item a{
+    color: white !important;
    }
 </style>
 
