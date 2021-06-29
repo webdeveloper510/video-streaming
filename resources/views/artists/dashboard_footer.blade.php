@@ -17,7 +17,7 @@ function closeNav() {
  <!-- <script src="{{asset('artistdashboard/js/core/jquery.min.js')}}"></script> -->
 
  <script  src="{{asset('js/datatables.min.js')}}"></script>
- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+ <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 
  
    <script id="base_url" data-url="{{ URL::to('/')}}" src="{{asset('js/my.js')}}"></script>

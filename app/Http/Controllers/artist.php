@@ -235,8 +235,10 @@ class artist extends Controller
       
     }
 
-    public function dashboard()
+    public function dashboard1()
     {
+
+
 
       //print_r(Carbon::now(UTC+5)->toDateTimeString());die;
 
@@ -338,6 +340,7 @@ class artist extends Controller
 
       $year_PAZ = $this->model->year_PAZ();
       
+      //dd();
 
       return view('artists.dashboard_home',['profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 

@@ -73,7 +73,6 @@
        <div class="out_withdraw">
            <div class="row">
           <div class="col-md-4">
-    
            <div class="amount">Enter <b style="color:gold;font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> Amount <br>
               <input type="number"  min="0" class="form-control" id="calculate_tokens" placeholder="PAZ Amount">
          </div>

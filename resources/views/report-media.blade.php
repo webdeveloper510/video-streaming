@@ -81,7 +81,7 @@
                      @foreach($artists as $artist)
                      <tr>
                         <th scope="row">{{$loop->iteration}}</th>
-                        <td>{{$artist->profilepicture}}</td>
+                        <td>Profile Picture:{{$artist->profilepicture}}, Background Picture : {{$artist->cover_photo}}</td>
                         <td>{{$artist->nickname}}</td>
                      </tr>
                      @endforeach
