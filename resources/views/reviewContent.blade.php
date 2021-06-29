@@ -29,12 +29,14 @@
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video> -->
-         <img src="{{url('storage/app/public/uploads/'.$artists[0]->profilepicture)}}" id="first" width="100%" id="sample_video" >
+         <img src="{{url('storage/app/public/uploads/'.$artists[0]->profilepicture)}}" id="imageSrc" width="100%" id="sample_video" >
          <div class="text-center">
             <button class="btn btn-primary" type="button" data-id="{{$artists[0]->id}}" onClick="permit(this,true,{{json_encode($artists)}},'{{$type}}')">Permit</button>
             <button class="btn btn-primary" type="button" data-id="{{$artists[0]->id}}" onClick="permit(this,false,{{json_encode($artists)}},'{{$type}}')">Deny</button>
          </div>
-         <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
+         <input type="hidden" class="verify_id" value="{{$artists[0]->id}}"/>
+         <input type="hidden" class="picture" value="profilepicture"/>
+
       </div>
       @endif
       @if($type!='picture')
@@ -59,8 +61,8 @@
          
          <div class="row mb-2" id="{{$artists->id}}">
                <div class="col-7">
-                 <span>Profile Picture</span> <img width="100%" src="{{url('storage/app/public/uploads/'.$artists->profilepicture)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
-                 <span>Background Picture</span> <img width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
+                 <span>Profile Picture</span> <img type-image="profilepicture" width="100%" src="{{url('storage/app/public/uploads/'.$artists->profilepicture)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
+                 <span>Background Picture</span> <img type-image="background" width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
 
                </div>
             <div class="col-5">
