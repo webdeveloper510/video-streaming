@@ -2890,27 +2890,27 @@ function dataTable(name){
         //  'order': [[1, 'asc']]
     });
 }
-function updatedStatus(id){
+// function updatedStatus(id){
 
-   // event.preventDefault();
-    //console.log(id);return false;
-    $.ajax({
-        type: 'POST',
-        url: APP_URL + "/updatedCancelStatus",
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+//    // event.preventDefault();
+//     //console.log(id);return false;
+//     $.ajax({
+//         type: 'POST',
+//         url: APP_URL + "/updatedCancelStatus",
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         },
 
-        data: {'id':id},
+//         data: {'id':id},
 
-        success: function (data) {
+//         success: function (data) {
 
-            console.log(data);
+//             console.log(data);
 
-        }
-    });
+//         }
+//     });
 
-}
+// }
 
 function selectUsername(a){
     var length = $(a).val();

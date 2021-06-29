@@ -23,6 +23,7 @@
          </div>
          <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
       </div>
+      @if($type=='picture')
       <div class="col-md-3">
          @foreach($notVerified as $content)
          
@@ -38,6 +39,24 @@
          </div>
          @endforeach 
       </div>
+      @else
+      <div class="col-md-3">
+         @foreach($artists as $artists)
+         
+         <div class="row mb-2" id="{{$artists->id}}">
+               <div class="col-5">
+                 <span>Profile Picture</span> <img width="100%" src="{{url('storage/app/public/uploads/'.$artists->profilepicture)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
+               </div>
+               <div class="col-5">
+                 <span>Background Picture</span> <img width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
+               </div>
+            <div class="col-7">
+               <h5>{{$artists->nickname}}</h5>
+            </div>
+         </div>
+         @endforeach 
+      </div>
+      @endif
    </div>
 </div>
 <style>

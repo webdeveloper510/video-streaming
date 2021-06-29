@@ -17,7 +17,7 @@ function closeNav() {
  <!-- <script src="<?php echo e(asset('artistdashboard/js/core/jquery.min.js')); ?>"></script> -->
 
  <script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+ <!-- <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 
  
    <script id="base_url" data-url="<?php echo e(URL::to('/')); ?>" src="<?php echo e(asset('js/my.js')); ?>"></script>
@@ -31,7 +31,7 @@ function closeNav() {
   <script src="<?php echo e(asset('artistdashboard/js/plugins/perfect-scrollbar.jquery.min.js')); ?>"></script>
 
   <!-- Plugin for the momentJs  -->
-  <script src="<?php echo e(asset('artistdashboard/js/plugins/moment.min.js')); ?>"></script>
+  <!-- <script src="<?php echo e(asset('artistdashboard/js/plugins/moment.min.js')); ?>"></script> -->
 
 
 

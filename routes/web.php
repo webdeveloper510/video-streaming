@@ -97,6 +97,9 @@ Route::get('new', 'AuthController@new');
 
 Route::get('artistselling', 'AuthController@artistselling'); 
 
+
+Route::get('Social-Media-Download', 'artist@showSocialMedia');
+
 //Route::get('artistoffers', 'AuthController@artistoffers'); 
 
 Route::get('artistprofilepage', 'AuthController@artistprofilepage'); 
@@ -247,7 +250,6 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/support', 'artist@support');
     
-    Route::get('Social-Media-Download', 'artist@showSocialMedia');
     
     Route::get('artist/offers/{id}', 'artist@offerpage');
     Route::get('support-team', 'AuthController@support_team');
@@ -266,9 +268,9 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/age-verification', 'artist@ageVerify');
 
-    Route::get('artist/requests/{text?}', 'artist@showRequest')->middleware('contentAuth');
+    Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
 
-    Route::get('artist/getRequests/{text}/{status?}', 'artist@getRequests')->middleware('contentAuth');
+    Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
     Route::get('customer_orders/{text}', 'AuthController@getRequests');
    // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
 
@@ -277,9 +279,9 @@ Route::get('legal-notice', 'AuthController@legal');
     Route::get('artistLogin', 'AuthController@getLogin');
     Route::get('feed', 'AuthController@feedPage');
 
-    Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
+    Route::get('artists/dashboard', 'artist@dashboard1')->middleware('contentAuth');
 
-    Route::get('artist/Profile/{text?}', 'artist@profile')->middleware('contentAuth');
+    Route::get('artist/Profile/{Profile?}', 'artist@profile')->middleware('contentAuth');
 
     Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
 
@@ -299,7 +301,7 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::post('deleiver','artist@deleiverOffer');
 
-    Route::post('uploadSocial','artist@socialUpload');
+    Route::post('uploadSocialdashboard','artist@socialUpload');
 
     Route::post('updateArtist','artist@updateartist');
 
