@@ -8,7 +8,7 @@
       <h1 class="text-white mt-2"> Admin Panel</h1>
    </div>
 </header>
-<ul class="nav nav-pills mb-3 px-4" id="pills-tab" role="tablist">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Artist</a>
   </li>
@@ -222,11 +222,38 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <form>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault01">Account Nr/IBAN:</label>
+      <input type="text" class="form-control" id="validationDefault01"  value="Mark" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault02">Bank:</label>
+      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Name/Company:</label>
+      <input type="text" class="form-control" id="validationDefault03"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault04">Bank Address:</label>
+      <input type="text" class="form-control" id="validationDefault04"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Address:</label>
+      <input type="text" class="form-control" id="validationDefault03"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault04">BIC:</label>
+      <input type="text" class="form-control" id="validationDefault04"  required>
+    </div>
+    
+  </div>
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="button" class="btn btn-primary">Payout Initiaed </button>
+ 
+</form>
       </div>
     </div>
   </div>
@@ -246,7 +273,24 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <form>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault01">Email Address:</label>
+      <input type="email" class="form-control" id="validationDefault01"  value="Mark" required>
+      <label for="validationDefault02">Reference:</label>
+      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
+    </div>
+    <div class="col-md-6 mb-3">
+     
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="button" class="btn btn-primary">Payout Initiaed </button>
+ 
+    </div>
+    
+  </div>
+ 
+</form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -259,7 +303,7 @@
 
 header {
    background: #7b0000;
-   padding: 11px;
+   padding: 11px;   
    }
    .float-right {
    position: absolute;
