@@ -542,6 +542,13 @@ public function getArtistnotVerified(){
         return DB::table('contentprovider')->where('is_verified',0)->get();
 }
 
+// public function getArtistVerifiedNot($where){
+
+//   return DB::table('contentprovider')->where(array('is_verified',0))->get();
+
+
+// }
+
 public function getArtists($flag){
 
     if($flag=='No'){

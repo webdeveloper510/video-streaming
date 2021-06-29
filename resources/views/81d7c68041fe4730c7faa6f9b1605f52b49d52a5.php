@@ -23,6 +23,7 @@
          </div>
          <input type="hidden" class="verify_id" value="<?php echo e($notVerified[0]->id); ?>"/>
       </div>
+      <?php if($type!='picture'): ?>
       <div class="col-md-3">
          <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
@@ -38,6 +39,23 @@
          </div>
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
       </div>
+      <?php else: ?>
+      <div class="col-md-3">
+         <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artists): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+         
+         <div class="row mb-2" id="<?php echo e($artists->id); ?>">
+               <div class="col-7">
+                 <span>Profile Picture</span> <img width="100%" src="<?php echo e(url('storage/app/public/uploads/'.$artists->profilepicture)); ?>" height="100%" class="video" controls onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($artists)); ?>)">
+                 <span>Background Picture</span> <img width="100%" src="<?php echo e(url('storage/app/public/uploads/'.$artists->cover_photo)); ?>" height="100%" class="video" controls onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($artists)); ?>)">
+
+               </div>
+            <div class="col-5">
+               <h5><?php echo e($artists->nickname); ?></h5>
+            </div>
+         </div>
+         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+      </div>
+      <?php endif; ?>
    </div>
 </div>
 <style>
