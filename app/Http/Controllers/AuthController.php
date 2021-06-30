@@ -434,7 +434,7 @@ class AuthController extends Controller
       if($updated){
         $verify1 = array('is_deleted'=>1);
 
-          $done = $this->model->UpdateDatainVideoVerified($verify1,$type);
+          $done = $this->model->UpdateDatainVideoVerified($verify1,$req->videoid,$type);
 
 
           if($done){

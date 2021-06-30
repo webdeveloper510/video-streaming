@@ -3395,11 +3395,11 @@ public function insertVerifyMediaData($data){
 
 }
 
-public function UpdateDatainVideoVerified($update,$data){
+public function UpdateDatainVideoVerified($update,$id,$data){
 
 
  return DB::table('video_verified')
-  ->where(array('mediaid'=>$data['videoid'],'video_type'=>$data))
+  ->where(array('mediaid'=>$id,'video_type'=>$data))
   ->update($update);
 
 }
