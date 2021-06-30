@@ -539,7 +539,11 @@ public function getSocialName($id){
 
 public function getArtistnotVerified(){
 
-        return DB::table('contentprovider')->where('is_verified',0)->get();
+        return DB::table('contentprovider')
+        ->where('is_verified',0)
+        ->where('profilepicture','!=','')
+        ->where('cover_photo','!=','')
+        ->get();
 }
 
 // public function getArtistVerifiedNot($where){

@@ -59,7 +59,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p> <span  style="color:gold !important;">{{$offerdata->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">/PAZ</b></span>/Minute</p>
+              <p> <span  style="color:gold !important;">{{$offerdata->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>
@@ -67,7 +67,7 @@
           </div>
           <div class="col">
               <h3>Category</h3>
-              <p>{{$offerdata->category}}</p>
+              <p>{{$offerdata->category}}</p>    
           </div>
           <div class="col">
               <h3>Delievery Speed</h3>
@@ -130,7 +130,7 @@
                   <div class="modal-body">
                       <h2 class="text-center"> Order Successful!</h2>
                       <p> You can check your order status anytime  under : My Order</p>
-                      <p><input type="checkbox" class="visible_popup" aria-label="Checkbox for following text input"> 
+                      <p><input type="checkbox" id="orderPopup" aria-label="Checkbox for following text input"> 
                             Do not show again
                       </p>
                   </div>

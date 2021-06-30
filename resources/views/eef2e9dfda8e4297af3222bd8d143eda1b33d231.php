@@ -71,7 +71,7 @@
           </div>
           <div class="col">
               <h3>Delievery Speed</h3>
-              <p><?php echo e($offerdata->delieveryspeed); ?> Days</p>
+              <p><?php echo e($offerdata->delieveryspeed+1); ?> Days</p>
           </div>
         </div>
         <?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
@@ -135,7 +135,7 @@
                   <div class="modal-body">
                       <h2 class="text-center"> Order Successful!</h2>
                       <p> You can check your order status anytime  under : My Order</p>
-                      <p><input type="checkbox" class="visible_popup" aria-label="Checkbox for following text input"> 
+                      <p><input type="checkbox" id="orderPopup" aria-label="Checkbox for following text input"> 
                             Do not show again
                       </p>
                   </div>

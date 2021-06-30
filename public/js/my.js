@@ -1632,6 +1632,12 @@ function startReviw(a,type,data){
 
     var src = $(a).find('source').attr("src");
     var id = $('.verify_id').val();
+    var image = $(a).attr('type-image');
+
+    if(image){
+
+        var src = $(a).attr("src");
+    }
     
     $.ajax({
         type: 'POST',
@@ -1651,10 +1657,25 @@ function startReviw(a,type,data){
          }
 
          else{
-            $('#first').attr('src',src); 
-            $('.verify_id').val(id);
-            $('#sample_video').get(0).play();
-            $('#sample_video').attr('controls',true);
+             if(image){
+
+                $('#imageSrc').attr('src',src); 
+                $('.verify_id').val(id);
+                $('.picture').val(image);
+                //$('#sample_video').get(0).play();
+                //$('#sample_video').attr('controls',true);
+
+             }
+
+             else{
+
+                $('#first').attr('src',src); 
+                $('.verify_id').val(id);
+                $('#sample_video').get(0).play();
+                $('#sample_video').attr('controls',true);
+
+             }
+        
          }
             
                 //   if(typeof response =='object' && response!='')
@@ -1704,6 +1725,10 @@ function permit(a,status,data,type){
 
    // var id =   $(a).attr('data-id');
    var id = $('.verify_id').val();
+   var picture = $('.picture').val();
+
+   var pic = picture ? picture : ''
+
 
     $.ajax({
         type: 'POST',
@@ -1712,7 +1737,7 @@ function permit(a,status,data,type){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id, 'bool':status,'data':data,'type':type},
+        data:{'videoid':id, 'image':pic, 'bool':status,'data':data,'type':type},
 
         success: function (data) {
 
@@ -1924,7 +1949,7 @@ $(document).on('submit', '#report', function (event) {
 
 
 
-$(document).on('click', '.visible_popup', function (event) {
+$(document).on('click', '#orderPopup', function (event) {
     event.preventDefault();
     $.ajax({
         type: 'POST',
