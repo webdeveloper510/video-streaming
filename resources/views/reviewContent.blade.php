@@ -26,7 +26,7 @@
       </div>
       @else
 
-      @if($profile)
+      @if($profile || $backgound)
       <div class="col-md-9">
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
