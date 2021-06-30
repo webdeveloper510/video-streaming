@@ -67,6 +67,7 @@
 </table>
 
   </div>
+ 
   </div>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     <div class="container">
@@ -81,7 +82,7 @@
       <h3>Pay USD :$<span>0</span></h3>
      </div>
      <div class="col-md-3">
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Bank">
+     <button type="button" class="btn btn-primary">
  Start Payout
 </button>
      </div>
@@ -136,7 +137,46 @@
 </table>
 
   </div>
+  <div class="bankpayout">
+  <div class="text-center">
+  <h5 class="modal-title my-4" id="BankLabel">Bank Account Payouts</h5>
+  </div>
+  <form>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault01">Account Nr/IBAN:</label>
+      <input type="text" readonly  class="form-control" id="validationDefault01"  value="Mark" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault02">Bank:</label>
+      <input type="text" readonly  class="form-control" id="validationDefault02"  value="Otto" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Name/Company:</label>
+      <input type="text" readonly  class="form-control" id="validationDefault03"value="Mark"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault04">Bank Address:</label>
+      <input type="text" readonly  class="form-control" id="validationDefault04" value="Mark"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault03">Address:</label>
+      <input type="text" readonly  class="form-control" id="validationDefault03" value="Mark"  required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationDefault04">BIC:</label>
+      <input type="text" readonly  class="form-control" id="validationDefault04" value="Mark"  required>
+    </div>
+    
+  </div>
+  <div class="text-right">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
+        <button type="submit" class="btn btn-primary">Payout Initiaed </button>
+  </div>
+ 
+</form>
 
+  </div>
     </div>
     <hr class="my-4">
     <div class="container">
@@ -151,7 +191,7 @@
       <h3>Pay USD :$<span>0</span></h3>
      </div>
      <div class="col-md-3">
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#paxum">
+     <button type="button" class="btn btn-primary">
  Start Payout
 </button>
      </div>
@@ -207,79 +247,11 @@
 </table>
 
   </div>
-
-    </div>
+  <div class="paxumpayout my-4">
+  <div class="text-center">
+  <h5 class="modal-title mb-4" id="BankLabel">paxum Account Payouts</h5>
   </div>
-</div>
-</div>
-<!-- Button trigger modal -->
-
-
-<!-- Bank Modal -->
-<div class="modal fade" id="Bank" tabindex="-1" role="dialog" aria-labelledby="Bank Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="BankLabel">Bank Account Payouts</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault01">Account Nr/IBAN:</label>
-      <input type="text" readonly  class="form-control" id="validationDefault01"  value="Mark" required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault02">Bank:</label>
-      <input type="text" readonly  class="form-control" id="validationDefault02"  value="Otto" required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault03">Name/Company:</label>
-      <input type="text" readonly  class="form-control" id="validationDefault03"value="Mark"  required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault04">Bank Address:</label>
-      <input type="text" readonly  class="form-control" id="validationDefault04" value="Mark"  required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault03">Address:</label>
-      <input type="text" readonly  class="form-control" id="validationDefault03" value="Mark"  required>
-    </div>
-    <div class="col-md-6 mb-3">
-      <label for="validationDefault04">BIC:</label>
-      <input type="text" readonly  class="form-control" id="validationDefault04" value="Mark"  required>
-    </div>
-    
-  </div>
-  <div class="text-right">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Canecl</button>
-        <button type="submit" class="btn btn-primary">Payout Initiaed </button>
-  </div>
- 
-</form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- Paxum Modal -->
-<div class="modal fade" id="paxum" tabindex="-1" role="dialog" aria-labelledby="paxumLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="paxumLabel">Paxum Account Payouts</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form>
+  <form>
   <div class="form-row">
     <div class="col-md-6 mb-3">
       <label for="validationDefault01">Email Address:</label>
@@ -299,6 +271,47 @@
         <button type="submit" class="btn btn-primary">Payout Initiaed </button>
   </div>
 </form>
+  </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Bank Modal -->
+<div class="modal fade" id="Bank" tabindex="-1" role="dialog" aria-labelledby="Bank Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Paxum Modal -->
+<div class="modal fade" id="paxum" tabindex="-1" role="dialog" aria-labelledby="paxumLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paxumLabel">Paxum Account Payouts</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    
       </div>
      
     </div>
