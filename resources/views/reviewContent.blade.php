@@ -29,12 +29,12 @@
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video> -->
-         <img src="{{url('storage/app/public/uploads/'.$artists[0]->profilepicture)}}" id="imageSrc" width="100%" id="sample_video" >
+         <img src="{{url('storage/app/public/uploads/'.$profile[0]->profilepicture)}}" id="imageSrc" width="100%" id="sample_video" >
          <div class="text-center">
-            <button class="btn btn-primary" type="button" data-id="{{$artists[0]->id}}" onClick="permit(this,true,{{json_encode($artists)}},'{{$type}}')">Permit</button>
-            <button class="btn btn-primary" type="button" data-id="{{$artists[0]->id}}" onClick="permit(this,false,{{json_encode($artists)}},'{{$type}}')">Deny</button>
+            <button class="btn btn-primary" type="button" data-id="{{$profile[0]->id}}" onClick="permit(this,true,{{json_encode($profile)}},'{{$type}}')">Permit</button>
+            <button class="btn btn-primary" type="button" data-id="{{$profile[0]->id}}" onClick="permit(this,false,{{json_encode($profile)}},'{{$type}}')">Deny</button>
          </div>
-         <input type="hidden" class="verify_id" value="{{$artists[0]->id}}"/>
+         <input type="hidden" class="verify_id" value="{{$profile[0]->id}}"/>
          <input type="hidden" class="picture" value="profilepicture"/>
 
       </div>
@@ -61,8 +61,9 @@
       @else
       <div class="col-md-3">
       <h3>Profile Image </h3>
-         @foreach($artists as $artists)
-         
+         @foreach($profile as $artists)
+         @if($artists->profilepicture!='')
+
          <div class="row mb-2" id="{{$artists->id}}">
                <div class="col-7">
                  <span>Profile Picture</span> <img type-image="profilepicture" width="100%" src="{{url('storage/app/public/uploads/'.$artists->profilepicture)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
@@ -72,9 +73,12 @@
                <h5>{{$artists->nickname}}</h5>
             </div>
          </div>
+         @endif
          @endforeach 
          <hr class="mt-4">
          <h3>Background Image </h3>
+         @foreach($profile as $artists)
+         @if($artists->cover_photo!='')
          <div class="row mb-2" id="{{$artists->id}}">
                <div class="col-7">
                  <span>Background Picture</span> <img type-image="background" width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
@@ -84,6 +88,8 @@
                <h5>{{$artists->nickname}}</h5>
             </div>
          </div>
+         @endif
+         @endforeach 
       </div>
       @endif
    </div>

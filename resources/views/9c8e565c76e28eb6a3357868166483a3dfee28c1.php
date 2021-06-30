@@ -119,8 +119,8 @@
                   <thead>
                      <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
+                        <th scope="col">File Name</th>
+                        <th scope="col">Artist</th>
                      </tr>
                   </thead>
                   <tbody>
@@ -183,57 +183,6 @@
          </div>
       </div>
    </div>
-
-<!-- <section class="reportmeadia">
-   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-         <?php $__currentLoopData = $reports; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $is_not_veryfy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-         <div class="carousel-item active">
-            <div class="row media">
-               <div class="col-md-4">
-                  <?php if($is_not_veryfy->type=='video'): ?>
-                  <video width="100%" controls>
-                     <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-                  </video>
-                  <?php else: ?>
-                  <video width="100%" controls>
-                     <source src="<?php echo e(url('storage/app/public/video/'.$is_not_veryfy->media)); ?>" type="video/mp4">
-                  </video>
-                  <?php endif; ?>
-               </div>
-               <div class="col-md-8">
-                  <div class="reportitems">
-                     <h3><?php echo e($is_not_veryfy->reason); ?></h3>
-                     <p> <?php echo e($is_not_veryfy->description); ?> </p>
-                     <div class="text-right buttons">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#legal" type="button">Start Review</button>
-                        <button class="btn btn-outline-primary" type="button" onClick="legelorNot(<?php echo e($is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid); ?>,1)">Mark as legal</button>
-                        <button class="btn btn-outline-primary" type="button" onClick="legelorNot(<?php echo e($is_not_veryfy->id.','.$is_not_veryfy->increamented.','.$is_not_veryfy->contentProviderid); ?>,-1)">illegal + delete</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-   </div>
-   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-   <span class="sr-only">Previous</span>
-   </a>
-   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-   <span class="sr-only">Next</span>
-   </a>
-   </div>
-   </div>
-</section> -->
 
 <!-- History -->
 <div class="tab-pane fade" id="pills-history" role="tabpanel" aria-labelledby="pills-history-tab">
@@ -474,8 +423,8 @@
                <thead>
                   <tr>
                      <th scope="col">#</th>
-                     <th scope="col">First</th>
-                     <th scope="col">Last</th>
+                     <th scope="col">File Name</th>
+                     <th scope="col">Artist</th>
                   </tr>
                </thead>
                <tbody>
@@ -515,26 +464,6 @@
       <div class="tab-pane fade" id="Offer" role="tabpanel" aria-labelledby="Offer-tab">
          <div class="text-center">
          </div>
-         <!-- <div class="table-responsive">
-            <table class="table">
-               <thead>
-                  <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">File Name	</th>
-                     <th scope="col">Artist</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <?php $__currentLoopData = $notVerifyOrder; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notVerifyOrder1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                  <tr>
-                     <th scope="row"><?php echo e($loop->iteration); ?></th>
-                     <td><?php echo e($notVerifyOrder1->deliever_media); ?></td>
-                     <td><?php echo e($notVerifyOrder1->nickname); ?></td>
-                  </tr>
-                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-               </tbody>
-            </table>
-         </div> -->
       </div>
    </div>
 </div>

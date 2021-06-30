@@ -10,6 +10,7 @@
 </header>
 <div class="container-fluid mt-5">
    <div class="row">
+   <?php if($type!='picture'): ?>
       <div class="col-md-9">
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($notVerified)); ?>)">
             <source src="<?php echo e(url('storage/app/public/video/'.$notVerified[0]->media)); ?>" id="first" type="video/mp4">
@@ -23,8 +24,24 @@
          </div>
          <input type="hidden" class="verify_id" value="<?php echo e($notVerified[0]->id); ?>"/>
       </div>
+      <?php else: ?>
+      <div class="col-md-9">
+         <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($notVerified)); ?>)">
+            <source src="<?php echo e(url('storage/app/public/video/'.$notVerified[0]->media)); ?>" id="first" type="video/mp4">
+         </video> -->
+         <img src="<?php echo e(url('storage/app/public/uploads/'.$profile[0]->profilepicture)); ?>" id="imageSrc" width="100%" id="sample_video" >
+         <div class="text-center">
+            <button class="btn btn-primary" type="button" data-id="<?php echo e($profile[0]->id); ?>" onClick="permit(this,true,<?php echo e(json_encode($profile)); ?>,'<?php echo e($type); ?>')">Permit</button>
+            <button class="btn btn-primary" type="button" data-id="<?php echo e($profile[0]->id); ?>" onClick="permit(this,false,<?php echo e(json_encode($profile)); ?>,'<?php echo e($type); ?>')">Deny</button>
+         </div>
+         <input type="hidden" class="verify_id" value="<?php echo e($profile[0]->id); ?>"/>
+         <input type="hidden" class="picture" value="profilepicture"/>
+
+      </div>
+      <?php endif; ?>
       <?php if($type!='picture'): ?>
       <div class="col-md-3">
+     
          <?php $__currentLoopData = $notVerified; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $content): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
          
          <div class="row mb-2" id="<?php echo e($content->id); ?>">
@@ -38,21 +55,40 @@
             </div>
          </div>
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+     
+
       </div>
       <?php else: ?>
       <div class="col-md-3">
-         <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artists): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-         
+      <h3>Profile Image </h3>
+         <?php $__currentLoopData = $profile; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artists): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+         <?php if($artists->profilepicture!=''): ?>
+
          <div class="row mb-2" id="<?php echo e($artists->id); ?>">
                <div class="col-7">
-                 <span>Profile Picture</span> <img width="100%" src="<?php echo e(url('storage/app/public/uploads/'.$artists->profilepicture)); ?>" height="100%" class="video" controls onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($artists)); ?>)">
-                 <span>Background Picture</span> <img width="100%" src="<?php echo e(url('storage/app/public/uploads/'.$artists->cover_photo)); ?>" height="100%" class="video" controls onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($artists)); ?>)">
+                 <span>Profile Picture</span> <img type-image="profilepicture" width="100%" src="<?php echo e(url('storage/app/public/uploads/'.$artists->profilepicture)); ?>" height="100%" class="video" controls onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($artists)); ?>)">
 
                </div>
             <div class="col-5">
                <h5><?php echo e($artists->nickname); ?></h5>
             </div>
          </div>
+         <?php endif; ?>
+         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
+         <hr class="mt-4">
+         <h3>Background Image </h3>
+         <?php $__currentLoopData = $profile; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artists): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+         <?php if($artists->cover_photo!=''): ?>
+         <div class="row mb-2" id="<?php echo e($artists->id); ?>">
+               <div class="col-7">
+                 <span>Background Picture</span> <img type-image="background" width="100%" src="<?php echo e(url('storage/app/public/uploads/'.$artists->cover_photo)); ?>" height="100%" class="video" controls onClick="startReviw(this,'<?php echo e($type); ?>',<?php echo e(json_encode($artists)); ?>)">
+
+               </div>
+            <div class="col-5">
+               <h5><?php echo e($artists->nickname); ?></h5>
+            </div>
+         </div>
+         <?php endif; ?>
          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
       </div>
       <?php endif; ?>

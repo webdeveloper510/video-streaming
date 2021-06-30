@@ -303,7 +303,8 @@ class AuthController extends Controller
 
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      $artists = $this->model->getArtistnotVerified();
+      $artists = $this->model->getArtistnotVerified('is_verified');
+      $artists = $this->model->getArtistnotVerified('background_verified');
 
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 
@@ -2278,7 +2279,7 @@ public function readNotification(Request $request){
     
     
     
-                  return view('reviewContent',['type'=>$text,'artists'=>$artists,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifyContent]);
+                  return view('reviewContent',['type'=>$text,'profile'=>$profile,'backgound'=>$background,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifyContent]);
 
         }
 
