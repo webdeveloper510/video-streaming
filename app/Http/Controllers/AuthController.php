@@ -388,8 +388,6 @@ class AuthController extends Controller
 
       $array_data = $req->data;
 
-      
-
       if($req->bool=='true'){
 
 
@@ -400,21 +398,36 @@ class AuthController extends Controller
 
         $is_verified= -1;
       }
+
+      if($req->image){
+
+
+        $type = $req->image=='profilepicture' ? 'is_verified' : 'background_verified'; 
+              
+        $updated = $this->UpdateArtistTable($type,$is_verified,$req->videoid);
+
+       
+
+
+      }
+
+      else{
+
       $table = $req->type=='offer' ? 'offer' : 'media';
 
       $req->type=='orders' ? $this->model->addonContentProvider($req) : '';
       
       $verify = array('is_verified'=>$is_verified);
 
-
-      $type = $req->type;  // Update verify based on type pending 
-      //echo $req->videoid;die;
       $updated = $this->model->UpdateData($table,'id',$verify,$req->videoid);
+
+      $type= $req->type;
+      }
 
       if($updated){
         $verify1 = array('is_deleted'=>1);
 
-          $done = $this->model->UpdateDatainVideoVerified($verify1,$req->all());
+          $done = $this->model->UpdateDatainVideoVerified($verify1,$type);
 
 
           if($done){
@@ -449,6 +462,15 @@ class AuthController extends Controller
 
     }
 
+    public function UpdateArtistTable($key,$verify,$id){
+
+      $array= array($key=>$verify);
+
+      $updated = $this->model->UpdateData('contentprovider','id',$array,$req->videoid);
+
+      return $updated;
+
+    }
     public function subcat_video($subid){
      
 

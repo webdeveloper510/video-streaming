@@ -77,11 +77,11 @@
          @endforeach 
          <hr class="mt-4">
          <h3>Background Image </h3>
-         @foreach($profile as $artists)
+         @foreach($backgound as $artists)
          @if($artists->cover_photo!='')
          <div class="row mb-2" id="{{$artists->id}}">
                <div class="col-7">
-                 <span>Background Picture</span> <img type-image="background" width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
+       <img type-image="background" width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
 
                </div>
             <div class="col-5">

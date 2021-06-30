@@ -2882,7 +2882,8 @@ public function addonContentProvider($data){
         ]);
   
           $update1 = DB::table('offer')->where(array('id'=>$data['videoid']))->update([
-            'paid_status' => 1
+            'paid_status' => 1,
+            'status'=>'deliever'
           
         ]);
 
@@ -3388,7 +3389,7 @@ public function UpdateDatainVideoVerified($update,$data){
 
 
  return DB::table('video_verified')
-  ->where(array('mediaid'=>$data['videoid'],'video_type'=>$data['type']))
+  ->where(array('mediaid'=>$data['videoid'],'video_type'=>$data))
   ->update($update);
 
 }

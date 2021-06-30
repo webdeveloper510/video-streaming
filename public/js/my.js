@@ -1637,6 +1637,8 @@ function startReviw(a,type,data){
     if(image){
 
         var src = $(a).attr("src");
+
+        var type = image
     }
     
     $.ajax({
@@ -1646,7 +1648,7 @@ function startReviw(a,type,data){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
 
-        data:{'videoid':id,'type':type,'data':data},
+        data:{'videoid':id,'image':image,'type':type,'data':data},
 
         success: function (response) { 
 
