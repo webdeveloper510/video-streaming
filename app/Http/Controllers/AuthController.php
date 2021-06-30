@@ -303,8 +303,8 @@ class AuthController extends Controller
 
       $notVerifiedContent = $this->model->getNotVerifiedContent('media');
 
-      $profile = $this->model->getArtistnotVerified('is_verified');
-      $background = $this->model->getArtistnotVerified('background_verified');
+      $profile = $this->model->getArtistnotVerified('is_verified','profilepicture');
+      $background = $this->model->getArtistnotVerified('background_verified','cover_photo');
 
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 
