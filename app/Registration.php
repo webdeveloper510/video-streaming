@@ -537,12 +537,10 @@ public function getSocialName($id){
       });
 }
 
-public function getArtistnotVerified(){
+public function getArtistnotVerified($column){
 
         return DB::table('contentprovider')
-        ->where('is_verified',0)
-        ->where('profilepicture','!=','')
-        ->where('cover_photo','!=','')
+        ->where($column,0)
         ->get();
 }
 

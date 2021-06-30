@@ -2268,7 +2268,8 @@ public function readNotification(Request $request){
 
           if($text=='picture'){
 
-            $artists = $this->model->getArtistnotVerified();
+            $profile = $this->model->getArtistnotVerified('is_verified');
+            $background = $this->model->getArtistnotVerified('background_verified');
 
 
           }
