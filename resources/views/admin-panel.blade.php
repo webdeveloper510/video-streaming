@@ -139,7 +139,7 @@
   </div>
   <div class="bankpayout">
   <div class="text-center">
-  <h5 class="modal-title" id="BankLabel">Bank Account Payouts</h5>
+  <h5 class="modal-title my-4" id="BankLabel">Bank Account Payouts</h5>
   </div>
   <form>
   <div class="form-row">
@@ -247,9 +247,9 @@
 </table>
 
   </div>
-  <div class="paxumpayout">
+  <div class="paxumpayout my-4">
   <div class="text-center">
-  <h5 class="modal-title" id="BankLabel">paxum Account Payouts</h5>
+  <h5 class="modal-title mb-4" id="BankLabel">paxum Account Payouts</h5>
   </div>
   <form>
   <div class="form-row">
