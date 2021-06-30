@@ -78,7 +78,7 @@
                      </tr>
                   </thead>
                   <tbody>
-                     @foreach($artists as $artist)
+                     @foreach($profile as $artist)
                      <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>Profile Picture:{{$artist->profilepicture}}, Background Picture : {{$artist->cover_photo}}</td>
