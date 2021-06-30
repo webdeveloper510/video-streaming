@@ -68,6 +68,8 @@
       <div class="tab-content" id="myTabContent">
          <!-- Background tab -->
          <div class="tab-pane fade show active" id="Background" role="tabpanel" aria-labelledby="Background-tab">
+         <div class="row">
+         <div class="col-md-6">
             <div class="table-responsive mb-5">
                <table class="table">
                   <thead>
@@ -81,13 +83,38 @@
                      <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                      <tr>
                         <th scope="row"><?php echo e($loop->iteration); ?></th>
-                        <td>Profile Picture:<?php echo e($artist->profilepicture); ?>, Background Picture : <?php echo e($artist->cover_photo); ?></td>
+                        <td>Profile Picture:<?php echo e($artist->profilepicture); ?></td>
                         <td><?php echo e($artist->nickname); ?></td>
                      </tr>
                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
                </table>
             </div>
+            </div>
+            <div class="col-md-6">
+            <div class="table-responsive mb-5">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">File Name</th>
+                        <th scope="col">Artist</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <?php $__currentLoopData = $background; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $artist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                     <tr>
+                        <th scope="row"><?php echo e($loop->iteration); ?></th>
+                        <td> Background Picture : <?php echo e($artist->cover_photo); ?></td>
+                        <td><?php echo e($artist->nickname); ?></td>
+                     </tr>
+                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </tbody>
+               </table>
+            </div>
+            </div>
+            </div>
+            
          </div>
          <!-- Services tab -->
          <div class="tab-pane fade" id="Services" role="tabpanel" aria-labelledby="Services-tab">
