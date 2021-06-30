@@ -39,31 +39,27 @@
          </div>
       </div>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
-         <li class="nav-item tb1">
+         <li class="nav-item tb2">
             <a class="nav-link active" id="Background-tab" data-toggle="tab" href="#Background" role="tab" aria-controls="Background" aria-selected="true">Profile & Background pictures (<span>0</span>) <br>
             Oldest : <span>0h</span><br>
             <a class="btn btn-outline-primary" href="{{url('showContent/picture')}}">start Review</a></a>
          </li>
-         <li class="nav-item tb1">
+         <li class="nav-item tb2">
             <a class="nav-link" id="Services-tab" data-toggle="tab" href="#Services" role="tab" aria-controls="Services" aria-selected="false">Services (<span>0</span>)<br><br>
             Oldest : <span>0h</span><br>
             <a class="btn btn-outline-primary" href="{{url('showContent/offer')}}">start Review</a></a>
          </li>
-         <li class="nav-item tb1">
+         <li class="nav-item tb2">
             <a class="nav-link" id="Overview-tab" data-toggle="tab" href="#Overview" role="tab" aria-controls="Overview" aria-selected="false">Overview (<span>0</span>)<br>
             <br> Oldest : <span>0h</span><br>
             <a class="btn btn-outline-primary" href="{{url('showContent/overview')}}">start Review</a></a>
          </li>
-         <li class="nav-item tb1">
+         <li class="nav-item tb2">
             <a class="nav-link" id="Collection-tab" data-toggle="tab" href="#Collection" role="tab" aria-controls="Collection" aria-selected="false">Collection (<span>0</span>)<br>
             <br> Oldest : <span>0h</span><br>
             <a class="btn btn-outline-primary" href="{{url('showContent/collection')}}">start Review</a></a>
          </li>
-         <li class="nav-item tb1">
-            <a class="nav-link" id="Offer-tab" data-toggle="tab" href="#Offer" role="tab" aria-controls="Offer" aria-selected="false">Orders (<span>0</span>)<br>
-            <br> Oldest : <span>0h</span><br>
-            <a class="btn btn-outline-primary" href="{{url('showContent/orders')}}">start Review</a></a>
-         </li>
+        
       </ul>
       <div class="tab-content" id="myTabContent">
          <!-- Background tab -->
