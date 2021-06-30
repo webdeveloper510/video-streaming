@@ -539,7 +539,7 @@ public function getSocialName($id){
 
 public function getArtistnotVerified($column,$key){
 
-         $data = DB::table('contentprovider')
+        return $data = DB::table('contentprovider')
         ->where($column,0)
         ->where($key,'!=','')
         ->get();

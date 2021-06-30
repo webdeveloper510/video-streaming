@@ -307,11 +307,11 @@ class AuthController extends Controller
       $background = $this->model->getArtistnotVerified('background_verified','cover_photo');
 
       
-      echo "<pre>";
+//       echo "<pre>";
 
-      print_r($profile);
-      print_r($background);
-die;
+//       print_r($profile);
+//       print_r($background);
+// die;
 
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 
