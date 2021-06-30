@@ -67,7 +67,7 @@
           </div>
           <div class="col">
               <h3>Category</h3>
-              <p>{{$offerdata->category}}</p>
+              <p>{{$offerdata->category}}</p>    
           </div>
           <div class="col">
               <h3>Delievery Speed</h3>
