@@ -537,10 +537,11 @@ public function getSocialName($id){
       });
 }
 
-public function getArtistnotVerified($column){
+public function getArtistnotVerified($column,$key){
 
-        return DB::table('contentprovider')
+         $data = DB::table('contentprovider')
         ->where($column,0)
+        ->where($key,'!=','')
         ->get();
 }
 
@@ -3242,12 +3243,13 @@ public function update_cover($data,$req){
 
       $userid =  $session_data->id;
 
-   
+      $verify = $req['image_type']== 'profilepicture' ? 'is_verified' : 'background_verified';
 
      $update = DB::table('contentprovider')->where(array('id'=> $userid))
 
      ->update([
-           $req['image_type'] =>$data
+           $req['image_type'] =>$data,
+           $verify => 0
          ]);
    
        return $update;

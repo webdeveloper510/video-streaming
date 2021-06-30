@@ -1655,7 +1655,7 @@ function startReviw(a,type,data){
          //console.log(response);return false;
 
          if(response=='already'){
-             alert('Already Reviwed');
+             //alert('Already Reviwed');
          }
 
          else{
@@ -1749,7 +1749,7 @@ function permit(a,status,data,type){
 
                 location.reload();
 
-                alert('Verified');
+               //alert('Verified');
 
                 $('#'+id).remove();
 
