@@ -73,7 +73,7 @@
             </div>
          </div>
          @endforeach 
-         <hr>
+         <hr class="mt-4">
          <h3>Background Image </h3>
          <div class="row mb-2" id="{{$artists->id}}">
                <div class="col-7">
