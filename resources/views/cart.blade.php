@@ -1,6 +1,5 @@
 @include('layouts.header')
  
-
 <style type="text/css">
   
 .total {
@@ -92,16 +91,10 @@ button.btn-primary:hover {
   </tbody>
 </table>
         <button class="btn btn-primary px-4" type="button">Proceed To Checkout</button>
-
-
-
       </div>
 
     </div>
      </div>
-
-
-
     </div>
      </div>
   

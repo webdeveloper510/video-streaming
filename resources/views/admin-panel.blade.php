@@ -230,27 +230,27 @@
   <div class="form-row">
     <div class="col-md-6 mb-3">
       <label for="validationDefault01">Account Nr/IBAN:</label>
-      <input type="text" class="form-control" id="validationDefault01"  value="Mark" required>
+      <input type="text" readonly  class="form-control" id="validationDefault01"  value="Mark" required>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault02">Bank:</label>
-      <input type="text" class="form-control" id="validationDefault02"  value="Otto" required>
+      <input type="text" readonly  class="form-control" id="validationDefault02"  value="Otto" required>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault03">Name/Company:</label>
-      <input type="text" class="form-control" id="validationDefault03"  required>
+      <input type="text" readonly  class="form-control" id="validationDefault03"value="Mark"  required>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault04">Bank Address:</label>
-      <input type="text" class="form-control" id="validationDefault04"  required>
+      <input type="text" readonly  class="form-control" id="validationDefault04" value="Mark"  required>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault03">Address:</label>
-      <input type="text" class="form-control" id="validationDefault03"  required>
+      <input type="text" readonly  class="form-control" id="validationDefault03" value="Mark"  required>
     </div>
     <div class="col-md-6 mb-3">
       <label for="validationDefault04">BIC:</label>
-      <input type="text" class="form-control" id="validationDefault04"  required>
+      <input type="text" readonly  class="form-control" id="validationDefault04" value="Mark"  required>
     </div>
     
   </div>

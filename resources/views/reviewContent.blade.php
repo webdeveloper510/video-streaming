@@ -41,6 +41,7 @@
       @endif
       @if($type!='picture')
       <div class="col-md-3">
+     
          @foreach($notVerified as $content)
          
          <div class="row mb-2" id="{{$content->id}}">
@@ -54,15 +55,17 @@
             </div>
          </div>
          @endforeach 
+     
+
       </div>
       @else
       <div class="col-md-3">
+      <h3>Profile Image </h3>
          @foreach($artists as $artists)
          
          <div class="row mb-2" id="{{$artists->id}}">
                <div class="col-7">
                  <span>Profile Picture</span> <img type-image="profilepicture" width="100%" src="{{url('storage/app/public/uploads/'.$artists->profilepicture)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
-                 <span>Background Picture</span> <img type-image="background" width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
 
                </div>
             <div class="col-5">
@@ -70,6 +73,17 @@
             </div>
          </div>
          @endforeach 
+         <hr class="mt-4">
+         <h3>Background Image </h3>
+         <div class="row mb-2" id="{{$artists->id}}">
+               <div class="col-7">
+                 <span>Background Picture</span> <img type-image="background" width="100%" src="{{url('storage/app/public/uploads/'.$artists->cover_photo)}}" height="100%" class="video" controls onClick="startReviw(this,'{{$type}}',{{json_encode($artists)}})">
+
+               </div>
+            <div class="col-5">
+               <h5>{{$artists->nickname}}</h5>
+            </div>
+         </div>
       </div>
       @endif
    </div>
