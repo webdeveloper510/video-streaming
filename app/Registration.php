@@ -3363,7 +3363,7 @@ public function update_due_to_process($data){
 
 public function insertVerifyMediaData($data){
 
-  print_r($data);die;
+ // print_r($data);die;
 
   $sessionLogin = Session::get('pazLogin');
 
