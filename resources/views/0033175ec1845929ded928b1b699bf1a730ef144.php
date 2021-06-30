@@ -395,11 +395,11 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-        <div class="verify text-center" style="<?php echo e($offer->is_verified==0 ? 'display:block' : 'display:none'); ?>">
+        <div class="verify text-center" style="<?php echo e($random[0]->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo den text-center" >
-               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+               <button type="button"  class="btn btn-danger" data-toggle="modal" style="<?php echo e($random[0]->is_verified== -1 ? 'display:block' : 'display:none'); ?>" data-target="#denied">Denied</button>
             </div>
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
             <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" controls List="nodownload" disablePictureInPicture>
