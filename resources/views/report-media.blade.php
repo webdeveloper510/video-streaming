@@ -464,26 +464,6 @@
       <div class="tab-pane fade" id="Offer" role="tabpanel" aria-labelledby="Offer-tab">
          <div class="text-center">
          </div>
-         <!-- <div class="table-responsive">
-            <table class="table">
-               <thead>
-                  <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">File Name	</th>
-                     <th scope="col">Artist</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  @foreach($notVerifyOrder as $notVerifyOrder1)
-                  <tr>
-                     <th scope="row">{{$loop->iteration}}</th>
-                     <td>{{$notVerifyOrder1->deliever_media}}</td>
-                     <td>{{$notVerifyOrder1->nickname}}</td>
-                  </tr>
-                  @endforeach
-               </tbody>
-            </table>
-         </div> -->
       </div>
    </div>
 </div>
