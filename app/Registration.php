@@ -3363,6 +3363,8 @@ public function update_due_to_process($data){
 
 public function insertVerifyMediaData($data){
 
+  print_r($data);die;
+
   $sessionLogin = Session::get('pazLogin');
 
   $exist = DB::table('video_verified')->where(array('mediaid'=>$data['videoid'],'video_type'=>$data['type']))->get()->toArray();

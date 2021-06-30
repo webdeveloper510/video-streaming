@@ -1652,7 +1652,7 @@ function startReviw(a,type,data){
 
         success: function (response) { 
 
-         //console.log(response);return false;
+         console.log(response);return false;
 
          if(response=='already'){
              //alert('Already Reviwed');
