@@ -1949,7 +1949,7 @@ $(document).on('submit', '#report', function (event) {
 
 
 
-$(document).on('click', '.visible_popup', function (event) {
+$(document).on('click', '#orderPopup', function (event) {
     event.preventDefault();
     $.ajax({
         type: 'POST',

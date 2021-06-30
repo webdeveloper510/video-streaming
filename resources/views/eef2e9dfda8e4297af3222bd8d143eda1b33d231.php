@@ -59,7 +59,7 @@
           </div>
           <div class="col">
               <h3>Price</h3>
-              <p> <span  style="color:gold !important;"><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/Minute</p>
+              <p> <span  style="color:gold !important;"><?php echo e($offerdata->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">/PAZ</b></span>/Minute</p>
           </div>
           <div class="col">
               <h3>Quality</h3>
@@ -71,7 +71,7 @@
           </div>
           <div class="col">
               <h3>Delievery Speed</h3>
-              <p><?php echo e($offerdata->delieveryspeed); ?> Days</p>
+              <p><?php echo e($offerdata->delieveryspeed+1); ?> Days</p>
           </div>
         </div>
         <?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
