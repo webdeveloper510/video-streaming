@@ -2899,6 +2899,12 @@ public function addonContentProvider($data){
           'token' =>  DB::raw('tokens +'.$tokensData[0]->tokens)
         ]);
 
+        $update1 = DB::table('offer')->where(array('id'=>$data['videoid']))->update([
+
+          'status'=>'cancelled'
+        
+      ]);
+
       }
 
     
