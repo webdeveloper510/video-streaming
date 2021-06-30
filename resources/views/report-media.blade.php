@@ -81,11 +81,13 @@
                   </thead>
                   <tbody>
                      @foreach($artists as $artist)
+                     @if($artist->profilepicture!='')
                      <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>Profile Picture:{{$artist->profilepicture}}</td>
                         <td>{{$artist->nickname}}</td>
                      </tr>
+                     @endif
                      @endforeach
                   </tbody>
                </table>
@@ -103,11 +105,13 @@
                   </thead>
                   <tbody>
                      @foreach($background as $artist)
+                     @if($artist->cover_photo!='')
                      <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td> Background Picture : {{$artist->cover_photo}}</td>
                         <td>{{$artist->nickname}}</td>
                      </tr>
+                     @endif
                      @endforeach
                   </tbody>
                </table>
