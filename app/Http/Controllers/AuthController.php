@@ -2294,6 +2294,11 @@ public function readNotification(Request $request){
             $profile = $this->model->getArtistnotVerified('is_verified');
             $background = $this->model->getArtistnotVerified('background_verified');
 
+            echo "<pre>";
+
+            print_r($profile);
+            print_r($background);
+die;
 
           }
 
