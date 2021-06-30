@@ -31,7 +31,7 @@
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video> -->
-         <img src="{{$profile ? url('storage/app/public/uploads/'.$profile[0]->profilepicture) : url('storage/app/public/uploads/'.$profile[0]->cover_photo)}}" id="imageSrc" width="100%" id="sample_video" >
+         <img src="{{$profile ? url('storage/app/public/uploads/'.$profile[0]->profilepicture) : url('storage/app/public/uploads/'.$backgound[0]->cover_photo)}}" id="imageSrc" width="100%" id="sample_video" >
          <div class="text-center">
             <button class="btn btn-primary" type="button" data-id="{{$profile[0]->id}}" onClick="permit(this,true,{{json_encode($profile)}},'{{$type}}')">Permit</button>
             <button class="btn btn-primary" type="button" data-id="{{$profile[0]->id}}" onClick="permit(this,false,{{json_encode($profile)}},'{{$type}}')">Deny</button>
