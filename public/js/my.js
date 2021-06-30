@@ -1747,6 +1747,8 @@ function permit(a,status,data,type){
 
             if(data==1){
 
+                location.reload();
+
                 alert('Verified');
 
                 $('#'+id).remove();
