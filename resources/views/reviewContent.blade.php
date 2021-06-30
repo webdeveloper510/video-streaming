@@ -25,8 +25,6 @@
          <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
       </div>
       @else
-
-      @if($profile || $backgound)
       <div class="col-md-9">
          <!-- <video width="100%" id="sample_video" onClick="startReviw(this,'{{$type}}',{{json_encode($notVerified)}})">
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
@@ -40,7 +38,6 @@
          <input type="hidden" class="picture" value="{{$profile ? 'profilepicture' : 'background'}}"/>
 
       </div>
-      @endif
       @endif
       @if($type!='picture')
       <div class="col-md-3">
