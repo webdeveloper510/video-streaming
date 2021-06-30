@@ -403,27 +403,57 @@
    <div class="tab-content" id="myTabContent">
       <!-- Background tab -->
       <div class="tab-pane fade show active" id="Background" role="tabpanel" aria-labelledby="Background-tab">
-         <div class="table-responsive mb-5">
-            <table class="table">
-               <thead>
-                  <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">File Name</th>
-                     <th scope="col">Artist</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  @foreach($artists as $artist)
-                  <tr>
-                     <th scope="row">{{$loop->iteration}}</th>
-                     <td>{{$artist->profilepicture}}</td>
-                     <td>{{$artist->nickname}}</td>
-                  </tr>
-                  @endforeach
-               </tbody>
-            </table>
+         <div class="row">
+         <div class="col-md-6">
+            <div class="table-responsive mb-5">
+              <table class="table">
+                  <thead>
+                     <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">File Name</th>
+                        <th scope="col">Artist</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @foreach($artists as $artist)
+                     @if($artist->profilepicture!='')
+                     <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>Profile Picture:{{$artist->profilepicture}}</td>
+                        <td>{{$artist->nickname}}</td>
+                     </tr>
+                     @endif
+                     @endforeach
+                  </tbody>
+               </table>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="table-responsive mb-5">
+              <table class="table">
+                  <thead>
+                     <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">File Name</th>
+                        <th scope="col">Artist</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     @foreach($background as $artist)
+                     @if($artist->cover_photo!='')
+                     <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>Profile Picture:{{$artist->profilepicture}}</td>
+                        <td>{{$artist->nickname}}</td>
+                     </tr>
+                     @endif
+                     @endforeach
+                  </tbody>
+               </table>
+            </div>
+            </div>
+</div>
          </div>
-      </div>
       <!-- Services tab -->
       <div class="tab-pane fade" id="Services" role="tabpanel" aria-labelledby="Services-tab">
          <div class="table-responsive">
