@@ -542,7 +542,7 @@ public function getArtistnotVerified($column,$key){
         return $data = DB::table('contentprovider')
         ->where($column,0)
         ->where($key,'!=','')
-        ->get();
+        ->get()->toArray();
 }
 
 // public function getArtistVerifiedNot($where){
