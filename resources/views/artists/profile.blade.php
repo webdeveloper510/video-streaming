@@ -96,7 +96,7 @@
         <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
-               <div class="verifyvideo den text-center" >
+               <div class="verifyvideo den text-center" style="{{$offer->is_verified== -1? 'display:block' : 'display:none'}}">
                   <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
                <a href=""  data-toggle="modal" data-target="#denied" style="{{$offer->is_verified== -1 ? 'display:block' : 'display:none'}}">Denied</a>

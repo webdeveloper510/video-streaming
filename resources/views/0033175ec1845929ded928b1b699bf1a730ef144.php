@@ -4,11 +4,11 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-        <div class="verify text-center cover" style="<?php echo e($offer->is_verified==0 ? 'display:block' : 'display:none'); ?>">
+        <div class="verify text-center cover" style="<?php echo e($details[0]->background_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo  den text-center cover" >
-               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+               <button type="button"  style="<?php echo e($details[0]->background_verified==-1 ? 'display:block' : 'display:none'); ?>" class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
         <div class="overlayartist text-center">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid cover_loader" style="display:none">
@@ -99,7 +99,7 @@
         <div class="verify text-center" style="<?php echo e($offer->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
-               <div class="verifyvideo den text-center" >
+               <div class="verifyvideo den text-center" style="<?php echo e($offer->is_verified== -1? 'display:block' : 'display:none'); ?>">
                   <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
                <a href=""  data-toggle="modal" data-target="#denied" style="<?php echo e($offer->is_verified== -1 ? 'display:block' : 'display:none'); ?>">Denied</a>
