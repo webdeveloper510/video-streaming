@@ -399,7 +399,7 @@ class AuthController extends Controller
         $is_verified= -1;
       }
 
-      if($req->image){
+      if($req->image!=''){
 
 
         $type = $req->image=='profilepicture' ? 'is_verified' : 'background_verified'; 
@@ -466,7 +466,7 @@ class AuthController extends Controller
 
       $array= array($key=>$verify);
 
-      $updated = $this->model->UpdateData('contentprovider','id',$array,$req->videoid);
+      $updated = $this->model->UpdateData('contentprovider','id',$array,$id);
 
       return $updated;
 
