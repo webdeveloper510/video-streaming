@@ -26,7 +26,6 @@ input.select_media_pic {
 .profileimg {
     position: absolute;
     border: 3px solid white;
-   
     margin-top: -167px;
 }
 .profileimg img {
