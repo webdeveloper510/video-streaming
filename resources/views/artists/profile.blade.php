@@ -4,11 +4,11 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
-        <div class="verify text-center cover" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
+        <div class="verify text-center cover" style="{{$details[0]->background_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo  den text-center cover" >
-               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+               <button type="button"  style="{{$details[0]->background_verified==-1 ? 'display:block' : 'display:none'}}" class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
         <div class="overlayartist text-center">
            <img src=" {{asset('images/loaderartist.gif')}}" class="img-fluid cover_loader" style="display:none">
@@ -96,7 +96,7 @@
         <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
-               <div class="verifyvideo den text-center" >
+               <div class="verifyvideo den text-center" style="{{$offer->is_verified== -1? 'display:block' : 'display:none'}}">
                   <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
                <a href=""  data-toggle="modal" data-target="#denied" style="{{$offer->is_verified== -1 ? 'display:block' : 'display:none'}}">Denied</a>
@@ -390,11 +390,11 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-        <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
+        <div class="verify text-center" style="{{$random[0]->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
                <div class="verifyvideo den text-center" >
-               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+               <button type="button"  class="btn btn-danger" data-toggle="modal" style="{{$random[0]->is_verified== -1 ? 'display:block' : 'display:none'}}" data-target="#denied">Denied</button>
             </div>
           @if(isset($random[0]->type)&&$random[0]->type=='video')
             <video width="100%" height="100%" id="get_duration"  poster="{{url('storage/app/public/uploads/'.$random[0]->audio_pic) }}" controls List="nodownload" disablePictureInPicture>
