@@ -190,7 +190,7 @@ class artist extends Controller
     public function artistVideo($vedioid){
 
        $wishlistCheck = $this->model->checkVideoBuyed('wishlist','',$vedioid);
-       
+
        $buyed = $this->model->checkVideoBuyed('playlist','normal',$vedioid);
       
           $allVedios = $this->model->getVideo($vedioid);
@@ -430,10 +430,10 @@ class artist extends Controller
 
   }
 
-  public function createOffer(Request $req){
+  public function createOffer(Request $request){
 
               $validator = \Validator::make($req->all(), [
-            'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
+          //'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
             'title'=>'required',
             'offer_status'=>'required',
             'delieveryspeed'=>'required',
@@ -445,7 +445,7 @@ class artist extends Controller
             'price'=>'required|max:50000',
             'min'=>'required|min:1',
             'max'=>'required|gt:min',
-            'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
+            //'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
 
         ]);
 
@@ -456,40 +456,119 @@ class artist extends Controller
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
 
-   
-         
+                if($request->type=='video'){
+                  $data=$request->all();
+                    $fileName = time().'_'.$request->media->getClientOriginalName();
+                    $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
+                    $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
+                    $ext =$request->media->getClientOriginalExtension();
+                    $filePath= $request->media->storeAs('video', $fileName, 'public');
+                      $size  = $request->media->getSize();
+                    $data['size'] = number_format($size / 1048576,2);
 
-        if($req->media){
+                    unset($data['_token']);
 
-            $data=$req->all();
-              $fileName = time().'_'.$req->media->getClientOriginalName();
-              $ext =$req->media->getClientOriginalExtension();
-              $audio_pics = $req->thumbnail_pic ? time().'_'.$req->thumbnail_pic->getClientOriginalName():'';
-              $req->thumbnail_pic ? $req->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
-              $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
+                    $data['media']=$fileName;
 
+                    $data['audio_pic'] = $audio_pics ? $audio_pics : '';
+                    unset($data['thumbnail_pic']);
+
+                    $data['type']= 'video'; 
+
+                    $data['categoryid']= $data['video_cat'];
+
+                    $data['quality']= $req->quality ? $req->quality : '';
+                    
+                    unset($data['audio_cat']);
+                    unset($data['video_cat']);
+                    unset($data['transloadit']);
+                    unset($data['transloadit_image']);
+                    unset($data['assembly_id']);
+
+                    //print_r($data);die;
+
+                      if($filePath){
+
+                        $createOffer = $this->model->createOffer($data);
+
+                    }
+            }
+
+            else{
+            
+              $data=$request->all();
+
+             // print_r($data);die;
+              $audio_pics = '';
+                $size  = '';
+              $data['size'] = '0';
               unset($data['_token']);
-              $data['media']=$fileName;
-              $data['quality']= $req->quality ? $req->quality : '';
-              $data['categoryid']=$ext=='mp3' ? $data['audio_cat'] : $data['video_cat'];
-              $data['type']=  $data['type'];
+              $data['media']='';
+              $data['audio_pic'] = $audio_pics ? $audio_pics : '';
+              unset($data['thumbnail_pic']);
+              $data['quality'] = '';
+              $data['type']= 'audio'; 
+              $data['assembly_id']=$data['assembly_id'];
+              $data['categoryid']= $data['audio_cat'];
+
+
+              
               unset($data['audio_cat']);
               unset($data['video_cat']);
-              $data['audio_pic'] = $audio_pics;
-              unset($data['thumbnail_pic']);
-                if($filePath){
+              unset($data['transloadit']);
+              unset($data['transloadit_image']);
+
+              if($data){
 
                 $createOffer = $this->model->createOffer($data);
 
-                  if($createOffer==1){
-                    return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
-                    }
-                    else
-                    {
-                      return response()->json(array('status'=>0, 'messge'=>'Some Error Ocure!'));
-                    }
+
               }
-      }
+
+
+            }
+
+            if($createOffer==1){
+              return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
+              }
+              else
+              {
+                return response()->json(array('status'=>0, 'messge'=>'Some Error Ocure!'));
+              }
+         
+
+      //   if($req->media){
+
+      //       $data=$req->all();
+
+      //       $fileName = time().'_'.$req->media->getClientOriginalName();
+      //         $ext =$req->media->getClientOriginalExtension();
+      //         $audio_pics = $req->thumbnail_pic ? time().'_'.$req->thumbnail_pic->getClientOriginalName():'';
+      //         $req->thumbnail_pic ? $req->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
+      //         $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
+
+      //         unset($data['_token']);
+      //         $data['media']=$fileName;
+      //         $data['quality']= $req->quality ? $req->quality : '';
+      //         $data['categoryid']=$ext=='mp3' ? $data['audio_cat'] : $data['video_cat'];
+      //         $data['type']=  $data['type'];
+      //         unset($data['audio_cat']);
+      //         unset($data['video_cat']);
+      //         $data['audio_pic'] = $audio_pics;
+      //         unset($data['thumbnail_pic']);
+      //           if($filePath){
+
+      //           $createOffer = $this->model->createOffer($data);
+
+      //             if($createOffer==1){
+      //               return response()->json(array('status'=>1, 'messge'=>'Offer Created!'));
+      //               }
+      //               else
+      //               {
+      //                 return response()->json(array('status'=>0, 'messge'=>'Some Error Ocure!'));
+      //               }
+      //         }
+      // }
 
 
   }

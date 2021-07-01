@@ -51,7 +51,8 @@
                     <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
                 </div>
-           
+                <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
+
                     <div class="col-md-4 mt-5 ">
                     {{Form::label('Price(PAZ)', 'Price(PAZ/min)')}} 
                         {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])}}
@@ -147,7 +148,21 @@
                 </div>
                 @endif
             <br>
-            <div class="file" style="display:none">
+
+            <div class=" mt-3 text-white file" style="display:none;">
+            <label class="media_label">Audio/Video</label>
+                {{Form::file('media',['class'=>'form-control file_input'])}}
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+
+            <div class=" mt-3 text-white file1" style="display:none;">
+            <label class="media_label">Audio/Video</label>
+               <button type="button" id="browse">Choose File</button>
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+            <!-- <div class="file" style="display:none">
             <label class="media_label"></label>
 
  <br>
@@ -155,10 +170,10 @@
                <span id="filename" style="color:yellow;"></span>
                  @if($errors->first('media'))
                 <div class="alert alert-danger">
-                  <?php echo $errors->first('media') ?>
+                  <?php //echo $errors->first('media') ?>
                 </div>
                 @endif
-</div>
+</div> -->
                 <div class=" mt-3 text-white thumbnail" style="display:none;">
                 <label class="thumbnail1"> Image Upload</label>
                 {{Form::file('thumbnail_pic',['class'=>'form-control chooseImage'])}}
@@ -299,7 +314,7 @@ input.select_media_pic {
 
 </style>
  @include('artists.dashboard_footer')
- <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+ script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
     <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
 <script>
@@ -317,7 +332,7 @@ input.select_media_pic {
         "onedrive"
       ],
       waitForEncoding: false,
-      statusBar: '#myForm .progress',
+      statusBar: '#create_offer .progress',
       params: {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
@@ -359,6 +374,7 @@ input.select_media_pic {
                 { name: "filtered_image", as: "image" }
               ]
             },
+
             robot: "/video/merge",
             result: true,
             ffmpeg_stack: "v4.3.1",
@@ -370,18 +386,14 @@ input.select_media_pic {
     })
       .then(function (bundle) {
 
-        console.log(bundle.results);
-        //console.log(bundle.transloadit);
-        // Due to `waitForEncoding: true` this is fired after encoding is done.
-        // Alternatively, set `waitForEncoding` to `false` and provide a `notify_url`
-        // for Async Mode where your back-end receives the encoding results
-        // so that your user can be on their way as soon as the upload completes.
-       var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
-       var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
-       var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
-        $('.transloadit').val(url);
-        $('.assembly_id').val(bundle.results[0].assembly_id)
-        $('.transloadit_image').val(url1);
+        //console.log(bundle);return false;
+      
+      // var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
+       //var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
+       //var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
+       // $('.transloadit').val(url);
+        $('.assembly_id').val(bundle.transloadit[0].assembly_id)
+        //$('.transloadit_image').val(url1);
         //console.log(bundle.results); // Array of all encoding results
       })
       .catch(console.error);

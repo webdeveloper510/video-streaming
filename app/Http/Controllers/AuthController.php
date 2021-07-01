@@ -891,7 +891,7 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-  //print_r($request->all());die;
+ // print_r($request->all());die;
       if($request->radio=='video'){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
@@ -928,6 +928,9 @@ else{
       else{
       
         $data=$request->all();
+
+        //print_r($data);die;
+
         $audio_pics = '';
           $size  = '';
          $data['size'] = '0';
@@ -945,7 +948,6 @@ else{
         unset($data['video_cat']);
         unset($data['transloadit']);
         unset($data['transloadit_image']);
-        unset($data['assembly_id']);
 
         if($data){
 
@@ -967,7 +969,7 @@ else{
 
   public function notifyUrl(Request $request){
 
-    echo "yes";
+   // echo "yes";
 
     $data = json_decode($request->transloadit);
 
@@ -979,7 +981,7 @@ else{
 
     $fileName = $this->saveContent($data);
 
-    $imagename = $this->saveTransloaditImage($request);
+    $imagename = $this->saveTransloaditImage($data);
 
     $data = array('media'=>$fileName,'audio_pic'=>$imagename);
 

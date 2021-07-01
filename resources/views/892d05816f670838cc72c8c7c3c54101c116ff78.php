@@ -253,7 +253,7 @@ section.background1 {
 <script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
 <script>
   var url = $('#base_url').attr('data-url');
- // console.log(url);
+ console.log(url);
   document.getElementById("browse").addEventListener("click", function () {
     var uppy = window.Robodog.pick({
       providers: [
