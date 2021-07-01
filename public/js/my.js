@@ -3329,8 +3329,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                console.log(response);
-                   return false;  
+                // console.log(response);
+                //    return false;  
 
                     if (response.errors) {
 
