@@ -498,7 +498,7 @@ class artist extends Controller
             
               $data=$request->all();
 
-              print_r($data);die;
+             // print_r($data);die;
               $audio_pics = '';
                 $size  = '';
               $data['size'] = '0';
