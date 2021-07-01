@@ -945,7 +945,6 @@ else{
         unset($data['video_cat']);
         unset($data['transloadit']);
         unset($data['transloadit_image']);
-        unset($data['assembly_id']);
 
         if($data){
 

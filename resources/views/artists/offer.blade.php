@@ -51,7 +51,8 @@
                     <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
 
                 </div>
-           
+                <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
+
                     <div class="col-md-4 mt-5 ">
                     {{Form::label('Price(PAZ)', 'Price(PAZ/min)')}} 
                         {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])}}

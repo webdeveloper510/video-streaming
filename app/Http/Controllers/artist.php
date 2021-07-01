@@ -497,6 +497,8 @@ class artist extends Controller
             else{
             
               $data=$request->all();
+
+              print_r($data);die;
               $audio_pics = '';
                 $size  = '';
               $data['size'] = '0';
@@ -515,7 +517,6 @@ class artist extends Controller
               unset($data['video_cat']);
               unset($data['transloadit']);
               unset($data['transloadit_image']);
-              unset($data['assembly_id']);
 
               if($data){
 
