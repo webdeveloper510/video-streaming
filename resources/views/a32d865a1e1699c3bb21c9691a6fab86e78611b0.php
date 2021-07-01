@@ -322,7 +322,7 @@
    }
    .hide{
       display:none;
-   }
+   }    
    .block{
       display:block;
    }
