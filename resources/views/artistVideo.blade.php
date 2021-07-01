@@ -40,7 +40,7 @@
                         type="button"
                         style="cursor:pointer;"
                         id="{{$video->id}}"
-                        class="addToCart"
+                        class="addToCart {{$buyed > 0 ? 'hide' : 'block'}}"
                         text-data="{{$wishlist > 0 ? 'removed' : 'added'}}"
                         style="{{$wishlist > 0 ? 'color:blue; background-color:blue' : 'color:red;background-color:red'}}"
                         >
@@ -311,6 +311,12 @@
    margin: 0 auto;
    left: 0;
    right: 0;
+   }
+   .hide{
+      display:none;
+   }
+   .block{
+      display:block;
    }
    .report-op {
    position: absolute;
