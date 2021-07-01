@@ -891,7 +891,7 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
-  print_r($request->all());die;
+ // print_r($request->all());die;
       if($request->radio=='video'){
             $data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
