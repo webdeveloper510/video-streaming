@@ -306,6 +306,13 @@ class AuthController extends Controller
       $profile = $this->model->getArtistnotVerified('is_verified','profilepicture');
       $background = $this->model->getArtistnotVerified('background_verified','cover_photo');
 
+      
+//       echo "<pre>";
+
+//       print_r($profile);
+//       print_r($background);
+// die;
+
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 
       $notVerifyContentOrder = $this->model->getNotVerifiedOrders('offer');
@@ -427,7 +434,7 @@ class AuthController extends Controller
       if($updated){
         $verify1 = array('is_deleted'=>1);
 
-          $done = $this->model->UpdateDatainVideoVerified($verify1,$type);
+          $done = $this->model->UpdateDatainVideoVerified($verify1,$req->videoid,$type);
 
 
           if($done){
@@ -2294,11 +2301,12 @@ public function readNotification(Request $request){
             $profile = $this->model->getArtistnotVerified('is_verified','profilepicture');
             $background = $this->model->getArtistnotVerified('background_verified','cover_photo');
 
-//             echo "<pre>";
+            // echo "<pre>";
 
-//             print_r($profile);
-//             print_r($background);
-// die;
+            // print_r($profile);
+
+            // print_r($background);die;
+
 
           }
 

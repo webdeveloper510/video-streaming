@@ -539,10 +539,10 @@ public function getSocialName($id){
 
 public function getArtistnotVerified($column,$key){
 
-         $data = DB::table('contentprovider')
+        return $data = DB::table('contentprovider')
         ->where($column,0)
         ->where($key,'!=','')
-        ->get();
+        ->get()->toArray();
 }
 
 // public function getArtistVerifiedNot($where){
@@ -3363,6 +3363,8 @@ public function update_due_to_process($data){
 
 public function insertVerifyMediaData($data){
 
+ // print_r($data);die;
+
   $sessionLogin = Session::get('pazLogin');
 
   $exist = DB::table('video_verified')->where(array('mediaid'=>$data['videoid'],'video_type'=>$data['type']))->get()->toArray();
@@ -3393,11 +3395,11 @@ public function insertVerifyMediaData($data){
 
 }
 
-public function UpdateDatainVideoVerified($update,$data){
+public function UpdateDatainVideoVerified($update,$id,$data){
 
 
  return DB::table('video_verified')
-  ->where(array('mediaid'=>$data['videoid'],'video_type'=>$data))
+  ->where(array('mediaid'=>$id,'video_type'=>$data))
   ->update($update);
 
 }

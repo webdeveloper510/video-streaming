@@ -34,6 +34,12 @@
         
         </div>
         <div class="profileimg">
+        <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
+                  <h3>Verifying...</h3>
+               </div>
+               <div class="verifyvideo den text-center" style="<?php echo e($detail->is_verified== -1 ? 'display:block' : 'display:none'); ?>">
+               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+            </div>
         <div class="overlayprofile">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid profile_loader">
         </div>

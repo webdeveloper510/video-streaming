@@ -190,6 +190,7 @@ class artist extends Controller
     public function artistVideo($vedioid){
 
        $wishlistCheck = $this->model->checkVideoBuyed('wishlist','',$vedioid);
+       
        $buyed = $this->model->checkVideoBuyed('playlist','normal',$vedioid);
       
           $allVedios = $this->model->getVideo($vedioid);
