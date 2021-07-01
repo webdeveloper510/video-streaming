@@ -252,13 +252,22 @@ Route::get('legal-notice', 'AuthController@legal');
     
     
     Route::get('artist/offers/{id}', 'artist@offerpage');
+
+    Route::get('artistVideo/{id}','artist@VideoPage');
+
+    Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
+
+    Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
+
+    Route::get('customer_orders/{text}', 'AuthController@getRequests');
+
+
     Route::get('support-team', 'AuthController@support_team');
 
     Route::get('artist/offer', 'artist@offer');
     
     Route::get('artist/faq', 'artist@faq');
 
-    Route::get('artistVideo/{id}','artist@VideoPage');
 
     Route::get('artist/feed', 'artist@feed');
 
@@ -268,10 +277,8 @@ Route::get('legal-notice', 'AuthController@legal');
 
     Route::get('artist/age-verification', 'artist@ageVerify');
 
-    Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
 
-    Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
-    Route::get('customer_orders/{text}', 'AuthController@getRequests');
+
    // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
 
     Route::get('artist/notification','artist@ShowArtistNotification');
@@ -308,7 +315,9 @@ Route::get('legal-notice', 'AuthController@legal');
     Route::post('editOffer','artist@editOffer');
 
     Route::post('draw_money','artist@draw_money');
+
     Route::post('artist/editVedio','artist@editVideoInfo');
+
     Route::post('artist/insert_support','artist@insertData');
 
     Route::post('delete_offer','artist@deleteOfer');
@@ -318,6 +327,7 @@ Route::get('legal-notice', 'AuthController@legal');
     Route::post('postDescription','artist@addUserDescription');
 
     Route::post('edit_offer','artist@edit_offer');
+
     Route::post('edit_info','artist@edit_info');
 
     Route::post('editDescription','artist@editDescription');
