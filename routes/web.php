@@ -242,57 +242,7 @@ Route::get('legal-notice', 'AuthController@legal');
 
 /*-----------------------------------------------Artist Route ----------------------------------*/
 
-    Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
-
-    Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
-
-    Route::get('artistRegister', 'AuthController@artistRegister');
-
-    Route::get('artist/support', 'artist@support');
-    
-    
-    Route::get('artist/offers/{id}', 'artist@offerpage');
-
-    Route::get('artistVideo/{id}','artist@VideoPage');
-
-    Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
-
-    Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
-
-    Route::get('customer_orders/{text}', 'AuthController@getRequests');
-
-
-    Route::get('support-team', 'AuthController@support_team');
-
-    Route::get('artist/offer', 'artist@offer');
-    
-    Route::get('artist/faq', 'artist@faq');
-
-
-    Route::get('artist/feed', 'artist@feed');
-
-    Route::get('artist/earning', 'artist@earning');
-
-    Route::get('artist/my-offer', 'artist@myoffer');
-
-    Route::get('artist/age-verification', 'artist@ageVerify');
-
-
-
-   // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
-
-    Route::get('artist/notification','artist@ShowArtistNotification');
-
-    Route::get('artistLogin', 'AuthController@getLogin');
-    Route::get('feed', 'AuthController@feedPage');
-
-    Route::get('artists/dashboard', 'artist@dashboard1')->middleware('contentAuth');
-
-    Route::get('artist/Profile/{Profile?}', 'artist@profile')->middleware('contentAuth');
-
-    Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
-
-    Route::post('addDescription','artist@addDescription');
+   Route::post('addDescription','artist@addDescription');
 
     Route::post('userName','artist@saveUsername');
 
@@ -331,6 +281,64 @@ Route::get('legal-notice', 'AuthController@legal');
     Route::post('edit_info','artist@edit_info');
 
     Route::post('editDescription','artist@editDescription');
+
+
+Route::get('artist/Profile/{Profile?}', 'artist@profile')->middleware('contentAuth');
+
+Route::get('artist/age-verification', 'artist@ageVerify');
+
+Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
+
+Route::get('artist/earning', 'artist@earning');
+
+Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
+
+Route::get('artistVideo/{id}','artist@VideoPage');
+
+Route::get('artists/dashboard', array('as' => 'Loguearse', 'uses' => 'artist@dashboard1'));
+
+
+//Route::get('artists/dashboard', 'artist@dashboard1')->middleware('contentAuth');
+
+Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
+
+
+    Route::get('artistRegister', 'AuthController@artistRegister');
+
+    Route::get('artist/support', 'artist@support');
+    
+    
+    Route::get('artist/offers/{id}', 'artist@offerpage');
+
+
+    Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
+
+    Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
+
+    Route::get('customer_orders/{text}', 'AuthController@getRequests');
+
+
+    Route::get('support-team', 'AuthController@support_team');
+
+    Route::get('artist/offer', 'artist@offer');
+    
+    Route::get('artist/faq', 'artist@faq');
+
+
+    Route::get('artist/feed', 'artist@feed');
+
+
+    Route::get('artist/my-offer', 'artist@myoffer');
+
+
+
+
+   // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
+
+    Route::get('artist/notification','artist@ShowArtistNotification');
+
+    Route::get('artistLogin', 'AuthController@getLogin');
+    Route::get('feed', 'AuthController@feedPage');
 
 /*---------------------------------------------------------------End Artist--------------------------------------------------*/
 
