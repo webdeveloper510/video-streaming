@@ -19,18 +19,18 @@
             {{Form::label('ADD', 'Token')}} 
                   <select class="custom-select mb-3">
                     <option selected>Select Token Amount</option>
-                    <option value="200">200 Tokens $14USD</option>
-                    <option value="500">500 Tokens $35 USD</option>
-                    <option value="1000">1000 Tokens $69.50 USD (10 Bonus Tokens)</option>
-                    <option value="1500">1500 Tokens $103.50 USD (30 Bonus Tokens)</option>
-                    <option value="2000">2000 Tokens $137 USD (60 Bonus Tokens)</option>
-                    <option value="2500">2500 Tokens $170 USD (100 Bonus Tokens)</option>
-                    <option value="3000">3000 Tokens $202.50 USD (150 Bonus Tokens)</option>
+                    <option value="200">250 Tokens for $17.50 USD</option>
+                    <option value="500">500 Tokens for $34.50 USD (10 Bonus Tokens)</option>
+                    <option value="1000">750 Tokens for $49.50 USD (60 Bonus Tokens)</option>
+                    <option value="1500">1500 Tokens for $97.50 USD (150 Bonus Tokens)</option>
+                    <option value="2000">2300 Tokens for $144.90 USD (322 Bonus Tokens)</option>
+                    <option value="2500">3200 Tokens for $198.40 USD (512 Bonus Tokens)</option>
+                    <!-- <option value="3000">3000 Tokens $202.50 USD (150 Bonus Tokens)</option>
                     <option value="3500">3500 Tokens $234.50 USD (210 Bonus Tokens)</option>
                     <option value="4000">4000 Tokens $266 USD (280 Bonus Tokens)</option>
                     <option value="4500">4500 Tokens $297 USD (360 Bonus Tokens)</option>
                     <option value="5000">5000 Tokens $327.50 USD (450 Bonus Tokens)</option>
-                    <option value="10000">10000 Tokens $650 USD (1000 Bonus Tokens)</option>
+                    <option value="10000">10000 Tokens $650 USD (1000 Bonus Tokens)</option> -->
                   </select>
 
 

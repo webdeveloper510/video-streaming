@@ -5,7 +5,7 @@
     <title>Email Template</title>
 
 </head>
-<body style="width:600px;    margin-left: 27%;
+<body style="width:600px;  margin-left: 27%;
 margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
 
 
@@ -20,8 +20,7 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
         </thead>
          <tbody>
              <tr>
-                 <td><h1 style="margin-top: 10px;">Welcome  {{$data['nickname']}}</h1></td>
-                 
+                 <td><h1 style="margin-top: 10px;">Welcome  {{$data['nickname']}}</h1></td>             
              </tr>
              <tr>
                 <td style="padding-left: 15%;padding-right: 15%;">
@@ -47,8 +46,5 @@ margin-top: 5%;background-color: #ebebeb;font-family: 'Roboto', sans-serif;">
          </tbody>
 
     </table>
-
-
-
 </body>
 </html>

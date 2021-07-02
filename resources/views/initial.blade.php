@@ -465,8 +465,7 @@
 <!--/.Carousel Wrapper-->
 <br/><br/>
 <!--End 3rd slider-->
-<!---------------------------------------------Offer
-   Videos--------------------------------------------->
+<!---------------------------------------------Offer Videos--------------------------------------------->
 <div class="outer_slider last">
    <div class="container my-4">
       <div class="slider_tittle">
