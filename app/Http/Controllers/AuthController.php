@@ -917,6 +917,7 @@ else{
               unset($data['transloadit_image']);
               unset($data['assembly_id']);
 
+             
               //print_r($data);die;
 
                 if($filePath){
@@ -958,6 +959,13 @@ else{
 
       }
 
+      if($request->transloadit){
+
+        $this->notifyUrl($request->transloadit);
+        
+      }
+
+
       if($update_data){
         return response()->json(array('status'=>1, 'messge'=>'Content Uploaded!'));
       }
@@ -967,11 +975,11 @@ else{
       }
   }
 
-  public function notifyUrl(Request $request){
+  public function notifyUrl($req){
 
    // echo "yes";
 
-    $data = json_decode($request->transloadit); //  Decode json here
+    $data = json_decode($req); //  Decode json here
 
     //print_r($data);die;
 
