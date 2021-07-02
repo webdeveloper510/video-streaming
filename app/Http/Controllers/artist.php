@@ -432,7 +432,7 @@ class artist extends Controller
 
   public function createOffer(Request $request){
 
-              $validator = \Validator::make($req->all(), [
+              $validator = \Validator::make($request->all(), [
           //'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
             'title'=>'required',
             'offer_status'=>'required',
@@ -464,7 +464,7 @@ class artist extends Controller
                     $ext =$request->media->getClientOriginalExtension();
                     $filePath= $request->media->storeAs('video', $fileName, 'public');
                       $size  = $request->media->getSize();
-                    $data['size'] = number_format($size / 1048576,2);
+                  //  $data['size'] = number_format($size / 1048576,2);
 
                     unset($data['_token']);
 
