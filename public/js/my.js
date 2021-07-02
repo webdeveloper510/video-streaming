@@ -3017,6 +3017,9 @@ $(document).on('click', '.select_media_pic', function () {
 					$('.audio').show();
 					$('.video').hide()
 
+                    $('.file').hide();
+
+
 			}
 			else{
                 $('.file1').hide();
