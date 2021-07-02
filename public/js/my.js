@@ -3017,6 +3017,9 @@ $(document).on('click', '.select_media_pic', function () {
 					$('.audio').show();
 					$('.video').hide()
 
+                    $('.file').hide();
+
+
 			}
 			else{
                 $('.file1').hide();
@@ -3441,7 +3444,7 @@ if ($("#create_offer").length > 0) {
                 },
                 success: function (data) {
 
-                    //console.log(data);return false;
+                    console.log(data);
 
                     if (data.errors) {
 

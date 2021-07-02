@@ -355,6 +355,8 @@ class artist extends Controller
 
     // $this->model->trialData();
 
+    //https://api2.transloadit.com/assemblies/{ASSEMBLY_ID}
+
  
       $session_data =   Session::get('User');
 
@@ -432,7 +434,7 @@ class artist extends Controller
 
   public function createOffer(Request $request){
 
-              $validator = \Validator::make($req->all(), [
+              $validator = \Validator::make($request->all(), [
           //'media' => $req->type=='video' ? 'required|mimes:mp4,ppx,pdf,ogv,jpg,webm':'required|mimes:mp3',
             'title'=>'required',
             'offer_status'=>'required',
@@ -464,7 +466,7 @@ class artist extends Controller
                     $ext =$request->media->getClientOriginalExtension();
                     $filePath= $request->media->storeAs('video', $fileName, 'public');
                       $size  = $request->media->getSize();
-                    $data['size'] = number_format($size / 1048576,2);
+                  //  $data['size'] = number_format($size / 1048576,2);
 
                     unset($data['_token']);
 
@@ -501,12 +503,12 @@ class artist extends Controller
              // print_r($data);die;
               $audio_pics = '';
                 $size  = '';
-              $data['size'] = '0';
+              //$data['size'] = '0';
               unset($data['_token']);
               $data['media']='';
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
               unset($data['thumbnail_pic']);
-              $data['quality'] = '';
+              $data['quality'] = 0;
               $data['type']= 'audio'; 
               $data['assembly_id']=$data['assembly_id'];
               $data['categoryid']= $data['audio_cat'];

@@ -917,6 +917,7 @@ else{
               unset($data['transloadit_image']);
               unset($data['assembly_id']);
 
+             
               //print_r($data);die;
 
                 if($filePath){
@@ -958,6 +959,13 @@ else{
 
       }
 
+      // if($request->transloadit){
+
+      //   $this->notifyUrl($request->transloadit);
+        
+      // }
+
+
       if($update_data){
         return response()->json(array('status'=>1, 'messge'=>'Content Uploaded!'));
       }
@@ -967,11 +975,11 @@ else{
       }
   }
 
-  public function notifyUrl(Request $request){
+  public function notifyUrl($req){
 
    // echo "yes";
 
-    $data = json_decode($request->transloadit);
+    $data = json_decode($req); //  Decode json here
 
     //print_r($data);die;
 
@@ -979,13 +987,13 @@ else{
 
     $assem_id = $data['assembly_id'];
 
-    $fileName = $this->saveContent($data);
+    $fileName = $this->saveContent($data); // This function gives us video name
 
-    $imagename = $this->saveTransloaditImage($data);
+    $imagename = $this->saveTransloaditImage($data); // This function gives us image name
 
-    $data = array('media'=>$fileName,'audio_pic'=>$imagename);
+    $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
 
-    $this->model->UpdateData('media','assembly_id',$data,$assem_id);
+    $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
     
     }
   }
