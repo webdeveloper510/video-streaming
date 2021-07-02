@@ -905,6 +905,9 @@ public function getRespectedSub($data){
 
        $userId =$user->id;
 
+       $status = array('due','process');
+       
+
        //print_r($sts);die;
 
       //DB::enableQueryLog();
@@ -922,7 +925,7 @@ public function getRespectedSub($data){
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }      
-         return $data->orderByRaw('offer.status = ? desc',['due'])->get();
+         return $data->orderByRaw('offer.status = ? desc',implode(',',$status))->get();
 
     }
  
