@@ -238,6 +238,11 @@
                     </div>
                </div>
             </div>
+            <h1 class="ml4">
+  <span class="letters letters-1">Ready</span>
+  <span class="letters letters-2">Set</span>
+  <span class="letters letters-3">Go!</span>
+</h1>
             <div class="row">
                <div class="col"></div>
                <div class="col-md-10 mb-3">
