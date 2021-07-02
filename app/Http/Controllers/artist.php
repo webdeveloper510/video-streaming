@@ -355,6 +355,8 @@ class artist extends Controller
 
     // $this->model->trialData();
 
+    //https://api2.transloadit.com/assemblies/{ASSEMBLY_ID}
+
  
       $session_data =   Session::get('User');
 

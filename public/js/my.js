@@ -3444,7 +3444,7 @@ if ($("#create_offer").length > 0) {
                 },
                 success: function (data) {
 
-                    //console.log(data);return false;
+                    console.log(data);
 
                     if (data.errors) {
 
