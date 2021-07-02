@@ -921,7 +921,8 @@ public function getRespectedSub($data){
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }      
-         return $data->get();
+         return $data->orderby('offer.status','due')
+         ->get();
 
     }
 
