@@ -311,9 +311,11 @@ section.background1 {
     })
       .then(function (bundle) {
 
+        //console.log(bundle);
+
         console.log(bundle.transloadit);
 
-        return false;
+       // return false;
       
       // var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
        //var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses
