@@ -977,7 +977,7 @@ else{
 
   public function notifyUrl($req){
 
-   // echo "yes";
+    echo "yes";
 
     $data = json_decode($req); //  Decode json here
 
