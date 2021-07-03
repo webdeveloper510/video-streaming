@@ -959,11 +959,11 @@ else{
 
       }
 
-      // if($request->transloadit){
+      if($request->transloadit){
 
-      //   $this->notifyUrl($request->transloadit);
+        $this->notifyUrl($request->transloadit);
         
-      // }
+      }
 
 
       if($update_data){
