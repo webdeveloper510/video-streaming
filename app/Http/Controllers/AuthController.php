@@ -984,7 +984,7 @@ else{
     fwrite($file,"Hello World. Testing!".json_encode($_POST));
     fclose($file);
 
-    response()->json(['success' => 'success'], 200);
+   return  response()->json(['success' => 'success'], 200);
     // $homepage = file_get_contents($app.'\dummy.php');
     // echo $homepage;
     // die;
