@@ -981,7 +981,7 @@ else{
   
 
     $file = fopen($app.'\dummy.php',"w");
-    fwrite($file,"Hello World. Testing!".$_POST);
+    fwrite($file,"Hello World. Testing!".json_encode($_POST));
     fclose($file);
 
      header("HTTP/1.1 200 OK");
