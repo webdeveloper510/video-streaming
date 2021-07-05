@@ -996,7 +996,7 @@ else{
     $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
     
     }
-  }
+  }     
 
 
   public function saveContent($data){

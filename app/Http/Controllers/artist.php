@@ -513,7 +513,7 @@ class artist extends Controller
               $data['assembly_id']=$data['assembly_id'];
               $data['categoryid']= $data['audio_cat'];
 
-
+     
               
               unset($data['audio_cat']);
               unset($data['video_cat']);
