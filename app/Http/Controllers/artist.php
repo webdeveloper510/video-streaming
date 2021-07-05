@@ -28,7 +28,7 @@ use Illuminate\Support\Arr;
 require_once($path.'/autoload.php');
 require_once($path.'/stripe/stripe-php/init.php');
 
-class artist extends Controller
+class ArtistController extends Controller
 {
     private $model;
 
