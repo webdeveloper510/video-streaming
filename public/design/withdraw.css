@@ -1,0 +1,100 @@
+
+ .overlay1 {
+
+margin-top: 18% !important;
+
+}
+
+span.iconss {
+vertical-align: super;
+font-size: 14px;
+border: 1px solid;
+border-radius: 50%;
+padding: 0px 4px;
+cursor: pointer;
+color: blue;
+}
+.text_one h6 {
+font-size: 16px;
+font-weight: 300;
+text-transform: capitalize;
+}
+.data {
+background: white;
+color: black;
+width: 200px;
+position: absolute;
+padding: 10px;
+right: 151px;
+margin-top: -13px !important;
+z-index: 99999999999 !important;
+display: none;
+}
+
+span.iconss:hover .data {
+display: block !important;
+}
+.data hr {
+margin: 5px;
+}
+.data h3 {
+font-size: 12px;
+padding: 0px;
+margin: 0px;
+}
+span.firsttext {
+vertical-align: super;
+font-size: 14px;
+border: 1px solid;
+border-radius: 50%;
+padding: 0px 4px;
+color: blue;
+cursor: pointer;
+}
+span.secondtext {
+vertical-align: super;
+font-size: 14px;
+border: 1px solid;
+border-radius: 50%;
+padding: 0px 4px;
+cursor: pointer;
+color: blue;
+}
+.text_one span.secondtext:hover .secondtextbody {
+display:block !important;
+} 
+.text_one span.firsttext:hover .firsttextbody {
+display:block !important;
+} 
+.firsttextbody {
+background: white;
+color: black;
+width: 348px;
+position: absolute;
+padding: 10px;
+right: -5px;
+margin-top: -5px !important;
+z-index: 99999999999 !important;
+
+display: none;
+}
+.secondtextbody {
+background: white;
+color: black;
+width: 382px;
+position: absolute;
+padding: 10px;
+right: 108px;
+margin-top: -3px !important;
+z-index: 99999999999 !important;
+
+display: none;
+}
+.firsttextbody p {
+padding: 0px;
+margin: 0px;
+}
+.secondtextbody p {
+padding: 0px;
+margin: 0px;
+}

@@ -13,7 +13,7 @@ class CreateTableRecent extends Migration
      */
     public function up()
     {
-        Schema::create('recentMedia', function (Blueprint $table) {
+        Schema::create('recentmedia', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('mediaId');
@@ -28,6 +28,6 @@ class CreateTableRecent extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recentMedia');
+        Schema::dropIfExists('recentmedia');
     }
 }

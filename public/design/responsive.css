@@ -506,13 +506,6 @@
 		font-weight: 700;
 		margin-bottom: 20px;
 	}
-	a.btn,
-	button.btn {
-		min-width: 150px;
-		height: 45px;
-		line-height: 46px;
-		font-size: 13px;
-	}
 	.responsive_padding_bottom {
 		padding-bottom: 60px;
 	}
@@ -1476,14 +1469,7 @@
 		letter-spacing: 0;
 		padding: 3px 35px 20px 0 !important;
 	}
-	a.btn,
-	button.btn {
-		min-width: 140px;
-		height: 45px;
-		line-height: 46px;
-		font-size: 13px;
-		font-weight: 500;
-	}
+	
 	/**== parallax ==**/
 	.slider_contant {
 		display: none;

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{asset('design/artistprofile.css')}}" />
+
 <div class="inner-page">
   <div class="container">
    <div class="row ais-InstantSearch m-t-20">
@@ -15,7 +17,7 @@
 	   <li class="ais-Hits-item">
 	     <div class="col-md-3 col-sm-6  col-lg-2 pag-item m-t-md m-b-md">
 				 <div class="featured-store-avatar">
-					<a class="click-hit"" href="#" data-insights-method="clickedObjectIDsAfterSearch">
+					<a class="click-hit" href="#" data-insights-method="clickedObjectIDsAfterSearch">
 					  <div class="roundPic m-b-sm">
 						 <img src="https://iwantclips.com/uploads/aboutme_previews/663988/480_edee4c840d51d81b8003f033efd8c72e.jpg" class="img-responsive img-circle click-hit" data-object-id="663988" alt="MISTRESS KELLY KALASHNIK" onerror="this.src='/images/avatar480.png';" data-insights-method="clickedObjectIDsAfterSearch" data-insights-payload="eyJldmVudE5hbWUiOiJEZXRhaWxzIiwib2JqZWN0SURzIjpbIjY2Mzk4OCJdfQ=="></div></a>
 						 <h5 class="featured-store-name featured-text text-center m-b-sm click-hit">
@@ -27,7 +29,7 @@
 				 <div class="featured-store-avatar">
 					<a class="click-hit"" href="#" data-insights-method="clickedObjectIDsAfterSearch">
 					  <div class="roundPic m-b-sm">
-						 <img src="https://iwantclips.com/uploads/aboutme_previews/30409/480_29ca6accacce765bac2818b336a8c920.jpg" class="img-responsive img-circle click-hit" data-object-id="663988" alt="MISTRESS KELLY KALASHNIK" onerror="this.src='/images/avatar480.png';" data-insights-method="clickedObjectIDsAfterSearch" data-insights-payload="eyJldmVudE5hbWUiOiJEZXRhaWxzIiwib2JqZWN0SURzIjpbIjY2Mzk4OCJdfQ=="></div></a>
+					   <img src="https://iwantclips.com/uploads/aboutme_previews/30409/480_29ca6accacce765bac2818b336a8c920.jpg" class="img-responsive img-circle click-hit" data-object-id="663988" alt="MISTRESS KELLY KALASHNIK" onerror="this.src='/images/avatar480.png';" data-insights-method="clickedObjectIDsAfterSearch" data-insights-payload="eyJldmVudE5hbWUiOiJEZXRhaWxzIiwib2JqZWN0SURzIjpbIjY2Mzk4OCJdfQ=="></div></a>
 						 <h5 class="featured-store-name featured-text text-center m-b-sm click-hit">
 							<a data-object-id="663988" href="#">MISTRESS KELLY KA...</a>
 						 </h5>
@@ -55,7 +57,9 @@
 		 </div>	
 	     <div class="col-md-3 col-sm-6  col-lg-2 pag-item m-t-md m-b-md">
 				 <div class="featured-store-avatar">
-					<a class="click-hit"" href="#" data-insights-method="clickedObjectIDsAfterSearch">
+
+	<a class="click-hit" href="#" data-insights-method="clickedObjectIDsAfterSearch">
+
 					  <div class="roundPic m-b-sm">
 						 <img src="https://iwantclips.com/uploads/aboutme_previews/738292/480_6f907753cd8cb0576e66112092e6f409.jpg" class="img-responsive img-circle click-hit" data-object-id="663988" alt="MISTRESS KELLY KALASHNIK" onerror="this.src='/images/avatar480.png';" data-insights-method="clickedObjectIDsAfterSearch" data-insights-payload="eyJldmVudE5hbWUiOiJEZXRhaWxzIiwib2JqZWN0SURzIjpbIjY2Mzk4OCJdfQ=="></div></a>
 						 <h5 class="featured-store-name featured-text text-center m-b-sm click-hit">
@@ -227,91 +231,3 @@
 </div> 
  </div>  
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-/* Style the search field */
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
-
-/* Style the submit button */
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #a60000;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #a60000;
-}
-form.example {
-    margin-top: 20px;
-}
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-li.ais-Hits-item {
-display: flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    align-content: flex-end;
-}
-.m-b-md {
-    margin-bottom: 20px;
-}
-.m-t-md {
-    margin-top: 20px;
-}
-.m-b-sm {
-    margin-bottom: 10px;
-}
-.m-b-sm a {
-    color: #a60000;
-}
-.bottom_paginations {
-    float: left;
-    width: 100%;
-}
-.bottom_paginations nav {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.bottom_paginations ul.pagination {
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 25%;
-}
-input[type="text"]::placeholder {
-    color: #000;
-}
-.m-t-20 {
-    margin-top: 30px;
-}
-@media only screen and (max-width: 767px) {
-.bottom_paginations ul.pagination {
-    width: 100%;
-}}
-</style>

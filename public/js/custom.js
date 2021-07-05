@@ -10,9 +10,9 @@ new WOW().init();
 
 /**== loader js ==*/
 
-$(window).load(function() {
-    $(".bg_load").fadeOut("slow");
-})
+// $(window).load(function() {
+//     $(".bg_load").fadeOut("slow");
+// })
 
 /**== Menu js ==**/
 
@@ -67,10 +67,10 @@ $("#navbar_menu").menumaker({
         }
     });
     
-    if ($(".filter-button").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
+//     if ($(".filter-button").removeClass("active")) {
+// $(this).removeClass("active");
+// }
+// $(this).addClass("active");
 
 });
 

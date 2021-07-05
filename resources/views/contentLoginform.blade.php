@@ -54,7 +54,8 @@
 <p>{{ Form::submit('Login!',['class'=>'btn btn-primary']) }}</p>
 {{ Form::close() }}
 <p class="text-white">Don't have an account yet ?</p>
-<a href="{{ URL::to('register')}}" class="ffff text-white"> Signup Now</a>
+<a href="{{ URL::to('register')}}" class="ffff text-white"> Signup Now</a><br>
+<a href="{{ URL::to('/')}}" class="ffff text-white text-right" style="float: right; margin-top: -20px;">Return To Home</a>
           
         </div>
       </div>

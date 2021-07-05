@@ -2,11 +2,17 @@
 /public/hot
 /public/storage
 /storage/*.key
+/developing-streaming
 /vendor
 .env
+.htaccess
 .env.backup
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/bootstrap/cache/config.php
+# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock

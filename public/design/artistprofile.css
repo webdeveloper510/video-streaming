@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #a60000;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #a60000;
+}
+form.example {
+    margin-top: 20px;
+}
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+li.ais-Hits-item {
+display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-content: flex-end;
+}
+.m-b-md {
+    margin-bottom: 20px;
+}
+.m-t-md {
+    margin-top: 20px;
+}
+.m-b-sm {
+    margin-bottom: 10px;
+}
+.m-b-sm a {
+    color: #a60000;
+}
+.bottom_paginations {
+    float: left;
+    width: 100%;
+}
+.bottom_paginations nav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bottom_paginations ul.pagination {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 25%;
+}
+input[type="text"]::placeholder {
+    color: #000;
+}
+.m-t-20 {
+    margin-top: 30px;
+}
+@media only screen and (max-width: 767px) {
+.bottom_paginations ul.pagination {
+    width: 100%;
+}}

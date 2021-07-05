@@ -13,7 +13,7 @@ class AddColumnInContentProvider extends Migration
      */
     public function up()
     {
-        Schema::table('contentProvider', function (Blueprint $table) {
+        Schema::table('contentprovider', function (Blueprint $table) {
             //
             $table->string('title');
         });

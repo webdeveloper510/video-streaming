@@ -1,149 +1,39 @@
-@extends('layout.cdn')
+
  <section class="background1">
-<div class="container mt-5">
-<a href="{{ URL::to('logout/profile')}}" class="ffff text-white float-right"style="margin-top: -26px;"> Logout</a>
- @if(session('success'))
-        <div class="alert alert-success" id="sucess">
-        {{session('success')}}
-        </div>
-        @endif
-            </div>
-            <div class="container">
-          <div class="overlay1">
+ @include('layouts.header')
 
-  {!!Form::open(['action' => 'AuthController@updateProfile', 'method' => 'post', 'files'=>true])!!}
-          {{Form::token()}}
-      <div class="container profile ">
-        <h1 class="text-center">USER PROFILE DETAILS</h1>
-          <div class="row align-items-center text-white">
-            <div class="col-md-6 mt-5 ">
-            {{Form::label('Email', 'E-Mail Address')}} 
-                {{Form::text('backupemail', '',['class'=>'form-control','placeholder'=>'example@gmail.com'])}}
-                 @if($errors->first('email'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('email') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Gender', 'Gender')}} 
-            <br>
-                 {{Form::radio('gender', 'male', true,['class'=>'rad_But'])}}Male<br>
-                {{Form::radio('gender', 'female',false,['class'=>'rad_But'])}}Female
-                 @if($errors->first('gender'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('gender') ?>
-                </div>
-                @endif
-            </div>
-           
-            <div class="col-md-6 mt-4">
+ <div id="yoti"></div>
 
-            {{Form::label('Choose Image', 'Choose Image',['class'=>'custom-file-label'])}} 
-                {{Form::file('image',['class'=>'custom-file-input'])}}
-                 @if($errors->first('image'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('image') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Sexology', 'Sexology')}} 
-                {{Form::select('sexology', ['Hetero' => 'Hetero', 'Homo' => 'Homo','Bisexual'=>'Bisexual'], null, ['class'=>'form-control','placeholder' => 'Pick a Sexology'])}}
-                 @if($errors->first('sexology'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('sexology') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4 hide" >
-            {{Form::label('Tits Size', 'Tits Size')}} 
-                {{Form::select('titssize', ['Small' => 'Small', 'Normal' => 'Normal','Big'=>'Big'], null, ['class'=>'form-control','placeholder'  => 'Pick a Tits Size'])}}
-                 @if($errors->first('titssize'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('titssize') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4 hide">
-            {{Form::label('Ass', 'Ass')}} 
-                {{Form::select('ass', ['Normal' => 'Normal', 'Small' => 'Small'], null, ['class'=>'form-control','placeholder' => 'Pick a Ass'])}}
-                  @if($errors->first('ass'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('ass') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Privy part', 'Privy part')}} 
-                {{Form::select('privy', ['Shaved' => 'Shaved', 'Unshaved' => 'Unshaved'], null, [ 'class'=>'form-control','placeholder' => 'Privy part'])}}
-                  @if($errors->first('privy'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('privy') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Hair length', 'Hair length')}} 
-                {{Form::select('hairlength', ['Very short' => 'Very short', 'Short' => 'Short','Long'=>'Long','Very Long'=>'Very Long'], null, ['class'=>'form-control','placeholder' => 'Choose Hair Length'])}}
-                     @if($errors->first('hairlength'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('hairlength') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col mt-4">
-            {{Form::label('Hair Color', 'Hair Color')}} 
-                {{Form::select('haircolor', ['Brown' => 'Brown', 'blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Silver' => 'Silver', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet'], null, ['class'=>'form-control','placeholder' => 'Choose Hair Color'])}}
-                     @if($errors->first('haircolor'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('haircolor') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Eye Color', 'Eye Color')}} 
-                {{Form::select('eyecolor', ['Brown' => 'Brown', 'Blonde' => 'Blonde', 'Black' => 'Black', 'Red' => 'Red', 'Gray' => 'Gray', 'Brown-green' => 'Brown-green', 'White' => 'White', 'Orange' => 'Orange', 'Yellow' => 'Yellow', 'Green' => 'Green', 'Blue' => 'Blue', 'Indigo' => 'Indigo','Violet' => 'Violet','Golden'=>'Golden'], null, ['class'=>'form-control','placeholder' => 'Choose Eye Color'])}}
-                   @if($errors->first('color'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('color') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Height', 'Height')}} 
-                {{Form::select('height', ['<140cm' => '<140cm', '140-160cm' => '140-160cm','160-180cm'=>'160-180cm','180cm<'=>'180cm<'], null, ['class'=>'form-control','placeholder' => 'Choose Height'])}}
-                   @if($errors->first('height'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('height') ?>
-                </div>
-                @endif
-            </div>
-            <div class="col-md-6 mt-4">
-            {{Form::label('Weight', 'Weight')}} 
-                {{Form::select('weight', ['Less than Average' => 'Less than Average', 'Normal' => 'Normal','Above Average'=>'Above Averag'], null, ['class'=>'form-control','placeholder' => 'Choose Weight'])}}
-                   @if($errors->first('weight'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('weight') ?>
-                </div>
-                @endif
-            </div>
-           <div class="col-md-12 mt-4">
-            {{Form::label('ABOUT ME', 'ABOUT ME')}} 
-                {{Form::textarea('aboutme',null,['class'=>'form-control', 'rows' => 2, 'cols' => 40])}}
-                 @if($errors->first('aboutme'))
-                <div class="alert alert-danger">
-                  <?php echo $errors->first('aboutme') ?>
-                </div>
-                @endif
-            </div>
-              <div class="col-md-12 text-center pt-3">
-            {{ Form::submit('Update!',['class'=>'btn btn-primary']) }}
-          </div>
-    
-     </div>
-  {{ Form::close() }}
-  </div>
+<!-- This script snippet will also be required in your HTML body -->
+<script>
+  window.Yoti.Share.init({
+    elements: [
+      {
+        domId: "yoti",
+        scenarioId: "81e4a257-5c8e-4023-a425-8c8d25009050",
+        clientSdkId: "a134bb6d-b208-42b3-b777-9d1a627c3efd"
+      }
+    ]
+  });
+</script>
+
+
+
+
+  <!-- -------------------------- Profile Upadte section End--------------------------->
+
 </div>
 </div>
 </section>
+<style>
+.custom-file-label{
+       z-index:0 !important;
+
+}
+.overlay1 {
+    margin-top: 7% !important;
+  }
+
+</style>
+
+@include('layouts.footer')

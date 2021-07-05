@@ -1,14 +1,14 @@
 @extends('layout.cdn')
+<section class="background1">
 <div class="container mt-5">
 
-<a href="{{ URL::to('logout')}}" class="ffff text-white float-right"> Logout</a>
+<a href="{{ URL::to('logout')}}" class="ffff text-white float-right"style="margin-top: -32px;"> Logout</a>
   @if(session('success'))
         <div class="alert alert-success" id="success">
         {{session('success')}}
         </div>
         @endif
-            </div>
-          </div>
+         
           @if(session('error'))
         <div class="alert alert-danger" id="error">
         {{session('error')}}
@@ -19,24 +19,30 @@
         {{$error}}
         </div>
         @endforeach
+        <div class="overlay1 text-white">
   {!!Form::open(['action' => 'admin@addSubCategory', 'method' => 'post', 'files'=>true])!!}
           {{Form::token()}}
       <div class="container profile">
-        <h1>Add Category</h1>
+        <h1 class="text-center">Add Category</h1>
           <div class="row align-items-center">
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 mb-3 ">
                 {{Form::label('Sub-Category', 'Sub-Category-Name')}} 
                  {{Form::text('subcategory', '',['class'=>'form-control','placeholder'=>'Add Category'])}}
+                 
 
                  <input type="hidden" name="catid" value="{{$catId}}">
+
             </div>
-            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+            <div class="col-md-6 text-left mt-4 mb-2 pb-2">
+                 {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+            </div>
+           
      </div>
   {{ Form::close() }}
   </div>
-</div>
 
-<table>
+
+<table class="text-white table-responsibe">
   <tr>
     <th>Sr. No</th>
     <th>Subcategory Name</th>
@@ -49,3 +55,9 @@
   @endforeach
   
 </table>
+</section>
+<style type="text/css">
+  .background1{
+    height:auto !important;
+  }
+</style>

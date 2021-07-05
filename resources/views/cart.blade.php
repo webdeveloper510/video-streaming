@@ -1,15 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-   
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+@include('layouts.header')
  
-    <title>Hello, world!</title>
-
 <style type="text/css">
   
 .total {
@@ -17,20 +7,31 @@
     float: right;
     margin-top: 30px;
 }
-
-
+input.form-control.mr-sm-2 {
+    width: 66%;
+    float: left;
+    background: transparent;
+}
+button.btn:hover {
+    background: green;
+}
+button.btn-primary:hover {
+    background: blue;
+}
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: inherit;
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+}
 </style>
-
-
-
-
   </head>
   <body>
-    <div class="container pt-5">
-      <div class="">
+    <div class="container pt-5 mt-4">
+      <div class="mt-5 pb-4">
        <h1>Cart</h1>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered ">
         <thead>
           <tr>
             <th scope="col">P.No.</th>
@@ -40,11 +41,11 @@
             <th scope="col">Total</th>
           </tr>
         </thead>
-      <tbody>
+      <tbody >
         @foreach($cart as $index=>$carts)
         <tr>
-           <th scope="row">{{$index}}</th>
-           <td><video width="200px" height="200px" controls="">
+           <th scope="row">{{$index+1}}</th>
+           <td class="text-center"><video width="200px" poster="{{url('storage/app/public/uploads/'.$carts->audio_pic) }}" height="100px" controls="">
              <source src="{{url('storage/app/public/video/'.$carts->media)}}" type="">
            </video></td>
            <td>{{$carts->price}}</td>
@@ -60,7 +61,7 @@
       
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Coupen Code" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Apply</button>
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Apply</button>
   </form>
 </div>
     <div class="col-md-6 text-right">
@@ -89,22 +90,12 @@
    
   </tbody>
 </table>
-        <button class="btn btn-danger " type="button">Proceed To Checkout</button>
-
-
-
+        <button class="btn btn-primary px-4" type="button">Proceed To Checkout</button>
       </div>
 
     </div>
      </div>
-
-
-
     </div>
      </div>
   
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  </body>
-</html>
+  @include('layouts.footer')

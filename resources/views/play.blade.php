@@ -1,164 +1,480 @@
-@extends('layout.cdn')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>PAZ html</title>
-</head>
-<body id="default_theme" class="it_service">
-<!-- header -->
 @include('layouts.header')
-
+ <link rel = "stylesheet" href = "{{asset('design/play.css')}}" />
 <!-- end header -->
-<div class="inner-page">
-  <div class="container">
-      <div class="col-md-12 uploa_outer">
-		  <div class="slider_tittle">
-		  <h3 class="tittle">Play list</h3>		  
-		</div>
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
-	</div>
-	<br/>
-	<div class="col-md-12 uploa_outer">
-		  <div class="slider_tittle">
-		  <h3 class="tittle">Wish list</h3>		  
-		</div>
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-				
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
-	</div>
-	<br/>
-	<div class="col-md-12 uploa_outer">
-		  <div class="slider_tittle">
-		  <h3 class="tittle">History</h3>		  
-		</div>
-        <div class="row pb-row">
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/K68UrdUOr2Y?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-				
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/wjT2JVlUFY4?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame " width="100%" height="230" src="https://www.youtube.com/embed/papuvlVeZg8?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-3 pb-video">
-                <iframe class="pb-video-frame" width="100%" height="230" src="https://www.youtube.com/embed/Y1_VsyLAGuk?list=RDzuAcaBkcYGE?ecver=1" frameborder="0" allowfullscreen></iframe>
-            </div>
-			<div class="out_red">
-			<button onclick="myFunction()" id="myBtn"><i class="fa fa-plus" aria-hidden="true"></i>Load more</button></div>
-        </div>
-	</div>	
-  </div>
-</div>  
 
-<!--body end-->
+<div class="row pb-row">
 
-<!--footer -->
-<footer class="footer_style_2">
-  <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>It Next Theme</h2>
+    <div class="container">
+        <div class="text-right">
+            <select
+                class="form-select form-control col-md-4"
+                aria-label="Default select example" onchange="selectVideoBasedOnOption(this)">
+                <option selected="selected">All</option>
+                <option value="collection">Collection</option>
+                <option value="playlist">Playlists</option>
+                <option value="wishlist">Wishlist</option>
+                <option value="history">History</option>
+            </select>
+        </div>
+        <div class="col-md-12 uploa_outer " id="collection">
+            <div class="slider_tittle">
+                <h3 class="tittle text-white">My Collection</h3>
             </div>
-            <p>Tincidunt elit magnis nulla facilisis. Dolor sagittis maecenas. Sapien nunc amet ultrices, dolores sit ipsum velit purus aliquet, massa fringilla leo orci.</p>
-            <ul class="social_icons">
-              <li class="social-icon fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li class="social-icon tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="social-icon gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Additional links</h2>
-            </div>
-            <ul class="footer-menu">
-              <li><a href="#"><i class="fa fa-angle-right"></i> About us</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> News</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Contact us</a></li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="main-heading left_text">
-              <h2>Contact us</h2>
-            </div>
-            <p>123 Second Street Fifth Avenue,<br>
-              Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
-            <div class="footer_mail-section">
-              <form>
-                <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+            <div class="choosebutton text-right pt-3" style="{{$flag=='offer' ? 'display:none' : 'display:block'}}"> 
+                    <button type="button" class="btn btn-primary bardot">Select</button>
+                    <button type="button" class="btn btn-danger closbtn">cancel</button>
+                    </div>
+                    <div class="choose1" style="display:none;">
+                    <button type="button" class="close" data-dismiss="choose1" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                    <div class="row ">
+                        <div class="col">
+                            <h4><span class="count">0</span>Item  Selected</h4>
+                        </div>
+                        
+                        <div class="col">
+                        <ul class="selected">
+                                
+                            </ul>
+                        </div>
+                        <div class="col pt-3">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#playlist1">Add To Playlist</button>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    <div class="modal" role="dialog" id="playlist1" aria-hidden="false">
+
+                    <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Create Playlist</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h3> Create New Playlist</h3>
+                                <div class="Playlist1">
+                                     @foreach($listname1 as $index=>$val)
+                                                    <h5 class="select_list">{{$val->listname}}
+                                                    </h5>
+                                                    <button
+                                                        data-id="{{$val->id}}"
+                                                        class="alert alert-primary btn-sm saveBtn"
+                                                        onclick="savePlaylist(this)"
+                                                        style="display:none;">Save</button>
+                                                    <p class="aedit text-right">edit</p>
+                                                    <br>
+                                     @endforeach
+                                
+
+                                </div>
+
+                                <a href="#" class="show_list">Create New Playlist +</a>
+                                <span class="create_playlistt" style="display: none">
+                                        <input type="text" class="list" placeholder="Play List Name" name="listname" value=""/>
+                                        <button class="create_list btn btn-primary" type="button">Create</button>
+                                    </span>
+                                <div class="text-center mt-4 ">
+                                    <input type="hidden" id="art_id" value="{{$cartVideo ? $cartVideo[0]->contentProviderid : ''}}"/>
+                                <button type="button" class="add_in_library btn btn-primary">ADD NOW</button>
+                                <div class="alert alert-success" id="success_message" style="display: none" role="alert">
+                                    </div>
+                                
+                            </div>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row pb-row">
+                        @if($videos) @foreach($videos as $indx=> $val)
+                        <div class="col-md-3 pb-video">
+                        <div class="checkall" style="display:none">
+                             <form> 
+                              <input type="checkbox" class="slct_video" id="{{$val->id}}" data-id="{{$val->price}}"></form></div>
+                            <video
+                                width="100%"
+                                height="100%"
+                                controls="controls"
+                                poster="{{url('storage/app/public/uploads/'.$val->audio_pic) }}"
+                                controlsList="nodownload"
+                                disablePictureInPicture="disablePictureInPicture">
+                                <source
+                                    src="{{url('storage/app/public/video/'.$val->videos)}}"
+                                    type="video/mp4"></video>
+                                    <div class="outer">
+                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="{{$val->is_deleted==1 ? 'display:block' : 'display:none'}}">
+                                      Content is no available
+                                        </button>
+                                        </div>
+
+                            </div>
+                            @endforeach @else
+                            <div class="playwish ">
+                                <h4 class="text-white">Collection Empty</h4>
+
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                   
+                    </div>
                 </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-      <div class="cprt">
-        <p>PAZ © Copyrights 2019 Design by PAZ</p>
-      </div>
-    </div>
-  </div>
-</footer>
-</body>
-<style>
-form.form-horizontal {
-    width: 100%;
-    float: left;
-    display: flex;
-}
-button.btn.btn-default {
-    background: #a60000;
-}
-.uploa_outer form {
-    padding: 10px 20px;
-}
-.uploa_outer {
-    float: left;
-    width: 100%;
-    margin: 20px 0px;
-}
-</style>
-</html>
+        <!-- -------------------------- Play List Start--------------------------->
+
+        <div class="inner-page">
+            <div class="container">
+                <div class="col-md-12 uploa_outer" id="playlist">
+                    <div class="slider_tittle">
+                        <h3 class="tittle">Playlist</h3>
+                        <!-- <form> <div class="form-group"> <label for="exampleFormControlSelect1">
+                        Select Playlist</label> <select class="form-control" name="playlist"
+                        id="exampleFormControlSelect1"> <option value="">Choose..</option>
+                        @foreach($listname as $val) <option
+                        value="{{$val->id}}">{{$val->playlistname}}</option> @endforeach </select>
+                        </div> </form> -->
+
+                        <!-- Modal -->
+                        <div
+                            class="modal fade w-100"
+                            id="exampleModalCenter"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="exampleModalCenterTitle"
+                            aria-hidden="true">
+                            <div
+                                class="modal-dialog "
+                                role="document"
+                                style="max-width:100%;    z-index: 1099;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Playlists</h5>
+                                        <button class="btn btn-outline-danger ml-5" type="button" id="deletePlaylist">Delete this Playlist</button>
+                                        <input type="hidden" value="" name="playlistid" id="list"/>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-8 playlist_video_show">
+                                                <div class="videodata"></div>
+                                                <div class="text-right mt-5">
+                                                    <button class="btn btn-outline-danger" type="button">Remove From Playlist</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="videoinfo">
+                                                  <div class="playlistname">
+                                                        <h4 class="listname">hello</h4>
+                                                        <p>1/</p><p class="lengthVideo">5</p>
+                                                    </div>
+                                                    <!------------start list------------------>
+                                                <a href="#" onClick="getSrcUrl(this)">
+                                                    <div class="video_append">
+
+                                                        <!-- <div class="videolist col-4" > </div> -->
+                                                        <div class="videonameq col-6">
+                                                            <h3>title</h3>
+                                                            <p>artistname</p>
+                                                        </div>
+
+                                                    </div> </a>
+                                                    <!------------end list------------------>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                                   <!-- Button trigger modal -->
+                  
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-body">
+                            <p>The artist has removed this Content. </p>
+                            <p>For unlimited access please place Orders directly from the Artists Offers and download them under "My Orders"</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                         
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- -------------------------- Video Section Start--------------------------->
+
+                    <div class="row pb-row">
+
+                        @foreach($listname as $playlist)
+                        <?php 
+              $videos = explode(',',$playlist->videos);
+
+              //print_r($videos);
+             
+              $count = count($videos);
+
+             // print_r($count);
+              
+            ?>
+
+                        <div class="col-md-4 mb-4">
+                            <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                    
+                                <video width="320" height="240" poster="{{url('storage/app/public/uploads/'.$videos[0]->audio_pic) }}">
+                                    <source src="{{url('storage/app/public/video/'.$videos[0])}}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                </video>
+                                    <div
+                                        class="videooverlay text-white"
+                                        onclick="showPlaylistVedio('{{json_encode($playlist)}}')">
+
+                                        <img
+                                            src="{{asset('images/playlisticon.png')}}"
+                                            class="img-fluid"`
+                                            width="200px"
+                                            height="200px">
+                                            <h2 class="text-white pl-5">{{$count}}</h2>
+                                            <p class="text-white">{{$playlist->playlistname}}</p>
+
+                                        </div>
+                                    </a>
+
+                                </div>
+                                @endforeach
+                                <br/>
+                            </div>
+                            </div>
+
+                            <!-- -------------------------- Wish list Start--------------------------->
+
+                            <div class="col-md-12 uploa_outer" id="wishlist">
+                                <div class="slider_tittle">
+                                    <h3 class="tittle">Wishlist</h3>
+                                    <div class="text-right">
+                                  
+                                    <div class="row pb-row">
+                                        @if($wishList) @foreach($wishList as $indx=> $val)
+                                        
+                                        <div class="col-md-3 pb-video">
+                                            <a href="{{url('artist-video/'.$val->id)}}">
+                                                <video
+                                                    width="100%"
+                                                    height="100%"
+                                                    poster="{{url('storage/app/public/uploads/'.$val->audio_pic) }}"
+                                                    controlsList="nodownload"
+                                                    disablePictureInPicture="disablePictureInPicture">
+                                                    <source src="{{url('storage/app/public/video/'.$val->media)}}" type="video/mp4"></video>
+                                                    </a>
+                                                    <h3 class="videotitle text-white">title</h3>
+                                                </div>
+
+                                                @endforeach @else
+                                                <div class="playwish playhistory col-md-12 py-4">
+                                                    <h4>Wishlist Empty</h4>
+
+                                                </div>
+                                                @endif
+                                            </div>
+                                            <br/>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <!-- -------------------------- History Section Start--------------------------->
+
+                                        <div class="col-md-12 uploa_outer" id="history">
+                                            <div class="slider_tittle">
+                                                <h3 class="tittle">History</h3>
+                                            </div>
+                                            <div class="row pb-row">
+
+                                                @if($history)
+                                                @foreach($history as $indx => $histories)
+
+                                                <div class="col-md-3 pb-video">
+                                                 <a href="{{url('artist-video/'.$histories->id)}}">
+                                                    <video
+                                                        width="100%"
+                                                        height="100%"
+                                                        poster="{{url('storage/app/public/uploads/'.$histories->audio_pic) }}"
+                                                        controlsList="nodownload"
+                                                        disablePictureInPicture="disablePictureInPicture">
+
+                                                        <source
+                                                            src="{{url('storage/app/public/video/'.$histories->media)}}"
+                                                            type="video/mp4">
+                                                            </video>
+                                                            </a>
+                                                            <h4 class="videotitle text-white">title</h4>
+
+                                                    </div>
+
+                                                    @endforeach @else
+                                                    <div class="playhistory col-md-12">
+                                                        <h4>History Empty</h4>
+                                                    </div>
+                                                    @endif
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+                            body {
+                                background: black;
+                            }
+
+                            .tooltip {
+                                opacity: 1 !important;
+                                display: inline-block;
+                                border-bottom: 1px dotted black;
+                                right: 12px;
+                                z-index: 1 !important;
+                            }
+
+                            .tooltip .tooltiptext {
+                                visibility: hidden;
+                                width: 203px;
+                                background-color: white;
+                                color: #000;
+                                text-align: center;
+                                border-radius: 6px;
+                                padding: 5px 0;
+
+                                /* Position the tooltip */
+                                position: absolute;
+                                z-index: 1;
+                            }
+                            .outer {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
+
+                            .tooltip:hover .tooltiptext {
+                                visibility: visible;
+                            }
+                            button.addNow {
+                                cursor: pointer;
+                            }
+                            ul.reporting {
+                                background: white;
+                                color: black;
+                                padding: 13px;
+                                border-radius: 7px;
+                            }
+                            .owl-carousel {
+                                display: block !important;
+                            }
+                            .choose1 {
+                                background: white;
+                                position: fixed;
+                                width: 50%;
+                                bottom: 10px;
+                                z-index: 2;
+                            }
+                            select.form-select.form-control.col-md-4 {
+                                float: right;
+                                margin-top: 22px;
+                            }
+                            .videooverlay {
+                                background: #151515;
+                                position: absolute;
+                                height: 245px;
+                                top: 11%;
+                                width: 161px;
+                                padding: 43px;
+                                display: block;
+                            }
+
+                            .playhistory {
+                                border: none;
+                                width: 100%;
+                                text-align: left;
+                                padding-bottom: 0;
+                            }
+                            .playwish {
+                                border: 2px dashed red;
+                                width: 100%;
+                                text-align: center;
+                                padding-bottom: 11px;
+                            }
+                            .playhistory h4 {
+                                margin: 0;
+                                font-size: 12px;
+                            }
+                            .inner-page {
+                                display: inline-block;
+                                width: 100%;
+                            }
+                            h3.videotitle.text-white {
+                                position: absolute;
+                                top: 5px;
+                                display: none;
+                            }
+
+                            .col-md-3.pb-video:hover h3.videotitle.text-white {
+                                display: block !important;
+                            }
+                            .pb-video {
+                                border: 1px solid #e6e6e6;
+                                padding: 5px;
+                                margin-top: 16px;
+                            }
+                            h3.tittle {
+                                color: #ffffff;
+                            }
+                            input.slct_video {
+                            position: absolute;
+                            right: 2px;
+                            top: 5px;
+                            z-index: 1;
+                            width: 20px;
+                            height: 20px;
+                        }
+                        .active{
+                            color:red;
+                        }
+                            .row.pb-row {
+                                background: black;
+                                color: white !important;
+                            }
+                            .playhistory.col-md-12 h4 {
+                                color: white !important;
+                            }
+                            .pb-video:hover {
+                                border: 1px solid gold;
+                                padding: 5px;
+                            }
+                            span#playlistCreate {
+                                font-size: 15px;
+                                font-weight: 700;
+                                cursor: pointer;
+                            }
+                        </style>
+                        <!--body end-->
+                        <script>
+                            function showop() {
+                                //alert("asas");
+                                $(".reporting").toggle();
+                            }
+                        </script>
+                        <!--footer -->
+                        @include('layouts.footer')

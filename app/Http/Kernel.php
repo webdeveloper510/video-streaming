@@ -54,6 +54,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'authentication' => \App\Http\Middleware\checkAuth::class,
+        'pazAuth' => \App\Http\Middleware\pazAuth::class,
+        'contentAuth' => \App\Http\Middleware\checkContentLogin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

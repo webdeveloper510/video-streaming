@@ -1,7 +1,3 @@
-[07-Oct-2020 17:44:57 UTC] PHP Fatal error:  Uncaught ReflectionException: Class view does not exist in /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php:809
-Stack trace:
-#0 /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(809): ReflectionClass->__construct('view')
-#1 /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(691): Illuminate\Container\Container->build('view')
-#2 /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(796): Illuminate\Container\Container->resolve('view', Array, true)
-#3 /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php(637): Illuminate\Foundation\Application->resolve('view', Array)
-#4 /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(781): Illuminate\Container\Containe in /home/gv0heoa8vyih/public_html/video-streaming/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 811
+[11-Feb-2021 21:09:06 UTC] PHP Warning:  POST Content-Length of 541394924 bytes exceeds the limit of 268435456 bytes in Unknown on line 0
+[12-Mar-2021 20:13:33 UTC] PHP Warning:  POST Content-Length of 341831730 bytes exceeds the limit of 268435456 bytes in Unknown on line 0
+[12-Mar-2021 21:49:38 UTC] PHP Warning:  POST Content-Length of 341831713 bytes exceeds the limit of 268435456 bytes in Unknown on line 0

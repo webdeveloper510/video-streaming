@@ -16,11 +16,24 @@ class checkAuth
      */
     public function handle($request, Closure $next)
     {
-        $session_data =   Session::get('User');
+
+           $redirect_url = $request->route()->uri;
+           
+           Session::put('redirect_url',$redirect_url); 
+
+          $session_data =   Session::get('userType');
         //$url = $request;
-        if(!$session_data){
-            return redirect('/login');
+        if($session_data=='contentUser'){
+            return redirect('artists/dashboard');
         }
-        return $next($request);
+        else if($session_data=='User'){
+           return $next($request);
+       }
+
+       else{
+
+      return $request->route()->uri == '/' ?  $next($request) :   redirect('/register');
+    
+       }
     }
 }

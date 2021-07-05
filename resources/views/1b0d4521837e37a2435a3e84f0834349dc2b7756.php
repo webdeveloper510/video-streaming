@@ -1,299 +1,481 @@
-
-
-<!doctype html>
-<html>
-<title>mistree</title>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device width, initial-scale=1.0">
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script-->
- 
-
-  </head>
-
-
-  <style>
-  
-  .owl-carousel {
-    display: block !important;
-}
-   .main-mistree {
-   margin-top: -22px;
-}
-.price {
-    position: absolute;
-    margin-top: -37px;
-    background: white;
-    padding: 8px;
-}
-.time {
-    position: absolute;
-    right: 18px;
-    margin-top: -37px;
-    padding: 8px;
-    background: white;
-}
-/*.owl-item.active > div:after {
-  content: 'active';
-}
-.owl-item.center > div:after {
-  content: 'center';
-}
-.owl-item.active.center > div:after {
-  content: 'active center';
-}
-.owl-item > div:after {
-  font-family: sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-}*/
-  </style>
-
-
-  <body>
-    <?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
- <section class="mistress-sec">
-<div class="container-fluid">
+<?php echo $__env->make('layouts.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<link rel="stylesheet" href="<?php echo e(asset('design/artistDetail.css')); ?>" />
 <div class="row">
-<div class="col-md-12">
-<div class="sec-video-area">
-<h3><strong>$</strong> Top Selling Content</h3>
-</div>
-</div>
-</div>
-
-<div class="row">
-
-<div class="col-md-3">
-
-<div class="main-mistree-sec1">
-<div class="main-mistree">
-<div class="main-mistree-circle">
-<img src="<?php echo e(url('storage/app/public/uploads/'.$details[0]->profilepicture)); ?>">
-</div>
-
-
-<div class="misstress kelly">
-<h3><?php echo e($details[0]->nickname); ?></h3>
-</div>
-
-
-<div class="clip-icon">
-<i class="fa fa-play" aria-hidden="true"></i>
-
-<p>Buy Clips</p>
-</div>
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<p>Tribute Me</p>
-</div>
-</div>
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-envelope" aria-hidden="true"></i>
-<p>Message Me</p>
-</div>
-</div>
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-heart" aria-hidden="true"></i>
-<p>Favorite Me</p>
-</div>
-</div>
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-heart" aria-hidden="true"></i>
-<p>About Me</p>
-</div>
-</div>
-
-
-<div class="clips-social-icons">
-<div class="clips-social1">
-<i class="fa fa-share-alt" aria-hidden="true"></i>
-<p>Share Me</p>
-</div>
-</div>
-
-
-</div>
-</div>
-</div>
-
-
-<div class="col-md-9">
-<div id="owl-example" class="owl-carousel">
-      <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php if($detail->type=='video'): ?>
-            <div class="col-md-4">
-
-          <video width="300" height="245" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-
+   <div class="col-md-12 col-sm-12 col-lg-12">
+      <div class="coverimg">
+         <img src="<?php echo e($details[0]->cover_photo ? url('storage/app/public/uploads/'.$details[0]->cover_photo) : asset('images/paz_logo_high_quality__.png')); ?>" width="100%" height="500px">
+      </div>
+      <div class="profileimg">
+         <img src="<?php echo e($details[0]->profilepicture ? url('storage/app/public/uploads/'.$details[0]->profilepicture) : asset('images/profile-dummy.png')); ?>" width="200px" height="200px">
+      </div>
+      <div class="artistdetail11 mb-5">
+         <h3><?php echo e(isset($details[0]->nickname) ? $details[0]->nickname: $artist[0]->nickname); ?>  
+            <i class="fa fa-star" style="color:red;"></i>  <?php echo e(isset($countSub[0]) ? $countSub[0] : 0); ?>  
+            <button class="btn btn-danger text-left <?php echo e($isSubscribed ? 'hide' : 'block'); ?>" id="subscribe" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,true)" >Subscribe </button>
+            <button class="btn btn-warning text-left <?php echo e($isSubscribed ? 'block' : 'hide'); ?>" data-toggle="modal" data-target="#Unsubscribe" id="unsubscribe" >Subscribed </button>
+         </h3>
+         <!------------------------------------ Modal  unSubscribe------------------------------->
+         <div class="modal fade" id="Unsubscribe" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-body">
+                     <h3> Unsubscribe from <?php echo e($details[0]->nickname); ?></h3>
+                     <div class="text-center Artistxyz">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="subscribe(<?php echo e(isset($details[0]->contentProviderid) ? $details[0]->contentProviderid: $artist[0]->id); ?>,false)">Unsubscribe</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
-            <?php endif; ?>
-             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+      </div>
+      <nav>
+         <div class="nav nav-tabs" id="nav-tab" role="tablist" >
+            <a class="nav-link tabss " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+            Service(s)
+               <div id="offerSelected" class="noti1" style="display:none;"></div>
+            </a>
+            <a class="nav-link tabss" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+            <a class="nav-link tabss active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+               Collection
+               <div id="mediaSelected" class="noti1" style="display:none;">  </div>
+            </a>
+         </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+         <!-- ------------------------------------------Offers videos -------------------------------------------------->
+         <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <h2> Service(s)</h2>
+            <div class="container">
+               <div class="row mb-5">
+                  <?php if($offerData): ?>
+                  <?php $__currentLoopData = $offerData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <div class="col-md-12">
+                     <div class="artistoffer row">
+                        <div class="col-md-2">
+                           <video width="100%" poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>" class="hoverVideo" height="100%" controls controlsList="nodownload" disablePictureInPicture>
+                              <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
+                              Your browser does not support the video tag.
+                           </video>
+                           <div class="noti" style="<?php echo e($offer->notificationseen=='0' && $offer->userid==$login->id && $offer->notiType=='offer'? 'display:block':'display:none'); ?>"></div>
+                           <?php if($offer->notificationseen=='0' && $offer->notiType=='media'): ?> 
+                           <script>
+                              $('#mediaSelected').show();
+                              
+                           </script>
+                           <?php endif; ?>
+                        </div>
+                        <div class="col-md-8 pl-5 showoffer">
+                           <a target="_blank" href="<?php echo e(url('artistoffers/'.$offer->id)); ?>">
+                              <h2><?php echo e($offer->title); ?></h2>
+                              <!-- <p><?php echo e($offer->description); ?></p> -->
+                              <?php echo e($details[0]->nickname); ?>
+
+                              <br> 
+                              Category :<?php echo e($offer->category); ?>
+
+                           </a>
+                        </div>
+                        <div class="col-md-2">
+                           <h4 > <span style="color:gold;"><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b> </span>/min</h4>
+                        </div>
+                        <hr>
+                     </div>
+                  </div>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  <?php else: ?>
+                  <div class="artistoffer1">
+                     <h4>No Service available</h4>
+                  </div>
+                  <?php endif; ?>
+               </div>
+            </div>
+            <style type="text/css">
+               .row hr {
+               width: 100%;
+               }
+               .text-left.buttons{
+               display: inline-flex;
+               }
+               .text-left.buttons input {
+               width: 300px;
+               margin-right: 18px;
+               }
+               .text-center.Artistxyz {
+               padding: 30px;
+               }
+               .noti {
+               background: blue;
+               height: 16px;
+               width: 16px;
+               border-radius: 50%;
+               position: absolute;
+               top: 5px;
+               right: 11px;
+               }
+               .noti1 {
+               background: blue;
+               height: 16px;
+               width: 16px;
+               border-radius: 50%;
+               }
+            </style>
+         </div>
+         <!-------------------------------------------------Contant videos ---------------------------------------------------->
+         <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <div class=" col-md-4" style="float:right;z-index: 9999999 !important;">
+               <select class="form-select form-control" id="change_section" aria-label="Default select example">
+                  <option selected value="all">All</option>
+                  <option  value="video">Video</option>
+                  <option value="audio">Audio</option>
+                  <!-- <option value="playlist">Playlists</option> -->
+               </select>
+            </div>
+            <div class="choosebutton text-right">
+               <button type="button" class="btn btn-primary bardot">Select</button>
+            </div>
+            <!-- ----------------------------------------------Simples Videos ------------------------------------------------>
+            <div class="container">
+               <div class="filter_div" id="video">
+                  <h3 class="mt-3">Videos</h3>
+                  <div class="row mb-5">
+                     <?php if(isset($details[0]->type)): ?>
+                     <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                     <?php if($detail->type=='video'): ?> 
+                     <div class="col-md-4 mb-3 hover">
+                        <div class='media_div'>
+                           <div class="checkall" style="display:none">
+                              <form> 
+                                 <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
+                              </form>
+                           </div>
+                        </div>
+                        <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
+                           <video class="hoverVideo" id="detail_<?php echo e($detail->id); ?>" poster="<?php echo e(url('storage/app/public/uploads/'.$detail->audio_pic)); ?>" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
+                              <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
+                              Your browser does not support the video tag.
+                           </video>
+                           <div class="noti" style="<?php echo e($detail->notification=='media' && $detail->userid==$login->id && $detail->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
+                        </a>
+                        <?php if($detail->is_seen=='0' && $detail->userid==$login->id && $detail->notification=='media'): ?> 
+                        <script>
+                           $('#mediaSelected').show();
+                           
+                        </script>
+                        <?php endif; ?>
+                        <div class="pricetime">
+                           <div class="text-left">
+                              <h6 class="text-white"><?php echo e($detail->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                           </div>
+                           <div class="text-right">
+                              <h6 class="text-white" id="duration1_<?php echo e($detail->id); ?>"><?php echo e($detail->duration ? $detail->duration :''); ?></h6>
+                           </div>
+                        </div>
+                     </div>
+                     <?php endif; ?>
+                     <?php if($detail->duration=='' || $detail->duration=='NaN:NaN:NaN'): ?>
+                     <script>
+                        var video;
+                         var id;
+                           setTimeout(() => {
+                           video = $("#detail_"+"<?php echo e($detail->id); ?>");
+                           seconds_to_min_sec(video[0].duration,"#duration1_"+"<?php echo e($detail->id); ?>","<?php echo e($detail->id); ?>");
+                         }, 2000);
+                     </script>
+                     <?php endif; ?>
+                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                     <?php else: ?>
+                     <div class="artistvideo">
+                        <h4> No video available.</h4>
+                     </div>
+                     <?php endif; ?>
+                  </div>
+               </div>
+               <!------------------------------------------------------------Audio Section---------------------------------------------------------------------->      
+               <div class="filter_div pb-5" id="audio">
+                  <h3>Audios</h3>
+                  <div class="row mb-5">
+                     <?php if($audio[0]->type): ?>
+                     <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                     <div class="col-md-4 mb-3">
+                        <div class="checkall" style="display:none">
+                           <form> 
+                              <input type="checkbox" class="slct_video">
+                           </form>
+                        </div>
+                        <a href="<?php echo e(url('artist-video/'.$aud->id)); ?>">
+                           <img width="100%" src="<?php echo e(asset('images/logos/voice.jpg')); ?>">
+                           <audio controls controlsList="nodownload" disablePictureInPicture>
+                              <source src="<?php echo e(url('storage/app/public/audio/'.$aud->media)); ?>" type="audio/mp3">
+                              Your browser does not support the audio tag.
+                           </audio>
+                           <div class="noti" style="<?php echo e($aud->notification=='media' && $aud->userid==$login->id && $aud->is_seen=='0' ? 'display:block' : 'display:none'); ?>"></div>
+                        </a>
+                        <?php if($aud->is_seen=='0' &&  $aud->userid==$login->id && $aud->notification=='media'): ?> 
+                        <script>
+                           $('#mediaSelected').show();
+                           
+                        </script>
+                        <?php endif; ?>
+                        <div class="pricetime">
+                           <div class="text-left">
+                              <h6 style="color:yellow !important;"><?php echo e($aud->price); ?><b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></h6>
+                           </div>
+                           <div class="text-right">
+                              <h6 class="text-white"><?php echo e($aud->duration); ?></h6>
+                           </div>
+                        </div>
+                     </div>
+                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                     <?php else: ?>
+                     <div class="artistaudio">
+                        <h4> No Audio available.</h4>
+                     </div>
+                     <?php endif; ?>
+                  </div>
+               </div>
+               <!-- ---------------------------------------------------Playlists Videos ------------------------------------------------->
+           
+            </div>
+            <!-- --------------Long videos -------------------->
+         </div>
+         <div class="choose1" style="display:none;">
+            <button type="button" class="close off" data-dismiss="choose1" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="row ">
+               <div class="col-md-2">
+                  <h4><span class="count">0</span>Item  Selected</h4>
+               </div>
+               <div class="col-md-2">
+                  <h4>Price : <span class="paz">0</span>PAZ</h4>
+               </div>
+               <div class="col-md-2">
+                  <ul class="selected">
+                  </ul>
+               </div>
+               <div class="col-md-3 pt-3">
+                  <button type="button" class="btn btn-primary library" data-toggle="modal"  data-target="#exampleModal">Add To Library</button>
+               </div>
+               <div class="col-md-3 pt-3">
+                  <button type="button" class=" btn btn-primary addTowishlist" >Add To Wishlist </button>
+               </div>
+            </div>
+         </div>
+         <div class="modal" role="dialog" id="exampleModal" >
+         </div>
+         <!-- <div class="tab-pane fade mb-5" id="nav-feed" role="tabpanel" aria-labelledby="nav-feed-tab">
+            <p><i class="fa fa-lock"></i> Please subscribe to see the feed. </p>
+            </div> -->
+         <div class="tab-pane fade mb-5" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <!----------------------------------------------- Profile veiw --------------------------------------------->
+            <div class="container">
+               <h2 >Profile</h2>
+               <h1>Overview</h1>
+               <div class="row">
+                  <div class="col-md-2 col-sm-2 col-lg-2">
+                  </div>
+                  <div class="col-md-8 col-sm-8 col-lg-8">
+                     <video width="100%" height="100%" poster="<?php echo e(url('storage/app/public/uploads/'.$overview->audio_pic)); ?>" Controls controlsList="nodownload" disablePictureInPicture>
+                        <source src="<?php echo e($overview ? url('storage/app/public/video/'.$overview[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
+                        Your browser does not support the video tag.
+                     </video>
+                     <div class="report-op">
+                        <i class="fa fa-ellipsis-v" onclick="showop()"></i>
+                        <ul style="display:none;" class="reporting">
+                           <li><button class="btn btn-outline-light btn-sm text-dark"data-toggle="modal" data-target="#reportvideo" type="button">Report</button></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
+                  </div>
+                  <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-5">
+                     <h1>About Me</h1>
+                     <hr>
+                     <p><?php echo e($details[0]->aboutme ? $details[0]->aboutme : $artist[0]->aboutme ? $artist[0]->aboutme : 'Not Any Description'); ?></p>
+                  </div>
+               </div>
+               <div class="row text-center text-black">
+                  <?php if(isset($details[0])): ?>
+                  <?php $__currentLoopData = $details[0]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$profile): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php if($key=='gender' || $key=='sexology' || $key=='height' || $key=='privy' || $key=='weight' || $key=='hairlength' ||  $key=='eyecolor' || $key=='haircolor'): ?>
+                  <div class="col-md-3">
+                     <label><b><?php echo e(ucwords($key)); ?></b></label>
+                     <p><?php echo e($profile); ?></p>
+                  </div>
+                  <?php endif; ?>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  <?php endif; ?>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-
-
-  <!-- Left and right controls -->
-
-
-<div class="feel my-shoe">
-<div class="sub-feel my">
-<h3>Feel My Shoes squeezing your balls</h3>
-
-
-<div class="add to cart">
-<button type="button" onclick="alert('Hello world!')">Add to Cart</button>
-<div class="price-btn">
-<a href="#"><p>$9.9</p></a>
+</div>
+<script>
+   var artistid="<?php echo e($artistid); ?>";
+   setTimeout(function(){ 
+       removeBadge(artistid);
+    }, 10000);
+</script>
+<style>
+   .col-md-12.col-sm-12.col-lg-12.text-center.mt-5 p {
+   font-size: 20px;
+   padding: 29px;
+   line-height: 29px;
+   }
+   .fa-lock{
+   font-size:30px;
+   }
+   .pricetime .text-right h6 {
+   background: black;
+   width: auto;
+   float: right;
+   color: white !important;
+   padding: 10px;
+   }
+   .pricetime .text-left h6 {
+   padding: 10px;
+   color: gold !important;
+   font-weight: 800;
+   background:black;
+   }
+   select.form-select.form-control, select.form-select.form-control * {
+   color: #000 !important;
+   }
+   .choose1 .row {
+   color: #000 !important;
+   }
+   .hover:hover video {
+   border: 2px solid yellow;
+   }
+   .coverimg img {
+   object-fit: fill;
+   }
+   .price {
+   padding: 24px 18px;
+   }
+   .pricetime .text-left {
+   float: left;
+   padding-left: 10px;
+   margin-top:-5px;
+   }
+   .pricetime .text-right {
+   margin-top: -47px;
+   margin-right: 7px;
+   }
+   .tooltip {
+   opacity:1 !important;
+   display: inline-block;
+   border-bottom: 1px dotted black;
+   right: 39px;
+   }
+   .tooltip .tooltiptext {
+   visibility: hidden;
+   width: 203px;
+   background-color: white;
+   color: #000 !important;
+   text-align: center;
+   border-radius: 6px;
+   padding: 5px 0;
+   /* Position the tooltip */
+   position: absolute;
+   z-index: 1;
+   }
+   .tooltip:hover .tooltiptext {
+   visibility: visible;
+   }
+   ul.selected li {
+   margin: 10px 0px;
+   }
+   .price h4 {
+   margin: 0;
+   }
+   .choose1 {
+   border: 2px solid;
+   position: fixed;
+   bottom: 10px;
+   z-index: 9999999;
+   background: white;
+   width: 96% !important;
+   right: 13px !important;
+   box-shadow: 0 6px 12px #00000042;
+   }
+   .profileimg img {
+   position: absolute;
+   border: 3px solid white;
+   margin-top: -149px;
+   border-radius: 50%;
+   }
+   ul.reporting {
+   background: #efefef;
+   width: 241px;
+   margin-left: 50%;
+   box-shadow: 0 3px 6px #00000026;
+   padding: 8px 6px 8px;
+   text-align: left;
+   position: absolute;
+   font-size: 13px;
+   }
+   .report-op {
+   position: absolute;
+   top: 6px;
+   right: 33px;
+   cursor: pointer;
+   z-index: 0;
+   }
+   .close {
+   margin-top: 7px;
+   }
+   @media  only screen and (max-width: 768px) {
+   .coverimg img {
+   object-fit: contain;
+   }
+   .col-md-12.col-sm-12.col-lg-12.text-center.mt-5 p {
+   font-size: auto;
+   padding: 10px;
+   line-height: auto;
+   }
+   }
+</style>
+<!-- Modal -->
+<div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header ">
+            <div class="row" style="width: 100%;">
+               <div class="col"></div>
+               <div class="col-md-8 my-3">
+                  <div class="text-center">
+                     <select class="form-select form-control " aria-label="Default select example">
+                        <option selected> Select Menu</option>
+                        <option value="1">Harmful </option>
+                        <option value="2">Underage</option>
+                        <option value="3">Misleading </option>
+                        <option value="7">Other</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col"></div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
+         </div>
+         <div class="modal-body">
+            <label>Description</label>
+            <textarea class="form-control"minlength="50" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+         </div>
+         <div class="pb-3 pr-3 text-right">
+            <button class="btn btn-primary" type="button">Submit</button>
+         </div>
+      </div>
+   </div>
 </div>
 </div>
-</div>
-<p>Extreme bondage/suspension, Ballbusting, Humiliation...</p>
-</div>
-
-
-<div class="rope bondag">
-<p>Ballbusting, Rope Bondage</p>
-<p>File Type: mp4</p>
-<p>Resolution: HD 720p</p>
-</div>
-
-
-<div class="result">
-
-<div class=" my content">
-<h3>My Content</h3>
-<p>199 results</p>
-</div>
-
- <div class="search content">
-<form action="/action_page.php">
-      <input type="text" placeholder="Search content" name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-
-
-<form action="/action_page.php">
-  <label for="cars">Filter:</label>
-  <select name="cars" id="cars">
-    <option value="volvo">See All</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>
-
-</form> 
-
-    <div class="sortby">
-    <i class="fa fa-filter" aria-hidden="true"></i>
-    <p>Sort By</p>
-    </div>
-
-    <div class="newest">
-    <form action="/action_page.php">
-  <select name="cars" id="cars">
-    <option value="volvo">Newest</option>
-    <option value="saab">Oldest</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>
-  </div>
-  </div>
-</div>
-
-
-
-
-<div class="row">
-       <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <?php if($detail->type=='video'): ?>
-    <div class="col-md-4 pr-4">
-        <a href="<?php echo e(url('artist-video/'.$detail->id)); ?>">
-        <video width="300" height="200" controls allowfullscreen>
-            <source src="<?php echo e(url('storage/app/public/video/'.$detail->media)); ?>" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </a>
-          <div class="price"><?php echo e('$'.$detail->price); ?></div>
-          <div class="time">00:23:56</div>
-<div class="video-icon">
-    <a href="a<?php echo e(url('artist-video/'.$detail->id)); ?>">
-<p><?php echo e($detail->title); ?></p>
-</a>
-<div class="camera">
-<i class="fa fa-video-camera" aria-hidden="true"></i>
-<p>vid</p>
-
-<p><span><br>MISTRESS KELLY KALASHNIK</span></p>
-    </div>
-</div>
-</div>
-<?php endif; ?>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-</div>
-
-</div>
-     <script>
-  $(document).ready(function() {
- 
-  $("#owl-example").owlCarousel({
-    items:3,
-loop:true, //HERE YOU ARE SAYING I WANT THE INFINITE LOOP
-margin:0,
-autoPlay:true,
-autoPlay: 1000,
-autoPlayTimeout:1000,
-autoPlayHoverPause:true,
-nav:false,
-dots:false,
- rewindNav:false //**This
-  
-  });
- 
-});
- </script>
-</section>
-
-
-
-
-
-
-
-  </body>
-
-  </html>
-<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
+<script>
+   function showop(){
+   //alert("asas");
+   $(".reporting").toggle();
+   }
+</script>
+<?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artistDetail.blade.php ENDPATH**/ ?>
