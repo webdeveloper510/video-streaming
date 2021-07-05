@@ -295,10 +295,10 @@ Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth
 
 Route::get('artistVideo/{id}','artist@VideoPage');
 
-Route::get('artists/dashboard', array('as' => 'Loguearse', 'uses' => 'artist@dashboard1'));
+//Route::get('artists/dashboard', array('as' => 'Loguearse', 'uses' => 'artist@dashboard1'));
 
 
-//Route::get('artists/dashboard', 'artist@dashboard1')->middleware('contentAuth');
+Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
 Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 

@@ -5,7 +5,6 @@ use App\Registration;
 use Session;
 use App\File;
 use Storage;
-
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\artistSupport;
@@ -28,7 +27,7 @@ use Illuminate\Support\Arr;
 require_once($path.'/autoload.php');
 require_once($path.'/stripe/stripe-php/init.php');
 
-class ArtistController extends Controller
+class artist extends Controller
 {
     private $model;
 
@@ -236,11 +235,8 @@ class ArtistController extends Controller
       
     }
 
-    public function dashboard1()
+    public function dashboard()
     {
-
-
-
       //print_r(Carbon::now(UTC+5)->toDateTimeString());die;
 
       $navbaractive = 'dashboard';

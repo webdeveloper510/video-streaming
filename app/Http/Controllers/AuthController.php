@@ -542,7 +542,7 @@ class AuthController extends Controller
 
               Session::forget('login_attempt');
 
-        return  $data['user']=='users' ?  redirect('/')->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
+        return  $data['user']=='users' ?  redirect('/')->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard1')->with('success','Login Successfully!');
 
             }
 
@@ -975,27 +975,35 @@ else{
       }
   }
 
-  public function notifyUrl($req){
+  public function notifyUrl(Request $req){
 
-    echo "yes";
+    if($req){
 
-    $data = json_decode($req); //  Decode json here
+      echo "yes";
 
-    //print_r($data);die;
+      return '200';
 
-    if($data){
-
-    $assem_id = $data['assembly_id'];
-
-    $fileName = $this->saveContent($data); // This function gives us video name
-
-    $imagename = $this->saveTransloaditImage($data); // This function gives us image name
-
-    $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
-
-    $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
-    
     }
+
+   
+
+    // $data = json_decode($req); //  Decode json here
+
+    // //print_r($data);die;
+
+    // if($data){
+
+    // $assem_id = $data['assembly_id'];
+
+    // $fileName = $this->saveContent($data); // This function gives us video name
+
+    // $imagename = $this->saveTransloaditImage($data); // This function gives us image name
+
+    // $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
+
+    // $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
+    
+    // }
   }     
 
 
