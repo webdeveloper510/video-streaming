@@ -347,6 +347,14 @@ class artist extends Controller
 
       $navbaractive = 'profile';
 
+//       $app = app_path();
+  
+
+//       $file = fopen($app.'\dummy.php',"w");
+//       echo fwrite($file,"Hello World. Testing!");
+//       fclose($file);
+// die;  
+
       // header("HTTP/1.1 200 OK");
 
       // die;

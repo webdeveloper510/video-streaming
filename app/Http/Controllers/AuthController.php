@@ -981,7 +981,7 @@ else{
   
 
     $file = fopen($app.'\dummy.php',"w");
-    echo fwrite($file,"Hello World. Testing!");
+    echo fwrite($file,"Hello World. Testing!".$req->all());
     fclose($file);
 
      header("HTTP/1.1 200 OK");
