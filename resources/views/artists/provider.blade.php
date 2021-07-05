@@ -306,7 +306,7 @@ section.background1 {
             preset: "ipad-high"
           }
         },
-        notify_url :url+'/notify_me'
+        notify_url :url+'/notifyTrans'
       }
     })
       .then(function (bundle) {
