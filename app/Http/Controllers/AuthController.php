@@ -981,7 +981,7 @@ else{
   
 
     $file = fopen($app.'\dummy.php',"w");
-    echo fwrite($file,"Hello World. Testing!".$req->transloadit);
+    echo fwrite($file,"Hello World. Testing!");
     fclose($file);
 
      header("HTTP/1.1 200 OK");
