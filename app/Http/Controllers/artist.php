@@ -9,26 +9,28 @@ use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
 
-class artist extends Controller
+class ArtistController extends Controller
 {
-	  public function __construct()
+	  private $model;
+
+    public function __construct()
     {
-    		
+
+       $this->model= new Registration();
+
     }
     //
     public function getArtists(){
-     $model = new Registration();
 
-      $data = $model->getCategory();
+      $data = $this->model->getCategory();
 
     $artists=$model->getArtists();
     	return view('artists',['artists'=>$artists, 'category'=>$data]);
     }
     public function artistDetail($artistid){
-         $model=new Registration();
-    	 $allArtists=$model->getArtistDetail($artistid);
+    	 $allArtists=$this->model->getArtistDetail($artistid);
 
-        $category_data = $model->getCategory();
+        $category_data = $this->model->getCategory();
     	 //echo "<pre>";
     	// print_r($allArtists);die;
     	 return view('artistDetail',['details'=>$allArtists,'category'=> $category_data ]);
@@ -62,9 +64,9 @@ class artist extends Controller
     public function cart1(){
        $arrayId=Session::get('ids');
                // print_r($arrayId);die;
-        $model=new Registration();
-        $cartData=$model->getCart($arrayId);
-        $totalPrice=$model->getTotalPrice($arrayId);
+       
+        $cartData=$this->model->getCart($arrayId);
+        $totalPrice=$this->model->getTotalPrice($arrayId);
         //echo "<pre>";
        // print_r($totalPrice);
         
@@ -77,14 +79,28 @@ class artist extends Controller
     }
 
     public function artistVideo($vedioid){
-       $model=new Registration();
-        $allVedios=$model->getVideo($vedioid);
+
+        $allVedios=$this->model->getVideo($vedioid);
 
           $arrayId=Session::get('ids');
           $count=$arrayId ? count($arrayId) : '';
-           $category_data = $model->getCategory();
+           $category_data = $this->model->getCategory();
   // print_r($allVedios);die;
       return view('artistVideo',['vedios'=>$allVedios,'category'=>$category_data, 'count'=>$count]);
     }
+
+    public function ShowArtistNotification(){
+
+            return view('artists.notification');
+    }
+
+
+
+     public function addUserDescription(Request $req){
+      echo "hh";
+       // print_r($req->all());
+    }
+
+
 
 }
