@@ -984,7 +984,7 @@ else{
     echo fwrite($file,"Hello World. Testing!".$req->transloadit);
     fclose($file);
 
-    header("HTTP/1.1 200 OK");
+    return header("HTTP/1.1 200 OK");
     // $homepage = file_get_contents($app.'\dummy.php');
     // echo $homepage;
     // die;
