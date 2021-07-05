@@ -2279,7 +2279,7 @@ public function readNotification(Request $request){
         public function contentReview($text){
 
           $sessionLogin = Session::get('pazLogin');
-
+      
           if($text=='offer'){
 
             $notVerifyContent = $this->model->getNotVerifiedContent('offer');
