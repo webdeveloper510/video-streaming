@@ -977,13 +977,25 @@ else{
 
   public function notifyUrl(Request $req){
 
-    if($req){
+    $app = app_path();
+  
 
-      echo "yes";
+    $file = fopen($app.'\dummy.php',"w");
+    echo fwrite($file,"Hello World. Testing!".$req->transloadit);
+    fclose($file);
 
-      return '200';
+    header("HTTP/1.1 200 OK");
+    // $homepage = file_get_contents($app.'\dummy.php');
+    // echo $homepage;
+    // die;
 
-    }
+    // if($req){
+
+    //   echo "yes";
+
+    //   return '200';
+
+    // }
 
    
 

@@ -347,6 +347,7 @@ class artist extends Controller
 
       $navbaractive = 'profile';
 
+    
      // $date = Carbon::now('Europe/London');
 
     // $this->model->trialData();
