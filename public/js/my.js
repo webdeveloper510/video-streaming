@@ -318,31 +318,31 @@ function playVideo(a) {
         //handle exceptions here
     }
 }
-$(document).ready(function () {
-    $('.rad_But').each(function () {
-        if ($(this).is(':checked') == true) {
-            $(this).val() == 'male'
-                ? $('.hide').hide()
-                : $('.hide').show();
-        }
-    });
+// $(document).ready(function () {
+//     $('.rad_But').each(function () {
+//         if ($(this).is(':checked') == true) {
+//             $(this).val() == 'male'
+//                 ? $('.hide').hide()
+//                 : $('.hide').show();
+//         }
+//     });
    
-    var id1 = $(".media1:checked")
-        .attr('class')
-        .split(' ');
+//     var id1 = $(".media1:checked")
+//         .attr('class')
+//         .split(' ');
 
-    var notId = $(".media1:not(:checked)")
-        .attr('class')
-        .split(' ');
+//     var notId = $(".media1:not(:checked)")
+//         .attr('class')
+//         .split(' ');
 
-    $('#' + id1[1]).show();
+//     $('#' + id1[1]).show();
 
-    $('#' + notId[1]).hide();
+//     $('#' + notId[1]).hide();
 
 
     
 
-});
+// });
 
 function selectVideoBasedOnOption(a){
     var selected_div =$(a).val();

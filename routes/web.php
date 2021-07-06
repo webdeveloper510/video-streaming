@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+// namespace App\Http\Controllers;
+
+// use App\Http\Controllers\Controller;
+
+// use Illuminate\Routing\Route;
+
+// Route::controller(Controller::detect());
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +26,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','AuthController@home')->middleware('authentication');
 
 
-Route::get('/register/{id?}', 'AuthController@register');
-
 Route::get('overview','AuthController@overview');
 
-Route::get('checkUser/{user}', 'AuthController@check');
 
 Route::get('addToken', 'AuthController@addtoken');
 
@@ -46,7 +51,6 @@ Route::get('login', 'AuthController@login');
 
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
-Route::get('play/{id?}', 'AuthController@play')->middleware('authentication');
 
 Route::get('listname', 'AuthController@listname')->middleware('authentication');
 
@@ -54,11 +58,7 @@ Route::get('search', 'AuthController@search')->middleware('authentication');
 
 Route::get('userWithdraw', 'AuthController@draw')->middleware('authentication');
 
-Route::get('show/{id}', 'AuthController@subcat_video');
 
-Route::get('showContent/{text}', 'AuthController@contentReview');
-
-Route::get('verify/{id}/{type}', 'AuthController@verifyEmail');
 
 Route::get('stripe', array('as' => 'stripe.stripe','uses' => 'AuthController@payWithStripe'));
 
@@ -233,112 +233,122 @@ Route::get('legal-notice', 'AuthController@legal');
 
    Route::post('admin/addCategory', 'admin@addCategory');
 
-   Route::get('admin/sub/{id}', 'admin@showSubCategory');
 
    Route::post('admin/addSub', 'admin@addSubCategory');
 
    
-/*---------------------------End Admin-----------------------------*/
+/*-------------------------------------------------------End Admin----------------------------------------------------*/
 
-/*-----------------------------------------------Artist Route ----------------------------------*/
+/*---------------------------------------------------------------------------Artist Route -------------------------------------------------------*/
 
-   Route::post('addDescription','artist@addDescription');
+                     Route::post('addDescription','artist@addDescription');
 
-    Route::post('userName','artist@saveUsername');
+                     Route::post('userName','artist@saveUsername');
 
-    Route::post('sendToTip','artist@sendTip');
+                     Route::post('sendToTip','artist@sendTip');
 
-    Route::post('insertTime','artist@sendTimeFrame');
+                     Route::post('insertTime','artist@sendTimeFrame');
 
-    Route::post('cancelOrder','artist@CnacelOrder');
-    
-    Route::post('createOffer','artist@createOffer');
+                     // Route::post('cancelOrder','artist@CnacelOrder');
+                     
+                     Route::post('createOffer','artist@createOffer');
 
-    Route::post('createPlaylist','artist@createPlaylist');
+                     Route::post('createPlaylist','artist@createPlaylist');
 
-    Route::post('deleiver','artist@deleiverOffer');
+                     Route::post('deleiver','artist@deleiverOffer');
 
-    Route::post('uploadSocialdashboard','artist@socialUpload');
+                     Route::post('uploadSocialdashboard','artist@socialUpload');
 
-    Route::post('updateArtist','artist@updateartist');
+                     Route::post('updateArtist','artist@updateartist');
 
-    Route::post('editOffer','artist@editOffer');
+                     Route::post('editOffer','artist@editOffer');
 
-    Route::post('draw_money','artist@draw_money');
+                     Route::post('draw_money','artist@draw_money');
 
-    Route::post('artist/editVedio','artist@editVideoInfo');
+                     Route::post('artist/editVedio','artist@editVideoInfo');
 
-    Route::post('artist/insert_support','artist@insertData');
+                     Route::post('artist/insert_support','artist@insertData');
 
-    Route::post('delete_offer','artist@deleteOfer');
+                     Route::post('delete_offer','artist@deleteOfer');
 
-    Route::post('change_image','artist@change_image');
+                     Route::post('change_image','artist@change_image');
 
-    Route::post('postDescription','artist@addUserDescription');
+                     Route::post('postDescription','artist@addUserDescription');
 
-    Route::post('edit_offer','artist@edit_offer');
+                     Route::post('edit_offer','artist@edit_offer');
 
-    Route::post('edit_info','artist@edit_info');
+                     Route::post('edit_info','artist@edit_info');
 
-    Route::post('editDescription','artist@editDescription');
+                     Route::post('editDescription','artist@editDescription');
 
+                     Route::get('artist/age-verification', 'artist@ageVerify');
 
-Route::get('artist/Profile/{Profile?}', 'artist@profile')->middleware('contentAuth');
+                     Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
 
-Route::get('artist/age-verification', 'artist@ageVerify');
+                    Route::get('artist/earning', 'artist@earning');
 
-Route::get('artist/contentUpload', 'AuthController@contentProv')->middleware('contentAuth');
-
-Route::get('artist/earning', 'artist@earning');
-
-Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
-
-Route::get('artistVideo/{id}','artist@VideoPage');
-
-//Route::get('artists/dashboard', array('as' => 'Loguearse', 'uses' => 'artist@dashboard1'));
+                    Route::get('artist/edit', 'AuthController@contentForm')->middleware('contentAuth');
 
 
-Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
-
-Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
+                  //Route::get('artists/dashboard', array('as' => 'Loguearse', 'uses' => 'artist@dashboard1'));
 
 
-    Route::get('artistRegister', 'AuthController@artistRegister');
+                  Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
-    Route::get('artist/support', 'artist@support');
-    
-    
-    Route::get('artist/offers/{id}', 'artist@offerpage');
+                  Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
 
-    Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
+                     Route::get('artistRegister', 'AuthController@artistRegister');
 
-    Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
+                     Route::get('artist/support', 'artist@support');
 
-    Route::get('customer_orders/{text}', 'AuthController@getRequests');
+                     Route::get('support-team', 'AuthController@support_team');
 
-
-    Route::get('support-team', 'AuthController@support_team');
-
-    Route::get('artist/offer', 'artist@offer');
-    
-    Route::get('artist/faq', 'artist@faq');
+                     Route::get('artist/offer', 'artist@offer');
+                     
+                     Route::get('artist/faq', 'artist@faq');
 
 
-    Route::get('artist/feed', 'artist@feed');
+                     Route::get('artist/feed', 'artist@feed');
 
 
-    Route::get('artist/my-offer', 'artist@myoffer');
+                     Route::get('artist/my-offer', 'artist@myoffer');
+
+                     // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
+
+                     Route::get('artist/notification','artist@ShowArtistNotification');
+
+                     Route::get('artistLogin', 'AuthController@getLogin');
+
+                     Route::get('feed', 'AuthController@feedPage');
+
+                     Route::get('artist/offers/{id}', 'artist@offerpage');
+
+                     Route::get('show/{id}', 'AuthController@subcat_video');
 
 
+                     Route::get('/register/{id?}', 'AuthController@register');
+
+                     Route::get('checkUser/{user}', 'AuthController@check');
+                     
+                     Route::get('showContent/{text}', 'AuthController@contentReview');
+
+                     Route::get('verify/{id}/{type}', 'AuthController@verifyEmail');
+
+                     Route::get('artistVideo/{id}','artist@VideoPage');
+
+                     Route::get('play/{id?}', 'AuthController@play')->middleware('authentication');
+
+                     Route::get('admin/sub/{id}', 'admin@showSubCategory');
 
 
-   // Route::get('artist/getOrdersRequests', 'artist@showOrdersRequest')->middleware('contentAuth');
+                     Route::get('customer_orders/{text}', 'AuthController@getRequests');
 
-    Route::get('artist/notification','artist@ShowArtistNotification');
+                     Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
 
-    Route::get('artistLogin', 'AuthController@getLogin');
-    Route::get('feed', 'AuthController@feedPage');
+                     Route::get('artist/Profile/{Profile?}', 'artist@profile')->middleware('contentAuth');
+
+                     Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
 
 /*---------------------------------------------------------------End Artist--------------------------------------------------*/
 
