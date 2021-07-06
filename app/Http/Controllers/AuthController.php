@@ -978,11 +978,18 @@ else{
   public function notifyUrl(Request $req){
 
     if($_POST['transloadit']){
-      echo "All Good";
+      $messge = "All Good";
+
+           $file = fopen($app.'\dummy.php',"w");
+           fwrite($file,"Hello World. Testing!".$messge);
+           fclose($file);
     }
 
     else{
-      echo "nothing";
+      $messge= "nothing";
+            $file = fopen($app.'\dummy.php',"w");
+           fwrite($file,"Hello World. Testing!".$messge);
+           fclose($file);
     }
 
   //   $app = app_path();
