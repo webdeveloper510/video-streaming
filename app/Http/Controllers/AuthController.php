@@ -542,7 +542,7 @@ class AuthController extends Controller
 
               Session::forget('login_attempt');
 
-        return  $data['user']=='users' ?  redirect('/')->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard1')->with('success','Login Successfully!');
+        return  $data['user']=='users' ?  redirect('/')->with('loginSuccess','Login Successfully!'): redirect('artists/dashboard')->with('success','Login Successfully!');
 
             }
 
