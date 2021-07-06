@@ -977,14 +977,22 @@ else{
 
   public function notifyUrl(Request $req){
 
-    $app = app_path();
+    if($_POST['transloadit']){
+      echo "All Good";
+    }
+
+    else{
+      echo "nothing";
+    }
+
+  //   $app = app_path();
   
 
-    $file = fopen($app.'\dummy.php',"w");
-    fwrite($file,"Hello World. Testing!".json_encode($_POST));
-    fclose($file);
+  //   $file = fopen($app.'\dummy.php',"w");
+  //   fwrite($file,"Hello World. Testing!".json_encode($_POST));
+  //   fclose($file);
 
-   return  response()->json(['success' => 'success'], 200);
+  //  return  response()->json(['success' => 'success'], 200);
     // $homepage = file_get_contents($app.'\dummy.php');
     // echo $homepage;
     // die;
