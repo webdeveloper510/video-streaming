@@ -66,11 +66,7 @@ Route::post('addmoney/stripe', 'AuthController@postPaymentStripe');
 
 Route::get('getArtists', 'artist@getArtists')->middleware('authentication');
 
-Route::get('artistDetail/{id}', 'artist@artistDetail')->middleware('authentication');
 
-Route::get('artist-video/{id}', 'artist@artistVideo');
-
-Route::get('logout/{user?}', 'AuthController@logout'); 
 
 
 Route::get('view1', 'AuthController@view1'); 
@@ -81,15 +77,12 @@ Route::get('my-requests','AuthController@myRequests')->middleware('authenticatio
 
 Route::get('success', 'AuthController@succssPage'); 
 
-Route::get('notify/{id}', 'AuthController@notify'); 
 
 Route::get('admin-panel', 'AuthController@adminPanel'); 
 
 Route::get('inProcess', 'AuthController@process'); 
 
-Route::get('seeall/{text}', 'AuthController@seeall')->middleware('authentication');
-Route::get('seeall1/{text}', 'AuthController@seeOrder')->middleware('authentication');
-Route::get('playlist/{id}', 'AuthController@playlistByid'); 
+
 
 Route::get('reset', 'AuthController@reset'); 
 
@@ -110,7 +103,6 @@ Route::get('cart', 'artist@cart')->middleware('authentication');
 
 Route::get('showoffers','AuthController@offers')->middleware('authentication');
 
-Route::get('notification/{text}','AuthController@seeNotification');
 
 Route::post('ajax-request', 'artist@cartSbmit');
 
@@ -180,7 +172,6 @@ Route::post('showLists', 'AuthController@showLists');
 
 Route::post('addToWish', 'AuthController@addToWish');
 
-Route::get('artistoffers/{id}', 'AuthController@artistoffers');
 
 //Route::post('checkPrice', 'AuthController@checkPrice');
 
@@ -341,12 +332,28 @@ Route::get('legal-notice', 'AuthController@legal');
 
                      Route::get('admin/sub/{id}', 'admin@showSubCategory');
 
+                     Route::get('artistDetail/{id}', 'artist@artistDetail')->middleware('authentication');
+
+                     Route::get('artist-video/{id}', 'artist@artistVideo');
+
+                     Route::get('notification/{text}','AuthController@seeNotification');
+
+                     Route::get('logout/{user?}', 'AuthController@logout'); 
+
+                     Route::get('seeall/{text}', 'AuthController@seeall')->middleware('authentication');
+
+                     Route::get('seeall1/{text}', 'AuthController@seeOrder')->middleware('authentication');
+
+                     Route::get('playlist/{id}', 'AuthController@playlistByid'); 
 
                      Route::get('customer_orders/{text}', 'AuthController@getRequests');
+
+                     Route::get('notify/{id}', 'AuthController@notify'); 
 
                      Route::get('artist/requests/{requests?}', 'artist@showRequest')->middleware('contentAuth');
 
                      Route::get('artist/Profile/{Profile?}', 'artist@profile')->middleware('contentAuth');
+                     Route::get('artistoffers/{id}', 'AuthController@artistoffers');
 
                      Route::get('artist/getRequests/{getRequests}/{status?}', 'artist@getRequests')->middleware('contentAuth');
 
