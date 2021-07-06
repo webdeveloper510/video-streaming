@@ -977,7 +977,7 @@ else{
 
   public function notifyUrl(Request $req){
 
-    if($_POST['transloadit']){
+    if(isset($_POST['transloadit'])){
       $messge = "All Good";
 
            $file = fopen($app.'\dummy.php',"w");
