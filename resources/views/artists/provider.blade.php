@@ -262,6 +262,7 @@ section.background1 {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
         // To hide your `steps`, use a `template_id` instead
+        notify_url :url+'/notifyTrans'
         steps: {
           ":original": {
             robot: "/upload/handle"
@@ -306,7 +307,6 @@ section.background1 {
             preset: "ipad-high"
           }
         },
-        notify_url :url+'/notifyTrans'
       }
     })
       .then(function (bundle) {
