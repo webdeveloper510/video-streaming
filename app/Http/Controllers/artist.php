@@ -351,6 +351,10 @@ class artist extends Controller
 
       $navbaractive = 'profile';
 
+      $app = app_path();
+
+      print_r($app);die;
+
 //       $app = app_path();
   
 
