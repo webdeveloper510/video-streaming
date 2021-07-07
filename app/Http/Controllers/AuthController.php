@@ -987,7 +987,7 @@ else{
 
       $data = $_POST['transloadit'];
 
-      $decode = json_decode($req->all());
+      $decode = json_decode($data);
 
       try{
 
@@ -995,7 +995,7 @@ else{
 
         $file = fopen($app.'/dummy.php',"w");
         //fwrite($file,"Hello World. Testing!");
-        fwrite($file,"Hello World. Testing!".$messge." ".$data);
+        fwrite($file,"Hello World. Testing!".$messge." ".$decode);
         fclose($file);
 
       }
