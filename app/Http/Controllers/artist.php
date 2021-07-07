@@ -353,7 +353,7 @@ class artist extends Controller
 
       $app = app_path();
 
-      print_r($app);die;
+      //print_r($app);die;
 
 //       $app = app_path();
   
