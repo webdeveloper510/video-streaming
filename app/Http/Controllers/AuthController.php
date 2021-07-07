@@ -984,14 +984,23 @@ else{
     $app = app_path();
 
     if(isset($_POST['transloadit'])){
-      $messge = "All Good";
 
-           $file = fopen($app.'\dummy.php',"w");
-           fwrite($file,"Hello World. Testing!");
-           //fwrite($file,"Hello World. Testing!".json_decode($_POST['transloadit']));
-           fclose($file);
-           return 'I am in if';
-    }    
+      try{
+
+        $messge = "All Good";
+
+        $file = fopen($app.'\dummy.php',"w");
+        fwrite($file,"Hello World. Testing!");
+        //fwrite($file,"Hello World. Testing!".json_decode($_POST['transloadit']));
+        fclose($file);
+
+      }
+
+      catch(Exception $e) {
+        echo 'Message: ' .$e->getMessage();
+      }
+      return 'I am in if';
+    } 
 
     else{
       $messge= "nothing";
