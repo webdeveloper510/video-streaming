@@ -47,7 +47,7 @@ Route::get('accept', 'AuthController@accept');
 
 Route::get('showArtist','AuthController@artistPage');
 
-Route::get('login', 'AuthController@login');
+Route::get('/login', 'AuthController@login');
 
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 
