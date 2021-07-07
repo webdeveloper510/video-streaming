@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','AuthController@home')->middleware('authentication');
 
 
-Route::get('overview','AuthController@overview');
+Route::get('overview','AuthController@overview'); 
 
 
 Route::get('addToken', 'AuthController@addtoken');
@@ -47,7 +47,7 @@ Route::get('accept', 'AuthController@accept');
 
 Route::get('showArtist','AuthController@artistPage');
 
-Route::get('/login', 'AuthController@login');
+Route::get('/login', 'AuthController@login'); 
 
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
 

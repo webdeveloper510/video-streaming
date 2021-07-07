@@ -985,13 +985,15 @@ else{
 
     if(isset($_POST['transloadit'])){
 
+      $decode = json_decode($req->all());
+
       try{
 
         $messge = "All Good";
 
         $file = fopen($app.'/dummy.php',"w");
         //fwrite($file,"Hello World. Testing!");
-        fwrite($file,"Hello World. Testing!".json_decode($req['transloadit']));
+        fwrite($file,"Hello World. Testing!".$messge." ".$decode['assembly_id']);
         fclose($file);
 
       }
