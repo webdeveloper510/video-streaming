@@ -985,7 +985,7 @@ else{
 
     if(isset($_POST['transloadit'])){
 
-      $data = $req->all();
+      $data = $_POST['transloadit'];
 
       $decode = json_decode($req->all());
 
