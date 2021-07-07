@@ -629,7 +629,7 @@ else{
 }
       public function home(){
 
-        console.log('dddd');die;
+       
 
         Session::forget('login_attempt');   
 
@@ -650,6 +650,8 @@ else{
            $popularaudios = $this->model->PopularVideos($paginate='No','audio');      
 
           $newComes=$this->model->getNewComes();
+
+          //print_r('dddd');die;
 
     return view('/initial',['isSubscribed'=>$isData,'recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos,'popularAudios'=>$popularaudios]);
 
