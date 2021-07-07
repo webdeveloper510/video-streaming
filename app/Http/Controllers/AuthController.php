@@ -990,7 +990,7 @@ else{
            fwrite($file,"Hello World. Testing!".json_decode($_POST['transloadit']));
            fclose($file);
            return 'I am in if';
-    }
+    }    
 
     else{
       $messge= "nothing";
