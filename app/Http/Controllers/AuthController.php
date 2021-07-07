@@ -995,7 +995,7 @@ else{
 
         $file = fopen($app.'/dummy.php',"w");
         //fwrite($file,"Hello World. Testing!");
-        fwrite($file,"Hello World. Testing!".$messge." ".$decode);
+        fwrite($file,"Hello World. Testing!".$messge." ".$data->assembly_id);
         fclose($file);
 
       }
