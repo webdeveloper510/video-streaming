@@ -629,6 +629,8 @@ else{
 }
       public function home(){
 
+        console.log('dddd');die;
+
         Session::forget('login_attempt');   
 
 

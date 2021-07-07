@@ -25,7 +25,7 @@
 <div class="tab-content" id="pills-tabContent">
    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <div class="container">
-         <div class="row">
+         <div class="row">  
             <div class="col-md-6">
                <div class="text-center">
                   <h3>Oldest : <span>0h</span></h3>
@@ -291,6 +291,8 @@
 <div class="tab-pane fade" id="pills-Identity" role="tabpanel" aria-labelledby="pills-Identity-tab">
    <section class="reportmeadia text-center">
       <div class="container">
+      <table class="table text-center">
+
       <table class="table ">
          <thead class="thead-dark">
             <tr>

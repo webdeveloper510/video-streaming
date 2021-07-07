@@ -237,6 +237,10 @@ class artist extends Controller
 
     public function dashboard()
     {
+
+     // echo "dff";die;
+
+    //  dd('success');
       //print_r(Carbon::now(UTC+5)->toDateTimeString());die;
 
       $navbaractive = 'dashboard';

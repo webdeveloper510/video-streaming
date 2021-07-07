@@ -283,8 +283,11 @@ Route::get('legal-notice', 'AuthController@legal');
 
                   //Route::get('artists/dashboard', array('as' => 'Loguearse', 'uses' => 'artist@dashboard1'));
 
+               //    Route::get('artists/dashboard', function () {
+               //       dd('success');
+               //   });
 
-                  Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
+
 
                   Route::get('withdraw', 'AuthController@withdraw')->middleware('contentAuth');
 
@@ -298,6 +301,8 @@ Route::get('legal-notice', 'AuthController@legal');
                      Route::get('artist/offer', 'artist@offer');
                      
                      Route::get('artist/faq', 'artist@faq');
+                     
+                     Route::get('artists/dashboard', 'artist@dashboard')->middleware('contentAuth');
 
 
                      Route::get('artist/feed', 'artist@feed');

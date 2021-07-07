@@ -4,6 +4,12 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 col-lg-12">
         <div class="coverimg">
+        <div class="verify text-center cover" style="<?php echo e($details[0]->background_verified==0 ? 'display:block' : 'display:none'); ?>">
+                  <h3>Verifying...</h3>
+               </div>
+               <div class="verifyvideo  den text-center cover" >
+               <button type="button"  style="<?php echo e($details[0]->background_verified==-1 ? 'display:block' : 'display:none'); ?>" class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+            </div>
         <div class="overlayartist text-center">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" class="img-fluid cover_loader" style="display:none">
         </div>
@@ -28,6 +34,12 @@
         
         </div>
         <div class="profileimg">
+        <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
+                  <h3>Verifying...</h3>
+               </div>
+               <div class="verifyvideo den text-center" style="<?php echo e($detail->is_verified== -1 ? 'display:block' : 'display:none'); ?>">
+               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+            </div>
         <div class="overlayprofile">
            <img src=" <?php echo e(asset('images/loaderartist.gif')); ?>" style="display:none" width="100px" height="100px" class="img-fluid profile_loader">
         </div>
@@ -47,6 +59,26 @@
           
           </div>
           <nav>
+          <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <p>We have found this Content to be categorized as
+                        harmful / misleading / underge.<br>
+                        If we learn that such Content was actively pusued, your account will be 
+                        terminated.<br>
+                        If you believe you are being treated wrong, please reach out to our support via ticket or directly at 
+                        at artist@pornartistzone.com
+                        </p>
+                  </div>
+                  <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-link tabss" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Service(s)</a>
     <a class="nav-link tabss <?php echo e($collection_selection ? '' : 'active'); ?>" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
@@ -70,10 +102,13 @@
    
       <div class="artistoffer row">
         <div class="col-md-2 mt-5">
-        <div class="verify text-center">
+        <div class="verify text-center" style="<?php echo e($offer->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
-                  <a href=""  data-toggle="modal" data-target="#denied">Denied</a>
                </div>
+               <div class="verifyvideo den text-center" style="<?php echo e($offer->is_verified== -1? 'display:block' : 'display:none'); ?>">
+                  <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+            </div>
+               <a href=""  data-toggle="modal" data-target="#denied" style="<?php echo e($offer->is_verified== -1 ? 'display:block' : 'display:none'); ?>">Denied</a>
           <?php if($offer->type=='video'): ?>
         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
@@ -182,6 +217,9 @@
             <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
             </div>
+            <div class="verifyvideo den text-center" style="<?php echo e($detail->is_verified==-1 ? 'display:block' : 'display:none'); ?>">
+            <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+            </div>
                <div class="checkall" style="display:none">
                <form> 
                   <input type="checkbox" class="slct_video" id="<?php echo e($detail->id); ?>" data-id="<?php echo e($detail->price); ?>">
@@ -243,6 +281,9 @@
 <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
+               <div class="verifyvideo den text-center" style="<?php echo e($detail->is_verified== -1 ? 'display:block' : 'display:none'); ?>">
+               <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
+            </div>
    <div class="checkall" style="display:none"><form> 
    <input type="checkbox" class="slct_video"></form></div>
      <a href="<?php echo e(url('artistVideo/'.$aud->id)); ?>">
@@ -360,7 +401,12 @@ Your browser does not support the audio tag.
         <div class="col-md-2 col-sm-2 col-lg-2">
         </div>
         <div class="col-md-8 col-sm-8 col-lg-8">
-       
+        <div class="verify text-center" style="<?php echo e($random[0]->is_verified==0 ? 'display:block' : 'display:none'); ?>">
+                  <h3>Verifying...</h3>
+               </div>
+               <div class="verifyvideo den text-center" >
+               <button type="button"  class="btn btn-danger" data-toggle="modal" style="<?php echo e($random[0]->is_verified== -1 ? 'display:block' : 'display:none'); ?>" data-target="#denied">Denied</button>
+            </div>
           <?php if(isset($random[0]->type)&&$random[0]->type=='video'): ?>
             <video width="100%" height="100%" id="get_duration"  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" controls List="nodownload" disablePictureInPicture>
                       <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'https://www.radiantmediaplayer.com/media/big-buck-bunny-360p.mp4'); ?>" type="video/mp4">
@@ -784,32 +830,10 @@ Your browser does not support the audio tag.
                   </div>
                      
 
-                     <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#denied">
-              Launch demo modal
-            </button>
+                    
 
             <!-- Modal -->
-            <div class="modal fade" id="denied" tabindex="-1" role="dialog" aria-labelledby="deniedLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  
-                  <div class="modal-body">
-                    <p>We have found this Content to be categorized as
-                        harmful / misleading / underge.<br>
-                        If we learn that such Content was actively pusued, your account will be 
-                        terminated.<br>
-                        If you believe you are being treated wrong, please reach out to our support via ticket or directly at 
-                        at artist@pornartistzone.com
-                        </p>
-                  </div>
-                  <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
+          
 
 
 <style>
@@ -842,6 +866,10 @@ video:hover {
 }
 .coverimg {
     margin-top: 37px;
+}
+.verifyvideo.text-center.den h3 {
+
+  background:red !important;
 }
 @media  only screen and (max-width: 768px) {
 .coverimg img {
