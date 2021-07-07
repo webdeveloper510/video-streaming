@@ -981,6 +981,8 @@ else{
 
   public function notifyUrl(Request $req){
 
+    $app = app_path();
+
     if(isset($_POST['transloadit'])){
       $messge = "All Good";
 
