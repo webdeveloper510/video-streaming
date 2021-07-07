@@ -989,7 +989,7 @@ else{
 
         $messge = "All Good";
 
-        $file = fopen($app.'\dummy.php',"w");
+        $file = fopen($app.'/dummy.php',"w");
         fwrite($file,"Hello World. Testing!");
         //fwrite($file,"Hello World. Testing!".json_decode($_POST['transloadit']));
         fclose($file);
