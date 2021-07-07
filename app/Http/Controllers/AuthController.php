@@ -987,6 +987,7 @@ else{
            $file = fopen($app.'\dummy.php',"w");
            fwrite($file,"Hello World. Testing!".$messge);
            fclose($file);
+           return 'I am in if';
     }
 
     else{
@@ -994,6 +995,7 @@ else{
             $file = fopen($app.'\dummy.php',"w");
            fwrite($file,"Hello World. Testing!".$messge);
            fclose($file);
+           return 'I am in else';
     }
 
   //   $app = app_path();
