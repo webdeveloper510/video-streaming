@@ -535,7 +535,7 @@ class artist extends Controller
               unset($data['transloadit']);
               unset($data['transloadit_image']);
 
-              print_r($data);die;
+              //print_r($data);die;
 
               if($data){
 

@@ -1257,7 +1257,7 @@ public function getRefersArtist($id){
       $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
        $data['by_created']=1;
-       $data['quality'] = $data['quality'] ? $data['quality'] : '';
+       $data['quality'] = $data['quality'];
 
 
       $data['artistid'] = $userid;
