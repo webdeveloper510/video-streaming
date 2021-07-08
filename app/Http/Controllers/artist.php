@@ -524,7 +524,7 @@ class artist extends Controller
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
               unset($data['thumbnail_pic']);
               $data['quality'] = 0;
-              $data['type']= 'audio'; 
+              $data['type']= ''; 
               $data['assembly_id']=$data['assembly_id'];
               $data['categoryid']= $data['audio_cat'];
 

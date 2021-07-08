@@ -337,6 +337,7 @@ input.select_media_pic {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
         // To hide your `steps`, use a `template_id` instead
+        notify_url :url+'/notifyTrans/offer',
         steps: {
           ":original": {
             robot: "/upload/handle"
@@ -381,7 +382,7 @@ input.select_media_pic {
             preset: "ipad-high"
           }
         },
-        'notify_url':url+'/notify_me'
+        'notify_url':url+'/notifyTrans'
       }
     })
       .then(function (bundle) {
