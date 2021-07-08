@@ -687,6 +687,9 @@
    .owl-carousel {
    display: block !important;
    }
+   .hoverVideo {
+    border: 1px solid yellow;
+}
    .col-md-4.mb-3 img {
    padding-left: 7px;
    margin-bottom: -23px;
@@ -800,9 +803,7 @@
     width: 100%;
     padding: 0px 10px;
 }
-.col-md-4.hover.cl video {
-    border: 1px solid yellow;
-}
+
    @media only screen and (max-width: 768px) {
    .col-md-4.hover {
    margin-top: 10px;
