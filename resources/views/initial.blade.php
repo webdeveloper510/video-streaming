@@ -721,6 +721,7 @@
    background: white;
    opacity: 0;
    }
+   
    .cardhr {
    background: white;
    }
