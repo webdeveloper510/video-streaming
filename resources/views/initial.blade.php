@@ -422,6 +422,17 @@
       <div class="row">
          @forelse ($popular as $pop) @if($pop->type=='video' && $pop->profile_video!='yes')
          <div class="col-md-4 hover">
+         <div class="videotags row">
+            <div class="col-4 blue text-left">
+           <button class="btn btn-primery" type="button">Stream</button>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 green text-right">
+            <button class="btn btn-success" type="button">Download</button>
+            </div>
+
+         </div>
             <a id="anchor_{{$pop->id}}" href="{{url('artist-video/'.$pop->id)}}">
                <video
                   class="hoverVideo"
