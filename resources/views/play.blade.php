@@ -347,7 +347,11 @@
                             body {
                                 background: black;
                             }
-
+                            .collectionvideo.row {
+                                    position: absolute;
+                                    width: 100%;
+                                    padding: 0px 69px;
+                                }
                             .tooltip {
                                 opacity: 1 !important;
                                 display: inline-block;
