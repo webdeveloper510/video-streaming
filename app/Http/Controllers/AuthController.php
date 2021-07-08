@@ -1004,7 +1004,7 @@ else{
 
             $file = fopen($app.'/data.json',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,$data);
+            fwrite($file,$k);
             fclose($file);
       }
 
