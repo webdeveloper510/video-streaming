@@ -985,20 +985,22 @@ else{
 
     if(isset($_POST['transloadit'])){
 
-      // $data = $_POST['transloadit'];
+      $data = $_POST['transloadit'];
 
-      // $decode = json_decode($data);
+      $decode = json_encode($data);
 
       $json = file_get_contents("php://input");
 
       $obj = json_decode($json);
+
+
 
       try{
             $messge = "All Good";
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$json);
+            fwrite($file,"Hello World. Testing!".$messge." ".$decode);
             fclose($file);
       }
 
