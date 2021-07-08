@@ -981,7 +981,7 @@ else{
 
   public function notifyUrl(Request $req,$table){
 
-    //$input = Input::get('table');
+    $input = Input::get('table');
 
     $app = app_path();
 
@@ -1001,7 +1001,7 @@ else{
 
        $data1 = array('media'=>$fileName,'type'=>'audio','audio_pic'=>$imagename);
 
-       $this->model->UpdateData($table,'assembly_id',$data1,$assem_id);
+       $this->model->UpdateData($input,'assembly_id',$data1,$assem_id);
 
 
     // $data = json_decode($req); //  Decode json here
