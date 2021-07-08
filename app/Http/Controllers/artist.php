@@ -466,7 +466,7 @@ class artist extends Controller
 
         ]);
 
-       // print_r($req->all());die;
+        print_r($req->all());die;
               
         if ($validator->fails())
         {
@@ -534,6 +534,8 @@ class artist extends Controller
               unset($data['video_cat']);
               unset($data['transloadit']);
               unset($data['transloadit_image']);
+
+              print_r($data);die;
 
               if($data){
 
