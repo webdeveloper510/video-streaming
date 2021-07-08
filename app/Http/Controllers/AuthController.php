@@ -1004,12 +1004,12 @@ else{
 
             $file = fopen($app.'/data.json',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,$data);
+            fwrite($file,$k['assembly_id']);
 
-            $string = file_get_contents($app.'/data.json');
-            $json_a = json_decode($string, true);
+            // $string = file_get_contents($app.'/data.json');
+            // $json_a = json_decode($string, true);
 
-            fwrite($file,'Decode'." ".$json_a['assembly_id']);
+            // fwrite($file,'Decode'." ".$json_a['assembly_id']);
             
 
             fclose($file);
