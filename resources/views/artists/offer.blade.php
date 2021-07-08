@@ -382,7 +382,6 @@ input.select_media_pic {
             preset: "ipad-high"
           }
         },
-        'notify_url':url+'/notifyTrans'
       }
     })
       .then(function (bundle) {
