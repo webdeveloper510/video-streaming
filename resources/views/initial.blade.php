@@ -724,6 +724,10 @@
    .cardhr {
    background: white;
    }
+   .col-4.blue.text-left button {
+    background: violet;
+    color: white;
+}
    .artist .profileImage {
    width: 125px;
    height: 125px;
