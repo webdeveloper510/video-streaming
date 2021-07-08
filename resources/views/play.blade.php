@@ -95,6 +95,14 @@
                         <div class="checkall" style="display:none">
                              <form> 
                               <input type="checkbox" class="slct_video" id="{{$val->id}}" data-id="{{$val->price}}"></form></div>
+                              <div class="collectionvideo row">
+                                 <div class="col">
+                                   
+                                 </div>
+                                 <div class="col-4">
+                                  <button class="btn btn-succes btn-sm">Download Now</button>
+                                 </div>
+                              </div>
                             <video
                                 width="100%"
                                 height="100%"
