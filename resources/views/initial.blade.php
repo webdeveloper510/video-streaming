@@ -687,6 +687,9 @@
    .owl-carousel {
    display: block !important;
    }
+   .hoverVideo {
+    border: 1px solid yellow;
+}
    .col-md-4.mb-3 img {
    padding-left: 7px;
    margin-bottom: -23px;
@@ -726,18 +729,18 @@
    background: white;
    }
    .col-4.blue.text-left h4 {
-    background: violet;
+    background: gold;
     text-align: center;
-    color: white;
-    padding: 2px;
+    color: black;
+   
     font-size: 13px;
 }
 
 .col-4.green.text-right h4 {
     color: white;
-    background: #5ccb5c;
+    background: green;
     text-align: center;
-    padding: 2px;
+   
     font-size: 13px;
 }
    .artist .profileImage {
@@ -796,13 +799,11 @@
    }
    .videotags.row {
     position: absolute;
-    top: 0px;
+    top: -22px;
     width: 100%;
     padding: 0px 10px;
 }
-.col-md-4.hover.cl video {
-    border: 1px solid yellow;
-}
+
    @media only screen and (max-width: 768px) {
    .col-md-4.hover {
    margin-top: 10px;
