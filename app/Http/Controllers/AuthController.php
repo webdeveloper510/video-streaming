@@ -987,69 +987,20 @@ else{
 
       $data = $_POST['transloadit'];
 
-      // $decode = "'".json_encode($data)."'";
 
-      // $json = file_get_contents("php://input");
+       $response=json_decode($data,true);
+    
 
-      // $jsonData = stripslashes(html_entity_decode($decode));
+       $assem_id = $response['assembly_id'];
 
-       $k=json_decode($data,true);
-      
-     // print_r($k);
+       $fileName = $this->saveContent($response);
 
+       $imagename = $this->saveTransloaditImage($response);
 
+       $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
 
-      try{
-            $messge = "All Good";
+       $this->model->UpdateData('media','assembly_id',$data1,$assem_id);
 
-            $file = fopen($app.'/data.json',"w");
-            //fwrite($file,"Hello World. Testing!");
-            fwrite($file,$k['assembly_id']);
-
-            // $string = file_get_contents($app.'/data.json');
-            // $json_a = json_decode($string, true);
-
-            // fwrite($file,'Decode'." ".$json_a['assembly_id']);
-            
-
-            fclose($file);
-      }
-
-      catch(Exception $e) {
-        echo 'Message: ' .$e->getMessage();
-      }
-      return 'I am in if';
-    } 
-
-    else{
-      $messge= "nothing";
-            $file = fopen($app.'\dummy.php',"w");
-           fwrite($file,"Hello World. Testing!".$messge);
-           fclose($file);
-           return 'I am in else';
-    }
-
-  //   $app = app_path();
-  
-
-  //   $file = fopen($app.'\dummy.php',"w");
-  //   fwrite($file,"Hello World. Testing!".json_encode($_POST));
-  //   fclose($file);
-
-  //  return  response()->json(['success' => 'success'], 200);
-    // $homepage = file_get_contents($app.'\dummy.php');
-    // echo $homepage;
-    // die;
-
-    // if($req){
-
-    //   echo "yes";
-
-    //   return '200';
-
-    // }
-
-   
 
     // $data = json_decode($req); //  Decode json here
 
@@ -1068,6 +1019,7 @@ else{
     // $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
     
     // }
+    }
   }     
 
 
