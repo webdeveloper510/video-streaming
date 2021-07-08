@@ -343,12 +343,12 @@
          <div class="col-md-4 hover">
          <div class="videotags row">
             <div class="col-4 blue text-left">
-           <button class="btn btn-primery" type="button">Stream</button>
+           <button class="btn btn-primary btn-sm" type="button">Stream</button>
             </div>
             <div class="col-4">
             </div>
             <div class="col-4 green text-right">
-            <button class="btn btn-success" type="button">Download</button>
+            <button class="btn btn-success btn-sm" type="button">Download</button>
             </div>
 
          </div>
@@ -778,6 +778,12 @@
    .pricetime {
    margin-top: -43px;
    }
+   .videotags.row {
+    position: absolute;
+    top: 34px;
+    width: 100%;
+    padding: 0px 10px;
+}
    @media only screen and (max-width: 768px) {
    .col-md-4.hover {
    margin-top: 10px;
