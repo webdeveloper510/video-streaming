@@ -1004,7 +1004,14 @@ else{
 
             $file = fopen($app.'/data.json',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,$k->ok);
+            fwrite($file,$data);
+
+            $string = file_get_contents($app.'/data.json');
+            $json_a = json_decode($string, true);
+
+            fwrite($file,'Decode'." ".$data);
+            
+
             fclose($file);
       }
 
