@@ -342,12 +342,12 @@
          @forelse ($recently as $recnt) @if($recnt->type=='video')
          <div class="col-md-4 hover">
          <div class="videotags row">
-            <div class="col-4 blue">
+            <div class="col-4 blue text-left">
            <button class="btn btn-primery" type="button">Stream</button>
             </div>
             <div class="col-4">
             </div>
-            <div class="col-4 green">
+            <div class="col-4 green text-right">
             <button class="btn btn-success" type="button">Download</button>
             </div>
 
