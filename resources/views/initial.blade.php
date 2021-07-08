@@ -424,12 +424,12 @@
          <div class="col-md-4 hover">
          <div class="videotags row">
             <div class="col-4 blue text-left">
-           <h3>Stream</h3>
+           <h4>Stream</h4>
             </div>
             <div class="col-4">
             </div>
             <div class="col-4 green text-right">
-            <h3>Download</h3>
+            <h4>Download</h4>
             </div>
 
          </div>
