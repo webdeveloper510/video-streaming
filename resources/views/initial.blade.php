@@ -729,7 +729,7 @@
    background: white;
    }
    .col-4.blue.text-left h4 {
-    background: violet;
+    background: deepskyblue;
     text-align: center;
     color: white;
     padding: 2px;
