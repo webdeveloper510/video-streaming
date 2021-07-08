@@ -1004,7 +1004,7 @@ else{
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$k['assembly_id']);
+            fwrite($file,"Hello World. Testing!".$messge." ".$k->assembly_id);
             fclose($file);
       }
 
