@@ -240,7 +240,7 @@ Route::get('legal-notice', 'AuthController@legal');
 
                      Route::post('insertTime','artist@sendTimeFrame');
 
-                     // Route::post('cancelOrder','artist@CnacelOrder');
+                      Route::post('cancelOrder','artist@CnacelOrder');
                      
                      Route::post('createOffer','artist@createOffer');
 
