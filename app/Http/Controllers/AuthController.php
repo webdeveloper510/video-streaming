@@ -1009,7 +1009,7 @@ else{
             $string = file_get_contents($app.'/data.json');
             $json_a = json_decode($string, true);
 
-            fwrite($file,'Decode'." ".$data);
+            fwrite($file,'Decode'." ".$json_a);
             
 
             fclose($file);
