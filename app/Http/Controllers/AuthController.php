@@ -993,7 +993,7 @@ else{
 
       // $jsonData = stripslashes(html_entity_decode($decode));
 
-      // $k=json_decode($jsonData,true);
+       $k=json_decode($data,true);
       
      // print_r($k);
 
@@ -1004,7 +1004,7 @@ else{
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$data);
+            fwrite($file,"Hello World. Testing!".$messge." ".$k);
             fclose($file);
       }
 
