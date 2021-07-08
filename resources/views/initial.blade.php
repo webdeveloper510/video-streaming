@@ -725,9 +725,20 @@
    .cardhr {
    background: white;
    }
-   .col-4.blue.text-left h3 {
+   .col-4.blue.text-left h4 {
     background: violet;
+    text-align: center;
     color: white;
+    padding: 2px;
+    font-size: 13px;
+}
+
+.col-4.green.text-right h4 {
+    color: white;
+    background: #5ccb5c;
+    text-align: center;
+    padding: 2px;
+    font-size: 13px;
 }
    .artist .profileImage {
    width: 125px;
