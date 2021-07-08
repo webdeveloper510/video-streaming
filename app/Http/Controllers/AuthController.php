@@ -991,7 +991,7 @@ else{
 
       $json = file_get_contents("php://input");
 
-      $obj = json_decode({"ok":"ASSEMBLY_COMPLETED","http_code":200,"message":"The Assembly was successfully completed."});
+      $obj = json_decode($decode,true);
 
 
 
