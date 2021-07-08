@@ -991,7 +991,7 @@ else{
 
       $json = file_get_contents("php://input");
 
-      $obj = json_decode($json);
+      $obj = json_decode($decode);
 
 
 
@@ -1000,7 +1000,7 @@ else{
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$decode);
+            fwrite($file,"Hello World. Testing!".$messge." ".$obj);
             fclose($file);
       }
 
