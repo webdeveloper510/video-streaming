@@ -340,7 +340,7 @@
       @if($login)
       <div id="recently_search" class="row">
          @forelse ($recently as $recnt) @if($recnt->type=='video')
-         <div class="col-md-4 hover">
+         <div class="col-md-4 hover cl">
          <div class="videotags row">
             <div class="col-4 blue text-left">
            <button class="btn btn-primary btn-sm" type="button">Stream</button>
@@ -799,6 +799,9 @@
     top: 0px;
     width: 100%;
     padding: 0px 10px;
+}
+.col-md-4.hover.cl video {
+    border: 1px solid yellow;
 }
    @media only screen and (max-width: 768px) {
    .col-md-4.hover {
