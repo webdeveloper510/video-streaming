@@ -729,16 +729,16 @@
    background: white;
    }
    .col-4.blue.text-left h4 {
-    background: deepskyblue;
+    background: gold;
     text-align: center;
-    color: white;
+    color: black;
     padding: 2px;
     font-size: 13px;
 }
 
 .col-4.green.text-right h4 {
     color: white;
-    background: #5ccb5c;
+    background: green;
     text-align: center;
     padding: 2px;
     font-size: 13px;
