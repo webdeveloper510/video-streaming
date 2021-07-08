@@ -424,12 +424,12 @@
          <div class="col-md-4 hover">
          <div class="videotags row">
             <div class="col-4 blue text-left">
-           <button class="btn btn-primery" type="button">Stream</button>
+           <h3>Stream</h3>
             </div>
             <div class="col-4">
             </div>
             <div class="col-4 green text-right">
-            <button class="btn btn-success" type="button">Download</button>
+            <h3>Download</h3>
             </div>
 
          </div>
@@ -721,11 +721,11 @@
    background: white;
    opacity: 0;
    }
-   
+
    .cardhr {
    background: white;
    }
-   .col-4.blue.text-left button {
+   .col-4.blue.text-left h3 {
     background: violet;
     color: white;
 }
