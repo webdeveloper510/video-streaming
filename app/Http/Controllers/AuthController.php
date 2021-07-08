@@ -979,9 +979,8 @@ else{
       }
   }
 
-  public function notifyUrl(Request $req,$table){
+  public function notifyUrl(Request $req){
 
-    $input = Input::get('table');
 
     $app = app_path();
 

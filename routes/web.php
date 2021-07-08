@@ -114,6 +114,8 @@ Route::post('updatedCancelStatus','AuthController@CancelStatus');
 Route::post('subscribe','artist@subscribe');
 
 Route::post('notifyTrans','AuthController@notifyUrl');
+
+Route::post('notifyTransOffer','artist@notifyUrl');
   
 Route::post('report','AuthController@reportVideo');
 

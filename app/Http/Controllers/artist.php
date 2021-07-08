@@ -465,7 +465,7 @@ class artist extends Controller
             //'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
 
         ]);
-
+        $input = Input::get('table');
        // print_r($request->all());die;
               
         if ($validator->fails())
@@ -589,6 +589,106 @@ class artist extends Controller
       //         }
       // }
 
+
+  }
+
+  public function notifyUrl(Request $req){
+
+
+    $app = app_path();
+
+    if(isset($_POST['transloadit'])){
+
+      $data = $_POST['transloadit'];
+
+
+       $response=json_decode($data,true);
+    
+
+       $assem_id = $response['assembly_id'];
+
+       $fileName = $this->saveContent($response);
+
+       $imagename = $this->saveTransloaditImage($response);
+
+       $data1 = array('media'=>$fileName,'type'=>'audio','audio_pic'=>$imagename);
+
+       $this->model->UpdateData('offer','assembly_id',$data1,$assem_id);
+
+
+    // $data = json_decode($req); //  Decode json here
+
+    // //print_r($data);die;
+
+    // if($data){
+
+    // $assem_id = $data['assembly_id'];
+
+    // $fileName = $this->saveContent($data); // This function gives us video name
+
+    // $imagename = $this->saveTransloaditImage($data); // This function gives us image name
+
+    // $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
+
+    // $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
+    
+    // }
+    }
+  }  
+
+  
+  public function saveContent($data){
+
+    $media_url = $data['results']['merged'][0]['ssl_url'];
+
+    $path = storage_path('app/public/video/');
+
+    //$ch     =   curl_init($data->transloadit);
+
+    $ch     =   curl_init($media_url);
+    $dir            =   $path;
+    //$fileName       =   basename($data->transloadit);
+    $fileName       =   basename($media_url);
+    $saveFilePath   =   $dir . $fileName;
+    $fp             =   fopen($saveFilePath, 'wb');
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $execute = curl_exec($ch);
+    curl_close($ch);
+    fclose($fp);
+    return $execute==1 ? $fileName : 0;
+  }
+
+  public function saveTransloaditImage($data){
+
+    $image_url = $data['results']['resized_image'][0]['ssl_url'];
+
+
+    $path = storage_path('app/public/uploads/');
+
+   // $ch     =   curl_init($data->transloadit_image);
+
+    $ch     =   curl_init($image_url);
+
+    $dir            =   $path;
+
+    $fileName       =   basename($image_url);
+
+    $saveFilePath   =   $dir . $fileName;
+
+    $fp             =   fopen($saveFilePath, 'wb');
+
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+
+    $execute = curl_exec($ch);
+
+    curl_close($ch);
+
+    fclose($fp);
+
+    return $execute==1 ? $fileName : 0;
 
   }
 
