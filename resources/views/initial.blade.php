@@ -341,6 +341,17 @@
       <div id="recently_search" class="row">
          @forelse ($recently as $recnt) @if($recnt->type=='video')
          <div class="col-md-4 hover">
+         <div class="videotags row">
+            <div class="col-4 blue">
+           <button class="btn btn-primery" type="button">Stream</button>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 green">
+            <button class="btn btn-success" type="button">Download</button>
+            </div>
+
+         </div>
             <a href="{{url('artist-video/'.$recnt->id)}}">
                <video
                   class="hoverVideo"
