@@ -1009,7 +1009,7 @@ else{
             $string = file_get_contents($app.'/data.json');
             $json_a = json_decode($string, true);
 
-            fwrite($file,'Decode'." ".print_r($json_a, true));
+            fwrite($file,'Decode'." ".$json_a['assembly_id']);
             
 
             fclose($file);
