@@ -22,8 +22,7 @@
         background:black;
         color:white;
       }
-
-      .artist .profileImage {
+    .artist .profileImage {
     width: 125px;
     height: 125px;
     border-radius: 50%;
@@ -69,7 +68,7 @@ hr{
            <div class="col-md-4 mt-3">
   
             <select class="custom-select form-inline m-2">
-             
+              
                  <option selected>Filter</option>
                  <option value="1">By Popular</option>
                  <option value="2">By Alphabetical</option>
@@ -95,12 +94,12 @@ hr{
                 <button class="btn btn-danger btn-lg" type="button"> Subscribe</button>
                 <hr>
                 <h5>Description</h5>
-                <p class="card-text">No Description....</p>
+                <p class="card-text"><?php echo e($artist->aboutme); ?></p>
                 <div class="row">
                     <div class="col-6">
                            <div class="">
                                <h3><?php echo e($artist->count ? $artist->count : 0); ?></h3>
-                               <h5>Offer(S)</h3>
+                               <h5>Service(S)</h3>
                                </div>
 
                            </div>
@@ -127,5 +126,6 @@ hr{
 
    </div>
 </div>
+<div class="center"></div>
   </body>
   <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artists.blade.php ENDPATH**/ ?>

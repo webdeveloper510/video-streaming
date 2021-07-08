@@ -87,7 +87,9 @@
                         </button>
                         </p>
                         </div>
+
                         <div class="col-md-6">
+
                         <p>
                         <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
                         Consumer Highlights

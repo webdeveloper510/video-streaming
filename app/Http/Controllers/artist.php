@@ -5,7 +5,6 @@ use App\Registration;
 use Session;
 use App\File;
 use Storage;
-
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\artistSupport;
@@ -236,11 +235,12 @@ class artist extends Controller
       
     }
 
-    public function dashboard1()
+    public function dashboard()
     {
 
+     // echo "dff";die;
 
-
+    //  dd('success');
       //print_r(Carbon::now(UTC+5)->toDateTimeString());die;
 
       $navbaractive = 'dashboard';
@@ -351,6 +351,21 @@ class artist extends Controller
 
       $navbaractive = 'profile';
 
+      $app = app_path();
+
+      //print_r($app);die;
+
+//       $app = app_path();
+  
+
+//       $file = fopen($app.'\dummy.php',"w");
+//       echo fwrite($file,"Hello World. Testing!");
+//       fclose($file);
+// die;  
+
+      // header("HTTP/1.1 200 OK");
+
+      // die;
      // $date = Carbon::now('Europe/London');
 
     // $this->model->trialData();
@@ -513,7 +528,7 @@ class artist extends Controller
               $data['assembly_id']=$data['assembly_id'];
               $data['categoryid']= $data['audio_cat'];
 
-
+     
               
               unset($data['audio_cat']);
               unset($data['video_cat']);

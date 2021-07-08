@@ -629,6 +629,8 @@ else{
 }
       public function home(){
 
+       
+
         Session::forget('login_attempt');   
 
 
@@ -648,6 +650,8 @@ else{
            $popularaudios = $this->model->PopularVideos($paginate='No','audio');      
 
           $newComes=$this->model->getNewComes();
+
+          //print_r('dddd');die;
 
     return view('/initial',['isSubscribed'=>$isData,'recently'=>$Recentlydata, 'artists'=>$artists, 'newComes'=>$newComes,'offers'=>$offersVideos,'popular'=>$popularVideos,'popularAudios'=>$popularaudios]);
 
@@ -959,11 +963,11 @@ else{
 
       }
 
-      // if($request->transloadit){
+      if($request->transloadit){
 
-      //   $this->notifyUrl($request->transloadit);
+        $this->notifyUrl($request->transloadit);
         
-      // }
+      }
 
 
       if($update_data){
@@ -975,28 +979,81 @@ else{
       }
   }
 
-  public function notifyUrl($req){
+  public function notifyUrl(Request $req){
 
-   // echo "yes";
+    $app = app_path();
 
-    $data = json_decode($req); //  Decode json here
+    if(isset($_POST['transloadit'])){
 
-    //print_r($data);die;
+      $data = $_POST['transloadit'];
 
-    if($data){
+      $decode = json_decode($data);
 
-    $assem_id = $data['assembly_id'];
+      try{
 
-    $fileName = $this->saveContent($data); // This function gives us video name
+        $messge = "All Good";
 
-    $imagename = $this->saveTransloaditImage($data); // This function gives us image name
+        $file = fopen($app.'/dummy.php',"w");
+        //fwrite($file,"Hello World. Testing!");
+        fwrite($file,"Hello World. Testing!".$messge." ".$data['assembly_id']);
+        fclose($file);
 
-    $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
+      }
 
-    $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
-    
+      catch(Exception $e) {
+        echo 'Message: ' .$e->getMessage();
+      }
+      return 'I am in if';
+    } 
+
+    else{
+      $messge= "nothing";
+            $file = fopen($app.'\dummy.php',"w");
+           fwrite($file,"Hello World. Testing!".$messge);
+           fclose($file);
+           return 'I am in else';
     }
-  }
+
+  //   $app = app_path();
+  
+
+  //   $file = fopen($app.'\dummy.php',"w");
+  //   fwrite($file,"Hello World. Testing!".json_encode($_POST));
+  //   fclose($file);
+
+  //  return  response()->json(['success' => 'success'], 200);
+    // $homepage = file_get_contents($app.'\dummy.php');
+    // echo $homepage;
+    // die;
+
+    // if($req){
+
+    //   echo "yes";
+
+    //   return '200';
+
+    // }
+
+   
+
+    // $data = json_decode($req); //  Decode json here
+
+    // //print_r($data);die;
+
+    // if($data){
+
+    // $assem_id = $data['assembly_id'];
+
+    // $fileName = $this->saveContent($data); // This function gives us video name
+
+    // $imagename = $this->saveTransloaditImage($data); // This function gives us image name
+
+    // $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
+
+    // $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
+    
+    // }
+  }     
 
 
   public function saveContent($data){
@@ -2279,7 +2336,7 @@ public function readNotification(Request $request){
         public function contentReview($text){
 
           $sessionLogin = Session::get('pazLogin');
-
+      
           if($text=='offer'){
 
             $notVerifyContent = $this->model->getNotVerifiedContent('offer');

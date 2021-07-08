@@ -318,31 +318,31 @@ function playVideo(a) {
         //handle exceptions here
     }
 }
-$(document).ready(function () {
-    $('.rad_But').each(function () {
-        if ($(this).is(':checked') == true) {
-            $(this).val() == 'male'
-                ? $('.hide').hide()
-                : $('.hide').show();
-        }
-    });
+// $(document).ready(function () {
+//     $('.rad_But').each(function () {
+//         if ($(this).is(':checked') == true) {
+//             $(this).val() == 'male'
+//                 ? $('.hide').hide()
+//                 : $('.hide').show();
+//         }
+//     });
    
-    var id1 = $(".media1:checked")
-        .attr('class')
-        .split(' ');
+//     var id1 = $(".media1:checked")
+//         .attr('class')
+//         .split(' ');
 
-    var notId = $(".media1:not(:checked)")
-        .attr('class')
-        .split(' ');
+//     var notId = $(".media1:not(:checked)")
+//         .attr('class')
+//         .split(' ');
 
-    $('#' + id1[1]).show();
+//     $('#' + id1[1]).show();
 
-    $('#' + notId[1]).hide();
+//     $('#' + notId[1]).hide();
 
 
     
 
-});
+// });
 
 function selectVideoBasedOnOption(a){
     var selected_div =$(a).val();
@@ -1350,8 +1350,7 @@ function copy(url) {
 
 }
 
-/* --------------------------------------------check Name
- * Exist-------------------------------------------------
+/* ----------------------------------------------------------check Name--------------------- * Exist-------------------------------------------------
  */
 
 $(document).on('keyup', '.checknameExist', function () {
@@ -1478,8 +1477,7 @@ function updateRead() {
 
 }
 
-/* -------------------------------Subscribe To
- * Artist----------------------------------------------------
+/* ----------------------------------------------------------Subscribe To---------------------------- * Artist----------------------------------------------------
  */
 
 function subscribe(id, setValue) {
@@ -2680,68 +2678,6 @@ function formsubmit(scop) {
 }
 
 
-/*----------------------------Convert Audio To Video----------------------------------------------------------*/
-
-    // $('form').transloadit({
-    //   wait: true,
-    //   triggerUploadOnFileSelection: true,
-    //   params: {
-    //     auth: {
-    //       // To avoid tampering use signatures:
-    //       // https://transloadit.com/docs/api/#authentication
-    //       key: '995b974268854de2b10f3f6844566287',
-    //     },
-    //     // It's often better store encoding instructions in your account
-    //     // and use a `template_id` instead of adding these steps inline
-    //     steps: {
-    //       ':original': {
-    //         robot: '/upload/handle'
-    //       },
-    //       imported_image: {
-    //         robot: '/http/import',
-    //         url: 'https://images.pexels.com/photos/3429740/pexels-photo-3429740.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-    //       },
-    //       resized_image: {
-    //         use: 'imported_image',
-    //         robot: '/image/resize',
-    //         result: true,
-    //         height: 768,
-    //         imagemagick_stack: 'v2.0.7',
-    //         resize_strategy: 'fillcrop',
-    //         width: 1024,
-    //         zoom: false
-    //       },
-    //       merged: {
-    //         use: {
-    //             'steps':[
-    //                 {'name':':original',
-    //                 'as':'audio'
-                        
-    //                 },
-    //                 {
-    //                 'name':'resized_image',
-    //                 'as':'image'
-                        
-    //                 }
-    //                 ]
-                
-    //         },
-    //         robot: '/video/merge',
-    //         result: true,
-    //         ffmpeg_stack: 'v4.3.1',
-    //         preset: 'ipad-high'
-    //       },
-    //       exported: {
-    //         use: ['imported_image','resized_image','merged',':original'],
-    //         robot: '/s3/store',
-    //       // key: "AKIARBASIKHRR6UI4MTC",
-    //       ///  secret: "o5t0PJ7mDgT1jx8HY0jCjGh56ZCjlEIfh",
-    //         credentials: "mp3-img-to-mp4",
-    //       "path": "uploads/${file.id}.${file.ext}"
-    //       }
-    //     }
-    //   }
-    // });
 
 $(document).ready(function () {
 
@@ -3058,8 +2994,7 @@ $(function () {
     }
 });
 
-/* --------------------------------------Customers
- * Orders----------------------------------------
+/* --------------------------------------Customers----------------------------* Orders----------------------------------------
  */
 
 if ($("#social_media").length > 0) {
@@ -3332,8 +3267,8 @@ if ($("#myForm").length > 0) {
                 },
                 success: function (response) {
 
-                // console.log(response);
-                //    return false;  
+                 console.log(response);
+                  return false;  
 
                     if (response.errors) {
 

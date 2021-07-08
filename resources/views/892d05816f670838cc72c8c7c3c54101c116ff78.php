@@ -270,7 +270,10 @@ section.background1 {
       params: {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
+        "allow_steps_override": false,
+        'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
         // To hide your `steps`, use a `template_id` instead
+        notify_url :url+'/notifyTrans',
         steps: {
           ":original": {
             robot: "/upload/handle"
@@ -315,12 +318,15 @@ section.background1 {
             preset: "ipad-high"
           }
         },
-        'notify_url':url+'/notify_me'
       }
     })
       .then(function (bundle) {
 
-        //console.log(bundle);return false;
+        //console.log(bundle);
+
+        console.log(bundle.transloadit);
+
+       // return false;
       
       // var url = bundle.transloadit[0].results.merged[0].ssl_url; // Array of Assembly Statuses
        //var url1 = bundle.transloadit[0].results.resized_image[0].ssl_url; // Array of Assembly Statuses

@@ -141,10 +141,16 @@
               </div>
             </div>
 
+
         @include('layouts.footer')
 
         <script>
+
     var today = new Date();
+
+    //console.log("Topday" + today);
+
+
 
     console.log("Topday" + today);
 
@@ -172,8 +178,7 @@
 var localOffset1 = today.getTimezoneOffset()*60000; 
 
 
-var utc = localTime + localOffset1;
-
+var utc = localTime + localOffset1; 
 
 
 var respectedCountry = utc + (3600000*offset);

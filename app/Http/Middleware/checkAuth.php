@@ -17,6 +17,8 @@ class checkAuth
     public function handle($request, Closure $next)
     {
 
+       
+
            $redirect_url = $request->route()->uri;
            
            Session::put('redirect_url',$redirect_url); 
@@ -31,6 +33,8 @@ class checkAuth
        }
 
        else{
+
+        //echo "xssssss";die;
 
       return $request->route()->uri == '/' ?  $next($request) :   redirect('/register');
     

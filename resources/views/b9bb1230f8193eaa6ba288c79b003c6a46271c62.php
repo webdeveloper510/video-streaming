@@ -43,7 +43,8 @@
   <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
 
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script  src="<?php echo e(asset('js/datatables.min.js')); ?>"></script>
 

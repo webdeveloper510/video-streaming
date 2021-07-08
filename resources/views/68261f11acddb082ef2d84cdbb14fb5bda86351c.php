@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="videoinfo">
-0                                                    <div class="playlistname">
+                                                  <div class="playlistname">
                                                         <h4 class="listname">hello</h4>
                                                         <p>1/</p><p class="lengthVideo">5</p>
                                                     </div>
@@ -183,8 +183,7 @@
                                                             <p>artistname</p>
                                                         </div>
 
-                                                    </div>
-</a>
+                                                    </div> </a>
                                                     <!------------end list------------------>
 
                                                 </div>

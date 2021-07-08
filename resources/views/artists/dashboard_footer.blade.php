@@ -10,7 +10,7 @@ function closeNav() {
 }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+   <!-- <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script> -->
      <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 
 

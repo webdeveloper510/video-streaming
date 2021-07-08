@@ -905,6 +905,9 @@ public function getRespectedSub($data){
 
        $userId =$user->id;
 
+       $status = array('due','process');
+       
+
        //print_r($sts);die;
 
       //DB::enableQueryLog();
@@ -915,14 +918,14 @@ public function getRespectedSub($data){
       ->join("category",\DB::raw("FIND_IN_SET(category.id,offer.categoryid)"),">",\DB::raw("'0'"))
       ->join("users","users.id","=","offer.userid")
       ->where('offer.artistid',$userId)
-     // ->orderby('offer.status','due')
+      //->orderby('offer.status')
       ->groupBy("offer.id","offer.title","offer.paid_status","offer.userid","offer.additional_price","offer.artistid","offer.created_at","offer.description","offer.offer_status","offer.quality","offer.type","offer.price","offer.choice","offer.delieveryspeed","offer.userdescription","offer.status","users.nickname");
        
       if ($sts!='') {
             //echo $sts;
         $data = $data->where('status', '=', $sts);
     }      
-         return $data->get();
+         return $data->orderByRaw('offer.status = ? desc',implode(',',$status))->get();
 
     }
  

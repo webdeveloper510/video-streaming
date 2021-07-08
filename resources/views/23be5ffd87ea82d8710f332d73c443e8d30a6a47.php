@@ -54,11 +54,6 @@
 
 </div>
 
-
-
-
-
-
 <style>
 
 .earningtext {

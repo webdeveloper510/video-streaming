@@ -10,7 +10,7 @@ function closeNav() {
 }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+   <!-- <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script> -->
      <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 
 
@@ -26,11 +26,12 @@ function closeNav() {
   <!-- <script src="<?php echo e(asset('artistdashboard/js/core/bootstrap-material-design.min.js')); ?>"></script> -->
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
 
   <script src="<?php echo e(asset('artistdashboard/js/plugins/perfect-scrollbar.jquery.min.js')); ?>"></script>
 
   <!-- Plugin for the momentJs  -->
-  <script src="<?php echo e(asset('artistdashboard/js/plugins/moment.min.js')); ?>"></script>
+  <!-- <script src="<?php echo e(asset('artistdashboard/js/plugins/moment.min.js')); ?>"></script> -->
 
 
 

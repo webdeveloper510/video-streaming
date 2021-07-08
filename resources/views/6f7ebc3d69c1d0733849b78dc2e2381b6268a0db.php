@@ -215,17 +215,17 @@ tr.shown td.details-control {
           <?php echo e(Form::token()); ?>      
               <div class="form-group">
             <label for="exampleInputEmail1">Chosse Reason :</label>
-            <select class="form-control" name="reason" required>
-            <option selected>Choose...</option>
+            <select class="form-control" name="reason"id="reason" >
+            <option selected value="">Choose...</option>
               <option value="I do not offer this kind of additional requests.">I do not offer this kind of additional requests.</option>
               <option value="Sorry, I receive to many orders right now">Sorry, I receive to many orders right now.</option>
-              <option value="I am not available right now. (Block this customer)">I am not available right now. (Block this customer)</option>
+              <option value="I am not available right now. (Block this customer)">I am not available right now.</option>
             </select>
           </div>
         <input type="hidden" name="offerid" value="" class="offer_id"/>
           <div class="form-group">
           <label> Or write a specific Message for your Customer :</label>
-            <textarea class="form-control" name="reason_cancel" required id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="reason_cancel" name="reason_cancel"  id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="form-group text-center">
          <label> Do you really want to cancel this Order ? </label>

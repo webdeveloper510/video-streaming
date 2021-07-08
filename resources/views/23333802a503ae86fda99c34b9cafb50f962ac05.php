@@ -67,19 +67,20 @@
           </div>
           <div class="col">
               <h3>Category</h3>
-              <p><?php echo e($offerdata->category); ?></p>
+              <p><?php echo e($offerdata->category); ?></p>    
           </div>
           <div class="col">
               <h3>Delievery Speed</h3>
-              <p><?php echo e($offerdata->delieveryspeed); ?> Days</p>
+              <p><?php echo e($offerdata->delieveryspeed+1); ?> Days</p>
           </div>
         </div>
         <?php echo Form::open(['id'=>'form_sub',  'method' => 'post']); ?>
 
         <input type="hidden" name="user_id" value="<?php echo e($GLOBALS['id'].'_'.$GLOBALS['user_id']); ?>"/>
         <input type="hidden" name="price" id="offer_pay" value="<?php echo e($offerdata->max*$GLOBALS['price']); ?>"/>
-        <input type="hidden" name="created_at" class="created_at" value=""/>
-        <input type="hidden" name="updated_at" class="updated_at" value=""/>
+        <input type="hidden" name="timezone" class="timezone" value="<?php echo e($offerdata->timezone); ?>"/>
+        <input type="hidden" name="created_at" class="artist_time_at" value=""/>
+        <input type="hidden" name="updated_at" class="artist_updated_at" value=""/>
 
         <input type="hidden" name="art_id" value="<?php echo e($GLOBALS['artistid']); ?>">
          
@@ -134,7 +135,7 @@
                   <div class="modal-body">
                       <h2 class="text-center"> Order Successful!</h2>
                       <p> You can check your order status anytime  under : My Order</p>
-                      <p><input type="checkbox" class="popup_notification" aria-label="Checkbox for following text input"> 
+                      <p><input type="checkbox" id="orderPopup" aria-label="Checkbox for following text input"> 
                             Do not show again
                       </p>
                   </div>
@@ -149,10 +150,69 @@
         <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <script>
+
     var today = new Date();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date+' '+time;
-    $('.created_at').val(dateTime)
-    $('.updated_at').val(dateTime)
+
+    //console.log("Topday" + today);
+
+
+
+    console.log("Topday" + today);
+
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+    // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    // var dateTime = date+' '+time;
+
+
+
+    var localTime = today.getTime();
+
+
+   var localOffset = today.getTimezoneOffset(); 
+
+   console.log("Local Time Offset in Minutes" +" " + localOffset);
+
+    var timeOffset = $('.timezone').val();
+
+
+    var offset = timeOffset < 0 ? Math.abs(timeOffset) : '-'+timeOffset;
+
+
+var localOffset1 = today.getTimezoneOffset()*60000; 
+
+
+var utc = localTime + localOffset1; 
+
+
+var respectedCountry = utc + (3600000*offset);
+
+//console.log("local time  country" + respectedCountry);
+
+var nd = new Date(respectedCountry);
+
+//console.log("My time" + nd);
+
+//console.log("Expected Time" + nd.toLocaleString());
+
+// var RespectedTime = nd.toLocaleString().toISOString();
+
+// console.log(RespectedTime);
+
+//var timeArtist = RespectedTime.split(',');
+
+//console.log(timeArtist);
+
+var day = nd.getFullYear()+'-'+(nd.getMonth()+1)+'-'+nd.getDate();
+
+//console.log("Day" + day);
+
+var time1 =  nd.getHours() + ":" + nd.getMinutes() + ":" + nd.getSeconds();
+
+console.log(time1);
+
+$('.artist_time_at').val(day+' '+time1)
+
+$('.artist_updated_at').val(day+' '+time1)
         </script><?php /**PATH /home/personalattentio/public_html/developing-streaming/resources/views/artistoffers.blade.php ENDPATH**/ ?>
