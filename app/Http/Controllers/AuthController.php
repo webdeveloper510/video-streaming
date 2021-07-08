@@ -987,13 +987,13 @@ else{
 
       $data = $_POST['transloadit'];
 
-      $decode = "'".json_encode($data)."'";
+      // $decode = "'".json_encode($data)."'";
 
-      $json = file_get_contents("php://input");
+      // $json = file_get_contents("php://input");
 
-      $jsonData = stripslashes(html_entity_decode($decode));
+      // $jsonData = stripslashes(html_entity_decode($decode));
 
-      $k=json_decode($jsonData,true);
+      // $k=json_decode($jsonData,true);
       
      // print_r($k);
 
@@ -1004,7 +1004,7 @@ else{
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$k->assembly_id);
+            fwrite($file,"Hello World. Testing!".$messge." ".$data);
             fclose($file);
       }
 
