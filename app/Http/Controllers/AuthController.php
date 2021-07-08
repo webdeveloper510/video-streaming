@@ -1000,7 +1000,7 @@ else{
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$obj);
+            fwrite($file,"Hello World. Testing!".$messge." ".$decode);
             fclose($file);
       }
 
