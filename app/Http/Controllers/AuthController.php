@@ -945,7 +945,7 @@ else{
         unset($data['thumbnail_pic']);
         $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
-        $data['type']= 'audio'; 
+        $data['type']= ''; 
         $data['assembly_id']=$data['assembly_id'];
         $data['catid']= $data['audio_cat'];
         
@@ -997,7 +997,7 @@ else{
 
        $imagename = $this->saveTransloaditImage($response);
 
-       $data1 = array('media'=>$fileName,'audio_pic'=>$imagename);
+       $data1 = array('media'=>$fileName,'type'=>'audio','audio_pic'=>$imagename);
 
        $this->model->UpdateData('media','assembly_id',$data1,$assem_id);
 
