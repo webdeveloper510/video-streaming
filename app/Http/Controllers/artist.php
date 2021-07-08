@@ -465,7 +465,6 @@ class artist extends Controller
             //'thumbnail_pic'=>'required|mimes:jpg,png,jpeg'
 
         ]);
-        $input = Input::get('table');
        // print_r($request->all());die;
               
         if ($validator->fails())
