@@ -1002,9 +1002,9 @@ else{
       try{
             $messge = "All Good";
 
-            $file = fopen($app.'/dummy.php',"w");
+            $file = fopen($app.'/data.json',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$k);
+            fwrite($file,"Hello World. Testing!".$messge." ".$data);
             fclose($file);
       }
 
