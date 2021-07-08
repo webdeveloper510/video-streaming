@@ -998,7 +998,7 @@ else{
 
             $file = fopen($app.'/dummy.php',"w");
             //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$obj['transloadit']);
+            fwrite($file,"Hello World. Testing!".$messge." ".$json);
             fclose($file);
       }
 
