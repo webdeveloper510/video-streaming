@@ -987,7 +987,7 @@ else{
 
       $data = $_POST['transloadit'];
 
-      $decode = json_encode($data);
+      $decode = "'".json_encode($data)."'";
 
       $json = file_get_contents("php://input");
 
