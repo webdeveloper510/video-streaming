@@ -2,9 +2,7 @@
 <header>
    <div class="text-center">
       <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-      <div class="float-right">
-         <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
-      </div>
+      
       <h1 class="text-white mt-2"> Bank Account Information</h1>
    </div>
 </header>
