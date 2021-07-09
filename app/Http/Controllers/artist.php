@@ -591,7 +591,7 @@ class artist extends Controller
 
   }
 
-  public function notifyUrl(Request $req){
+  public function notifyUrlOffer(Request $req){
 
 
     $app = app_path();
