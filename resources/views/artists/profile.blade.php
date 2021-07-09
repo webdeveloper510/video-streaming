@@ -656,7 +656,7 @@ Your browser does not support the audio tag.
             <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
 
 
-<input type="hidden" name="updated_at" value="" class="updated_at"/>
+              <input type="hidden" name="updated_at" value="" class="updated_at"/>
              <input type="hidden" name="image_url" value="{{$random[0]->audio_pic}}"/>
 
           
