@@ -624,7 +624,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:yellow;"></span>
             </div>
 
-            <div class=" mt-3 text-white file1" >
+            <div class="col-md-12 mt-3 text-white file1" >
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
                   <div class="progress"></div>
