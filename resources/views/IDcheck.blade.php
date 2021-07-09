@@ -2,14 +2,12 @@
 <header>
    <div class="text-center">
       <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-      <div class="float-right">
-         <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
-      </div>
+      
       <h1 class="text-white mt-2"> Identity Check </h1>
    </div>
 </header>
 
-<div class="container">
+<div class="container my-5">
 
          <h4>Identity Check:</h4>
          <p>Please upload a Selfie of you holding the document you have used for identity verification and a note with the following written...</p>
@@ -20,6 +18,15 @@
              <p>- Email Address (used with Yoti)</p>
              <p>... written with a black or blue pen/marker.</p>
              <p><b>Please make sure the document text is readable and not mirrored.</b></p>
+             
+             <form class="col-md-5">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Identity Check file </label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit </button>
+                </form>
+
                 </div>
                 <style>
                  header {

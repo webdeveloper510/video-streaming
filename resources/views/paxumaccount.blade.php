@@ -2,18 +2,16 @@
 <header>
    <div class="text-center">
       <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-      <div class="float-right">
-         <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
-      </div>
+     
       <h1 class="text-white mt-2"> Paxum Account Information</h1>
    </div>
 </header>
 <div class="container">
-              <div class="row">
+              <div class="row my-5">
               <div class="col"></div>
               <div class="col-md-6">
                 <div class="card">
-                <div class="card-header">
+                <div class="card-header text-center">
                 <h3> Paxum Account</h3>
                 </div>
                 <div class="card-body">
