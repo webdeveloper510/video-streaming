@@ -658,6 +658,9 @@ public function getArtistDetail($artid,$type){
 
     $session_data =   Session::get('User');
 
+    $profile = (array) $profile;
+    $data = (array) $data;
+
    
      $contentid=$session_data->id;
 
