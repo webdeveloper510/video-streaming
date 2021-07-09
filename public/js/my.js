@@ -2016,6 +2016,8 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
+            console.log(data);return false;
+
             $('.button_disable').removeAttr('disabled');      
 
             if (data.status == 1) {
@@ -2372,10 +2374,14 @@ function edit_offer(data) {
     if(json_info.type=='video'){
         $('.thumbnail1').text('Video Thumbnail');
         $('.label12').text('Overview Video (~30s)');
+        $('.file1').hide();
     }
 
     else{
-        $('.thumbnail1').text('Audio Thumbnail');
+        $('.file1').show();
+        $('.file').hide();
+
+        $('.thumbnail').hide();
         $('.label12').text('Overview Audio (~30s)');
     }
 

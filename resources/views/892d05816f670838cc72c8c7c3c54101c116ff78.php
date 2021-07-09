@@ -38,10 +38,17 @@
       </div>
        
           <div class="row align-items-center text-white">
-            <div class="col-md-12">
+            <div class="col-md-6">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
               <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+            <div class="mt-5">
+            <label class="mr-3">Allow Downloading ?</label>
+              <input type="radio"  name="is_download" value="yes" /><p>Yes</p>
+              <input type="radio" name="is_download" value="no"/><p>No</p>
               </div>
             </div>
              <div class="col-md-6 mt-2 ">
@@ -152,6 +159,9 @@
    </div>
   <?php echo e(Form::close()); ?>
 
+  </div>
+  <div class="text-center">
+      <h3>Note : Ordered Content form services are always downloadable.</h3>
   </div>
 </div>
 </div>
@@ -270,8 +280,8 @@ section.background1 {
       params: {
         // To avoid tampering, use Signature Authentication
         auth: { key: "995b974268854de2b10f3f6844566287" },
-        "allow_steps_override": false,
-        'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
+        //"allow_steps_override": false,
+        //'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
         // To hide your `steps`, use a `template_id` instead
         notify_url :url+'/notifyTrans',
         steps: {

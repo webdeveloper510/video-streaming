@@ -1173,6 +1173,10 @@ public function getRespectedSub($data){
 
     public function editOfferDetail($data){
 
+
+
+          print_r($data->all());die;
+
          
            $update = array(
               'created_at'=>$data['created_at'],

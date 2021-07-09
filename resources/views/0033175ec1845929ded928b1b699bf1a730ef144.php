@@ -115,7 +115,7 @@
                 
                 Your browser does not support the video tag.
          </video>
-         <?php else: ?>
+         <?php elseif($offer->type=='audio'): ?>
          <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
@@ -516,6 +516,8 @@ Your browser does not support the audio tag.
                   <input type="radio" class="select_media_pic" name="type" value="audio" /><p>Audio</p>
                   </div>
                   </div>
+                  <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
+
                   <br>
                   <label>Choose Category</label>
                   <div class="video" style="display:none">
@@ -560,12 +562,30 @@ Your browser does not support the audio tag.
                    
             </select>
                 <br>
-                <div class="col-md-12 mt-3 text-white thumbnail" style="display:none;">   
-                   <label class="thumbnail1"></label>        
+
+                <div class=" mt-3 text-white file" style="display:none;">
+            <label class="media_label12">Audio/Video</label>
+                <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
+
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+
+            <div class=" mt-3 text-white file1" style="display:none;">
+            <label class="media_label12">Audio/Video</label>
+               <button type="button" id="browse">Choose File</button>
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+            
+            <div class=" mt-3 text-white thumbnail" style="display:none;">   
+            <label class="thumbnail1"></label>        
                  <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
-                <span id="filename" style="color:red;"></span>
+                <span id="filename" style="color:yellow;"></span>
             </div>
+            </div>
+
                 <input type="hidden" name="offerid" id="offerid" value="">                  
                   <input type="hidden" id="file_name" name="file_name" value=""/>
                   <input type="hidden" id="file_image" name="file_image" value=""/>
@@ -920,4 +940,87 @@ video:hover {
 
 
  <?php echo $__env->make('artists.dashboard_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/profile.blade.php ENDPATH**/ ?>
+
+
+ <script src="//assets.transloadit.com/js/jquery.transloadit2-v3-latest.js"></script>
+    <link rel="stylesheet" href="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.css">
+<script src="https://releases.transloadit.com/uppy/robodog/v1.10.7/robodog.min.js"></script>
+<script>
+  var url = $('#base_url').attr('data-url');
+ console.log(url);
+  document.getElementById("browse").addEventListener("click", function () {
+    var uppy = window.Robodog.pick({
+      providers: [
+        "instagram",
+        "url",
+        "webcam",
+        "dropbox",
+        "google-drive",
+        "facebook",
+        "onedrive"
+      ],
+      waitForEncoding: false,
+      statusBar: '#myForm .progress',
+      params: {
+        // To avoid tampering, use Signature Authentication
+        auth: { key: "995b974268854de2b10f3f6844566287" },
+        //"allow_steps_override": false,
+        //'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
+        // To hide your `steps`, use a `template_id` instead
+        notify_url :url+'/notifyTrans',
+        steps: {
+          ":original": {
+            robot: "/upload/handle"
+          },
+          "filtered_image": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "image"]
+          ]
+        },
+        "filtered_audio": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "audio"]
+          ]
+        },
+         
+          resized_image: {
+            use: "filtered_image",
+            robot: "/image/resize",
+            result: true,
+            height: 768,
+            imagemagick_stack: "v2.0.7",
+            resize_strategy: "fillcrop",
+            width: 1024,
+            zoom: false
+          },
+          
+          merged: {
+            use: {
+              steps: [
+                { name: "filtered_audio", as: "audio" },
+                { name: "filtered_image", as: "image" }
+              ]
+            },
+
+            robot: "/video/merge",
+            result: true,
+            ffmpeg_stack: "v4.3.1",
+            preset: "ipad-high"
+          }
+        },
+      }
+    })
+      .then(function (bundle) {
+
+        console.log(bundle.transloadit);
+
+        $('.assembly_id').val(bundle.transloadit[0].assembly_id)
+  
+      })
+      .catch(console.error);
+  });
+</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/profile.blade.php ENDPATH**/ ?>

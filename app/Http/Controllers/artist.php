@@ -776,26 +776,73 @@ class artist extends Controller
           
   }
 
-  public function edit_offer(Request $req){    
+  public function edit_offer(Request $req){
     
-       $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : $req->file_name;
+      $ExistingOffer = $this->model->selectDataById('id','offer',$req->offerid);
 
-       $thumbnail = $req->file ? time().'_'.$req->audio_pic->getClientOriginalName() : $req->file_image;
+      if($req->type=='video'){
 
-      $filePath = $req->file ? $req->file->storeAs('video', $fileName, 'public') : '';
+        $return = $this->editVideoService($req,$ExistingOffer);
 
-      $thumb = $req->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
-      $req['media'] = $fileName ? $fileName : $req['file_url'];
+      }
 
-      $req['thumbnail'] = $thumbnail ?  $thumbnail :'';
+      else{
 
-        if($filePath || $filePath==''){ 
+        $return = $this->editAudioService($req,$ExistingOffer);
 
-          $update_data = $this->model->editOfferDetail($req);
+      }
+
+          $update_data = $this->model->editOfferDetail($return);
 
            return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
-      }
+  
+  }
+
+  /**-------------------------------------------------------------Edit Video Service------------------------------------------- */
+
+
+  public function editVideoService($data,$exist){
+
+    $fileName = $data->file ? time().'_'.$req->file->getClientOriginalName() : $exist[0]->media;
+
+    $thumbnail = $data->file ? time().'_'.$req->audio_pic->getClientOriginalName() : $exist[0]->audio_pic;
+
+    
+    $filePath = $data->file ? $req->file->storeAs('video', $fileName, 'public') : '';
+
+    $thumb = $data->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
+
+    $data['media'] = $fileName;
+
+    unset($data['assembly_id']);
+
+
+    $data['thumbnail'] = $thumbnail;
+
+    return $data;
+
+  }
+
+  public function editAudioService($data,$existing){
+
+    $fileName = $data->assembly_id ? '' : $existing[0]->media;
+
+    $thumbnail = $data->file ? '' : $existing[0]->audio_pic;
+
+    
+    $filePath = '';
+
+    $thumb = $data->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
+
+    $data['media'] = $fileName;
+
+    $data['thumbnail'] = $thumbnail;
+
+    $data['assembly_id'] = $data['assembly_id'];
+
+    return $data;
+        
   }
 
 
