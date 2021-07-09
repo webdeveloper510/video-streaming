@@ -582,14 +582,14 @@ Your browser does not support the audio tag.
             </div>
           
             
-           
+           <div class="modal-footer">
             <div class="loader col-6" style="display:none">
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
                 <span class="percentage" style="color:green;font-weight: bold;"></span>
             </div>
                 <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary button_disable">Save changes</button>
-            
+          </div>
             {{ Form::close() }}
         </div>
     </div>
