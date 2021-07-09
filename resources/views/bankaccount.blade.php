@@ -5,7 +5,7 @@
       <div class="float-right">
          <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
       </div>
-      <h1 class="text-white mt-2"> Content Review</h1>
+      <h1 class="text-white mt-2"> Bank Account Information</h1>
    </div>
 </header>
 
@@ -16,7 +16,7 @@
               <div class="col-md-6">
                 <div class="card">
                 <div class="card-header">
-                <h3> Paxum Account</h3>
+                <h3> Bank Account</h3>
                 </div>
                 <div class="card-body">
                 <form>
