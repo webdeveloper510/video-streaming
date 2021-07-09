@@ -81,16 +81,18 @@
               
                </div>
                <div class="container row my-4">
-                  <div class="col-md-6 mb-3 text-center">
+                  <div class="col"></div>
+                  <div class="col-md-4 mb-3 text-center">
                      <a href="{{url('/register')}}">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                      </a>
                   </div>
-                  <div class="col-md-6 text-center">
+                  <div class="col-md-4 text-center">
                      <a href="{{url('/login')}}">
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
                   </div>
+                  <div class="col"></div>
                </div>
                
                     </div>
@@ -143,7 +145,7 @@
 
 
             <div class="container">
-               <div class="row">
+               <div class="row px-5">
                     <div class="col-md-6">
                     <p>
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
