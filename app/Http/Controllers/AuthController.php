@@ -908,6 +908,8 @@ else{
               unset($data['_token']);
               $data['media']=$fileName;
 
+              $data['is_download'] = $data['is_download']=='yes' ? 1 : 0;
+
               $data['audio_pic'] = $audio_pics ? $audio_pics : '';
               unset($data['thumbnail_pic']);
               $data['convert'] = $data['convert'] ? $data['convert'] : '';
@@ -948,7 +950,7 @@ else{
         $data['type']= ''; 
         $data['assembly_id']=$data['assembly_id'];
         $data['catid']= $data['audio_cat'];
-        
+        $data['is_download'] = $data['is_download']=='yes' ? 1 : 0;
         unset($data['audio_cat']);
         unset($data['video_cat']);
         unset($data['transloadit']);

@@ -45,8 +45,8 @@
             <div class="col-md-6">
             <div class="mt-5">
             <label class="mr-3">Allow Downloading ?</label>
-              <input type="radio"  name="radio" value="yes" /><p>Yes</p>
-              <input type="radio" name="radio" value="no"/><p>No</p>
+              <input type="radio"  name="is_download" value="yes" /><p>Yes</p>
+              <input type="radio" name="is_download" value="no"/><p>No</p>
               </div>
             </div>
              <div class="col-md-6 mt-2 ">
