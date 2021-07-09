@@ -795,7 +795,7 @@ class artist extends Controller
 
           $update_data = $this->model->editOfferDetail($return);
 
-           return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
+          return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
   
   }
 

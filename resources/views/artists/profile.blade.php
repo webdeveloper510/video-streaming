@@ -929,7 +929,7 @@ video:hover {
         //"allow_steps_override": false,
         //'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
         // To hide your `steps`, use a `template_id` instead
-        notify_url :url+'/notifyTrans',
+        notify_url :url+'/notifyTransOffer',
         steps: {
           ":original": {
             robot: "/upload/handle"

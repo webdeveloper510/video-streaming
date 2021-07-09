@@ -120,6 +120,8 @@ Route::post('subscribe','artist@subscribe');
 Route::post('notifyTrans','AuthController@notifyUrl');
 
 Route::post('notifyTransOffer','artist@notifyUrlOffer');
+
+Route::post('noti_for_edit','artist@editService');
   
 Route::post('report','AuthController@reportVideo');
 
