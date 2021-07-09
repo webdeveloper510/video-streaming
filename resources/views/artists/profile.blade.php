@@ -112,7 +112,7 @@
                 
                 Your browser does not support the video tag.
          </video>
-         @else
+         @else if($offer->type=='audio')
          <video width="100%"  poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                 
