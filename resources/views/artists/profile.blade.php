@@ -558,7 +558,7 @@ Your browser does not support the audio tag.
 
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
-               <button type="button" id="browse">Choose File</button>
+               <button type="button" class="browse">Choose File</button>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -626,7 +626,7 @@ Your browser does not support the audio tag.
 
             <div class=" mt-3 text-white file1" >
             <label class="media_label12">Overview  Audio (~30s)</label>
-               <button type="button" id="browse">Choose File</button>
+               <button type="button" class="browse">Choose File</button>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -652,6 +652,9 @@ Your browser does not support the audio tag.
             <input type="hidden" name="type" value="{{$random[0]->type}}"/>
             <input type="hidden" name="media_url" value="{{$random[0]->media}}"/>
             <input type="hidden" name="created_at" value="" class="created_at"/>
+
+            <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
+
 
 <input type="hidden" name="updated_at" value="" class="updated_at"/>
              <input type="hidden" name="image_url" value="{{$random[0]->audio_pic}}"/>
@@ -932,7 +935,8 @@ video:hover {
 <script>
   var url = $('#base_url').attr('data-url');
  console.log(url);
-  document.getElementById("browse").addEventListener("click", function () {
+  // document.getElementById("browse").addEventListener("click", function () {
+    $('.browse').click(function(){
     var uppy = window.Robodog.pick({
       providers: [
         "instagram",
