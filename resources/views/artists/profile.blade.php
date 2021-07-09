@@ -594,7 +594,7 @@ Your browser does not support the audio tag.
         </div>
     </div>
 </div>
-
+          </div>
 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -624,7 +624,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:yellow;"></span>
             </div>
 
-            <div class=" mt-3 text-white file1" >
+            <div class="col-md-12 mt-3 text-white file1" >
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
                   <div class="progress"></div>
