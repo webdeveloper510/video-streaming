@@ -828,7 +828,7 @@ class artist extends Controller
 
     $fileName = $data->assembly_id ? '' : $existing[0]->media;
 
-    $thumbnail = $data->file ? '' : $existing[0]->audio_pic;
+    $thumbnail = $data->assembly_id ? '' : $existing[0]->audio_pic;
 
     
     $filePath = '';
