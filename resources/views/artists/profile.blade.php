@@ -568,7 +568,7 @@ Your browser does not support the audio tag.
                  {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
-            </div>
+            
 
                 <input type="hidden" name="offerid" id="offerid" value="">                  
                   <input type="hidden" id="file_name" name="file_name" value=""/>
@@ -581,7 +581,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
           
-            </div>
+            
            
             <div class="loader col-6" style="display:none">
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
