@@ -804,14 +804,14 @@ class artist extends Controller
 
   public function editVideoService($data,$exist){
 
-    $fileName = $data->file ? time().'_'.$req->file->getClientOriginalName() : $exist[0]->media;
+    $fileName = $data->file ? time().'_'.$data->file->getClientOriginalName() : $exist[0]->media;
 
-    $thumbnail = $data->file ? time().'_'.$req->audio_pic->getClientOriginalName() : $exist[0]->audio_pic;
+    $thumbnail = $data->file ? time().'_'.$data->audio_pic->getClientOriginalName() : $exist[0]->audio_pic;
 
     
-    $filePath = $data->file ? $req->file->storeAs('video', $fileName, 'public') : '';
+    $filePath = $data->file ? $data->file->storeAs('video', $fileName, 'public') : '';
 
-    $thumb = $data->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
+    $thumb = $data->audio_pic ? $data->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
     $data['media'] = $fileName;
 
@@ -833,7 +833,6 @@ class artist extends Controller
     
     $filePath = '';
 
-    $thumb = $data->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
     $data['media'] = $fileName;
 
@@ -877,31 +876,64 @@ class artist extends Controller
 
   public function edit_info(Request $req){
       unset($req['_token']);     
-      if($req->media){
+      if($req->media && $req->radio=='video'){
 
-        $fileName =$req->media ?  time().'_'.$req->media->getClientOriginalName():$req->media_url;
-        $audio_pics = $req->audio_pic ? time().'_'.$req->audio_pic->getClientOriginalName():$req->image_url;
-        $req->audio_pic ? $req->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
-        $ext =$req->media ? $req->media->getClientOriginalExtension():'';
-        $extension  = $ext=='mp4' ? 'video' : 'audio';
-        $filePath= $ext=='mp3' ? $req->media->storeAs('audio', $fileName, 'public') : $req->media->storeAs('video', $fileName, 'public');
-        $size=$req->media->getSize();
-        $data['size'] = number_format($size / 1048576,2);
-        $data['media']=$fileName;
-        $data['profile_video'] = 'yes';
-        $data['hid']=$req['hid'];
-        $data['audio_pic'] = $audio_pics;
-        $data['convert'] = $req['convert'] ? $req['convert'] : '';
-        $data['type']= $req->media ? $extension : $req->type;
 
-      }         
+        $profileDtaa = $this->editProfileVideo($req);
 
-       $inputData = Arr::except($req->all(),['media', 'image_url','media_url','type','hid','audio_pic','convert','radio']);
 
-        $update = $this->model->edit_other($inputData,$data);
+      }   
+      
+      else{
+
+        $profileDtaa = $this->editProfileAudio($req);
+
+      }
+
+       $inputData = Arr::except($req->all(),['media','assembly_id', 'image_url','media_url','type','hid','audio_pic','convert','radio']);
+
+        $update = $this->model->edit_other($inputData,$profileDtaa);
         
 
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
+  }
+
+  public function editProfileVideo($data){
+
+    
+    $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;
+    $audio_pics = $data->audio_pic ? time().'_'.$data->audio_pic->getClientOriginalName():$data->image_url;
+    $data->audio_pic ? $data->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
+    $ext =$data->media ? $data->media->getClientOriginalExtension():'';
+    $filePath= $ext=='mp3' ? $data->media->storeAs('audio', $fileName, 'public') : $req->data->storeAs('video', $fileName, 'public');
+    $size=$req->media->getSize();
+    $data['size'] = number_format($size / 1048576,2);
+    $data['media']=$fileName;
+    $data['profile_video'] = 'yes';
+    $data['hid']=$data['hid'];
+    $data['audio_pic'] = $audio_pics;
+    $data['convert'] = $data['convert'] ? $data['convert'] : '';
+    $data['type']= $data->media ? 'video' : $data->type;
+
+    return $data;
+
+
+  }
+
+  public function editProfileAudio($data){
+
+    $fileName = $data->assembly_id ? '' : $data->media_url;
+    $audio_pics = $data->assembly_id ? '' : $data->image_url;
+    $data['media']=$fileName;
+    $data['profile_video'] = 'yes';
+    $data['hid']=$data['hid'];
+    $data['audio_pic'] = $audio_pics;
+    $data['convert'] = '';
+    $data['type']= $data->assembly_id ? 'audio' : $data->type;
+    $data['assembly_id'] = $data['assembly_id'];
+
+    return $data;
+
   }
 
   public function sendTip(Request $req ){
