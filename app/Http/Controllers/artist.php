@@ -804,14 +804,14 @@ class artist extends Controller
 
   public function editVideoService($data,$exist){
 
-    $fileName = $data->file ? time().'_'.$req->file->getClientOriginalName() : $exist[0]->media;
+    $fileName = $data->file ? time().'_'.$data->file->getClientOriginalName() : $exist[0]->media;
 
-    $thumbnail = $data->file ? time().'_'.$req->audio_pic->getClientOriginalName() : $exist[0]->audio_pic;
+    $thumbnail = $data->file ? time().'_'.$data->audio_pic->getClientOriginalName() : $exist[0]->audio_pic;
 
     
-    $filePath = $data->file ? $req->file->storeAs('video', $fileName, 'public') : '';
+    $filePath = $data->file ? $data->file->storeAs('video', $fileName, 'public') : '';
 
-    $thumb = $data->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
+    $thumb = $data->audio_pic ? $data->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
     $data['media'] = $fileName;
 
@@ -833,7 +833,6 @@ class artist extends Controller
     
     $filePath = '';
 
-    $thumb = $data->audio_pic ? $req->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
     $data['media'] = $fileName;
 
