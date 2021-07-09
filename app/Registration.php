@@ -596,7 +596,7 @@ public function getArtistDetail($artid,$type){
        ->leftjoin('media', 'contentprovider.id', '=','media.contentProviderid')
        ->leftjoin('media_seen_notification','media_seen_notification.mediaid','=','media.id')
        ->select('contentprovider.*', 'media.*','media_seen_notification.is_seen','media_seen_notification.userid','media_seen_notification.mediaid','media_seen_notification.type as notification')
-       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0  ,'media.is_verified'=>1))
+       ->where(array('contentprovider.id'=>$artid,'media.type'=>$type,'media.is_deleted'=>0))
        //->orWhere('contentprovider.id',$artid)
        ->get()->toArray();
 
@@ -1257,7 +1257,7 @@ public function getRefersArtist($id){
       $data['status'] = '';
       $data['offer_status'] = $data['offer_status'];
        $data['by_created']=1;
-       $data['quality'] = $data['quality'] ? $data['quality'] : '';
+       $data['quality'] = $data['quality'];
 
 
       $data['artistid'] = $userid;

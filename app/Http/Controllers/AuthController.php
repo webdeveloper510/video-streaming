@@ -945,7 +945,7 @@ else{
         unset($data['thumbnail_pic']);
         $data['convert'] = $data['convert'] ? $data['convert'] : '';
 
-        $data['type']= 'audio'; 
+        $data['type']= ''; 
         $data['assembly_id']=$data['assembly_id'];
         $data['catid']= $data['audio_cat'];
         
@@ -981,64 +981,27 @@ else{
 
   public function notifyUrl(Request $req){
 
+
     $app = app_path();
 
     if(isset($_POST['transloadit'])){
 
       $data = $_POST['transloadit'];
 
-      $decode = "'".json_encode($data)."'";
 
-      $json = file_get_contents("php://input");
+       $response=json_decode($data,true);
+    
 
-      $obj = json_decode($decode,true);
+       $assem_id = $response['assembly_id'];
 
+       $fileName = $this->saveContent($response);
 
+       $imagename = $this->saveTransloaditImage($response);
 
-      try{
-            $messge = "All Good";
+       $data1 = array('media'=>$fileName,'type'=>'audio','audio_pic'=>$imagename);
 
-            $file = fopen($app.'/dummy.php',"w");
-            //fwrite($file,"Hello World. Testing!");
-            fwrite($file,"Hello World. Testing!".$messge." ".$obj);
-            fclose($file);
-      }
+       $this->model->UpdateData('media','assembly_id',$data1,$assem_id);
 
-      catch(Exception $e) {
-        echo 'Message: ' .$e->getMessage();
-      }
-      return 'I am in if';
-    } 
-
-    else{
-      $messge= "nothing";
-            $file = fopen($app.'\dummy.php',"w");
-           fwrite($file,"Hello World. Testing!".$messge);
-           fclose($file);
-           return 'I am in else';
-    }
-
-  //   $app = app_path();
-  
-
-  //   $file = fopen($app.'\dummy.php',"w");
-  //   fwrite($file,"Hello World. Testing!".json_encode($_POST));
-  //   fclose($file);
-
-  //  return  response()->json(['success' => 'success'], 200);
-    // $homepage = file_get_contents($app.'\dummy.php');
-    // echo $homepage;
-    // die;
-
-    // if($req){
-
-    //   echo "yes";
-
-    //   return '200';
-
-    // }
-
-   
 
     // $data = json_decode($req); //  Decode json here
 
@@ -1057,6 +1020,7 @@ else{
     // $this->model->UpdateData('media','assembly_id',$data1,$assem_id); // Update data based on Assembly id
     
     // }
+    }
   }     
 
 

@@ -114,6 +114,8 @@ Route::post('updatedCancelStatus','AuthController@CancelStatus');
 Route::post('subscribe','artist@subscribe');
 
 Route::post('notifyTrans','AuthController@notifyUrl');
+
+Route::post('notifyTransOffer','artist@notifyUrlOffer');
   
 Route::post('report','AuthController@reportVideo');
 
@@ -240,7 +242,7 @@ Route::get('legal-notice', 'AuthController@legal');
 
                      Route::post('insertTime','artist@sendTimeFrame');
 
-                     // Route::post('cancelOrder','artist@CnacelOrder');
+                      Route::post('cancelOrder','artist@CnacelOrder');
                      
                      Route::post('createOffer','artist@createOffer');
 
