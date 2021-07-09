@@ -43,8 +43,8 @@
               </div>
             </div>
             <div class="col-md-6">
-            <h3>Allow Downloading ?</h3>
-            <div class="mt-5">
+             <label>Allow Downloading ?</label>
+            <div class="mt-1">
            
               <input type="radio"  name="radio" value="yes" /><p>Yes</p>
               <input type="radio" name="radio" value="no"/><p>No</p>
