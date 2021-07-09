@@ -78,7 +78,71 @@
                   style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;">
                   THE ART OF PORN IS FINALLY VALUED
                </h3>
-               <div class="container">
+              
+               </div>
+               <div class="container row my-4">
+                  <div class="col-md-6 mb-3 text-center">
+                     <a href="{{url('/register')}}">
+                     <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
+                     </a>
+                  </div>
+                  <div class="col-md-6 text-center">
+                     <a href="{{url('/login')}}">
+                     <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
+                     </a>
+                  </div>
+               </div>
+               
+                    </div>
+               </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 text-center">
+            <h1 class="ml4">
+  <span class="letters letters-1">ASMR</span>
+  <span class="letters letters-2">Affirmations</span>
+  <span class="letters letters-3">Amateur</span>
+  <span class="letters letters-4">Anonymous</span>
+  <span class="letters letters-5">Appreciation</span>
+  <span class="letters letters-6">BDSM</span>
+  <span class="letters letters-7">Blowjob</span>
+  <span class="letters letters-8">Body fetish</span>
+  <span class="letters letters-9">Bondage</span>
+  <span class="letters letters-10">Boobjob</span>
+  <span class="letters letters-11">Commands</span>
+  <span class="letters letters-12">Cosplay</span>
+  <span class="letters letters-13">Couples</span>
+  <span class="letters letters-14">Dressed</span>
+  <span class="letters letters-15">Erotic Fiction</span>
+  <span class="letters letters-16">Femdom</span>
+  <span class="letters letters-17">Goddess</span>
+  <span class="letters letters-18">Group</span>
+  <span class="letters letters-19">Hentai</span>
+  <span class="letters letters-20">Hidden cam Fantasy</span>
+  <span class="letters letters-21">Hypnosis</span>
+</h1>
+</div>
+</div>
+            <div class="row">
+               <div class="col"></div>
+               <div class="col-md-10 mb-3">
+                  <video
+                     class="hoverVideo"
+                     width="100%"
+                     muted
+                     allowfullscreen="allowfullscreen">
+                     <source src="{{asset('images/landingpage1.mp4')}}" type="video/mp4">
+                     Your browser does not support the video tag.
+                  </video>
+               </div>
+               <div class="col"></div>
+            </div>
+
+
+
+
+
+            <div class="container">
                <div class="row">
                     <div class="col-md-6">
                     <p>
@@ -223,64 +287,11 @@
                         </div>
                         </div>
                     </div>
-               </div>
-               <div class="container row my-4">
-                  <div class="col-md-6 mb-3 text-center">
-                     <a href="{{url('/register')}}">
-                     <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
-                     </a>
-                  </div>
-                  <div class="col-md-6 text-center">
-                     <a href="{{url('/login')}}">
-                     <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
-                     </a>
-                  </div>
-               </div>
-               
-                    </div>
-               </div>
-            </div>
-            <div class="row">
-            <div class="col-md-12 text-center">
-            <h1 class="ml4">
-  <span class="letters letters-1">ASMR</span>
-  <span class="letters letters-2">Affirmations</span>
-  <span class="letters letters-3">Amateur</span>
-  <span class="letters letters-4">Anonymous</span>
-  <span class="letters letters-5">Appreciation</span>
-  <span class="letters letters-6">BDSM</span>
-  <span class="letters letters-7">Blowjob</span>
-  <span class="letters letters-8">Body fetish</span>
-  <span class="letters letters-9">Bondage</span>
-  <span class="letters letters-10">Boobjob</span>
-  <span class="letters letters-11">Commands</span>
-  <span class="letters letters-12">Cosplay</span>
-  <span class="letters letters-13">Couples</span>
-  <span class="letters letters-14">Dressed</span>
-  <span class="letters letters-15">Erotic Fiction</span>
-  <span class="letters letters-16">Femdom</span>
-  <span class="letters letters-17">Goddess</span>
-  <span class="letters letters-18">Group</span>
-  <span class="letters letters-19">Hentai</span>
-  <span class="letters letters-20">Hidden cam Fantasy</span>
-  <span class="letters letters-21">Hypnosis</span>
-</h1>
-</div>
-</div>
-            <div class="row">
-               <div class="col"></div>
-               <div class="col-md-10 mb-3">
-                  <video
-                     class="hoverVideo"
-                     width="100%"
-                     muted
-                     allowfullscreen="allowfullscreen">
-                     <source src="{{asset('images/landingpage1.mp4')}}" type="video/mp4">
-                     Your browser does not support the video tag.
-                  </video>
-               </div>
-               <div class="col"></div>
-            </div>
+
+
+
+
+
             <div class="slider_tittle">
                <h3 class="tittle">
                   <a href="{{url('seeall/artists')}}">Artists</a>
