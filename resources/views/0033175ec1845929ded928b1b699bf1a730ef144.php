@@ -116,11 +116,11 @@
                 Your browser does not support the video tag.
          </video>
          <?php else: ?>
-         <audio width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
-                <source src="<?php echo e(url('storage/app/public/audio/'.$offer->media)); ?>" type="audio/mp3">
+         <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
+                <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
                 Your browser does not support the video tag.
-         </audio>
+         </video>
          <?php endif; ?>
 
       </div>

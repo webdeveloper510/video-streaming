@@ -2353,4 +2353,23 @@ public function readNotification(Request $request){
 
         }
 
+
+        public function paxumaccount(){
+
+          return view('paxumaccount');
+
+        }
+
+        public function bankaccount(){
+
+          return view('bankaccount');
+          
+        }
+
+        public function IDcheck(){
+
+          return view('IDcheck');
+          
+        }
+
 }

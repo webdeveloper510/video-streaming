@@ -47,6 +47,10 @@ Route::get('accept', 'AuthController@accept');
 
 Route::get('showArtist','AuthController@artistPage');
 
+Route::get('paxumaccount','AuthController@paxumaccount');
+Route::get('bankaccount','AuthController@bankaccount');
+Route::get('IDcheck','AuthController@IDcheck');
+
 Route::get('/login', 'AuthController@login'); 
 
 Route::get('profile', 'AuthController@profile')->middleware('authentication');
