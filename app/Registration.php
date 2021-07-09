@@ -656,6 +656,10 @@ public function getArtistDetail($artid,$type){
 
   public function edit_other($profile,$data){
 
+    print_r($profile);
+
+    print_r($data);die;
+
     $session_data =   Session::get('User');
 
     $profile = (array) $profile;
