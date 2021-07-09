@@ -24,7 +24,7 @@
                     <label for="exampleFormControlFile1">Identity Check file </label>
                     <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
                 </div>
-                <button class="btn btn-submit" type="submit">Submit </button>
+                <button class="btn btn-primary" type="submit">Submit </button>
                 </form>
 
                 </div>
