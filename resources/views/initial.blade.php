@@ -694,6 +694,8 @@
    .ml4 {
   position: relative;
   font-weight: 900;
+  height: 213px;
+    color: white !important;
   font-size: 4.5em;
 }
 .ml4 .letters {
