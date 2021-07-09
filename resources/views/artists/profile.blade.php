@@ -614,18 +614,40 @@ Your browser does not support the audio tag.
            <div class="col-md-12" style="display: flex;">
             <input type="radio" class="select_media_pic" name="radio" value="audio" {{$random[0]->type=='audio' ? 'checked': ''}}/><p class="text-dark">Audio</p>
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
-          </div>   
+          </div>
+          
           <div class="col-md-12 mt-3 text-white file" style="{{$random[0]->type!='' ? 'display:block' : 'display:none'}}">
+            <label class="media_label12">Overview Video (~30s)</label>
+                {{Form::file('media',['class'=>'form-control file_input'])}}
+                <span id="filename" style="color:#767605;">{{$random[0]->media}}</span>
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+
+            <div class=" mt-3 text-white file1" >
+            <label class="media_label12">Overview  Audio (~30s)</label>
+               <button type="button" id="browse">Choose File</button>
+                  <div class="progress"></div>
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+            
+            <div class="col-md-12 mt-3 text-white thumbnail" style="{{$random[0]->type!='' ? 'display:block' : 'display:none'}}">   
+            <label class="thumbnail1">Video Thumbnail</label>        
+                 {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
+                <span id="filename" style="color:yellow;"></span>
+            </div>
+            </div>
+          <!-- <div class="col-md-12 mt-3 text-white file" style="{{$random[0]->type!='' ? 'display:block' : 'display:none'}}">
             {{Form::label('Choose Media', $random[0]->type=='audio' ? 'Overview  Audio (~30s)' : 'Overview Video (~30s)',['class'=>'custom-file-label label12'])}}
             <br> 
                 {{Form::file('media',['class'=>'custom-file-input file_input'])}}
                 <span id="filename" style="color:#767605;">{{$random[0]->media}}</span>
-            </div>
-            <div class="col-md-12 mt-3 text-white thumbnail" style="{{$random[0]->type!='' ? 'display:block' : 'display:none'}}">
+            </div> -->
+            <!-- <div class="col-md-12 mt-3 text-white thumbnail" style="{{$random[0]->type!='' ? 'display:block' : 'display:none'}}">
             {{Form::label('', $random[0]->type=='audio' ? 'Audio Thumbnail' : 'Video Thumbnail',['class'=>'custom-file-label thumbnail1'])}} 
                 {{Form::file('audio_pic',['class'=>'custom-file-input chooseImage'])}}
                 <span id="filename" style="color:#767605;">{{$random[0]->audio_pic}}</span>
-            </div>
+            </div> -->
             <input type="hidden" value="{{$random[0]->id}}" name="hid"/>
             <input type="hidden" name="type" value="{{$random[0]->type}}"/>
             <input type="hidden" name="media_url" value="{{$random[0]->media}}"/>
