@@ -1000,7 +1000,7 @@ else{
 
        $data1 = array('media'=>$fileName,'type'=>'audio','audio_pic'=>$imagename);
 
-       $this->model->UpdateData($input,'assembly_id',$data1,$assem_id);
+       $this->model->UpdateData('media','assembly_id',$data1,$assem_id);
 
 
     // $data = json_decode($req); //  Decode json here
