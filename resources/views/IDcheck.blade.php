@@ -7,7 +7,7 @@
    </div>
 </header>
 
-<div class="container">
+<div class="container my-5">
 
          <h4>Identity Check:</h4>
          <p>Please upload a Selfie of you holding the document you have used for identity verification and a note with the following written...</p>
