@@ -732,7 +732,7 @@
     background: gold;
     text-align: center;
     color: black;
-   
+    line-height: 16px;
     font-size: 13px;
 }
 
@@ -740,7 +740,7 @@
     color: white;
     background: green;
     text-align: center;
-   
+    line-height: 16px;
     font-size: 13px;
 }
    .artist .profileImage {
