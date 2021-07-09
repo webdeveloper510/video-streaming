@@ -87,7 +87,9 @@
                         </button>
                         </p>
                         </div>
+
                         <div class="col-md-6">
+
                         <p>
                         <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
                         Consumer Highlights
@@ -338,7 +340,18 @@
       <?php if($login): ?>
       <div id="recently_search" class="row">
          <?php $__empty_1 = true; $__currentLoopData = $recently; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recnt): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> <?php if($recnt->type=='video'): ?>
-         <div class="col-md-4 hover">
+         <div class="col-md-4 hover cl">
+         <div class="videotags row">
+            <div class="col-4 blue text-left">
+           <button class="btn btn-primary btn-sm" type="button">Stream</button>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 green text-right">
+            <button class="btn btn-success btn-sm" type="button">Download</button>
+            </div>
+
+         </div>
             <a href="<?php echo e(url('artist-video/'.$recnt->id)); ?>">
                <video
                   class="hoverVideo"
@@ -410,6 +423,17 @@
       <div class="row">
          <?php $__empty_1 = true; $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> <?php if($pop->type=='video' && $pop->profile_video!='yes'): ?>
          <div class="col-md-4 hover">
+         <div class="videotags row">
+            <div class="col-4 blue text-left">
+           <h4>Stream</h4>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 green text-right">
+            <h4>Download</h4>
+            </div>
+
+         </div>
             <a id="anchor_<?php echo e($pop->id); ?>" href="<?php echo e(url('artist-video/'.$pop->id)); ?>">
                <video
                   class="hoverVideo"
@@ -467,8 +491,7 @@
 <!--/.Carousel Wrapper-->
 <br/><br/>
 <!--End 3rd slider-->
-<!---------------------------------------------Offer
-   Videos--------------------------------------------->
+<!---------------------------------------------Offer Videos--------------------------------------------->
 <div class="outer_slider last">
    <div class="container my-4">
       <div class="slider_tittle">
@@ -668,6 +691,9 @@
    .owl-carousel {
    display: block !important;
    }
+   .hoverVideo {
+    border: 1px solid yellow;
+}
    .col-md-4.mb-3 img {
    padding-left: 7px;
    margin-bottom: -23px;
@@ -702,9 +728,25 @@
    background: white;
    opacity: 0;
    }
+
    .cardhr {
    background: white;
    }
+   .col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+   
+    font-size: 13px;
+}
+
+.col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+   
+    font-size: 13px;
+}
    .artist .profileImage {
    width: 125px;
    height: 125px;
@@ -759,6 +801,13 @@
    .pricetime {
    margin-top: -43px;
    }
+   .videotags.row {
+    position: absolute;
+    top: -22px;
+    width: 100%;
+    padding: 0px 10px;
+}
+
    @media  only screen and (max-width: 768px) {
    .col-md-4.hover {
    margin-top: 10px;
