@@ -18,6 +18,15 @@
              <p>- Email Address (used with Yoti)</p>
              <p>... written with a black or blue pen/marker.</p>
              <p><b>Please make sure the document text is readable and not mirrored.</b></p>
+             
+             <form class="col-md-5">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+                </div>
+                <button class="btn btn-submit" type="submit">Submit </button>
+                </form>
+
                 </div>
                 <style>
                  header {

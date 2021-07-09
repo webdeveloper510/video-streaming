@@ -11,7 +11,7 @@
               <div class="col"></div>
               <div class="col-md-6">
                 <div class="card">
-                <div class="card-header">
+                <div class="card-header text-center">
                 <h3> Paxum Account</h3>
                 </div>
                 <div class="card-body">
