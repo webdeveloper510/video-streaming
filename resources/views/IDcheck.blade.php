@@ -12,11 +12,13 @@
            <div class="col-md-7">
          <h4>Identity Check:</h4>
          <p>Please upload a Selfie of you holding the document you have used for identity verification and a note with the following written...</p>
-             <p>- <a href=" pornartistzone.com" > pornartistzone.com</a></p>
+            <br>
+         <p>- <a href=" pornartistzone.com" > pornartistzone.com</a></p>
              <p>- yyyy /mm/dd (the current date)</p>
              <p>- Username</p>
              <p>- First name Last name</p>
              <p>- Email Address (used with Yoti)</p>
+             <br>
              <p>... written with a black or blue pen/marker.</p>
              <p><b>Please make sure the document text is readable and not mirrored.</b></p>
              
