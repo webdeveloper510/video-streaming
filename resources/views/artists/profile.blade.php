@@ -408,7 +408,7 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           @else
-          <div class="verify text-center">
+          <div class="verify text-center" style="{{$random[0]->audio_pic ? 'display:none' : 'display:block'}}">
             <h3>Encoding...</h3>
           </div>
           <video  poster="{{url('storage/app/public/uploads/'.$random[0]->audio_pic) }}" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
