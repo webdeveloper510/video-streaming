@@ -2088,6 +2088,8 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
             console.log(data);
 
+            return false;
+
             $('.button_disable').removeAttr('disabled');
 
 

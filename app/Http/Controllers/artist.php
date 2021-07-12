@@ -875,6 +875,7 @@ class artist extends Controller
 
 
   public function edit_info(Request $req){
+
       unset($req['_token']);     
       if($req->media && $req->radio=='video'){
 
@@ -899,6 +900,10 @@ class artist extends Controller
   }
 
   public function editProfileVideo($data){
+
+    print_r($data->all());
+
+    die;
 
     
     $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;

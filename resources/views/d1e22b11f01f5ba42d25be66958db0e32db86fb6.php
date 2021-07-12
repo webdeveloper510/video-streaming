@@ -78,8 +78,89 @@
                   style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;">
                   THE ART OF PORN IS FINALLY VALUED
                </h3>
-               <div class="container">
-               <div class="row">
+              
+               </div>
+               <div class="container row my-4">
+                  <div class="col"></div>
+                  <div class="col-md-4 mb-3 text-center">
+                     <a href="<?php echo e(url('/register')); ?>">
+                     <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
+                     </a>
+                  </div>
+                  <div class="col-md-4 text-center">
+                     <a href="<?php echo e(url('/login')); ?>">
+                     <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
+                     </a>
+                  </div>
+                  <div class="col"></div>
+               </div>
+               
+                    </div>
+               </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 text-center">
+            <h1 class="ml4">
+  <span class="letters letters-1">ASMR</span>
+  <span class="letters letters-2">Affirmations</span>
+  <span class="letters letters-3">Amateur</span>
+  <span class="letters letters-4">Anonymous</span>
+  <span class="letters letters-5">Appreciation</span>
+  <span class="letters letters-6">BDSM</span>
+  <span class="letters letters-7">Blowjob</span>
+  <span class="letters letters-8">Body fetish</span>
+  <span class="letters letters-9">Bondage</span>
+  <span class="letters letters-10">Boobjob</span>
+  <span class="letters letters-11">Commands</span>
+  <span class="letters letters-12">Cosplay</span>
+  <span class="letters letters-13">Couples</span>
+  <span class="letters letters-14">Dressed</span>
+  <span class="letters letters-15">Erotic Fiction</span>
+  <span class="letters letters-16">Femdom</span>
+  <span class="letters letters-17">Goddess</span>
+  <span class="letters letters-18">Group</span>
+  <span class="letters letters-19">Hentai</span>
+  <span class="letters letters-20">Hidden cam Fantasy</span>
+  <span class="letters letters-21">Hypnosis</span>
+  <span class="letters letters-22">JOI</span>
+  <span class="letters letters-23">Lingerie</span>
+  <span class="letters letters-24">Massage</span>
+  <span class="letters letters-25">Masturbation</span>
+  <span class="letters letters-26">Positive</span>
+  <span class="letters letters-27">POV</span>
+  <span class="letters letters-28">Public </span>
+  <span class="letters letters-29">Role-play</span>
+  <span class="letters letters-30">Sounds</span>
+  <span class="letters letters-31">Spiritual</span>
+  <span class="letters letters-32">Striptease</span>
+  <span class="letters letters-33">Submissive</span>
+  <span class="letters letters-34">Teen</span>
+  <span class="letters letters-35">Toys</span>
+ 
+</h1>
+</div>
+</div>
+            <div class="row">
+               <div class="col"></div>
+               <div class="col-md-10 mb-3">
+                  <video
+                     class="hoverVideo"
+                     width="100%"
+                     muted
+                     allowfullscreen="allowfullscreen">
+                     <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
+                     Your browser does not support the video tag.
+                  </video>
+               </div>
+               <div class="col"></div>
+            </div>
+
+
+
+
+
+            <div class="container">
+               <div class="row px-5">
                     <div class="col-md-6">
                     <p>
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
@@ -223,42 +304,11 @@
                         </div>
                         </div>
                     </div>
-               </div>
-               <div class="container row my-4">
-                  <div class="col-md-6 mb-3 text-center">
-                     <a href="<?php echo e(url('/register')); ?>">
-                     <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
-                     </a>
-                  </div>
-                  <div class="col-md-6 text-center">
-                     <a href="<?php echo e(url('/login')); ?>">
-                     <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
-                     </a>
-                  </div>
-               </div>
-               
-                    </div>
-               </div>
-            </div>
-            <h1 class="ml4">
-  <span class="letters letters-1">Ready</span>
-  <span class="letters letters-2">Set</span>
-  <span class="letters letters-3">Go!</span>
-</h1>
-            <div class="row">
-               <div class="col"></div>
-               <div class="col-md-10 mb-3">
-                  <video
-                     class="hoverVideo"
-                     width="100%"
-                     muted
-                     allowfullscreen="allowfullscreen">
-                     <source src="<?php echo e(asset('images/landingpage1.mp4')); ?>" type="video/mp4">
-                     Your browser does not support the video tag.
-                  </video>
-               </div>
-               <div class="col"></div>
-            </div>
+
+
+
+
+
             <div class="slider_tittle">
                <h3 class="tittle">
                   <a href="<?php echo e(url('seeall/artists')); ?>">Artists</a>
@@ -691,6 +741,21 @@
    .owl-carousel {
    display: block !important;
    }
+   .ml4 {
+  position: relative;
+  font-weight: 900;
+  height: 177px;
+    color: white !important;
+  font-size: 4.5em;
+}
+.ml4 .letters {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0.3em;
+  right: 0;
+  opacity: 0; 
+}
    .hoverVideo {
     border: 1px solid yellow;
 }
@@ -736,7 +801,7 @@
     background: gold;
     text-align: center;
     color: black;
-   
+    line-height: 16px;
     font-size: 13px;
 }
 
@@ -744,7 +809,7 @@
     color: white;
     background: green;
     text-align: center;
-   
+    line-height: 16px;
     font-size: 13px;
 }
    .artist .profileImage {
@@ -979,10 +1044,441 @@
    
    
 </script>
-<!-- <script> $(document).ready(function() { $("#owl-example").owlCarousel({
-   items:3 }); $("#owl-example1").owlCarousel({ items:3 });
-   $("#owl-example2").owlCarousel({ items:3 }); $("#owl-example3").owlCarousel({
-   items:3, }); $("#owl-example4").owlCarousel({ items:3, loop:true, margin:10,
-   autoPlay:true, nav:true, rewindNav:false }); }); </script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script> var ml4 = {};
+ml4.opacityIn = [0,1];
+ml4.scaleIn = [0.2, 1];
+ml4.scaleOut = 3;
+ml4.durationIn = 800;
+ml4.durationOut = 600;
+ml4.delay = 500;
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml4 .letters-1',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-1',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-2',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-2',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-3',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-3',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-4',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-4',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-5',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-5',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-6',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-6',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-7',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-7',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-8',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-8',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-9',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-9',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-10',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-10',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-11',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-11',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-12',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-12',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-13',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-13',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-14',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-14',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-15',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-15',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-16',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-16',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-17',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-17',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-18',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-18',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-19',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-19',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-20',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-20',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-21',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-21',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-22',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-22',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-23',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-23',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-24',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-24',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-25',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-25',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-26',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-26',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-27',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-27',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-28',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-28',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-29',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-29',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-30',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-30',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-31',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-31',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-32',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-32',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-33',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-33',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-34',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-34',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-35',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-35',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4',
+    opacity: 0,
+    duration: 500,
+    delay: 500
+  }); </script> 
 <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php //include(app_path().'/include/includebottom.php');?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views//initial.blade.php ENDPATH**/ ?>
