@@ -922,6 +922,7 @@ class artist extends Controller
     $data['convert'] = $data['convert'] ? $data['convert'] : '';
     $data['type']= $data->media ? 'video' : $data->type;
 
+    print_r($data);die;
     return $data;
 
 
