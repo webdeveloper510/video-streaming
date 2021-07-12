@@ -151,9 +151,7 @@
    </div>
   {{ Form::close() }}
   </div>
-  <div class="text-center">
-      <h3>Note : Ordered Content form services are always downloadable.</h3>
-  </div>
+  
 </div>
 </div>
 </section>
