@@ -2521,8 +2521,8 @@ function format(d, type) {
         : ''
 
         var text =  d.paid_status==1
-        ? 'Delievered'
-        : 'Deliever Now'
+        ? 'Delivered'
+        : 'Deliver Now'
 
     // var visiblity = d.paid_status==1 ? "style=display:none":"style=display:block"
 
@@ -2558,7 +2558,7 @@ function format(d, type) {
                 'tage" style="color:green;font-weight: bold;"></span></div></form></div></td></' +
                 'tr></table><div class="alert alert-success" id="success" style="display:none">' +
                 '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
-                'submit(this)"' + disabled + '>'+text+'</button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ordercancel">Cancel</button>'+
+                'submit(this)"' + disabled + '>'+text+'</button><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ordercancel">Cancel Order</button>'+
         '</div></div></div></div>';
     } 
     else {  
