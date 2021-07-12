@@ -2521,8 +2521,8 @@ function format(d, type) {
         : ''
 
         var text =  d.paid_status==1
-        ? 'Delievered'
-        : 'Deliever Now'
+        ? 'Delivered'
+        : 'Deliver Now'
 
     // var visiblity = d.paid_status==1 ? "style=display:none":"style=display:block"
 
