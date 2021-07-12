@@ -980,11 +980,11 @@ class artist extends Controller
     $audio_pics = $data1['assembly_id'] ? '' : $data1['image_url'];
     $data['media']=$fileName;
     $data['profile_video'] = 'yes';
-    $data['hid']=$data['hid'];
+    $data['hid']=$data1['hid'];
     $data['audio_pic'] = $audio_pics;
     $data['convert'] = '';
-    $data['type']= $data['assembly_id'] ? 'audio' : $data['type'];
-    $data['assembly_id'] = $data['assembly_id'];
+    $data['type']= $data1['assembly_id'] ? 'audio' : $data1['type'];
+    $data['assembly_id'] = $data1['assembly_id'];
 
     return $data;
 
