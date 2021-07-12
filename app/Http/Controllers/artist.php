@@ -903,23 +903,25 @@ class artist extends Controller
 
   public function editProfileVideo($data1){
 
-    if($data->media && $data->audio_pic){
+    print_r($data1);die;
 
-      $fileName =  time().'_'.$data->media->getClientOriginalName();
+    if($data1->media && $data1->audio_pic){
 
-      $audio_pics =time().'_'.$data->audio_pic->getClientOriginalName();
+      $fileName =  time().'_'.$data1->media->getClientOriginalName();
 
-      $ext =$data->media ? $data->media->getClientOriginalExtension():'';
+      $audio_pics =time().'_'.$data1->audio_pic->getClientOriginalName();
 
-      $size=$req->media->getSize();
+      $ext =$data1->media ? $data1->media->getClientOriginalExtension():'';
+
+      $size=$data1->media->getSize();
 
       $data['size'] = number_format($size / 1048576,2);
 
       $data['media']=$fileName;
       $data['profile_video'] = 'yes';
-      $data['hid']=$data['hid'];
+      $data['hid']=$data1['hid'];
       $data['audio_pic'] = $audio_pics;
-      $data['convert'] = $data['convert'] ? $data['convert'] : '';
+      $data['convert'] = $data1['convert'] ? $data1['convert'] : '';
       $data['type']= 'video' ;
 
       return $data;
@@ -928,17 +930,17 @@ class artist extends Controller
 
     else{
 
-      $fileName  = $data->media_url;
+      $fileName  = $data1->media_url;
 
-      $audio_pics = $data->image_url;
+      $audio_pics = $data1->image_url;
 
-      $data['convert'] = $data['convert'] ? $data['convert'] : '';
+      $data['convert'] = $data1['convert'] ? $data1['convert'] : '';
 
       $data['audio_pic'] = $audio_pics;
 
-      $data['type'] = $data->type;
+      $data['type'] = $data1->type;
 
-      $data['hid']=$data['hid'];
+      $data['hid']=$data1['hid'];
 
       
       $data['size'] = number_format($size / 1048576,2);
@@ -947,7 +949,7 @@ class artist extends Controller
 
       $data['profile_video'] = 'yes';
 
-      return $data;
+      return $data1;
 
 
 
