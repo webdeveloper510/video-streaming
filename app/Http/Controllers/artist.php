@@ -903,7 +903,7 @@ class artist extends Controller
 
   public function editProfileVideo($data){
 
-    //print_r($data->all());
+    $data = $data->all();
 
     //die;
 
