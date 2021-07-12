@@ -8,7 +8,8 @@
 </header>
 
 <div class="container my-5">
-
+        <div class="row">
+           <div class="col-md-7">
          <h4>Identity Check:</h4>
          <p>Please upload a Selfie of you holding the document you have used for identity verification and a note with the following written...</p>
              <p>- <a href=" pornartistzone.com" > pornartistzone.com</a></p>
@@ -26,6 +27,11 @@
                 </div>
                 <button class="btn btn-primary" type="submit">Submit </button>
                 </form>
+</div>
+<div class="col-md-5">
+  <img src="{{asset('images/IdentityCheck.png')}}" width="100%" class="img-fluid">
+</div>
+</div>
 
                 </div>
                 <style>
