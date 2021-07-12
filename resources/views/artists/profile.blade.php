@@ -557,13 +557,6 @@ Your browser does not support the audio tag.
             </select>
                 <br>
 
-                <div class=" mt-3 text-white file" style="display:none;">
-            <label class="media_label12">Audio/Video</label>
-                {{Form::file('media',['class'=>'form-control file_input'])}}
-                  <div class="progress"></div>
-                <span id="filename" style="color:yellow;"></span>
-            </div>
-
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" class="browse">Choose File</button>
