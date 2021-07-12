@@ -905,9 +905,9 @@ class artist extends Controller
 
     //$data = $data;
 
-    print_r($data);
+    // print_r($data);
 
-    die;
+    // die;
 
     
     $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;
