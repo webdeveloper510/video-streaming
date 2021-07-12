@@ -96,6 +96,14 @@
                         <div class="checkall" style="display:none">
                              <form> 
                               <input type="checkbox" class="slct_video" id="<?php echo e($val->id); ?>" data-id="<?php echo e($val->price); ?>"></form></div>
+                              <div class="collectionvideo row">
+                                 <div class="col">
+                                   
+                                 </div>
+                                 <div class="col-4">
+                                  <button class="btn btn-succes btn-sm">Download Now</button>
+                                 </div>
+                              </div>
                             <video
                                 width="100%"
                                 height="100%"
@@ -340,7 +348,11 @@
                             body {
                                 background: black;
                             }
-
+                            .collectionvideo.row {
+                                    position: absolute;
+                                    width: 100%;
+                                    padding: 0px 69px;
+                                }
                             .tooltip {
                                 opacity: 1 !important;
                                 display: inline-block;
