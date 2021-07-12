@@ -2379,12 +2379,14 @@ function edit_offer(data) {
         $('.thumbnail1').text('Video Thumbnail');
         $('.label12').text('Overview Video (~30s)');
         $('.file1').hide();
+        $('.convert').show()
+
     }
 
     else{
         $('.file1').show();
         $('.file').hide();
-
+        $('.convert').hide()
         $('.thumbnail').hide();
         $('.label12').text('Overview Audio (~30s)');
     }
