@@ -1182,7 +1182,7 @@ public function getRespectedSub($data){
 
 
 
-          print_r($data->all());die;
+          //print_r($data->all());die;
 
          
            $update = array(
