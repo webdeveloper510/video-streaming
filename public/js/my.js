@@ -2380,6 +2380,8 @@ function edit_offer(data) {
         $('.label12').text('Overview Video (~30s)');
         $('.file1').hide();
         $('.convert').show()
+        $('#quality').attr('required',true);
+
 
     }
 
@@ -2389,6 +2391,8 @@ function edit_offer(data) {
         $('.convert').hide()
         $('.thumbnail').hide();
         $('.label12').text('Overview Audio (~30s)');
+        $('#quality').removeAttr('required');
+
     }
 
     $('.' + json_info.type).show();
