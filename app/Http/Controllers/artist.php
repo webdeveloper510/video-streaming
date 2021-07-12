@@ -901,7 +901,7 @@ class artist extends Controller
         return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
   }
 
-  public function editProfileVideo($data){
+  public function editProfileVideo($data1){
 
     if($data->media && $data->audio_pic){
 
