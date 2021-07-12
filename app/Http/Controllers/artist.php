@@ -949,7 +949,9 @@ class artist extends Controller
 
       $data['profile_video'] = 'yes';
 
-      return $data1;
+      print_r($data);die;
+
+      return $data;
 
 
 
