@@ -901,9 +901,9 @@ class artist extends Controller
 
   public function editProfileVideo($data){
 
-    print_r($data->all());
+    //print_r($data->all());
 
-    die;
+    //die;
 
     
     $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;
