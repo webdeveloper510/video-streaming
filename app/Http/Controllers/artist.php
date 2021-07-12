@@ -903,9 +903,11 @@ class artist extends Controller
 
   public function editProfileVideo($data){
 
-    //$data = $data->all();
+    //$data = $data;
 
-    //die;
+    print_r($data)
+
+    die;
 
     
     $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;
@@ -923,7 +925,7 @@ class artist extends Controller
     $data['type']= $data->media ? 'video' : $data->type;
 
     print_r($data);die;
-    
+
     return $data;
 
 
