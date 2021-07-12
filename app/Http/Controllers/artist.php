@@ -834,7 +834,7 @@ class artist extends Controller
     
     $filePath = '';
 
-    $data['quality'] = '';
+    $data['quality'] = 0;
 
     $data['media'] = $fileName;
 
