@@ -116,6 +116,9 @@
                 Your browser does not support the video tag.
          </video>
          <?php elseif($offer->type=='audio'): ?>
+         <div class="verify text-center encode" style="<?php echo e($offer->audio_pic ? 'display:none' : 'display:block'); ?>">
+            <h3>Encoding...</h3>
+          </div>
          <video width="100%"  poster="<?php echo e(url('storage/app/public/uploads/'.$offer->audio_pic)); ?>"   controlsList="nodownload" disablePictureInPicture>
                 <source src="<?php echo e(url('storage/app/public/video/'.$offer->media)); ?>" type="video/mp4">
                 
@@ -281,6 +284,9 @@
 <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
+               <div class="verify text-center encode" style="<?php echo e($aud->audio_pic ? 'display:none' : 'display:block'); ?>">
+            <h3>Encoding...</h3>
+          </div>
                <div class="verifyvideo den text-center" style="<?php echo e($detail->is_verified== -1 ? 'display:block' : 'display:none'); ?>">
                <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
@@ -413,7 +419,7 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
-          <div class="encode">
+          <div class="verify text-center" style="<?php echo e($random[0]->audio_pic ? 'display:none' : 'display:block'); ?>">
             <h3>Encoding...</h3>
           </div>
           <video  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>

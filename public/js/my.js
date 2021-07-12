@@ -2956,7 +2956,7 @@ $(document).on('click', '.select_media_pic', function () {
                     $('.video').removeAttr('required');
                     $('.audio').attr('required',true);
 					$('.media_label').text('Upload Sample Audio (~30s)');
-					$('.label12').text('Overview  Audio (~30s)');
+					$('.label12').text('Teaser Audio (~30s)');
 					$('.media_label12').text('Audio');
 					$('.thumbnail1').text('Image Upload');
                     $('.thumbnail').hide();
@@ -2966,6 +2966,7 @@ $(document).on('click', '.select_media_pic', function () {
 					$('.video').hide()
 
                     $('.file').hide();
+
 
 
 			}
@@ -2979,7 +2980,7 @@ $(document).on('click', '.select_media_pic', function () {
 				$('.media_label12').text('Video');
 				$('.thumbnail1').text('Video Thumbnail');
 				$('.media_label').text('Upload Sample Video (~30s)');
-				$('.label12').text('Overview Video (~30s)');
+				$('.label12').text('Teaser Video (~30s)');
 				$('.audio').hide()
 				$('.convert').show();
 				$('.video').show()
