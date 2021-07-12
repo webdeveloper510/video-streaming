@@ -880,14 +880,14 @@ class artist extends Controller
       if($req->radio=='video'){
 
 
-        $profileDtaa = $this->editProfileVideo($req);
+        $profileDtaa = $this->editProfileVideo($req->all());
 
 
       }   
       
       else{
 
-        $profileDtaa = $this->editProfileAudio($req);
+        $profileDtaa = $this->editProfileAudio($req->all());
 
       }
 
@@ -903,7 +903,7 @@ class artist extends Controller
 
   public function editProfileVideo($data){
 
-    $data = $data->all();
+    //$data = $data->all();
 
     //die;
 
@@ -923,6 +923,7 @@ class artist extends Controller
     $data['type']= $data->media ? 'video' : $data->type;
 
     print_r($data);die;
+    
     return $data;
 
 
