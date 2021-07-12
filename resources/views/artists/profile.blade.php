@@ -409,9 +409,9 @@ Your browser does not support the audio tag.
           </video>
           @else
           <img src="{{isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://static.vecteezy.com/system/resources/thumbnails/000/097/181/small/free-black-leather-vector.jpg'}}" width="100%;">
-          <audio  poster="{{url('storage/app/public/uploads/'.$random->audio_pic) }}" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
-               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="audio/mp3">          
-          </audio>
+          <video  poster="{{url('storage/app/public/uploads/'.$random[0]->audio_pic) }}" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
+               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="video/mp4">          
+          </video>
           @endif                 
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
