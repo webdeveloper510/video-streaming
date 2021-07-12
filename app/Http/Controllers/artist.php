@@ -877,7 +877,7 @@ class artist extends Controller
   public function edit_info(Request $req){
 
       unset($req['_token']);     
-      if($req->media && $req->radio=='video'){
+      if($req->radio=='video'){
 
 
         $profileDtaa = $this->editProfileVideo($req);
