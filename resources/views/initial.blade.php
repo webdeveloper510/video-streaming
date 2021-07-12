@@ -875,6 +875,9 @@
    text-align: center;
    margin-bottom: 10px;
    }
+   .ml4{
+      height:300px;
+   }
    .col-md-4.showoffer1 {
    margin: 10px auto;
    }
