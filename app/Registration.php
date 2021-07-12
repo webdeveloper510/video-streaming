@@ -658,7 +658,7 @@ public function getArtistDetail($artid,$type){
 
     print_r($profile->all());
 
-    print_r($data);die;
+    print_r($data->all());die;
 
     $session_data =   Session::get('User');
 
