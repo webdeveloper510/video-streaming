@@ -922,6 +922,8 @@ class artist extends Controller
       $data['convert'] = $data['convert'] ? $data['convert'] : '';
       $data['type']= 'video' ;
 
+      return $data;
+
     }
 
     else{
@@ -945,6 +947,8 @@ class artist extends Controller
 
       $data['profile_video'] = 'yes';
 
+      return $data;
+
 
 
     }
@@ -963,7 +967,7 @@ class artist extends Controller
 
     //print_r($data);die;
 
-    return $data;
+   
 
 
   }
