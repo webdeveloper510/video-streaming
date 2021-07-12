@@ -656,7 +656,7 @@ public function getArtistDetail($artid,$type){
 
   public function edit_other($profile,$data){
 
-    print_r($profile);
+    print_r($profile->all());
 
     print_r($data);die;
 
