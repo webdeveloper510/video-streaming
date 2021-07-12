@@ -930,15 +930,15 @@ class artist extends Controller
 
     else{
 
-      $fileName  = $data1->media_url;
+      $fileName  = $data1['media_url'];
 
-      $audio_pics = $data1->image_url;
+      $audio_pics = $data1['image_url'];
 
       $data['convert'] = $data1['convert'] ? $data1['convert'] : '';
 
       $data['audio_pic'] = $audio_pics;
 
-      $data['type'] = $data1->type;
+      $data['type'] = $data1['type'];
 
       $data['hid']=$data1['hid'];
 
