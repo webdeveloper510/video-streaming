@@ -409,7 +409,7 @@ Your browser does not support the audio tag.
           </video>
           @else
           <video  poster="{{url('storage/app/public/uploads/'.$random[0]->audio_pic) }}" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
-               <source src="{{isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :'' }}" type="video/mp4">          
+               <source src="{{isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :'' }}" type="video/mp4">          
           </video>
           @endif                 
           </div>
