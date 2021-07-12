@@ -539,7 +539,7 @@ Your browser does not support the audio tag.
                    <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
-                  <select name="quality" class="form-control" required id="quality">
+                  <select name="quality" class="form-control"  id="quality">
                             <option value="">Choose ...</option>
                             <option value="480">480p  </option>
                             <option value="720">HD 720p </option>

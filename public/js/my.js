@@ -2955,6 +2955,7 @@ $(document).on('click', '.select_media_pic', function () {
 
                     $('.video').removeAttr('required');
                     $('.audio').attr('required',true);
+                    $('#quality').removeAttr('required');
 					$('.media_label').text('Upload Sample Audio (~30s)');
 					$('.label12').text('Teaser Audio (~30s)');
 					$('.media_label12').text('Audio');
@@ -2973,7 +2974,7 @@ $(document).on('click', '.select_media_pic', function () {
 			else{
                 $('.file1').hide();
                 $('.thumbnail').show();
-
+                $('#quality').attr('required',true);
                 $('.file').show();
                 $('.audio').removeAttr('required');
                 $('.video').attr('required',true);
