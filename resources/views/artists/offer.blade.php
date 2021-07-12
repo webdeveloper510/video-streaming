@@ -208,9 +208,7 @@
                 @endif
             </div>
             
-            <div class="text-center col-md-12">
-      <h3>Note : Ordered Content form services are always downloadable.</h3>
-  </div>
+           
            
             <div class="row">
             
@@ -223,10 +221,14 @@
         </div>
         <div class="alert alert-danger"  style="display:none">
         </div>
-              <div class="col text-center pt-3">
+        <div class="col-md-2 text-center pt-3">
 
-            {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
-          </div>
+{{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
+</div>
+        <div class="text-center col-md-10">
+      <h3>Note: Ordered content from services are always downloadable.</h3>
+  </div>
+            
           </div>
      </div>
      </div>
