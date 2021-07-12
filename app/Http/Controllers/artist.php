@@ -912,9 +912,9 @@ class artist extends Controller
     
     $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;
     $audio_pics = isset($data['audio_pic']) ? time().'_'.$data->audio_pic->getClientOriginalName():$data->image_url;
-    $store = isset($data['audio_pic']) ? $data->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
+    //$store = isset($data['audio_pic']) ? $data->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
     $ext =$data->media ? $data->media->getClientOriginalExtension():'';
-    $filePath= $ext=='mp3' ? $data->media->storeAs('audio', $fileName, 'public') : $req->data->storeAs('video', $fileName, 'public');
+    //$filePath= $ext=='mp3' ? $data->media->storeAs('audio', $fileName, 'public') : $req->data->storeAs('video', $fileName, 'public');
     $size=$req->media->getSize();
     $data['size'] = number_format($size / 1048576,2);
     $data['media']=$fileName;
