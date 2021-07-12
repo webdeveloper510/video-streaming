@@ -113,6 +113,9 @@
                 Your browser does not support the video tag.
          </video>
          @elseif($offer->type=='audio')
+         <div class="verify text-center encode" style="{{$offer->audio_pic ? 'display:none' : 'display:block'}}">
+            <h3>Encoding...</h3>
+          </div>
          <video width="100%"  poster="{{url('storage/app/public/uploads/'.$offer->audio_pic) }}"   controlsList="nodownload" disablePictureInPicture>
                 <source src="{{url('storage/app/public/video/'.$offer->media) }}" type="video/mp4">
                 
@@ -276,6 +279,9 @@
 <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
+               <div class="verify text-center encode" style="{{$aud->audio_pic ? 'display:none' : 'display:block'}}">
+            <h3>Encoding...</h3>
+          </div>
                <div class="verifyvideo den text-center" style="{{$detail->is_verified== -1 ? 'display:block' : 'display:none'}}">
                <button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#denied">Denied</button>
             </div>
