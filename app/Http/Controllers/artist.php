@@ -841,7 +841,7 @@ class artist extends Controller
 
     $data['assembly_id'] = $data->assembly_id;
 
-    print_r($data);die;
+    print_r($data->all());die;
 
 
 
