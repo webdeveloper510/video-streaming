@@ -905,7 +905,7 @@ class artist extends Controller
 
     //$data = $data;
 
-    print_r($data)
+    print_r($data);
 
     die;
 
