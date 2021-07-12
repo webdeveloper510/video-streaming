@@ -413,10 +413,12 @@ Your browser does not support the audio tag.
                       Your browser does not support the video tag.
           </video>
           <?php else: ?>
-          <img src="<?php echo e(isset($random[0]->audio_pic) ? url('storage/app/public/uploads/'.$random[0]->audio_pic) : 'https://static.vecteezy.com/system/resources/thumbnails/000/097/181/small/free-black-leather-vector.jpg'); ?>" width="100%;">
-          <audio  poster="<?php echo e(url('storage/app/public/uploads/'.$random->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
-               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/audio/'.$random[0]->media) :''); ?>" type="audio/mp3">          
-          </audio>
+          <div class="encode">
+            <h3>Encoding...</h3>
+          </div>
+          <video  poster="<?php echo e(url('storage/app/public/uploads/'.$random[0]->audio_pic)); ?>" width="100%" height="100%" id="get_duration"  controls List="nodownload" disablePictureInPicture>
+               <source src="<?php echo e(isset($random[0]->media) ? url('storage/app/public/video/'.$random[0]->media) :''); ?>" type="video/mp4">          
+          </video>
           <?php endif; ?>                 
           </div>
             <div class="col-md-2 col-sm-2 col-lg-2 mb-3">
@@ -999,7 +1001,7 @@ video:hover {
         //"allow_steps_override": false,
         //'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
         // To hide your `steps`, use a `template_id` instead
-        notify_url :url+'/notifyTransOffer',
+        notify_url :url+'/notifyTrans',
         steps: {
           ":original": {
             robot: "/upload/handle"
