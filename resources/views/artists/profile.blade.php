@@ -393,7 +393,7 @@ Your browser does not support the audio tag.
   
   <div class="container">
      
-      <h2>Overview</h2>
+      <h2>Profile</h2>
       <div class="text-right">
    <button type="button" class="btn btn-light" data-target="#myModal1" data-toggle="modal" onclick="change_other_info({{json_encode($details[0])}})">Edit</button>
               </div>
