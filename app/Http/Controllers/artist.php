@@ -903,26 +903,63 @@ class artist extends Controller
 
   public function editProfileVideo($data){
 
+    if($data->media && $data->audio_pic){
+
+      $fileName =  time().'_'.$data->media->getClientOriginalName();
+
+      $audio_pics =time().'_'.$data->audio_pic->getClientOriginalName();
+
+      $ext =$data->media ? $data->media->getClientOriginalExtension():'';
+
+      $size=$req->media->getSize();
+
+      $data['size'] = number_format($size / 1048576,2);
+
+      $data['media']=$fileName;
+      $data['profile_video'] = 'yes';
+      $data['hid']=$data['hid'];
+      $data['audio_pic'] = $audio_pics;
+      $data['convert'] = $data['convert'] ? $data['convert'] : '';
+      $data['type']= 'video' ;
+
+    }
+
+    else{
+
+      $fileName  = $data->media_url;
+
+      $audio_pics = $data->image_url;
+
+      $data['convert'] = $data['convert'] ? $data['convert'] : '';
+
+      $data['audio_pic'] = $audio_pics;
+
+      $data['type'] = $data->type;
+
+      $data['hid']=$data['hid'];
+
+      
+      $data['size'] = number_format($size / 1048576,2);
+
+      $data['media']=$fileName;
+
+      $data['profile_video'] = 'yes';
+
+
+
+    }
+
     //$data = $data;
 
-     print_r($data);
+    //  print_r($data);
 
     // die;
 
     
-    $fileName =$data->media ?  time().'_'.$data->media->getClientOriginalName():$data->media_url;
-    $audio_pics = isset($data['audio_pic']) ? time().'_'.$data->audio_pic->getClientOriginalName():$data->image_url;
     //$store = isset($data['audio_pic']) ? $data->audio_pic->storeAs('uploads',$audio_pics,'public'):'';
-    $ext =$data->media ? $data->media->getClientOriginalExtension():'';
     //$filePath= $ext=='mp3' ? $data->media->storeAs('audio', $fileName, 'public') : $req->data->storeAs('video', $fileName, 'public');
-    $size=$req->media->getSize();
-    $data['size'] = number_format($size / 1048576,2);
-    $data['media']=$fileName;
-    $data['profile_video'] = 'yes';
-    $data['hid']=$data['hid'];
-    $data['audio_pic'] = $audio_pics;
-    $data['convert'] = $data['convert'] ? $data['convert'] : '';
-    $data['type']= $data->media ? 'video' : $data->type;
+ 
+
 
     print_r($data);die;
 
