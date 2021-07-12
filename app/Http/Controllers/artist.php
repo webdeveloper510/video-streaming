@@ -821,7 +821,7 @@ class artist extends Controller
     $data['thumbnail'] = $thumbnail;
 
 
-    return $data;
+    return $data->all();
 
   }
 
@@ -841,11 +841,11 @@ class artist extends Controller
 
     $data['assembly_id'] = $data->assembly_id;
 
-    print_r($data->all());die;
+    //print_r($data->all());die;
 
 
 
-    return $data;
+    return $data->all();
         
   }
 
