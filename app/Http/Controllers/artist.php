@@ -903,7 +903,7 @@ class artist extends Controller
 
   public function editProfileVideo($data1){
 
-    print_r($data1);die;
+   // print_r($data1);die;
 
     if($data1->media && $data1->audio_pic){
 
@@ -942,9 +942,7 @@ class artist extends Controller
 
       $data['hid']=$data1['hid'];
 
-      
-      $data['size'] = number_format($size / 1048576,2);
-
+    
       $data['media']=$fileName;
 
       $data['profile_video'] = 'yes';
