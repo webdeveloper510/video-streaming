@@ -225,8 +225,8 @@
 
 {{ Form::submit('Submit!',['class'=>'btn btn-primary']) }}
 </div>
-        <div class="text-left col-md-10 p-0">
-      <h3>Note: Ordered content from services are always downloadable.</h3>
+        <div class="text-left col-md-10 p-0 pt-4 pl-4">
+      <h4>Note: Ordered content from services are always downloadable.</h4>
   </div>
             
           </div>
