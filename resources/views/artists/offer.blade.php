@@ -208,7 +208,9 @@
                 @endif
             </div>
             
-           
+            <div class="text-center">
+      <h3>Note : Ordered Content form services are always downloadable.</h3>
+  </div>
            
             <div class="row">
             
