@@ -947,7 +947,7 @@ class artist extends Controller
 
       $data['profile_video'] = 'yes';
 
-      print_r($data);die;
+      //print_r($data);die;
 
       return $data;
 
@@ -974,16 +974,16 @@ class artist extends Controller
 
   }
 
-  public function editProfileAudio($data){
+  public function editProfileAudio($data1){
 
-    $fileName = $data->assembly_id ? '' : $data->media_url;
-    $audio_pics = $data->assembly_id ? '' : $data->image_url;
+    $fileName = $data1['assembly_id'] ? '' : $data1['media_url'];
+    $audio_pics = $data1['assembly_id'] ? '' : $data1['image_url'];
     $data['media']=$fileName;
     $data['profile_video'] = 'yes';
     $data['hid']=$data['hid'];
     $data['audio_pic'] = $audio_pics;
     $data['convert'] = '';
-    $data['type']= $data->assembly_id ? 'audio' : $data->type;
+    $data['type']= $data['assembly_id'] ? 'audio' : $data['type'];
     $data['assembly_id'] = $data['assembly_id'];
 
     return $data;
