@@ -36,6 +36,17 @@
    @foreach($videos as $vid)
     @if($flag!='offer' && $vid->profile_video!='yes')
        <div class="col-md-4 my-3">
+       <div class="videotags row">
+            <div class="col-4 blue text-left">
+           <h4>Stream</h4>
+            </div>
+            <div class="col-4">
+            </div>
+            <div class="col-4 green text-right" style="{{$vid->is_download==0 ? 'display:none' : 'display:block'}}">
+            <h4>Download</h4>
+            </div>
+
+         </div>
        <div class="checkall" style="display:none">
           <form> 
           <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
@@ -65,12 +76,11 @@
       <div class="checkall" style="display:none">
           <form> 
           <input type="checkbox" class="slct_video" id="{{$vid->id}}" data-id="{{$vid->price}}"></form></div>
-      <img src="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"/>
-      <audio width="100%" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"  controlsList="nodownload" disablePictureInPicture>
-            <source src="{{url('storage/app/public/audio/'.$vid->media) }}" type="audio/mp3">
+      <video width="100%" height="240" poster="{{url('storage/app/public/uploads/'.$vid->audio_pic) }}"  controlsList="nodownload" disablePictureInPicture>
+            <source src="{{url('storage/app/public/video/'.$vid->media) }}" type="video/mp4">
 
              Your browser does not support the video tag.
-      </audio>
+      </video>
       @endif
 
 	  <div class="carad-body">

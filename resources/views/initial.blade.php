@@ -478,7 +478,7 @@
             </div>
             <div class="col-4">
             </div>
-            <div class="col-4 green text-right">
+            <div class="col-4 green text-right" style="{{$pop->is_download==0 ? 'display:none' : 'display:block'}}">
             <h4>Download</h4>
             </div>
 
