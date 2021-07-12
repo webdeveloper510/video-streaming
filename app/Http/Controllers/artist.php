@@ -891,6 +891,8 @@ class artist extends Controller
 
       }
 
+      print_r($profileDtaa);die;
+
        $inputData = Arr::except($req->all(),['media','assembly_id', 'profile_video','image_url','media_url','type','hid','audio_pic','convert','radio']);
 
         $update = $this->model->edit_other($inputData,$profileDtaa);
