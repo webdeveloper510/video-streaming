@@ -2443,7 +2443,7 @@ public function getVideosbyList(){
   $userid =  $session_data->id;
 
   $data = \DB::table("user_video")
-  ->select(DB::raw("media.media as videos"),"media.id","media.title","media.is_deleted")
+  ->select(DB::raw("media.media as videos"),"media.id","media.title",'media.is_download',"media.is_deleted")
   ->leftjoin("media",\DB::raw("FIND_IN_SET(media.id,user_video.videoid)"),">",\DB::raw("'0'"))
  // ->groupBy("playlist.id","playlist.playlistname","media.media")
   ->where(array('user_video.userid'=> $userid,'user_video.type'=>'normal'))

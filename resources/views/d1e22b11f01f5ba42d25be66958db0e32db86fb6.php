@@ -69,25 +69,25 @@
                margin: 0 auto;
                }
             </style>
-            <div class="header py-3">
+            <div class="header pt-3">
                <img
                   src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>"
                   width="60%"
                   alt="CoolBrand">
                <h3
-                  style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:20px 0px;">
+                  style="font-size: 32px;font-family: 'Allerta Stencil', sans-serif;font-weight: 400; color:white; text-align:center; padding:24px 0px 0px 0px;">
                   THE ART OF PORN IS FINALLY VALUED
                </h3>
               
                </div>
                <div class="container row my-4">
                   <div class="col"></div>
-                  <div class="col-md-4 mb-3 text-center">
+                  <div class="col-md-4 mb-3 pl-5 text-center">
                      <a href="<?php echo e(url('/register')); ?>">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                      </a>
                   </div>
-                  <div class="col-md-4 text-center">
+                  <div class="col-md-4 pr-5 text-center">
                      <a href="<?php echo e(url('/login')); ?>">
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
@@ -479,7 +479,7 @@
             </div>
             <div class="col-4">
             </div>
-            <div class="col-4 green text-right">
+            <div class="col-4 green text-right" style="<?php echo e($pop->is_download==0 ? 'display:none' : 'display:block'); ?>">
             <h4>Download</h4>
             </div>
 
