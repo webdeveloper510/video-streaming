@@ -571,7 +571,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
-            <div class=" mt-3 text-white thumbnail" style="display:none;">   
+            <div class =" mt-3 text-white thumbnail" style="display:none;">   
             <label class="thumbnail1"></label>        
                  {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
                 <span id="filename" style="color:yellow;"></span>
