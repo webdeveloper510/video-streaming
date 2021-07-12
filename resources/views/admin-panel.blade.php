@@ -39,6 +39,7 @@
       <th scope="col">Signed Contract</th>
       <th scope="col">Verified ID Check </th>
       <th scope="col">Date of Completion</th>
+      <th scope="col">Status </th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +49,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
+      <td>25-06-2021</td>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -55,12 +57,14 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
+      <td>25-06-2021</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Artistname</td>
       <td>filename.png</td>
       <td>filename.png</td>
+      <td>25-06-2021</td>
       <td>25-06-2021</td>
     </tr>
   </tbody>
@@ -103,6 +107,7 @@
       <th scope="col">Total USD</th>
       <th scope="col">Fee Amount USD  </th>
       <th scope="col">Pay Amount USD </th>
+      <th scope="col">Status </th>
     </tr>
   </thead>
   <tbody>
@@ -213,6 +218,7 @@
       <th scope="col">Total USD</th>
       <th scope="col">Fee Amount USD  </th>
       <th scope="col">Pay Amount USD </th>
+      <th scope="col">Status </th>
     </tr>
   </thead>
   <tbody>
