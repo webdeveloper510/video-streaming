@@ -569,13 +569,11 @@ Your browser does not support the audio tag.
                  {{Form::file('audio_pic',['class'=>'form-control chooseImage'])}}
                 <span id="filename" style="color:yellow;"></span>
             </div>
-            
 
                 <input type="hidden" name="offerid" id="offerid" value="">                  
                   <input type="hidden" id="file_name" name="file_name" value=""/>
                   <input type="hidden" id="file_image" name="file_image" value=""/>
-                  <br>
-                 
+
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
                 {{Form::file('file',['class'=>'form-control file_input','title'=>'eeeee'])}}
