@@ -106,19 +106,14 @@
   <span class="letters letters-3">Amateur</span>
   <span class="letters letters-4">Anonymous</span>
   <span class="letters letters-5">Appreciation</span>
-  <span class="letters letters-6">BDSM</span>
-  <span class="letters letters-7">Blowjob</span>
+  <span class="letters letters-6">Kinky</span>
   <span class="letters letters-8">Body fetish</span>
   <span class="letters letters-9">Bondage</span>
-  <span class="letters letters-10">Boobjob</span>
-  <span class="letters letters-11">Commands</span>
   <span class="letters letters-12">Cosplay</span>
   <span class="letters letters-13">Couples</span>
   <span class="letters letters-14">Dressed</span>
   <span class="letters letters-15">Erotic Fiction</span>
-  <span class="letters letters-16">Femdom</span>
   <span class="letters letters-17">Goddess</span>
-  <span class="letters letters-18">Group</span>
   <span class="letters letters-19">Hentai</span>
   <span class="letters letters-20">Hidden <br>cam <br> Fantasy</span>
   <span class="letters letters-21">Hypnosis</span>
@@ -1126,18 +1121,6 @@ anime.timeline({loop: true})
     easing: "easeInExpo",
     delay: ml4.delay
   }).add({
-    targets: '.ml4 .letters-7',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-7',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
     targets: '.ml4 .letters-8',
     opacity: ml4.opacityIn,
     scale: ml4.scaleIn,
@@ -1168,18 +1151,6 @@ anime.timeline({loop: true})
     duration: ml4.durationIn
   }).add({
     targets: '.ml4 .letters-10',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
-    targets: '.ml4 .letters-11',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-11',
     opacity: 0,
     scale: ml4.scaleOut,
     duration: ml4.durationOut,
@@ -1234,36 +1205,12 @@ anime.timeline({loop: true})
     easing: "easeInExpo",
     delay: ml4.delay
   }).add({
-    targets: '.ml4 .letters-16',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-16',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
     targets: '.ml4 .letters-17',
     opacity: ml4.opacityIn,
     scale: ml4.scaleIn,
     duration: ml4.durationIn
   }).add({
     targets: '.ml4 .letters-17',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
-    targets: '.ml4 .letters-18',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-18',
     opacity: 0,
     scale: ml4.scaleOut,
     duration: ml4.durationOut,
