@@ -334,6 +334,11 @@ p.quality {
   background: #ccc9c9; 
   border-radius: 10px;
 }
+.progress.proaudio {
+    color: green;
+    font-weight: 600;
+    padding-left: 12px;
+}
 .levlv p {
     padding-left: 6px;
     padding-right: 6px;
