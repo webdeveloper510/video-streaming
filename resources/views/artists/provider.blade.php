@@ -108,14 +108,14 @@
             <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
-                  <div class="progress">Choose 1 Audio + 1 Image</div>
+                  <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
 
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" id="browse">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
