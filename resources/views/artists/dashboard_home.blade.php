@@ -763,6 +763,61 @@
                </div>
             </div>
          </div>
+         <div class="col-md-4 tagging">
+                        <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
+                        <br>
+                        <div class="table12">
+                           <div class="table table-responsive">
+                              <table class="table text-left">
+                                 <thead class="thead-light">
+                                    <tr>
+                                       <th scope="col">App</th>
+                                       <th scope="col">Username</th>
+                                       <th scope="col"></th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    @foreach($social_name as $name)
+                                    <?php 
+                                       //echo $name->username;
+                                            $count = count($name->username);
+                                         ?>
+                                    @for ($i = 0; $i < $count; $i++)
+                                    <tr>
+                                       <th scope="row">{{$name->username[$i]}}</th>
+                                       <td>{{$name->social_plateform[$i]}}</td>
+                                       <td> 
+                                          <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')">
+                                          <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> 
+                                          </button>
+                                       </td>
+                                    </tr>
+                                    @endfor
+                                    @endforeach
+                                 </tbody>
+                              </table>
+                           </div>
+                           {!!Form::open(['id'=>'user','method' => 'post'])!!}
+                           {{Form::token()}}
+                           <div class="linksonit mb-3">
+                              <div class="amountmedia row">
+                                 <div class="col-md-12 text-center">
+                                    <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="text-right ">
+                              {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
+                           </div>
+                           {{ Form::close() }}
+                        </div>
+                     </div>
+                     <div class="alert alert-success" id="success" style="display:none"></div>
+                     <div class="text-right">
+                     </div>
+                  </div>
+               </div>
+            </div>
       </div>
    </div>
 </section>
