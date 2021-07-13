@@ -716,10 +716,10 @@
             <div class="col-md-4">
                <div class="card" style="height: 310px;" >
                <div class="card-head text-center">
-                    <h3>Identity Check</h3>
+                    <h3>Identity Check <i class="fa fa-question-circle-o"></i></h3>
                </div>
                   <div class="card-body text-center">
-                   
+                  <button type="button" class="btn btn-danger my-4">Failed</button> <br>
                      <form>
      
                         <div class="form-group ">            
@@ -732,7 +732,7 @@
                              
                         </div>
                         
-                        <button type="button" class="btn btn-danger my-4">Failed</button> <br>
+                        
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
                         </form>
                      </div>
@@ -745,7 +745,7 @@
                     <h3>Artist Agreement</h3>
                </div>
                   <div class="card-body text-center">
-                   
+                   <button class="btn btn-success" type="button">Download</button>
                      <form>
      
                         <div class="form-group ">
