@@ -159,7 +159,7 @@
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label">Audio/Video</label>
                <button type="button" id="browse">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             <!-- <div class="file" style="display:none">

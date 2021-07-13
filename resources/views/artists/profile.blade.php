@@ -560,7 +560,7 @@ Your browser does not support the audio tag.
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" class="browse2">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -626,7 +626,7 @@ Your browser does not support the audio tag.
             <div class="col-md-12 mt-3 text-white file1" style="{{$random[0]->type=='audio' ? 'display:block' : 'display:none'}}">
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             

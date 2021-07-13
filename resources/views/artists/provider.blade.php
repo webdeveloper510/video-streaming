@@ -108,7 +108,7 @@
             <div class=" mt-3 text-white file" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
-                  <div class="progress"></div>
+                  <div class="progress">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
 
