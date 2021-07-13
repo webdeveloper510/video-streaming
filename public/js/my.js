@@ -2373,8 +2373,18 @@ function edit_offer(data) {
     $('#price').val(json_info.price);
     $('#speed').val(json_info.delieveryspeed);
     $('#description').val(json_info.description);
-    $('.chooseImage #filename').text(json_info.audio_pic);
-    $('.file_input #ilename').text(json_info.media);
+    if(json_info.type=='video'){
+        $('.chooseImage #filename').text(json_info.audio_pic);
+        $('.file_input #ilename').text(json_info.media);
+    }
+
+    else{
+
+        $('.file1 #filename').text(json_info.media);
+
+
+    }
+  
 
     if(json_info.type=='video'){
         $('.thumbnail1').text('Video Thumbnail');
