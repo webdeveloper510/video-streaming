@@ -98,7 +98,7 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-3 mt-0 pt-0">
+        <div class="col-md-3 mt-0 pt-2">
         <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
