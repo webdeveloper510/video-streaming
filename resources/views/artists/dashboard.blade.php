@@ -375,7 +375,7 @@ li.nav-item {
     color: red;
 }
 
-.unverified i:hover .textunveri {
+.fa.fa-exclamation-circle:hover .textunveri {
     display: block !important;
 }
 .levlv {
