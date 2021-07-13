@@ -374,6 +374,9 @@
 .unverified:hover .textunveri {
     display: block !important;
 }
+.status h3{
+    color: gray;
+}
 .levlv {
     width: auto;
     color: #fff;
