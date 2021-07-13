@@ -288,6 +288,15 @@
   
 
     </div>
+    <div class="unverified">
+    <i class="fa fa-exclamation-circle" style="font-size:24px"></i>
+    <div class="textunveri">
+        <p>Your Account is Unverified!<br>
+        Please submit the Identity Check Selfie and/Or the signed Artist Agreement to get verified.<br>
+        <br>
+        You can upload them <a href="">here</a>.</p>
+</div>
+</div>
            </li>
             </ul>
           </div>
