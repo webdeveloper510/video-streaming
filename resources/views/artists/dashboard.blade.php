@@ -323,7 +323,10 @@
   border-radius: 10px;
 }
 p.category {
-    padding-right: 40px;
+    padding-right :20px;
+}
+p.quality {
+    padding-left: 20px;
 }
  
 /* Handle */
