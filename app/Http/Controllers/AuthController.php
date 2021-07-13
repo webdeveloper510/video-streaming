@@ -26,7 +26,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;      
 
 use Illuminate\Support\Facades\Redirect;
 
