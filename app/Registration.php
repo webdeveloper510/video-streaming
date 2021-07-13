@@ -1201,7 +1201,8 @@ public function getRespectedSub($data){
               'quality'=>$data['quality'],
               'media'=>$data['media'],
               'audio_pic'=>$data['thumbnail'] ,
-              'assembly_id'=>$data['assembly_id']  
+              'assembly_id'=>$data['assembly_id'],
+              'is_verified'=>0  
            );
 
 

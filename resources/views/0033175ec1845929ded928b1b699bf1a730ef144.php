@@ -634,7 +634,7 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="video" <?php echo e($random[0]->type=='video' ? 'checked': ''); ?>/><p class="text-dark">Video</p>
           </div>
           
-          <div class="col-md-12 mt-3 text-white file" style="<?php echo e($random[0]->type!='' ? 'display:block' : 'display:none'); ?>">
+          <div class="col-md-12 mt-3 text-white file" style="<?php echo e($random[0]->type=='video' ? 'display:block' : 'display:none'); ?>">
             <label class="media_label12">Overview Video (~30s)</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
@@ -643,14 +643,14 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:yellow;"></span>
             </div>
 
-            <div class="col-md-12 mt-3 text-white file1" >
+            <div class="col-md-12 mt-3 text-white file1" style="<?php echo e($random[0]->type=='audio' ? 'display:block' : 'display:none'); ?>">
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
-            <div class="col-md-12 mt-3 text-white thumbnail" style="<?php echo e($random[0]->type!='' ? 'display:block' : 'display:none'); ?>">   
+            <div class="col-md-12 mt-3 text-white thumbnail" style="<?php echo e($random[0]->type!='audio' ? 'display:block' : 'display:none'); ?>">   
             <label class="thumbnail1">Video Thumbnail</label>        
                  <?php echo e(Form::file('audio_pic',['class'=>'form-control chooseImage'])); ?>
 
