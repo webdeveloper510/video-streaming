@@ -930,6 +930,7 @@ class artist extends Controller
       $data['audio_pic'] = $audio_pics;
       $data['convert'] = $data1['convert'] ? $data1['convert'] : '';
       $data['type']= 'video' ;
+      $data['is_verified'] = 0;
 
       return $data;
 
@@ -953,6 +954,9 @@ class artist extends Controller
       $data['media']=$fileName;
 
       $data['profile_video'] = 'yes';
+
+      $data['is_verified'] = 0;
+
 
       //print_r($data);die;
 
