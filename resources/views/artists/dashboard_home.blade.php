@@ -763,7 +763,7 @@
                </div>
             </div>
          </div>
-         <div class="col-md-4 tagging">
+         <div class="col-md-4 ">
             <div class="card">
                         <h5 class="card-title">Consert and Release Form Co-Performers</h5>
                         <button class="btn btn-success" type="button">Download</button>
