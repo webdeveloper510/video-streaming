@@ -814,8 +814,9 @@ class artist extends Controller
     $thumb = $data->audio_pic ? $data->audio_pic->storeAs('uploads', $thumbnail, 'public') : '';
 
     $data['media'] = $fileName;
+    $data['assembly_id'] = '';
 
-    unset($data['assembly_id']);
+    //unset($data['assembly_id']);
 
 
     $data['thumbnail'] = $thumbnail;
