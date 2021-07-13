@@ -371,7 +371,7 @@
     color: red;
 }
 
-.fa.fa-exclamation-circle:hover .textunveri {
+.unverified:hover .textunveri {
     display: block !important;
 }
 .levlv {
