@@ -18,9 +18,21 @@
          <video width="100%" id="sample_video" >
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video>
+         <div class="row">
+            <div class="col-md-4">
+               <button class="btn btn-danger" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+            </div>
+            <div class="col-md-4">
+               <button class="btn btn-warning" type="button">Uncertain</button>
+            </div>
+            <div class="col-md-4">
+            <button class="btn btn-success" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
+            </div>
+
+        </div>
          <div class="text-center">
-            <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
-            <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+           
+    
          </div>
          <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
       </div>
