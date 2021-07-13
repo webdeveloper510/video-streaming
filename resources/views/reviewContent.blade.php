@@ -18,10 +18,18 @@
          <video width="100%" id="sample_video" >
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video>
-         <div class="text-center">
-            <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
-            <button class="btn btn-primary" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
-         </div>
+         <div class="row my-3">
+            <div class="col-md-4">
+               <button class="btn btn-danger" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+            </div>
+            <div class="col-md-4">
+               <button class="btn btn-warning" type="button">Uncertain</button>
+            </div>
+            <div class="col-md-4">
+            <button class="btn btn-success" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
+            </div>
+        </div>
+         
          <input type="hidden" class="verify_id" value="{{$notVerified[0]->id}}"/>
       </div>
       @else
@@ -30,10 +38,17 @@
             <source src="{{url('storage/app/public/video/'.$notVerified[0]->media)}}" id="first" type="video/mp4">
          </video> -->
          <img src="{{$profile[0]->profilepicture!='' ? url('storage/app/public/uploads/'.$profile[0]->profilepicture) : url('storage/app/public/uploads/'.$backgound[0]->cover_photo)}}" id="imageSrc" width="100%" id="sample_video" >
-         <div class="text-center">
-            <button class="btn btn-primary" type="button" data-id="{{$profile[0]->id}}" onClick="permit(this,true,{{json_encode($profile)}},'{{$type}}')">Permit</button>
-            <button class="btn btn-primary" type="button" data-id="{{$profile[0]->id}}" onClick="permit(this,false,{{json_encode($profile)}},'{{$type}}')">Deny</button>
-         </div>
+         <div class="row my-3">
+            <div class="col-md-4">
+               <button class="btn btn-danger" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+            </div>
+            <div class="col-md-4">
+               <button class="btn btn-warning" type="button">Uncertain</button>
+            </div>
+            <div class="col-md-4">
+            <button class="btn btn-success" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
+            </div>
+        </div>
          <input type="hidden" class="verify_id" value="{{$profile[0]->profilepicture ? $profile[0]->id : $backgound[0]->id}}"/>
          <input type="hidden" class="picture" value="{{$profile[0]->profilepicture ? 'profilepicture' : 'background'}}"/>
 
