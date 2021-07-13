@@ -2378,7 +2378,7 @@ function edit_offer(data) {
         $('.file_input #ilename').text(json_info.media);
     }
 
-    else{
+    else{    
 
         $('.file1 #filename').text(json_info.media);
 
