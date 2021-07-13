@@ -1200,7 +1200,8 @@ public function getRespectedSub($data){
               'delieveryspeed'=>$data['delieveryspeed'],
               'quality'=>$data['quality'],
               'media'=>$data['media'],
-              'audio_pic'=>$data['thumbnail']  
+              'audio_pic'=>$data['thumbnail'] ,
+              'assembly_id'=>$data['assembly_id']  
            );
 
 
