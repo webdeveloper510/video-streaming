@@ -365,7 +365,7 @@
 
 
 .unverified i {
-   
+   padding-left:15px;
     cursor: pointer;
     font-size: 37px !important;
     color: red;
