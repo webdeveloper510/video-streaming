@@ -2517,6 +2517,8 @@ function format(d, type) {
 
     $('.offer_id').val(d.id);
 
+    var nameclass = d.status=='Expired' || d.status=='cancelled' ? 'none' : 'block';
+
     var reward = ( d.price * d.choice);
 
     var price = d.userdescription!='No Additional Requests' ? reward + parseInt(d.additional_price) : reward;
@@ -2549,9 +2551,9 @@ function format(d, type) {
                 '/div><div class="col"><h3 class="look">Additional Request :</h3><p>' + d.userdescription +
                 '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
                 'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
-                'p </p></td></tr><tr><td colspan="2">Reward:<span class="Reward" style="color: ' +
+                'p </p></td></tr><tr style="display:'+nameclass+'"><td colspan="2">Reward:<span class="Reward" style="color: ' +
                 'gold !important;">' + price  + '<b style="color: gold !important;font-family' +
-                ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr><td colspan="' +
+                ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr style="display:'+nameclass+'"><td colspan="' +
                 '2"><div class="col-md-12"><form class="uploadOffer" method="post" enctype="mul' +
                 'tipart/form-data"><label>' + file +
                 '</label><input type="file" name="media">' + html + '<div><input type="hidden" ' +
