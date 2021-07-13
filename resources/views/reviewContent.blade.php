@@ -20,7 +20,7 @@
          </video>
          <div class="row my-3">
             <div class="col-md-4">
-               <button class="btn btn-danger" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+               <button class="btn btn-danger" type="button"data-toggle="modal" data-target="#denymodal">Deny</button>
             </div>
             <div class="col-md-4">
                <button class="btn btn-warning" type="button">Uncertain</button>
@@ -40,7 +40,7 @@
          <img src="{{$profile[0]->profilepicture!='' ? url('storage/app/public/uploads/'.$profile[0]->profilepicture) : url('storage/app/public/uploads/'.$backgound[0]->cover_photo)}}" id="imageSrc" width="100%" id="sample_video" >
          <div class="row my-3">
             <div class="col-md-4">
-               <button class="btn btn-danger" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,false,{{json_encode($notVerified)}},'{{$type}}')">Deny</button>
+               <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#denymodal">Deny</button>
             </div>
             <div class="col-md-4">
                <button class="btn btn-warning" type="button">Uncertain</button>
@@ -108,6 +108,51 @@
       </div>
       @endif
    </div>
+</div>
+
+
+
+<!-- DEny button Modal -->
+<div class="modal fade" id="denymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body text-center">
+       <div class="text-center">
+       <select class="custom-select">
+    <option selected>Choose...</option>
+    <option value="1">Harmful</option>
+    <option value="2">Underage</option>
+    <option value="3">Misleading</option>
+  </select>
+</div>
+      <form>
+      <div class="form-group">
+    <label for="exampleFormControlTextarea1">Response to Artist :</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Response to Consumer : </label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+  </div>
+  <div class="row">
+       <div class="col-6">
+         <button class="btn btn-secondary" type="button">Cancel</button>
+   </div>
+   <div class="col-6">
+            <button class="btn btn-primary" type="button">Submit</button>
+   </div>
+   </div>
+
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 <style>
    .text-right.buttons {
