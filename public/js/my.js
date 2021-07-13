@@ -2027,7 +2027,7 @@ $(document).on('submit', '#edit_form', function (event) {
                 $('#close').trigger('click');
                 setTimeout(function () {
                     $('#close').trigger('click');
-                    loadingmessage();
+                    //loadingmessage();
                     location.reload();
                 }, 1000);
             } else {
