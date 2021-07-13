@@ -2016,8 +2016,8 @@ $(document).on('submit', '#edit_form', function (event) {
 
         success: function (data) {
 
-            console.log(data);
-            return false;
+           // console.log(data);
+           // return false;
 
             $('.button_disable').removeAttr('disabled');      
 
