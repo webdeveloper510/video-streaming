@@ -68,6 +68,9 @@ button.btn.btn-warning.text-white.mr-3.mt-2 {
     height: 36px !important;
     background-color: #ffbb11 !important;
 }
+.showoffer {
+    font-size: 22px;
+}
 .profileimg .iconcamera i{
   position: absolute;
     color: #746a6a;
