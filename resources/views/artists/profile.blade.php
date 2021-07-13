@@ -618,7 +618,7 @@ Your browser does not support the audio tag.
           <div class="col-md-12 mt-3 text-white file" style="{{$random[0]->type=='video' ? 'display:block' : 'display:none'}}">
             <label class="media_label12">Overview Video (~30s)</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
-                <span id="filename" style="color:#767605;">{{$random[0]->media}}</span>
+                <span id="filename" style="color:#767605;">{{$random[0]->type=='video' ? $random[0]->media : ''}}</span>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -626,7 +626,7 @@ Your browser does not support the audio tag.
             <div class="col-md-12 mt-3 text-white file1" style="{{$random[0]->type=='audio' ? 'display:block' : 'display:none'}}">
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
-                  <div class="progress proaudio">{{$random[0]->media ? $random[0]->media : 'Choose 1 Audio + 1 Image'}}</div>
+                  <div class="progress proaudio">{{$random[0]->audio ? $random[0]->media : 'Choose 1 Audio + 1 Image'}}</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
