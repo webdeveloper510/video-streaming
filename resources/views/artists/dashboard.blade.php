@@ -351,6 +351,33 @@
 .btn-group.login-btn.text-right a button {
     font-size: 12px !important;
 }
+.textunveri {
+    background: white;
+    padding: 8px 20px;
+    border-radius: 21px;
+    position: absolute;
+    width: 300px;
+    display: none;
+    right: 14px;
+    border: 3px solid #b97a57;
+}
+
+li.nav-item {
+    margin-right: 45px;
+}
+
+.unverified i {
+    position: absolute;
+    right: 16px;
+    top: 24px;
+    cursor: pointer;
+    font-size: 37px !important;
+    color: red;
+}
+
+.unverified i:hover .textunveri {
+    display: block !important;
+}
 .levlv {
     width: auto;
     color: #fff;
