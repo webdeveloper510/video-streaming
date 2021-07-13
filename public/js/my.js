@@ -2518,6 +2518,7 @@ function format(d, type) {
     $('.offer_id').val(d.id);
 
     var nameclass = d.status=='Expired' || d.status=='cancelled' ? 'none' : 'block';
+    var nameclass2 = d.status=='Expired' || d.status=='cancelled' ? 'block' : 'none';
 
     var reward = ( d.price * d.choice);
 
@@ -2564,7 +2565,7 @@ function format(d, type) {
                 'ng/public/images/loading2.gif" width="50px" height="50px"/><span class="percen' +
                 'tage" style="color:green;font-weight: bold;"></span></div></form></div></td></' +
                 'tr></table><div class="alert alert-success" id="success" style="display:none">' +
-                '</div><div class=""><button type="submit"class="btn btn-primary" onclick="form' +
+                '</div><div class="status '+d.status+'" style="display:'+nameclass2+'"><h3>'+d.status+'</h3></div><div class="" style="display:'+nameclass+'"><button type="submit"class="btn btn-primary" onclick="form' +
                 'submit(this)"' + disabled + '>'+text+'</button><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ordercancel">Cancel Order</button>'+
         '</div></div></div></div>';
     } 

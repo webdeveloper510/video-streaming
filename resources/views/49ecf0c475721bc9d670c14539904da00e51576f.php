@@ -288,10 +288,19 @@
   
 
     </div>
+   
            </li>
             </ul>
           </div>
-
+          <div class="unverified">
+    <i class="fa fa-exclamation-circle" style="font-size:24px"></i>
+    <div class="textunveri">
+        <p>Your Account is Unverified!<br>
+        Please submit the Identity Check Selfie and/Or the signed Artist Agreement to get verified.<br>
+        <br>
+        You can upload them <a href="">here</a>.</p>
+</div>
+</div>
       </nav>
       <div class="container">
       <style>
@@ -341,6 +350,29 @@
 }
 .btn-group.login-btn.text-right a button {
     font-size: 12px !important;
+}
+.textunveri {
+    background: white;
+    padding: 8px 20px;
+    border-radius: 21px;
+    position: absolute;
+    width: 300px;
+    display: none;
+    right: 27px;
+    top:58px;
+    border: 3px solid #b97a57;
+}
+
+
+.unverified i {
+   padding-left:15px;
+    cursor: pointer;
+    font-size: 37px !important;
+    color: white;
+}
+
+.unverified:hover .textunveri {
+    display: block !important;
 }
 .levlv {
     width: auto;
