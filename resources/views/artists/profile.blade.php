@@ -98,7 +98,7 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-3 mt-5">
+        <div class="col-md-3 mt-0 pt-2">
         <div class="verify text-center" style="{{$offer->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
@@ -125,7 +125,7 @@
 
       </div>
        
-        <div class="col-md-7 pl-5 showoffer pt-5">
+        <div class="col-md-7 pl-5 showoffer pt-0">
         <a target="_blank" href="{{url('artist/offers/'.$offer->id)}}">
            <h2>{{$offer->title}}</h2>
                
@@ -137,7 +137,7 @@
        
         <div class="col-md-2 text-center">
         
-        <h3 class="text-green" style="{{$offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
+        <h3 class="text-green mt-0 pt-0" style="{{$offer->offer_status == 'offline' ? 'color: red' : 'color: green' }}">{{strtoupper($offer->offer_status)}}</h3>
          <h4 ><span style="color:gold !important">{{$offer->price}} <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">

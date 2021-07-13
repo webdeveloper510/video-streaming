@@ -115,7 +115,7 @@
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" id="browse">Choose File</button>
-                  <div class="progress">Choose 1 Audio + 1 Image</div>
+                  <div class="progress proaudio">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -211,7 +211,11 @@ label.error {
     overflow: hidden;
     outline: 0;
 }
-
+.progress.proaudio {
+    color: green;
+    font-weight: 600;
+    padding-left: 12px;
+}
 .mt-5 {
     display: inline-flex;
 }

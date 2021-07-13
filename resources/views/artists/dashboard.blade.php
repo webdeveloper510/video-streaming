@@ -368,10 +368,10 @@
    padding-left:15px;
     cursor: pointer;
     font-size: 37px !important;
-    color: red;
+    color: white;
 }
 
-.fa.fa-exclamation-circle:hover .textunveri {
+.unverified:hover .textunveri {
     display: block !important;
 }
 .levlv {
