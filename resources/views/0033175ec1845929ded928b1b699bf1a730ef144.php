@@ -553,7 +553,7 @@ Your browser does not support the audio tag.
                    <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
-                  <select name="quality" class="form-control" required id="quality">
+                  <select name="quality" class="form-control"  id="quality">
                             <option value="">Choose ...</option>
                             <option value="480">480p  </option>
                             <option value="720">HD 720p </option>
@@ -573,7 +573,7 @@ Your browser does not support the audio tag.
 
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
-               <button type="button" class="browse">Choose File</button>
+               <button type="button" class="browse2">Choose File</button>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -584,13 +584,11 @@ Your browser does not support the audio tag.
 
                 <span id="filename" style="color:yellow;"></span>
             </div>
-            
 
                 <input type="hidden" name="offerid" id="offerid" value="">                  
                   <input type="hidden" id="file_name" name="file_name" value=""/>
                   <input type="hidden" id="file_image" name="file_image" value=""/>
-                  <br>
-                 
+
                   <div class="col-md-12 mt-3 text-white file" style="display:none;">
                   <label class="label12"></label><br>
                 <?php echo e(Form::file('file',['class'=>'form-control file_input','title'=>'eeeee'])); ?>
@@ -1000,6 +998,85 @@ video:hover {
         //'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
         // To hide your `steps`, use a `template_id` instead
         notify_url :url+'/notifyTrans',
+        steps: {
+          ":original": {
+            robot: "/upload/handle"
+          },
+          "filtered_image": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "image"]
+          ]
+        },
+        "filtered_audio": {
+          use: ":original",
+          robot: "/file/filter",
+          accepts: [
+            ["${file.mime}", "regex", "audio"]
+          ]
+        },
+         
+          resized_image: {
+            use: "filtered_image",
+            robot: "/image/resize",
+            result: true,
+            height: 768,
+            imagemagick_stack: "v2.0.7",
+            resize_strategy: "fillcrop",
+            width: 1024,
+            zoom: false
+          },
+          
+          merged: {
+            use: {
+              steps: [
+                { name: "filtered_audio", as: "audio" },
+                { name: "filtered_image", as: "image" }
+              ]
+            },
+
+            robot: "/video/merge",
+            result: true,
+            ffmpeg_stack: "v4.3.1",
+            preset: "ipad-high"
+          }
+        },
+      }
+    })
+      .then(function (bundle) {
+
+        console.log(bundle.transloadit);
+
+        $('.assembly_id').val(bundle.transloadit[0].assembly_id)
+  
+      })
+      .catch(console.error);
+  });
+
+
+
+
+  $('.browse2').click(function(){
+    var uppy = window.Robodog.pick({
+      providers: [
+        "instagram",
+        "url",
+        "webcam",
+        "dropbox",
+        "google-drive",
+        "facebook",
+        "onedrive"
+      ],
+      waitForEncoding: false,
+      statusBar: '#myForm .progress',
+      params: {
+        // To avoid tampering, use Signature Authentication
+        auth: { key: "995b974268854de2b10f3f6844566287" },
+        //"allow_steps_override": false,
+        //'template_id':'c5de46c6498e4e0ba0f85499dd676bd3',
+        // To hide your `steps`, use a `template_id` instead
+        notify_url :url+'/notifyTransOffer',
         steps: {
           ":original": {
             robot: "/upload/handle"

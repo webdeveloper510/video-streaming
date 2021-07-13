@@ -615,7 +615,7 @@ Your browser does not support the audio tag.
             <input type="radio" class="select_media_pic" name="radio" value="video" {{$random[0]->type=='video' ? 'checked': ''}}/><p class="text-dark">Video</p>
           </div>
           
-          <div class="col-md-12 mt-3 text-white file" style="{{$random[0]->type!='' ? 'display:block' : 'display:none'}}">
+          <div class="col-md-12 mt-3 text-white file" style="{{$random[0]->type=='video' ? 'display:block' : 'display:none'}}">
             <label class="media_label12">Overview Video (~30s)</label>
                 {{Form::file('media',['class'=>'form-control file_input'])}}
                 <span id="filename" style="color:#767605;">{{$random[0]->media}}</span>
@@ -623,7 +623,7 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:yellow;"></span>
             </div>
 
-            <div class="col-md-12 mt-3 text-white file1" >
+            <div class="col-md-12 mt-3 text-white file1" style="{{$random[0]->type=='audio' ? 'display:block' : 'display:none'}}">
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
                   <div class="progress"></div>
