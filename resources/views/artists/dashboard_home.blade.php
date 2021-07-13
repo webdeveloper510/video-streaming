@@ -783,14 +783,14 @@
                                     
                                     <tr>
                                        <th scope="row">1</th>
-                                       <td><input type="text"><br>
+                                       <td><input type="text" class="form-control"><br>
                                        <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="inputGroupFile01">
                                           <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                        </div>
                                        </td>
                                        <td> 
-                                         <input type="date">
+                                         <input type="date" class="form-control">
                                        </td>
                                     </tr>
                                    
