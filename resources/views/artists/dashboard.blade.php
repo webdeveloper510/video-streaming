@@ -98,7 +98,7 @@
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               
-              <p> <i class="fa fa-money"></i>  Withdraw</p>
+              <p> <i class="fa fa-money"></i>  Payout</p>
             </a>
           </li>
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
@@ -194,7 +194,7 @@
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               <i class="fa fa-money"></i>
-              <p>Withdraw</p>
+              <p>Payout</p>
             </a>
           </li>
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
@@ -322,6 +322,12 @@
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
 }
+p.category {
+    padding-right :20px;
+}
+p.quality {
+    padding-left: 20px;
+}
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -373,6 +379,9 @@
 
 .unverified:hover .textunveri {
     display: block !important;
+}
+.status h3{
+    color: gray;
 }
 .levlv {
     width: auto;

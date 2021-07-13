@@ -23,19 +23,13 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
+                 
                 </tbody>
               </table>
             </div>
@@ -45,7 +39,7 @@
    <div class="float-right pr-3">
    <a style="cursor: pointer;" data-toggle="modal" data-target="#payment"><i class="material-icons set">settings</i></a>
    </div>
-      <h3 class="tittle text-center">Withdraw Money <span class="iconss"> ? 
+      <h3 class="tittle text-center">Payout Money <span class="iconss"> ? 
       <div class="data">
       @if($levelData)
       @foreach($level_system as $key=>$val) 
@@ -85,7 +79,7 @@
          </div> 
         </div>
         <div class="col-md-4 mt-3 text-center">
-           <div class="money"><button class="btn btn-success" id="withdrawmoney">Withdraw</button></div> </div></div>
+           <div class="money"><button class="btn btn-success" id="withdrawmoney">Payout</button></div> </div></div>
            <hr>
            <div class="row">
             <div class="col-md-8">

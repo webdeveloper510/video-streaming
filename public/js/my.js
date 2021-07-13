@@ -2550,8 +2550,8 @@ function format(d, type) {
         return '<div class="offer"><div class="row"><div class="col"><div class="descriptions"' +
                 '><h3 class="description">Description :</h3><p>' + d.description + '</p></div><' +
                 '/div><div class="col"><h3 class="look">Additional Request :</h3><p>' + d.userdescription +
-                '</p></div><div class="col"><table><tr><td> <p>Categories :</p><p class="catego' +
-                'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p>' + d.quality +
+                '</p></div><div class="col"><table><tr><td style="border-right:1px solid gray;"> <p >Categories :</p><p class="catego' +
+                'ry">' + d.catgories + '</p></td><td> <p class="quality">Quality :</p><p class="quality">' + d.quality +
                 'p </p></td></tr><tr style="display:'+nameclass+'"><td colspan="2">Reward:<span class="Reward" style="color: ' +
                 'gold !important;">' + price  + '<b style="color: gold !important;font-family' +
                 ': Alfa Slab One;font-weight: 400;"> PAZ </b></span></td></tr><tr style="display:'+nameclass+'"><td colspan="' +
