@@ -118,13 +118,19 @@
     <div class="modal-content">
       
       <div class="modal-body text-center">
-       <div class="text-center">
+         <div class="row">
+            <div class="col"></div>
+            <div class="col-md-6">
+       <div class="text-center ">
        <select class="custom-select">
     <option selected>Choose...</option>
     <option value="1">Harmful</option>
     <option value="2">Underage</option>
     <option value="3">Misleading</option>
   </select>
+</div>
+</div>
+<div class="col"></div>
 </div>
       <form>
       <div class="form-group">
@@ -146,10 +152,6 @@
 
 </form>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
