@@ -1257,7 +1257,7 @@ class artist extends Controller
     $ext =$req->media->getClientOriginalExtension();
 
     if($req->audio_pic){
-
+     
       $audio_pics = time().'_'.$req->audio_pic->getClientOriginalName();
 
       $req->audio_pic->storeAs('uploads',$audio_pics,'public');
