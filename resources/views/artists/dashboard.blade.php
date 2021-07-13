@@ -288,7 +288,11 @@
   
 
     </div>
-    <div class="unverified">
+   
+           </li>
+            </ul>
+          </div>
+          <div class="unverified">
     <i class="fa fa-exclamation-circle" style="font-size:24px"></i>
     <div class="textunveri">
         <p>Your Account is Unverified!<br>
@@ -297,10 +301,6 @@
         You can upload them <a href="">here</a>.</p>
 </div>
 </div>
-           </li>
-            </ul>
-          </div>
-
       </nav>
       <div class="container">
       <style>
@@ -358,24 +358,20 @@
     position: absolute;
     width: 300px;
     display: none;
-    right: 14px;
+    right: 27px;
+    top:58px;
     border: 3px solid #b97a57;
 }
 
-li.nav-item {
-    margin-right: 45px;
-}
 
 .unverified i {
-    position: absolute;
-    right: 16px;
-    top: 24px;
+   
     cursor: pointer;
     font-size: 37px !important;
     color: red;
 }
 
-.unverified i:hover .textunveri {
+.fa.fa-exclamation-circle:hover .textunveri {
     display: block !important;
 }
 .levlv {
