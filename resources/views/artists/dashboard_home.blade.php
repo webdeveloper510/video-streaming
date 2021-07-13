@@ -764,32 +764,31 @@
             </div>
          </div>
          <div class="col-md-4 tagging">
-                        <h5 class="card-title">Provide us your Social Media Usernames for tagging!(optional)</h5>
-                        <br>
+                        <h5 class="card-title">Consert and Release Form Co-Performers</h5>
+                        <button class="btn btn-success" type="button">Download</button>
+                        
                         <div class="table12">
                            <div class="table table-responsive">
                               <table class="table text-left">
                                  <thead class="thead-light">
                                     <tr>
-                                       <th scope="col">App</th>
-                                       <th scope="col">Username</th>
-                                       <th scope="col"></th>
+                                       <th scope="col">#</th>
+                                       <th scope="col">Nickname</th>
+                                       <th scope="col">Date Of Upload</th>
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    @foreach($social_name as $name)
-                                    <?php 
-                                       //echo $name->username;
-                                            $count = count($name->username);
-                                         ?>
-                                    @for ($i = 0; $i < $count; $i++)
+                                    
                                     <tr>
-                                       <th scope="row">{{$name->username[$i]}}</th>
-                                       <td>{{$name->social_plateform[$i]}}</td>
+                                       <th scope="row">1</th>
+                                       <td><input type="text"><br>
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                       </div>
+                                       </td>
                                        <td> 
-                                          <button class="btn btn-outline-danger btn-sm px-2 py-1 m-0" type="button" onclick="deleteName('{{$name->id}}','{{$name->username[$i]}}','{{$name->social_plateform[$i]}}')">
-                                          <i class="fa fa-close" style="font-size: 10px !important;font-weight: 100 !important;"></i> 
-                                          </button>
+                                         <input type="date">
                                        </td>
                                     </tr>
                                     @endfor
