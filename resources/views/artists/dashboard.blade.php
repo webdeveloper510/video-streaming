@@ -98,7 +98,7 @@
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               
-              <p> <i class="fa fa-money"></i>  Withdraw</p>
+              <p> <i class="fa fa-money"></i>  Payout</p>
             </a>
           </li>
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
@@ -321,6 +321,9 @@
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
+}
+p.category {
+    padding-right: 40px;
 }
  
 /* Handle */
