@@ -28,7 +28,6 @@
             <div class="col-md-4">
             <button class="btn btn-success" type="button" data-id="{{$notVerified[0]->id}}" onClick="permit(this,true,{{json_encode($notVerified)}},'{{$type}}')">Permit</button>
             </div>
-
         </div>
          <div class="text-center">
            
