@@ -211,7 +211,11 @@ label.error {
     overflow: hidden;
     outline: 0;
 }
-
+.progress.proaudio {
+    color: green;
+    font-weight: 600;
+    padding-left: 12px;
+}
 .mt-5 {
     display: inline-flex;
 }
