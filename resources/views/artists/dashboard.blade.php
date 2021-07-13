@@ -363,14 +363,9 @@
     border: 3px solid #b97a57;
 }
 
-li.nav-item {
-    margin-right: 45px;
-}
 
 .unverified i {
-    position: absolute;
-    right: 16px;
-    top: 24px;
+   
     cursor: pointer;
     font-size: 37px !important;
     color: red;
