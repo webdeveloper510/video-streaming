@@ -358,7 +358,8 @@
     position: absolute;
     width: 300px;
     display: none;
-    right: 14px;
+    right: 27px;
+    top:58px;
     border: 3px solid #b97a57;
 }
 
