@@ -194,7 +194,7 @@
           <li class="nav-item {{$tab=='withdraw' ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
             <a class="nav-link" href="{{url('/withdraw')}}">
               <i class="fa fa-money"></i>
-              <p>Withdraw</p>
+              <p>Payout</p>
             </a>
           </li>
            <li class="nav-item {{$tab=='requests'  ? 'active': ''}}" style="{{$tab=='artist_info' ? 'display:none':'display:block'}}">
