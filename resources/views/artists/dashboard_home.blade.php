@@ -791,8 +791,7 @@
                                          <input type="date">
                                        </td>
                                     </tr>
-                                    @endfor
-                                    @endforeach
+                                   
                                  </tbody>
                               </table>
                            </div>
