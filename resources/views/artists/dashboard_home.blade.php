@@ -797,8 +797,7 @@
                                  </tbody>
                               </table>
                            </div>
-                           {!!Form::open(['id'=>'user','method' => 'post'])!!}
-                           {{Form::token()}}
+                           <form>
                            <div class="linksonit mb-3">
                               <div class="amountmedia row">
                                  <div class="col-md-12 text-center">
