@@ -39,6 +39,7 @@
       <th scope="col">Signed Contract</th>
       <th scope="col">Verified ID Check </th>
       <th scope="col">Date of Completion</th>
+      <th scope="col">C & R Forms</th>
       <th scope="col">Status </th>
     </tr>
   </thead>
@@ -49,6 +50,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
+      <td>filename.png</td>
       <td>25-06-2021</td>
     </tr>
     <tr>
@@ -57,6 +59,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
+      <td>filename.png</td>
       <td>25-06-2021</td>
     </tr>
     <tr>
@@ -65,6 +68,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
+      <td>filename.png</td>
       <td>25-06-2021</td>
     </tr>
   </tbody>

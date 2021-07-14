@@ -752,12 +752,11 @@
                </div>
             </div>
          </div>
-         <div class="col-md-4 ">
+         <div class="col-md-8">
             <div class="card">
                <div class="card-body">
-                        <h5 class="card-title">Consert and Release Form Co-Performers</h5>
-                        <button class="btn btn-success float-right" type="button">Download</button>
-                        
+                  <button class="btn btn-success float-right" type="button">Download</button>
+                        <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
                         <div class="table12">
                            <div class="table table-responsive">
                               <table class="table text-left">
@@ -765,24 +764,23 @@
                                     <tr>
                                        <th scope="col">#</th>
                                        <th scope="col">Nickname</th>
-                                       <th scope="col">Date Of Upload</th>
+                                       <th scope="col">Date Of Consent</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     
                                     <tr>
-                                       <th scope="row">1</th>
+                                       <th class="d-flex" scope="row">1</th>
                                        <td><input type="text" class="form-control"><br>
                                        <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="inputGroupFile01">
                                           <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
                                        </div>
                                        </td>
-                                       <td> 
+                                       <td class="d-flex"> 
                                          <input type="date" class="form-control">
                                        </td>
                                     </tr>
-                                   
                                  </tbody>
                               </table>
                            </div>

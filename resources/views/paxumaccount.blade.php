@@ -13,17 +13,27 @@
 
 
               <table class="table">
+                
                 <thead class="thead-light">
                   <tr>
+                     <th colspan="7" class="text-center"> Paxum Account Payout</th>
+                  </tr>
+                  <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Artist</th>
+                    <th scope="col">Lvl</th>
+                    <th scope="col">%</th>
+                    <th scope="col">Total USD</th>
+                    <th scope="col">Fee Amount USD</th>
+                    <th scope="col">Pay Amount USD</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
@@ -33,9 +43,15 @@
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td>@twitter</td>

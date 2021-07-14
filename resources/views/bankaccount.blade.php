@@ -12,6 +12,52 @@
               <div class="row my-5">
               <div class="col"></div>
               <div class="col-md-6">
+              <table class="table">
+                
+                <thead class="thead-light">
+                  <tr>
+                     <th colspan="7" class="text-center"> Bank Account Payout</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Artist</th>
+                    <th scope="col">Lvl</th>
+                    <th scope="col">%</th>
+                    <th scope="col">Total USD</th>
+                    <th scope="col">Fee Amount USD</th>
+                    <th scope="col">Pay Amount USD</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
                 <div class="card">
                 <div class="card-header text-center">
                 <h3> Bank Account</h3>
