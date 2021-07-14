@@ -42,8 +42,8 @@
 </div>
   <div class="col-md-6">
   <div class="radiobtn text-white">
-          <input type="radio" name="type" value="Yes" /><p class="text-white">yes</p>
-          <input type="radio" name="type" value="No"/><p class="text-white">No</p>
+          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
 
           
    
