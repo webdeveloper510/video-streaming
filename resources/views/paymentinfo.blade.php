@@ -97,7 +97,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                    {!!Form::open(['id'=>'bankInfo','method' => 'post', 'files'=>true])!!}
+                    {!!Form::open(['id'=>'paxum','method' => 'post'])!!}
           {{Form::token()}} 
                       <div class="form-group">
                         <label >Accout no. or IBAN:</label>

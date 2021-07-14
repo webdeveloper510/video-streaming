@@ -1932,31 +1932,18 @@ $(document).on('submit', '#paxum', function (event) {
 
         success: function (data) {
 
-         console.log(data);
+        // console.log(data);
 
-          return false;
+        //   return false;
             if (data.status == 1) {
-                if(visiblie==1){
 
-                    $('.successfull').show();
-
-
-                }
-
-                else{
-                    setTimeout(function () {
-                        location.reload()
-                    }, 2000);
-                }
+                location.reload();
+                
                 // $('.show_alert').html(data.message);
               
             } else {
 
-                $('.show_alert').show();
-                $('.show_alert').html(data.message);
-                setTimeout(function () {
-                    location.reload()
-                }, 2000);
+               alert('Some error');
             }
 
         }

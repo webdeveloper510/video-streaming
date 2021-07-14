@@ -99,7 +99,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                    <?php echo Form::open(['id'=>'bankInfo','method' => 'post', 'files'=>true]); ?>
+                    <?php echo Form::open(['id'=>'paxum','method' => 'post']); ?>
 
           <?php echo e(Form::token()); ?> 
                       <div class="form-group">

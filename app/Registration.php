@@ -70,7 +70,11 @@ class Registration extends Model
 
 public function InsertPaxumInfo($data){
 
-  $data['artistid'] = 13;
+  $contentData=Session::get('User');
+
+  $contentId = $contentData->id;
+
+  $data['artistid'] =  $contentId;
   $data['created_at'] = now();
   $data['updated_at'] = now();
 
