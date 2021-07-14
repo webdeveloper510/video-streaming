@@ -736,25 +736,15 @@
             <div class="col-md-4">
                <div class="card" style="height: 310px;" >
                <div class="card-head text-center">
-                    <h3>Identity Check</h3>
+                    <h3>Identity Check <i class="fa fa-question-circle-o"></i></h3>
+                    <button type="button" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
+                 
                    
-                     <form>
-     
-                        <div class="form-group ">            
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
-                        </div>
-                        <div class="form-group text-center mt-3">
-                           <label  class="form-label">File name </label>
-                           
-                             
-                        </div>
                         
-                        <button type="button" class="btn btn-danger my-4">Failed</button> <br>
-                        <button type="submit" class="btn btn-outline-primary">Submit</button>
-                        </form>
+                        <button type="submit" class="btn btn-outline-primary">Reload</button>
+                        
                      </div>
                </div>
             </div>
@@ -763,10 +753,11 @@
                <div class="card" style="height: 310px;" >
                <div class="card-head text-center">
                     <h3>Artist Agreement</h3>
+                    <button class="btn btn-success" type="button">Download</button>
+
                </div>
                   <div class="card-body text-center">
-                   
-                     <form>
+                                       <form>
      
                         <div class="form-group ">
                         <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
@@ -781,8 +772,64 @@
                </div>
             </div>
          </div>
+         <div class="col-md-8">
+            <div class="card">
+               <div class="card-body">
+                  <button class="btn btn-success float-right" type="button">Download</button>
+                        <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
+                        <div class="table12">
+                           <div class="table table-responsive">
+                              <table class="table text-left">
+                                 <thead class="thead-light">
+                                    <tr>
+                                       <th scope="col">#</th>
+                                       <th scope="col">Nickname</th>
+                                       <th scope="col">Date Of Consent</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    
+                                    <tr>
+                                       <th class="d-flex" scope="row">1</th>
+                                       <td><input type="text" class="form-control"><br>
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                          <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
+                                       </div>
+                                       </td>
+                                       <td class="d-flex"> 
+                                         <input type="date" class="form-control">
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <form>
+                           <div class="linksonit mb-3">
+                              <div class="amountmedia row">
+                                 <div class="col-md-12 text-center">
+                                    <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="text-right ">
+                              <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled'])); ?>
+
+                           </div>
+                           <?php echo e(Form::close()); ?>
+
+                        </div>
+                     </div>
+                     <div class="alert alert-success" id="success" style="display:none"></div>
+                     <div class="text-right">
+                     </div>
+                  </div>
+                  </div>
+               </div>
+            </div>
       </div>
    </div>
+</div>
 </section>
 <style>
    .columesdashboard {
