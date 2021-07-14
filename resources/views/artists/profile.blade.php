@@ -582,8 +582,8 @@ Your browser does not support the audio tag.
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
-          <input type="radio"  name="type" value="Yes" /><p class="text-dark">yes</p>
-          <input type="radio" name="type" value="No"/><p class="text-dark">No</p>
+            <p class="text-dark"> <input type="radio"  name="type" value="Yes" /> yes</p>
+            <p class="text-dark"><input type="radio" name="type" value="No"/> No</p>
 
             </div>
                
@@ -751,8 +751,8 @@ Your browser does not support the audio tag.
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
-            <p class="text-dark"> <input type="radio"  name="type" value="Yes" />yes</p>
-          <input type="radio" name="type" value="No"/><p class="text-dark">No</p>
+            <p class="text-dark"> <input type="radio"  name="type" value="Yes" /> yes</p>
+            <p class="text-dark"><input type="radio" name="type" value="No"/> No</p>
 
             </div>
                
