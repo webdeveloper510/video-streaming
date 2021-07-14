@@ -37,7 +37,7 @@
     <div class="overlay1 text-white">
    <div class="slider_tittle text-center pb-4">
    <div class="float-right pr-3">
-   <a style="cursor: pointer;" href="#"><i class="material-icons set">settings</i></a>
+   <a style="cursor: pointer;" href="{{url('/paymentinfo')}}"><i class="material-icons set">settings</i></a>
    </div>
       <h3 class="tittle text-center">Payout Money <span class="iconss"> ? 
       <div class="data">
