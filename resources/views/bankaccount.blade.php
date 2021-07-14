@@ -16,7 +16,7 @@
                 
                 <thead class="thead-light">
                   <tr>
-                     <th colspan="7"> Bank Account Payout</th>
+                     <th colspan="7" class="text-center"> Bank Account Payout</th>
                   </tr>
                   <tr>
                     <th scope="col">#</th>
