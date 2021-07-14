@@ -67,6 +67,44 @@ class Registration extends Model
         }
 }
 
+
+public function InsertPaxumInfo($data){
+
+  $data['artistid'] = 13;
+  $data['created_at'] = now();
+  $data['updated_at'] = now();
+
+  $contentData=Session::get('User');
+
+  $contentId = $contentData->id;
+
+  if(array_key_exists('acc_number',$data)){
+
+     $data['email'] = '';
+     $data['refference'] = '';
+    // $data['bank_name'] = $data['bank_name'];
+    // $data['address'] = $data['address'];
+    // $data['bic'] = $data['bic'];
+    // $data['bank_address'] = $data['bank_address'];
+       
+  }
+
+  else{
+
+    $data['acc_number'] = '';
+    $data['company_name'] = '';
+    $data['bank_name'] = '';
+    $data['address'] = '';
+    $data['bic'] = '';
+    $data['bank_address'] = '';
+    
+  }
+
+ 
+
+  return DB::table('bank_info')->insert($data);
+}
+
  public function postArtist($data)
     {
         $value = $this->selectDataById('email','contentprovider',$data['email1']);

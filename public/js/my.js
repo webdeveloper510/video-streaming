@@ -1916,6 +1916,54 @@ $(document).on('submit', '#form_sub', function (event) {
 
 });
 
+/*-----------------------------------Enter Bank Information--------------------------------------------*/
+
+$(document).on('submit', '#paxum', function (event) {
+    event.preventDefault();
+   // console.log(visiblie);return false;
+    $.ajax({
+        type: 'POST',  
+        url: APP_URL + "/paxum",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+         console.log(data);
+
+          return false;
+            if (data.status == 1) {
+                if(visiblie==1){
+
+                    $('.successfull').show();
+
+
+                }
+
+                else{
+                    setTimeout(function () {
+                        location.reload()
+                    }, 2000);
+                }
+                // $('.show_alert').html(data.message);
+              
+            } else {
+
+                $('.show_alert').show();
+                $('.show_alert').html(data.message);
+                setTimeout(function () {
+                    location.reload()
+                }, 2000);
+            }
+
+        }
+    });
+
+});
+
 
 /*------------------------------------------------------Report Video---------------------------------------------------------------*/
 $(document).on('submit', '#report', function (event) {

@@ -235,6 +235,17 @@ class artist extends Controller
       
     }
 
+    public function storePaxum(Request $req){
+
+          $data = $req->all();
+
+          unset($data['_token']);
+
+          $return = $this->model->InsertPaxumInfo($data);
+
+          return $return;
+    }
+
     public function dashboard()
     {
 

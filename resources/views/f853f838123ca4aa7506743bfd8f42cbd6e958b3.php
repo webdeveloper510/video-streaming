@@ -1,8 +1,8 @@
  
- @include('layout.cdn')
+ <?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
    <div class="text-center">
-      <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
      
       <h1 class="text-white mt-2"> Payment Information</h1>
    </div>
@@ -61,8 +61,9 @@
                 </button>
               </div>
               <div class="modal-body py-5">
-              {!!Form::open(['id'=>'paxum','method' => 'post'])!!}
-          {{Form::token()}} 
+              <?php echo Form::open(['id'=>'paxum','method' => 'post']); ?>
+
+          <?php echo e(Form::token()); ?> 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email </label>
                     <input type="email" name="email" class="form-control" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -74,7 +75,8 @@
                   <div class="text-center my-3">
                   <button type="submit" name = "submit" class="btn btn-primary">Save</button>
                   </div>
-                  {{ Form::close() }}
+                  <?php echo e(Form::close()); ?>
+
               </div>
            
             </div>
@@ -97,8 +99,9 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                    {!!Form::open(['id'=>'bankInfo','method' => 'post', 'files'=>true])!!}
-          {{Form::token()}} 
+                    <?php echo Form::open(['id'=>'bankInfo','method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?> 
                       <div class="form-group">
                         <label >Accout no. or IBAN:</label>
                         <input type="text" name="acc_number" required class="form-control" placeholder="Enter ">
@@ -126,7 +129,8 @@
                       </div>
                     
                       <button type="submit" name="submit" class="btn btn-primary">Save</button>
-                      {{ Form::close() }}
+                      <?php echo e(Form::close()); ?>
+
 </div>
                     
                   </div>
@@ -139,4 +143,4 @@
    padding: 11px;
    }
    </style>
-  @include('layouts.footer')
+  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/paymentinfo.blade.php ENDPATH**/ ?>

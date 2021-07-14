@@ -265,6 +265,8 @@ Route::get('legal-notice', 'AuthController@legal');
 
                      Route::post('draw_money','artist@draw_money');
 
+                     Route::post('paxum','artist@storePaxum');
+
                      Route::post('artist/editVedio','artist@editVideoInfo');
 
                      Route::post('artist/insert_support','artist@insertData');
