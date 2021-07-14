@@ -343,6 +343,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      
       <div class="modal-body text-center">
       <button class="btn btn-success float-right" type="button">Download</button>
       <div class="table12">
@@ -355,8 +356,7 @@
                                        <th scope="col">Date Of Consent</th>
                                     </tr>
                                  </thead>
-                                 <tbody>
-                                    
+                                 <tbody>                                    
                                     <tr>
                                        <th class="d-flex" scope="row">1</th>
                                        <td><input type="text" class="form-control"><br>
