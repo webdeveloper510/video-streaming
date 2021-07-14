@@ -347,7 +347,7 @@
       <button class="btn btn-success float-right" type="button">Download</button>
       <div class="table12">
                            <div class="table table-responsive">
-                              <table class="table text-left">
+                              <table class="table text-left table-borderless">
                                  <thead class="thead-light">
                                     <tr>
                                        <th scope="col">#</th>
