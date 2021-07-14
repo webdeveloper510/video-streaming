@@ -45,10 +45,11 @@
           <input type="radio" name="type" value="Yes" /><p class="text-white">yes</p>
           <input type="radio" name="type" value="No"/><p class="text-white">No</p>
 
-          <br>
-          <button class="btn btn-secondery" type="button">+</button>
+          
    
             </div>
+            <br>
+          <button class="btn btn-secondery" type="button">+</button>
           </div>
                     <div class="col-md-4 mt-5 ">
 
