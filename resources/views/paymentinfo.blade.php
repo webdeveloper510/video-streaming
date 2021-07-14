@@ -12,7 +12,7 @@
  <div class="container-fluid">
 <div class="row">
     <div class="col"></div>
-    <div class="col-md-8 mb-5">
+    <div class="col-md-8 my-5">
 <div class="card">
     <div class="card-header text-center">
         <h5 class="card-title">Payment Method</h5>
