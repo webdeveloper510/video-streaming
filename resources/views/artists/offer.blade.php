@@ -32,11 +32,10 @@
            <div class="col-md-6">
            <div class="form-group">
     <label >Are there Co-Performers involved in this Content?</label>
-    <select class="custom-select" id="inputGroupSelect01">
+    <select class="custom-select selctc&r" id="inputGroupSelect01">
     <option selected>Choose...</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    <option value="1">Nicknames</option>
+    
   </select>
   </div>
 </div>
@@ -49,7 +48,7 @@
    
             </div>
             <br>
-          <button class="btn btn-secondery" type="button">+</button>
+          <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
                     <div class="col-md-4 mt-5 ">
 
