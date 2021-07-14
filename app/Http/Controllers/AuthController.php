@@ -2367,6 +2367,11 @@ public function readNotification(Request $request){
           return view('bankaccount');
           
         }
+        public function paymentinfo(){
+
+          return view('paymentinfo');
+          
+        }
 
         public function IDcheck(){
 

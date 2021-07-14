@@ -49,6 +49,7 @@ Route::get('showArtist','AuthController@artistPage');
 
 Route::get('paxumaccount','AuthController@paxumaccount');
 Route::get('bankaccount','AuthController@bankaccount');
+Route::get('paymentinfo','AuthController@paymentinfo');
 Route::get('IDcheck','AuthController@IDcheck');
 
 Route::get('/login', 'AuthController@login'); 
