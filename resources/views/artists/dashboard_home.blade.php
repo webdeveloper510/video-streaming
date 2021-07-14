@@ -756,9 +756,7 @@
             <div class="card">
                <div class="card-body">
                   <button class="btn btn-success float-right" type="button">Download</button>
-                        <h5 class="card-title">Consert and Release Form Co-Performers</h5>
-                        
-                        
+                        <h5 class="card-title">Consert and Release Form Co-Performers</h5> 
                         <div class="table12">
                            <div class="table table-responsive">
                               <table class="table text-left">
