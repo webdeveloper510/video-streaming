@@ -781,7 +781,6 @@
                                          <input type="date" class="form-control">
                                        </td>
                                     </tr>
-                                   
                                  </tbody>
                               </table>
                            </div>
