@@ -764,7 +764,7 @@
                                     <tr>
                                        <th scope="col">#</th>
                                        <th scope="col">Nickname</th>
-                                       <th scope="col">Date Of Upload</th>
+                                       <th scope="col">Date Of Consent</th>
                                     </tr>
                                  </thead>
                                  <tbody>
