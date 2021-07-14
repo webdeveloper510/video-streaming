@@ -752,7 +752,7 @@
                </div>
             </div>
          </div>
-         <div class="col-md-4 ">
+         <div class="col-md-8">
             <div class="card">
                <div class="card-body">
                         <h5 class="card-title">Consert and Release Form Co-Performers</h5>
