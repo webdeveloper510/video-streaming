@@ -1,7 +1,7 @@
-@include('layout.cdn')
+<?php echo $__env->make('layout.cdn', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <header>
    <div class="text-center">
-      <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
+      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" height="50" alt="CoolBrand">
       
       <h1 class="text-white mt-2"> Identity Check </h1>
    </div>
@@ -22,17 +22,16 @@
              <p>... written with a black or blue pen/marker.</p>
              <p><b>Please make sure the document text is readable and not mirrored.</b></p>
              
-             {!!Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true])!!}
-          {{Form::token()}}   
+             <form class="col-md-5">
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Identity Check file </label>
-                    <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1" required>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
                 </div>
                 <button class="btn btn-primary" type="submit">Submit </button>
-                {{ Form::close() }}
+                </form>
 </div>
 <div class="col-md-5">
-  <img src="{{asset('images/IdentityCheck.png')}}" width="100%" class="img-fluid">
+  <img src="<?php echo e(asset('images/IdentityCheck.png')); ?>" width="100%" class="img-fluid">
 </div>
 </div>
 
@@ -44,4 +43,4 @@
    color:white !important;
    }
    </style>
-  @include('layouts.footer')
+  <?php echo $__env->make('layouts.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/IDcheck.blade.php ENDPATH**/ ?>

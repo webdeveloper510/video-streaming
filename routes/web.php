@@ -255,6 +255,8 @@ Route::get('legal-notice', 'AuthController@legal');
 
                      Route::post('createPlaylist','artist@createPlaylist');
 
+                     Route::post('insertId','artist@insertId');
+
                      Route::post('deleiver','artist@deleiverOffer');
 
                      Route::post('uploadSocialdashboard','artist@socialUpload');

@@ -696,6 +696,25 @@ public function getArtistDetail($artid,$type){
          return DB::table('subscriber')->where('artistid',$id)->pluck('count')->toArray();
   }
 
+  public function insertartistIdentity($data){
+
+    $contentData=Session::get('User');
+
+    $contentId = $contentData->id;
+
+    $data['created_at'] = now();
+
+    $data['updated_at'] = now();
+
+    
+    $data['artist_id']=$contentId;
+
+    return DB::table('identify_artist')->insert($data);
+
+
+
+  }
+
   public function edit_other($profile,$data){
 
     //print_r($profile);
