@@ -44,8 +44,6 @@
           <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
           <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
 
-          
-   
             </div>
             <br>
           <button class="btn btn-secondery selctc&r " type="button">+</button>

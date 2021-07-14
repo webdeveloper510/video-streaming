@@ -731,6 +731,24 @@ Your browser does not support the audio tag.
                 </div>
                 @endif
             </div>
+            <div class="col-md-12 pt-3">
+            <label >Are there Co-Performers involved in this Content?</label>
+            <div class="radiobtn text-white">
+          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+
+            </div>
+               
+            <select class="custom-select selctc&r" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">Nicknames</option>
+    
+  </select>
+  <button class="btn btn-secondery selctc&r " type="button">+</button>
+
+
+
+          </div>
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
