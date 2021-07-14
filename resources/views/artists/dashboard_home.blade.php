@@ -723,7 +723,7 @@
                  
                    
                         
-                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        <button type="submit" class="btn btn-outline-primary">Reload</button>
                         
                      </div>
                </div>
