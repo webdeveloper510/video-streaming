@@ -13,6 +13,6 @@
       }
     ]
   });
-</script>
+</script>    
 
 @include('artists.dashboard_footer')
