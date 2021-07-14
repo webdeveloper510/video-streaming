@@ -39,6 +39,7 @@
     <option value="3">Three</option>
   </select>
   </div>
+</div>
   <div class="col-md-6">
   <div class="radiobtn text-white">
           <input type="radio" name="type" value="Yes" /><p class="text-white">yes</p>
