@@ -776,8 +776,8 @@ public function getRespectedSub($data){
         ['min', '<=', $token],
         ['max', '>=', $token],
       ])->pluck('rateOfPercentage')->toArray();
-
-      return $data;
+     
+      return $data;     
     }
 
     public function getUserData($userId){
