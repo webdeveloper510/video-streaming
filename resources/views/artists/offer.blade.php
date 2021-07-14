@@ -29,7 +29,26 @@
      
         
           <div class="row align-items-center text-white">
-         
+           <div class="col-md-6">
+           <div class="form-group">
+    <label >Are there Co-Performers involved in this Content?</label>
+    <select class="custom-select" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  </div>
+  <div class="col-md-6">
+  <div class="radiobtn text-white">
+          <input type="radio" name="type" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio" name="type" value="No"/><p class="text-white">No</p>
+
+          <br>
+          <button class="btn btn-secondery" type="button">+</button>
+   
+            </div>
+          </div>
                     <div class="col-md-4 mt-5 ">
 
             {{Form::label('Media Offering', 'Media Offering')}} <br>
