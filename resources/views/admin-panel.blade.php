@@ -50,7 +50,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
-      <td>filename.png</td>
+      <td><a >filename.png</a></td>
       <td>25-06-2021</td>
     </tr>
     <tr>
@@ -327,6 +327,79 @@
     </div>
   </div>
 </div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Consent">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Consent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">Consent and Release Form Co-Performers</h5> 
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body text-center">
+      <button class="btn btn-success float-right" type="button">Download</button>
+      <div class="table12">
+                           <div class="table table-responsive">
+                              <table class="table text-left table-borderless">
+                                 <thead class="thead-light">
+                                    <tr>
+                                       <th scope="col">#</th>
+                                       <th scope="col">Nickname</th>
+                                       <th scope="col">Date Of Consent</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>                                    
+                                    <tr>
+                                       <th class="d-flex" scope="row">1</th>
+                                       <td><input type="text" class="form-control"><br>
+                                       <div class="custom-file">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                          <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
+                                       </div>
+                                       </td>
+                                       <td class="d-flex"> 
+                                         <input type="date" class="form-control">
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </div>
+                           <form>
+                           <div class="linksonit mb-3">
+                              <div class="amountmedia row">
+                                 <div class="col-md-12 text-center">
+                                    <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="text-right ">
+                              {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
+                           </div>
+                           {{ Form::close() }}
+                        </div>
+                     </div>
+                     <div class="alert alert-success" id="success" style="display:none"></div>
+                     <div class="text-right">
+                     </div>
+                  </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+                
+                        
+                       
+
+
 <style>
 
 header {
