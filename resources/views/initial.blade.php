@@ -65,6 +65,11 @@
                margin: 0 auto;
                border: 2px solid gold;
                }
+               .panel-thumbnail img.card-img-top {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
                .container.my-4.row {
                margin: 0 auto;
                }
@@ -863,10 +868,6 @@
     top: -22px;
     width: 100%;
     padding: 0px 10px;
-}
-.panel-thumbnail img.card-img-top {
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
 }
 
    @media only screen and (max-width: 768px) {
