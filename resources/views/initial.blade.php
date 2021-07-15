@@ -870,6 +870,15 @@
    text-align: center;
    margin-bottom: 10px;
    }
+   .user-body p {
+    font-size: 16px;
+    padding-top: 12px;
+}
+.reward1 h2 {
+    line-height: 20px;
+    
+    font-size: 12px;
+}
    .loginfree{
       padding:0px !important;
    }
