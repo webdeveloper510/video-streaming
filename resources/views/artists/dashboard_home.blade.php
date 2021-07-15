@@ -723,7 +723,7 @@
                  
                    
                         
-                        <button type="submit" class="btn btn-outline-primary">Reload</button>
+                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</button>
                         
                      </div>
                </div>
