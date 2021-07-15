@@ -305,48 +305,22 @@
             </tr>
          </thead>
          <tbody>
+            @foreach($signedProfile as $signedProfile)
             <tr>
-               <th scope="row">1</th>
+               <th scope="row">{{$loop->iteration}}</th>
                <td> name</td>
                <td>0</td>
-               <td class="text-center"> <h5>filename.pdf </h5>
+               <td class="text-center"> <h5>{{$signedProfile->artist_profile}} </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
                <td class="text-center">
-               <h5>filename.png </h5>
+               <h5>{{$signedProfile->artist_profile}} </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button>
                </td>
-               <td> 25-06-2021</td>
+               <td>{{$signedProfile->created_at}}</td>
             </tr>
-            <tr>
-               <th scope="row">2</th>
-               <td> name</td>
-               <td>0</td>
-               <td class="text-center"> <h5>filename.pdf </h5>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button></td>
-               <td class="text-center">
-               <h5>filename.png </h5>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button>
-               </td>
-               <td> 25-06-2021</td>
-            </tr>
-            <tr>
-               <th scope="row">3</th>
-               <td> name</td>
-               <td>0</td>
-               <td class="text-center"> <h5>filename.pdf </h5>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button></td>
-               <td class="text-center">
-               <h5>filename.png </h5>
-               <button class="btn btn-success" type="button">Confirm</button>
-                     <button class="btn btn-danger" type="button">Deny</button>
-               </td>
-               <td> 25-06-2021</td>
-            </tr>
+            @endforeach
          </tbody>
          </table>
 

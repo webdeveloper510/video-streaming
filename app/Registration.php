@@ -750,8 +750,16 @@ public function getArtistDetail($artid,$type){
    // print_r($update);die;
 
     
+  }
 
-    
+  public function getIdSignature(){
+
+    $data=DB::table('identify_artist')
+    ->leftjoin('contentprovider', 'contentprovider.id', '=','identify_artist.artist_id')
+     ->select('identify_artist.artist_profile', 'contentprovider.nickname','contentprovider.created_at')
+     ->get()->toArray(); 
+
+     return $data;
 
   }
 
