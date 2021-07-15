@@ -86,7 +86,7 @@
               
                </div>
                <div class="container row my-4">
-                  <div class="col-md-4"></div>
+                  <div class="col-md-2"></div>
                   <div class="col-md-4 col-6 loginfree mb-3 pl-5 text-center">
                      <a href="{{url('/register')}}">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
@@ -97,7 +97,7 @@
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
                   </div>
-                  <div class="col-md-4"></div>
+                  <div class="col-md-2"></div>
                </div>
                
                     </div>
