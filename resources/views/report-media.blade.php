@@ -20,7 +20,7 @@
    </li>
    <li class="nav-item">
       <a class="nav-link" id="pills-Identity-tab" data-toggle="pill" href="#pills-Identity" role="tab" aria-controls="pills-Identity" aria-selected="false">Contract & Identity Check</a>
-   </li>
+   </li>   
 </ul>
 <div class="tab-content" id="pills-tabContent">
    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -320,6 +320,8 @@
                </td>
                <td>{{$signedProfile->created_at}}</td>
             </tr>
+
+             
             @endforeach
          </tbody>
          </table>    
