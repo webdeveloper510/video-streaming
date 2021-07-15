@@ -423,6 +423,9 @@ header {
    td{
      border:none;
    }
+   td a{
+     cursor: pointer;
+   }
 </style>
 
 
