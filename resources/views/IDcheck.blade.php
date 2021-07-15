@@ -11,7 +11,7 @@
         <div class="row">
            <div class="col-md-7">
          <h4>Identity Check:</h4>
-         <p>Please upload a Selfie of you holding the document you have used for identity verification and a note with the following ...</p>
+         <p>Please upload a Selfie of you holding the document you have used for age verification and a note with the following ...</p>
             <br>
          <p>- pornartistzone.com</p>
              <p>- yyyy /mm/dd (the current date)</p>
