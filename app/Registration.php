@@ -756,8 +756,19 @@ public function getArtistDetail($artid,$type){
 
     $data=DB::table('identify_artist')
     ->leftjoin('contentprovider', 'contentprovider.id', '=','identify_artist.artist_id')
-     ->select('identify_artist.artist_profile', 'contentprovider.nickname','contentprovider.created_at')
+    ->leftjoin('media', function($join)
+    {
+        $join->on('identify_artist.artist_id', '=', 'media.contentProviderid')
+             ->where('media.is_verified', '=', 0);
+    })
+     ->leftjoin('offer', function($join)
+    {
+        $join->on('identify_artist.artist_id', '=', 'offer.artistid')
+          ->where('offer.is_verified', '=', 0);
+    })
+     ->select('identify_artist.artist_profile',DB::raw("count(media.id) as mediacount"),DB::raw("count(offer.id) as mediacount"),'contentprovider.nickname','contentprovider.created_at')
      ->where('identify_artist.is_verified',0)
+     ->groupBy('identify_artist.artist_profile','contentprovider.nickname','contentprovider.created_at')
      ->get()->toArray(); 
 
      return $data;
