@@ -82,12 +82,12 @@
                </div>
                <div class="container row my-4">
                   <div class="col"></div>
-                  <div class="col-md-4 mb-3 pl-5 text-center">
+                  <div class="col-md-4 loginfree mb-3 pl-5 text-center">
                      <a href="{{url('/register')}}">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                      </a>
                   </div>
-                  <div class="col-md-4 pr-5 text-center">
+                  <div class="col-md-4 loginfree pr-5 text-center">
                      <a href="{{url('/login')}}">
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
@@ -869,6 +869,9 @@
    margin-top: 10px;
    text-align: center;
    margin-bottom: 10px;
+   }
+   .loginfree{
+      padding:0px !important;
    }
    .ml4{
       height:61px;
