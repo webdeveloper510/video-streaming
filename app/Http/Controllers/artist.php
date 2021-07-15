@@ -893,15 +893,19 @@ class artist extends Controller
 
   public function insertId(Request $req){
 
-    $data = $req->all();
+    //$data = $req->all();
+
+   
 
     unset($data['_token']);
 
     $filename= time().'_'.$req->file->getClientOriginalName();
 
-    $filepath = $req->image->storeAs('uploads', $filename, 'public');
+    $filepath = $req->file->storeAs('uploads', $filename, 'public');
 
     $data['artist_profile'] = $filename;
+
+    //print_r($data);die;
 
     $return = $this->model->insertartistIdentity($data);
 
