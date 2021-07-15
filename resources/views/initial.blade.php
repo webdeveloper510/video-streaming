@@ -871,6 +871,14 @@
    text-align: center;
    margin-bottom: 10px;
    }
+   .ml4 .letters {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 2.3em;
+  right: 0;
+  opacity: 0; 
+}
    .panel h3.card-title.text-center {
     font-size: 17px !important;
 }
@@ -893,7 +901,7 @@
       padding:0px !important;
    }
    .ml4{
-      height:61px;
+      height:160px;
    }
    .header.pt-3 h3 {
     font-size: 25px !important;
