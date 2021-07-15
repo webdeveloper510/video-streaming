@@ -320,6 +320,8 @@
                </td>
                <td>{{$signedProfile->created_at}}</td>
             </tr>
+
+            
             @endforeach
          </tbody>
          </table>    
