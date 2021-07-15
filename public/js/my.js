@@ -2192,7 +2192,7 @@ $(document).on('submit', '#idCheck', function (event) {
 
             if (data == 1) {
                             
-                window.location.href= APP_URL+"/artist/edits"
+                window.location.href= APP_URL+"/artist/edit"
                 
             } else {
 

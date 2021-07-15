@@ -821,8 +821,8 @@ else{
        // 'cover_photo'=>'required|mimes:jpg,png,jpeg',
         'aboutme'=>'required',
         'sexology'=>'required',
-        'ass'=>'sometimes|required',
-        'titssize'=>'sometimes|required',
+        //'ass'=>'sometimes|required',
+        //'titssize'=>'sometimes|required',
         'privy'=>'required',
         'hairlength'=>'required',
         'haircolor'=>'required',
@@ -831,7 +831,7 @@ else{
            ]
       );
 
-    
+    //print_r($request->all());die;
   
     //  if($request->image){
 
