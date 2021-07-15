@@ -825,6 +825,9 @@
    top: 41%;
    left: 44px;
    }
+   .conta {
+    margin: 20px 0px;
+}
    .card {
    background: black;
    color: white;
