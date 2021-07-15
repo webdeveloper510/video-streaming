@@ -1935,7 +1935,7 @@ $(document).on('submit', '#paxum', function (event) {
         // console.log(data);
 
         //   return false;
-            if (data.status == 1) {
+            if (data == 1) {
 
                 window.location.href= APP_URL + '/IDcheck'
                 
