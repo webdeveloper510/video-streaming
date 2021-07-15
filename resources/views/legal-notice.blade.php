@@ -7,7 +7,7 @@
             height="50"
             alt="CoolBrand"></a>
         <h1 class="text-white mt-2">
-            Legal Notice</h1>
+        Onboarding : Legal Notice</h1>
     </div>
 </header>
 

@@ -2,7 +2,7 @@
 <header>
 <div class="text-center">
 <img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand">
-<h1 class="text-white mt-2"> Overview</h1>
+<h1 class="text-white mt-2">Onboarding : Overview</h1>
 </div>
 </header>
 

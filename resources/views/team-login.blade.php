@@ -7,7 +7,7 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-8 col-xl-6 need_bg text-white mt-5">
         
-          <h1 class="text-white">Support Team Login</h1>
+          <h1 class="text-white">Onboarding : Support Team Login</h1>
       
           @if(session('error'))
         <div class="alert alert-danger" id="error">
