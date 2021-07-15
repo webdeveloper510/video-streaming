@@ -82,12 +82,12 @@
                </div>
                <div class="container row my-4">
                   <div class="col"></div>
-                  <div class="col-md-4 loginfree mb-3 pl-5 text-center">
+                  <div class="col-md-4 col-6 loginfree mb-3 pl-5 text-center">
                      <a href="{{url('/register')}}">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                      </a>
                   </div>
-                  <div class="col-md-4 loginfree pr-5 text-center">
+                  <div class="col-md-4 col-6 loginfree pr-5 text-center">
                      <a href="{{url('/login')}}">
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
@@ -156,24 +156,22 @@
 
             <div class="container">
                <div class="row">
-                    <div class="col-md-6">
-                    <p>
+                    <div class="col-md-6 col-6">
+                   
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
                         Artist Highlights
                         </button>
-                        </p>
+                       
                         </div>
 
-                        <div class="col-md-6">
-
-                        <p>
-                        <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="col-md-6 col-6">
+                        <button class="btn btn-primary form-control btn-lg"style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
                         Consumer Highlights
                         </button>
-                        </p>
+                       
                         </div>
                         </div>
-                        <div class="container">
+                        <div class="conta">
                     <div class="col-md-12">
                    
                         <div class="collapse" id="consumer">
@@ -239,7 +237,7 @@
                         </div>
                   
                         <div class="collapse" id="artist">
-                        <div class="card card-body">
+                       
                         <div class="row my-5">
                   <div class="col"></div>
                   <div class="col-md-8">
@@ -295,7 +293,7 @@
                      </div>
                   </div>
                   <div class="col"></div>
-               </div>
+            
                         </div>
                         </div>
                     </div>
@@ -870,6 +868,24 @@
    text-align: center;
    margin-bottom: 10px;
    }
+   .panel h3.card-title.text-center {
+    font-size: 17px !important;
+}
+.panel .col-6 h5.text-dark {
+    font-size: 8px !important;
+}
+   .user-body p {
+    font-size: 16px;
+    padding-top: 12px;
+}
+.panel-thumbnail p.card-text {
+    font-size: 12px !important;
+}
+.reward1 h2 {
+    line-height: 20px !important;
+    
+    font-size: 12px !important;
+}
    .loginfree{
       padding:0px !important;
    }
