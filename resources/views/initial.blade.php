@@ -746,7 +746,7 @@
   position: absolute;
   margin: auto;
   left: 0;
-  top: 0.3em;
+  top: 1.3em;
   right: 0;
   opacity: 0; 
 }
