@@ -155,7 +155,7 @@
 
 
             <div class="container">
-               <div class="row px-5">
+               <div class="row">
                     <div class="col-md-6">
                     <p>
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
