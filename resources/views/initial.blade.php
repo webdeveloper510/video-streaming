@@ -864,6 +864,10 @@
     width: 100%;
     padding: 0px 10px;
 }
+.panel-thumbnail img.card-img-top {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
 
    @media only screen and (max-width: 768px) {
    .col-md-4.hover {
