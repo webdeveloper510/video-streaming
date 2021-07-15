@@ -309,7 +309,7 @@
             <tr>
                <th scope="row">{{$loop->iteration}}</th>
                <td> name</td>
-               <td>0</td>
+               <td>{{$signedProfile->mediacount + $signedProfile->offercount}}</td>
                <td class="text-center"> <h5>{{$signedProfile->artist_profile}} </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
