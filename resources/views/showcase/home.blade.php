@@ -716,7 +716,7 @@
             <div class="col-md-4">
                <div class="card" style="height: 310px;" >
                <div class="card-head text-center">
-                    <h3>Identity Check </h3>
+                    <h3>Identity Check <i class="fa fa-question-circle-o"></i></h3>
                     <button type="button" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
