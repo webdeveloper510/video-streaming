@@ -1916,6 +1916,41 @@ $(document).on('submit', '#form_sub', function (event) {
 
 });
 
+/*-----------------------------------Enter Bank Information--------------------------------------------*/
+
+$(document).on('submit', '#paxum', function (event) {
+    event.preventDefault();
+   // console.log(visiblie);return false;
+    $.ajax({
+        type: 'POST',  
+        url: APP_URL + "/paxum",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: $(this).serialize(),
+
+        success: function (data) {
+
+        // console.log(data);
+
+        //   return false;
+            if (data.status == 1) {
+
+                window.location.href= APP_URL + '/IDcheck'
+                
+                // $('.show_alert').html(data.message);
+              
+            } else {
+
+               alert('Some error');
+            }
+
+        }
+    });
+
+});
+
 
 /*------------------------------------------------------Report Video---------------------------------------------------------------*/
 $(document).on('submit', '#report', function (event) {
@@ -2103,6 +2138,62 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 
                 $('.alert-danger').show();
                 $('.alert-danger').html(data.message);
+
+            }
+
+        }
+    });
+
+});
+
+$(document).on('submit', '#idCheck', function (event) {
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+    //$('.button_disable').attr('disabled',true);
+    //console.log(formData);return false;
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/insertId",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: formData,
+        processData: false,
+        contentType: false,
+        xhr: function () {
+            var xhr = $
+                .ajaxSettings
+                .xhr();
+            if (xhr.upload) {
+                xhr
+                    .upload
+                    .addEventListener('progress', function (event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        $('.percentage').html(percent + '%');
+                        if (percent == 100) {
+                            $('.loader').hide();
+                        }
+                    }, true);
+            }
+            return xhr;
+        },
+
+        success: function (data) {
+
+
+            if (data.status == 1) {
+                            
+                location.reload();
+                
+            } else {
+
+              alert('Error');
 
             }
 

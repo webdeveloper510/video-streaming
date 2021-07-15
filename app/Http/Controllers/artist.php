@@ -235,6 +235,17 @@ class artist extends Controller
       
     }
 
+    public function storePaxum(Request $req){
+
+          $data = $req->all();
+
+          unset($data['_token']);
+
+          $return = $this->model->InsertPaxumInfo($data);
+
+          return $return;
+    }
+
     public function dashboard()
     {
 
@@ -877,6 +888,26 @@ class artist extends Controller
     $update = $this->model->update_cover($filename,$req);
 
     return $update ? response()->json(array('status'=>1)) :  response()->json(array('status'=>0));
+
+  }
+
+  public function insertId(Request $req){
+
+    $data = $req->all();
+
+    unset($data['_token']);
+
+    $filename= time().'_'.$req->file->getClientOriginalName();
+
+    $filepath = $req->image->storeAs('uploads', $filename, 'public');
+
+    $data['artist_profile'] = $filename;
+
+    $return = $this->model->insertartistIdentity($data);
+
+    return $return;
+
+
 
   }
 

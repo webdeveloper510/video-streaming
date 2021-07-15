@@ -67,6 +67,48 @@ class Registration extends Model
         }
 }
 
+
+public function InsertPaxumInfo($data){
+
+  $contentData=Session::get('User');
+
+  $contentId = $contentData->id;
+
+  $data['artistid'] =  $contentId;
+  $data['created_at'] = now();
+  $data['updated_at'] = now();
+
+  $contentData=Session::get('User');
+
+  $contentId = $contentData->id;
+
+  if(array_key_exists('acc_number',$data)){
+
+     $data['email'] = '';
+     $data['refference'] = '';
+    // $data['bank_name'] = $data['bank_name'];
+    // $data['address'] = $data['address'];
+    // $data['bic'] = $data['bic'];
+    // $data['bank_address'] = $data['bank_address'];
+       
+  }
+
+  else{
+
+    $data['acc_number'] = '';
+    $data['company_name'] = '';
+    $data['bank_name'] = '';
+    $data['address'] = '';
+    $data['bic'] = '';
+    $data['bank_address'] = '';
+    
+  }
+
+ 
+
+  return DB::table('bank_info')->insert($data);
+}
+
  public function postArtist($data)
     {
         $value = $this->selectDataById('email','contentprovider',$data['email1']);
@@ -652,6 +694,25 @@ public function getArtistDetail($artid,$type){
   public function count_subscriber($id){
 
          return DB::table('subscriber')->where('artistid',$id)->pluck('count')->toArray();
+  }
+
+  public function insertartistIdentity($data){
+
+    $contentData=Session::get('User');
+
+    $contentId = $contentData->id;
+
+    $data['created_at'] = now();
+
+    $data['updated_at'] = now();
+
+    
+    $data['artist_id']=$contentId;
+
+    return DB::table('identify_artist')->insert($data);
+
+
+
   }
 
   public function edit_other($profile,$data){
