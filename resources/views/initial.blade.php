@@ -874,10 +874,13 @@
     font-size: 16px;
     padding-top: 12px;
 }
+.panel-thumbnail p.card-text {
+    font-size: 12px !important;
+}
 .reward1 h2 {
-    line-height: 20px;
+    line-height: 20px !important;
     
-    font-size: 12px;
+    font-size: 12px !important;
 }
    .loginfree{
       padding:0px !important;
