@@ -159,14 +159,14 @@
                     <div class="col-md-6 col-6">
                    
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
-                        Artist Highlights
+                        Artist 
                         </button>
                        
                         </div>
 
                         <div class="col-md-6 col-6">
                         <button class="btn btn-primary form-control btn-lg"style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
-                        Consumer Highlights
+                        Consumer 
                         </button>
                        
                         </div>
