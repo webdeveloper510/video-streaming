@@ -720,10 +720,8 @@
                     <button type="button" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
-                 
-                   
-                        
-                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</button>
+ 
+                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
                         
                      </div>
                </div>
