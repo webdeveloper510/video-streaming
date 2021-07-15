@@ -303,7 +303,7 @@
 
 
 
-
+            </div>
             <div class="slider_tittle">
                <h3 class="tittle">
                   <a href="{{url('seeall/artists')}}">Artists</a>
