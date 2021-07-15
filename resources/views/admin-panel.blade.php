@@ -336,15 +336,17 @@
     <div class="modal-content">
       <div class="modal-header">
       <h5 class="modal-title">Consent and Release Form Co-Performers</h5> 
-        <div class="text-right">
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-</div>
+
       </div>
       
       <div class="modal-body text-center">
-      <button class="btn btn-success float-right" type="button">Download</button>
+      <div class="text-right">
+      <button class="btn btn-success" type="button">Download</button>
+      </div>
       <div class="table12">
                            <div class="table table-responsive">
                               <table class="table text-left table-borderless">
