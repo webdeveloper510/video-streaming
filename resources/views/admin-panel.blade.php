@@ -344,7 +344,7 @@
       </div>
       
       <div class="modal-body text-center">
-      <div class="text-right">
+      <div class="text-right mb-4">
       <button class="btn btn-success" type="button">Download</button>
       </div>
       <div class="table12">
