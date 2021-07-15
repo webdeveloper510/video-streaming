@@ -115,7 +115,7 @@
   <span class="letters letters-15">Erotic Fiction</span>
   <span class="letters letters-17">Goddess</span>
   <span class="letters letters-19">Hentai</span>
-  <span class="letters letters-20">Hidden <br>cam <br> Fantasy</span>
+  <span class="letters letters-20">Hidden cam  Fantasy</span>
   <span class="letters letters-21">Hypnosis</span>
   <span class="letters letters-22">JOI</span>
   <span class="letters letters-23">Lingerie</span>
@@ -871,8 +871,19 @@
    margin-bottom: 10px;
    }
    .ml4{
-      height:300px;
+      height:61px;
    }
+   .header.pt-3 h3 {
+    font-size: 25px !important;
+}
+h1.ml4 {
+    font-size: 20px;
+    width: 100% !important;
+    top: 50%;
+    color: white !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
    .col-md-4.showoffer1 {
    margin: 10px auto;
    }
