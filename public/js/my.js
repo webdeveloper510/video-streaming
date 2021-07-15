@@ -3770,7 +3770,7 @@ $(document).on('submit', '#artist_info', function (event) {
 
         success: function (data) {
 
-            console.log(data);return false;
+            //console.log(data);return false;
 
             if (data == 1) {
 

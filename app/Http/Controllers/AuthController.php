@@ -831,7 +831,7 @@ else{
            ]
       );
 
-    print_r($request->all());die;
+    //print_r($request->all());die;
   
     //  if($request->image){
 
