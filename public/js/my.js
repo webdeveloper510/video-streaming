@@ -2149,6 +2149,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
 $(document).on('submit', '#idCheck', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
+    $('.loader').show();
     //$('.button_disable').attr('disabled',true);
     //console.log(formData);return false;
     $.ajax({
@@ -2186,10 +2187,12 @@ $(document).on('submit', '#idCheck', function (event) {
 
         success: function (data) {
 
+            //console.log(data);return false;
+
 
             if (data == 1) {
                             
-                window.location.href= APP_URL+"/artist/edit"
+                window.location.href= APP_URL+"/artist/edits"
                 
             } else {
 

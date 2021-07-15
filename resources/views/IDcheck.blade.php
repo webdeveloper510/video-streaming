@@ -28,6 +28,10 @@
                     <label for="exampleFormControlFile1">Identity Check file </label>
                     <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1" required>
                 </div>
+                <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
                 <button class="btn btn-primary" type="submit">Submit </button>
                 {{ Form::close() }}
 </div>
