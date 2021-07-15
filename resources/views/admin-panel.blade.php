@@ -50,7 +50,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
-      <td><a >filename.png</a></td>
+      <td><a data-toggle="modal" data-target="#Consent">filename.png</a></td>
       <td>25-06-2021</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
-      <td>filename.png</td>
+      <td><a data-toggle="modal" data-target="#Consent">filename.png</a></td>
       <td>25-06-2021</td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@
       <td>filename.png</td>
       <td>filename.png</td>
       <td>25-06-2021</td>
-      <td>filename.png</td>
+      <td><a data-toggle="modal" data-target="#Consent">filename.png</a></td>
       <td>25-06-2021</td>
     </tr>
   </tbody>
@@ -328,10 +328,7 @@
   </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Consent">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="Consent" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -339,9 +336,11 @@
     <div class="modal-content">
       <div class="modal-header">
       <h5 class="modal-title">Consent and Release Form Co-Performers</h5> 
+        <div class="text-right">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+</div>
       </div>
       
       <div class="modal-body text-center">
@@ -420,6 +419,12 @@ header {
    }
    li.nav-item a{
     color: white !important;
+   }
+   td{
+     border:none;
+   }
+   td a{
+     cursor: pointer;
    }
 </style>
 
