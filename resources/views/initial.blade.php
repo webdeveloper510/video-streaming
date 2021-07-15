@@ -173,7 +173,7 @@
                         </p>
                         </div>
                         </div>
-                        <div class="container">
+                        <div class="conta">
                     <div class="col-md-12">
                    
                         <div class="collapse" id="consumer">
