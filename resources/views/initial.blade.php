@@ -870,6 +870,12 @@
    text-align: center;
    margin-bottom: 10px;
    }
+   .panel h3.card-title.text-center {
+    font-size: 17px !important;
+}
+.panel .col-6 h5.text-dark {
+    font-size: 8px !important;
+}
    .user-body p {
     font-size: 16px;
     padding-top: 12px;
