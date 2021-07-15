@@ -101,7 +101,7 @@
       <div class="col-md-12">
    
       <div class="artistoffer row">
-        <div class="col-md-2 mt-5">
+        <div class="col-md-3 mt-0 pt-2">
         <div class="verify text-center" style="<?php echo e($offer->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
@@ -128,7 +128,7 @@
 
       </div>
        
-        <div class="col-md-8 pl-5 showoffer pt-5">
+        <div class="col-md-7 pl-5 showoffer pt-0">
         <a target="_blank" href="<?php echo e(url('artist/offers/'.$offer->id)); ?>">
            <h2><?php echo e($offer->title); ?></h2>
                
@@ -142,7 +142,7 @@
        
         <div class="col-md-2 text-center">
         
-        <h3 class="text-green" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
+        <h3 class="text-green mt-0 pt-0" style="<?php echo e($offer->offer_status == 'offline' ? 'color: red' : 'color: green'); ?>"><?php echo e(strtoupper($offer->offer_status)); ?></h3>
          <h4 ><span style="color:gold !important"><?php echo e($offer->price); ?> <b style="font-family: 'Alfa Slab One', cursive;font-weight: 400;">PAZ</b></span>/min </h4>
          
          <div class="text-right mr-3">
@@ -549,7 +549,7 @@ Your browser does not support the audio tag.
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                     </div>
-            
+                
                    <br>
                 <div class="convert">
                 <label for="quality:">quality:</label> 
@@ -574,7 +574,7 @@ Your browser does not support the audio tag.
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" class="browse2">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -595,7 +595,24 @@ Your browser does not support the audio tag.
 
                 <span id="filename" style="color:red;"></span>
             </div>
-          
+            <div class="col-md-12 pt-3">
+            <label >Are there Co-Performers involved in this Content?</label>
+            <div class="radiobtn text-dark">
+            <p class="text-dark"> <input type="radio"  name="type" value="Yes" /> yes</p>
+            <p class="text-dark"><input type="radio" name="type" value="No"/> No</p>
+
+            </div>
+               
+            <select class="custom-select selctc&r" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">Nicknames</option>
+    
+  </select>
+  <button class="btn btn-secondery selctc&r " type="button">+</button>
+
+
+
+          </div>
             
            <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -638,7 +655,7 @@ Your browser does not support the audio tag.
             <label class="media_label12">Overview Video (~30s)</label>
                 <?php echo e(Form::file('media',['class'=>'form-control file_input'])); ?>
 
-                <span id="filename" style="color:#767605;"><?php echo e($random[0]->media); ?></span>
+                <span id="filename" style="color:#767605;"><?php echo e($random[0]->type=='video' ? $random[0]->media : ''); ?></span>
                   <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
@@ -646,7 +663,7 @@ Your browser does not support the audio tag.
             <div class="col-md-12 mt-3 text-white file1" style="<?php echo e($random[0]->type=='audio' ? 'display:block' : 'display:none'); ?>">
             <label class="media_label12">Overview  Audio (~30s)</label>
                <button type="button" class="browse">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress proaudio"><?php echo e($random[0]->type=='audio' ? $random[0]->media : 'Choose 1 Audio + 1 Image'); ?></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -763,6 +780,24 @@ Your browser does not support the audio tag.
                 </div>
                 <?php endif; ?>
             </div>
+            <div class="col-md-12 pt-3">
+            <label >Are there Co-Performers involved in this Content?</label>
+            <div class="radiobtn text-dark">
+            <p class="text-dark"> <input type="radio"  name="type" value="Yes" /> yes</p>
+            <p class="text-dark"><input type="radio" name="type" value="No"/> No</p>
+
+            </div>
+               
+            <select class="custom-select selctc&r" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">Nicknames</option>
+    
+  </select>
+  <button class="btn btn-secondery selctc&r " type="button">+</button>
+
+
+
+          </div>
             </div>
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">

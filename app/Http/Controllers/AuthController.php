@@ -306,33 +306,18 @@ class AuthController extends Controller
       $profile = $this->model->getArtistnotVerified('is_verified','profilepicture');
       $background = $this->model->getArtistnotVerified('background_verified','cover_photo');
 
-      
-//       echo "<pre>";
-
-//       print_r($profile);
-//       print_r($background);
-// die;
+      $artist_signed_profile = $this->model->getIdSignature();
 
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 
       $notVerifyContentOrder = $this->model->getNotVerifiedOrders('offer');
 
-
-      // echo "<pre>";
-
-      // print_r($notVerifyContentOrder);die;
-
       $history = $this->model->getHistoryVerifiedContent('media');
 
       $reports = $this->model->getReportVerifiedContent('media');
-      // echo "<pre>";
-      // // print_r($notVerifiedContent);
-      // // print_r($history);
-      // print_r($notVerifiedContent);
 
-// die;
 
-      return view('report-media',['notVerifyOrder'=>$notVerifyContentOrder,'background'=>$background,'artists'=>$profile,'services'=>$offer_not_VerifiedContent,'reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
+      return view('report-media',['signedProfile'=>$artist_signed_profile,'notVerifyOrder'=>$notVerifyContentOrder,'background'=>$background,'artists'=>$profile,'services'=>$offer_not_VerifiedContent,'reports'=>$reports,'verifyHistory'=>$history,'teamLogin'=>$sessionLogin,'notVerified'=>$notVerifiedContent]);
     }
     public function legal()
     {
