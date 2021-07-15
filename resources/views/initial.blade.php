@@ -239,7 +239,8 @@
                         </div>
                   
                         <div class="collapse" id="artist">
-                        <div class="card card-body">
+                        <div class="card">
+                           <div class=" card-body">
                         <div class="row my-5">
                   <div class="col"></div>
                   <div class="col-md-8">
@@ -295,6 +296,7 @@
                      </div>
                   </div>
                   <div class="col"></div>
+            </div>
                </div>
                         </div>
                         </div>
