@@ -757,6 +757,7 @@ public function getArtistDetail($artid,$type){
     $data=DB::table('identify_artist')
     ->leftjoin('contentprovider', 'contentprovider.id', '=','identify_artist.artist_id')
      ->select('identify_artist.artist_profile', 'contentprovider.nickname','contentprovider.created_at')
+     ->where('identify_artist.is_verified',0)
      ->get()->toArray(); 
 
      return $data;
