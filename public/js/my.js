@@ -2187,9 +2187,9 @@ $(document).on('submit', '#idCheck', function (event) {
         success: function (data) {
 
 
-            if (data.status == 1) {
+            if (data == 1) {
                             
-                location.reload();
+                window.location.href= APP_URL+"/artist/edit"
                 
             } else {
 
