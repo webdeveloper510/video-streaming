@@ -123,6 +123,7 @@
       <td>$0</td>
       <td>$0</td>
       <td>$0</td>
+      <td>$0</td>
     </tr>
     <tr>
       <th scope="row">2</th>
@@ -132,12 +133,14 @@
       <td>$0</td>
       <td>$0</td>
       <td>$0</td>
+      <td>$0</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Artistname</td>
       <td>0</td>
       <td>20%</td>
+      <td>$0</td>
       <td>$0</td>
       <td>$0</td>
       <td>$0</td>
