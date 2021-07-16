@@ -146,6 +146,10 @@
     border:2px solid yellow;
     padding:0px !important;
 }
+.borderhover {
+    border:2px solid yellow;
+    padding:0px !important;
+}
 .seealldata1{
     background:black;
     color:white;
