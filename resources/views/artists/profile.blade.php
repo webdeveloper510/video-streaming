@@ -936,7 +936,7 @@ video:hover {
 }
 .videotags.row {
     position: absolute;
-    top: -22px;
+    top: 6px;
     width: 100%;
     padding: 0px 4px;
 }
