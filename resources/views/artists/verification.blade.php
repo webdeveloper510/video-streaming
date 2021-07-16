@@ -2,7 +2,7 @@
    <div class="text-center">
       <a href="#"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
       
-      <h1 class="text-white mt-2">Onboarding </h1>
+      <h3 class="text-white mt-2">Onboarding </h3>
    </div>
 </header>
 @include('artists.dashboard')
@@ -26,7 +26,7 @@
          body{
            background:#fca7b3;
          }
-         nav{
+         nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top{
            display:none;
          }
          .sidebar{

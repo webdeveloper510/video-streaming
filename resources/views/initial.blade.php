@@ -913,7 +913,7 @@
     font-size: 25px !important;
 }
 h1.ml4 {
-    font-size: 25px;
+    font-size: 30px;
     width: 100% !important;
     top: 50%;
     color: white !important;
