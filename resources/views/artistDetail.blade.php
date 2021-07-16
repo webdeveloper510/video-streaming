@@ -102,6 +102,13 @@
                .text-center.Artistxyz {
                padding: 30px;
                }
+               .col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+    line-height: 16px;
+    font-size: 13px;
+}
                .noti {
                background: blue;
                height: 16px;
@@ -150,12 +157,12 @@
                         </div>
                         <div class="videotags row">
                            <div class="col-4 blue text-left">
-                        <button class="btn btn-primary btn-sm" type="button">Stream</button>
+                        <h4>Stream</h4>
                            </div>
                            <div class="col-4">
                            </div>
                            <div class="col-4 green text-right">
-                           <button class="btn btn-success btn-sm" type="button">Download</button>
+                           <h4>Download</h4>
                            </div>
 
                         </div>
@@ -437,6 +444,13 @@
    .close {
    margin-top: 7px;
    }
+   .col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+    line-height: 16px;
+    font-size: 13px;
+}
    @media only screen and (max-width: 768px) {
    .coverimg img {
    object-fit: contain;
@@ -449,7 +463,7 @@
    }
    .videotags.row {
     position: absolute;
-    top: 4px;
+    top: -22px;
     width: 100%;
     padding: 0px 4px;
 }
