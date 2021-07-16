@@ -904,7 +904,7 @@ class artist extends Controller
 
     $return = $req->file ? $this->model->insertartistIdentity($data) : $this->model->insertartistagreement($data);
 
-    return $return ? response()->json(array('return'=>1)) :  response()->json(array('return'=>2));
+    return $return && $req->file ? response()->json(array('return'=>1)) :  response()->json(array('return'=>2));
 
 
 
