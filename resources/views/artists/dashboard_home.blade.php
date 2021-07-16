@@ -556,11 +556,11 @@
 
                                     <h3>Artist Agreement</h3>
                                     </div>
-                                    @if($agreement && $agreement[0]->is_verified==0)
+                                   
                                        <div class="text-center">
                                     <h3 class="agreement">{{'pending'}} </h3>
                                        </div>
-                                    @else
+                                   
 
                                     <button class="btn btn-success" type="button">Download</button>
 
@@ -579,7 +579,6 @@
                         </div>
                         {{ Form::close() }}
                      </div>
-                     @endif
                </div>
             </div>
          
