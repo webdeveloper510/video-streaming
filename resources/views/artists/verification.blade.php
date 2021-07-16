@@ -1,7 +1,7 @@
 @include('layout.cdn')
 <header>
    <div class="text-center">
-      <a href="{{}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
+      <a href="#"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
       
       <h1 class="text-white mt-2">Onboarding </h1>
    </div>
