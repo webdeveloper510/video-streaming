@@ -795,8 +795,7 @@
                      </div>
                   </div>
                   </div>
-               </div>
-               <div class="col-md-4">
+                  <div class="col-md-4">
                <div class="card" style="height:376px;">
                   <div class="card-body text-center">
                      <h4 class="card-title">Download Our Logo</h4>
@@ -805,6 +804,8 @@
                   </div>
                </div>
             </div>
+               </div>
+               
             </div>
       </div>
    </div>
