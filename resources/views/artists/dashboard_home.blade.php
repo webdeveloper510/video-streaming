@@ -532,7 +532,7 @@
          </div>
            <!-- Identity -->
            <div class="col-md-4">
-               <div class="card" style="height: 310px;" >
+               <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
                     <button type="button" class="btn btn-danger my-4">Failed</button>
@@ -546,7 +546,7 @@
             </div>
             <!-- Identity -->
             <div class="col-md-4">
-               <div class="card" style="height: 310px;" >
+               <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Artist Agreement</h3>
                     <button class="btn btn-success" type="button">Download</button>
@@ -567,8 +567,8 @@
                      </div>
                </div>
             </div>
-         </div>
          
+
          <div class="col-md-4">
             <a href=" {{url('/artist/earning')}}">
                <div class="card" style="    height: 420px;">
