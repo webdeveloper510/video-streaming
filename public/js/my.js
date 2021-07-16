@@ -2365,7 +2365,7 @@ function statusUpdate(table,is_verified){
         },
 
         data: {
-            'table': id,
+            'table': table,
             'is_verified': is_verified
         },
 
