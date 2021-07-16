@@ -2206,7 +2206,7 @@ $(document).on('submit', '#idCheck', function (event) {
                 
             }
 
-            if (data.return == 2) {
+            else if (data.return == 2) {
                             
                 location.reload();
                 
