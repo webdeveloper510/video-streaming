@@ -894,4 +894,4 @@
    display: none;
    }
 </style>
-@include('artists.dashboard_footer')
+@include('artists.dashboard_footer') 

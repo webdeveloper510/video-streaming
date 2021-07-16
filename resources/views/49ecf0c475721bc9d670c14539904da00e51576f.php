@@ -298,13 +298,12 @@
         <p>Your Account is Unverified!<br>
         Please submit the Identity Check Selfie and/Or the signed Artist Agreement to get verified.<br>
         <br>
-        You can upload them <a href="">here</a>.</p>
+        </p>
 </div>
 </div>
       </nav>
       <div class="container">
       <style>
-      /* width */
 ::-webkit-scrollbar {
   width: 5px;
 }

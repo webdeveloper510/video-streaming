@@ -1,4 +1,12 @@
+<header>
+   <div class="text-center">
+      <a href="#"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
+      
+      <h1 class="text-white mt-2">Onboarding </h1>
+   </div>
+</header>
 @include('artists.dashboard')
+
 
 <div id="yoti"></div>
 
@@ -14,5 +22,19 @@
     ]
   });
 </script>    
-
+       <style>
+         body{
+           background:#fca7b3;
+         }
+         nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top{
+           display:none;
+         }
+         .sidebar{
+           display:none;
+         }
+                 header {
+   background: #7b0000;
+   padding: 11px;
+   }
+   </style>
 @include('artists.dashboard_footer')
