@@ -1,5 +1,11 @@
-@include('artists.dashboard')
-
+@include('layout.cdn')
+<header>
+   <div class="text-center">
+      <a href="{{/}}"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
+      
+      <h1 class="text-white mt-2">Onboarding </h1>
+   </div>
+</header>
 <div id="yoti"></div>
 
 <!-- This script snippet will also be required in your HTML body -->
