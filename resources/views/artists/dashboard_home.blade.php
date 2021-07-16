@@ -879,6 +879,15 @@
    background: #22b14c;
    color: white;
    }
+   h3.agreement {
+    background: orange;
+    width: 50%;
+    display: block;
+    margin: 58px auto;
+    color: white;
+    padding: 8px;
+    text-transform: capitalize;
+}
    .columesdashboard3 {
    border: 3px solid #b97a57;
    padding: 30px 18px;
