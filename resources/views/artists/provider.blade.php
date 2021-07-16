@@ -204,7 +204,9 @@ label.error {
     margin-top: 22px;
     border-radius: 9px;
 }
-
+.radiobtn{
+  display:inline-flex;
+}
 .loader img {
     background: #ffffff61;
     
