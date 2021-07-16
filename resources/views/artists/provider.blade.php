@@ -50,7 +50,7 @@
             </div>
           <div class="col-md-6">
            <div class="form-group">
-    <label ></label>
+ 
     <select class="custom-select selctc&r" id="inputGroupSelect01">
     <option selected>Choose...</option>
     <option value="1">Nicknames</option>
