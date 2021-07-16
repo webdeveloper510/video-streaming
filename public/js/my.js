@@ -2355,6 +2355,29 @@ $(document).ready(function () {
     });
 });
 
+function statusUpdate(table,is_verified){
+
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/artistVerified",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: {
+            'table': table,
+            'is_verified': is_verified
+        },
+
+        success: function (data) {
+            console.log(data);
+
+        }
+    });
+
+
+
+}
 function addTohistory(type) {
     var id = $('#vidid').val();
     $.ajax({
