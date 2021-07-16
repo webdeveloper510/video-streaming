@@ -65,6 +65,11 @@
                margin: 0 auto;
                border: 2px solid gold;
                }
+               .panel-thumbnail img.card-img-top {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
                .container.my-4.row {
                margin: 0 auto;
                }
@@ -81,7 +86,7 @@
               
                </div>
                <div class="container row my-4">
-                  <div class="col"></div>
+                  <div class="col-md-2"></div>
                   <div class="col-md-4 col-6 loginfree mb-3 pl-5 text-center">
                      <a href="<?php echo e(url('/register')); ?>">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
@@ -92,7 +97,7 @@
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
                   </div>
-                  <div class="col"></div>
+                  <div class="col-md-2"></div>
                </div>
                
                     </div>
@@ -160,14 +165,14 @@
                     <div class="col-md-6 col-6">
                    
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
-                        Artist Highlights
+                        Artist 
                         </button>
                        
                         </div>
 
                         <div class="col-md-6 col-6">
                         <button class="btn btn-primary form-control btn-lg"style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
-                        Consumer Highlights
+                        Consumer 
                         </button>
                        
                         </div>
@@ -746,7 +751,7 @@
   position: absolute;
   margin: auto;
   left: 0;
-  top: 0.3em;
+  top: 1.3em;
   right: 0;
   opacity: 0; 
 }
@@ -830,6 +835,9 @@
    top: 41%;
    left: 44px;
    }
+   .conta {
+    margin: 20px 0px;
+}
    .card {
    background: black;
    color: white;
@@ -873,6 +881,14 @@
    text-align: center;
    margin-bottom: 10px;
    }
+   .ml4 .letters {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 2.3em;
+  right: 0;
+  opacity: 0; 
+}
    .panel h3.card-title.text-center {
     font-size: 17px !important;
 }
@@ -895,13 +911,13 @@
       padding:0px !important;
    }
    .ml4{
-      height:61px;
+      height:160px;
    }
    .header.pt-3 h3 {
     font-size: 25px !important;
 }
 h1.ml4 {
-    font-size: 20px;
+    font-size: 25px;
     width: 100% !important;
     top: 50%;
     color: white !important;

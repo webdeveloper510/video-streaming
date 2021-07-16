@@ -893,21 +893,18 @@ class artist extends Controller
 
   public function insertId(Request $req){
 
-    //$data = $req->all();
-
-   
+    //$data = $req->all();   
 
     unset($data['_token']);
 
-    $filename= time().'_'.$req->file->getClientOriginalName();
+    $filename= $req->file ? time().'_'.$req->file->getClientOriginalName() :  time().'_'.$req->agreement->getClientOriginalName();
 
-    $filepath = $req->file->storeAs('uploads', $filename, 'public');
+    $filepath = $req->file  ? $req->file->storeAs('uploads', $filename, 'public'): $req->agreement->storeAs('uploads', $filename, 'public');
 
-    $data['artist_profile'] = $filename;
+    $req->file ? $data['artist_profile'] : $data['agreement'] = $filename;
 
-    //print_r($data);die;
 
-    $return = $this->model->insertartistIdentity($data);
+    $return = $req->file ? $this->model->insertartistIdentity($data) : $this->model->insertartistagreement($data);
 
     return $return;
 

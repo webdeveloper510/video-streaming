@@ -735,17 +735,22 @@
 
                </div>
                   <div class="card-body text-center">
-                                       <form>
+                  {!!Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true])!!}
+          {{Form::token()}} 
      
                         <div class="form-group ">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+            <input type="agreement" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
                            
                         </div>
+                        <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
                         <div class="form-group text-center mt-4">
                               <button type="submit" class="btn btn-outline-primary">Submit</button>
                         </div>
-                        </form>
+                        {{ Form::close() }}
                      </div>
                </div>
             </div>
