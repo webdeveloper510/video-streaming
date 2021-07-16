@@ -531,7 +531,7 @@
             </div>
          </div>
            <!-- Identity -->
-           <div class="col-md-4">
+           <div class="col-md-4" style="{{$idenetity && $idenetity[0]->is_verified==1 ? 'display:none' : 'display:block'}}">
                <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
@@ -550,7 +550,7 @@
                </div>
             </div>
             <!-- Identity -->
-            <div class="col-md-4">
+            <div class="col-md-4" style="{{$agreement && $agreement[0]->is_verified==1 ? 'display:none' : 'display:block'}}">
                         <div class="card" style="height: 420px;" >
                                  <div class="card-head text-center">
 
