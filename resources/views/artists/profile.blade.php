@@ -216,9 +216,10 @@
                            <div class="col-4 blue text-left">
                         <h4>Stream</h4>
                            </div>
-                           <div class="col-4">
-                           </div>
                            <div class="col-4 green text-right">
+                             <h4>Download</h4>
+                           </div>
+                           <div class="col-4 ">
                            
                            </div>
 
