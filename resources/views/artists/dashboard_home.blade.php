@@ -570,7 +570,7 @@
           {{Form::token()}} 
      
                         <div class="form-group ">
-                        <input type="agreement" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <input type="file" class="custom-file-input" name="agreement" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
                            
                         </div>

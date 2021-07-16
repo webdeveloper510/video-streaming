@@ -539,6 +539,64 @@
                <?php endif; ?>
             </div>
          </div>
+           <!-- Identity -->
+           <div class="col-md-4">
+               <div class="card" style="height: 420px;" >
+               <div class="card-head text-center">
+                    <h3>Identity Check </h3>
+
+                    <?php if($idenetity && $idenetity[0]->is_verified==0): ?>
+                    <?php echo e('pending'); ?>
+
+                    <?php else: ?>
+                    <button type="button" class="btn btn-danger my-4">Failed</button>
+               </div>
+                  <div class="card-body text-center">
+ 
+                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
+                        
+                     </div>
+                     <?php endif; ?>
+               </div>
+            </div>
+            <!-- Identity -->
+            <div class="col-md-4">
+                        <div class="card" style="height: 420px;" >
+                                 <div class="card-head text-center">
+
+                                    <h3>Artist Agreement</h3>
+
+                                    <?php if($agreement && $agreement[0]->is_verified==0): ?>
+
+                                    <?php echo e('pending'); ?>
+
+
+                                    <?php else: ?>
+
+                                    <button class="btn btn-success" type="button">Download</button>
+
+                                 </div>
+                  <div class="card-body text-center">
+                  <?php echo Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true]); ?>
+
+          <?php echo e(Form::token()); ?> 
+     
+                        <div class="form-group ">
+                        <input type="agreement" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
+                           
+                        </div>
+                        <div class="form-group text-center mt-4">
+                              <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        </div>
+                        <?php echo e(Form::close()); ?>
+
+                     </div>
+                     <?php endif; ?>
+               </div>
+            </div>
+         
+
          <div class="col-md-4">
             <a href=" <?php echo e(url('/artist/earning')); ?>">
                <div class="card" style="    height: 420px;">
@@ -723,55 +781,10 @@
                </div>
             </div>
             </div>
-            <div class="col-md-4">
-               <div class="card" style="height: 310px;">
-                  <div class="card-body text-center">
-                     <h4 class="card-title">Download Our Logo</h4>
-                     <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download class="img-fliud w-100 logodownload">
-                     <a href="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
-                  </div>
-               </div>
-            </div>
-            <!-- Identity -->
-            <div class="col-md-4">
-               <div class="card" style="height: 310px;" >
-               <div class="card-head text-center">
-                    <h3>Identity Check </h3>
-                    <button type="button" class="btn btn-danger my-4">Failed</button>
-               </div>
-                  <div class="card-body text-center">
- 
-                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
-                        
-                     </div>
-               </div>
-            </div>
-            <!-- Identity -->
-            <div class="col-md-4">
-               <div class="card" style="height: 310px;" >
-               <div class="card-head text-center">
-                    <h3>Artist Agreement</h3>
-                    <button class="btn btn-success" type="button">Download</button>
-
-               </div>
-                  <div class="card-body text-center">
-                                       <form>
-     
-                        <div class="form-group ">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
-                           
-                        </div>
-                        <div class="form-group text-center mt-4">
-                              <button type="submit" class="btn btn-outline-primary">Submit</button>
-                        </div>
-                        </form>
-                     </div>
-               </div>
-            </div>
-         </div>
+           
+          
          <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="height:376px;">
                <div class="card-body">
                   <button class="btn btn-success float-right" type="button">Download</button>
                         <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
@@ -823,7 +836,17 @@
                      </div>
                   </div>
                   </div>
+                  <div class="col-md-4">
+               <div class="card" style="height:376px;">
+                  <div class="card-body text-center">
+                     <h4 class="card-title">Download Our Logo</h4>
+                     <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download class="img-fliud w-100 logodownload">
+                     <a href="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
+                  </div>
                </div>
+            </div>
+               </div>
+               
             </div>
       </div>
    </div>
