@@ -951,7 +951,7 @@ class artist extends Controller
 
         //print_r($request->all());
 
-        $update = $this->UpdateData($table,'artist_id',$request->all(),$contentId);
+        $update = $this->model->UpdateData($table,'artist_id',$request->all(),$contentId);
 
         return $update;
 
