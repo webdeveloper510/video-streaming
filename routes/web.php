@@ -132,6 +132,8 @@ Route::post('resetPassword','AuthController@resetPassword');
 
 Route::post('popupClose','AuthController@popupClose');
 
+Route::post('artistVerified','artist@artistVerified');
+
 Route::post('deletePlaylist', 'AuthController@deletePlaylist1');
 
 
