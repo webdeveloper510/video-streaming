@@ -102,6 +102,13 @@
                .text-center.Artistxyz {
                padding: 30px;
                }
+               .col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+    line-height: 16px;
+    font-size: 13px;
+}
                .noti {
                background: blue;
                height: 16px;
@@ -150,12 +157,12 @@
                         </div>
                         <div class="videotags row">
                            <div class="col-4 blue text-left">
-                        <button class="btn btn-primary btn-sm" type="button">Stream</button>
+                        <h4>Stream</h4>
                            </div>
                            <div class="col-4">
                            </div>
                            <div class="col-4 green text-right">
-                           <button class="btn btn-success btn-sm" type="button">Download</button>
+                           <h4>Download</h4>
                            </div>
 
                         </div>
