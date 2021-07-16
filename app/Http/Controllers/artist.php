@@ -941,7 +941,21 @@ class artist extends Controller
 
   public function artistVerified(Request $request){
 
-        print_r($request->all());
+        $table = $request->table;
+
+        unset($request['table']);
+
+        $contentData=Session::get('User');
+
+        $contentId=$contentData->id;
+
+        //print_r($request->all());
+
+        $update = $this->UpdateData($table,'artist_id',$request->all(),$contentId);
+
+        return $update;
+
+
   }
 
   public function editProfileVideo($data1){

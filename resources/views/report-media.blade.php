@@ -311,12 +311,12 @@
                <td> {{$signedProfile->nickname}}</td>
                <td>{{$signedProfile->mediacount + $signedProfile->offercount}}</td>
                <td class="text-center"> <h5>{{$signedProfile->agreement ? $signedProfile->agreement : ''}} </h5>
-               <button class="btn btn-success" type="button" onClick="statusUpdate('identify_artist',1)">Confirm</button>
-                     <button class="btn btn-danger" type="button" onClick="statusUpdate('identify_artist',-1)">Deny</button></td>
+               <button class="btn btn-success agreement" type="button" onClick="statusUpdate('agreement',1)">Confirm</button>
+                     <button class="btn btn-danger agreement" type="button" onClick="statusUpdate('agreement',-1)">Deny</button></td>
                <td class="text-center">
                <h5>{{$signedProfile->artist_profile ? $signedProfile->artist_profile : ''}} </h5>
-               <button class="btn btn-success" type="button" onClick="statusUpdate('agreement',1)">Confirm</button>
-                     <button class="btn btn-danger" type="button" onClick="statusUpdate('agreement',0)">Deny</button>
+               <button class="btn btn-success identify_artist" type="button" onClick="statusUpdate('identify_artist',1)">Confirm</button>
+                     <button class="btn btn-danger identify_artist" type="button" onClick="statusUpdate('identify_artist',-1)">Deny</button>
                </td>
                <td>{{$signedProfile->created_at}}</td>
             </tr>

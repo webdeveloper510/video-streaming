@@ -2370,7 +2370,13 @@ function statusUpdate(table,is_verified){
         },
 
         success: function (data) {
-            console.log(data);
+            if(data==1){
+                $('.'+table).hide();
+            }
+
+            else{
+                alert('error');
+            }
 
         }
     });
