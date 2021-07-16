@@ -670,10 +670,11 @@
             <div class="carousel-item col-md-4  active">
                <div class="panel panel-default">
                   <div class="panel-thumbnail">
+                  <a href="{{url('artistDetail/'.$val->id)}}" title="image 1" class="thumb">
                      <div class="card mt-5">
-                        <a href="{{url('artistDetail/'.$val->id)}}" title="image 1" class="thumb">
+                       
                         <img class="card-img-top" src="{{$val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg' }}" alt=" image cap">
-                        </a>  
+                       
                         <div class="card-body text-center">
                            <h3 class="card-title text-center">{{$val->nickname}}  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i>{{$val->count}} </small></h3>
                            <button class="btn btn-danger  my-3 {{$isSubscribed && in_array($val->id,$isSubscribed) ? 'hide' : 'block'}}" type="button" onclick="subscribe({{$val->id}},true)"> Subscribe</button>
@@ -700,6 +701,7 @@
                            </div>
                         </div>
                      </div>
+                     </a>  
                   </div>
                </div>
             </div>
