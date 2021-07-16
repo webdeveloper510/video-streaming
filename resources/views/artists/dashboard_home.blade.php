@@ -558,7 +558,7 @@
 
                                     @if($agreement && $agreement[0]->is_verified==0)
 
-                                    {{pending}}
+                                    {{'pending'}}
 
                                     @else
 
