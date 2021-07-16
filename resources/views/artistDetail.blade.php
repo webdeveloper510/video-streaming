@@ -449,9 +449,9 @@
    }
    .videotags.row {
     position: absolute;
-    top: -22px;
+    top: 4px;
     width: 100%;
-    padding: 0px 10px;
+    padding: 0px 4px;
 }
 </style>
 <!-- Modal -->
