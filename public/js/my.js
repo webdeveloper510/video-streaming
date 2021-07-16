@@ -2200,11 +2200,19 @@ $(document).on('submit', '#idCheck', function (event) {
             //console.log(data);return false;
 
 
-            if (data == 1) {
+            if (data.return == 1) {
                             
                 window.location.href= APP_URL+"/artist/edit"
                 
-            } else {
+            }
+
+            if (data.return == 2) {
+                            
+                location.reload();
+                
+            }
+            
+            else {
 
               alert('Error');
 
