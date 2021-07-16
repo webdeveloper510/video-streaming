@@ -2372,7 +2372,7 @@ function statusUpdate(table,is_verified,artistid){
 
         success: function (data) {
 
-            console.log(data);return false;
+            console.log(data);
             if(data==1){
                 $('.'+table).hide();
             }
