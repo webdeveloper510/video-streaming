@@ -535,6 +535,10 @@
                <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
+
+                    @if($idenetity && $idenetity[0]->is_verified==0)
+                    {{'pending'}}
+                    @else
                     <button type="button" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
@@ -542,6 +546,7 @@
                         <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
                         
                      </div>
+                     @endif
                </div>
             </div>
             <!-- Identity -->
