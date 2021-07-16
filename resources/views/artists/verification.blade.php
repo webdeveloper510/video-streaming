@@ -20,5 +20,10 @@
     ]
   });
 </script>    
-
+       <style>
+                 header {
+   background: #7b0000;
+   padding: 11px;
+   }
+   </style>
 @include('artists.dashboard_footer')
