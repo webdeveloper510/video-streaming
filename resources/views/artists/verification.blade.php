@@ -1,4 +1,5 @@
-@include('layout.cdn')
+@include('artists.dashboard')
+
 <header>
    <div class="text-center">
       <a href="#"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
