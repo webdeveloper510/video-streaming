@@ -530,6 +530,45 @@
                @endif
             </div>
          </div>
+           <!-- Identity -->
+           <div class="col-md-4">
+               <div class="card" style="height: 310px;" >
+               <div class="card-head text-center">
+                    <h3>Identity Check </h3>
+                    <button type="button" class="btn btn-danger my-4">Failed</button>
+               </div>
+                  <div class="card-body text-center">
+ 
+                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
+                        
+                     </div>
+               </div>
+            </div>
+            <!-- Identity -->
+            <div class="col-md-4">
+               <div class="card" style="height: 310px;" >
+               <div class="card-head text-center">
+                    <h3>Artist Agreement</h3>
+                    <button class="btn btn-success" type="button">Download</button>
+
+               </div>
+                  <div class="card-body text-center">
+                                       <form>
+     
+                        <div class="form-group ">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
+                           
+                        </div>
+                        <div class="form-group text-center mt-4">
+                              <button type="submit" class="btn btn-outline-primary">Submit</button>
+                        </div>
+                        </form>
+                     </div>
+               </div>
+            </div>
+         </div>
+         
          <div class="col-md-4">
             <a href=" {{url('/artist/earning')}}">
                <div class="card" style="    height: 420px;">
@@ -712,44 +751,7 @@
                   </div>
                </div>
             </div>
-            <!-- Identity -->
-            <div class="col-md-4">
-               <div class="card" style="height: 310px;" >
-               <div class="card-head text-center">
-                    <h3>Identity Check </h3>
-                    <button type="button" class="btn btn-danger my-4">Failed</button>
-               </div>
-                  <div class="card-body text-center">
- 
-                        <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
-                        
-                     </div>
-               </div>
-            </div>
-            <!-- Identity -->
-            <div class="col-md-4">
-               <div class="card" style="height: 310px;" >
-               <div class="card-head text-center">
-                    <h3>Artist Agreement</h3>
-                    <button class="btn btn-success" type="button">Download</button>
-
-               </div>
-                  <div class="card-body text-center">
-                                       <form>
-     
-                        <div class="form-group ">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
-                           
-                        </div>
-                        <div class="form-group text-center mt-4">
-                              <button type="submit" class="btn btn-outline-primary">Submit</button>
-                        </div>
-                        </form>
-                     </div>
-               </div>
-            </div>
-         </div>
+          
          <div class="col-md-8">
             <div class="card">
                <div class="card-body">
