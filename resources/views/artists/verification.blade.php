@@ -2,7 +2,7 @@
    <div class="text-center">
       <a href="#"><img src="{{asset('images/logos/good_quality_logo.png')}}" height="50" alt="CoolBrand"></a>
       
-      <h1 class="text-white mt-2">Onboarding </h1>
+      <h3 class="text-white mt-2">Onboarding </h3>
    </div>
 </header>
 @include('artists.dashboard')
