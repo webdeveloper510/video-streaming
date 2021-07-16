@@ -555,16 +555,16 @@
                                  <div class="card-head text-center">
 
                                     <h3>Artist Agreement</h3>
-
+                                    </div>
                                     @if($agreement && $agreement[0]->is_verified==0)
 
-                                    {{'pending'}}
+                                    <h3 class="agreement">{{'pending'}} </h3>
 
                                     @else
 
                                     <button class="btn btn-success" type="button">Download</button>
 
-                                 </div>
+                               
                   <div class="card-body text-center">
                   {!!Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true])!!}
           {{Form::token()}} 
