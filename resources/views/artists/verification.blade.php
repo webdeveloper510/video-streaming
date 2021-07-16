@@ -21,6 +21,9 @@
   });
 </script>    
        <style>
+         body{
+           background:#fca7b3;
+         }
                  header {
    background: #7b0000;
    padding: 11px;
