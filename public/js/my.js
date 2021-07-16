@@ -2355,7 +2355,7 @@ $(document).ready(function () {
     });
 });
 
-function statusUpdate(table,is_verified,artistid){
+function statusUpdate(a,table,is_verified,artistid){
 
     $.ajax({
         type: 'POST',
@@ -2374,7 +2374,8 @@ function statusUpdate(table,is_verified,artistid){
 
             console.log(data);
             if(data==1){
-                $('.'+table).hide();
+                $(a).hide();
+                $(a).next().hide();
             }
 
             else{
