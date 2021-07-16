@@ -249,11 +249,6 @@ class artist extends Controller
     public function dashboard()
     {
 
-     // echo "dff";die;
-
-    //  dd('success');
-      //print_r(Carbon::now(UTC+5)->toDateTimeString());die;
-
       $navbaractive = 'dashboard';
 
       $contentType =   Session::get('User');
@@ -265,6 +260,9 @@ class artist extends Controller
       $profileComplete = $this->model->profileInfo($id);
 
       $social_names = $this->model->getSocialName($contentType->id);
+
+      $agreement = $this->model->getArtistAgreement('agreement');
+      $identify = $this->model->getArtistAgreement('identify_artist');
       // echo "<pre>";
 
       //   print_r($social_names);die;
@@ -354,7 +352,7 @@ class artist extends Controller
       
       //dd();
 
-      return view('artists.dashboard_home',['profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['agreement'=>$agreement,'idenetity'=>$identify,'profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -893,23 +891,20 @@ class artist extends Controller
 
   public function insertId(Request $req){
 
-    //$data = $req->all();
-
-   
+    //$data = $req->all();   
 
     unset($data['_token']);
 
-    $filename= time().'_'.$req->file->getClientOriginalName();
+    $filename= $req->file ? time().'_'.$req->file->getClientOriginalName() :  time().'_'.$req->agreement->getClientOriginalName();
 
-    $filepath = $req->file->storeAs('uploads', $filename, 'public');
+    $filepath = $req->file  ? $req->file->storeAs('uploads', $filename, 'public'): $req->agreement->storeAs('uploads', $filename, 'public');
 
-    $data['artist_profile'] = $filename;
+    $req->file ? $data['artist_profile'] : $data['agreement'] = $filename;
 
-    //print_r($data);die;
 
-    $return = $this->model->insertartistIdentity($data);
+    $return = $req->file ? $this->model->insertartistIdentity($data) : $this->model->insertartistagreement($data);
 
-    return $return;
+    return $return ? response()->json(array('return'=>1)) :  response()->json(array('return'=>2));
 
 
 

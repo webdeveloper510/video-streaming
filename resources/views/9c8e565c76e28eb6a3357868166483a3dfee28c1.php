@@ -5,7 +5,7 @@
       <div class="float-right">
          <a href="<?php echo e(url('/logout/default')); ?>"><button class="btn btn-primery">Logout</button></a>
       </div>
-      <h1 class="text-white mt-2"> Content Review</h1>
+      <h1 class="text-white mt-2"> Onboarding : Content Review</h1>
    </div>
 </header>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -20,7 +20,7 @@
    </li>
    <li class="nav-item">
       <a class="nav-link" id="pills-Identity-tab" data-toggle="pill" href="#pills-Identity" role="tab" aria-controls="pills-Identity" aria-selected="false">Contract & Identity Check</a>
-   </li>
+   </li>   
 </ul>
 <div class="tab-content" id="pills-tabContent">
    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -309,7 +309,7 @@
             <tr>
                <th scope="row"><?php echo e($loop->iteration); ?></th>
                <td> name</td>
-               <td>0</td>
+               <td><?php echo e($signedProfile->mediacount + $signedProfile->offercount); ?></td>
                <td class="text-center"> <h5><?php echo e($signedProfile->artist_profile); ?> </h5>
                <button class="btn btn-success" type="button">Confirm</button>
                      <button class="btn btn-danger" type="button">Deny</button></td>
@@ -320,6 +320,8 @@
                </td>
                <td><?php echo e($signedProfile->created_at); ?></td>
             </tr>
+
+             
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
          </tbody>
          </table>    

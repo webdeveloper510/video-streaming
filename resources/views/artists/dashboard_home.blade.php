@@ -535,6 +535,10 @@
                <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
+
+                    @if($idenetity && $idenetity[0]->is_verified==0)
+                    {{'pending'}}
+                    @else
                     <button type="button" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
@@ -542,29 +546,40 @@
                         <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
                         
                      </div>
+                     @endif
                </div>
             </div>
             <!-- Identity -->
             <div class="col-md-4">
-               <div class="card" style="height: 420px;" >
-               <div class="card-head text-center">
-                    <h3>Artist Agreement</h3>
-                    <button class="btn btn-success" type="button">Download</button>
+                        <div class="card" style="height: 420px;" >
+                                 <div class="card-head text-center">
 
-               </div>
+                                    <h3>Artist Agreement</h3>
+
+                                    @if($agreement && $agreement[0]->is_verified==0)
+
+                                    {{'pending'}}
+
+                                    @else
+
+                                    <button class="btn btn-success" type="button">Download</button>
+
+                                 </div>
                   <div class="card-body text-center">
-                                       <form>
+                  {!!Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true])!!}
+          {{Form::token()}} 
      
                         <div class="form-group ">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <input type="file" class="custom-file-input" name="agreement" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
                            
                         </div>
                         <div class="form-group text-center mt-4">
                               <button type="submit" class="btn btn-outline-primary">Submit</button>
                         </div>
-                        </form>
+                        {{ Form::close() }}
                      </div>
+                     @endif
                </div>
             </div>
          
