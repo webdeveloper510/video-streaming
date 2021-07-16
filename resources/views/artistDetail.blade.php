@@ -148,6 +148,17 @@
                               </form>
                            </div>
                         </div>
+                        <div class="videotags row">
+                           <div class="col-4 blue text-left">
+                        <button class="btn btn-primary btn-sm" type="button">Stream</button>
+                           </div>
+                           <div class="col-4">
+                           </div>
+                           <div class="col-4 green text-right">
+                           <button class="btn btn-success btn-sm" type="button">Download</button>
+                           </div>
+
+                        </div>
                         <a href="{{url('artist-video/'.$detail->id)}}">
                            <video class="hoverVideo" id="detail_{{$detail->id}}" poster="{{url('storage/app/public/uploads/'.$detail->audio_pic) }}" width="100%"  height="100%"   loop="true" controlsList="nodownload" disablePictureInPicture>
                               <source src="{{url('storage/app/public/video/'.$detail->media) }}" type="video/mp4">
@@ -436,6 +447,12 @@
    line-height: auto;
    }
    }
+   .videotags.row {
+    position: absolute;
+    top: 4px;
+    width: 100%;
+    padding: 0px 4px;
+}
 </style>
 <!-- Modal -->
 <div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
