@@ -2162,8 +2162,6 @@ $(document).on('submit', '#idCheck', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
     $('.loader').show();
-    //$('.button_disable').attr('disabled',true);
-    //console.log(formData);return false;
     $.ajax({
         type: 'POST',
         url: APP_URL + "/insertId",

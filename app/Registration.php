@@ -775,6 +775,23 @@ public function getArtistDetail($artid,$type){
 
   }
 
+  public function insertartistagreement($data){
+
+    $contentData=Session::get('User');
+
+    $contentId = $contentData->id;
+
+    $data['created_at'] = now();
+
+    $data['updated_at'] = now();
+
+    
+    $data['artist_id']=$contentId;
+
+    return DB::table('agreement')->insert($data);
+
+  }
+
 
   public function getQuality(){
 
