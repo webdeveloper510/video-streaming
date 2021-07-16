@@ -98,6 +98,7 @@ $(document).ready(function () {
     if (screenWidth <= 768) { 
 
             $('#mobile_view').attr('autoplay', 'autoplay'); 
+            $('#mobile_view').attr('loop', 'loop'); 
 
     }
  
