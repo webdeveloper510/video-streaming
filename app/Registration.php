@@ -702,14 +702,33 @@ public function getArtistDetail($artid,$type){
 
     $contentId = $contentData->id;
 
-    $data['created_at'] = now();
+    $is_exist = $checkTokn = $this->selectDataById('artist_id','identify_artist',$contentId);
 
-    $data['updated_at'] = now();
+    if(count($is_exist) > 0){
 
-    
-    $data['artist_id']=$contentId;
+      $data = array('artist_profile'=>$data['artist_profile'],'is_verified'=>0);
 
-    return DB::table('identify_artist')->insert($data);
+      return $update = $this->UpdateData('identify_artist','artist_id',$data,$contentId);
+
+
+    }
+
+    else{
+
+      $data['created_at'] = now();
+
+      $data['updated_at'] = now();
+  
+      
+      $data['artist_id']=$contentId;
+
+      return DB::table('identify_artist')->insert($data);
+
+    }
+
+  
+
+   
 
 
 
@@ -756,6 +775,7 @@ public function getArtistDetail($artid,$type){
 
     $data=DB::table('identify_artist')
     ->leftjoin('contentprovider', 'contentprovider.id', '=','identify_artist.artist_id')
+    ->leftjoin('agreement', 'agreement.artist_id', '=','identify_artist.artist_id')
     ->leftjoin('media', function($join)
     {
         $join->on('identify_artist.artist_id', '=', 'media.contentProviderid')
@@ -766,9 +786,9 @@ public function getArtistDetail($artid,$type){
         $join->on('identify_artist.artist_id', '=', 'offer.artistid')
           ->where('offer.is_verified', '=', 0);
     })
-     ->select('identify_artist.artist_profile',DB::raw("count(media.id) as mediacount"),DB::raw("count(offer.id) as offercount"),'contentprovider.nickname','contentprovider.created_at')
+     ->select('identify_artist.artist_profile','agreement.agreement',DB::raw("count(media.id) as mediacount"),DB::raw("count(offer.id) as offercount"),'contentprovider.nickname','contentprovider.created_at')
      ->where('identify_artist.is_verified',0)
-     ->groupBy('identify_artist.artist_profile','contentprovider.nickname','contentprovider.created_at')
+     ->groupBy('identify_artist.artist_profile','agreement.agreement','contentprovider.nickname','contentprovider.created_at')
      ->get()->toArray(); 
 
      return $data;
@@ -785,10 +805,30 @@ public function getArtistDetail($artid,$type){
 
     $data['updated_at'] = now();
 
-    
-    $data['artist_id']=$contentId;
+    $is_exist = $checkTokn = $this->selectDataById('artist_id','agreement',$contentId);
 
-    return DB::table('agreement')->insert($data);
+
+    if(count($is_exist) > 0){
+
+      $data = array('agreement'=>$data['agreement'],'is_verified'=>0);
+
+       $update = $this->UpdateData('agreement','artist_id',$data,$contentId);
+
+       return $update;
+    }
+
+    else{
+
+      $data['created_at'] = now();
+
+      $data['updated_at'] = now();
+  
+      
+      $data['artist_id']=$contentId;
+
+      return DB::table('agreement')->insert($data);
+
+    }
 
   }
 

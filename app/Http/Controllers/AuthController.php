@@ -308,7 +308,9 @@ class AuthController extends Controller
 
       $artist_signed_profile = $this->model->getIdSignature();
 
-      ///print_r($artist_signed_profile);die;
+      // echo "<pre>";
+
+      // print_r($artist_signed_profile);die;
 
       $offer_not_VerifiedContent = $this->model->getNotVerifiedContent('offer');
 

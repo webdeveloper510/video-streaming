@@ -100,7 +100,7 @@
                                  <div class="col">
                                    
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-4" style="<?php echo e($val->is_download==0 ? 'display:none':'display:block'); ?>">
                                   <button class="btn btn-succes btn-sm">Download Now</button>
                                  </div>
                               </div>
