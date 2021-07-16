@@ -26,7 +26,7 @@
          body{
            background:#fca7b3;
          }
-         nav{
+         nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top{
            display:none;
          }
          .sidebar{
