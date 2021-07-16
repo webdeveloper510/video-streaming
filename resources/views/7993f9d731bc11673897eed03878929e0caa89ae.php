@@ -100,7 +100,7 @@
                                  <div class="col">
                                    
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-4" style="<?php echo e($val->is_download==0 ? 'display:none':'display:block'">
                                   <button class="btn btn-succes btn-sm">Download Now</button>
                                  </div>
                               </div>
@@ -108,7 +108,7 @@
                                 width="100%"
                                 height="100%"
                                 controls="controls"
-                                poster="<?php echo e(url('storage/app/public/uploads/'.$val->audio_pic)); ?>"
+                                poster="{{url('storage/app/public/uploads/'.$val->audio_pic)); ?>"
                                 controlsList="nodownload"
                                 disablePictureInPicture="disablePictureInPicture">
                                 <source
