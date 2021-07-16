@@ -163,6 +163,26 @@
 .card:hover{
   border:1px solid yellow;
 }
+.col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+    line-height: 16px;
+    font-size: 13px;
+}
+.col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+    line-height: 16px;
+    font-size: 13px;
+}
+.videotags.row {
+    position: absolute;
+    top: -22px;
+    width: 100%;
+    padding: 0px 4px;
+}
 .checkall input {
     width: 20px;
     height: 20px;
