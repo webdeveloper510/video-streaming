@@ -949,7 +949,7 @@ class artist extends Controller
 
         $contentId=$contentData->id;
 
-        //print_r($request->all());
+        print_r($request->all());die;
 
         $update = $this->model->UpdateData($table,'artist_id',$request->all(),$contentId);
 
