@@ -437,6 +437,13 @@
    .close {
    margin-top: 7px;
    }
+   .col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+    line-height: 16px;
+    font-size: 13px;
+}
    @media only screen and (max-width: 768px) {
    .coverimg img {
    object-fit: contain;
