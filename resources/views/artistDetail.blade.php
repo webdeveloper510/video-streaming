@@ -463,7 +463,7 @@
    }
    .videotags.row {
     position: absolute;
-    top: 4px;
+    top: -22px;
     width: 100%;
     padding: 0px 4px;
 }
