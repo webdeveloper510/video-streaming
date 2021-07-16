@@ -788,7 +788,7 @@ public function getArtistDetail($artid,$type){
     })
      ->select('identify_artist.artist_profile','identify_artist.artist_id as artistid','agreement.artist_id as aid','agreement.agreement',DB::raw("count(media.id) as mediacount"),DB::raw("count(offer.id) as offercount"),'contentprovider.nickname','contentprovider.created_at')
      ->where('identify_artist.is_verified',0)
-     ->groupBy('identify_artist.artist_profile','contentprovider.nickname','contentprovider.created_at')
+     ->groupBy('identify_artist.artist_profile','identify_artist.artist_id','agreement.artist_id','contentprovider.nickname','agreement.agreement','contentprovider.created_at')
      ->get()->toArray(); 
 
      return $data;

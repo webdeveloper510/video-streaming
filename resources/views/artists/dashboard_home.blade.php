@@ -531,7 +531,7 @@
             </div>
          </div>
            <!-- Identity -->
-           <div class="col-md-4">
+           <div class="col-md-4" style="{{$idenetity && $idenetity[0]->is_verified==1 ? 'display:none' : 'display:block'}}">
                <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
@@ -539,7 +539,7 @@
                     @if($idenetity && $idenetity[0]->is_verified==0)
                     {{'pending'}}
                     @else
-                    <button type="button" class="btn btn-danger my-4">Failed</button>
+                    <button type="button" style="{{$idenetity && $idenetity[0]->is_verified==-1 ? 'display:none' : 'display:block'}}" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
  
@@ -550,7 +550,7 @@
                </div>
             </div>
             <!-- Identity -->
-            <div class="col-md-4">
+            <div class="col-md-4" style="{{$agreement && $agreement[0]->is_verified==1 ? 'display:none' : 'display:block'}}">
                         <div class="card" style="height: 420px;" >
                                  <div class="card-head text-center">
 
@@ -561,6 +561,9 @@
                                     <h3 class="agreement">{{'pending'}} </h3>
                                        </div>
                                     @else
+
+                                    <button type="button" style="{{$agreement && $agreement[0]->is_verified==-1 ? 'display:none' : 'display:block'}}" class="btn btn-danger my-4">Failed</button>
+
 
                                     <button class="btn btn-success" type="button">Download</button>
 
