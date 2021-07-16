@@ -2355,7 +2355,7 @@ $(document).ready(function () {
     });
 });
 
-function statusUpdate(table,is_verified){
+function statusUpdate(table,is_verified,artistid){
 
     $.ajax({
         type: 'POST',
@@ -2366,7 +2366,8 @@ function statusUpdate(table,is_verified){
 
         data: {
             'table': table,
-            'is_verified': is_verified
+            'is_verified': is_verified,
+            'artistid':artistid
         },
 
         success: function (data) {

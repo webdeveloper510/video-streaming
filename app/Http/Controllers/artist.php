@@ -942,16 +942,20 @@ class artist extends Controller
   public function artistVerified(Request $request){
 
         $table = $request->table;
+        $artistid = $request->artistid;
 
         unset($request['table']);
+        unset($request['artistid']);
 
-        $contentData=Session::get('User');
 
-        $contentId=$contentData->id;
+
+        // $contentData=Session::get('User');
+
+        // $contentId=$contentData->id;
 
         print_r($request->all());die;
 
-        $update = $this->model->UpdateData($table,'artist_id',$request->all(),$contentId);
+        $update = $this->model->UpdateData($table,'artist_id',$request->all(),$artistid);
 
         return $update;
 
