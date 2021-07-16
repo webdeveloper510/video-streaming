@@ -82,12 +82,12 @@
                </div>
                <div class="container row my-4">
                   <div class="col"></div>
-                  <div class="col-md-4 mb-3 pl-5 text-center">
+                  <div class="col-md-4 col-6 loginfree mb-3 pl-5 text-center">
                      <a href="<?php echo e(url('/register')); ?>">
                      <button type="button" class="btn btn-success btn-lg free form-control">Join Free</button>
                      </a>
                   </div>
-                  <div class="col-md-4 pr-5 text-center">
+                  <div class="col-md-4 col-6 loginfree pr-5 text-center">
                      <a href="<?php echo e(url('/login')); ?>">
                      <button type="button" class="btn btn-primary btn-lg form-control freelog">Login</button>
                      </a>
@@ -115,7 +115,7 @@
   <span class="letters letters-15">Erotic Fiction</span>
   <span class="letters letters-17">Goddess</span>
   <span class="letters letters-19">Hentai</span>
-  <span class="letters letters-20">Hidden <br>cam <br> Fantasy</span>
+  <span class="letters letters-20">Hidden cam  Fantasy</span>
   <span class="letters letters-21">Hypnosis</span>
   <span class="letters letters-22">JOI</span>
   <span class="letters letters-23">Lingerie</span>
@@ -140,6 +140,7 @@
                <div class="col-md-10 mb-3">
                   <video
                      class="hoverVideo"
+                     id="mobile_view"
                      width="100%"
                      muted
                      allowfullscreen="allowfullscreen">
@@ -155,25 +156,23 @@
 
 
             <div class="container">
-               <div class="row px-5">
-                    <div class="col-md-6">
-                    <p>
+               <div class="row">
+                    <div class="col-md-6 col-6">
+                   
                         <button class="btn btn-primary form-control btn-lg" style="background:#8F00FF !important;" type="button" data-toggle="collapse" data-target="#artist" aria-expanded="false" aria-controls="collapseExample">
                         Artist Highlights
                         </button>
-                        </p>
+                       
                         </div>
 
-                        <div class="col-md-6">
-
-                        <p>
-                        <button class="btn btn-primary form-control btn-lg" style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="col-md-6 col-6">
+                        <button class="btn btn-primary form-control btn-lg"style="background: #bf0000;" type="button" data-toggle="collapse" data-target="#consumer" aria-expanded="false" aria-controls="collapseExample">
                         Consumer Highlights
                         </button>
-                        </p>
+                       
                         </div>
                         </div>
-                        <div class="container">
+                        <div class="conta">
                     <div class="col-md-12">
                    
                         <div class="collapse" id="consumer">
@@ -239,7 +238,7 @@
                         </div>
                   
                         <div class="collapse" id="artist">
-                        <div class="card card-body">
+                       
                         <div class="row my-5">
                   <div class="col"></div>
                   <div class="col-md-8">
@@ -295,7 +294,7 @@
                      </div>
                   </div>
                   <div class="col"></div>
-               </div>
+            
                         </div>
                         </div>
                     </div>
@@ -303,7 +302,7 @@
 
 
 
-
+            </div>
             <div class="slider_tittle">
                <h3 class="tittle">
                   <a href="<?php echo e(url('seeall/artists')); ?>">Artists</a>
@@ -874,9 +873,41 @@
    text-align: center;
    margin-bottom: 10px;
    }
-   .ml4{
-      height:300px;
+   .panel h3.card-title.text-center {
+    font-size: 17px !important;
+}
+.panel .col-6 h5.text-dark {
+    font-size: 8px !important;
+}
+   .user-body p {
+    font-size: 16px;
+    padding-top: 12px;
+}
+.panel-thumbnail p.card-text {
+    font-size: 12px !important;
+}
+.reward1 h2 {
+    line-height: 20px !important;
+    
+    font-size: 12px !important;
+}
+   .loginfree{
+      padding:0px !important;
    }
+   .ml4{
+      height:61px;
+   }
+   .header.pt-3 h3 {
+    font-size: 25px !important;
+}
+h1.ml4 {
+    font-size: 20px;
+    width: 100% !important;
+    top: 50%;
+    color: white !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
    .col-md-4.showoffer1 {
    margin: 10px auto;
    }

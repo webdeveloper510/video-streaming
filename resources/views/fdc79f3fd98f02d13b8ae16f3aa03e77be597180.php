@@ -51,10 +51,9 @@
                             <div class="text-center">
                                   <select class="form-select form-control" name="customer_issue" aria-label="Default select example" required>
                                     <option selected> Select Menu</option>
-                                    <option value="Feature Request">Feature Request</option>
-                                    <option value="Functionality Question">Functionality Question</option>
-                                    <option value="Techincal Issue">Technical Issue</option>
-                                    <option value="General">General</option>
+                                    <option value=" Request removal of Content">Request removal of Content</option>
+                                    <option value="Business Inquiry">Business Inquiry</option>
+                                    <option value="Feedback">Feedback</option>
                                     <option value="Delete Account">Delete Account</option>
                                     <option value="Other">Other</option>
                                   </select>

@@ -140,6 +140,7 @@
                <div class="col-md-10 mb-3">
                   <video
                      class="hoverVideo"
+                     id="mobile_view"
                      width="100%"
                      muted
                      allowfullscreen="allowfullscreen">

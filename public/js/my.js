@@ -91,6 +91,17 @@ $(document).on('change', '#exampleFormControlSelect1', function () {
 
 $(document).ready(function () {
 
+  
+     var screenWidth = $(window).width(); 
+
+    //alert(screenWidth);
+    if (screenWidth <= 768) { 
+
+            $('#mobile_view').attr('autoplay', 'autoplay'); 
+
+    }
+ 
+
 //    console.log('ffhfhf')
 
 
