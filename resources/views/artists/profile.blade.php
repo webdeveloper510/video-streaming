@@ -212,6 +212,17 @@
               @foreach ($details as $detail)
                    @if($detail->type=='video') 
             <div class="col-md-4 mb-3 ">
+            <div class="videotags row">
+                           <div class="col-4 blue text-left">
+                        <h4>Stream</h4>
+                           </div>
+                           <div class="col-4">
+                           </div>
+                           <div class="col-4 green text-right">
+                           
+                           </div>
+
+                        </div>
             <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
             </div>
@@ -276,6 +287,17 @@
           @foreach($audio as $aud)
 
 <div class="col-md-4 mb-3">
+<div class="videotags row">
+                           <div class="col-4 blue text-left">
+                        <h4>Stream</h4>
+                           </div>
+                           <div class="col-4">
+                           </div>
+                           <div class="col-4 green text-right">
+                           <h4>Download</h4>
+                           </div>
+
+                        </div>
 <div class="verifyvideo text-center" style="{{$detail->is_verified==0 ? 'display:block' : 'display:none'}}">
                   <h3>Verifying...</h3>
                </div>
@@ -897,6 +919,26 @@ video:hover {
     float: right;
     color: white !important;
     padding: 7px;
+}
+.col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+    line-height: 16px;
+    font-size: 13px;
+}
+.col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+    line-height: 16px;
+    font-size: 13px;
+}
+.videotags.row {
+    position: absolute;
+    top: -22px;
+    width: 100%;
+    padding: 0px 4px;
 }
 .overlayprofile img {
     display: flex;
