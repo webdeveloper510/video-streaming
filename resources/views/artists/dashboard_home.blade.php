@@ -555,16 +555,16 @@
                                  <div class="card-head text-center">
 
                                     <h3>Artist Agreement</h3>
-
+                                    </div>
                                     @if($agreement && $agreement[0]->is_verified==0)
-
-                                    {{'pending'}}
-
+                                       <div class="text-center">
+                                    <h3 class="agreement">{{'pending'}} </h3>
+                                       </div>
                                     @else
 
                                     <button class="btn btn-success" type="button">Download</button>
 
-                                 </div>
+                               
                   <div class="card-body text-center">
                   {!!Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true])!!}
           {{Form::token()}} 
@@ -879,6 +879,15 @@
    background: #22b14c;
    color: white;
    }
+   h3.agreement {
+    background: orange;
+    width: 50%;
+    display: block;
+    margin: 58px auto;
+    color: white;
+    padding: 8px;
+    text-transform: capitalize;
+}
    .columesdashboard3 {
    border: 3px solid #b97a57;
    padding: 30px 18px;
