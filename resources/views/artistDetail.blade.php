@@ -447,6 +447,12 @@
    line-height: auto;
    }
    }
+   .videotags.row {
+    position: absolute;
+    top: -22px;
+    width: 100%;
+    padding: 0px 10px;
+}
 </style>
 <!-- Modal -->
 <div class="modal modal2" id="reportvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
