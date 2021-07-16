@@ -304,7 +304,6 @@
       </nav>
       <div class="container">
       <style>
-      /* width */
 ::-webkit-scrollbar {
   width: 5px;
 }

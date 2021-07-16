@@ -36,6 +36,25 @@
       </div>
        
           <div class="row align-items-center text-white">
+          <div class="col-md-6">
+           <div class="form-group">
+    <label >Are there Co-Performers involved in this Content?</label>
+    <select class="custom-select selctc&r" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">Nicknames</option>
+    
+  </select>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="radiobtn text-white">
+          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+
+            </div>
+            <br>
+          <button class="btn btn-secondery selctc&r " type="button">+</button>
+          </div>
             <div class="col-md-6">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
