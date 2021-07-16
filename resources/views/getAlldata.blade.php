@@ -35,7 +35,7 @@
    <div class="row pt-5">
    @foreach($videos as $vid)
     @if($flag!='offer' && $vid->profile_video!='yes')
-       <div class="col-md-4 my-3">
+       <div class="col-md-4 my-3" style="border:1px solid golden;">
        <div class="videotags row">
             <div class="col-4 blue text-left">
            <h4>Stream</h4>
