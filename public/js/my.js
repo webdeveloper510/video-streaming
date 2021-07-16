@@ -2370,7 +2370,15 @@ function statusUpdate(table,is_verified){
         },
 
         success: function (data) {
-            console.log(data);
+
+            console.log(data);return false;
+            if(data==1){
+                $('.'+table).hide();
+            }
+
+            else{
+                alert('error');
+            }
 
         }
     });
