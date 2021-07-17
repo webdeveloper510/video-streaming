@@ -287,6 +287,10 @@ function pause(a) {
     video.pause();
 }
 
+function getArtist(page,id){
+    window.location.href = APP_URL+'/' + page + '/' + id
+}
+
 function download1(a) {
     var anchor = $(a)
         .prev()

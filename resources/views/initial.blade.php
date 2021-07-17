@@ -669,7 +669,7 @@
             @foreach($artists as $val)
             <div class="carousel-item col-md-4  active">
                <div class="panel panel-default">
-                  <div class="panel-thumbnail">
+                  <div class="panel-thumbnail" onClick="getArtist('artistDetail',{{$val->id}})">
                   <a href="{{url('artistDetail/'.$val->id)}}" title="image 1" class="thumb">
                      <div class="card mt-5">
                        
@@ -724,7 +724,7 @@
 
 
 
-            
+
             @endforeach
             <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
