@@ -64,7 +64,7 @@
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
 
--->
+        -->
 
             <div class="col-md-6">
             <div class="mt-5">

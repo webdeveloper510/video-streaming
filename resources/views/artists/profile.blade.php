@@ -626,6 +626,7 @@ Your browser does not support the audio tag.
 
           </div>
             -->
+            
            <div class="modal-footer">
             <div class="loader col-6" style="display:none">
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
