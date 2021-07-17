@@ -66,7 +66,7 @@
 
         -->
 
-            <div class="col-md-6">
+            <div class="col-md-6 form-inline">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
               <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
