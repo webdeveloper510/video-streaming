@@ -602,6 +602,11 @@ Your browser does not support the audio tag.
                 {{Form::file('file',['class'=>'form-control file_input','title'=>'eeeee'])}}
                 <span id="filename" style="color:red;"></span>
             </div>
+
+             <!--  temporary commenting until function is implemented -->
+
+             <!--
+
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
@@ -617,7 +622,7 @@ Your browser does not support the audio tag.
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
 
-
+            -->
 
           </div>
             
@@ -771,6 +776,11 @@ Your browser does not support the audio tag.
                 </div>
                 @endif
             </div>
+
+            <!--  temporary commenting until function is implemented -->
+
+            <!--
+
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
@@ -786,7 +796,7 @@ Your browser does not support the audio tag.
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
 
-
+            -->
 
           </div>
             </div>

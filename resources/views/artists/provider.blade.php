@@ -34,6 +34,10 @@
         <div class="alert alert-danger" id="error" style="display:none">
       
       </div>
+
+      <!--  temporary commenting until function is implemented -->
+
+      <!--
        
           <div class="row align-items-center text-white">
             <div class="col-md-12">
@@ -61,6 +65,9 @@
   <div class="col-md-6">
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
+
+      -->
+
             <div class="col-md-6">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
