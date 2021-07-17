@@ -2137,7 +2137,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
         },
 
         success: function (data) {     
-
+  
             //console.log(data);
 
             // return false;
