@@ -2136,7 +2136,7 @@ $(document).on('submit', '#edit_profile_info', function (event) {
             return xhr;
         },
 
-        success: function (data) {
+        success: function (data) {     
 
             //console.log(data);
 
