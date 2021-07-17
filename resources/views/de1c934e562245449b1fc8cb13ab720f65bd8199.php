@@ -96,7 +96,7 @@
             <div class="row justify-content-start mt-4">
                <div class="col">
                   <div class="form-check">
-                     <label>   <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?> I accept <a class="text-white" style="border-bottom-color: initial;
+                     <label>   <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?> I confirm that I have read, understand and agree <a class="text-white" style="border-bottom-color: initial;
                         border-bottom-style: solid;
                         border-bottom-width: 1px; border-color: blue;" href="<?php echo e(url('/terms')); ?>">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
                         border-bottom-style: solid;
