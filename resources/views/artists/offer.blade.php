@@ -57,7 +57,7 @@
 
 -->
 
-                    <div class="form-inline">
+                    <div class="col-md-4 mt-5 form-inline">
 
             {{Form::label('Media Offering', 'Media Offering')}} <br>
         <div class="radiobtn text-white">
