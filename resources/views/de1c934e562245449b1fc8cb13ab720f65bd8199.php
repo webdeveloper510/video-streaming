@@ -96,20 +96,20 @@
             <div class="row justify-content-start mt-4">
                <div class="col">
                   <div class="form-check">
-                     <label>   <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?> I confirm that I have read, understand and agree <a class="text-white" style="border-bottom-color: initial;
+                     <label>   <?php echo e(Form::checkbox('terms','value',false,['class'=>'checkbox','placeholder'=>''])); ?> I confirm that I have read, understand and agree to <a class="text-white" style="border-bottom-color: initial;
                         border-bottom-style: solid;
                         border-bottom-width: 1px; border-color: blue;" href="<?php echo e(url('/terms')); ?>">Terms & Conditions</a>  and <a class="text-white" style="border-bottom-color: initial;
                         border-bottom-style: solid;
                         border-bottom-width: 1px; border-color: blue;"  href="<?php echo e(url('/privacy')); ?>">Privacy Policy</a> </label> <br>
-                     <label><?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I am at least 18+ years old')); ?></label><br>
-                     <span class="discount"> <label> <?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?>I would like to receive Discounts and News from PAZ</label></span>
+                     <label><?php echo e(Form::checkbox('AgeRestriction','value',false,['class'=>'checkbox','placeholder'=>''])); ?><?php echo e(Form::label('Terms & Condition', 'I confirm that I am at least 18+ years old')); ?></label><br>
+                     <span class="discount"> <label> <?php echo e(Form::checkbox('news','value',false,['class'=>'checkbox','placeholder'=>''])); ?>I confirm that I would like to receive Discounts and News from PAZ</label></span>
                   </div>
                   <?php echo e(Form::submit('Register!',['class'=>'btn btn-primary register'])); ?>
 
                </div>
             </div>
             <?php echo e(Form::close()); ?>
-
+                     <br> <br>
             <p class="mt-2 text-white">Already have an account ?</p>
             <a href="<?php echo e(URL::to('login')); ?>" style="color:blue; font-size: 17px;">Login</a>
          </div>
