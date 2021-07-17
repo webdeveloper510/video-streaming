@@ -733,7 +733,7 @@ $(document).on('click', '.addNow', function () {
         success: function (data) {
             //console.log(data); return false;
             if (data.status == 1) {
-                if (data.messge == 'Insufficient Paz Tokens!') {
+                if (data.messge == 'Insufficient PAZ Tokens!') {
                     $('.insuffiecient').show();
                 } else {
 

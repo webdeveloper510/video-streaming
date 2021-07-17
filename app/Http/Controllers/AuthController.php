@@ -1646,7 +1646,7 @@ public function selectListname(Request $request){
 
         else if($data=='insufficient'){
 
-          return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+          return response()->json(array('status'=>1, 'messge'=>'Insufficient PAZ Tokens!'));
 
 
 
@@ -1866,11 +1866,11 @@ public function addmMltiple(Request $req){
         //print_r($data);
       
         $response =array();
-        if($data ==='Insufficient Paz Tokens'){
+        if($data ==='Insufficient PAZ Tokens'){
 
         
           $response['status'] =1;
-          $response['messge'] = 'Insufficient Paz Tokens!';
+          $response['messge'] = 'Insufficient PAZ Tokens!';
             
         }
 

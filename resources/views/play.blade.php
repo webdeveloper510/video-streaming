@@ -115,7 +115,7 @@
                                     type="video/mp4"></video>
                                     <div class="outer">
                                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="{{$val->is_deleted==1 ? 'display:block' : 'display:none'}}">
-                                      Content is no available
+                                      No longer available
                                         </button>
                                         </div>
 
