@@ -968,7 +968,7 @@ class artist extends Controller
 
    // print_r($data1);die;
 
-    if($data1->media && $data1->audio_pic){
+    if($data1['media'] && $data1['audio_pic']){
 
       $fileName =  time().'_'.$data1->media->getClientOriginalName();
 
