@@ -705,7 +705,7 @@ $(document).on('click', '#timeFrame', function () {
 
                 location.reload();
             } else {
-                alert('Some Error Occure');
+                alert('Some Error Occured');
             }
 
         }
@@ -733,7 +733,7 @@ $(document).on('click', '.addNow', function () {
         success: function (data) {
             //console.log(data); return false;
             if (data.status == 1) {
-                if (data.messge == 'Insufficient Paz Tokens!') {
+                if (data.messge == 'Insufficient PAZ Tokens!') {
                     $('.insuffiecient').show();
                 } else {
 
@@ -820,7 +820,7 @@ $(document).on('click', '.add_in_library', function () {
                     else{
                         
                          $('#success_message').show();
-                        $('#success_message').html('Some Error Occure');
+                        $('#success_message').html('Some Error Occured');
                         
                     }
 
@@ -2676,8 +2676,8 @@ function format(d, type) {
 
     $('.offer_id').val(d.id);
 
-    var nameclass = d.status=='Expired' || d.status=='cancelled' ? 'none' : 'block';
-    var nameclass2 = d.status=='Expired' || d.status=='cancelled' ? 'block' : 'none';
+    var nameclass = d.status=='Expired' || d.status=='Cancelled' ? 'none' : 'block';
+    var nameclass2 = d.status=='Expired' || d.status=='Cancelled' ? 'block' : 'none';
 
     var reward = ( d.price * d.choice);
 
@@ -3672,7 +3672,7 @@ function deleteName(id,appname,name){
                 location.reload();
 
             } else {
-                alert('Some Error Occure')
+                alert('Some Error Occured')
                 location.reload();
 
             }

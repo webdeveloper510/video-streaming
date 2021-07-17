@@ -41,9 +41,9 @@
         <div class="col-md-8 pl-5">
          <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
+           <a href="">Artist Name</a>
            <br>
-         <a href="">Categories :</a>
+         <a href="">Category :</a>
           
         </div>
         <div class="col-md-2">
@@ -60,7 +60,7 @@
         <div class="col-md-8 pl-5">
         <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
+           <a href="">Artist Name</a>
            
            <br>
          <a href="">Categories :</a>
@@ -80,9 +80,9 @@
         <div class="col-md-8 pl-5">
         <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
+           <a href="">Artist Name</a>
            <br>
-         <a href="">Categories :</a>
+         <a href="">Category :</a>
          
         </div>
         <div class="col-md-2">
@@ -99,7 +99,7 @@
         <div class="col-md-8 pl-5">
          <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
+           <a href="">Artist Name</a>
            <br>
          <a href="">Categories :</a>
         
@@ -118,9 +118,9 @@
         <div class="col-md-8 pl-5">
          <h2><a href="">Offer Title</a></h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
+           <a href="">Artist Name</a>
            <br>
-         <a href="">Categories :</a>
+         <a href="">Category :</a>
          
         </div>
         <div class="col-md-2">
@@ -137,7 +137,7 @@
         <div class="col-md-8 pl-5">
          <h2>Offer Title</h2>
          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-           <a href="">Arisit Name</a>
+           <a href="">Artist Name</a>
            <br>
          <a href="">Categories :</a>
          

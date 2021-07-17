@@ -237,7 +237,7 @@
                                         Easy and fast Signup Process</p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
-                                        Setup several Offers with your favourite categories
+                                        Setup several Offers with your favourite Categories
                                     </p>
                                     <p>
                                         <i class="fa fa-check" style="font-size:24px"></i>
