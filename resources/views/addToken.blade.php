@@ -11,7 +11,7 @@
           <h2> 10% OFF Coupon active</h2>
 
           </div>
-          <h1 class="text-center">Add PAZ Token</h1>
+          <h1 class="text-center">Add PAZ Tokens</h1>
           <div class="row align-items-center text-white">
           <div class="col"></div>
             <div class="col-md-6 mt-2 ">

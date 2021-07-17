@@ -7,7 +7,7 @@
           <h2> 10% OFF Coupon active</h2>
 
           </div>
-			<label class="text-left">Add PAZ Token :</label>
+			<label class="text-left">Add PAZ Tokens :</label>
 			{{Form::label('ADD', 'Token')}} 
                   <select class="custom-select mb-3">
                     <option selected>Select Token Amount</option>
