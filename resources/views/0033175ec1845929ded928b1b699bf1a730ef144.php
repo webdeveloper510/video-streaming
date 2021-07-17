@@ -597,9 +597,9 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
 
-            <!--  temporary commenting until function is implemented -->
+           
 
-            <!-- 
+            
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
             <p class="text-dark"> <input type="radio"  name="type" value="Yes" /> yes</p>
@@ -613,7 +613,7 @@ Your browser does not support the audio tag.
     
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
-            -->
+            
 
 
           </div>
@@ -785,9 +785,9 @@ Your browser does not support the audio tag.
                 <?php endif; ?>
             </div>
 
-            <!--  temporary commenting until function is implemented -->
             
-            <!--
+
+            
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
@@ -802,7 +802,7 @@ Your browser does not support the audio tag.
     
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
-            -->
+            
 
 
           </div>

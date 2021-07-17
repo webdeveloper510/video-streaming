@@ -603,9 +603,9 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
 
-             <!--  temporary commenting until function is implemented -->
+             
 
-             <!--
+             
 
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
@@ -622,7 +622,7 @@ Your browser does not support the audio tag.
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
 
-            -->
+            
 
           </div>
             
@@ -777,9 +777,9 @@ Your browser does not support the audio tag.
                 @endif
             </div>
 
-            <!--  temporary commenting until function is implemented -->
+            
 
-            <!--
+            
 
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
@@ -796,7 +796,7 @@ Your browser does not support the audio tag.
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
 
-            -->
+            
 
           </div>
             </div>

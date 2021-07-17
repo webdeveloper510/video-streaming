@@ -35,9 +35,9 @@
       
       </div>
 
-      <!--  temporary commenting until function is implemented -->
+      
 
-      <!--
+      
        
           <div class="row align-items-center text-white">
             <div class="col-md-12">
@@ -66,7 +66,7 @@
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
 
-      -->
+      
 
             <div class="col-md-6">
             <div class="mt-5">
