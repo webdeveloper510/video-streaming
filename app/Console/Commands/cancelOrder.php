@@ -70,7 +70,7 @@ class cancelOrder extends Command
   
            foreach($data1 as $k=>$v){
 
-            if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
+            if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='Cancelled')){
                 
             $date = $v->dates1;
         $thirtyDaysUnix = strtotime('+30 days', strtotime($date));

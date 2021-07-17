@@ -62,7 +62,7 @@
                      <option value="process" {{($box) == 'process' ? 'selected' : '' }}>In Process</option>
                      <option value="due" {{($box) == 'due' ? 'selected' : '' }}>Due</option>
                      <option value="Expired">Expired</option>
-                     <option value="cancelled">Cancelled</option>
+                     <option value="Cancelled">Cancelled</option>
                   </select>
                </div>
                <div class="table-responsive">

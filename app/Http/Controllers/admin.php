@@ -47,7 +47,7 @@ class admin extends Controller
         return redirect('admin/getCategory#success')->with('success','Category Add Successfully!');
       }
       else{
-        return redirect('admin/getCategory#error')->with('error','Some Error Occure!');
+        return redirect('admin/getCategory#error')->with('error','Some Error Occured!');
 
       }
     }
@@ -73,7 +73,7 @@ class admin extends Controller
         return redirect('admin/sub/'.$data['catid'])->with('success','Subcategory Add Successfully!');
       }
       else{
-        return redirect('admin/sub#error')->with('error','Some Error Occure!');
+        return redirect('admin/sub#error')->with('error','Some Error Occured!');
 
       }
     }

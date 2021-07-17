@@ -2093,7 +2093,7 @@ public function getRefersArtist($id){
  
 //       foreach($data1 as $k=>$v){
  
-//        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
+//        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='Cancelled')){
 //          echo $v->id."<br>";
 //          echo $v->status."<br>";
 //          echo "hello"."<br>";
@@ -3068,7 +3068,7 @@ public function addonContentProvider($data){
 
         $update1 = DB::table('offer')->where(array('id'=>$data['videoid']))->update([
 
-          'status'=>'cancelled'
+          'status'=>'Cancelled'
         
       ]);
 
@@ -3828,7 +3828,7 @@ public function deleteIllegeContent($id){
      // print_r($offer_data);die;
 
       $update_offer = array(
-        'status'=>'cancelled',
+        'status'=>'Cancelled',
         'reason_of_cancel'=>$data['reason'].','.$data['reason_cancel']
       );
 
