@@ -259,6 +259,8 @@
                </div>
                <div class="col"></div>
             </div>
+
+            <br><br><br>
             <div class="slider_tittle">
                <h3 class="tittle">
                   <a href="<?php echo e(url('seeall/artists')); ?>">Artists</a>
