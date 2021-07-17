@@ -705,6 +705,9 @@
                   </div>
                </div>
             </div>
+
+
+
             <div class="modal fade" id="Unsubscribe_{{$val->id}}" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
                <div class="modal-dialog">
                   <div class="modal-content">
@@ -718,6 +721,10 @@
                   </div>
                </div>
             </div>
+
+
+
+            
             @endforeach
             <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
