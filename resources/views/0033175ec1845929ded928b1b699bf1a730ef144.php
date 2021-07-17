@@ -597,7 +597,7 @@ Your browser does not support the audio tag.
             </div>
             <div class="col-md-12 pt-3">
 
-           
+           <!--
 
             
             <label >Are there Co-Performers involved in this Content?</label>
@@ -614,9 +614,9 @@ Your browser does not support the audio tag.
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
             
-
-
           </div>
+
+                                  -->
             
            <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -785,7 +785,7 @@ Your browser does not support the audio tag.
                 <?php endif; ?>
             </div>
 
-            
+                  <!--
 
             
             <div class="col-md-12 pt-3">
@@ -802,11 +802,11 @@ Your browser does not support the audio tag.
     
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
-            
-
-
-          </div>
             </div>
+            </div>
+
+                  -->
+
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
                 <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
