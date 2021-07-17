@@ -970,13 +970,13 @@ class artist extends Controller
 
     if($data1['media'] && $data1['audio_pic']){
 
-      $fileName =  time().'_'.$data1->media->getClientOriginalName();
+      $fileName =  time().'_'.$data1['media']->getClientOriginalName();
 
-      $audio_pics =time().'_'.$data1->audio_pic->getClientOriginalName();
+      $audio_pics =time().'_'.$data1['audio_pic']->getClientOriginalName();
 
-      $ext =$data1->media ? $data1->media->getClientOriginalExtension():'';
+      $ext =$data1->media ? $data1['media']->getClientOriginalExtension():'';
 
-      $size=$data1->media->getSize();
+      $size=$data1['media']->getSize();
 
       $data['size'] = number_format($size / 1048576,2);
 
