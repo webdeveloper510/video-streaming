@@ -969,7 +969,7 @@ h1.ml4 {
    font-weight: bold;
    }
    .carousel-control-prev {
-   left: 0% !important;
+   left: -7% !important;
    }
    .carousel-control-next {
    right: 0 !important;

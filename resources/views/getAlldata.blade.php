@@ -35,7 +35,7 @@
    <div class="row pt-5">
    @foreach($videos as $vid)
     @if($flag!='offer' && $vid->profile_video!='yes')
-       <div class="col-md-4 my-3">
+       <div class="col-md-4 my-3" style="border:1px solid golden;">
        <div class="videotags row">
             <div class="col-4 blue text-left">
            <h4>Stream</h4>
@@ -146,6 +146,10 @@
     border:2px solid yellow;
     padding:0px !important;
 }
+.borderhover {
+    border:2px solid yellow;
+    padding:0px !important;
+}
 .seealldata1{
     background:black;
     color:white;
@@ -162,6 +166,26 @@
 }
 .card:hover{
   border:1px solid yellow;
+}
+.col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+    line-height: 16px;
+    font-size: 13px;
+}
+.col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+    line-height: 16px;
+    font-size: 13px;
+}
+.videotags.row {
+    position: absolute;
+    top: -22px;
+    width: 100%;
+    padding: 0px 4px;
 }
 .checkall input {
     width: 20px;
