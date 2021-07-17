@@ -974,7 +974,7 @@ class artist extends Controller
 
       $audio_pics =time().'_'.$data1['audio_pic']->getClientOriginalName();
 
-      $ext =$data1->media ? $data1['media']->getClientOriginalExtension():'';
+      $ext =$data1['media'] ? $data1['media']->getClientOriginalExtension():'';
 
       $size=$data1['media']->getSize();
 
