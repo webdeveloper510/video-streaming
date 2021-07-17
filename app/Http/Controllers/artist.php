@@ -919,6 +919,8 @@ class artist extends Controller
 
         $profileDtaa = $this->editProfileVideo($req->all());
 
+        print_r($profileDtaa);die;
+
 
       }   
       
