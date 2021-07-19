@@ -542,7 +542,7 @@
                                        </div>
                     @else
                     <div class="text-center">
-                    <button type="button" style="{{$idenetity && $idenetity[0]->is_verified==-1 ? 'display:none' : 'display:block'}}" class="btn btn-danger my-4">Failed</button>
+                    <button type="button" style="{{$idenetity && $idenetity[0]->is_verified==-1 ? 'display:none' : 'display:block'}}; margin:0 auto;" class="btn btn-danger my-4">Failed</button>
 </div>
                   <div class="card-body text-center">
  
