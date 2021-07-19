@@ -5,7 +5,7 @@
       <div class="float-right">
          <a href="{{url('/logout/default')}}"><button class="btn btn-primery">Logout</button></a>
       </div>
-      <h1 class="text-white mt-2"> Onboarding : Content Review</h1>
+      <h1 class="text-white mt-2">  Content Review</h1>
    </div>
 </header>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
