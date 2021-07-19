@@ -790,7 +790,9 @@
          <div class="col-md-8">
             <div class="card" style="height:376px;">
                <div class="card-body">
+               <a href="<?php echo e(asset('images/Consentform.pdf')); ?>" download> 
                   <button class="btn btn-success float-right" type="button">Download</button>
+               </a>
                         <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
                         <div class="table12">
                            <div class="table table-responsive">
@@ -801,7 +803,7 @@
                                        <th scope="col">Nickname</th>
                                        <th scope="col">Date Of Consent</th>
                                     </tr>
-                                 </thead>
+                                 </thead>  
                                  <tbody>
                                     
                                     <tr>

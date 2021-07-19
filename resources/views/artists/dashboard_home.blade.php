@@ -567,8 +567,9 @@
 
                                     <button type="button" style="{{$agreement && $agreement[0]->is_verified==-1 ? 'display:none' : 'display:block'}}" class="btn btn-danger my-4">Failed</button>
 
-
+                                    <a href="{{asset('images/Artist_Agreement.pdf')}}" download> 
                                     <button class="btn btn-success" type="button">Download</button>
+</a>
 
                                
                   <div class="card-body text-center">
