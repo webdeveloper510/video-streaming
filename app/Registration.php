@@ -2022,7 +2022,7 @@ public function getRefersArtist($id){
             'updated_at'=>$data['updated_at'],
             'artistid'=>$data['artistid'],
             'userid'=>$data['userid'],
-            'message'=>$data['title'].'has been ordered',
+            'message'=>$data['title'].' has been ordered',
             'notificationfor'=>'user',
             'mediaid'=>''
 
@@ -2062,7 +2062,7 @@ public function getRefersArtist($id){
             'updated_at'=>$data['updated_at'],
             'artistid'=>$data['artistid'],
             'userid'=>$data['userid'],
-            'message'=>$data['title'].'has been ordered',
+            'message'=>$data['title'].' has been ordered',
             'notificationfor'=>'user',
             'mediaid'=>''
 
@@ -2093,7 +2093,7 @@ public function getRefersArtist($id){
  
 //       foreach($data1 as $k=>$v){
  
-//        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='cancelled')){
+//        if(date('Y-m-d')==$v->dates1 && ($v->status!='verifying' && $v->status!='delivered' && $v->status!='Cancelled')){
 //          echo $v->id."<br>";
 //          echo $v->status."<br>";
 //          echo "hello"."<br>";
@@ -2292,7 +2292,7 @@ public function getRefersArtist($id){
             'updated_at'=>now(),
             'artistid'=>$artid,
             'userid'=>$uid,
-            'message'=>$title." ".'has been added to your library',
+            'message'=>$title." ".'has been added to your library.',
             'notificationfor'=>'addedVideo',
             'mediaid'=>$vid
 
@@ -2395,7 +2395,7 @@ public function reduceTokens($tokns,$userid,$tok,$artid){
         else
         {
        
-            return 'Insufficient Paz Tokens';
+            return 'Insufficient PAZ Tokens';
         }
 }
 
@@ -3068,7 +3068,7 @@ public function addonContentProvider($data){
 
         $update1 = DB::table('offer')->where(array('id'=>$data['videoid']))->update([
 
-          'status'=>'cancelled'
+          'status'=>'Cancelled'
         
       ]);
 
@@ -3828,7 +3828,7 @@ public function deleteIllegeContent($id){
      // print_r($offer_data);die;
 
       $update_offer = array(
-        'status'=>'cancelled',
+        'status'=>'Cancelled',
         'reason_of_cancel'=>$data['reason'].','.$data['reason_cancel']
       );
 
@@ -3848,7 +3848,7 @@ public function deleteIllegeContent($id){
             'artistid'=>$offer_data[0]->artistid,
             'userid'=>$offer_data[0]->userid,
             'notificationfor'=>'user',
-            'message'=>'Your order'.' ' .$offer_data[0]->title.' has canceled and your tokens have been returned',
+            'message'=>'Your order'.' ' .$offer_data[0]->title.' has been cancelled and your tokens are returned.',
           );
 
           DB::table('notification')->insert($notification);

@@ -106,36 +106,36 @@
             <div class="row">
             <div class="col-md-12 text-center">
             <h1 class="ml4">
-  <span class="letters letters-1">ASMR</span>
+   <span class="letters letters-1">ASMR</span>
   <span class="letters letters-2">Affirmations</span>
   <span class="letters letters-3">Amateur</span>
   <span class="letters letters-4">Anonymous</span>
   <span class="letters letters-5">Appreciation</span>
-  <span class="letters letters-6">Kinky</span>
-  <span class="letters letters-8">Body fetish</span>
-  <span class="letters letters-9">Bondage</span>
-  <span class="letters letters-12">Cosplay</span>
-  <span class="letters letters-13">Couples</span>
-  <span class="letters letters-14">Dressed</span>
-  <span class="letters letters-15">Erotic Fiction</span>
-  <span class="letters letters-17">Goddess</span>
-  <span class="letters letters-19">Hentai</span>
-  <span class="letters letters-20">Hidden cam  Fantasy</span>
-  <span class="letters letters-21">Hypnosis</span>
-  <span class="letters letters-22">JOI</span>
-  <span class="letters letters-23">Lingerie</span>
-  <span class="letters letters-24">Massage</span>
-  <span class="letters letters-25">Masturbation</span>
-  <span class="letters letters-26">Positive</span>
-  <span class="letters letters-27">POV</span>
-  <span class="letters letters-28">Public </span>
-  <span class="letters letters-29">Role-play</span>
-  <span class="letters letters-30">Sounds</span>
-  <span class="letters letters-31">Spiritual</span>
-  <span class="letters letters-32">Striptease</span>
-  <span class="letters letters-33">Submissive</span>
-  <span class="letters letters-34">Teen</span>
-  <span class="letters letters-35">Toys</span>
+  <span class="letters letters-6">Body fetish</span>
+  <span class="letters letters-7">Bondage</span>
+  <span class="letters letters-8">Cosplay</span>
+  <span class="letters letters-9">Couples</span>
+  <span class="letters letters-10">Dressed</span>
+  <span class="letters letters-11">Erotic Fiction</span>
+  <span class="letters letters-12">Goddess</span>
+  <span class="letters letters-13">Hentai</span>
+  <span class="letters letters-14">Hidden cam  Fantasy</span>
+  <span class="letters letters-15">Hypnosis</span>
+  <span class="letters letters-16">JOI</span>
+  <span class="letters letters-17">Kinky</span>
+  <span class="letters letters-18">Lingerie</span>
+  <span class="letters letters-19">Massage</span>
+  <span class="letters letters-20">Masturbation</span>
+  <span class="letters letters-21">Positive</span>
+  <span class="letters letters-22">POV</span>
+  <span class="letters letters-23">Public </span>
+  <span class="letters letters-24">Role-play</span>
+  <span class="letters letters-25">Sounds</span>
+  <span class="letters letters-26">Spiritual</span>
+  <span class="letters letters-27">Striptease</span>
+  <span class="letters letters-28">Submissive</span>
+  <span class="letters letters-29">Teen</span>
+  <span class="letters letters-30">Toys</span>
  
 </h1>
 </div>
@@ -669,7 +669,7 @@
             @foreach($artists as $val)
             <div class="carousel-item col-md-4  active">
                <div class="panel panel-default">
-                  <div class="panel-thumbnail">
+                  <div class="panel-thumbnail" onClick="getArtist('artistDetail',{{$val->id}})">
                   <a href="{{url('artistDetail/'.$val->id)}}" title="image 1" class="thumb">
                      <div class="card mt-5">
                        
@@ -705,6 +705,9 @@
                   </div>
                </div>
             </div>
+
+
+
             <div class="modal fade" id="Unsubscribe_{{$val->id}}" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
                <div class="modal-dialog">
                   <div class="modal-content">
@@ -718,6 +721,10 @@
                   </div>
                </div>
             </div>
+
+
+
+
             @endforeach
             <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

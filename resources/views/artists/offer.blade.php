@@ -26,8 +26,8 @@
         </div>
         <h2 class="text-center text-white "> Publish a Service </h2>
 
-     
-        
+          <!--
+
           <div class="row align-items-center text-white">
           <div class="col-md-12">
             <div class="form-group row">
@@ -54,7 +54,10 @@
   <div class="col-md-6">
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
-                    <div class="col-md-4 mt-5 ">
+
+-->
+
+                    <div class="col-md-4 mt-5 form-inline">
 
             {{Form::label('Media Offering', 'Media Offering')}} <br>
         <div class="radiobtn text-white">

@@ -7,7 +7,7 @@
           <h2> 10% OFF Coupon active</h2>
 
           </div>
-			<label class="text-left">Add PAZ Token :</label>
+			<label class="text-left">Add PAZ Tokens :</label>
 			{{Form::label('ADD', 'Token')}} 
                   <select class="custom-select mb-3">
                     <option selected>Select Token Amount</option>
@@ -28,8 +28,12 @@
 
                   <select class="custom-select mb-3">
                     <option selected>Choose Payment Options</option>
-                    <option value="1">Paypal</option>
-                    <option value="2">Credit Cards</option>
+                    <option value="1">Credit/Debit Card (Visa/Mastercard/Discover)</option>
+                    <option value="1">Paysafecard</option>
+                    <option value="1">Epoch (Credit Card)</option>
+                    <option value="1">PayPal</option>
+                    <option value="2">Wire Transfer</option>
+                    <option value="3">Google Pay</option>
                     <option value="3">Apple Pay</option>
                   </select>
                   <div class="text-center">

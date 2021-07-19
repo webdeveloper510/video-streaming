@@ -111,31 +111,31 @@
   <span class="letters letters-3">Amateur</span>
   <span class="letters letters-4">Anonymous</span>
   <span class="letters letters-5">Appreciation</span>
-  <span class="letters letters-6">Kinky</span>
-  <span class="letters letters-8">Body fetish</span>
-  <span class="letters letters-9">Bondage</span>
-  <span class="letters letters-12">Cosplay</span>
-  <span class="letters letters-13">Couples</span>
-  <span class="letters letters-14">Dressed</span>
-  <span class="letters letters-15">Erotic Fiction</span>
-  <span class="letters letters-17">Goddess</span>
-  <span class="letters letters-19">Hentai</span>
-  <span class="letters letters-20">Hidden cam  Fantasy</span>
-  <span class="letters letters-21">Hypnosis</span>
-  <span class="letters letters-22">JOI</span>
-  <span class="letters letters-23">Lingerie</span>
-  <span class="letters letters-24">Massage</span>
-  <span class="letters letters-25">Masturbation</span>
-  <span class="letters letters-26">Positive</span>
-  <span class="letters letters-27">POV</span>
-  <span class="letters letters-28">Public </span>
-  <span class="letters letters-29">Role-play</span>
-  <span class="letters letters-30">Sounds</span>
-  <span class="letters letters-31">Spiritual</span>
-  <span class="letters letters-32">Striptease</span>
-  <span class="letters letters-33">Submissive</span>
-  <span class="letters letters-34">Teen</span>
-  <span class="letters letters-35">Toys</span>
+  <span class="letters letters-6">Body fetish</span>
+  <span class="letters letters-7">Bondage</span>
+  <span class="letters letters-8">Cosplay</span>
+  <span class="letters letters-9">Couples</span>
+  <span class="letters letters-10">Dressed</span>
+  <span class="letters letters-11">Erotic Fiction</span>
+  <span class="letters letters-12">Goddess</span>
+  <span class="letters letters-13">Hentai</span>
+  <span class="letters letters-14">Hidden cam  Fantasy</span>
+  <span class="letters letters-15">Hypnosis</span>
+  <span class="letters letters-16">JOI</span>
+  <span class="letters letters-17">Kinky</span>
+  <span class="letters letters-18">Lingerie</span>
+  <span class="letters letters-19">Massage</span>
+  <span class="letters letters-20">Masturbation</span>
+  <span class="letters letters-21">Positive</span>
+  <span class="letters letters-22">POV</span>
+  <span class="letters letters-23">Public </span>
+  <span class="letters letters-24">Role-play</span>
+  <span class="letters letters-25">Sounds</span>
+  <span class="letters letters-26">Spiritual</span>
+  <span class="letters letters-27">Striptease</span>
+  <span class="letters letters-28">Submissive</span>
+  <span class="letters letters-29">Teen</span>
+  <span class="letters letters-30">Toys</span>
  
 </h1>
 </div>
@@ -673,11 +673,12 @@
             <?php $__currentLoopData = $artists; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="carousel-item col-md-4  active">
                <div class="panel panel-default">
-                  <div class="panel-thumbnail">
+                  <div class="panel-thumbnail" onClick="getArtist('artistDetail',<?php echo e($val->id); ?>)">
+                  <a href="<?php echo e(url('artistDetail/'.$val->id)); ?>" title="image 1" class="thumb">
                      <div class="card mt-5">
-                        <a href="<?php echo e(url('artistDetail/'.$val->id)); ?>" title="image 1" class="thumb">
+                       
                         <img class="card-img-top" src="<?php echo e($val->profilepicture ? url('storage/app/public/uploads/'.$val->profilepicture) : 'https://med.gov.bz/wp-content/uploads/2020/08/dummy-profile-pic-300x300.jpg'); ?>" alt=" image cap">
-                        </a>  
+                       
                         <div class="card-body text-center">
                            <h3 class="card-title text-center"><?php echo e($val->nickname); ?>  <small style="font-family: 'Poppins';"><i class="fa fa-star" style="color:red;"></i><?php echo e($val->count); ?> </small></h3>
                            <button class="btn btn-danger  my-3 <?php echo e($isSubscribed && in_array($val->id,$isSubscribed) ? 'hide' : 'block'); ?>" type="button" onclick="subscribe(<?php echo e($val->id); ?>,true)"> Subscribe</button>
@@ -704,9 +705,13 @@
                            </div>
                         </div>
                      </div>
+                     </a>  
                   </div>
                </div>
             </div>
+
+
+
             <div class="modal fade" id="Unsubscribe_<?php echo e($val->id); ?>" tabindex="-1" aria-labelledby="UnsubscribeLabel" aria-hidden="true">
                <div class="modal-dialog">
                   <div class="modal-content">
@@ -720,6 +725,10 @@
                   </div>
                </div>
             </div>
+
+
+
+
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -964,7 +973,7 @@ h1.ml4 {
    font-weight: bold;
    }
    .carousel-control-prev {
-   left: 0% !important;
+   left: -7% !important;
    }
    .carousel-control-next {
    right: 0 !important;

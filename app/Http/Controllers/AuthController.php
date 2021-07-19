@@ -759,7 +759,7 @@ else{
               return redirect('/profile')->with('success','Data Updated Successfully!');
             }
             else{
-              return redirect('/profile')->with('error','Some Error Occure!');
+              return redirect('/profile')->with('error','Some Error Occured!');
             }
          }
     }
@@ -1507,7 +1507,7 @@ public function notifyEmail(Request $req){
         }
         else{
     
-          return redirect('/')->with('success','Some Error Occure!');
+          return redirect('/')->with('success','Some Error Occured!');
         }
 
     }
@@ -1646,7 +1646,7 @@ public function selectListname(Request $request){
 
         else if($data=='insufficient'){
 
-          return response()->json(array('status'=>1, 'messge'=>'Insufficient Paz Tokens!'));
+          return response()->json(array('status'=>1, 'messge'=>'Insufficient PAZ Tokens!'));
 
 
 
@@ -1659,7 +1659,7 @@ public function selectListname(Request $request){
        }
 
         else{
-             return response()->json(array('status'=>1, 'messge'=>'Some Error Occure!'));
+             return response()->json(array('status'=>1, 'messge'=>'Some Error Occured!'));
         }
 
 
@@ -1679,7 +1679,7 @@ public function editPlaylist(Request $req){
   }
 
   else{
-    return response()->json(array('status'=>0, 'messge'=>'Some Error Occure!'));
+    return response()->json(array('status'=>0, 'messge'=>'Some Error Occured!'));
   }
 
           print_r($req->all());
@@ -1824,7 +1824,7 @@ public function createList(Request $request){
 
       $yes = $this->model->createList($request);
 
-   $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!','listname'=>$request->listname)) :response()->json(array('status'=>0, 'message'=>'Some Error Occure'));
+   $returnData = $yes==1 ? response()->json(array('status'=>1,'message'=>'List Created Successfully!','listname'=>$request->listname)) :response()->json(array('status'=>0, 'message'=>'Some Error Occured'));
 
    return $returnData;
 
@@ -1847,7 +1847,7 @@ public function showLists(Request $request){
       $return = $this->model->addWishlist($multipleIds);
 
 
-      $returnData = $return==1 ? response()->json(array('status'=>1,'message'=>'Video Added Successfully!')) :response()->json(array('status'=>1, 'message'=>'Some Error Occure'));
+      $returnData = $return==1 ? response()->json(array('status'=>1,'message'=>'Video Added Successfully!')) :response()->json(array('status'=>1, 'message'=>'Some Error Occured'));
 
       return $returnData;
 
@@ -1866,11 +1866,11 @@ public function addmMltiple(Request $req){
         //print_r($data);
       
         $response =array();
-        if($data ==='Insufficient Paz Tokens'){
+        if($data ==='Insufficient PAZ Tokens'){
 
         
           $response['status'] =1;
-          $response['messge'] = 'Insufficient Paz Tokens!';
+          $response['messge'] = 'Insufficient PAZ Tokens!';
             
         }
 
@@ -1896,7 +1896,7 @@ public function addmMltiple(Request $req){
         else{
 
           $response['status'] = 1;
-          $response['messge'] = 'Some Error Occure!';
+          $response['messge'] = 'Some Error Occured!';
             
         }
 

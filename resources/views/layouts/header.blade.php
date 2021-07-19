@@ -558,7 +558,7 @@
           @endif
         </div>
           <br>
-        <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tocken</a>
+        <a href="{{url('/addToken')}}"><i class="fa fa-plus text-white" aria-hidden="true"></i> Add Tokens</a>
        <br>
         <a href="{{url('/play')}}"  class="nav-item nav-link"><i style="font-size: 21px !important;" class="fa fa-play" aria-hidden="true"></i> Library</a>
          <br>

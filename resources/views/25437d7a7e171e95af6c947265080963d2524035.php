@@ -540,7 +540,7 @@
             </div>
          </div>
            <!-- Identity -->
-           <div class="col-md-4">
+           <div class="col-md-4" style="<?php echo e($idenetity && $idenetity[0]->is_verified==1 ? 'display:none' : 'display:block'); ?>">
                <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
@@ -549,7 +549,7 @@
                     <?php echo e('pending'); ?>
 
                     <?php else: ?>
-                    <button type="button" class="btn btn-danger my-4">Failed</button>
+                    <button type="button" style="<?php echo e($idenetity && $idenetity[0]->is_verified==-1 ? 'display:none' : 'display:block'); ?>" class="btn btn-danger my-4">Failed</button>
                </div>
                   <div class="card-body text-center">
  
@@ -560,29 +560,31 @@
                </div>
             </div>
             <!-- Identity -->
-            <div class="col-md-4">
+            <div class="col-md-4" style="<?php echo e($agreement && $agreement[0]->is_verified==1 ? 'display:none' : 'display:block'); ?>">
                         <div class="card" style="height: 420px;" >
                                  <div class="card-head text-center">
 
                                     <h3>Artist Agreement</h3>
-
+                                    </div>
                                     <?php if($agreement && $agreement[0]->is_verified==0): ?>
-
-                                    <?php echo e('pending'); ?>
-
-
+                                       <div class="text-center">
+                                    <h3 class="agreement"><?php echo e('pending'); ?> </h3>
+                                       </div>
                                     <?php else: ?>
+
+                                    <button type="button" style="<?php echo e($agreement && $agreement[0]->is_verified==-1 ? 'display:none' : 'display:block'); ?>" class="btn btn-danger my-4">Failed</button>
+
 
                                     <button class="btn btn-success" type="button">Download</button>
 
-                                 </div>
+                               
                   <div class="card-body text-center">
                   <?php echo Form::open(['id'=>'idCheck','method' => 'post', 'files'=>true]); ?>
 
           <?php echo e(Form::token()); ?> 
      
                         <div class="form-group ">
-                        <input type="agreement" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <input type="file" class="custom-file-input" name="agreement" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label text-left" for="inputGroupFile01">Choose file</label>
                            
                         </div>
@@ -905,6 +907,15 @@
    background: #22b14c;
    color: white;
    }
+   h3.agreement {
+    background: orange;
+    width: 50%;
+    display: block;
+    margin: 58px auto;
+    color: white;
+    padding: 8px;
+    text-transform: capitalize;
+}
    .columesdashboard3 {
    border: 3px solid #b97a57;
    padding: 30px 18px;

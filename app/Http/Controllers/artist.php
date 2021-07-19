@@ -804,7 +804,7 @@ class artist extends Controller
 
           $update_data = $this->model->editOfferDetail($return);
 
-          return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure!'));
+          return $update_data ? response()->json(array('status'=>1,'message'=>'Offer Edit Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occured!'));
   
   }
 
@@ -919,6 +919,8 @@ class artist extends Controller
 
         $profileDtaa = $this->editProfileVideo($req->all());
 
+        //print_r($profileDtaa);die;
+
 
       }   
       
@@ -935,7 +937,7 @@ class artist extends Controller
         $update = $this->model->edit_other($inputData,$profileDtaa);
         
 
-        return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occure'));
+        return $update ? response()->json(array('status'=>1,'message'=>'Update Successfully!')) :  response()->json(array('status'=>0,'message'=>'Some Error Occured'));
   }
 
 
@@ -966,15 +968,15 @@ class artist extends Controller
 
    // print_r($data1);die;
 
-    if($data1->media && $data1->audio_pic){
+    if($data1['media'] && $data1['audio_pic']){
 
-      $fileName =  time().'_'.$data1->media->getClientOriginalName();
+      $fileName =  time().'_'.$data1['media']->getClientOriginalName();
 
-      $audio_pics =time().'_'.$data1->audio_pic->getClientOriginalName();
+      $audio_pics =time().'_'.$data1['audio_pic']->getClientOriginalName();
 
-      $ext =$data1->media ? $data1->media->getClientOriginalExtension():'';
+      $ext =$data1['media'] ? $data1['media']->getClientOriginalExtension():'';
 
-      $size=$data1->media->getSize();
+      $size=$data1['media']->getSize();
 
       $data['size'] = number_format($size / 1048576,2);
 
@@ -1061,7 +1063,7 @@ class artist extends Controller
 
     $update = $this->model->sendTip($req->all());
 
-    return $update==1 ? response()->json(array('status'=>1,'message'=>'You Tipped!')) :  response()->json(array('status'=>0,'message'=>'InEfficient PAZ Tokens'));
+    return $update==1 ? response()->json(array('status'=>1,'message'=>'You Tipped!')) :  response()->json(array('status'=>0,'message'=>'Insufficient PAZ Tokens!'));
 
 
   }
