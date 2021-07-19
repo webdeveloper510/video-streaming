@@ -257,6 +257,9 @@ class artist extends Controller
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
+      $showArtistVerified = $this->model->showArtistVerified($contentType->id);
+     // $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
+
       $profileComplete = $this->model->profileInfo($id);
 
       $profileComplete = $this->model->profileInfo($id);
@@ -354,7 +357,7 @@ class artist extends Controller
       
       //dd();
 
-      return view('artists.dashboard_home',['agreement'=>$agreement,'idenetity'=>$identify,'profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['is_visible'=>count($showArtistVerified),'agreement'=>$agreement,'idenetity'=>$identify,'profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 

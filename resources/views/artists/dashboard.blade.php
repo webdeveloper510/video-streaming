@@ -293,13 +293,13 @@
             </ul>
           </div>
           <div class="unverified">
-    <i class="fa fa-exclamation-circle" style="font-size:24px"></i>
-    <div class="textunveri">
-        <p>Your Account is Unverified!<br>
-        Please submit the Identity Check Selfie and/Or the signed Artist Agreement to get verified.<br>
-        <br>
-        </p>
-</div>
+         <i class="fa fa-exclamation-circle" style="font-size:24px" style="{{$is_visible==1 ? 'display:none':'display:block'}}"></i>
+              <div class="textunveri">
+                  <p>Your Account is Unverified!<br>
+                  Please submit the Identity Check Selfie and/Or the signed Artist Agreement to get verified.<br>
+                  <br>
+                  </p>
+          </div>
 </div>
       </nav>
       <div class="container">
