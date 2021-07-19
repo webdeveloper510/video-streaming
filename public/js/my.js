@@ -2523,8 +2523,8 @@ function edit_offer(data) {
     $('#speed').val(json_info.delieveryspeed);
     $('#description').val(json_info.description);
     if(json_info.type=='video'){
-        $('.chooseImage #filename').text(json_info.audio_pic);
-        $('.file_input #ilename').text(json_info.media);
+        $('.thumbnail #filename').text(json_info.audio_pic);
+        $('.file #filename').text(json_info.media);
     }
 
     else{    
