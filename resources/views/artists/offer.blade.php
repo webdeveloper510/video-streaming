@@ -59,7 +59,6 @@
 
                     <div class="col-md-12 mt-5 form-inline">
 
-            {{Form::label('Media Offering', 'Media Offering')}} <br>
         <div class="radiobtn text-white">
           <input type="radio" class="select_media_pic" name="type" value="audio" /><p class="text-white">Audio</p>
           <input type="radio" class="select_media_pic" name="type" value="video"/><p class="text-white">Video</p>
