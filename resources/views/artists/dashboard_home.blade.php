@@ -781,7 +781,7 @@
                                        <th scope="col">Nickname</th>
                                        <th scope="col">Date Of Consent</th>
                                     </tr>
-                                 </thead>
+                                 </thead>  
                                  <tbody>
                                     
                                     <tr>
