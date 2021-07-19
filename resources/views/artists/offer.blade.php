@@ -57,7 +57,7 @@
 
 -->
 
-                    <div class="col-md-4 mt-5 form-inline">
+                    <div class="col-md-12 mt-5 form-inline">
 
             {{Form::label('Media Offering', 'Media Offering')}} <br>
         <div class="radiobtn text-white">
@@ -66,7 +66,7 @@
    
             </div>
             </div>
-                <div class="col-md-4 mt-5 ">
+                <div class="col-md-6 mt-5 ">
 
                 {{Form::label('Title', 'Title')}} 
                     {{Form::text('title', '',['class'=>'form-control title','table'=>'offer','placeholder'=>'Title'])}}
@@ -80,7 +80,7 @@
                 </div>
                 <input type="hidden" name="assembly_id" value="" class="assembly_id"/>
 
-                    <div class="col-md-4 mt-5 ">
+                    <div class="col-md-6 mt-5 ">
                     {{Form::label('Price(PAZ)', 'Price(PAZ/min)')}} 
                         {{Form::number('price', '',['class'=>'form-control','placeholder'=>'Price','min'=>0])}}
                         @if($errors->first('price'))
@@ -93,7 +93,7 @@
         
            
             
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-12 mt-5 ">
             {{Form::label('Delievery Speed(Days)', 'Delievery Speed(Days)')}} 
                 {{Form::number('delieveryspeed', '',['class'=>'form-control','placeholder'=>'Delievery Speed','min'=>0])}}
                  @if($errors->first('delieveryspeed'))
@@ -102,7 +102,7 @@
                 </div>
                 @endif
                </div>
-               <div class="col-md-6 mt-5">
+               <div class="col-md-12 mt-5">
              {{Form::label('Additional Request', 'Additional Request Price(PAZ)')}} 
                 {{Form::number('additional_price',null,['class'=>'form-control', 'min'=>0])}}
                  @if($errors->first('additional_price'))
@@ -111,7 +111,7 @@
                 </div>
                 @endif
             </div>
-            <div class="col-md-6 mt-5">
+            <div class="col-md-12 mt-5">
             
             <label>Duration(In Minutes)</label>
             <div class="row">
@@ -224,7 +224,7 @@
                
             </div>
               
-            <div class="col-md-6 mt-5">
+            <div class="col-md-12 mt-5">
              {{Form::label('Description', 'Description')}} 
             
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])}}
