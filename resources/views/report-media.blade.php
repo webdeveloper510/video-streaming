@@ -306,7 +306,7 @@
          </thead>
          <tbody>
             @foreach($signedProfile as $signedProfile)
-            <tr style="{{$signedProfile->agreementverified==0 || $signedProfile->idverified==0 ? 'display:block' : 'display:none'}}">
+            <tr class="{{$signedProfile->agreementverified==0 || $signedProfile->idverified==0 ? 'trshow' : 'trhide'}}">
                <th scope="row">{{$loop->iteration}}</th>
                <td> {{$signedProfile->nickname}}</td>
                <td>{{$signedProfile->mediacount + $signedProfile->offercount}}</td>
@@ -617,6 +617,12 @@
    ul.nav.nav-tabs li.nav-item.tb1 {
    width: 20% !important;
    margin-bottom:20px;
+   }
+   .trhide{
+      display:none;
+   }
+   .trshow{
+      display:block;
    }
 </style>
 @include('layouts.footer')
