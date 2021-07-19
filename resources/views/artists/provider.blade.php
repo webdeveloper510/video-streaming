@@ -35,10 +35,12 @@
       
       </div>
 
-        <!--   
+           
+       <div class="row">
+         <div class="col"></div>
        
-          <div class="row align-items-center text-white">
-            <div class="col-md-12">
+          <div class=" col-md-8 row align-items-center text-white">
+            <!--  <div class="col-md-12">
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-7">
@@ -50,7 +52,7 @@
               </div>
             </div>
             </div>
-          <div class="col-md-6">
+          <div class="col-md-12">
            <div class="form-group">
  
     <select class="custom-select selctc&r" id="inputGroupSelect01">
@@ -60,26 +62,26 @@
   </select>
   </div>
 </div>
-  <div class="col-md-6">
+  <div class="col-md-12">
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
 
         -->
 
-            <div class="col-md-6 form-inline">
+            <div class="col-md-12 form-inline">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
               <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
             <div class="mt-5">
             <label class="mr-3">Allow Downloading ?</label>
               <input type="radio"  name="is_download" value="yes" /><p>Yes</p>
               <input type="radio" name="is_download" value="no"/><p>No</p>
               </div>
             </div>
-             <div class="col-md-6 mt-2 ">
+             <div class="col-md-12 mt-2 ">
             {{Form::label('Title', 'Title')}} 
                 {{Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])}}
                 <div class="alert alert-success set1" id="messagediv" style="display:none"></div>
@@ -95,11 +97,11 @@
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
          
-            <div class="col-md-6 mt-2 ">
+            <div class="col-md-12 mt-2 ">
             {{Form::label('Add Price', 'Price (PAZ)')}} 
             {!! Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]) !!}
             </div>
-            <div class="col-md-6 mt-2 ">
+            <div class="col-md-12 mt-2 ">
            
              
             <div class="video" style="display:none">
@@ -157,7 +159,7 @@
             </div>
             <input type="hidden" class="created_at" name="created_at" value=""/>
                <input type="hidden" class="updated_at" name="updated_at" value=""/>
-            <div class="col-md-6 mt-3">
+            <div class="col-md-12 mt-3">
             {{Form::label('Description', 'Description')}} 
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])}}
             </div>
@@ -176,11 +178,14 @@
     <div class="alert alert-danger sn" id="error" style="display:none">
 
     </div>
+   
      </div>
      </div>
    </div>
   {{ Form::close() }}
-  </div>
+
+  <div class="col"></div>
+</div>
   
 </div>
 </div>
