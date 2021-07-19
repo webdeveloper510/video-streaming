@@ -306,7 +306,7 @@
          </thead>
          <tbody>
             @foreach($signedProfile as $signedProfile)
-            <tr>
+            <tr style="{{$signedProfile->agreementverified==0 || $signedProfile->idverified==0 ? 'display:block' : 'display:none'}}">
                <th scope="row">{{$loop->iteration}}</th>
                <td> {{$signedProfile->nickname}}</td>
                <td>{{$signedProfile->mediacount + $signedProfile->offercount}}</td>
