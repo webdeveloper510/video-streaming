@@ -622,7 +622,7 @@
       display:none;
    }
    .trshow{
-      display:block;
+      display:revert;
    }
 </style>
 @include('layouts.footer')
