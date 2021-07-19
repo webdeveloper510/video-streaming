@@ -178,13 +178,14 @@
     <div class="alert alert-danger sn" id="error" style="display:none">
 
     </div>
-    <div class="col"></div>
-</div>
+   
      </div>
      </div>
    </div>
   {{ Form::close() }}
   </div>
+  <div class="col"></div>
+</div>
   
 </div>
 </div>
