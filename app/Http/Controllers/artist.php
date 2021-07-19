@@ -1434,7 +1434,11 @@ class artist extends Controller
           unset($data['_token']);
           $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
 
+         
+
           $ext =$req->file ? $req->file->getClientOriginalExtension():'';
+
+          unset($data['file']);
 
           $data['coformer_document'] = $fileName;
 
