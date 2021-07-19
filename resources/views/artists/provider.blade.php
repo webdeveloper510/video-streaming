@@ -183,7 +183,7 @@
      </div>
    </div>
   {{ Form::close() }}
-  </div>
+
   <div class="col"></div>
 </div>
   
