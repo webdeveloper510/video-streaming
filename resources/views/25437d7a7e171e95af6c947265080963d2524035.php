@@ -810,14 +810,14 @@
                                  <?php echo e(Form::token()); ?>
 
                                        <th class="d-flex" scope="row">1</th>
-                                       <td><input type="text" name= "nickname" class="form-control"><br>
+                                       <td><input type="text" name= "coformer_nickname" class="form-control"><br>
                                        <div class="custom-file">
                                           <input type="file" required class="custom-file-input" name="file" id="inputGroupFile01">
                                           <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
                                        </div>
                                        </td>
                                        <td class="d-flex"> 
-                                         <input type="date" required name="date" class="form-control">
+                                         <input type="date" required name="DOC" class="form-control">
                                        </td>
                                     </tr>
                                  </tbody>

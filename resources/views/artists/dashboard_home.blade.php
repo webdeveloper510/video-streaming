@@ -768,7 +768,9 @@
          <div class="col-md-8">
             <div class="card" style="height:376px;">
                <div class="card-body">
+               <a href="{{asset('images/Consentform.pdf')}}" download> 
                   <button class="btn btn-success float-right" type="button">Download</button>
+               </a>
                         <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
                         <div class="table12">
                            <div class="table table-responsive">
