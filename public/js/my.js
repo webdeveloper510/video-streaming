@@ -2101,6 +2101,7 @@ $(document).on('submit', '#edit_form', function (event) {
 $(document).on('submit', '#consent', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
+    $('.loader').show();
     $('#save').attr('disabled',true);
     $.ajax({
         type: 'POST',
