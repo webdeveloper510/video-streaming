@@ -576,8 +576,9 @@
 
                                     <button type="button" style="<?php echo e($agreement && $agreement[0]->is_verified==-1 ? 'display:none' : 'display:block'); ?>" class="btn btn-danger my-4">Failed</button>
 
-
+                                    <a href="<?php echo e(asset('images/Artist_Agreement.pdf')); ?>" download> 
                                     <button class="btn btn-success" type="button">Download</button>
+</a>
 
                                
                   <div class="card-body text-center">

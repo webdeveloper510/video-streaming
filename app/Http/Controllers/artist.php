@@ -259,6 +259,8 @@ class artist extends Controller
 
       $profileComplete = $this->model->profileInfo($id);
 
+      $profileComplete = $this->model->profileInfo($id);
+
       $social_names = $this->model->getSocialName($contentType->id);
 
       $agreement = $this->model->getArtistAgreement('agreement');
@@ -1429,6 +1431,7 @@ class artist extends Controller
          // print_r($req->all());die;
 
           $data=$req->all();
+          unset($data['_token']);
           $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
 
           $ext =$req->file ? $req->file->getClientOriginalExtension():'';
