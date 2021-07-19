@@ -779,12 +779,12 @@ public function getArtistDetail($artid,$type){
     ->leftjoin('media', function($join)
     {
         $join->on('identify_artist.artist_id', '=', 'media.contentProviderid')
-             ->where('media.is_verified', '=', 0);
+             ->where('media.is_verified', 0);
     })
      ->leftjoin('offer', function($join)
     {
         $join->on('identify_artist.artist_id', '=', 'offer.artistid')
-          ->where('offer.is_verified', '=', 0);
+          ->where('offer.is_verified', 0);
     })
      ->select('identify_artist.artist_profile','identify_artist.artist_id as artistid','agreement.artist_id as aid','agreement.agreement',DB::raw("count(media.id) as mediacount"),DB::raw("count(offer.id) as offercount"),'contentprovider.nickname','contentprovider.created_at')
      ->where('identify_artist.is_verified',0)
