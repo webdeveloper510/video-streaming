@@ -567,8 +567,9 @@
 
                                     <button type="button" style="{{$agreement && $agreement[0]->is_verified==-1 ? 'display:none' : 'display:block'}}" class="btn btn-danger my-4">Failed</button>
 
-
+                                    <a href="{{asset('images/Artist_Agreement.pdf')}}" download> 
                                     <button class="btn btn-success" type="button">Download</button>
+</a>
 
                                
                   <div class="card-body text-center">
@@ -741,7 +742,7 @@
                                  </tbody>
                               </table>
                            </div>
-                           {!!Form::open(['id'=>'user','method' => 'post'])!!}
+                           {!!Form::open(['id'=>'user','method' => 'post' ])!!}
                            {{Form::token()}}
                            <div class="linksonit mb-3">
                               <div class="amountmedia row">
@@ -768,7 +769,9 @@
          <div class="col-md-8">
             <div class="card" style="height:376px;">
                <div class="card-body">
+               <a href="{{asset('images/Consentform.pdf')}}" download> 
                   <button class="btn btn-success float-right" type="button">Download</button>
+               </a>
                         <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
                         <div class="table12">
                            <div class="table table-responsive">
@@ -779,34 +782,32 @@
                                        <th scope="col">Nickname</th>
                                        <th scope="col">Date Of Consent</th>
                                     </tr>
-                                 </thead>
+                                 </thead>  
                                  <tbody>
                                     
                                     <tr>
+                                    {!!Form::open(['id'=>'consent','method' => 'post', 'files'=>true])!!}
+                                 {{Form::token()}}
                                        <th class="d-flex" scope="row">1</th>
-                                       <td><input type="text" class="form-control"><br>
+                                       <td><input type="text" name= "coformer_nickname" class="form-control"><br>
                                        <div class="custom-file">
-                                          <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                          <input type="file" required class="custom-file-input" name="file" id="inputGroupFile01">
                                           <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
                                        </div>
                                        </td>
                                        <td class="d-flex"> 
-                                         <input type="date" class="form-control">
+                                         <input type="date" required name="DOC" class="form-control">
                                        </td>
                                     </tr>
                                  </tbody>
                               </table>
                            </div>
-                           <form>
-                           <div class="linksonit mb-3">
-                              <div class="amountmedia row">
-                                 <div class="col-md-12 text-center">
-                                    <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
-                                 </div>
-                              </div>
-                           </div>
+                           <div class="loader col-6" style="display:none">
+                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
+                <span class="percentage" style="color:green;font-weight: bold;"></span>
+            </div>
                            <div class="text-right ">
-                              {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
+                              {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save']) }}
                            </div>
                            {{ Form::close() }}
                         </div>

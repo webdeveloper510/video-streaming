@@ -36,22 +36,54 @@
         <div class="alert alert-danger" id="error" style="display:none">
       
       </div>
+
+           
+       <div class="row">
+         <div class="col"></div>
        
-          <div class="row align-items-center text-white">
-            <div class="col-md-6">
+          <div class=" col-md-8 row align-items-center text-white">
+             <div class="col-md-12">
+            <div class="form-group row">
+              <label for="staticEmail" class="col-sm-5 col-form-label">Are there Co-Performers involved in this Content?</label>
+              <div class="col-sm-7">
+              <div class="radiobtn text-white">
+          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+
+            </div>
+              </div>
+            </div>
+            </div>
+          <div class="col-md-12">
+           <div class="form-group">
+ 
+    <select class="custom-select selctc&r" id="inputGroupSelect01">
+    <option selected>Choose...</option>
+    <option value="1">Nicknames</option>
+    
+  </select>
+  </div>
+</div>
+  <div class="col-md-12">
+            <button class="btn btn-secondery selctc&r " type="button">+</button>
+          </div>
+
+       
+
+            <div class="col-md-12 form-inline">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
               <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
             <div class="mt-5">
             <label class="mr-3">Allow Downloading ?</label>
               <input type="radio"  name="is_download" value="yes" /><p>Yes</p>
               <input type="radio" name="is_download" value="no"/><p>No</p>
               </div>
             </div>
-             <div class="col-md-6 mt-2 ">
+             <div class="col-md-12 mt-2 ">
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])); ?>
 
@@ -68,12 +100,12 @@
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
          
-            <div class="col-md-6 mt-2 ">
+            <div class="col-md-12 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price (PAZ)')); ?> 
             <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
-            <div class="col-md-6 mt-2 ">
+            <div class="col-md-12 mt-2 ">
            
              
             <div class="video" style="display:none">
@@ -120,7 +152,7 @@
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" id="browse">Choose File</button>
-                  <div class="progress"></div>
+                  <div class="progress proaudio">Choose 1 Audio + 1 Image</div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -133,7 +165,7 @@
             </div>
             <input type="hidden" class="created_at" name="created_at" value=""/>
                <input type="hidden" class="updated_at" name="updated_at" value=""/>
-            <div class="col-md-6 mt-3">
+            <div class="col-md-12 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
 
@@ -154,15 +186,16 @@
     <div class="alert alert-danger sn" id="error" style="display:none">
 
     </div>
+   
      </div>
      </div>
    </div>
   <?php echo e(Form::close()); ?>
 
-  </div>
-  <div class="text-center">
-      <h3>Note : Ordered Content form services are always downloadable.</h3>
-  </div>
+
+  <div class="col"></div>
+</div>
+  
 </div>
 </div>
 </section>
@@ -196,7 +229,9 @@ label.error {
     margin-top: 22px;
     border-radius: 9px;
 }
-
+.radiobtn{
+  display:inline-flex;
+}
 .loader img {
     background: #ffffff61;
     
