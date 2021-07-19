@@ -40,7 +40,7 @@
          <div class="col"></div>
        
           <div class=" col-md-8 row align-items-center text-white">
-            <!--  <div class="col-md-12">
+              <div class="col-md-12">
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-7">
@@ -66,7 +66,7 @@
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
 
-        -->
+        
 
             <div class="col-md-12 form-inline">
             <div class="mt-5">
