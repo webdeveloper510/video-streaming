@@ -26,10 +26,10 @@
         </div>
         <h2 class="text-center text-white "> Publish a Service </h2>
 
-          <!--
-
-          <div class="row align-items-center text-white">
-          <div class="col-md-12">
+          <div class="row">
+             <div class="col"></div>
+          <div class=" col-md-8 row align-items-center text-white">
+          <!--<div class="col-md-12">
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-7">
@@ -255,7 +255,8 @@
         <div class="text-left col-md-10 p-0 pt-4 pl-4">
       <h4>Note: Ordered content from services are always downloadable.</h4>
   </div>
-            
+</div>
+      <div class="col"></div>      
           </div>
      </div>
      </div>
