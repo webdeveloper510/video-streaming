@@ -306,17 +306,17 @@
          </thead>
          <tbody>
             @foreach($signedProfile as $signedProfile)
-            <tr style="{{$signedProfile->agreementverified==0 || $signedProfile->idverified==0 ? 'display:block' : 'display:none'}}">
+            <tr class="{{$signedProfile->agreementverified==0 || $signedProfile->idverified==0 ? 'trshow' : 'trhide'}}">
                <th scope="row">{{$loop->iteration}}</th>
                <td> {{$signedProfile->nickname}}</td>
                <td>{{$signedProfile->mediacount + $signedProfile->offercount}}</td>
                <td class="text-center"> <h5>{{$signedProfile->agreement ? $signedProfile->agreement : ''}} </h5>
-               <button class="btn btn-success agreement" style="{{$signedProfile->agreementverified==0 ? 'display:block' : 'display:none'}}" type="button" onClick="statusUpdate(this,'agreement',1,{{$signedProfile->aid}})">Confirm</button>
-                <button class="btn btn-danger agreement" type="button" style="{{$signedProfile->agreementverified==0 ? 'display:block' : 'display:none'}}" onClick="statusUpdate(this,'agreement',-1,{{$signedProfile->aid}})">Deny</button></td>
+               <button class="btn btn-success agreement" style="{{$signedProfile->agreementverified == '0' ? 'display:block' : 'display:none'}}" type="button" onClick="statusUpdate(this,'agreement',1,{{$signedProfile->aid}})">Confirm</button>
+                <button class="btn btn-danger agreement" type="button" style="{{$signedProfile->agreementverified =='0' ? 'display:block' : 'display:none'}}" onClick="statusUpdate(this,'agreement',-1,{{$signedProfile->aid}})">Deny</button></td>
                <td class="text-center">
                <h5>{{$signedProfile->artist_profile ? $signedProfile->artist_profile : ''}} </h5>
-               <button class="btn btn-success identify_artist" type="button" style="{{$signedProfile->idverified==0 ? 'display:block' : 'display:none'}}"onClick="statusUpdate(this,'identify_artist',1,{{$signedProfile->artistid}})">Confirm</button>
-                     <button class="btn btn-danger identify_artist" type="button" style="{{$signedProfile->idverified==0 ? 'display:block' : 'display:none'}}"onClick="statusUpdate(this,'identify_artist',-1,{{$signedProfile->artistid}})">Deny</button>
+               <button class="btn btn-success identify_artist" type="button" style="{{$signedProfile->idverified =='0' ? 'display:block' : 'display:none'}}"onClick="statusUpdate(this,'identify_artist',1,{{$signedProfile->artistid}})">Confirm</button>
+                     <button class="btn btn-danger identify_artist" type="button" style="{{$signedProfile->idverified =='0' ? 'display:block' : 'display:none'}}"onClick="statusUpdate(this,'identify_artist',-1,{{$signedProfile->artistid}})">Deny</button>
                </td>
                <td>{{$signedProfile->created_at}}</td>
             </tr>
@@ -617,6 +617,12 @@
    ul.nav.nav-tabs li.nav-item.tb1 {
    width: 20% !important;
    margin-bottom:20px;
+   }
+   .trhide{
+      display:none;
+   }
+   .trshow{
+      display:revert;
    }
 </style>
 @include('layouts.footer')
