@@ -35,10 +35,12 @@
       
       </div>
 
-        <!--   
+           
+       <div class="row">
+         <div class="col"></div>
        
-          <div class="row align-items-center text-white">
-            <div class="col-md-12">
+          <div class=" col-md-8 row align-items-center text-white">
+            <!--  <div class="col-md-12">
             <div class="form-group row">
               <label for="staticEmail" class="col-sm-5 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-7">
@@ -176,6 +178,8 @@
     <div class="alert alert-danger sn" id="error" style="display:none">
 
     </div>
+    <div class="col"></div>
+</div>
      </div>
      </div>
    </div>

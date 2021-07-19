@@ -224,7 +224,7 @@
                
             </div>
               
-            <div class="col-md-12 mt-5">
+            <div class="col-md-12">
              {{Form::label('Description', 'Description')}} 
             
                 {{Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 20, 'cols' => 40])}}
@@ -258,7 +258,7 @@
 </div>
           <div class="col"></div>      
           </div>
-          <div class="text-left col-md-12 p-0 pt-4 pl-4">
+          <div class="text-center col-md-12 p-0 pt-4 pl-4">
       <h4>Note: Ordered content from services are always downloadable.</h4>
   </div>
       
