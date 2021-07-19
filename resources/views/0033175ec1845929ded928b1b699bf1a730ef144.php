@@ -217,6 +217,18 @@
               <?php $__currentLoopData = $details; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <?php if($detail->type=='video'): ?> 
             <div class="col-md-4 mb-3 ">
+            <div class="videotags row">
+                           <div class="col-4 blue text-left">
+                        <h4>Stream</h4>
+                           </div>
+                           <div class="col-4 green text-right">
+                             <h4>Download</h4>
+                           </div>
+                           <div class="col-4 ">
+                           
+                           </div>
+
+                        </div>
             <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
             </div>
@@ -281,6 +293,17 @@
           <?php $__currentLoopData = $audio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $aud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
 <div class="col-md-4 mb-3">
+<div class="videotags row">
+                           <div class="col-4 blue text-left">
+                        <h4>Stream</h4>
+                           </div>
+                           <div class="col-4">
+                           </div>
+                           <div class="col-4 green text-right">
+                           <h4>Download</h4>
+                           </div>
+
+                        </div>
 <div class="verifyvideo text-center" style="<?php echo e($detail->is_verified==0 ? 'display:block' : 'display:none'); ?>">
                   <h3>Verifying...</h3>
                </div>
@@ -596,26 +619,29 @@ Your browser does not support the audio tag.
                 <span id="filename" style="color:red;"></span>
             </div>
 
+             
             <!--
+             
+
             <div class="col-md-12 pt-3">
-            
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
             <p class="text-dark"> <input type="radio"  name="type" value="Yes" /> yes</p>
             <p class="text-dark"><input type="radio" name="type" value="No"/> No</p>
 
             </div>
-                                  
+               
             <select class="custom-select selctc&r" id="inputGroupSelect01">
     <option selected>Choose...</option>
     <option value="1">Nicknames</option>
     
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
-            
-          </div>
 
-                                  -->
+          
+
+          </div>
+            -->
             
            <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -786,7 +812,6 @@ Your browser does not support the audio tag.
 
             <!--
 
-            
             <div class="col-md-12 pt-3">
             <label >Are there Co-Performers involved in this Content?</label>
             <div class="radiobtn text-dark">
@@ -801,10 +826,10 @@ Your browser does not support the audio tag.
     
   </select>
   <button class="btn btn-secondery selctc&r " type="button">+</button>
-            </div>
+          </div>
             </div>
 
-                  -->
+          -->
 
             <div class="modal-footer">
             <div class="loader col-6" style="display:none">
@@ -943,6 +968,26 @@ video:hover {
     float: right;
     color: white !important;
     padding: 7px;
+}
+.col-4.blue.text-left h4 {
+    background: gold;
+    text-align: center;
+    color: black;
+    line-height: 16px;
+    font-size: 13px;
+}
+.col-4.green.text-right h4 {
+    color: white;
+    background: green;
+    text-align: center;
+    line-height: 16px;
+    font-size: 13px;
+}
+.videotags.row {
+    position: absolute;
+    top: 6px;
+    width: 100%;
+    padding: 0px 4px;
 }
 .overlayprofile img {
     display: flex;

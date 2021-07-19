@@ -2093,6 +2093,70 @@ $(document).on('submit', '#edit_form', function (event) {
 
 });
 
+
+
+
+/**-----------------------------------------------------------------------Consent Form Data - --------------------------------------- */
+
+$(document).on('submit', '#consent', function (event) {
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+    $('#save').attr('disabled',true);
+    $.ajax({
+        type: 'POST',
+        url: APP_URL + "/consentUpload",
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+
+        data: formData,
+        processData: false,
+        contentType: false,
+        xhr: function () {
+            var xhr = $
+                .ajaxSettings
+                .xhr();
+            if (xhr.upload) {
+                xhr
+                    .upload
+                    .addEventListener('progress', function (event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        $('.percentage').html(percent + '%');
+                        if (percent == 100) {
+                            $('.loader').hide();
+                        }
+                    }, true);
+            }
+            return xhr;
+        },
+
+        success: function (data) {
+
+        //    console.log(data);
+        //    return false;
+
+            $('#save').removeAttr('disabled');      
+
+            if (data == 1) {
+           
+           location.reload();
+            
+            } else {
+
+        alert('some error');
+
+            }
+
+        }
+    });
+
+});
+
 function loadingmessage() {
     alert('Offer Update Successfully!');
 }
