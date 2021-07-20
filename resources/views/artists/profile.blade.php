@@ -625,7 +625,6 @@ Your browser does not support the audio tag.
       <option>5</option>
     </select>
   </div>
-  <button class="btn btn-secondery selctc&r " type="button">+</button>
 
           
 
@@ -803,7 +802,7 @@ Your browser does not support the audio tag.
       <option>5</option>
     </select>
   </div>
-  <button class="btn btn-secondery selctc&r " type="button">+</button>
+
           </div>
             </div>
 
