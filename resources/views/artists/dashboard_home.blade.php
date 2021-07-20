@@ -837,7 +837,7 @@
                         <tr>
                            <th scope="col">#</th>
                            <th scope="col">Nickname</th>
-                           <th scope="col">Data</th>
+                           <th scope="col">Date</th>
                            <th scope="col">Action</th>
                         </tr>
                      </thead>
