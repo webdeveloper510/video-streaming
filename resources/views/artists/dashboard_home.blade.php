@@ -842,24 +842,14 @@
                         </tr>
                      </thead>
                      <tbody>
+                        @foreach($consentData as $data)
                         <tr>
-                           <th scope="row">1</th>
-                           <td>Mark</td>
-                           <td>Otto</td>
+                           <th scope="row">{{$loop->iteration}}</th>
+                           <td>{{$data->coformer_nickname}}</td>
+                           <td>{{$data->coformer_nickname}}</td>
                            <td><button class="btn btn-outline-primary btn-sm">x</button></td>
                         </tr>
-                        <tr>
-                           <th scope="row">2</th>
-                           <td>Jacob</td>
-                           <td>Thornton</td>
-                           <td><button class="btn btn-outline-primary btn-sm">x</button></td>
-                        </tr>
-                        <tr>
-                           <th scope="row">3</th>
-                           <td>Larry</td>
-                           <td>the Bird</td>
-                           <td><button class="btn btn-outline-primary btn-sm">x</button></td>
-                        </tr>
+                        @endforeach
                      </tbody>
                      </table>
                   </div>
