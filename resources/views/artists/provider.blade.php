@@ -266,6 +266,13 @@ input.select_media_pic {
     border: 1px solid #fff;
     color: #fff;
 }
+li.active label {
+    color: black !important;
+}
+
+li.active:hover label{
+    color: white !important;
+}
   @media only screen and (max-width: 767px){
 section.background1 {
     height: 151%;
