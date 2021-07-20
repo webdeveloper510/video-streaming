@@ -742,7 +742,7 @@
                                  </tbody>
                               </table>
                            </div>
-                           {!!Form::open(['id'=>'user','method' => 'post' ])!!}
+                           {!!Form::open(['id'=>'user','method' => 'post'])!!}
                            {{Form::token()}}
                            <div class="linksonit mb-3">
                               <div class="amountmedia row">
@@ -786,28 +786,30 @@
                                  <tbody>
                                     
                                     <tr>
-                                    {!!Form::open(['id'=>'consent','method' => 'post', 'files'=>true])!!}
-                                 {{Form::token()}}
                                        <th class="d-flex" scope="row">1</th>
-                                       <td><input type="text" name= "coformer_nickname" class="form-control"><br>
+                                       <td><input type="text" class="form-control"><br>
                                        <div class="custom-file">
-                                          <input type="file" required class="custom-file-input" name="file" id="inputGroupFile01">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01">
                                           <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
                                        </div>
                                        </td>
                                        <td class="d-flex"> 
-                                         <input type="date" required name="DOC" class="form-control">
+                                         <input type="date" class="form-control">
                                        </td>
                                     </tr>
                                  </tbody>
                               </table>
                            </div>
-                           <div class="loader col-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading...</span><img src="{{asset('images/loading2.gif')}}" width="50px" height="50px"/>
-                <span class="percentage" style="color:green;font-weight: bold;"></span>
-            </div>
+                           <form>
+                           <div class="linksonit mb-3">
+                              <div class="amountmedia row">
+                                 <div class="col-md-12 text-center">
+                                    <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                                 </div>
+                              </div>
+                           </div>
                            <div class="text-right ">
-                              {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save']) }}
+                              {{ Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled']) }}
                            </div>
                            {{ Form::close() }}
                         </div>

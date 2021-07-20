@@ -544,15 +544,19 @@
                <div class="card" style="height: 420px;" >
                <div class="card-head text-center">
                     <h3>Identity Check </h3>
-                    </div>
+
                     <?php if($idenetity && $idenetity[0]->is_verified==0): ?>
+<<<<<<< HEAD
                     <div class="text-center"> 
                                     <h3 class="agreement"><?php echo e('pending'); ?> </h3>
                                        </div>
+=======
+                    <?php echo e('pending'); ?>
+
+>>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
                     <?php else: ?>
-                    <div class="text-center">
-                    <button type="button" style="<?php echo e($idenetity && $idenetity[0]->is_verified==-1 ? 'display:none' : 'display:block'); ?>; margin:0 auto;" class="btn btn-danger my-4">Failed</button>
-</div>
+                    <button type="button" style="<?php echo e($idenetity && $idenetity[0]->is_verified==-1 ? 'display:none' : 'display:block'); ?>" class="btn btn-danger my-4">Failed</button>
+               </div>
                   <div class="card-body text-center">
  
                         <a href="https://pornartistzone.com/developing-streaming/IDcheck" class="btn btn-outline-primary">Reupload</a>
@@ -760,7 +764,7 @@
                                  </tbody>
                               </table>
                            </div>
-                           <?php echo Form::open(['id'=>'user','method' => 'post' ]); ?>
+                           <?php echo Form::open(['id'=>'user','method' => 'post']); ?>
 
                            <?php echo e(Form::token()); ?>
 
@@ -808,30 +812,38 @@
                                  <tbody>
                                     
                                     <tr>
-                                    <?php echo Form::open(['id'=>'consent','method' => 'post', 'files'=>true]); ?>
-
-                                 <?php echo e(Form::token()); ?>
-
                                        <th class="d-flex" scope="row">1</th>
+<<<<<<< HEAD
                                        <td><input type="text" name= "coformer_nickname" class="form-control"><br>
+=======
+                                       <td><input type="text" class="form-control"><br>
+>>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
                                        <div class="custom-file">
-                                          <input type="file" required class="custom-file-input" name="file" id="inputGroupFile01">
+                                          <input type="file" class="custom-file-input" id="inputGroupFile01">
                                           <label class="custom-file-label form-control" for="inputGroupFile01">Choose file</label>
                                        </div>
                                        </td>
                                        <td class="d-flex"> 
+<<<<<<< HEAD
                                          <input type="date" required name="DOC" class="form-control">
+=======
+                                         <input type="date" class="form-control">
+>>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
                                        </td>
                                     </tr>
                                  </tbody>
                               </table>
                            </div>
-                           <div class="loader col-6" style="display:none">
-                <span style="color:green; font-weight: bold;">Uploading...</span><img src="<?php echo e(asset('images/loading2.gif')); ?>" width="50px" height="50px"/>
-                <span class="percentage" style="color:green;font-weight: bold;"></span>
-            </div>
+                           <form>
+                           <div class="linksonit mb-3">
+                              <div class="amountmedia row">
+                                 <div class="col-md-12 text-center">
+                                    <button class="btn btn-outline-primary btn-sm" type="button" onclick="appendDiv(this)">+</button>
+                                 </div>
+                              </div>
+                           </div>
                            <div class="text-right ">
-                              <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save'])); ?>
+                              <?php echo e(Form::submit('Save!',['class'=>'btn btn-primary btn-sm mt-2','id'=>'save','disabled'])); ?>
 
                            </div>
                            <?php echo e(Form::close()); ?>

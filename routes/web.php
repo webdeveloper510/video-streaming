@@ -283,8 +283,6 @@ Route::get('legal-notice', 'AuthController@legal');
 
                      Route::post('edit_offer','artist@edit_offer');
 
-                     Route::post('consentUpload','artist@consentUpload');
-
                      Route::post('edit_info','artist@edit_info');
 
                      Route::post('editDescription','artist@editDescription');

@@ -2093,6 +2093,7 @@ $(document).on('submit', '#edit_form', function (event) {
 
 });
 
+<<<<<<< HEAD
 
 
 
@@ -2158,6 +2159,8 @@ $(document).on('submit', '#consent', function (event) {
 
 });
 
+=======
+>>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
 function loadingmessage() {
     alert('Offer Update Successfully!');
 }
@@ -2588,8 +2591,8 @@ function edit_offer(data) {
     $('#speed').val(json_info.delieveryspeed);
     $('#description').val(json_info.description);
     if(json_info.type=='video'){
-        $('.thumbnail #filename').text(json_info.audio_pic);
-        $('.file #filename').text(json_info.media);
+        $('.chooseImage #filename').text(json_info.audio_pic);
+        $('.file_input #ilename').text(json_info.media);
     }
 
     else{    
