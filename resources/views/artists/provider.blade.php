@@ -54,7 +54,7 @@
             </div>
           <div class="col-md-12">
           <div class="form-group">
-    <select multiple class="form-control" id="exampleFormControlSelect2">
+    <select multiple class="form-control" name="nickname[]" id="exampleFormControlSelect2">
       @foreach($nickname as $nickname)
       <option>{{$nickname->coformer_nickname}}</option>
       @endforeach

@@ -884,9 +884,13 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
+  $data=$request->all();
+
+  $data['co_performer'] = $data['is_select']=='Yes' ? implode(',',$nickname) : '';
+
  // print_r($request->all());die;
       if($request->radio=='video'){
-            $data=$request->all();
+            //$data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
               $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
@@ -923,7 +927,7 @@ else{
 
       else{
       
-        $data=$request->all();
+       // $data=$request->all();
 
         //print_r($data);die;
 
