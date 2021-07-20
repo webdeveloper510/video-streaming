@@ -42,18 +42,16 @@
             </div>
             </div>
           <div class="col-md-6">
-           <div class="form-group">
- 
-    <select class="custom-select selctc&r" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Nicknames</option>
-    
-  </select>
+          <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
-</div>
-  <div class="col-md-6">
-            <button class="btn btn-secondery selctc&r " type="button">+</button>
-          </div>
 
 
 

@@ -614,13 +614,16 @@ Your browser does not support the audio tag.
             <p class="text-dark"><input type="radio" name="type" value="No"/> No</p>
 
             </div>
-               
-            <select class="custom-select selctc&r" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Nicknames</option>
+            <div class="form-group">
     
-  </select>
-  <button class="btn btn-secondery selctc&r " type="button">+</button>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
 
           
 
