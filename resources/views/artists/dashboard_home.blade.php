@@ -955,5 +955,10 @@
    ::-webkit-scrollbar {
    display: none;
    }
+   .card-body.crform {
+    height: 300px;
+    overflow: scroll;
+}
 </style>
+
 @include('artists.dashboard_footer')
