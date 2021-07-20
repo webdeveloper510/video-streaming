@@ -1,6 +1,4 @@
 @include('artists.dashboard')
-<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
-<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
