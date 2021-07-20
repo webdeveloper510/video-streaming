@@ -47,29 +47,24 @@
               <label for="staticEmail" class="col-sm-8 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-4">
               <div class="radiobtn text-white">
-          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
-          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+          <input type="radio"  name="is_select" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="is_select" value="No"/><p class="text-white">No</p>
 
             </div>
               </div>
             </div>
             </div>
           <div class="col-md-12">
-           <div class="form-group">
- 
-    <select class="custom-select selctc&r" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Nicknames</option>
-    
-  </select>
+          <div class="form-group">
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <?php $__currentLoopData = $nickname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nickname): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <option><?php echo e($nickname->coformer_nickname); ?></option>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </select>
   </div>
-</div>
-  <div class="col-md-12">
-            <button class="btn btn-secondery selctc&r " type="button">+</button>
-          </div>
-
-       
-
+  <!-- <small>You can select multi option then click ctrl button </small> -->
+                                  </div>
+ 
             <div class="col-md-12 form-inline">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
@@ -236,7 +231,9 @@ label.error {
     background: #ffffff61;
     
 }
-
+#exampleFormControlSelect2{
+  height:auto;
+}
 .modal-content {
     background: transparent;
     box-shadow: none;
@@ -273,6 +270,13 @@ input.select_media_pic {
   a#navbarDropdown23 {
     border: 1px solid #fff;
     color: #fff;
+}
+li.active label {
+    color: black !important;
+}
+
+li.active:hover label{
+    color: white !important;
 }
   @media  only screen and (max-width: 767px){
 section.background1 {
@@ -465,4 +469,5 @@ section.background1 {
             });
     }
 
-</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>

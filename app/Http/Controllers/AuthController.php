@@ -884,9 +884,13 @@ else{
       return response()->json(['errors'=>$validator->errors()->all()]);
   }
 
+  $data=$request->all();
+
+  $data['co_performer'] = $data['is_select']=='Yes' ? implode(',',$nickname) : '';
+
  // print_r($request->all());die;
       if($request->radio=='video'){
-            $data=$request->all();
+            //$data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
               $audio_pics = $request->thumbnail_pic ? time().'_'.$request->thumbnail_pic->getClientOriginalName():'';
               $request->thumbnail_pic ? $request->thumbnail_pic->storeAs('uploads',$audio_pics,'public'): '';
@@ -923,7 +927,7 @@ else{
 
       else{
       
-        $data=$request->all();
+       // $data=$request->all();
 
         //print_r($data);die;
 
@@ -1166,6 +1170,10 @@ public function privacy(){
   
   public function contentProv(){
 
+    $contentData=Session::get('User');
+
+    $contentId = $contentData->id;
+
     $navbaractive = 'upload';
 
     $contenttype =   Session::get('userType');
@@ -1173,9 +1181,11 @@ public function privacy(){
       return redirect('/');
   }
 
+     $consent = $this->model->selectDataById('artistid','consent_table',$contentId);
+
     $subcategory=$this->model->getSubcategory($id='');
 
-    return view('artists.provider',['tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
+    return view('artists.provider',['nickname'=>$consent,'tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
 
   }
 

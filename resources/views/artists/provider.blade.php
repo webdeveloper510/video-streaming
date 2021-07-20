@@ -45,8 +45,8 @@
               <label for="staticEmail" class="col-sm-8 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-4">
               <div class="radiobtn text-white">
-          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
-          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+          <input type="radio"  name="is_select" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="is_select" value="No"/><p class="text-white">No</p>
 
             </div>
               </div>
@@ -54,12 +54,10 @@
             </div>
           <div class="col-md-12">
           <div class="form-group">
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <select multiple class="form-control" name="nickname[]" id="exampleFormControlSelect2">
+      @foreach($nickname as $nickname)
+      <option>{{$nickname->coformer_nickname}}</option>
+      @endforeach
     </select>
   </div>
   <!-- <small>You can select multi option then click ctrl button </small> -->
