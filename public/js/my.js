@@ -2093,7 +2093,6 @@ $(document).on('submit', '#edit_form', function (event) {
 
 });
 
-<<<<<<< HEAD
 
 
 
@@ -2159,8 +2158,6 @@ $(document).on('submit', '#consent', function (event) {
 
 });
 
-=======
->>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
 function loadingmessage() {
     alert('Offer Update Successfully!');
 }
