@@ -1,4 +1,6 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
@@ -55,19 +57,32 @@
             </div>
             </div>
           <div class="col-md-12">
-           <div class="form-group">
+          <div class="example">
+                                <script type="text/javascript">
+                                    $(document).ready(function() {
+                                        $('#example-getting-started').multiselect();
+                                    });
+                                </script>
+                                <span class="multiselect-native-select">
+                                  <div class="btn-group">
+                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false">
+                                      <span class="multiselect-selected-text">All selected (6)</span> 
+                                      <b class="caret"></b></button>
+                                    <ul class="multiselect-container dropdown-menu">
+                                      <?php $__currentLoopData = $nickname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <li class="active"><a tabindex="0">
+                                        <label class="checkbox" title="Cheese">
+                                          <input type="checkbox" name="nickname" value="<?php echo e($name->coformer_nickname); ?>"> <?php echo e($name->coformer_nickname); ?></label></a>
+                                      </li>   
+                                      
+                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                       
+                                      
+              
+                                                  </ul></div></span>
+                            </div>
  
-    <select class="custom-select selctc&r" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Nicknames</option>
-    
-  </select>
-  </div>
-</div>
-  <div class="col-md-12">
-            <button class="btn btn-secondery selctc&r " type="button">+</button>
-          </div>
-
+                                  </div>
        
 
             <div class="col-md-12 form-inline">
@@ -274,6 +289,13 @@ input.select_media_pic {
     border: 1px solid #fff;
     color: #fff;
 }
+li.active label {
+    color: black !important;
+}
+
+li.active:hover label{
+    color: white !important;
+}
   @media  only screen and (max-width: 767px){
 section.background1 {
     height: 151%;
@@ -465,4 +487,5 @@ section.background1 {
             });
     }
 
-</script><?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH C:\xampp\htdocs\laravel\video-streaming\resources\views/artists/provider.blade.php ENDPATH**/ ?>

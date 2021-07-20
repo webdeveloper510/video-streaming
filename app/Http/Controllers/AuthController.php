@@ -1166,6 +1166,10 @@ public function privacy(){
   
   public function contentProv(){
 
+    $contentData=Session::get('User');
+
+    $contentId = $contentData->id;
+
     $navbaractive = 'upload';
 
     $contenttype =   Session::get('userType');
@@ -1173,9 +1177,11 @@ public function privacy(){
       return redirect('/');
   }
 
+     $consent = $this->model->selectDataById('artistid','consent_table',$contentId);
+
     $subcategory=$this->model->getSubcategory($id='');
 
-    return view('artists.provider',['tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
+    return view('artists.provider',['nickname'=>$consent,'tab'=>$navbaractive,'subcategory'=>$subcategory]) ;
 
   }
 

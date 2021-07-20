@@ -47,8 +47,8 @@
               <label for="staticEmail" class="col-sm-8 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-4">
               <div class="radiobtn text-white">
-          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
-          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+          <input type="radio"  name="is_select" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="is_select" value="No"/><p class="text-white">No</p>
 
             </div>
               </div>
@@ -63,7 +63,21 @@
                                 </script>
                                 <span class="multiselect-native-select">
                                   <div class="btn-group">
-                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false"><span class="multiselect-selected-text">All selected (6)</span> <b class="caret"></b></button><ul class="multiselect-container dropdown-menu"><li class="active"><a tabindex="0"><label class="checkbox" title="Cheese"><input type="checkbox" value="cheese"> Cheese</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Tomatoes"><input type="checkbox" value="tomatoes"> Tomatoes</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mozzarella"><input type="checkbox" value="Mozzarella"> Mozzarella</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mushrooms"><input type="checkbox" value="Mushrooms"> Mushrooms</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Pepperoni"><input type="checkbox" value="Pepperoni"> Pepperoni</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Onions"><input type="checkbox" value="Onions"> Onions</label></a></li></ul></div></span>
+                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false">
+                                      <span class="multiselect-selected-text">All selected (6)</span> 
+                                      <b class="caret"></b></button>
+                                    <ul class="multiselect-container dropdown-menu">
+                                      @foreach($nickname as $name)
+                                      <li class="active"><a tabindex="0">
+                                        <label class="checkbox" title="Cheese">
+                                          <input type="checkbox" name="nickname[]" value="{{$name->coformer_nickname}}"> {{$name->coformer_nickname}}</label></a>
+                                      </li>   
+                                      
+                                      @endforeach
+                                       
+                                      
+              
+                                                  </ul></div></span>
                             </div>
  
                                   </div>
