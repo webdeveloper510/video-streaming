@@ -743,6 +743,8 @@ public function getArtistDetail($artid,$type){
             ->get()->toArray();
   }
 
+ 
+
   public function edit_other($profile,$data){
 
     //print_r($profile);

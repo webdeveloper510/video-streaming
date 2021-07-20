@@ -546,7 +546,7 @@
                     <h3>Identity Check </h3>
                     </div>
                     <?php if($idenetity && $idenetity[0]->is_verified==0): ?>
-                    <div class="text-center">
+                    <div class="text-center"> 
                                     <h3 class="agreement"><?php echo e('pending'); ?> </h3>
                                        </div>
                     <?php else: ?>
@@ -849,6 +849,35 @@
                      <h4 class="card-title">Download Our Logo</h4>
                      <img src="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download class="img-fliud w-100 logodownload">
                      <a href="<?php echo e(asset('images/logos/good_quality_logo.png')); ?>" download> <button class=" btn btn-primary" type="button">Download</button></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="card">
+                  <div class="card-header">
+                     <h4>C & R Form</h4>
+                  </div>
+                  <div class="card-body crform">
+                  <table class="table">
+                     <thead class="thead-light">
+                        <tr>
+                           <th scope="col">#</th>
+                           <th scope="col">Nickname</th>
+                           <th scope="col">Date</th>
+                           <th scope="col">Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <?php $__currentLoopData = $consentData; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                           <th scope="row"><?php echo e($loop->iteration); ?></th>
+                           <td><?php echo e($data->coformer_nickname); ?></td>
+                           <td><?php echo e($data->coformer_nickname); ?></td>
+                           <td><button class="btn btn-outline-primary btn-sm">x</button></td>
+                        </tr>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                     </tbody>
+                     </table>
                   </div>
                </div>
             </div>
