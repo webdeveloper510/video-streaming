@@ -63,10 +63,10 @@
                                 </script>
                                 <span class="multiselect-native-select">
                                   <div class="btn-group">
-                                    <button type="button" class="multiselect dropdown-toggle btn btn-outline-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false"><span class="multiselect-selected-text">All selected (6)</span> <b class="caret"></b></button><ul class="multiselect-container dropdown-menu"><li class="active"><a tabindex="0"><label class="checkbox" title="Cheese"><input type="checkbox" value="cheese"> Cheese</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Tomatoes"><input type="checkbox" value="tomatoes"> Tomatoes</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mozzarella"><input type="checkbox" value="Mozzarella"> Mozzarella</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mushrooms"><input type="checkbox" value="Mushrooms"> Mushrooms</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Pepperoni"><input type="checkbox" value="Pepperoni"> Pepperoni</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Onions"><input type="checkbox" value="Onions"> Onions</label></a></li></ul></div></span>
+                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false"><span class="multiselect-selected-text">All selected (6)</span> <b class="caret"></b></button><ul class="multiselect-container dropdown-menu"><li class="active"><a tabindex="0"><label class="checkbox" title="Cheese"><input type="checkbox" value="cheese"> Cheese</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Tomatoes"><input type="checkbox" value="tomatoes"> Tomatoes</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mozzarella"><input type="checkbox" value="Mozzarella"> Mozzarella</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mushrooms"><input type="checkbox" value="Mushrooms"> Mushrooms</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Pepperoni"><input type="checkbox" value="Pepperoni"> Pepperoni</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Onions"><input type="checkbox" value="Onions"> Onions</label></a></li></ul></div></span>
                             </div>
  
-
+                                  </div>
        
 
             <div class="col-md-12 form-inline">
@@ -464,10 +464,4 @@ section.background1 {
             });
     }
 
-</script>
-<!-- Initialize the plugin: -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#example-getting-started').multiselect();
-    });
 </script>
