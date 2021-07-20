@@ -55,13 +55,16 @@
             </div>
             </div>
           <div class="col-md-12">
-          <select id="multiselect" multiple="multiple">
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  <option value="3">Option 3</option>
-  <option value="4">Option 4</option>
-</select>
-<input type="submit" onclick="getSelectedValues()" class="btn btn-primary" value="Download">
+          <div class="form-group">
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <!-- <small>You can select multi option then click ctrl button </small> -->
                                   </div>
  
             <div class="col-md-12 form-inline">
@@ -458,28 +461,5 @@ section.background1 {
                 }
             });
     }
-
-</script>
-<script>
-  $(document).ready(function() {
-  $('#multiselect').multiselect({
-    buttonWidth : '160px',
-    includeSelectAllOption : true,
-		nonSelectedText: 'Select an Option'
-  });
-});
-
-function getSelectedValues() {
-  var selectedVal = $("#multiselect").val();
-	for(var i=0; i<selectedVal.length; i++){
-		function innerFunc(i) {
-			setTimeout(function() {
-				location.href = selectedVal[i];
-			}, i*2000);
-		}
-		innerFunc(i);
-	}
-}
-
 
 </script>
