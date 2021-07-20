@@ -55,16 +55,12 @@
           <div class="col-md-12">
            <div class="form-group">
  
-    <select class="custom-select selctc&r" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Nicknames</option>
-    
-  </select>
+    <select multiple class="form-control" name="nickname[]" id="exampleFormControlSelect2">
+      @foreach($nickname as $nickname)
+      <option>{{$nickname->coformer_nickname}}</option>
+      @endforeach
   </div>
 </div>
-  <div class="col-md-12">
-            <button class="btn btn-secondery selctc&r " type="button">+</button>
-          </div>
 
         
 
