@@ -1,6 +1,11 @@
 @include('artists.dashboard')
-<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
-<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap-multiselect/bootstrap-multiselect.css" type="text/css">
+<script type="text/javascript" src="js/bootstrap-multiselect/bootstrap-multiselect.js"></script>
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
@@ -56,15 +61,19 @@
             </div>
           <div class="col-md-12">
           <div class="example">
-                                <script type="text/javascript">
-                                    $(document).ready(function() {
-                                        $('#example-getting-started').multiselect();
-                                    });
-                                </script>
-                                <span class="multiselect-native-select">
-                                  <div class="btn-group">
-                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false"><span class="multiselect-selected-text">All selected (6)</span> <b class="caret"></b></button><ul class="multiselect-container dropdown-menu"><li class="active"><a tabindex="0"><label class="checkbox" title="Cheese"><input type="checkbox" value="cheese"> Cheese</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Tomatoes"><input type="checkbox" value="tomatoes"> Tomatoes</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mozzarella"><input type="checkbox" value="Mozzarella"> Mozzarella</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mushrooms"><input type="checkbox" value="Mushrooms"> Mushrooms</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Pepperoni"><input type="checkbox" value="Pepperoni"> Pepperoni</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Onions"><input type="checkbox" value="Onions"> Onions</label></a></li></ul></div></span>
-                            </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#multi-select-demo').multiselect();
+    });
+</script>
+<select id="multi-select-demo" multiple="multiple">
+    <option value="jQuery">jQuery tutorial</option>
+    <option value="Bootstrap">Bootstrap Tips</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS tricks</option>
+    <option value="angular">Angular JS</option>
+</select>
+</div>
  
                                   </div>
        
