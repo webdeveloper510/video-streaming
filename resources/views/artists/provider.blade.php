@@ -224,7 +224,9 @@ label.error {
     background: #ffffff61;
     
 }
-
+#exampleFormControlSelect2{
+  height:auto;
+}
 .modal-content {
     background: transparent;
     box-shadow: none;
