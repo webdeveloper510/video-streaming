@@ -806,19 +806,6 @@ public function getArtistDetail($artid,$type){
 
   }
 
-  public function insertConsentDocument($data){
-
-    $contentData=Session::get('User');
-
-    $contentId = $contentData->id;
-
-    $data['artistid'] = $contentId;
-    $data['created_at'] = now();
-    $data['updated_at'] = now();
-   return  DB::table('consent_table')->insert($data);
-
-  }
-
   public function insertartistagreement($data){
 
     $contentData=Session::get('User');

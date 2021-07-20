@@ -1432,6 +1432,7 @@ class artist extends Controller
 
         }
 
+<<<<<<< HEAD
         public function consentUpload(Request $req){
 
 
@@ -1455,6 +1456,8 @@ class artist extends Controller
 
         }
 
+=======
+>>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
         
 
 

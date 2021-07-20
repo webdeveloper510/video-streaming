@@ -36,11 +36,8 @@
         <div class="alert alert-danger" id="error" style="display:none">
       
       </div>
-
-           
-       <div class="row">
-         <div class="col"></div>
        
+<<<<<<< HEAD
           <div class=" col-md-8 row align-items-center text-white">
              <div class="col-md-12">
             <div class="form-group row">
@@ -66,19 +63,23 @@
                                   </div>
  
             <div class="col-md-12 form-inline">
+=======
+          <div class="row align-items-center text-white">
+            <div class="col-md-6">
+>>>>>>> parent of e95afbbf (Merge branch 'master' of https://github.com/webdeveloper510/video-streaming)
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
               <input type="radio" class="select_media_pic" name="radio" value="video"/><p>Video</p>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
             <div class="mt-5">
             <label class="mr-3">Allow Downloading ?</label>
               <input type="radio"  name="is_download" value="yes" /><p>Yes</p>
               <input type="radio" name="is_download" value="no"/><p>No</p>
               </div>
             </div>
-             <div class="col-md-12 mt-2 ">
+             <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Title', 'Title')); ?> 
                 <?php echo e(Form::text('title', '',['class'=>'form-control title','table'=>'media','placeholder'=>'Enter Title'])); ?>
 
@@ -95,12 +96,12 @@
             <input type="hidden" name="updated_at" value="" class="updated_at"/>
 
          
-            <div class="col-md-12 mt-2 ">
+            <div class="col-md-6 mt-2 ">
             <?php echo e(Form::label('Add Price', 'Price (PAZ)')); ?> 
             <?php echo Form::number('price', '' , ['class' => 'form-control','placeholder'=>'Price','min'=>0]); ?>
 
             </div>
-            <div class="col-md-12 mt-2 ">
+            <div class="col-md-6 mt-2 ">
            
              
             <div class="video" style="display:none">
@@ -147,7 +148,7 @@
             <div class=" mt-3 text-white file1" style="display:none;">
             <label class="media_label12">Audio/Video</label>
                <button type="button" id="browse">Choose File</button>
-                  <div class="progress proaudio">Choose 1 Audio + 1 Image</div>
+                  <div class="progress"></div>
                 <span id="filename" style="color:yellow;"></span>
             </div>
             
@@ -160,7 +161,7 @@
             </div>
             <input type="hidden" class="created_at" name="created_at" value=""/>
                <input type="hidden" class="updated_at" name="updated_at" value=""/>
-            <div class="col-md-12 mt-3">
+            <div class="col-md-6 mt-3">
             <?php echo e(Form::label('Description', 'Description')); ?> 
                 <?php echo e(Form::textarea('description',null,['class'=>'form-control', 'maxlength'=>'2000','rows' => 8, 'cols' => 40])); ?>
 
@@ -181,16 +182,15 @@
     <div class="alert alert-danger sn" id="error" style="display:none">
 
     </div>
-   
      </div>
      </div>
    </div>
   <?php echo e(Form::close()); ?>
 
-
-  <div class="col"></div>
-</div>
-  
+  </div>
+  <div class="text-center">
+      <h3>Note : Ordered Content form services are always downloadable.</h3>
+  </div>
 </div>
 </div>
 </section>
@@ -224,9 +224,7 @@ label.error {
     margin-top: 22px;
     border-radius: 9px;
 }
-.radiobtn{
-  display:inline-flex;
-}
+
 .loader img {
     background: #ffffff61;
     
