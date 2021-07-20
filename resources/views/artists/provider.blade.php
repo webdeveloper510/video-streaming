@@ -55,11 +55,14 @@
           <div class="col-md-12">
            <div class="form-group">
  
-    <select class="custom-select selctc&r" id="inputGroupSelect01">
-    <option selected>Choose...</option>
-    <option value="1">Nicknames</option>
-    
-  </select>
+           <select id="example-getting-started" multiple="multiple">
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+</select>
   </div>
 </div>
   <div class="col-md-12">
@@ -456,4 +459,10 @@ section.background1 {
             });
     }
 
+</script>
+<!-- Initialize the plugin: -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example-getting-started').multiselect();
+    });
 </script>
