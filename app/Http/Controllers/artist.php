@@ -1423,6 +1423,24 @@ class artist extends Controller
 
         }
 
+        public function consentUpload(Request $req){
+
+
+         // print_r($req->all());die;
+
+          $data=$req->all();
+          $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
+
+          $ext =$req->file ? $req->file->getClientOriginalExtension():'';
+
+          $data['coformer_document'] = $fileName;
+
+          $insert = $this->model->insertConsentDocument($data);
+
+          return $insert;
+
+        }
+
         
 
 
