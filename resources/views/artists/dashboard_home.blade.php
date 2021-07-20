@@ -846,7 +846,7 @@
                         <tr>
                            <th scope="row">{{$loop->iteration}}</th>
                            <td>{{$data->coformer_nickname}}</td>
-                           <td>{{$data->coformer_nickname}}</td>
+                           <td>{{$data->DOC}}</td>
                            <td><button class="btn btn-outline-primary btn-sm">x</button></td>
                         </tr>
                         @endforeach
