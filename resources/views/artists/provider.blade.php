@@ -55,16 +55,13 @@
             </div>
             </div>
           <div class="col-md-12">
-          <div class="example">
-                                <script type="text/javascript">
-                                    $(document).ready(function() {
-                                        $('#example-getting-started').multiselect();
-                                    });
-                                </script>
-                                <span class="multiselect-native-select">
-                                  <div class="btn-group">
-                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false"><span class="multiselect-selected-text">All selected (6)</span> <b class="caret"></b></button><ul class="multiselect-container dropdown-menu"><li class="active"><a tabindex="0"><label class="checkbox" title="Cheese"><input type="checkbox" value="cheese"> Cheese</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Tomatoes"><input type="checkbox" value="tomatoes"> Tomatoes</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mozzarella"><input type="checkbox" value="Mozzarella"> Mozzarella</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mushrooms"><input type="checkbox" value="Mushrooms"> Mushrooms</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Pepperoni"><input type="checkbox" value="Pepperoni"> Pepperoni</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Onions"><input type="checkbox" value="Onions"> Onions</label></a></li></ul></div></span>
-                            </div>
+          <select id="multiselect" multiple="multiple">
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+  <option value="4">Option 4</option>
+</select>
+<input type="submit" onclick="getSelectedValues()" class="btn btn-primary" value="Download">
                                   </div>
  
             <div class="col-md-12 form-inline">
@@ -461,5 +458,28 @@ section.background1 {
                 }
             });
     }
+
+</script>
+<script>
+  $(document).ready(function() {
+  $('#multiselect').multiselect({
+    buttonWidth : '160px',
+    includeSelectAllOption : true,
+		nonSelectedText: 'Select an Option'
+  });
+});
+
+function getSelectedValues() {
+  var selectedVal = $("#multiselect").val();
+	for(var i=0; i<selectedVal.length; i++){
+		function innerFunc(i) {
+			setTimeout(function() {
+				location.href = selectedVal[i];
+			}, i*2000);
+		}
+		innerFunc(i);
+	}
+}
+
 
 </script>
