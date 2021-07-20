@@ -44,8 +44,8 @@
           <div class=" col-md-8 row align-items-center text-white">
              <div class="col-md-12">
             <div class="form-group row">
-              <label for="staticEmail" class="col-sm-5 col-form-label">Are there Co-Performers involved in this Content?</label>
-              <div class="col-sm-7">
+              <label for="staticEmail" class="col-sm-8 col-form-label">Are there Co-Performers involved in this Content?</label>
+              <div class="col-sm-4">
               <div class="radiobtn text-white">
           <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
           <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
