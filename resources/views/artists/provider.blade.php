@@ -55,18 +55,21 @@
             </div>
             </div>
           <div class="col-md-12">
-           <div class="form-group">
- 
-           <select id="example-getting-started" multiple="multiple">
-    <option value="cheese">Cheese</option>
-    <option value="tomatoes">Tomatoes</option>
-    <option value="mozarella">Mozzarella</option>
-    <option value="mushrooms">Mushrooms</option>
-    <option value="pepperoni">Pepperoni</option>
-    <option value="onions">Onions</option>
-</select>
-  </div>
-</div>
+          <div class="example">
+                                <script type="text/javascript">
+                                    $(document).ready(function() {
+                                        $('#example-getting-started').multiselect();
+                                    });
+                                </script>
+                                <span class="multiselect-native-select"><select id="example-getting-started" multiple="multiple">
+                                    <option value="cheese">Cheese</option>
+                                    <option value="tomatoes">Tomatoes</option>
+                                    <option value="Mozzarella">Mozzarella</option>
+                                    <option value="Mushrooms">Mushrooms</option>
+                                    <option value="Pepperoni">Pepperoni</option>
+                                    <option value="Onions">Onions</option>
+                                </select><div class="btn-group"><button type="button" class="multiselect dropdown-toggle btn btn-default" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false"><span class="multiselect-selected-text">All selected (6)</span> <b class="caret"></b></button><ul class="multiselect-container dropdown-menu"><li class="active"><a tabindex="0"><label class="checkbox" title="Cheese"><input type="checkbox" value="cheese"> Cheese</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Tomatoes"><input type="checkbox" value="tomatoes"> Tomatoes</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mozzarella"><input type="checkbox" value="Mozzarella"> Mozzarella</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Mushrooms"><input type="checkbox" value="Mushrooms"> Mushrooms</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Pepperoni"><input type="checkbox" value="Pepperoni"> Pepperoni</label></a></li><li class="active"><a tabindex="0"><label class="checkbox" title="Onions"><input type="checkbox" value="Onions"> Onions</label></a></li></ul></div></span>
+                            </div>
   <div class="col-md-12">
             <button class="btn btn-secondery selctc&r " type="button">+</button>
           </div>
