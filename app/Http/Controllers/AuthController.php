@@ -888,7 +888,7 @@ else{
 
   $data['co_performer'] = $data['is_select']=='Yes' ? implode(',',$nickname) : '';
 
- // print_r($request->all());die;
+ // print_r($request->all());die;     
       if($request->radio=='video'){
             //$data=$request->all();
               $fileName = time().'_'.$request->media->getClientOriginalName();
