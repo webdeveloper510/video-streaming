@@ -257,6 +257,14 @@ class artist extends Controller
 
       $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
 
+      $consentData = $this->model->selectDataById('artistid','consent_table',$contentType->id);
+
+
+      $showArtistVerified = $this->model->showArtistVerified($contentType->id);
+     // $info = $this->model->selectDataById('id','contentprovider',$contentType->id);
+
+      $profileComplete = $this->model->profileInfo($id);
+
       $profileComplete = $this->model->profileInfo($id);
 
       $social_names = $this->model->getSocialName($contentType->id);
@@ -284,6 +292,7 @@ class artist extends Controller
       $count_new_projects = $this->model->count_orders('add_request');
 
        $dayDiffernce = $this->model->getDayDiffrence();
+
 
       $count_social_media = $this->model->getSocialMediaCount();
 
@@ -352,7 +361,7 @@ class artist extends Controller
       
       //dd();
 
-      return view('artists.dashboard_home',['agreement'=>$agreement,'idenetity'=>$identify,'profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
+      return view('artists.dashboard_home',['consentData'=>$consentData,'is_visible'=>count($showArtistVerified),'agreement'=>$agreement,'idenetity'=>$identify,'profileComplete'=>count($profileComplete),'social_name'=>$social_names,'timeArray'=>$time,'count_time_fame'=>$counts,'existTimeFrame'=>count($existTimeFrame),'day_difference'=>$dayDiffernce,'social_count'=>$count_social_media,'totalCollection'=>$totalCollection,'personal_info'=>$info,'process_total'=>$count_process_project,'levelData'=>$getLevel,'percentage'=>$percentage,'count_due_project'=>$count_due_offer,'count_new_projects'=>$count_new_offer,'today_paz'=>$today_PAZ,'contentUser'=>$contentType,'tab'=>$navbaractive,'month_paz'=>$monthly_PAZ,'year_PAZ'=>$year_PAZ]);
 
     }
 
@@ -1429,9 +1438,14 @@ class artist extends Controller
          // print_r($req->all());die;
 
           $data=$req->all();
+          unset($data['_token']);
           $fileName = $req->file ? time().'_'.$req->file->getClientOriginalName() : '';
 
+         
+
           $ext =$req->file ? $req->file->getClientOriginalExtension():'';
+
+          unset($data['file']);
 
           $data['coformer_document'] = $fileName;
 

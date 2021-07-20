@@ -2101,6 +2101,7 @@ $(document).on('submit', '#edit_form', function (event) {
 $(document).on('submit', '#consent', function (event) {
     event.preventDefault();
     var formData = new FormData($(this)[0]);
+    $('.loader').show();
     $('#save').attr('disabled',true);
     $.ajax({
         type: 'POST',
@@ -2811,6 +2812,14 @@ function format(d, type) {
 
 
 /*-------------------------------------Cancel Order-----------------------------------------------------------*/
+
+$('#exampleFormControlSelect2 option').mousedown(function(e) {
+    e.preventDefault();
+    $(this).toggleClass('selected');
+  
+    $(this).prop('selected', !$(this).prop('selected'));
+    return false;
+});
 
 
 $("#cancelOrder").validate({

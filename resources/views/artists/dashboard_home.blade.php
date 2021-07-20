@@ -537,7 +537,7 @@
                     <h3>Identity Check </h3>
                     </div>
                     @if($idenetity && $idenetity[0]->is_verified==0)
-                    <div class="text-center">
+                    <div class="text-center"> 
                                     <h3 class="agreement">{{'pending'}} </h3>
                                        </div>
                     @else
@@ -567,8 +567,9 @@
 
                                     <button type="button" style="{{$agreement && $agreement[0]->is_verified==-1 ? 'display:none' : 'display:block'}}" class="btn btn-danger my-4">Failed</button>
 
-
+                                    <a href="{{asset('images/Artist_Agreement.pdf')}}" download> 
                                     <button class="btn btn-success" type="button">Download</button>
+</a>
 
                                
                   <div class="card-body text-center">
@@ -768,7 +769,9 @@
          <div class="col-md-8">
             <div class="card" style="height:376px;">
                <div class="card-body">
+               <a href="{{asset('images/Consentform.pdf')}}" download> 
                   <button class="btn btn-success float-right" type="button">Download</button>
+               </a>
                         <h5 class="card-title">Consent and Release Form Co-Performers</h5> 
                         <div class="table12">
                            <div class="table table-responsive">
@@ -779,7 +782,7 @@
                                        <th scope="col">Nickname</th>
                                        <th scope="col">Date Of Consent</th>
                                     </tr>
-                                 </thead>
+                                 </thead>  
                                  <tbody>
                                     
                                     <tr>
@@ -820,6 +823,35 @@
                      <h4 class="card-title">Download Our Logo</h4>
                      <img src="{{asset('images/logos/good_quality_logo.png')}}" download class="img-fliud w-100 logodownload">
                      <a href="{{asset('images/logos/good_quality_logo.png')}}" download> <button class=" btn btn-primary" type="button">Download</button></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="card">
+                  <div class="card-header">
+                     <h4>C & R Form</h4>
+                  </div>
+                  <div class="card-body crform">
+                  <table class="table">
+                     <thead class="thead-light">
+                        <tr>
+                           <th scope="col">#</th>
+                           <th scope="col">Nickname</th>
+                           <th scope="col">Date</th>
+                           <th scope="col">Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        @foreach($consentData as $data)
+                        <tr>
+                           <th scope="row">{{$loop->iteration}}</th>
+                           <td>{{$data->coformer_nickname}}</td>
+                           <td>{{$data->DOC}}</td>
+                           <td><button class="btn btn-outline-primary btn-sm">x</button></td>
+                        </tr>
+                        @endforeach
+                     </tbody>
+                     </table>
                   </div>
                </div>
             </div>
@@ -923,5 +955,10 @@
    ::-webkit-scrollbar {
    display: none;
    }
+   .card-body.crform {
+    height: 300px;
+    overflow: scroll;
+}
 </style>
+
 @include('artists.dashboard_footer')

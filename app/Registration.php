@@ -734,6 +734,17 @@ public function getArtistDetail($artid,$type){
 
   }
 
+  public function showArtistVerified($id){
+
+            return DB::table('identify_artist')
+            ->join('agreement','agreement.artist_id','=','identify_artist.artist_id')
+            ->select('agreement.is_verified as agreementVerified','identify_artist.is_verified as idVerified')
+            ->where('identify_artist.artist_id',$id)
+            ->get()->toArray();
+  }
+
+ 
+
   public function edit_other($profile,$data){
 
     //print_r($profile);
