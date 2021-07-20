@@ -55,11 +55,9 @@
           <div class="col-md-12">
           <div class="form-group">
     <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      @foreach($nickname as $nickname)
+      <option>{{$nickname->coformer_nickname}}</option>
+      @endforeach
     </select>
   </div>
   <!-- <small>You can select multi option then click ctrl button </small> -->

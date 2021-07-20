@@ -1,6 +1,4 @@
 <?php echo $__env->make('artists.dashboard', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
-<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
     <section class="background1 ">
       <div class="container">
       <div class="overlay1 text-white">
@@ -49,42 +47,24 @@
               <label for="staticEmail" class="col-sm-8 col-form-label">Are there Co-Performers involved in this Content?</label>
               <div class="col-sm-4">
               <div class="radiobtn text-white">
-          <input type="radio"  name="type" value="Yes" /><p class="text-white">yes</p>
-          <input type="radio"class="ml-5" name="type" value="No"/><p class="text-white">No</p>
+          <input type="radio"  name="is_select" value="Yes" /><p class="text-white">yes</p>
+          <input type="radio"class="ml-5" name="is_select" value="No"/><p class="text-white">No</p>
 
             </div>
               </div>
             </div>
             </div>
           <div class="col-md-12">
-          <div class="example">
-                                <script type="text/javascript">
-                                    $(document).ready(function() {
-                                        $('#example-getting-started').multiselect();
-                                    });
-                                </script>
-                                <span class="multiselect-native-select">
-                                  <div class="btn-group">
-                                    <button type="button" class="multiselect dropdown-toggle btn btn-primary" data-toggle="dropdown" title="Cheese, Tomatoes, Mozzarella, Mushrooms, Pepperoni, Onions" aria-expanded="false">
-                                      <span class="multiselect-selected-text">All selected (6)</span> 
-                                      <b class="caret"></b></button>
-                                    <ul class="multiselect-container dropdown-menu">
-                                      <?php $__currentLoopData = $nickname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <li class="active"><a tabindex="0">
-                                        <label class="checkbox" title="Cheese">
-                                          <input type="checkbox" name="nickname" value="<?php echo e($name->coformer_nickname); ?>"> <?php echo e($name->coformer_nickname); ?></label></a>
-                                      </li>   
-                                      
-                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                       
-                                      
-              
-                                                  </ul></div></span>
-                            </div>
- 
+          <div class="form-group">
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <?php $__currentLoopData = $nickname; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nickname): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      <option><?php echo e($nickname->coformer_nickname); ?></option>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </select>
+  </div>
+  <!-- <small>You can select multi option then click ctrl button </small> -->
                                   </div>
-       
-
+ 
             <div class="col-md-12 form-inline">
             <div class="mt-5">
               <input type="radio" class="select_media_pic" name="radio" value="audio" /><p>Audio</p>
@@ -251,7 +231,9 @@ label.error {
     background: #ffffff61;
     
 }
-
+#exampleFormControlSelect2{
+  height:auto;
+}
 .modal-content {
     background: transparent;
     box-shadow: none;
